@@ -2841,13 +2841,6 @@
     "sub-bass-foundational",
     "foundational-sub"
   ],
-  "2tone_ska_revival": [
-    "dub-friendly",
-    "walking-bass",
-    "sub-bass",
-    "sub-driven",
-    "swung"
-  ],
   "reggae_fusion_modern": [
     "dub-friendly",
     "walking-bass",
@@ -4511,83 +4504,10 @@
     "dark-romantic",
     "lament-leaning"
   ],
-  "texas_blues": [
-    "blues-shouter",
-    "blues-inflected",
-    "blues-derived",
-    "slide",
-    "glissando-heavy",
-    "mournful"
-  ],
-  "country_blues": [
-    "blues-shouter",
-    "blues-inflected",
-    "blues-derived",
-    "slide",
-    "glissando-heavy",
-    "mournful"
-  ],
-  "electric_blues": [
-    "blues-shouter",
-    "blues-inflected",
-    "blues-derived",
-    "slide",
-    "glissando-heavy",
-    "mournful"
-  ],
-  "blues_rock_classic": [
-    "blues-shouter",
-    "blues-inflected",
-    "blues-derived",
-    "slide",
-    "glissando-heavy",
-    "mournful"
-  ],
-  "rhythm_and_blues_classic": [
-    "blues-shouter",
-    "blues-inflected",
-    "blues-derived"
-  ],
-  "classic_country": [
-    "slide",
-    "characteristic-cry",
-    "glissando-heavy"
-  ],
   "banda_sinaloense": [
-    "characteristic-cry"
-  ],
-  "tejano": [
     "characteristic-cry"
   ],
   "norteno": [
     "characteristic-cry"
-  ],
-  "carnatic": [
-    "ornamental-melismatic",
-    "melismatic",
-    "devotional",
-    "Hindu-ritual",
-    "sacred-traditional",
-    "meditative-tempo",
-    "contemplative",
-    "drone-foundation"
-  ],
-  "flamenco_cante": [
-    "glissando-heavy",
-    "lament-wail",
-    "ornamental-melismatic"
-  ],
-  "flamenco_traditional": [
-    "glissando-heavy",
-    "lament-wail",
-    "ornamental-melismatic"
-  ],
-  "sephardic_song": [
-    "glissando-heavy",
-    "lament-wail",
-    "ornamental-melismatic"
-  ],
-  "trip_hop": [
-    "sample-foundational"
   ]
 }

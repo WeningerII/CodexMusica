@@ -385,6 +385,66 @@ classic West African mid-1970s afrobeat, groove Percussion, Afro-diasporic elect
 Output rules are strict (§4A): no prose/connectives, no axis values, **no
 artist/band/exemplar names**, drop defaults silently, modifiers-before-noun.
 
+### 3f. The `recipe.js` engine — customize, delete, add, blend, explain
+
+`scripts/recipe.js` is the headline generator and already does most
+recipe-shaping the browser app does. Prefer it over hand-assembling §3e. All
+flags below are verified; run from the repo root.
+
+| Intent | Command |
+|---|---|
+| Recipe for one tradition | `node scripts/recipe.js --tradition <id>` |
+| Staple multiple traditions (order = lead order) | `node scripts/recipe.js --traditions <id1>,<id2>` |
+| Weighted blend of two (0=A … 1=B) | `node scripts/recipe.js --diff <idA> <idB> --weight=0.7` |
+| Best-fit tradition for an axis target | `node scripts/recipe.js --axis-target "harm:2,density:2,intensity:2"` |
+| **Customize** a part's variant | `node scripts/recipe.js --tradition <id> --swap-variant=<inst>:<part>:<variant>` |
+| **Delete** instrument(s) from the ensemble | `node scripts/recipe.js --tradition <id> --exclude-instrument=<id>,<id>` |
+| **Add** instrument(s) beyond the roster | `node scripts/recipe.js --tradition <id> --add-instrument=<id>` |
+| Pin a different arrangement | `node scripts/recipe.js --tradition <id> --arrangement=<id>` |
+| Machine-readable config (not the string) | `… --json` |
+| Explain variant picks / preface picks | `… --why` / `… --why-prefaces` (add `-json` for either) |
+
+Notes that bite:
+- `--diff` takes its two ids as **positional** args (`--diff <a> <b>`), not
+  `=`-joined. Keep `--swap-variant`/`--exclude-instrument` away from them or the
+  positionals get consumed.
+- `--swap-variant` is `inst:part:variant`; multiple swaps separated by `;`.
+  Validate the triple first via `db.partsFor(inst)` (§2) — recipe.js rejects
+  unknown part/variant ids with exit 2.
+- Stapling **order** in `--traditions a,b` sets which tradition leads the
+  recipe header and instrument order (matches the app's group-order → output
+  behavior). Reorder by reordering the ids.
+
+Verified examples:
+```bash
+node scripts/recipe.js --tradition delta_blues --swap-variant=voice:voice_register:falsetto
+node scripts/recipe.js --tradition afrobeat --exclude-instrument=saxophone,trumpet
+node scripts/recipe.js --diff delta_blues detroit_techno --weight=0.5
+```
+
+### 3g. Reshape a card toward a preface (inverse-configure)
+
+The forward direction (§3d) suggests a preface for a fixed configuration.
+`scripts/preface_configure.js` is the **inverse**: fix a target preface and let
+the instrument's variants/tuning/room/chain re-pick to maximize overlap with
+that preface's token signature (coordinate-ascent; same algorithm as the
+browser app's `inverseConfigureForPreface`).
+
+```bash
+node scripts/preface_configure.js --instrument voice --preface liturgical
+#   target coverage: 0/9 → 2/9 tokens
+#   Tuning: (none) → Pythagorean tuning   [+medieval]
+#   Room: (none) → Tin-roofed shack
+```
+- `--tradition <id>` seeds the card from a real tradition first (so you refine a
+  recipe card rather than a bare default).
+- `--json` emits `{startScore, finalScore, targetTokenCount, changes[], config}`
+  for programmatic use; `config` is a ready-to-use card (parts/tuning/room/chain
+  + `preface`).
+- A "preface" is a **token bundle**, not arithmetic: reshaping = re-selecting
+  variants whose `descriptors` overlap the preface tokens. Coverage `k/N` is
+  how many of the preface's N tokens the new config covers.
+
 ---
 
 ## 4. Output contract

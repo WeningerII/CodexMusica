@@ -303,6 +303,24 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
   return `${invariants.length + 1} invariants aligned across HTML embed and Node primitive`;
 });
 
+// Tradition-signature parity: signatures live canonically in
+// references/_tradition_signatures.json (read by the agent scripts) and are
+// inlined into src/app.js for the browser by scripts/build_signatures.js. They
+// previously forked (208 keys differed, a rename on one side, 13 orphan keys).
+// This check fails if the inlined block drifts from the JSON — regenerate with
+// `node scripts/build_signatures.js`.
+check('tradition-signature parity (app.js inline ↔ canonical JSON)', () => {
+  const json = JSON.parse(fs.readFileSync(path.join(ROOT, 'references/_tradition_signatures.json'), 'utf8'));
+  const appSrc = fs.readFileSync(path.join(ROOT, 'src/app.js'), 'utf8');
+  const m = appSrc.match(/const TRADITION_SIGNATURES = (\{[\s\S]*?\n\});/);
+  if (!m) throw new Error('TRADITION_SIGNATURES not found in src/app.js');
+  const inline = new Function('return ' + m[1])();
+  if (JSON.stringify(inline) !== JSON.stringify(json)) {
+    throw new Error('src/app.js TRADITION_SIGNATURES != references/_tradition_signatures.json — run `node scripts/build_signatures.js`');
+  }
+  return `${Object.keys(json).length} tradition signatures parity-locked (app.js ↔ JSON)`;
+});
+
 // Card-descriptor semantics: there are TWO different card-descriptor harvesters
 // in the codex, intentionally:
 //   - `_card_descriptors.cardDescriptors` and the HTML embed's
