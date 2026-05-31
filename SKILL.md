@@ -541,6 +541,18 @@ re-run the §5 checker. In a full distribution also run `scripts/validate.js` an
 `scripts/build.js` (validate + audit + regression + rebuild HTML). After ANY edit the
 checker must still print `{"totalIssues":0,…}`.
 
+**Two surfaces, kept honest by gates.** Core logic ships twice — inlined in
+`src/app.js` (the browser/`codex.html`) and as `scripts/` primitives (the CLI/agent
+path). Don't hand-edit the duplicated pieces independently:
+- **Tradition signatures** live canonically in `references/_tradition_signatures.json`;
+  `node scripts/build_signatures.js` regenerates the `app.js` inline copy from it. Never
+  edit the `app.js` `TRADITION_SIGNATURES` block by hand.
+- `scripts/equivalence.js` (in `npm test` and `build.js`) executes both the browser
+  functions (in jsdom) and the node primitives on shared fixtures and fails if their
+  descriptor sets or preface picks diverge — behavioral parity, not just textual. If you
+  change `_cardDescriptorSet`/`_matchSurvivors` in `app.js`, change the matching
+  `scripts/_card_descriptors.js`/`_preface_match.js` too, or this gate fails.
+
 **Add an instrument**
 1. New bare-slug `id`, never reused.
 2. Required fields: `id, name, family, class, axes{9 keys}, short, parts[]` (parts may be `[]`).
