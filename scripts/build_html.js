@@ -169,10 +169,36 @@ ${mergeMatch[1]}
 if (typeof INSTRUMENT_FAMILY_PARTS !== 'undefined') mergeFamilyParts(INSTRUMENTS, INSTRUMENT_FAMILY_PARTS);
 `;
 
+// In-page card-descriptor harvester — inlined from the single source
+// scripts/_card_descriptors.js so the browser's _cardDescriptorSet computes
+// exactly the same descriptor set the Node preface pipeline does. The region
+// between the @inline markers is the only copy of this algorithm.
+const cdSource = fs.readFileSync(path.join(__dirname, '_card_descriptors.js'), 'utf8');
+const cdMatch = cdSource.match(/\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//);
+if (!cdMatch) {
+  console.error('build_html: could not find @inline-start/@inline-end markers in scripts/_card_descriptors.js');
+  process.exit(5);
+}
+const CARD_DESCRIPTORS_SNIPPET = `
+// ─────────── In-page card-descriptor harvester — single source: scripts/_card_descriptors.js ───────────
+${cdMatch[1]}
+// Browser adapter: feed harvestDescriptors the app's index-map lookups so the
+// inlined core needs no knowledge of how the app stores the catalog.
+function _cardDescriptorSet(card) {
+  return harvestDescriptors(card, {
+    inst: (id) => Inst(id),
+    tuning: (id) => Tuning(id),
+    room: (id) => Room(id),
+    chainItem: (stageId, id) => ChainItem(stageId, id),
+    signature: (tradId) => _traditionSignatureFor(tradId),
+  });
+}
+`;
+
 // Function replacement: the injected data/app contains `$` sequences
 // (template literals, regex) that String.replace would special-case — a
 // function replacement returns the string verbatim.
-const html = template.replace(CODEX_BODY_MARKER, () => dataBlock + FAMILY_PARTS_MERGE_SNIPPET + appJs);
+const html = template.replace(CODEX_BODY_MARKER, () => dataBlock + FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET + appJs);
 
 // Write
 const outDir = path.dirname(outputPath);
