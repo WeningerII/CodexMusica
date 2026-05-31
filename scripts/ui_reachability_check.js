@@ -45,7 +45,7 @@ for (const a of args) {
   }
 }
 
-const HTML_PATH = flags.html || '/mnt/user-data/outputs/codex.html';
+const HTML_PATH = flags.html || HTML_OUT;
 const VERBOSE = !!flags.verbose;
 
 // Precondition setup snippets — each runs inside page.evaluate after navigation

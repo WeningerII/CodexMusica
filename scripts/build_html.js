@@ -17,7 +17,7 @@
 // block is regenerated from references/*.js on every build.
 //
 // USAGE
-//   node scripts/build_html.js                    # builds /mnt/user-data/outputs/codex.html
+//   node scripts/build_html.js                    # builds codex.html into OUTPUT_DIR (see _paths.js; CODEX_OUT_DIR overrides)
 //   node scripts/build_html.js --out=path.html    # custom output path
 //   node scripts/build_html.js --validate         # run validate.js first; abort on failure
 //   node scripts/build_html.js --check            # post-build: eval data block + assert <script> byte ceiling
