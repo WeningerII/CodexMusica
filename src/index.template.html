@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,30..100;1,9..144,400..700,30..100&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Spacing — 4px grid */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px; --s7: 32px; --s8: 40px; --s9: 56px;
+  /* Type — modular scale, weight aliases, line-height aliases */
+  --fs-display:  22px;     /* (legacy body-sans hero — unused after Phase 1) */
+  --fs-display-hero: 28px;     /* empty-state h2, Fraunces */
+  --fs-display-card: 20px;     /* card instrument name, Fraunces */
+  --fs-display-modal: 18px;    /* modal h2, app-bar wordmark text, Fraunces */
+  --fs-display-preface: 16px;  /* italic preface claim, Fraunces */
+  --fs-display-sub: 13px;      /* wordmark sub, italic Fraunces */
+  --fs-title:    15px;     /* app-bar h1, card heading */
+  --fs-body:     14px;     /* default body text, button labels */
+  --fs-caption:  12px;     /* meta info, descriptor lines, footnotes */
+  --fs-micro:    11px;     /* uppercase section labels, badges */
+  --fs-code:     11px;     /* monospace descriptor token strips */
+  --fs-nano:     10px;     /* status pills, family micro-labels */
+  --fs-display-detail: 26px;   /* detail-pane h1 title, Fraunces */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --lh-tight:    1.25;     /* headings */
+  --lh-snug:     1.4;      /* dense body */
+  --lh-normal:   1.5;      /* default body */
+  /* Font families — display serif, body sans, technical mono */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:    'IBM Plex Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'IBM Plex Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+  /* Neutrals — white base, Google grey scale, AA contrast at 14px */
+  --bg:           #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #f8f9fa;
+  --surface-3:    #f1f3f4;
+  --border:       #e8eaed;
+  --border-strong:#dadce0;
+  --text:         #202124;  /* AAA on white (16.0:1) */
+  --text-2:       #5f6368;  /* AAA on white (6.6:1) */
+  --text-3:       #80868b;  /* AA on white (4.5:1) — meta only */
+  --text-4:       #bdc1c6;  /* decorative only, never primary text */
+  /* Semantic — Google's four primary colors, used only where they mean something.
+     Blue = primary action / selected / links.
+     Red  = destructive / error / validation fail.
+     Yellow = warning / attention / unsaved-state.
+     Green = success / confirmation. */
+  --color-blue:        #1a73e8;
+  --color-blue-hover:  #1765cc;
+  --color-blue-soft:   #e8f0fe;
+  --color-red:         #d93025;
+  --color-red-hover:   #b3261e;
+  --color-red-soft:    #fce8e6;
+  --color-yellow:      #f9ab00;
+  --color-yellow-soft: #fef7e0;
+  --color-green:       #1e8e3e;
+  --color-green-soft:  #e6f4ea;
+  /* Motion — single shared vocabulary */
+  --t-fast: 100ms;         /* hover, immediate feedback */
+  --t-norm: 150ms;         /* state changes, click confirms */
+  --t-slow: 200ms;         /* expansion, modal */
+  --t-spring: 300ms;       /* card mount, modal scale-in */
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Radius */
+  --r1: 4px; --r2: 6px; --r3: 8px; --r4: 12px;
+  /* Shadow — subtle only, Google grey base */
+  --shadow-1: 0 1px 2px rgba(32, 33, 36, 0.04);
+  --shadow-2: 0 1px 3px rgba(32, 33, 36, 0.06), 0 1px 2px rgba(32, 33, 36, 0.04);
+  --shadow-modal: 0 16px 40px rgba(32, 33, 36, 0.12), 0 4px 12px rgba(32, 33, 36, 0.06);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body { font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.5; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+button { font: inherit; color: inherit; cursor: pointer; }
+input { font: inherit; color: inherit; }
+ul { list-style: none; }
+::selection { background: var(--text); color: var(--surface); }
+
+/* App bar */
+.app-bar { position: sticky; top: 0; z-index: 30; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: var(--s3) var(--s6); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); }
+.app-bar h1 { font-family: var(--font-display); font-size: var(--fs-display-modal); font-weight: var(--fw-semibold); letter-spacing: -0.005em; display: inline-flex; align-items: center; gap: var(--s2); color: var(--text); font-variation-settings: "SOFT" 50, "opsz" 30; }
+.app-bar-wordmark { gap: var(--s3); }
+.app-bar-wordmark .wordmark-text { font-weight: var(--fw-semibold); font-size: var(--fs-display-modal); letter-spacing: -0.01em; }
+.app-bar-wordmark .wordmark-rule { display: inline-block; width: 1px; height: 16px; background: var(--text-3); opacity: 0.5; }
+.app-bar-wordmark .wordmark-sub { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); font-size: var(--fs-display-sub); color: var(--text-3); letter-spacing: 0.01em; font-variation-settings: "SOFT" 50, "opsz" 18; }
+@media (max-width: 720px) {
+  .app-bar-wordmark .wordmark-sub, .app-bar-wordmark .wordmark-rule { display: none; }
+}
+.app-bar h1 svg { color: var(--color-blue); }
+.app-bar .actions { display: flex; gap: var(--s2); align-items: center; }
+.workspace-meta { font-size: var(--fs-caption); color: var(--text-3); }
+
+/* Buttons */
+.btn {
+  padding: 8px var(--s4);
+  border-radius: var(--r2);
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  transition: background var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease),
+              color var(--t-fast) var(--ease),
+              transform var(--t-fast) var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+.btn:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+.btn:active:not(:disabled) { transform: translateY(0.5px); transition-duration: 50ms; }
+.btn-primary {
+  background: var(--color-blue);
+  color: #ffffff;
+  border-color: var(--color-blue);
+}
+.btn-primary:hover { background: var(--color-blue-hover); border-color: var(--color-blue-hover); }
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.btn-secondary:hover { background: var(--surface-2); border-color: var(--text-3); }
+.btn-ghost { background: transparent; color: var(--text-2); }
+.btn-ghost:hover { background: var(--surface-2); color: var(--text); }
+.btn-danger { color: var(--color-red); }
+.btn-danger:hover { background: var(--color-red-soft); }
+/* Solid-red destructive button — used inside confirmDialog for the
+   "yes, delete" action. The contrast against the muted modal panel makes
+   the destructive choice unmissable, the inverse of the ghost-style
+   "Cancel" button next to it. */
+.btn-danger-solid {
+  background: var(--color-red);
+  color: #fff;
+  border-color: var(--color-red);
+}
+.btn-danger-solid:hover {
+  background: #b3261e;
+  border-color: #b3261e;
+  color: #fff;
+}
+.icon-btn { width: 28px; height: 28px; padding: 0; border-radius: var(--r2); background: transparent; border: none; color: var(--text-2); display: inline-flex; align-items: center; justify-content: center; transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease); cursor: pointer; }
+.icon-btn:hover { background: var(--surface-3); color: var(--text); }
+.icon-btn svg { width: 14px; height: 14px; }
+.icon-inline { display: inline-flex; align-items: center; gap: var(--s2); }
+.btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* Workspace — master-detail grid (Phase 1 of layout refactor).
+   Sidebar is fixed 320px on desktop, drawer (slide-out from left) on mobile.
+   Detail pane fills remaining width and holds the selected instrument's tabs. */
+.workspace {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: calc(100vh - var(--app-bar-height, 56px));
+  gap: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+#workspace-sidebar {
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--s5) var(--s4);
+  gap: var(--s4);
+}
+
+#workspace-detail {
+  overflow-y: auto;
+  padding: var(--s5) var(--s6) var(--s9);
+}
+
+/* Detail pane keeps the existing centered-content behavior so empty-state
+   and the legacy .cards list still look right in Phase 1.
+   Phase 3 will swap .cards for the tabbed detail view. */
+#workspace-detail > .cards,
+#workspace-detail > #empty-state {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* Sidebar internals — Phase 2 of layout refactor. Workspace header, filter
+   input, tradition-grouped compact card rows, suggest-a-staple, recipe preview. */
+.ws-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); margin-bottom: var(--s1); }
+.ws-name-row { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.ws-name { font-family: var(--font-display); font-size: var(--fs-display-card); font-weight: var(--fw-semibold); color: var(--text); margin: 0; line-height: 1.2; min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ws-name-input { font-family: var(--font-display); font-size: var(--fs-display-card); font-weight: var(--fw-semibold); color: var(--text); background: transparent; border: none; border-bottom: 1px solid var(--accent, #c8504a); outline: none; padding: 0 0 2px 0; flex: 1; min-width: 0; }
+.ws-rename { padding: 4px; }
+
+.sidebar-search { position: relative; }
+.sidebar-search input { width: 100%; padding: 8px 10px 8px 32px; font-size: var(--fs-body); border: 1px solid var(--border); border-radius: 6px; background: var(--bg); }
+.sidebar-search .search-adornment { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text-3); pointer-events: none; display: inline-flex; }
+
+.sb-tradition-group { display: flex; flex-direction: column; gap: var(--s1); }
+.sb-tradition-group + .sb-tradition-group { margin-top: var(--s3); }
+.sb-tradition-header { display: flex; align-items: center; gap: var(--s2); cursor: pointer; padding: 4px 0; user-select: none; }
+.sb-chev { display: inline-flex; transition: transform 150ms ease; color: var(--text-3); }
+.sb-tradition-group.is-collapsed .sb-chev { transform: rotate(-90deg); }
+.sb-tradition-name { font-weight: var(--fw-semibold); color: var(--text); font-size: var(--fs-body); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sb-status-pill { font-size: var(--fs-nano); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 10px; }
+.sb-status-pill.primary { background: var(--color-blue, #4a7cb8); color: white; }
+.sb-status-pill.secondary { background: var(--surface-2); color: var(--text-2); }
+.sb-tradition-count { font-size: var(--fs-caption); color: var(--text-3); margin-left: 4px; }
+/* Mover buttons — always visible (vs delete which only appears on hover),
+   because this is the primary affordance for "reorder my groups" that
+   replaces the previously-confusing drag-to-reorder. Always-visible so the
+   user never has to discover or hover. Disabled at edges (first group has
+   no up-arrow, last has no down-arrow). */
+.sb-tradition-move {
+  background: transparent;
+  border: none;
+  padding: 2px 3px;
+  color: var(--text-3);
+  cursor: pointer;
+  border-radius: var(--r1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+.sb-tradition-move:hover:not([disabled]) { color: var(--text); background: var(--surface-2); }
+.sb-tradition-move[disabled] { opacity: 0.25; cursor: default; }
+.sb-tradition-move-up { margin-left: 4px; }
+.sb-tradition-move-down { margin-left: 1px; }
+.sb-tradition-delete { background: transparent; border: none; padding: 2px 4px; margin-left: 2px; color: var(--text-3); cursor: pointer; border-radius: var(--r1); opacity: 0; transition: opacity var(--t-fast) var(--ease), color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); display: inline-flex; align-items: center; justify-content: center; }
+.sb-tradition-header:hover .sb-tradition-delete,
+.sb-tradition-header:focus-within .sb-tradition-delete { opacity: 0.7; }
+.sb-tradition-delete:hover { opacity: 1 !important; color: var(--color-red, #c8504a); background: var(--surface-2); }
+.sb-tradition-header[draggable="true"] { cursor: grab; }
+.sb-tradition-header[draggable="true"]:active { cursor: grabbing; }
+.sb-tradition-group.is-drag-over { box-shadow: inset 0 2px 0 0 var(--accent, #c8504a); }
+.sb-tradition-group.is-drag-over .sb-tradition-header { background: var(--surface-2); }
+/* Directional drop indicators for group-onto-group reorder. Cursor in the
+   top half of the target → line at top (drop above). Cursor in the bottom
+   half → line at bottom (drop below). The visual treatment intentionally
+   matches .is-drag-over so the user gets consistent feedback whether they
+   intend a card-reparent (uses is-drag-over) or a group-reorder. */
+.sb-tradition-group.is-drag-over-top { box-shadow: inset 0 2px 0 0 var(--accent, #c8504a); }
+.sb-tradition-group.is-drag-over-bottom { box-shadow: inset 0 -2px 0 0 var(--accent, #c8504a); }
+.sb-card-pin { display: inline-flex; align-items: center; justify-content: center; color: var(--text-3); margin-right: 4px; }
+.sb-card.is-pinned .sb-card-pin { color: var(--accent, #c8504a); }
+
+.sb-tradition-cards { display: flex; flex-direction: column; gap: 2px; }
+.sb-tradition-group.is-collapsed .sb-tradition-cards { display: none; }
+.sb-tradition-group.is-collapsed .sb-add-to-tradition { display: none; }
+
+.sb-card { display: flex; align-items: center; gap: var(--s2); padding: 8px; border: none; background: transparent; border-radius: 6px; cursor: pointer; text-align: left; width: 100%; transition: background 120ms ease; }
+.sb-card:hover { background: var(--surface-2); }
+.sb-card.is-selected { background: var(--family-tint, var(--surface-2)); }
+.sb-card-thumb { width: 32px; height: 32px; border-radius: 6px; background: var(--family-tint, var(--surface-2)); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.sb-card-thumb svg, .sb-card-thumb img { width: 24px; height: 24px; }
+.sb-card-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.sb-card-line1 { font-size: var(--fs-body); color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sb-card-line1 .sb-preface { font-style: italic; color: var(--accent, #c8504a); margin-right: 4px; }
+.sb-card-line1 .sb-name { color: var(--text); }
+.sb-card-line2 { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.sb-card-line2 .sb-family { font-size: var(--fs-nano); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3); }
+.sb-card-line2 .fingerprint { height: 14px; margin: 0; gap: 1px; }
+.sb-card-line2 .fingerprint-axis { width: 3px; }
+
+.sb-add-to-tradition { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border: 1px dashed var(--border); border-radius: 6px; background: transparent; color: var(--text-2); font-size: var(--fs-caption); cursor: pointer; transition: border-color 120ms, color 120ms; }
+.sb-add-to-tradition:hover { border-color: var(--text-3); color: var(--text); }
+
+/* Suggest a staple — Phase 7. Sibling-tradition recommendation card. */
+.sb-staple { background: var(--color-blue-tint, #eef3fb); border: 1px solid var(--color-blue-border, #cfd9e8); border-radius: 8px; padding: var(--s3); display: flex; flex-direction: column; gap: var(--s2); }
+.sb-staple-head { display: flex; align-items: center; gap: 6px; }
+.sb-staple-head .ws-label { color: var(--color-blue, #4a7cb8); margin: 0; flex: 1; }
+.sb-staple-refresh { padding: 4px; color: var(--color-blue, #4a7cb8); }
+.sb-staple-refresh:hover { color: var(--text); }
+.sb-staple-body { font-size: var(--fs-caption); color: var(--text-2); line-height: 1.4; }
+.sb-staple-body .sb-staple-name { font-style: italic; color: var(--text); font-weight: var(--fw-medium); }
+.sb-staple-add { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 6px 8px; border: 1px solid var(--color-blue-border, #cfd9e8); background: rgba(255,255,255,0.5); border-radius: 6px; color: var(--color-blue, #4a7cb8); font-size: var(--fs-caption); font-weight: var(--fw-medium); cursor: pointer; transition: background 120ms; }
+.sb-staple-add:hover { background: white; }
+
+/* Parts list grid (Phase 4 of layout refactor). Matches the screenshot row
+   anatomy: thumb / PART NAME caps / variant / dot-descriptors / N options →. */
+.parts-list { display: flex; flex-direction: column; }
+.part-row-grid { display: grid; grid-template-columns: 48px 130px 1fr auto auto; align-items: center; gap: var(--s4); padding: var(--s3) var(--s2); border-top: 1px solid var(--border); cursor: pointer; transition: background 120ms ease; }
+.part-row-grid:first-child { border-top: none; }
+.part-row-grid:hover { background: var(--surface-2); }
+.part-row-grid.is-editing { background: var(--surface-2); }
+.part-thumb-cell { width: 48px; height: 48px; border-radius: 8px; background: var(--family-tint, var(--surface-2)); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.part-thumb-cell svg { width: 32px; height: 32px; }
+.part-label-cell { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.part-variant-cell { font-size: var(--fs-body); color: var(--text); font-weight: var(--fw-medium); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.part-descriptors-cell { font-size: var(--fs-caption); color: var(--text-2); text-align: right; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 320px; }
+.part-options-cell { display: inline-flex; align-items: center; gap: 4px; color: var(--text-3); font-size: var(--fs-caption); white-space: nowrap; }
+.part-row-grid:hover .part-options-cell { color: var(--text); }
+.part-variants-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--s2); padding: var(--s3) 0 var(--s2); }
+.part-variants-grid .variant-chip { text-align: left; }
+
+/* Sidebar recipe preview (Phase 8). Live compressRichRecipe output for the
+   full workspace, with char counter against the 1000-char ceiling. */
+#sidebar-recipe-preview { margin-top: auto; padding-top: var(--s4); border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: var(--s2); }
+.rp-head { display: flex; align-items: center; gap: 6px; }
+.rp-head .rp-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); flex: 1; }
+.rp-head .rp-count { font-size: var(--fs-micro); font-variant-numeric: tabular-nums; color: var(--text-3); }
+.rp-head .rp-count.is-amber { color: #b87a26; }
+.rp-head .rp-count.is-red { color: var(--color-red, #c8504a); }
+.rp-progress { height: 2px; background: var(--surface-2); border-radius: 1px; overflow: hidden; }
+.rp-progress-fill { height: 100%; background: var(--color-green, #4a9c6f); transition: width 200ms ease, background 200ms ease; }
+.rp-progress-fill.is-amber { background: #d9961f; }
+.rp-progress-fill.is-red { background: var(--color-red, #c8504a); }
+.rp-text { font-family: 'JetBrains Mono', monospace; font-size: var(--fs-code); line-height: 1.5; color: var(--text-2); max-height: 200px; overflow-y: auto; word-break: break-word; padding-right: 4px; }
+.rp-text::-webkit-scrollbar { width: 4px; }
+.rp-text::-webkit-scrollbar-thumb { background: var(--text-4); border-radius: 2px; }
+.rp-text::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+.rp-text::-webkit-scrollbar-track { background: transparent; }
+.rp-empty { font-style: italic; color: var(--text-3); font-size: var(--fs-caption); }
+.rp-copy { padding: 4px; color: var(--text-3); }
+.rp-copy:hover { color: var(--text); }
+.rp-open { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-2); font-size: var(--fs-caption); cursor: pointer; transition: border-color 120ms, color 120ms; }
+.rp-open:hover { border-color: var(--text-3); color: var(--text); }
+
+/* Detail pane — Phase 3 of layout refactor. Right pane shows selected card. */
+.detail-view { max-width: 1100px; margin: 0 auto; }
+.detail-breadcrumb-row { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin-bottom: var(--s5); }
+.detail-breadcrumb { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); display: flex; align-items: center; gap: var(--s2); cursor: pointer; }
+.detail-breadcrumb:hover { color: var(--text-2); }
+.detail-breadcrumb-status { display: inline-flex; align-items: center; gap: 4px; color: var(--color-blue, #4a7cb8); }
+.detail-breadcrumb-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.detail-breadcrumb-status.secondary { color: var(--text-3); }
+.detail-actions { display: flex; gap: var(--s1); align-items: center; }
+.detail-actions .icon-btn { padding: 6px; color: var(--text-2); }
+.detail-actions .icon-btn:hover { color: var(--text); }
+.detail-actions .icon-btn.is-danger { color: var(--color-red, #c8504a); }
+
+/* Stack signature strip — Phase 2 of UI Capability Inventory Plan.
+ * Renders above the detail header when 2+ cards are in the workspace.
+ * Surfaces the workspace centroid fingerprint + 4 nearest traditions.
+ * Visual weight intentionally low — informational strip, not focal. */
+.detail-stack-signature {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s3) var(--s4);
+  margin-bottom: var(--s4);
+  background: var(--surface-2);
+  border-radius: var(--r2);
+  border: 1px solid var(--surface-3, var(--border, transparent));
+}
+.detail-stack-signature .dss-fingerprint {
+  display: flex;
+  align-items: center;
+}
+.detail-stack-signature .dss-fingerprint .fingerprint { height: 24px; gap: 2px; margin: 0; }
+.detail-stack-signature .dss-fingerprint .fingerprint-axis { width: 4px; }
+.detail-stack-signature .dss-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.detail-stack-signature .dss-label {
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+}
+.detail-stack-signature .dss-traditions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+  align-items: center;
+}
+.detail-stack-signature .dss-trad {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  color: var(--text-2);
+  background: var(--surface-1, var(--surface));
+  border: 1px solid var(--surface-3, var(--border, transparent));
+  border-radius: var(--r1);
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+.detail-stack-signature .dss-trad:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+.detail-stack-signature .dss-empty {
+  font-size: var(--fs-caption);
+  font-style: italic;
+  color: var(--text-3);
+}
+.detail-stack-signature .dss-browse {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  color: var(--text-2);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: var(--r1);
+  transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+.detail-stack-signature .dss-browse:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.detail-header { display: grid; grid-template-columns: 80px 1fr auto; gap: var(--s4); align-items: start; margin-bottom: var(--s4); }
+.detail-thumb { width: 80px; height: 80px; border-radius: 10px; background: var(--family-tint, var(--surface-2)); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.detail-thumb svg, .detail-thumb img { width: 56px; height: 56px; }
+.detail-title-block { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.detail-title { font-family: var(--font-display); font-size: var(--fs-display-detail); font-weight: var(--fw-semibold); line-height: 1.2; color: var(--text); }
+.detail-title .detail-preface { font-style: italic; color: var(--accent, #c8504a); font-weight: var(--fw-regular); margin-right: 8px; }
+/* Primary-card marker — small ANCHOR pill in the detail-title row.
+   Surfaces when the displayed card is _determinePrimaryCard(app.cards).
+   The sidebar's PRIMARY pill marks the tradition group at the tree level;
+   this marks the card at the detail-pane level so the semantic travels
+   with the user when they navigate into a card. Soft-blue ties it to the
+   tradition family without competing with the instrument name. */
+.detail-title .detail-primary-marker {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: var(--s3);
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--color-blue-soft);
+  color: var(--color-blue);
+  font-family: var(--font-body);
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  cursor: help;
+}
+.detail-subtitle { display: flex; align-items: center; gap: var(--s2); font-size: var(--fs-body); color: var(--text-2); }
+.detail-subtitle .detail-family { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); }
+.detail-subtitle .detail-sep { color: var(--text-4); }
+
+.detail-fingerprint-panel { display: flex; flex-direction: column; align-items: flex-end; gap: var(--s2); }
+.detail-fingerprint-panel .ws-label { margin: 0; }
+.detail-fingerprint-panel .fingerprint { height: 36px; gap: 3px; }
+.detail-fingerprint-panel .fingerprint-axis { width: 6px; }
+
+.detail-trait-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--s5); }
+.trait-pill { display: inline-flex; align-items: center; padding: 4px 10px; background: var(--surface-2); border-radius: 12px; font-size: var(--fs-caption); color: var(--text-2); }
+
+.detail-tab-bar { display: flex; align-items: center; gap: var(--s5); border-bottom: 1px solid var(--border); margin-bottom: var(--s4); }
+.detail-tab { display: inline-flex; align-items: center; gap: 6px; padding: 10px 0; border: none; background: transparent; cursor: pointer; color: var(--text-2); font-size: var(--fs-body); font-weight: var(--fw-medium); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 120ms, border-color 120ms; }
+.detail-tab:hover { color: var(--text); }
+.detail-tab.is-active { color: var(--text); font-weight: var(--fw-semibold); border-bottom-color: var(--accent, #c8504a); }
+.detail-tab-status { margin-left: auto; font-size: var(--fs-caption); color: var(--text-3); }
+
+.detail-tab-content { min-height: 200px; }
+.detail-tab-content > .composer-section:first-child { padding-top: 0; border-top: none; }
+.detail-tab-content > .composer-section .composer-section-title { display: none; }
+
+/* Mobile: collapse to single pane with drawer-style sidebar. */
+.drawer-toggle { display: none; }
+.sidebar-backdrop { display: none; }
+@media (max-width: 899px) {
+  .drawer-toggle { display: inline-flex; }
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+  #workspace-sidebar {
+    position: fixed;
+    top: var(--app-bar-height, 56px);
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 200ms ease-out;
+    box-shadow: 4px 0 12px rgba(0,0,0,0.08);
+  }
+  #workspace-sidebar.is-open {
+    transform: translateX(0);
+  }
+  .sidebar-backdrop.is-open {
+    display: block;
+    position: fixed;
+    top: var(--app-bar-height, 56px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 49;
+  }
+  #workspace-detail {
+    padding: var(--s4) var(--s3) var(--s8);
+  }
+}
+
+/* Empty state */
+.empty-state { text-align: center; padding: var(--s9) var(--s5) var(--s7); max-width: 480px; margin: 0 auto; }
+.empty-state-icon { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; background: var(--color-blue-soft); color: var(--color-blue); margin-bottom: var(--s5); }
+.empty-state h2 { font-family: var(--font-display); font-size: var(--fs-display-hero); font-weight: var(--fw-semibold); letter-spacing: -0.02em; margin-bottom: var(--s2); color: var(--text); font-variation-settings: "SOFT" 50, "opsz" 60; }
+.empty-state p { color: var(--text-2); margin: 0 auto var(--s6); line-height: var(--lh-normal); }
+.empty-state-or { margin-top: var(--s8); padding-top: var(--s6); border-top: 1px solid var(--border); }
+.empty-state-actions { display: flex; gap: var(--s2); justify-content: center; flex-wrap: wrap; }
+.empty-state-cta { padding: 10px 18px; font-size: var(--fs-body); }
+.empty-state .quick-pick { display: flex; gap: var(--s2); justify-content: center; flex-wrap: wrap; margin-top: var(--s3); }
+.empty-state .quick-pick-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); margin-bottom: var(--s2); }
+
+/* Pin button active state — when the card is pinned, the icon fills with
+   the blue accent color. Mirrors the active treatment of other icon-toggles. */
+.icon-btn.is-active { color: var(--color-blue); }
+.icon-btn.is-active:hover { color: var(--color-blue); background: rgba(26, 115, 232, 0.08); }
+/* Pin specifically — when active, fill the pin head (second path of the
+   Lucide pin icon) so the toggled state reads as a "stuck-in" pushpin.
+   The first path (M12 17v5) is the post and stays stroke-only. */
+.icon-btn.is-active svg path:nth-of-type(2) { fill: currentColor; }
+/* Destructive icon-buttons — render red at rest, not just on hover. Parallel
+   to .btn-danger for text buttons; applied to trash/delete icon buttons so
+   the destructive intent is visible at a glance instead of revealed on hover. */
+.icon-btn.is-danger { color: var(--color-red); }
+.icon-btn.is-danger:hover { color: var(--color-red); background: var(--color-red-soft); }
+
+/* Signature state */
+/* Family identity is shown as a small colored dot + tinted family name,
+   replacing the previous icon approach. Color is set via the inline
+   --family-color custom property (one of the 11 FAMILY_COLORS hues set
+   in bottom-template JS); the dot uses it directly, the text uses it at
+   a slightly desaturated rendering via opacity to keep the card calm. */
+
+/* Composer state */
+
+.composer-section { padding: var(--s5) 0; border-bottom: 1px solid var(--border); }
+.composer-section:last-child { border-bottom: none; }
+.composer-section-title { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); margin-bottom: var(--s4); }
+.composer-section-title-aside { font-weight: var(--fw-regular); text-transform: none; letter-spacing: 0; color: var(--text-3); }
+
+/* Preface section — aesthetic claim, one layer above the brick list */
+/* Inline SVG icons — no font dependency, works in sandboxed iframes
+   and offline. Replaces former Material Symbols ligature approach. */
+.icon-svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+  user-select: none;
+  pointer-events: none;
+  color: currentColor;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.preface-section .preface-row { display: flex; gap: var(--s3); align-items: center; margin-bottom: var(--s2); }
+.preface-input-wrap { position: relative; flex: 1; display: flex; align-items: center; }
+.preface-input-wrap .preface-input { flex: 1; padding-right: 32px; }
+/* Suppress the native datalist arrow that some Chrome versions still render —
+   we have our own custom arrow that actually opens a useful popup. !important
+   because the user-agent stylesheet's specificity wins otherwise. */
+.preface-input::-webkit-calendar-picker-indicator,
+.preface-input::-webkit-list-button {
+  display: none !important;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.preface-input { flex: 1; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); font-family: var(--font-mono); font-size: var(--fs-body); }
+.preface-input:focus { outline: none; border-color: var(--color-blue); box-shadow: 0 0 0 2px var(--color-blue-soft); }
+.preface-clear { padding: 4px 10px; font-size: var(--fs-title); line-height: 1; }
+.preface-browse { padding: 6px 12px; font-size: var(--fs-caption); }
+.preface-hint { font-size: var(--fs-micro); color: var(--text-3); line-height: 1.5; min-height: 16px; }
+.preface-hint-empty { font-style: italic; color: var(--text-3); }
+/* Reachability fan — chip strip showing nearby-reachable prefaces. Renders
+   below the preface input + hint. Each chip is a quick-pick that fires
+   commitPrefaceChange, routing through the inverse algorithm. The current
+   preface (if it's in the top 7) carries the .selected + .is-current
+   modifier and inherits the card's family color for the tint, reinforcing
+   identity continuity with the card's left-edge accent stripe. */
+.preface-fan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: var(--s3);
+}
+.preface-fan-chip { font-family: var(--font-mono); font-size: var(--fs-micro); cursor: pointer; }
+.preface-fan-chip.is-current {
+  background: var(--family-color, var(--text));
+  border-color: var(--family-color, var(--text));
+}
+
+/* Shifts panel — explanation of the most recent inverse-driven configuration
+   shift on a card. Surfaces the data captured in inverseConfigureForPreface
+   so users can see WHY each axis swapped to its new value: every change row
+   shows the from→to label plus the specific target tokens this axis swap
+   uniquely contributed. Mounted below the reachability fan in the preface
+   section. Persists until manually dismissed via × or replaced on the next
+   inverse run. Session-only state — not saved with the workspace. */
+.preface-shifts-panel {
+  margin-top: var(--s3);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: var(--s3);
+  font-size: var(--fs-micro);
+}
+.preface-shifts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--s2);
+}
+.preface-shifts-title { font-weight: var(--fw-medium); color: var(--text-2); }
+.preface-shifts-close {
+  background: transparent;
+  border: 0;
+  color: var(--text-3);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: var(--r1);
+  display: inline-flex;
+  align-items: center;
+}
+.preface-shifts-close:hover { color: var(--text); background: var(--surface-3); }
+.preface-shifts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+.preface-shifts-row { display: flex; flex-direction: column; gap: 3px; }
+.preface-shifts-axis { color: var(--text-2); }
+.preface-shifts-axis-label { font-weight: var(--fw-medium); }
+.preface-shifts-from { color: var(--text-3); }
+.preface-shifts-tokens { display: flex; flex-wrap: wrap; gap: 4px; }
+.preface-shifts-token {
+  font-family: var(--font-mono);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 5px;
+  color: var(--text);
+  font-size: var(--fs-code);
+}
+.preface-shifts-tokens-empty { font-style: italic; color: var(--text-3); font-size: var(--fs-micro); }
+
+/* UpSet plot — descriptor-intersection visualization in the recipe-stack
+   modal at 4+ cards. SVG-based, hand-rolled, no dependencies. Bars and
+   dots use existing palette tokens; per-set dot color comes from the
+   card's FAMILY_COLORS lookup (set inline on each circle), reinforcing
+   the identity language used by the card left-edge accent stripes. */
+.upset-section {
+  margin-top: var(--s5);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--border);
+}
+.upset-section-title {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  color: var(--text-2);
+  margin-bottom: var(--s3);
+}
+.upset-svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.upset-bar {
+  transition: opacity var(--t-fast) var(--ease);
+}
+.upset-col:hover .upset-bar { opacity: 0.75; }
+.upset-empty {
+  color: var(--text-3);
+  font-style: italic;
+  font-size: var(--fs-caption);
+  margin: 0;
+}
+.upset-truncation-note {
+  font-size: var(--fs-micro);
+  color: var(--text-3);
+  font-style: italic;
+  margin: var(--s2) 0 0;
+}
+
+/* Signature head: preface chip — italic distinguishes from instrument name.
+   Color inherits from parent; the dedup-cascade animation in Phase 6 will
+   wash this element in soft blue when the rule fires. */
+
+/* Chips — for variant selection */
+.chip { padding: 5px 10px; border-radius: 999px; border: 1px solid var(--border-strong); background: var(--surface); color: var(--text-2); font-size: var(--fs-caption); font-weight: var(--fw-medium); transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease); line-height: 1.3; }
+.chip:hover { border-color: var(--text-3); color: var(--text); }
+.chip.selected { background: var(--text); color: var(--surface); border-color: var(--text); }
+/* Variant-picker chips — wider than a plain chip, with inline descriptor
+   tokens beneath the variant name. The descriptors are color-coded: tokens
+   already in the card's descriptor stack are de-emphasized (kept), tokens
+   the swap would ADD are normal weight and pop on hover, signaling the
+   delta-effect of clicking. Replaces the previous title="..." browser
+   tooltip with always-visible inline preview. */
+.variant-chip { padding: 6px 10px; border-radius: var(--r2); text-align: left; max-width: 320px; }
+.variant-chip .variant-chip-name { display: block; font-size: var(--fs-caption); font-weight: var(--fw-medium); }
+.variant-chip .variant-chip-descrs { display: flex; flex-wrap: wrap; gap: 3px 6px; margin-top: 3px; }
+.variant-chip .variant-chip-descr { font-size: var(--fs-micro); line-height: 1.2; }
+.variant-chip .variant-chip-descr.is-kept { color: var(--text-4); }
+.variant-chip .variant-chip-descr.is-new { color: var(--text-3); }
+/* is-lost: descriptor in current variant but not in candidate — the swap
+   would remove it. Strikethrough + warm-decay color so the user sees
+   what disappears alongside what's gained. Never appears on the selected
+   chip (whose current === candidate). */
+.variant-chip .variant-chip-descr.is-lost {
+  color: var(--text-4);
+  text-decoration: line-through;
+  text-decoration-color: var(--text-3);
+  text-decoration-thickness: 1px;
+}
+.variant-chip:hover .variant-chip-descr.is-new { color: var(--color-blue); font-weight: var(--fw-medium); }
+.variant-chip:hover .variant-chip-descr.is-lost { color: var(--text-3); }
+.variant-chip.selected .variant-chip-descr.is-kept,
+.variant-chip.selected .variant-chip-descr.is-new { color: var(--surface); opacity: 0.7; }
+.chip-block { padding: 8px var(--s3); border-radius: var(--r2); border: 1px solid var(--border-strong); background: var(--surface); color: var(--text); font-size: var(--fs-body); font-weight: var(--fw-medium); transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease); text-align: left; line-height: 1.35; }
+.chip-block:hover { border-color: var(--text-3); }
+.chip-block.selected { background: var(--text); color: var(--surface); border-color: var(--text); }
+.chip-block .chip-block-sub { display: block; font-size: var(--fs-micro); font-weight: var(--fw-regular); color: var(--text-3); margin-top: 2px; font-family: var(--font-mono); letter-spacing: -0.005em; }
+.chip-block.selected .chip-block-sub { color: rgba(255,255,255,0.7); }
+
+/* Environment items */
+.env-options { margin-top: var(--s3); padding-top: var(--s3); grid-column: 1 / -1; display: flex; flex-direction: column; gap: var(--s1); }
+.env-options-cluster-head { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); margin-top: var(--s3); margin-bottom: 4px; }
+
+/* Chain visual */
+.chain-flow { display: grid; grid-template-columns: repeat(8, 1fr); gap: 2px; }
+.chain-stage { padding: var(--s2) 6px; border: 1px solid var(--border); border-radius: var(--r1); background: var(--surface-2); cursor: pointer; transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); display: flex; flex-direction: column; align-items: stretch; gap: 2px; min-width: 0; text-align: left; }
+.chain-stage:hover { border-color: var(--text-3); background: var(--surface); }
+.chain-stage.set { background: var(--surface); border-color: var(--border-strong); }
+.chain-stage.editing { border-color: var(--text); background: var(--surface); box-shadow: 0 0 0 1px var(--text); }
+.chain-stage-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); }
+.chain-stage-value { font-size: var(--fs-micro); color: var(--text); line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.chain-stage-value.empty { color: var(--text-3); font-style: italic; }
+.chain-edit-panel { margin-top: var(--s3); padding: var(--s4); background: var(--surface-2); border-radius: var(--r2); border: 1px solid var(--border); }
+.chain-edit-title { font-size: var(--fs-caption); font-weight: var(--fw-semibold); color: var(--text-2); margin-bottom: var(--s2); }
+.chain-edit-hint { font-size: var(--fs-micro); color: var(--text-3); margin-bottom: var(--s3); }
+.chain-edit-options { display: flex; flex-direction: column; gap: var(--s1); }
+
+/* Card actions footer */
+/* Drift suggestions panel */
+.drift-panel { margin-top: var(--s4); padding: var(--s4); background: var(--surface-2); border-radius: var(--r3); border: 1px solid var(--border); }
+.drift-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--s3); gap: var(--s3); flex-wrap: wrap; }
+.drift-head-label { font-size: var(--fs-caption); color: var(--text-2); }
+.drift-head-label svg { color: var(--color-blue); flex-shrink: 0; }
+.drift-head-actions { display: flex; gap: var(--s2); }
+.drift-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s2); }
+.drift-card { padding: var(--s3); border: 1px solid var(--border); border-radius: var(--r2); background: var(--surface); display: flex; flex-direction: column; gap: 6px; }
+.drift-card-axis { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-blue); }
+.drift-card-value { font-size: var(--fs-caption); font-weight: var(--fw-medium); color: var(--text); line-height: 1.3; }
+.drift-card-descr { font-family: var(--font-mono); font-size: var(--fs-micro); color: var(--text-3); flex: 1; line-height: 1.5; letter-spacing: -0.005em; }
+.drift-card-walk { padding: 5px var(--s2); font-size: var(--fs-micro); font-weight: var(--fw-medium); border: 1px solid var(--border-strong); background: var(--surface); border-radius: var(--r1); align-self: flex-start; transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease); }
+.drift-card-walk:hover { background: var(--text); color: var(--surface); border-color: var(--text); }
+
+/* Stack panel */
+.stack-panel { margin-top: var(--s4); padding: var(--s4); background: var(--surface-2); border-radius: var(--r3); border: 1px solid var(--border); }
+.stack-head { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin-bottom: var(--s3); flex-wrap: wrap; }
+.stack-head-label { font-size: var(--fs-caption); font-weight: var(--fw-semibold); color: var(--text); }
+.stack-format { display: flex; gap: 2px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r1); padding: 2px; }
+.stack-format button { padding: 3px 8px; border-radius: 3px; border: none; background: transparent; font-size: var(--fs-micro); font-weight: var(--fw-medium); color: var(--text-3); transition: all var(--t-fast) var(--ease); }
+.stack-format button.active { background: var(--text); color: var(--surface); }
+.stack-format button:not(.active):hover { color: var(--text); }
+.stack-text { font-family: var(--font-mono); font-size: var(--fs-caption); line-height: 1.7; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r2); padding: var(--s3); max-height: 240px; overflow-y: auto; word-break: break-word; letter-spacing: -0.005em; }
+.stack-actions { display: flex; gap: var(--s2); margin-top: var(--s3); }
+
+/* Modal */
+.modal-bg { position: fixed; inset: 0; background: rgba(32, 33, 36, 0.5); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); display: none; align-items: center; justify-content: center; z-index: 100; padding: var(--s5); }
+.modal-bg.open { display: flex; }
+.modal { background: var(--surface); border-radius: var(--r4); box-shadow: var(--shadow-modal); width: 100%; max-width: 720px; max-height: calc(100vh - var(--s8)); display: flex; flex-direction: column; overflow: hidden; transform: scale(0.96); opacity: 0; transition: transform var(--t-norm) var(--ease-out), opacity var(--t-norm) var(--ease-out); }
+.modal-bg.open .modal { transform: scale(1); opacity: 1; }
+.modal-empty { text-align: center; padding: var(--s7) var(--s5); color: var(--text-3); }
+.modal-empty svg { margin-bottom: var(--s3); }
+.modal-empty p { font-size: var(--fs-caption); margin: 0; }
+/* Empty-state for picker/list bodies — same role as .modal-empty but
+   plain text only, no icon. Used by loading states and "no matches"
+   messages in pickers, similarity drill-downs, and the recipe-stack
+   modal body. Add .is-italic for the recipe-stack variant where the
+   message reads as a tone-down rather than a label. */
+.empty-msg { color: var(--text-3); padding: var(--s5); text-align: center; }
+.empty-msg.is-italic { font-style: italic; }
+/* Inline italic muted — used for "(not set)" placeholders and short
+   "Nothing configured yet" inline messages where italic carries the
+   "this isn't real content" cue. Applied to spans/inline contexts; the
+   block-level analog is .empty-msg.is-italic. */
+.muted-italic { color: var(--text-3); font-style: italic; }
+/* Small uppercase section labels — micro size, semibold, tracked.
+   Used to introduce sub-sections inside picker drill-downs ("Closest
+   on", etc.). Mirrors the .env-options-cluster-head pattern but with
+   tighter, more flexible margins for in-flow use. */
+.label-micro-cap { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); margin-bottom: 4px; margin-top: var(--s2); }
+.modal-head { padding: var(--s4) var(--s5); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: var(--s3); }
+.modal-head h2 { font-family: var(--font-display); font-size: var(--fs-display-modal); font-weight: var(--fw-semibold); letter-spacing: -0.005em; font-variation-settings: "SOFT" 50, "opsz" 30; }
+.modal-search { padding: var(--s3) var(--s5); border-bottom: 1px solid var(--border); position: relative; }
+.modal-search input { width: 100%; padding: 8px var(--s3) 8px var(--s7); border: 1px solid var(--border-strong); border-radius: var(--r2); font-size: var(--fs-body); background: var(--surface); transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease); }
+.modal-search input:focus { outline: none; border-color: var(--color-blue); box-shadow: 0 0 0 2px var(--color-blue-soft); }
+.modal-search .search-adornment { position: absolute; left: calc(var(--s5) + var(--s3)); top: 50%; transform: translateY(-50%); color: var(--text-3); pointer-events: none; display: inline-flex; }
+.modal-search .search-adornment svg { width: 14px; height: 14px; }
+.modal-body { overflow-y: auto; flex: 1; padding: var(--s5); }
+.modal-foot { padding: var(--s3) var(--s5); border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: var(--s2); background: var(--surface-2); }
+
+/* Confirm dialog — compact modal for destructive-action confirmation. Smaller
+   max-width than the full modals (which run wide for picker grids), action
+   row at bottom, message body. Built dynamically by confirmDialog() in the
+   bottom-template JS; replaces native confirm() which browsers can suppress. */
+.confirm-dialog { max-width: 440px; }
+.confirm-dialog-body { padding: var(--s4) var(--s5) var(--s5); }
+.confirm-dialog-msg { margin: 0 0 var(--s5); color: var(--text-2); font-size: var(--fs-body); line-height: 1.5; }
+.confirm-dialog-actions { display: flex; justify-content: flex-end; gap: var(--s2); }
+
+/* Picker — instruments */
+.fam-block { margin-bottom: var(--s5); }
+.fam-block:last-child { margin-bottom: 0; }
+.fam-name { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); margin-bottom: var(--s2); }
+.fam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 4px; }
+.pick-item { padding: var(--s2) var(--s3); border: 1px solid transparent; border-radius: var(--r2); background: transparent; text-align: left; transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease); font-size: var(--fs-body); color: var(--text); }
+.pick-item:hover { background: var(--surface-2); border-color: var(--border-strong); }
+
+/* Saved list */
+.saved-grid { display: flex; flex-direction: column; gap: var(--s2); }
+.saved-item { padding: var(--s3) var(--s4); border: 1px solid var(--border); border-radius: var(--r2); background: var(--surface); display: flex; align-items: center; justify-content: space-between; gap: var(--s3); }
+.saved-name { font-size: var(--fs-body); font-weight: var(--fw-medium); }
+.saved-meta { font-size: var(--fs-micro); color: var(--text-3); margin-top: 2px; }
+.saved-actions { display: flex; gap: var(--s1); }
+
+/* Save dialog input */
+.save-form { padding: var(--s5); }
+.save-form label { display: block; font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); margin-bottom: 6px; }
+.save-form input { width: 100%; padding: 8px var(--s3); border: 1px solid var(--border-strong); border-radius: var(--r2); font-size: var(--fs-body); }
+.save-form input:focus { outline: none; border-color: var(--color-blue); box-shadow: 0 0 0 2px var(--color-blue-soft); }
+
+/* Toast */
+.toast { position: fixed; bottom: var(--s5); left: 50%; transform: translateX(-50%) translateY(8px); background: var(--text); color: var(--surface); padding: 8px var(--s4); border-radius: var(--r2); font-size: var(--fs-caption); font-weight: var(--fw-medium); box-shadow: var(--shadow-modal); opacity: 0; transition: opacity var(--t-norm) var(--ease), transform var(--t-norm) var(--ease); z-index: 200; pointer-events: none; display: inline-flex; align-items: center; gap: var(--s2); }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast svg { width: 14px; height: 14px; flex-shrink: 0; }
+.toast-success { background: var(--color-green); }
+.toast-error   { background: var(--color-red); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border: 2px solid transparent; background-clip: padding-box; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-strong); background-clip: padding-box; }
+
+/* Mobile */
+@media (max-width: 700px) {
+  .app-bar { padding: var(--s3) var(--s4); }
+  .chain-flow { grid-template-columns: repeat(4, 1fr); }
+  .modal { max-width: 100%; max-height: 92vh; }
+  .modal-head, .modal-body, .modal-foot, .modal-search { padding-left: var(--s4); padding-right: var(--s4); }
+  .fam-grid { grid-template-columns: 1fr; }
+  .app-bar h1 + .workspace-meta { display: none; }
+  .app-bar .actions .btn span.long { display: none; }
+}
+
+/* ===== Material feedback — micro-animations on state changes =====
+   Currently used:
+   - preface-shift: a preface changed because the dedup rule rippled
+   The reduced-motion media query at the bottom honors user preference and
+   collapses all animation/transition durations to ~0. */
+
+@keyframes preface-shift {
+  0%   { background: var(--color-blue-soft); }
+  100% { background: transparent; }
+}
+.preface-shifted {
+  /* 800ms must match UI_TIMING_MS.PREFACE_SHIFT in the bottom-template JS,
+     which removes this class at the same instant the animation ends. */
+  animation: preface-shift 800ms var(--ease-out);
+  border-radius: var(--r2);
+  padding: 0 4px;
+  margin: 0 -4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== Tooltip primitive =====
+   Apply to any element with `data-tooltip="text"`. Appears on hover AND on
+   keyboard focus (the second is the accessibility win over the native
+   `title=` attribute). Default position is above the element; opt into below
+   with `data-tooltip-pos="bottom"` for elements near the top of the viewport.
+   
+   The bubble uses Google's tooltip surface color (dark grey #3c4043) with
+   white text — readable against any background underneath. Delay before
+   appearing is 400ms to avoid showing during quick mouse passes, which is
+   the Material Design tooltip convention. */
+[data-tooltip] { position: relative; }
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%) translateY(2px);
+  background: #3c4043;
+  color: #ffffff;
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
+  padding: 5px 9px;
+  border-radius: var(--r2);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+  transition-delay: 0ms;
+  z-index: 250;
+  box-shadow: 0 2px 6px rgba(32, 33, 36, 0.2);
+}
+[data-tooltip]:hover::after,
+[data-tooltip]:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 400ms;
+}
+[data-tooltip-pos="bottom"]::after {
+  bottom: auto;
+  top: calc(100% + 8px);
+  transform: translateX(-50%) translateY(-2px);
+}
+[data-tooltip-pos="bottom"]:hover::after,
+[data-tooltip-pos="bottom"]:focus-visible::after {
+  transform: translateX(-50%) translateY(0);
+}
+</style>
+</head>
+<body>
+
+<header class="app-bar">
+  <div style="display: flex; align-items: center; gap: var(--s4);">
+    <button class="icon-btn drawer-toggle" id="btn-drawer-toggle" aria-label="Toggle sidebar"><span data-icon="menu" data-size="14"></span></button>
+    <h1 class="app-bar-wordmark"><span class="wordmark-text">Codex</span><span class="wordmark-rule" aria-hidden="true"></span><span class="wordmark-sub">of song-recipes</span></h1>
+    <span class="workspace-meta" id="meta"></span>
+  </div>
+  <div class="actions">
+    <button class="icon-btn" id="btn-undo" data-tooltip="Undo (Ctrl/Cmd+Z)" aria-label="Undo" disabled><span data-icon="undo" data-size="14"></span></button>
+    <button class="icon-btn" id="btn-redo" data-tooltip="Redo (Ctrl/Cmd+Shift+Z)" aria-label="Redo" disabled><span data-icon="redo" data-size="14"></span></button>
+    <button class="icon-btn" id="btn-attributions" data-tooltip="Image credits & licenses" aria-label="Image credits"><span data-icon="info" data-size="14"></span></button>
+    <span style="width: 1px; height: 18px; background: var(--border); margin: 0 var(--s2);" aria-hidden="true"></span>
+    <button class="btn btn-ghost" id="btn-traditions"><span data-icon="library" data-size="14"></span>Traditions</button>
+    <button class="btn btn-ghost" id="btn-saved"><span data-icon="folder" data-size="14"></span>Saved</button>
+    <button class="btn btn-secondary" id="btn-save"><span data-icon="save" data-size="14"></span><span class="long">Save&nbsp;</span>workspace</button>
+    <button class="btn btn-primary" id="btn-add"><span data-icon="plus" data-size="14"></span>Add instrument</button>
+  </div>
+</header>
+
+<main class="workspace">
+  <aside id="workspace-sidebar" aria-label="Workspace navigation">
+    <!-- Phase 2 will populate: workspace header (rename), filter input,
+         tradition-grouped instrument list, suggest-a-staple card,
+         recipe-stack preview. Empty in Phase 1 (CSS shell only). -->
+    <div id="sidebar-header"></div>
+    <div id="sidebar-filter"></div>
+    <div id="sidebar-traditions"></div>
+    <div id="sidebar-staple"></div>
+    <div id="sidebar-recipe-preview"></div>
+  </aside>
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <section id="workspace-detail">
+    <section id="empty-state" class="empty-state">
+      <div class="empty-state-icon"><span data-icon="music" data-size="40"></span></div>
+      <h2>A codex of song-recipes</h2>
+      <p>Each instrument is independent — its own parts, tuning, room, and signal chain. Combine freely. No combination is wrong.</p>
+      <div class="empty-state-actions">
+        <button class="btn btn-primary empty-state-cta" id="empty-add"><span data-icon="plus" data-size="14"></span>Add an instrument</button>
+        <button class="btn btn-secondary empty-state-cta" id="empty-add-genre"><span data-icon="plus" data-size="14"></span>Add a Genre</button>
+      </div>
+      <div class="empty-state-or">
+        <div class="quick-pick-label">Or jump in with a starter</div>
+        <div class="quick-pick" id="quick-pick"></div>
+      </div>
+    </section>
+  </section>
+</main>
+
+<!-- Modal: add instrument -->
+<div class="modal-bg" id="modal-add">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Add instrument</h2>
+      <button class="icon-btn" data-close="modal-add" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+    </div>
+    <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-inst" placeholder="Search instruments…" autocomplete="off"></div>
+    <div class="modal-body" id="picker-inst"></div>
+  </div>
+</div>
+
+<!-- Modal: traditions -->
+<div class="modal-bg" id="modal-trad">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Browse traditions</h2>
+      <button class="icon-btn" data-close="modal-trad" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+    </div>
+    <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-trad" placeholder="Search traditions…" autocomplete="off"></div>
+    <div class="modal-body" id="picker-trad"></div>
+  </div>
+</div>
+
+<!-- Modal: save -->
+<div class="modal-bg" id="modal-save">
+  <div class="modal" style="max-width: 420px;">
+    <div class="modal-head">
+      <h2>Save workspace</h2>
+      <button class="icon-btn" data-close="modal-save" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+    </div>
+    <div class="save-form">
+      <label for="save-name">Name</label>
+      <input type="text" id="save-name" placeholder="e.g. Hindustani electric experiment" autocomplete="off">
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" data-close="modal-save">Cancel</button>
+      <button class="btn btn-primary" id="save-confirm">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: saved list -->
+<div class="modal-bg" id="modal-saved">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Saved workspaces</h2>
+      <button class="icon-btn" data-close="modal-saved" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+    </div>
+    <div class="modal-body" id="saved-body"></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modal-recipe-stack">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Recipe stack</h2>
+      <button class="icon-btn" data-close="modal-recipe-stack" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+    </div>
+    <div class="modal-body" id="recipe-stack-body"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Modal: browse preface lexicon -->
+<div class="modal-bg" id="modal-preface">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Aesthetic preface — browse</h2>
+      <button class="icon-btn" data-close="modal-preface" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+    </div>
+    <div class="modal-body" id="preface-modal-body" style="padding: var(--s5);"></div>
+  </div>
+</div>
+
+<!-- Modal: asset attributions (open-source license credits) -->
+<div class="modal-bg" id="modal-attributions">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Asset credits</h2>
+      <button class="icon-btn" data-close="modal-attributions" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+    </div>
+    <div class="modal-body" id="attributions-body" style="padding: var(--s5); max-height: 70vh; overflow-y: auto;">
+      <p style="margin: 0 0 var(--s4); color: var(--text-2); font-size: var(--fs-1);">
+        The codex uses these open-source asset libraries.
+      </p>
+      <table id="attributions-table" style="width: 100%; font-size: var(--fs-1); border-collapse: collapse;">
+        <thead><tr style="border-bottom: 1px solid var(--text-3); text-align: left;">
+          <th style="padding: var(--s2) var(--s3);">Library</th>
+          <th style="padding: var(--s2) var(--s3);">Used for</th>
+          <th style="padding: var(--s2) var(--s3);">License</th>
+          <th style="padding: var(--s2) var(--s3);">Source</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Datalist for preface autocomplete; populated at boot from PREFACE_LEXICON -->
+<datalist id="preface-options"></datalist>
+
+<script>
+// ============================================================
+// INSTRUMENTS — every recorded instrument and ensemble.
+// One source of truth for instrument IDs referenced from traditions.
+// ============================================================
+
+<!--@CODEX_BODY--></script>
+</body>
+</html>

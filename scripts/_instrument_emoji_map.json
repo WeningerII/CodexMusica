@@ -1,0 +1,173 @@
+{
+  "_doc": "Codex instrument ID → Twemoji codepoint. Maps only where an emoji is a genuine visual representation of the instrument's family. Instruments without an entry here fall through to the family-color swatch (existing UX). License: CC-BY 4.0 (Twemoji).",
+
+  "_family_fallback": {
+    "_doc": "Per-family fallback codepoint. Used by image() when an instrument has no direct emoji mapping. Generic but never empty.",
+    "acoustic_strings": "1f3b8",
+    "bowed": "1f3bb",
+    "electric_strings": "1f3b8",
+    "electronic": "1f39b",
+    "ensemble": "1f465",
+    "free_reed": "1fa97",
+    "keyboard": "1f3b9",
+    "percussion": "1fa98",
+    "plucked_traditional": "1f3b8",
+    "voice": "1f399",
+    "wind": "1fa88"
+  },
+
+  "guitar_1f3b8": {
+    "_emoji": "🎸",
+    "ids": [
+      "acoustic_guitar_dread", "acoustic_guitar_om", "acoustic_guitar_parlor",
+      "classical_nylon_string_guitar", "acoustic_resonator_steel",
+      "acoustic_guitar_12_string", "resonator_guitar", "flamenco_guitar",
+      "guitarra_portuguesa", "violao_7_cordas",
+      "twelve_string_electric", "archtop_jazz", "baritone_electric",
+      "electric_guitar_humbucker", "electric_guitar_single_coil", "semi_hollow",
+      "electric_bass", "fretless_bass", "short_scale_bass", "semi_hollow_bass",
+      "upright_bass", "tea_chest_bass", "guitarron_mexicano",
+      "lute_renaissance", "theorbo", "vihuela_mexicana", "viola_caipira",
+      "viola_machete", "bandolim", "mandolin", "mandola", "cittern", "bouzouki",
+      "baglamas", "saz_baglama", "tanbur_persian", "tar_persian", "setar_persian",
+      "cumbus", "cavaquinho", "cape_verdean_cavaquinho", "charango", "ronroco",
+      "tiple", "tres_cubano", "cuatro_pr", "cuatro_venezolano", "leona",
+      "requinto_jarocho", "jarana_jarocha", "bandola_andina", "bajo_sexto",
+      "balalaika", "domra", "akonting", "dotara", "tumbi"
+    ]
+  },
+
+  "saxophone_1f3b7": {
+    "_emoji": "🎷",
+    "ids": ["saxophone"]
+  },
+
+  "trumpet_1f3ba": {
+    "_emoji": "🎺",
+    "ids": ["trumpet", "cornet", "flugelhorn", "kakaki", "tibetan_dungchen", "dung_chen"]
+  },
+
+  "violin_1f3bb": {
+    "_emoji": "🎻",
+    "ids": [
+      "violin_orchestral", "violin_carnatic", "fiddle", "hardanger_fiddle_inst",
+      "viola_classical", "viola_da_gamba", "cello", "double_bass",
+      "string_quartet_inst", "nyckelharpa", "hurdy_gurdy", "cretan_lyra",
+      "rebab", "kemence", "gusle", "morin_khuur", "igil",
+      "kamancheh", "kamancha", "kamaicha", "joza", "sarangi", "dilruba", "esraj",
+      "haegeum", "erhu", "jinghu", "ajaeng", "sato", "imzad", "masenqo"
+    ]
+  },
+
+  "drum_1f941": {
+    "_emoji": "🥁",
+    "ids": [
+      "drum_kit", "timpani", "marimba_orchestral", "tamborim", "tambourine_orch",
+      "alfaia", "zabumba", "caja_vallenata", "tassa_drum", "bombo_andino",
+      "atabaque", "tombak", "taphon", "sampho", "skor_thom", "thavil",
+      "naqqarat", "nafa", "kebero", "tbel", "trinidadian_iron", "kultrun",
+      "tende_drum", "dumbek"
+    ]
+  },
+
+  "piano_1f3b9": {
+    "_emoji": "🎹",
+    "ids": [
+      "grand_piano", "upright_piano", "tack_piano", "celesta", "clavinet",
+      "harpsichord", "rhodes_electric", "electric_piano_tine", "wurlitzer_ep",
+      "mellotron", "tape_replay_keyboard", "string_machine", "pipe_organ",
+      "tonewheel_organ", "combo_organ", "pump_organ_harmonium", "melodica",
+      "harmonium_indian"
+    ]
+  },
+
+  "banjo_1fa95": {
+    "_emoji": "🪕",
+    "ids": ["banjo_5_string", "frottoir"]
+  },
+
+  "accordion_1fa97": {
+    "_emoji": "🪗",
+    "ids": [
+      "accordion", "piano_accordion", "melodeon_diatonic", "concertina",
+      "concertina_anglo", "concertina_english", "bandoneon", "cajun_accordion",
+      "acordeon_vallenato"
+    ]
+  },
+
+  "long_drum_1fa98": {
+    "_emoji": "🪘",
+    "ids": [
+      "djembe", "congas", "bongos", "darbuka", "dholak", "dunun", "bodhran",
+      "tabla", "pakhawaj", "mridangam", "ghatam", "kanjira", "talking_drum",
+      "surdo", "timbales", "taiko_drums", "taiko_drum", "buk_korean",
+      "janggu", "bata", "bata_drums", "sabar", "bendir", "daf", "pandeiro",
+      "tar_frame_drum", "riq", "riqq", "qarqaba", "damaru", "handpan",
+      "kendang_indonesian", "repinique", "cuica", "log_drum",
+      "tambora_dominicana", "pahu", "ipu_heke", "gaval"
+    ]
+  },
+
+  "flute_1fa88": {
+    "_emoji": "🪈",
+    "ids": [
+      "flute", "alto_flute", "bass_flute", "piccolo", "recorder",
+      "tin_whistle", "tin_whistle_low", "bansuri", "shakuhachi", "dizi",
+      "xiao", "daegeum", "quena", "ocarina", "kaval", "ney", "suling",
+      "siku_panpipes", "pi_nai", "koauau", "putorino", "putatara",
+      "skuduciai", "washint"
+    ]
+  },
+
+  "maracas_1fa87": {
+    "_emoji": "🪇",
+    "ids": [
+      "maracas", "shekere", "caxixi", "ganza", "reco_reco", "guiro",
+      "guacharaca", "afoxe", "sisera", "shacapa", "pulili", "khartal"
+    ]
+  },
+
+  "postal_horn_1f4ef": {
+    "_emoji": "📯",
+    "ids": [
+      "french_horn", "trombone", "tuba", "euphonium",
+      "conch_shell_horn", "shofar", "didgeridoo", "tibetan_gyaling", "rgya_gling"
+    ]
+  },
+
+  "studio_mic_1f399": {
+    "_emoji": "🎙",
+    "ids": ["voice", "throat_singing_voice", "vocal_percussion_voice", "whistled_voice"]
+  },
+
+  "busts_1f465": {
+    "_emoji": "👥",
+    "ids": [
+      "choir_ensemble", "griot_voice", "pansori_voice", "qawwal_voice",
+      "shape_note_voice", "multitrack_vocal_stack",
+      "choir_barbershop_quartet", "choir_brother_duet", "choir_bulgarian_womens",
+      "choir_cathedral_satb", "choir_pentecostal_cogic", "choir_doo_wop_group",
+      "choir_russian_orthodox", "choir_sacred_harp", "choir_southern_black_gospel",
+      "choir_welsh_male", "a_tenores_quartet"
+    ]
+  },
+
+  "knobs_1f39b": {
+    "_emoji": "🎛",
+    "ids": [
+      "analog_mono_synth", "analog_poly_synth", "analog_synth", "digital_subtractive",
+      "eurorack_modular", "fm_synth", "granular_synth", "modular_synth",
+      "monosynth_acid_bass", "wavetable_synth", "sampler_classic",
+      "sampler_drum_machine", "drum_machine_analog", "drum_machine_606",
+      "drum_machine_707", "drum_machine_808", "drum_machine_909", "linndrum",
+      "vocoder", "talkbox", "theremin", "ondes_martenot"
+    ]
+  },
+
+  "disc_1f4bf": {
+    "_emoji": "💿",
+    "ids": ["turntable"]
+  },
+
+  "_unmapped_note": "All other instruments (sitar, oud, kora, sarod, mbira, kalimba, balafon, marimba, vibraphone, glockenspiel, xylophone, gongs, cymbals, koto, gayageum, geomungo, sho_mouth_organ, hulusi, khaen, bawu, sheng, bagpipes including highland_bagpipes/uilleann_pipes/biniou/gaida_bulgarian/etc., harps including celtic_harp/concert_harp/arpa_jarocha/arpa_llanera/kora, dulcimer family, autoharp, jug_inst, kazoo, ensemble jazz/marching/big band, gamelan ensembles, etc.) intentionally have no emoji mapping — they fall through to family-color swatch. Their cultural / visual identity is not adequately served by the Unicode emoji set."
+}

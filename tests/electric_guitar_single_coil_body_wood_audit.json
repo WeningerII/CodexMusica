@@ -1,0 +1,876 @@
+{
+  "generated_at": "2026-05-11T15:23:20.540Z",
+  "target": {
+    "instrument": "electric_guitar_single_coil",
+    "part": "body_wood",
+    "num_variants": 6
+  },
+  "total_traditions": 96,
+  "mismatch_count": 18,
+  "records": [
+    {
+      "tid": "chicago_blues",
+      "name": "Chicago blues",
+      "family": "blues_gospel",
+      "parent": "functionalSong.bluesElectric",
+      "lineage": "electric blues",
+      "crossRefs": [
+        {
+          "ref": "improvOnFrame.americanJazz",
+          "isolated_parts": [
+            "cymbal_alloy"
+          ]
+        }
+      ],
+      "staples": [
+        "soul_jazz",
+        "hard_bop"
+      ],
+      "current_pick": "mahogany",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "pine",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "pine",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "mahogany",
+          "score": 0.39
+        },
+        {
+          "id": "basswood",
+          "score": 0.09
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany",
+          "score": 1.535
+        },
+        {
+          "id": "pine",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "basswood",
+          "score": 0.09
+        }
+      ]
+    },
+    {
+      "tid": "art_rock",
+      "name": "Art rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.artRock",
+      "lineage": "late-1960s through 1980s art-school avant-garde-influenced rock",
+      "crossRefs": [
+        "distortedRock.experimental",
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "psychedelic_rock",
+        "hard_rock"
+      ],
+      "current_pick": "pine",
+      "current_pick_score": 0.27349999999999997,
+      "primary_pick": "mahogany",
+      "primary_pick_score": 0.27349999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany",
+          "score": 0.27349999999999997
+        },
+        {
+          "id": "basswood",
+          "score": 0.2145
+        },
+        {
+          "id": "pine",
+          "score": 0.105
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pine",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "basswood",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "alder",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "noise_rock",
+      "name": "Noise rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.noiseRock",
+      "lineage": "late-1970s through 1990s experimental dissonance-foreground rock",
+      "crossRefs": [
+        "distortedRock.experimental",
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "grunge",
+        "math_rock_post_rock"
+      ],
+      "current_pick": "pine",
+      "current_pick_score": 0.38035714285714284,
+      "primary_pick": "mahogany",
+      "primary_pick_score": 0.38035714285714284,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany",
+          "score": 0.38035714285714284
+        },
+        {
+          "id": "basswood",
+          "score": 0.2814285714285714
+        },
+        {
+          "id": "pine",
+          "score": 0.225
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pine",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "mahogany",
+          "score": 0.5303571428571427
+        },
+        {
+          "id": "basswood",
+          "score": 0.2814285714285714
+        }
+      ]
+    },
+    {
+      "tid": "punk",
+      "name": "Punk",
+      "family": "rock_punk",
+      "parent": "distortedRock.punk",
+      "lineage": "underground",
+      "crossRefs": [
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "garage_rock",
+        "hard_rock"
+      ],
+      "current_pick": "pine",
+      "current_pick_score": 0.27599999999999997,
+      "primary_pick": "mahogany",
+      "primary_pick_score": 0.27599999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany",
+          "score": 0.27599999999999997
+        },
+        {
+          "id": "pine",
+          "score": 0.12999999999999998
+        },
+        {
+          "id": "basswood",
+          "score": 0.105
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pine",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "mahogany",
+          "score": 0.27599999999999997
+        },
+        {
+          "id": "alder",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "jamaican_dancehall",
+      "name": "Jamaican dancehall",
+      "family": "global",
+      "parent": "bassSystem.jamaican",
+      "lineage": "Jamaican",
+      "crossRefs": [
+        "mcRhythm.afroDiasporic",
+        "electronicDance.house"
+      ],
+      "staples": [
+        "chicago_house",
+        "deep_house_soulful"
+      ],
+      "current_pick": "pine",
+      "current_pick_score": 0.32999999999999996,
+      "primary_pick": "mahogany",
+      "primary_pick_score": 0.32999999999999996,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany",
+          "score": 0.32999999999999996
+        },
+        {
+          "id": "pine",
+          "score": 0.21
+        },
+        {
+          "id": "swamp_ash",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pine",
+          "score": 0.21
+        },
+        {
+          "id": "mahogany",
+          "score": 0.195
+        },
+        {
+          "id": "swamp_ash",
+          "score": 0.045
+        }
+      ]
+    },
+    {
+      "tid": "classic_rb",
+      "name": "Classic R&B",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb",
+      "lineage": "soul / r&b",
+      "crossRefs": [
+        "ritualDevotional.christianGospel.blackGospel"
+      ],
+      "staples": [
+        "black_gospel_choir",
+        "contemporary_urban_gospel"
+      ],
+      "current_pick": "mahogany",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "pine",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "pine",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "mahogany",
+          "score": 0.78
+        },
+        {
+          "id": "alder",
+          "score": 0.223125
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany",
+          "score": 2.145
+        },
+        {
+          "id": "pine",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "alder",
+          "score": 0.45499999999999996
+        }
+      ]
+    },
+    {
+      "tid": "doo_wop",
+      "name": "Doo-wop",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb.doowop",
+      "lineage": "1950s African-American vocal-harmony group teen-pop r&b",
+      "crossRefs": [
+        "ritualDevotional.christianGospel.jubileeQuartet",
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "yacht_rock",
+        "folk_rock"
+      ],
+      "current_pick": "mahogany",
+      "current_pick_score": 0.40499999999999997,
+      "primary_pick": "pine",
+      "primary_pick_score": 0.40499999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "pine",
+          "score": 0.40499999999999997
+        },
+        {
+          "id": "mahogany",
+          "score": 0.39
+        },
+        {
+          "id": "alder",
+          "score": 0.28500000000000003
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany",
+          "score": 2.6649999999999996
+        },
+        {
+          "id": "pine",
+          "score": 0.40499999999999997
+        },
+        {
+          "id": "alder",
+          "score": 0.28500000000000003
+        }
+      ]
+    },
+    {
+      "tid": "western_swing",
+      "name": "Western swing",
+      "family": "country",
+      "parent": "functionalSong.country.westernSwing",
+      "lineage": "1930s-1940s Texas-Oklahoma string-band swing-era jazz hybrid",
+      "crossRefs": [
+        "functionalSong.country.honkyTonkEra",
+        "improvOnFrame.americanJazz.early"
+      ],
+      "staples": [
+        "new_orleans",
+        "big_band"
+      ],
+      "current_pick": "pine",
+      "current_pick_score": 0.5512499999999999,
+      "primary_pick": "mahogany",
+      "primary_pick_score": 0.5512499999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany",
+          "score": 0.5512499999999999
+        },
+        {
+          "id": "pine",
+          "score": 0.364875
+        },
+        {
+          "id": "alder",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pine",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "mahogany",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "alder",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "hardcore_punk",
+      "name": "Hardcore punk",
+      "family": "rock_punk",
+      "parent": "distortedRock.punk",
+      "lineage": "underground",
+      "crossRefs": [
+        "distortedRock.metal.thrash"
+      ],
+      "staples": [
+        "thrash_metal"
+      ],
+      "current_pick": "pine",
+      "current_pick_score": 0.3,
+      "primary_pick": "mahogany",
+      "primary_pick_score": 0.3,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany",
+          "score": 0.3
+        },
+        {
+          "id": "pine",
+          "score": 0.154875
+        },
+        {
+          "id": "alder",
+          "score": 0.005625
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pine",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "mahogany",
+          "score": 0.3
+        },
+        {
+          "id": "alder",
+          "score": 0.005625
+        }
+      ]
+    },
+    {
+      "tid": "brill_building_pop",
+      "name": "Brill Building pop",
+      "family": "global",
+      "parent": "functionalSong.crooners",
+      "lineage": "American 1958-65 songwriter-pop",
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "yacht_rock",
+        "folk_rock"
+      ],
+      "current_pick": "mahogany",
+      "current_pick_score": 0.5275,
+      "primary_pick": "pine",
+      "primary_pick_score": 0.5275,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "pine",
+          "score": 0.5275
+        },
+        {
+          "id": "mahogany",
+          "score": 0.39
+        },
+        {
+          "id": "alder",
+          "score": 0.135
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany",
+          "score": 2.6649999999999996
+        },
+        {
+          "id": "pine",
+          "score": 0.5275
+        },
+        {
+          "id": "alder",
+          "score": 0.135
+        }
+      ]
+    },
+    {
+      "tid": "city_pop",
+      "name": "City pop (Japanese)",
+      "family": "global",
+      "parent": "functionalSong.eastAsianPop",
+      "lineage": "late-70s/80s Japanese funk-jazz-pop",
+      "crossRefs": [
+        {
+          "ref": "functionalSong.soulRb",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "doo_wop",
+        "classic_rb"
+      ],
+      "current_pick": "mahogany",
+      "current_pick_score": 0.525,
+      "primary_pick": "pine",
+      "primary_pick_score": 0.525,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "pine",
+          "score": 0.525
+        },
+        {
+          "id": "mahogany",
+          "score": 0.297
+        },
+        {
+          "id": "alder",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany",
+          "score": 0.585
+        },
+        {
+          "id": "pine",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "alder",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "shibuya_kei",
+      "name": "Shibuya-kei",
+      "family": "global",
+      "parent": "functionalSong.eastAsianPop",
+      "lineage": "1990s Japanese eclectic pop",
+      "crossRefs": [
+        "experimentalElec.popExperimental"
+      ],
+      "staples": [
+        "hyperpop"
+      ],
+      "current_pick": "alder",
+      "current_pick_score": 0.110625,
+      "primary_pick": "mahogany",
+      "primary_pick_score": 0.110625,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany",
+          "score": 0.110625
+        },
+        {
+          "id": "alder",
+          "score": 0.045
+        },
+        {
+          "id": "swamp_ash",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "alder",
+          "score": 0.195
+        },
+        {
+          "id": "mahogany",
+          "score": 0.110625
+        },
+        {
+          "id": "swamp_ash",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "mandopop",
+      "name": "Mandopop",
+      "family": "global",
+      "parent": "functionalSong.eastAsianPop",
+      "lineage": "Mandarin-language mainstream pop",
+      "crossRefs": [
+        {
+          "ref": "functionalSong.popRock",
+          "isolated_parts": [
+            "voice_quality"
+          ]
+        }
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "mahogany",
+      "current_pick_score": 0.40499999999999997,
+      "primary_pick": "pine",
+      "primary_pick_score": 0.40499999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "pine",
+          "score": 0.40499999999999997
+        },
+        {
+          "id": "mahogany",
+          "score": 0.39
+        },
+        {
+          "id": "alder",
+          "score": 0.135
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany",
+          "score": 2.6649999999999996
+        },
+        {
+          "id": "pine",
+          "score": 0.40499999999999997
+        },
+        {
+          "id": "alder",
+          "score": 0.135
+        }
+      ]
+    },
+    {
+      "tid": "portuguese_pop_modern",
+      "name": "Portuguese pop (modern)",
+      "family": "global",
+      "parent": "functionalSong.iberian",
+      "lineage": "modern Portuguese mainstream pop",
+      "crossRefs": [
+        "balladPoetry.chansonFado"
+      ],
+      "staples": [
+        "chanson_classique",
+        "greek_entechno"
+      ],
+      "current_pick": "mahogany",
+      "current_pick_score": 0.315,
+      "primary_pick": "alder",
+      "primary_pick_score": 0.315,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alder",
+          "score": 0.315
+        },
+        {
+          "id": "mahogany",
+          "score": 0.31124999999999997
+        },
+        {
+          "id": "pine",
+          "score": 0.26949999999999996
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany",
+          "score": 1.3
+        },
+        {
+          "id": "alder",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "pine",
+          "score": 0.26949999999999996
+        }
+      ]
+    },
+    {
+      "tid": "spanish_cancion_pop",
+      "name": "Spanish canción pop",
+      "family": "global",
+      "parent": "functionalSong.iberian",
+      "lineage": "Spanish-language mainstream song",
+      "crossRefs": [
+        "balladPoetry.chansonFado"
+      ],
+      "staples": [
+        "fado_coimbra_university",
+        "chanson_classique"
+      ],
+      "current_pick": "mahogany",
+      "current_pick_score": 0.315,
+      "primary_pick": "alder",
+      "primary_pick_score": 0.315,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alder",
+          "score": 0.315
+        },
+        {
+          "id": "mahogany",
+          "score": 0.3075
+        },
+        {
+          "id": "pine",
+          "score": 0.252
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany",
+          "score": 0.845
+        },
+        {
+          "id": "alder",
+          "score": 0.315
+        },
+        {
+          "id": "pine",
+          "score": 0.252
+        }
+      ]
+    },
+    {
+      "tid": "j_rock",
+      "name": "J-rock",
+      "family": "global",
+      "parent": "distortedRock.regional",
+      "lineage": "Japanese-language alt-rock and visual-kei rock",
+      "crossRefs": [
+        "functionalSong.eastAsianPop"
+      ],
+      "staples": [
+        "k_pop_modern",
+        "j_pop_classic"
+      ],
+      "current_pick": "mahogany",
+      "current_pick_score": 0.18637499999999996,
+      "primary_pick": "pine",
+      "primary_pick_score": 0.18637499999999996,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "pine",
+          "score": 0.18637499999999996
+        },
+        {
+          "id": "mahogany",
+          "score": 0.18
+        },
+        {
+          "id": "alder",
+          "score": 0.09
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany",
+          "score": 0.39
+        },
+        {
+          "id": "pine",
+          "score": 0.18637499999999996
+        },
+        {
+          "id": "alder",
+          "score": 0.09
+        }
+      ]
+    },
+    {
+      "tid": "lebanese_pop_tarab",
+      "name": "Lebanese tarab-pop",
+      "family": "global",
+      "parent": "functionalSong.midEastNAfricanPop",
+      "lineage": "Beirut-centered modern Arabic-pop with classical-tarab roots, melismatic ornate praise devotional vocal",
+      "crossRefs": [
+        "improvOnFrame.persianArabImprov",
+        "artMusic.middleEasternClassical"
+      ],
+      "staples": [
+        "andalusi_nuba",
+        "turkish_makam"
+      ],
+      "current_pick": "mahogany",
+      "current_pick_score": 2.145,
+      "primary_pick": "alder",
+      "primary_pick_score": 2.145,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alder",
+          "score": 2.145
+        },
+        {
+          "id": "mahogany",
+          "score": 1.95
+        },
+        {
+          "id": "pine",
+          "score": 0.7866249999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany",
+          "score": 2.8600000000000003
+        },
+        {
+          "id": "alder",
+          "score": 1.8199999999999998
+        },
+        {
+          "id": "pine",
+          "score": 0.7866249999999999
+        }
+      ]
+    },
+    {
+      "tid": "sahel_praise",
+      "name": "Sahel praise music (Mali, Senegal, Mauritania, Niger)",
+      "family": "global",
+      "parent": "functionalSong.africanPop",
+      "lineage": "griot-tradition-derived contemporary praise music",
+      "crossRefs": [
+        "ritualDevotional.sufi",
+        "balladPoetry.westAfricanGriot"
+      ],
+      "staples": [
+        "wassoulou",
+        "qawwali"
+      ],
+      "current_pick": "pine",
+      "current_pick_score": 1.0046249999999999,
+      "primary_pick": "mahogany",
+      "primary_pick_score": 1.0046249999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany",
+          "score": 1.0046249999999999
+        },
+        {
+          "id": "pine",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "alder",
+          "score": 0.42
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pine",
+          "score": 1.3649999999999998
+        },
+        {
+          "id": "mahogany",
+          "score": 1.0046249999999999
+        },
+        {
+          "id": "alder",
+          "score": 0.45499999999999996
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,821 @@
+{
+  "generated_at": "2026-05-11T15:26:25.291Z",
+  "target": {
+    "instrument": "electric_bass",
+    "part": "string_type",
+    "num_variants": 4
+  },
+  "total_traditions": 181,
+  "mismatch_count": 17,
+  "records": [
+    {
+      "tid": "noise_rock",
+      "name": "Noise rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.noiseRock",
+      "lineage": "late-1970s through 1990s experimental dissonance-foreground rock",
+      "crossRefs": [
+        "distortedRock.experimental",
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "grunge",
+        "math_rock_post_rock"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 0.6728571428571428,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.6728571428571428,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.6728571428571428
+        },
+        {
+          "id": "half_round",
+          "score": 0.39
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 0.7189285714285714
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.6728571428571428
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "garage_rock",
+      "name": "Garage rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.classic",
+      "lineage": "60s rock",
+      "crossRefs": [
+        "distortedRock.punk"
+      ],
+      "staples": [
+        "punk",
+        "hardcore_punk"
+      ],
+      "current_pick": "roundwound_s",
+      "current_pick_score": 0.28500000000000003,
+      "primary_pick": "half_round",
+      "primary_pick_score": 0.28500000000000003,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "half_round",
+          "score": 0.28500000000000003
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.21000000000000002
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.21000000000000002
+        },
+        {
+          "id": "half_round",
+          "score": 0.195
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "boom_bap",
+      "name": "Boom bap",
+      "family": "hip_hop",
+      "parent": "mcRhythm.usHipHop.eastCoast",
+      "lineage": "east coast",
+      "crossRefs": [
+        "functionalSong.soulRb"
+      ],
+      "staples": [
+        "doo_wop",
+        "contemporary_rb_late_90s_2000s"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 0.44999999999999996,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.44999999999999996,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.44999999999999996
+        },
+        {
+          "id": "half_round",
+          "score": 0.39
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 0.585
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.44999999999999996
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "g_funk",
+      "name": "G-funk",
+      "family": "hip_hop",
+      "parent": "mcRhythm.usHipHop.westCoast",
+      "lineage": "west coast",
+      "crossRefs": [
+        "groovePercussion.funkPercussive"
+      ],
+      "staples": [
+        "funk",
+        "minneapolis_synth_funk_pop"
+      ],
+      "current_pick": "roundwound_s",
+      "current_pick_score": 0.39,
+      "primary_pick": "half_round",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "half_round",
+          "score": 0.39
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.25725
+        },
+        {
+          "id": "flatwound",
+          "score": 0.005625
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.975
+        },
+        {
+          "id": "half_round",
+          "score": 0.6956249999999999
+        },
+        {
+          "id": "flatwound",
+          "score": 0.005625
+        }
+      ]
+    },
+    {
+      "tid": "funk",
+      "name": "Funk",
+      "family": "blues_gospel",
+      "parent": "groovePercussion.funkPercussive",
+      "lineage": "soul / r&b",
+      "crossRefs": [
+        "functionalSong.soulRb"
+      ],
+      "staples": [
+        "southern_soul",
+        "doo_wop"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 0.6224999999999999,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.6224999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.6224999999999999
+        },
+        {
+          "id": "half_round",
+          "score": 0.39
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 0.78
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.6224999999999999
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "krautrock",
+      "name": "Krautrock",
+      "family": "rock_punk",
+      "parent": "distortedRock.experimental",
+      "lineage": "experimental",
+      "crossRefs": [
+        "experimentalElec.ambient"
+      ],
+      "staples": [
+        "ambient",
+        "drone_dark_ambient"
+      ],
+      "current_pick": "flatwound",
+      "current_pick_score": 0.3542410714285714,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.3542410714285714,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.3542410714285714
+        },
+        {
+          "id": "flatwound",
+          "score": 0.33
+        },
+        {
+          "id": "half_round",
+          "score": 0.05583333333333333
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "flatwound",
+          "score": 1.4300000000000002
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.5042410714285714
+        },
+        {
+          "id": "half_round",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "dream_pop",
+      "name": "Dream pop",
+      "family": "global",
+      "parent": "functionalSong.popRock",
+      "lineage": "1980s-onward atmospheric guitar pop",
+      "crossRefs": [
+        {
+          "ref": "distortedRock.alternative",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "math_rock_post_rock",
+        "shoegaze"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 0.16799999999999998,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.16799999999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.16799999999999998
+        },
+        {
+          "id": "half_round",
+          "score": 0.1215
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 0.195
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.16799999999999998
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "jangle_pop",
+      "name": "Jangle pop",
+      "family": "global",
+      "parent": "functionalSong.popRock",
+      "lineage": "1960s-derived chimey-guitar pop",
+      "crossRefs": [
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "math_rock_post_rock",
+        "grunge"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 0.2005,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.2005,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.2005
+        },
+        {
+          "id": "half_round",
+          "score": 0.1215
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 0.39
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.2005
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "power_pop",
+      "name": "Power pop",
+      "family": "global",
+      "parent": "functionalSong.popRock",
+      "lineage": "British Invasion-derived hooky guitar-pop",
+      "crossRefs": [
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "math_rock_post_rock",
+        "grunge"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 0.16799999999999998,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.16799999999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.16799999999999998
+        },
+        {
+          "id": "half_round",
+          "score": 0.1215
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 0.39
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.16799999999999998
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "j_pop_classic",
+      "name": "J-pop (classic mainstream)",
+      "family": "global",
+      "parent": "functionalSong.eastAsianPop",
+      "lineage": "Japanese mainstream pop",
+      "crossRefs": [
+        {
+          "ref": "functionalSong.popRock",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 0.78,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.78,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.78
+        },
+        {
+          "id": "half_round",
+          "score": 0.78
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 3.055
+        },
+        {
+          "id": "roundwound_s",
+          "score": 1.47
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "spanish_cancion_pop",
+      "name": "Spanish canción pop",
+      "family": "global",
+      "parent": "functionalSong.iberian",
+      "lineage": "Spanish-language mainstream song",
+      "crossRefs": [
+        "balladPoetry.chansonFado"
+      ],
+      "staples": [
+        "fado_coimbra_university",
+        "chanson_classique"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 0.6237499999999998,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.6237499999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.6237499999999998
+        },
+        {
+          "id": "half_round",
+          "score": 0.4125
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0.105
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 0.845
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.195
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0.105
+        }
+      ]
+    },
+    {
+      "tid": "cumbia_colombiana",
+      "name": "Cumbia colombiana",
+      "family": "global",
+      "parent": "groovePercussion.latinAm",
+      "lineage": "Colombian Caribbean coast",
+      "crossRefs": [
+        "functionalSong.tropicalSong"
+      ],
+      "staples": [
+        "kompa_song_form",
+        "bachata"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 0.108,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.108,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.108
+        },
+        {
+          "id": "half_round",
+          "score": 0.050624999999999996
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 0.195
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.108
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "lovers_rock",
+      "name": "Lovers' rock",
+      "family": "global",
+      "parent": "bassSystem.reggaeDiaspora",
+      "lineage": "UK Black-British reggae",
+      "crossRefs": [
+        {
+          "ref": "functionalSong.soulRb",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "doo_wop",
+        "classic_rb"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 0.5864999999999999,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.5864999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.5864999999999999
+        },
+        {
+          "id": "half_round",
+          "score": 0.30600000000000005
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 0.78
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.5864999999999999
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "bedroom_pop",
+      "name": "Bedroom pop",
+      "family": "global",
+      "parent": "experimentalElec.lofi",
+      "lineage": "2010s-onward DIY-DAW indie pop",
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 1.78125,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 1.78125,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 1.78125
+        },
+        {
+          "id": "half_round",
+          "score": 0.39
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 2.6649999999999996
+        },
+        {
+          "id": "roundwound_s",
+          "score": 2.3812499999999996
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "drone_metal",
+      "name": "Drone doom metal",
+      "family": "global",
+      "parent": "distortedRock.metal.doom",
+      "lineage": "extreme-minimalist doom metal",
+      "crossRefs": [
+        "droneModal.modalElectric"
+      ],
+      "staples": [
+        "desert_blues"
+      ],
+      "current_pick": "half_round",
+      "current_pick_score": 0.1285,
+      "primary_pick": "roundwound_s",
+      "primary_pick_score": 0.1285,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.1285
+        },
+        {
+          "id": "half_round",
+          "score": 0.11025
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "half_round",
+          "score": 0.195
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.1285
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "tropicalia",
+      "name": "Tropicália",
+      "family": "global",
+      "parent": "groovePercussion.brazilian",
+      "lineage": "late-1960s Brazilian art-pop fusion movement",
+      "crossRefs": [
+        "distortedRock.experimental"
+      ],
+      "staples": [
+        "krautrock"
+      ],
+      "current_pick": "roundwound_s",
+      "current_pick_score": 0.14625,
+      "primary_pick": "half_round",
+      "primary_pick_score": 0.14625,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "half_round",
+          "score": 0.14625
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.08099999999999999
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.195
+        },
+        {
+          "id": "half_round",
+          "score": 0.14625
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "baiao",
+      "name": "Baião",
+      "family": "global",
+      "parent": "groovePercussion.brazilian",
+      "lineage": "Northeast-Brazilian dance song",
+      "crossRefs": [
+        {
+          "ref": "functionalSong.brazilianSong",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "bossa_nova"
+      ],
+      "current_pick": "roundwound_s",
+      "current_pick_score": 0.12299999999999998,
+      "primary_pick": "half_round",
+      "primary_pick_score": 0.12299999999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "half_round",
+          "score": 0.12299999999999998
+        },
+        {
+          "id": "roundwound_s",
+          "score": 0.0765
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "roundwound_s",
+          "score": 0.195
+        },
+        {
+          "id": "half_round",
+          "score": 0.12299999999999998
+        },
+        {
+          "id": "roundwound_n",
+          "score": 0
+        }
+      ]
+    }
+  ]
+}

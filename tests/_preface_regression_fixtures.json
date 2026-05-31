@@ -1,0 +1,476 @@
+[
+  {
+    "traditionId": "ska_revival_2tone",
+    "instrumentId": "voice",
+    "instrumentClass": "vocal_lead",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "afrobeats_naija",
+    "instrumentId": "voice",
+    "instrumentClass": "vocal_lead",
+    "expectedPreface": "eye-watering"
+  },
+  {
+    "traditionId": "afrobeat",
+    "instrumentId": "voice",
+    "instrumentClass": "vocal_lead",
+    "expectedPreface": "head-nodding"
+  },
+  {
+    "traditionId": "algerian_rap",
+    "instrumentId": "voice",
+    "instrumentClass": "vocal_lead",
+    "expectedPreface": "mc-flowing"
+  },
+  {
+    "traditionId": "alt_country_americana",
+    "instrumentId": "voice",
+    "instrumentClass": "vocal_lead",
+    "expectedPreface": "eye-watering"
+  },
+  {
+    "traditionId": "ska_revival_2tone",
+    "instrumentId": "electric_guitar_single_coil",
+    "instrumentClass": "plucked_string_lead",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "afrobeat",
+    "instrumentId": "electric_guitar_single_coil",
+    "instrumentClass": "plucked_string_lead",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "alt_country_americana",
+    "instrumentId": "electric_guitar_single_coil",
+    "instrumentClass": "plucked_string_lead",
+    "expectedPreface": "skiffle-makeshift"
+  },
+  {
+    "traditionId": "alt_country_americana",
+    "instrumentId": "mandolin",
+    "instrumentClass": "plucked_string_lead",
+    "expectedPreface": "skiffle-makeshift"
+  },
+  {
+    "traditionId": "alt_country_americana",
+    "instrumentId": "pedal_steel",
+    "instrumentClass": "plucked_string_lead",
+    "expectedPreface": "loping"
+  },
+  {
+    "traditionId": "ska_revival_2tone",
+    "instrumentId": "electric_bass",
+    "instrumentClass": "bass",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "afrobeat",
+    "instrumentId": "electric_bass",
+    "instrumentClass": "bass",
+    "expectedPreface": "prancing"
+  },
+  {
+    "traditionId": "alt_country_americana",
+    "instrumentId": "electric_bass",
+    "instrumentClass": "bass",
+    "expectedPreface": "raging"
+  },
+  {
+    "traditionId": "anadolu_rock",
+    "instrumentId": "electric_bass",
+    "instrumentClass": "bass",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "aor",
+    "instrumentId": "electric_bass",
+    "instrumentClass": "bass",
+    "expectedPreface": "raging"
+  },
+  {
+    "traditionId": "ska_revival_2tone",
+    "instrumentId": "drum_kit",
+    "instrumentClass": "drum_kit",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "afrobeat",
+    "instrumentId": "drum_kit",
+    "instrumentClass": "drum_kit",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "alt_country_americana",
+    "instrumentId": "drum_kit",
+    "instrumentClass": "drum_kit",
+    "expectedPreface": "marrow-deep"
+  },
+  {
+    "traditionId": "american_drumline",
+    "instrumentId": "drumline_dci",
+    "instrumentClass": "drum_kit",
+    "expectedPreface": "marching"
+  },
+  {
+    "traditionId": "american_drumline",
+    "instrumentId": "drumline_hbcu",
+    "instrumentClass": "drum_kit",
+    "expectedPreface": "marching"
+  },
+  {
+    "traditionId": "andalusi_nuba",
+    "instrumentId": "rebab",
+    "instrumentClass": "bowed_string",
+    "expectedPreface": "andalusi-modal"
+  },
+  {
+    "traditionId": "arab_tarab",
+    "instrumentId": "kamancheh",
+    "instrumentClass": "bowed_string",
+    "expectedPreface": "andalusi-modal"
+  },
+  {
+    "traditionId": "art_pop",
+    "instrumentId": "string_quartet_inst",
+    "instrumentClass": "bowed_string",
+    "expectedPreface": "spine-rooting"
+  },
+  {
+    "traditionId": "bakersfield",
+    "instrumentId": "fiddle",
+    "instrumentClass": "bowed_string",
+    "expectedPreface": "erhuang"
+  },
+  {
+    "traditionId": "baroque_period",
+    "instrumentId": "cello",
+    "instrumentClass": "bowed_string",
+    "expectedPreface": "asymmetric-rolling"
+  },
+  {
+    "traditionId": "anglican_choral_cathedral",
+    "instrumentId": "pipe_organ",
+    "instrumentClass": "keyboard_acoustic",
+    "expectedPreface": "processional"
+  },
+  {
+    "traditionId": "anglican_choral_evensong",
+    "instrumentId": "pipe_organ",
+    "instrumentClass": "keyboard_acoustic",
+    "expectedPreface": "messianic"
+  },
+  {
+    "traditionId": "aor",
+    "instrumentId": "grand_piano",
+    "instrumentClass": "keyboard_acoustic",
+    "expectedPreface": "stride-trotting"
+  },
+  {
+    "traditionId": "arena_rock",
+    "instrumentId": "grand_piano",
+    "instrumentClass": "keyboard_acoustic",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "art_pop",
+    "instrumentId": "grand_piano",
+    "instrumentClass": "keyboard_acoustic",
+    "expectedPreface": "stride-trotting"
+  },
+  {
+    "traditionId": "alt_country_americana",
+    "instrumentId": "acoustic_guitar_dread",
+    "instrumentClass": "plucked_string_rhythm",
+    "expectedPreface": "strutting"
+  },
+  {
+    "traditionId": "alt_country_americana",
+    "instrumentId": "autoharp",
+    "instrumentClass": "plucked_string_rhythm",
+    "expectedPreface": "strutting"
+  },
+  {
+    "traditionId": "antifolk_nyc",
+    "instrumentId": "acoustic_guitar_om",
+    "instrumentClass": "plucked_string_rhythm",
+    "expectedPreface": "kora-cascading"
+  },
+  {
+    "traditionId": "bachata",
+    "instrumentId": "acoustic_guitar_om",
+    "instrumentClass": "plucked_string_rhythm",
+    "expectedPreface": "kora-cascading"
+  },
+  {
+    "traditionId": "bambuco",
+    "instrumentId": "acoustic_guitar_om",
+    "instrumentClass": "plucked_string_rhythm",
+    "expectedPreface": "kora-cascading"
+  },
+  {
+    "traditionId": "baiao",
+    "instrumentId": "accordion",
+    "instrumentClass": "free_reed",
+    "expectedPreface": "klezmer-dancing"
+  },
+  {
+    "traditionId": "basque_kantautor",
+    "instrumentId": "accordion",
+    "instrumentClass": "free_reed",
+    "expectedPreface": "klezmer-dancing"
+  },
+  {
+    "traditionId": "bhajan",
+    "instrumentId": "harmonium_indian",
+    "instrumentClass": "free_reed",
+    "expectedPreface": "shanti"
+  },
+  {
+    "traditionId": "bothy_ballad_doric",
+    "instrumentId": "accordion",
+    "instrumentClass": "free_reed",
+    "expectedPreface": "klezmer-dancing"
+  },
+  {
+    "traditionId": "bothy_ballad_doric",
+    "instrumentId": "melodeon_diatonic",
+    "instrumentClass": "free_reed",
+    "expectedPreface": "hiraeth"
+  },
+  {
+    "traditionId": "ska_revival_2tone",
+    "instrumentId": "saxophone",
+    "instrumentClass": "wind_blown",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "ska_revival_2tone",
+    "instrumentId": "trombone",
+    "instrumentClass": "wind_blown",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "ska_revival_2tone",
+    "instrumentId": "trumpet",
+    "instrumentClass": "wind_blown",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "afrobeat",
+    "instrumentId": "saxophone",
+    "instrumentClass": "wind_blown",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "afrobeat",
+    "instrumentId": "trumpet",
+    "instrumentClass": "wind_blown",
+    "expectedPreface": "funking"
+  },
+  {
+    "traditionId": "ska_revival_2tone",
+    "instrumentId": "tonewheel_organ",
+    "instrumentClass": "keyboard_electric",
+    "expectedPreface": "two-stepping"
+  },
+  {
+    "traditionId": "afrobeat",
+    "instrumentId": "tonewheel_organ",
+    "instrumentClass": "keyboard_electric",
+    "expectedPreface": "head-nodding"
+  },
+  {
+    "traditionId": "alt_country_americana",
+    "instrumentId": "wurlitzer_ep",
+    "instrumentClass": "keyboard_electric",
+    "expectedPreface": "strutting"
+  },
+  {
+    "traditionId": "amapiano",
+    "instrumentId": "rhodes_electric",
+    "instrumentClass": "keyboard_electric",
+    "expectedPreface": "ngoma"
+  },
+  {
+    "traditionId": "ambient",
+    "instrumentId": "tape_replay_keyboard",
+    "instrumentClass": "keyboard_electric",
+    "expectedPreface": "drowning"
+  },
+  {
+    "traditionId": "anglican_choral_cathedral",
+    "instrumentId": "choir_cathedral_satb",
+    "instrumentClass": "vocal_choir",
+    "expectedPreface": "processional"
+  },
+  {
+    "traditionId": "anglican_choral_evensong",
+    "instrumentId": "choir_cathedral_satb",
+    "instrumentClass": "vocal_choir",
+    "expectedPreface": "messianic"
+  },
+  {
+    "traditionId": "anglican_choral_evensong",
+    "instrumentId": "choir_ensemble",
+    "instrumentClass": "vocal_choir",
+    "expectedPreface": "messianic"
+  },
+  {
+    "traditionId": "barbershop_quartet",
+    "instrumentId": "choir_barbershop_quartet",
+    "instrumentClass": "vocal_choir",
+    "expectedPreface": "swinging"
+  },
+  {
+    "traditionId": "black_gospel_choir",
+    "instrumentId": "choir_ensemble",
+    "instrumentClass": "vocal_choir",
+    "expectedPreface": "paschal"
+  },
+  {
+    "traditionId": "afrobeat",
+    "instrumentId": "congas",
+    "instrumentClass": "hand_percussion",
+    "expectedPreface": "head-nodding"
+  },
+  {
+    "traditionId": "afrobeat",
+    "instrumentId": "shekere",
+    "instrumentClass": "hand_percussion",
+    "expectedPreface": "head-nodding"
+  },
+  {
+    "traditionId": "ambient",
+    "instrumentId": "handpan",
+    "instrumentClass": "hand_percussion",
+    "expectedPreface": "drowning"
+  },
+  {
+    "traditionId": "american_drumline",
+    "instrumentId": "marimba_orchestral",
+    "instrumentClass": "hand_percussion",
+    "expectedPreface": "marching"
+  },
+  {
+    "traditionId": "american_drumline",
+    "instrumentId": "timpani",
+    "instrumentClass": "hand_percussion",
+    "expectedPreface": "marching"
+  },
+  {
+    "traditionId": "acid_house",
+    "instrumentId": "drum_machine_analog",
+    "instrumentClass": "electronic",
+    "expectedPreface": "psy-pulsing"
+  },
+  {
+    "traditionId": "acid_house",
+    "instrumentId": "monosynth_acid_bass",
+    "instrumentClass": "electronic",
+    "expectedPreface": "spine-rooting"
+  },
+  {
+    "traditionId": "afrobeats_naija",
+    "instrumentId": "analog_poly_synth",
+    "instrumentClass": "electronic",
+    "expectedPreface": "balafon-pattering"
+  },
+  {
+    "traditionId": "afrobeats_naija",
+    "instrumentId": "drum_machine_808",
+    "instrumentClass": "electronic",
+    "expectedPreface": "street-pulsing"
+  },
+  {
+    "traditionId": "afrobeats_naija",
+    "instrumentId": "sampler_drum_machine",
+    "instrumentClass": "electronic",
+    "expectedPreface": "micro-stuttering"
+  },
+  {
+    "traditionId": "amapiano",
+    "instrumentId": "log_drum",
+    "instrumentClass": "tuned_percussion",
+    "expectedPreface": "head-nodding"
+  },
+  {
+    "traditionId": "american_drumline",
+    "instrumentId": "vibraphone",
+    "instrumentClass": "tuned_percussion",
+    "expectedPreface": "marching"
+  },
+  {
+    "traditionId": "balinese_gamelan",
+    "instrumentId": "gamelan_balinese_full",
+    "instrumentClass": "tuned_percussion",
+    "expectedPreface": "drone-floating"
+  },
+  {
+    "traditionId": "beompae_korean",
+    "instrumentId": "log_drum",
+    "instrumentClass": "tuned_percussion",
+    "expectedPreface": "dukkha"
+  },
+  {
+    "traditionId": "bomba_puertorican",
+    "instrumentId": "log_drum",
+    "instrumentClass": "tuned_percussion",
+    "expectedPreface": "head-nodding"
+  },
+  {
+    "traditionId": "grunge",
+    "instrumentId": "voice",
+    "instrumentClass": "vocal_lead",
+    "expectedPreface": "snarling"
+  },
+  {
+    "traditionId": "dream_pop",
+    "instrumentId": "voice",
+    "instrumentClass": "vocal_lead",
+    "expectedPreface": "dream-floating"
+  },
+  {
+    "traditionId": "american_primitive",
+    "instrumentId": "acoustic_guitar_dread",
+    "instrumentClass": "plucked_string_rhythm",
+    "expectedPreface": "primitive-meandering"
+  },
+  {
+    "traditionId": "mbira_tradition",
+    "instrumentId": "mbira",
+    "instrumentClass": "plucked_string_lead",
+    "expectedPreface": "mbira-cycling"
+  },
+  {
+    "traditionId": "hardanger_fiddle",
+    "instrumentId": "hardanger_fiddle_inst",
+    "instrumentClass": "bowed_string",
+    "expectedPreface": "nordic-droning"
+  },
+  {
+    "traditionId": "uilleann_pipe_solo",
+    "instrumentId": "uilleann_pipes",
+    "instrumentClass": "wind_blown",
+    "expectedPreface": "strutting"
+  },
+  {
+    "traditionId": "electroacoustic_improv",
+    "instrumentId": "granular_synth",
+    "instrumentClass": "electronic",
+    "expectedPreface": "modular-mutating"
+  },
+  {
+    "traditionId": "psytrance",
+    "instrumentId": "analog_mono_synth",
+    "instrumentClass": "electronic",
+    "expectedPreface": "psy-pulsing"
+  },
+  {
+    "traditionId": "goa_trance",
+    "instrumentId": "analog_mono_synth",
+    "instrumentClass": "electronic",
+    "expectedPreface": "psy-pulsing"
+  }
+]

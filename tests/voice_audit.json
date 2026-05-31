@@ -1,0 +1,4149 @@
+{
+  "generated_at": "2026-05-18T02:59:22.679Z",
+  "total_voice_traditions": 404,
+  "mismatch_count": 88,
+  "records": [
+    {
+      "tid": "honky_tonk",
+      "name": "Honky-tonk",
+      "family": null,
+      "parent": "functionalSong.country.honkyTonkEra",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.angloSingerSong"
+      ],
+      "staples": [
+        "texas_country_folk_storyteller",
+        "laurel_canyon_70s"
+      ],
+      "current_pick": "incomplete_closure_voice",
+      "current_pick_score": 4.26,
+      "primary_pick": "worn_fold_voice",
+      "primary_pick_score": 1.1,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "worn_fold_voice",
+          "score": 1.1
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 0.455
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.325
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 4.26
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 2.575
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.52
+        }
+      ]
+    },
+    {
+      "tid": "outlaw_country",
+      "name": "Outlaw country",
+      "family": null,
+      "parent": "functionalSong.country.outlaw",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.angloSingerSong.confessional60s"
+      ],
+      "staples": [
+        "interior_confessional_60s",
+        "greenwich_village_confessional"
+      ],
+      "current_pick": "incomplete_closure_voice",
+      "current_pick_score": 12.075,
+      "primary_pick": "crooner_voice",
+      "primary_pick_score": 0.8851,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "crooner_voice",
+          "score": 0.8851
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.3056
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.25
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 12.075
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.8851
+        },
+        {
+          "id": "aspirated_voice",
+          "score": 0.65
+        }
+      ]
+    },
+    {
+      "tid": "southern_rock",
+      "name": "Southern rock",
+      "family": null,
+      "parent": "distortedRock.southernRock",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.classic",
+        "functionalSong.country.countryRock"
+      ],
+      "staples": [
+        "country_rock",
+        "hard_rock"
+      ],
+      "current_pick": "worn_fold_voice",
+      "current_pick_score": 8.645,
+      "primary_pick": "blues_shouter_voice",
+      "primary_pick_score": 6.175,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 6.175
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 5.795
+        },
+        {
+          "id": "praise_voice",
+          "score": 3.084
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "worn_fold_voice",
+          "score": 8.645
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 8.522
+        },
+        {
+          "id": "praise_voice",
+          "score": 3.684
+        }
+      ]
+    },
+    {
+      "tid": "country_rock",
+      "name": "Country rock",
+      "family": null,
+      "parent": "functionalSong.country.countryRock",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.popRock.folkRock",
+        "distortedRock.southernRock"
+      ],
+      "staples": [
+        "southern_rock",
+        "folk_rock"
+      ],
+      "current_pick": "worn_fold_voice",
+      "current_pick_score": 3.4,
+      "primary_pick": "register_break_voice",
+      "primary_pick_score": 0.8612,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "register_break_voice",
+          "score": 0.8612
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.39
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.275
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "worn_fold_voice",
+          "score": 3.4
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 3.055
+        },
+        {
+          "id": "praise_voice",
+          "score": 2.0481
+        }
+      ]
+    },
+    {
+      "tid": "noise_rock",
+      "name": "Noise rock",
+      "family": null,
+      "parent": "distortedRock.noiseRock",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.experimental",
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "grunge",
+        "math_rock_post_rock"
+      ],
+      "current_pick": "false_fold_voice",
+      "current_pick_score": 1.7737,
+      "primary_pick": "rap_voice",
+      "primary_pick_score": 0.545,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "rap_voice",
+          "score": 0.545
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.202
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "false_fold_voice",
+          "score": 1.7737
+        },
+        {
+          "id": "lowered_larynx_voice",
+          "score": 0.8537
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.65
+        }
+      ]
+    },
+    {
+      "tid": "synthpop",
+      "name": "Synthpop",
+      "family": null,
+      "parent": "functionalSong.popRock.synthpop",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.popRock.newWave",
+        "electronicDance.continental"
+      ],
+      "staples": [
+        "new_wave",
+        "disco"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 2.3157,
+      "primary_pick": "nasal_voice",
+      "primary_pick_score": 0.6488,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "nasal_voice",
+          "score": 0.6488
+        },
+        {
+          "id": "twang_voice",
+          "score": 0.39
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.0532
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 2.3157
+        },
+        {
+          "id": "breath_admixed_voice",
+          "score": 1.5
+        },
+        {
+          "id": "crooner_voice",
+          "score": 1.495
+        }
+      ]
+    },
+    {
+      "tid": "big_band",
+      "name": "Swing-era jazz orchestra",
+      "family": null,
+      "parent": "improvOnFrame.americanJazz.early",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.crooners"
+      ],
+      "staples": [
+        "brill_building_pop",
+        "barbershop_quartet"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 2.47,
+      "primary_pick": "blues_shouter_voice",
+      "primary_pick_score": 0.455,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 0.455
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.2045
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.15
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 2.47
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 1.56
+        },
+        {
+          "id": "crooner_voice",
+          "score": 1.3
+        }
+      ]
+    },
+    {
+      "tid": "garage_rock",
+      "name": "Garage rock",
+      "family": null,
+      "parent": "distortedRock.classic",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.punk"
+      ],
+      "staples": [
+        "punk",
+        "hardcore_punk"
+      ],
+      "current_pick": "nasal_voice",
+      "current_pick_score": 0.13,
+      "primary_pick": "incomplete_closure_voice",
+      "primary_pick_score": 0.05,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.05
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.0045
+        },
+        {
+          "id": "opera_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "nasal_voice",
+          "score": 0.13
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.05
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.0045
+        }
+      ]
+    },
+    {
+      "tid": "hair_metal",
+      "name": "Hair metal",
+      "family": null,
+      "parent": "distortedRock.lateAnalogMajor",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.metal.nwobhm"
+      ],
+      "staples": [
+        "nwobhm"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 1.105,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.0105,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.0105
+        },
+        {
+          "id": "opera_voice",
+          "score": 0
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 1.105
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.065
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.0105
+        }
+      ]
+    },
+    {
+      "tid": "aor",
+      "name": "Album-oriented rock",
+      "family": null,
+      "parent": "distortedRock.lateAnalogMajor",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.popRock",
+        "improvOnFrame.americanJazz"
+      ],
+      "staples": [
+        "yacht_rock",
+        "folk_rock"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 2.08,
+      "primary_pick": "yodel_voice",
+      "primary_pick_score": 0.295,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "yodel_voice",
+          "score": 0.295
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.09
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.09
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 2.08
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 1.71
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "tid": "heartland_rock",
+      "name": "Heartland rock",
+      "family": null,
+      "parent": "distortedRock.lateAnalogMajor",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.angloSingerSong"
+      ],
+      "staples": [
+        "indie_folk_2000s",
+        "texas_country_folk_storyteller"
+      ],
+      "current_pick": "incomplete_closure_voice",
+      "current_pick_score": 3.11,
+      "primary_pick": "yodel_voice",
+      "primary_pick_score": 0.325,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "yodel_voice",
+          "score": 0.325
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.195
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.09
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 3.11
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.65
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.52
+        }
+      ]
+    },
+    {
+      "tid": "punk",
+      "name": "Punk",
+      "family": null,
+      "parent": "distortedRock.punk",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "garage_rock",
+        "hard_rock"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 2.015,
+      "primary_pick": "opera_voice",
+      "primary_pick_score": 0.0107,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "opera_voice",
+          "score": 0.0107
+        },
+        {
+          "id": "speech_voice",
+          "score": 0
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 2.015
+        },
+        {
+          "id": "lowered_larynx_voice",
+          "score": 1.315
+        },
+        {
+          "id": "false_fold_voice",
+          "score": 0.2662
+        }
+      ]
+    },
+    {
+      "tid": "post_punk",
+      "name": "Post-punk",
+      "family": null,
+      "parent": "distortedRock.punk",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "math_rock_post_rock",
+        "grunge"
+      ],
+      "current_pick": "lowered_larynx_voice",
+      "current_pick_score": 0.85,
+      "primary_pick": "child_voice",
+      "primary_pick_score": 0.25,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "child_voice",
+          "score": 0.25
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.204
+        },
+        {
+          "id": "opera_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "lowered_larynx_voice",
+          "score": 0.85
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.65
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.565
+        }
+      ]
+    },
+    {
+      "tid": "boom_bap",
+      "name": "Boom bap",
+      "family": null,
+      "parent": "mcRhythm.usHipHop.eastCoast",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.soulRb"
+      ],
+      "staples": [
+        "doo_wop",
+        "contemporary_rb_late_90s_2000s"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 10.25,
+      "primary_pick": "rap_voice",
+      "primary_pick_score": 6.2965,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "rap_voice",
+          "score": 6.2965
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 2.47
+        },
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.325
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 10.25
+        },
+        {
+          "id": "rap_voice",
+          "score": 7.5465
+        },
+        {
+          "id": "breath_admixed_voice",
+          "score": 6.2
+        }
+      ]
+    },
+    {
+      "tid": "desert_blues",
+      "name": "Tuareg desert blues (Ishumar / Tishoumaren / Assouf)",
+      "family": null,
+      "parent": "droneModal.modalElectric",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.westAfrican"
+      ],
+      "staples": [
+        "palm_wine",
+        "juju"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 2.4495,
+      "primary_pick": "blues_shouter_voice",
+      "primary_pick_score": 1.5988,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 1.5988
+        },
+        {
+          "id": "praise_voice",
+          "score": 0.3995
+        },
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.295
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 2.4495
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 1.7488
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.585
+        }
+      ]
+    },
+    {
+      "tid": "jamaican_dancehall",
+      "name": "Jamaican dancehall",
+      "family": null,
+      "parent": "bassSystem.jamaican",
+      "lineage": null,
+      "crossRefs": [
+        "mcRhythm.afroDiasporic",
+        "electronicDance.house"
+      ],
+      "staples": [
+        "tech_house_classic",
+        "deep_house_soulful"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 2.015,
+      "primary_pick": "rap_voice",
+      "primary_pick_score": 1.125,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "rap_voice",
+          "score": 1.125
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.39
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.09
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 2.015
+        },
+        {
+          "id": "rap_voice",
+          "score": 1.125
+        },
+        {
+          "id": "false_fold_voice",
+          "score": 0.52
+        }
+      ]
+    },
+    {
+      "tid": "hawaiian_slack_key",
+      "name": "Hawaiian slack-key (kī hōʻalu)",
+      "family": null,
+      "parent": "droneModal.string",
+      "lineage": null,
+      "crossRefs": [
+        "droneModal.vocal"
+      ],
+      "staples": [
+        "sami_yoik",
+        "bulgarian_womens_choir"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 1.4625,
+      "primary_pick": "crooner_voice",
+      "primary_pick_score": 1.105,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "crooner_voice",
+          "score": 1.105
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.1215
+        },
+        {
+          "id": "opera_voice",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 1.4625
+        },
+        {
+          "id": "crooner_voice",
+          "score": 1.105
+        },
+        {
+          "id": "fado_voice",
+          "score": 0.585
+        }
+      ]
+    },
+    {
+      "tid": "alt_country_americana",
+      "name": "Americana",
+      "family": null,
+      "parent": "functionalSong.country.americana",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.angloSingerSong"
+      ],
+      "staples": [
+        "texas_country_folk_storyteller",
+        "indie_folk_2000s"
+      ],
+      "current_pick": "incomplete_closure_voice",
+      "current_pick_score": 4.01,
+      "primary_pick": "worn_fold_voice",
+      "primary_pick_score": 1.1,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "worn_fold_voice",
+          "score": 1.1
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.975
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 0.455
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 4.01
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 2.65
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.995
+        }
+      ]
+    },
+    {
+      "tid": "classic_rb",
+      "name": "Classic R&B (1948-1962 era)",
+      "family": null,
+      "parent": "functionalSong.soulRb",
+      "lineage": null,
+      "crossRefs": [
+        "ritualDevotional.christianGospel.blackGospel"
+      ],
+      "staples": [
+        "black_gospel_choir",
+        "contemporary_urban_gospel"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 31.247,
+      "primary_pick": "blues_shouter_voice",
+      "primary_pick_score": 14.82,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 14.82
+        },
+        {
+          "id": "praise_voice",
+          "score": 7.597
+        },
+        {
+          "id": "breath_admixed_voice",
+          "score": 0.845
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 31.247
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 26.8616
+        },
+        {
+          "id": "breath_admixed_voice",
+          "score": 5.14
+        }
+      ]
+    },
+    {
+      "tid": "western_swing",
+      "name": "Western swing",
+      "family": null,
+      "parent": "functionalSong.country.westernSwing",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.country.honkyTonkEra",
+        "improvOnFrame.americanJazz.early"
+      ],
+      "staples": [
+        "new_orleans",
+        "honky_tonk"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 2.9575,
+      "primary_pick": "crooner_voice",
+      "primary_pick_score": 0.455,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "crooner_voice",
+          "score": 0.455
+        },
+        {
+          "id": "nasal_voice",
+          "score": 0.3107
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.26
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 2.9575
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 1.325
+        },
+        {
+          "id": "crooner_voice",
+          "score": 1.3
+        }
+      ]
+    },
+    {
+      "tid": "hardcore_punk",
+      "name": "Hardcore punk",
+      "family": null,
+      "parent": "distortedRock.punk",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.metal.thrash"
+      ],
+      "staples": [
+        "thrash_metal"
+      ],
+      "current_pick": "false_fold_voice",
+      "current_pick_score": 0.905,
+      "primary_pick": "nasal_voice",
+      "primary_pick_score": 0.25,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "nasal_voice",
+          "score": 0.25
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.0056
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "false_fold_voice",
+          "score": 0.905
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.8244
+        },
+        {
+          "id": "nasal_voice",
+          "score": 0.25
+        }
+      ]
+    },
+    {
+      "tid": "tango",
+      "name": "Tango",
+      "family": null,
+      "parent": "balladPoetry.latinAmTroubadour",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.tropicalSong"
+      ],
+      "staples": [
+        "tropical_bolero",
+        "bachata"
+      ],
+      "current_pick": "full_chest_belt_voice",
+      "current_pick_score": 5.6806,
+      "primary_pick": "whisper_voice",
+      "primary_pick_score": 0.345,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "whisper_voice",
+          "score": 0.345
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.26
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "full_chest_belt_voice",
+          "score": 5.6806
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.845
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.345
+        }
+      ]
+    },
+    {
+      "tid": "ska_rocksteady",
+      "name": "Ska and rocksteady",
+      "family": null,
+      "parent": "bassSystem.jamaican",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.caribbean"
+      ],
+      "staples": [
+        "calypso",
+        "zydeco"
+      ],
+      "current_pick": "twang_voice",
+      "current_pick_score": 6.395,
+      "primary_pick": "sprechgesang_voice",
+      "primary_pick_score": 0.3,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.3
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.26
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.15
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "twang_voice",
+          "score": 6.395
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 1.225
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.455
+        }
+      ]
+    },
+    {
+      "tid": "soukous",
+      "name": "Soukous",
+      "family": null,
+      "parent": "groovePercussion.centralEastSouthAfrican",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.africanPop"
+      ],
+      "staples": [
+        "congolese_rumba",
+        "isicathamiya"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 3.7001,
+      "primary_pick": "crooner_voice",
+      "primary_pick_score": 1.4665,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "crooner_voice",
+          "score": 1.4665
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.65
+        },
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.325
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 3.7001
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 2.675
+        },
+        {
+          "id": "crooner_voice",
+          "score": 1.9165
+        }
+      ]
+    },
+    {
+      "tid": "chimurenga",
+      "name": "Chimurenga",
+      "family": null,
+      "parent": "groovePercussion.centralEastSouthAfrican",
+      "lineage": null,
+      "crossRefs": [
+        "ritualDevotional.afroDiasporic",
+        "droneModal.string"
+      ],
+      "staples": [
+        "bomba_puertorican",
+        "andean_huayno"
+      ],
+      "current_pick": "twang_voice",
+      "current_pick_score": 3.8,
+      "primary_pick": "praise_voice",
+      "primary_pick_score": 1.695,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "praise_voice",
+          "score": 1.695
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.295
+        },
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.25
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "twang_voice",
+          "score": 3.8
+        },
+        {
+          "id": "praise_voice",
+          "score": 3.57
+        },
+        {
+          "id": "rap_voice",
+          "score": 1.17
+        }
+      ]
+    },
+    {
+      "tid": "amapiano",
+      "name": "Amapiano",
+      "family": null,
+      "parent": "electronicDance.africanDance",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.centralEastSouthAfrican"
+      ],
+      "staples": [
+        "ndombolo",
+        "soukous"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 1.625,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.91,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.91
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.585
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.0056
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 1.625
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.91
+        },
+        {
+          "id": "chest_mix_belt_voice",
+          "score": 0.715
+        }
+      ]
+    },
+    {
+      "tid": "rapso",
+      "name": "Rapso",
+      "family": null,
+      "parent": "balladPoetry.angloSingerSong",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.afroDiasporicElec"
+      ],
+      "staples": [
+        "afrobeat",
+        "kompa"
+      ],
+      "current_pick": "full_chest_belt_voice",
+      "current_pick_score": 5.2657,
+      "primary_pick": "rap_voice",
+      "primary_pick_score": 2.1102,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "rap_voice",
+          "score": 2.1102
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.585
+        },
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.55
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "full_chest_belt_voice",
+          "score": 5.2657
+        },
+        {
+          "id": "rap_voice",
+          "score": 2.6102
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.78
+        }
+      ]
+    },
+    {
+      "tid": "turkish_makam",
+      "name": "Turkish makam (classical)",
+      "family": null,
+      "parent": "artMusic.middleEasternClassical",
+      "lineage": null,
+      "crossRefs": [
+        "improvOnFrame.persianArabImprov"
+      ],
+      "staples": [
+        "arab_tarab",
+        "malhun_maghrebi"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 2.73,
+      "primary_pick": "rap_voice",
+      "primary_pick_score": 1.5045,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "rap_voice",
+          "score": 1.5045
+        },
+        {
+          "id": "breath_admixed_voice",
+          "score": 0.65
+        },
+        {
+          "id": "fado_voice",
+          "score": 0.25
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 2.73
+        },
+        {
+          "id": "rap_voice",
+          "score": 1.5045
+        },
+        {
+          "id": "praise_voice",
+          "score": 1.195
+        }
+      ]
+    },
+    {
+      "tid": "carnatic_vocal",
+      "name": "Carnatic vocal",
+      "family": null,
+      "parent": "improvOnFrame.indianClassicalImprov",
+      "lineage": null,
+      "crossRefs": [
+        "artMusic.southAsian",
+        "ritualDevotional.hindu"
+      ],
+      "staples": [
+        "bhajan",
+        "kirtan"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 12.32,
+      "primary_pick": "crooner_voice",
+      "primary_pick_score": 3.185,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "crooner_voice",
+          "score": 3.185
+        },
+        {
+          "id": "praise_voice",
+          "score": 1.395
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.0724
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 12.32
+        },
+        {
+          "id": "crooner_voice",
+          "score": 4.03
+        },
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.13
+        }
+      ]
+    },
+    {
+      "tid": "mongolian_long_song",
+      "name": "Mongolian long-song (urtyn duu)",
+      "family": null,
+      "parent": "droneModal.vocal",
+      "lineage": null,
+      "crossRefs": [
+        "droneModal.overtone"
+      ],
+      "staples": [
+        "mongolian_xoomii",
+        "tuvan_throat"
+      ],
+      "current_pick": "false_fold_voice",
+      "current_pick_score": 13.4765,
+      "primary_pick": "praise_voice",
+      "primary_pick_score": 2.4736,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "praise_voice",
+          "score": 2.4736
+        },
+        {
+          "id": "false_fold_voice",
+          "score": 2.1515
+        },
+        {
+          "id": "fado_voice",
+          "score": 1.76
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "false_fold_voice",
+          "score": 13.4765
+        },
+        {
+          "id": "praise_voice",
+          "score": 4.5736
+        },
+        {
+          "id": "fado_voice",
+          "score": 1.91
+        }
+      ]
+    },
+    {
+      "tid": "javanese_gamelan",
+      "name": "Javanese gamelan",
+      "family": null,
+      "parent": "artMusic.southeastAsian",
+      "lineage": null,
+      "crossRefs": [
+        "artMusic.eastAsian"
+      ],
+      "staples": [
+        "beijing_opera",
+        "gagaku"
+      ],
+      "current_pick": "pressed_phonation_voice",
+      "current_pick_score": 8.775,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.39
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.26
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pressed_phonation_voice",
+          "score": 8.775
+        },
+        {
+          "id": "crooner_voice",
+          "score": 1.43
+        },
+        {
+          "id": "praise_voice",
+          "score": 1.0075
+        }
+      ]
+    },
+    {
+      "tid": "mento",
+      "name": "Mento",
+      "family": null,
+      "parent": "groovePercussion.caribbean",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.tropicalSong"
+      ],
+      "staples": [
+        "bachata",
+        "kizomba_song_form"
+      ],
+      "current_pick": "full_chest_belt_voice",
+      "current_pick_score": 3.33,
+      "primary_pick": "rap_voice",
+      "primary_pick_score": 1.7205,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "rap_voice",
+          "score": 1.7205
+        },
+        {
+          "id": "full_chest_belt_voice",
+          "score": 0.78
+        },
+        {
+          "id": "nasal_voice",
+          "score": 0.25
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "full_chest_belt_voice",
+          "score": 3.33
+        },
+        {
+          "id": "rap_voice",
+          "score": 1.8705
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.325
+        }
+      ]
+    },
+    {
+      "tid": "kizomba",
+      "name": "Kizomba",
+      "family": null,
+      "parent": "groovePercussion.afroDiasporicElec",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.tropicalSong"
+      ],
+      "staples": [
+        "kizomba_song_form",
+        "bachata"
+      ],
+      "current_pick": "full_chest_belt_voice",
+      "current_pick_score": 2.03,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.7315,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.7315
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.345
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.325
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "full_chest_belt_voice",
+          "score": 2.03
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.7315
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.7115
+        }
+      ]
+    },
+    {
+      "tid": "mathcore",
+      "name": "Mathcore",
+      "family": null,
+      "parent": "distortedRock.metal.avant",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.experimental"
+      ],
+      "staples": [
+        "krautrock"
+      ],
+      "current_pick": "yodel_voice",
+      "current_pick_score": 0.585,
+      "primary_pick": "fry_bleed_voice",
+      "primary_pick_score": 0.5678,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.5678
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 0.18
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.0105
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "yodel_voice",
+          "score": 0.585
+        },
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.5678
+        },
+        {
+          "id": "register_break_voice",
+          "score": 0.325
+        }
+      ]
+    },
+    {
+      "tid": "nashville_sound",
+      "name": "Nashville Sound",
+      "family": null,
+      "parent": "functionalSong.country.nashville",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.crooners"
+      ],
+      "staples": [
+        "brill_building_pop",
+        "barbershop_quartet"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 2.488,
+      "primary_pick": "crooner_voice",
+      "primary_pick_score": 0.195,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.1545
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.015
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 2.488
+        },
+        {
+          "id": "crooner_voice",
+          "score": 1.69
+        },
+        {
+          "id": "register_break_voice",
+          "score": 1.5135
+        }
+      ]
+    },
+    {
+      "tid": "red_dirt",
+      "name": "Red Dirt",
+      "family": null,
+      "parent": "functionalSong.country.neoTrad",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.angloSingerSong"
+      ],
+      "staples": [
+        "texas_country_folk_storyteller",
+        "indie_folk_2000s"
+      ],
+      "current_pick": "incomplete_closure_voice",
+      "current_pick_score": 4.31,
+      "primary_pick": "crooner_voice",
+      "primary_pick_score": 1.105,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "crooner_voice",
+          "score": 1.105
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 1.105
+        },
+        {
+          "id": "nasal_voice",
+          "score": 0.295
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 4.31
+        },
+        {
+          "id": "crooner_voice",
+          "score": 1.105
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.65
+        }
+      ]
+    },
+    {
+      "tid": "gothic_country",
+      "name": "Gothic country",
+      "family": null,
+      "parent": "functionalSong.country.americana",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.angloSingerSong",
+        "functionalSong.country.honkyTonkEra"
+      ],
+      "staples": [
+        "texas_country_folk_storyteller",
+        "folk_noir"
+      ],
+      "current_pick": "incomplete_closure_voice",
+      "current_pick_score": 4.91,
+      "primary_pick": "lowered_larynx_voice",
+      "primary_pick_score": 1.94,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "lowered_larynx_voice",
+          "score": 1.94
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.325
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.325
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 4.91
+        },
+        {
+          "id": "lowered_larynx_voice",
+          "score": 3.24
+        },
+        {
+          "id": "register_break_voice",
+          "score": 0.685
+        }
+      ]
+    },
+    {
+      "tid": "gothic_americana",
+      "name": "Gothic Americana (Southern Gothic literary tradition)",
+      "family": null,
+      "parent": "functionalSong.country.americana",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.angloSingerSong"
+      ],
+      "staples": [
+        "texas_country_folk_storyteller",
+        "folk_noir"
+      ],
+      "current_pick": "incomplete_closure_voice",
+      "current_pick_score": 4.91,
+      "primary_pick": "worn_fold_voice",
+      "primary_pick_score": 2.95,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "worn_fold_voice",
+          "score": 2.95
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 1.235
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.975
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 4.91
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 4.375
+        },
+        {
+          "id": "lowered_larynx_voice",
+          "score": 1.625
+        }
+      ]
+    },
+    {
+      "tid": "ethio_jazz",
+      "name": "Ethio-jazz",
+      "family": null,
+      "parent": "improvOnFrame.latinJazz",
+      "lineage": null,
+      "crossRefs": [
+        "droneModal.vocal"
+      ],
+      "staples": [
+        "flamenco",
+        "mor_lam"
+      ],
+      "current_pick": "nasal_voice",
+      "current_pick_score": 4.675,
+      "primary_pick": "worn_fold_voice",
+      "primary_pick_score": 0.85,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "worn_fold_voice",
+          "score": 0.85
+        },
+        {
+          "id": "fado_voice",
+          "score": 0.325
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.295
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "nasal_voice",
+          "score": 4.675
+        },
+        {
+          "id": "crooner_voice",
+          "score": 2.34
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 0.85
+        }
+      ]
+    },
+    {
+      "tid": "jangle_pop",
+      "name": "Jangle pop",
+      "family": null,
+      "parent": "functionalSong.popRock",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "math_rock_post_rock",
+        "grunge"
+      ],
+      "current_pick": "incomplete_closure_voice",
+      "current_pick_score": 1.065,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.3565,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.3565
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.325
+        },
+        {
+          "id": "opera_voice",
+          "score": 0.039
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 1.065
+        },
+        {
+          "id": "lowered_larynx_voice",
+          "score": 0.8815
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.65
+        }
+      ]
+    },
+    {
+      "tid": "sophisti_pop",
+      "name": "Sophisti-pop",
+      "family": null,
+      "parent": "functionalSong.popRock",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.crooners"
+      ],
+      "staples": [
+        "great_american_songbook",
+        "brill_building_pop"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 4.4525,
+      "primary_pick": "aspirated_voice",
+      "primary_pick_score": 1,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "aspirated_voice",
+          "score": 1
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.25
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 4.4525
+        },
+        {
+          "id": "chest_mix_belt_voice",
+          "score": 1.4565
+        },
+        {
+          "id": "aspirated_voice",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "tid": "twee_pop",
+      "name": "Twee pop",
+      "family": null,
+      "parent": "functionalSong.popRock",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.angloSingerSong.indieFolk"
+      ],
+      "staples": [
+        "indie_folk_2000s"
+      ],
+      "current_pick": "incomplete_closure_voice",
+      "current_pick_score": 0.75,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.2621,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.2621
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.0686
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.75
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.455
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "russian_estrada",
+      "name": "Russian estrada",
+      "family": null,
+      "parent": "functionalSong.europop",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "folk_rock",
+        "yacht_rock"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 2.08,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.39
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.09
+        },
+        {
+          "id": "opera_voice",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 2.08
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 1.71
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "tid": "galician_kantautor",
+      "name": "Galician kantautor and folk-pop",
+      "family": null,
+      "parent": "functionalSong.iberian",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.chansonFado"
+      ],
+      "staples": [
+        "greek_entechno",
+        "fado"
+      ],
+      "current_pick": "fado_voice",
+      "current_pick_score": 10.832,
+      "primary_pick": "incomplete_closure_voice",
+      "primary_pick_score": 3.795,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 3.795
+        },
+        {
+          "id": "fado_voice",
+          "score": 2.182
+        },
+        {
+          "id": "crooner_voice",
+          "score": 1.105
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "fado_voice",
+          "score": 10.832
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 4.92
+        },
+        {
+          "id": "crooner_voice",
+          "score": 3.055
+        }
+      ]
+    },
+    {
+      "tid": "kizomba_song_form",
+      "name": "Kizomba (song-form)",
+      "family": null,
+      "parent": "functionalSong.tropicalSong",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.afroDiasporicElec"
+      ],
+      "staples": [
+        "kizomba",
+        "kompa"
+      ],
+      "current_pick": "full_chest_belt_voice",
+      "current_pick_score": 5.355,
+      "primary_pick": "whisper_voice",
+      "primary_pick_score": 0.3506,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "whisper_voice",
+          "score": 0.3506
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.325
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.26
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "full_chest_belt_voice",
+          "score": 5.355
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.65
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.52
+        }
+      ]
+    },
+    {
+      "tid": "son_cubano",
+      "name": "Son cubano",
+      "family": null,
+      "parent": "groovePercussion.cuban.sonSalsa",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.cuban.rumba"
+      ],
+      "staples": [
+        "rumba_cubana",
+        "rumba_yambu"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 8.275,
+      "primary_pick": "full_chest_belt_voice",
+      "primary_pick_score": 1.675,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "full_chest_belt_voice",
+          "score": 1.675
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 0.45
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.1635
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 8.275
+        },
+        {
+          "id": "full_chest_belt_voice",
+          "score": 1.675
+        },
+        {
+          "id": "praise_voice",
+          "score": 1.3815
+        }
+      ]
+    },
+    {
+      "tid": "salsa_cubana_timba",
+      "name": "Salsa cubana (timba)",
+      "family": null,
+      "parent": "groovePercussion.cuban.sonSalsa",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.cuban.rumba"
+      ],
+      "staples": [
+        "guaguanco",
+        "rumba_cubana"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 7.5314,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.8061,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.8061
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 0.585
+        },
+        {
+          "id": "opera_voice",
+          "score": 0.06
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 7.5314
+        },
+        {
+          "id": "praise_voice",
+          "score": 1.6706
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.8061
+        }
+      ]
+    },
+    {
+      "tid": "guaracha",
+      "name": "Guaracha",
+      "family": null,
+      "parent": "groovePercussion.cuban.sonSalsa",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.cuban.rumba"
+      ],
+      "staples": [
+        "rumba_cubana",
+        "guaguanco"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 7.3,
+      "primary_pick": "full_chest_belt_voice",
+      "primary_pick_score": 0.85,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "full_chest_belt_voice",
+          "score": 0.85
+        },
+        {
+          "id": "chest_mix_belt_voice",
+          "score": 0.75
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 0.45
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 7.3
+        },
+        {
+          "id": "praise_voice",
+          "score": 1.3815
+        },
+        {
+          "id": "full_chest_belt_voice",
+          "score": 0.85
+        }
+      ]
+    },
+    {
+      "tid": "forro_brasileiro",
+      "name": "Forró brasileiro",
+      "family": null,
+      "parent": "groovePercussion.latinAm",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.brazilian"
+      ],
+      "staples": [
+        "pagode"
+      ],
+      "current_pick": "aspirated_voice",
+      "current_pick_score": 6.295,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.21,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.21
+        },
+        {
+          "id": "opera_voice",
+          "score": 0
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "aspirated_voice",
+          "score": 6.295
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.21
+        },
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.13
+        }
+      ]
+    },
+    {
+      "tid": "marinera",
+      "name": "Marinera peruana",
+      "family": null,
+      "parent": "groovePercussion.latinAm",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.latinAmTroubadour"
+      ],
+      "staples": [
+        "milonga",
+        "jibaro"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 2.47,
+      "primary_pick": "twang_voice",
+      "primary_pick_score": 1.345,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "twang_voice",
+          "score": 1.345
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.26
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.25
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 2.47
+        },
+        {
+          "id": "twang_voice",
+          "score": 1.495
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.775
+        }
+      ]
+    },
+    {
+      "tid": "vocal_trance",
+      "name": "Vocal trance",
+      "family": null,
+      "parent": "electronicDance.trance",
+      "lineage": null,
+      "crossRefs": [
+        "electronicDance.house"
+      ],
+      "staples": [
+        "tech_house_classic",
+        "deep_house_soulful"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 2.015,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.21,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.21
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.2
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 2.015
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.585
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.21
+        }
+      ]
+    },
+    {
+      "tid": "tribal_guarachero",
+      "name": "Tribal guarachero",
+      "family": null,
+      "parent": "electronicDance.latinElec",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.latinAm"
+      ],
+      "staples": [
+        "cumbia_peruvian",
+        "cumbia_colombiana"
+      ],
+      "current_pick": "full_chest_belt_voice",
+      "current_pick_score": 6.445,
+      "primary_pick": "sprechgesang_voice",
+      "primary_pick_score": 0.3427,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.3427
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.195
+        },
+        {
+          "id": "opera_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "full_chest_belt_voice",
+          "score": 6.445
+        },
+        {
+          "id": "twang_voice",
+          "score": 4.175
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.3427
+        }
+      ]
+    },
+    {
+      "tid": "freestyle_music",
+      "name": "Freestyle music",
+      "family": null,
+      "parent": "electronicDance.eurodance",
+      "lineage": null,
+      "crossRefs": [
+        "mcRhythm.usHipHop"
+      ],
+      "staples": [
+        "conscious_hip_hop",
+        "gangsta_rap"
+      ],
+      "current_pick": "rap_voice",
+      "current_pick_score": 28.865,
+      "primary_pick": "chest_mix_belt_voice",
+      "primary_pick_score": 3.475,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "chest_mix_belt_voice",
+          "score": 3.475
+        },
+        {
+          "id": "rap_voice",
+          "score": 2.21
+        },
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.325
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "rap_voice",
+          "score": 28.865
+        },
+        {
+          "id": "chest_mix_belt_voice",
+          "score": 3.625
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 2.525
+        }
+      ]
+    },
+    {
+      "tid": "uk_garage_2step",
+      "name": "UK garage and 2-step",
+      "family": null,
+      "parent": "bassSystem.ukSoundsystem",
+      "lineage": null,
+      "crossRefs": [
+        "electronicDance.house.garageHouseUS"
+      ],
+      "staples": [
+        "garage_house_paradise"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 2.36,
+      "primary_pick": "rap_voice",
+      "primary_pick_score": 0.6294,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "rap_voice",
+          "score": 0.6294
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.1365
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.0056
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 2.36
+        },
+        {
+          "id": "praise_voice",
+          "score": 0.725
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.6294
+        }
+      ]
+    },
+    {
+      "tid": "liquid_funk",
+      "name": "Liquid funk (drum & bass)",
+      "family": null,
+      "parent": "bassSystem.ukSoundsystem",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.afroDiasporicElec"
+      ],
+      "staples": [
+        "afrobeat",
+        "kompa"
+      ],
+      "current_pick": "full_chest_belt_voice",
+      "current_pick_score": 5.25,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.1815,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.1815
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 0.15
+        },
+        {
+          "id": "false_fold_voice",
+          "score": 0.065
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "full_chest_belt_voice",
+          "score": 5.25
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.52
+        },
+        {
+          "id": "false_fold_voice",
+          "score": 0.26
+        }
+      ]
+    },
+    {
+      "tid": "2tone_ska_revival",
+      "name": "2-Tone ska revival",
+      "family": null,
+      "parent": "bassSystem.reggaeDiaspora",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.punk"
+      ],
+      "staples": [
+        "post_punk",
+        "hardcore_punk"
+      ],
+      "current_pick": "child_voice",
+      "current_pick_score": 0.13,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.0427,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.0427
+        },
+        {
+          "id": "opera_voice",
+          "score": 0.0056
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "child_voice",
+          "score": 0.13
+        },
+        {
+          "id": "nasal_voice",
+          "score": 0.13
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.0427
+        }
+      ]
+    },
+    {
+      "tid": "bedroom_pop",
+      "name": "Bedroom pop",
+      "family": null,
+      "parent": "experimentalElec.lofi",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 2.47,
+      "primary_pick": "whisper_voice",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "whisper_voice",
+          "score": 0.39
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.325
+        },
+        {
+          "id": "pressed_phonation_voice",
+          "score": 0.3
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 2.47
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 1.035
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "tid": "hokum_blues_vaudeville",
+      "name": "Hokum blues",
+      "family": null,
+      "parent": "balladPoetry.bluesNarrative.hokumBlues",
+      "lineage": null,
+      "crossRefs": [
+        "improvOnFrame.americanJazz.early"
+      ],
+      "staples": [
+        "new_orleans",
+        "big_band"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 12.52,
+      "primary_pick": "worn_fold_voice",
+      "primary_pick_score": 11.7,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "worn_fold_voice",
+          "score": 11.7
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 8.645
+        },
+        {
+          "id": "fado_voice",
+          "score": 0.25
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 12.52
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 11.7
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.455
+        }
+      ]
+    },
+    {
+      "tid": "talking_blues_dustbowl",
+      "name": "Talking blues",
+      "family": null,
+      "parent": "balladPoetry.bluesNarrative.talkingBlues",
+      "lineage": null,
+      "crossRefs": [
+        "mcRhythm.usHipHop"
+      ],
+      "staples": [
+        "conscious_hip_hop",
+        "gangsta_rap"
+      ],
+      "current_pick": "rap_voice",
+      "current_pick_score": 31.665,
+      "primary_pick": "blues_shouter_voice",
+      "primary_pick_score": 8.55,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 8.55
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 7.48
+        },
+        {
+          "id": "rap_voice",
+          "score": 5.915
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "rap_voice",
+          "score": 31.665
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 11.725
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 10.405
+        }
+      ]
+    },
+    {
+      "tid": "power_metal_european",
+      "name": "Power metal (European)",
+      "family": null,
+      "parent": "distortedRock.metal.power",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.metal.symphonic"
+      ],
+      "staples": [
+        "symphonic_metal_classic"
+      ],
+      "current_pick": "opera_voice",
+      "current_pick_score": 2.6,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.7,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.7
+        },
+        {
+          "id": "opera_voice",
+          "score": 0.675
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 0.6575
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "opera_voice",
+          "score": 2.6
+        },
+        {
+          "id": "false_fold_voice",
+          "score": 0.7406
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.7
+        }
+      ]
+    },
+    {
+      "tid": "folk_metal_european",
+      "name": "Folk metal (European)",
+      "family": null,
+      "parent": "distortedRock.metal.folkMetal",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.celticBalladic"
+      ],
+      "staples": [
+        "newfoundland_outport",
+        "breton_folk"
+      ],
+      "current_pick": "incomplete_closure_voice",
+      "current_pick_score": 3.965,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.79,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.79
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.105
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 3.965
+        },
+        {
+          "id": "crooner_voice",
+          "score": 1.69
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.79
+        }
+      ]
+    },
+    {
+      "tid": "latin_house_percussion",
+      "name": "Latin house",
+      "family": null,
+      "parent": "electronicDance.house.latinHouse",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.cuban"
+      ],
+      "staples": [
+        "rumba_cubana",
+        "cha_cha_cha"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 2.95,
+      "primary_pick": "aspirated_voice",
+      "primary_pick_score": 0.5,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "aspirated_voice",
+          "score": 0.5
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.105
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 2.95
+        },
+        {
+          "id": "full_chest_belt_voice",
+          "score": 2.775
+        },
+        {
+          "id": "praise_voice",
+          "score": 0.52
+        }
+      ]
+    },
+    {
+      "tid": "hot_country_2010s",
+      "name": "Hot country (2010s mainstream)",
+      "family": null,
+      "parent": "functionalSong.country.contempMain",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "folk_rock",
+        "yacht_rock"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 2.08,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.0956,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.0956
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.09
+        },
+        {
+          "id": "opera_voice",
+          "score": 0.0506
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 2.08
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 1.71
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "tid": "country_pop_crossover",
+      "name": "Country-pop crossover",
+      "family": null,
+      "parent": "functionalSong.country.contempMain",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "folk_rock",
+        "yacht_rock"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 2.08,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.09,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.09
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.09
+        },
+        {
+          "id": "opera_voice",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 2.08
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 1.71
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "tid": "technical_death_metal",
+      "name": "Technical death metal",
+      "family": null,
+      "parent": "distortedRock.metal.death",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.metal.prog"
+      ],
+      "staples": [
+        "progressive_metal_classic"
+      ],
+      "current_pick": "opera_voice",
+      "current_pick_score": 2.6,
+      "primary_pick": "false_fold_voice",
+      "primary_pick_score": 0.8756,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "false_fold_voice",
+          "score": 0.8756
+        },
+        {
+          "id": "opera_voice",
+          "score": 0.735
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.1661
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "opera_voice",
+          "score": 2.6
+        },
+        {
+          "id": "false_fold_voice",
+          "score": 1.0256
+        },
+        {
+          "id": "praise_voice",
+          "score": 0.26
+        }
+      ]
+    },
+    {
+      "tid": "brutal_death_metal",
+      "name": "Brutal death metal",
+      "family": null,
+      "parent": "distortedRock.metal.death",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.metal.thrash"
+      ],
+      "staples": [
+        "thrash_metal"
+      ],
+      "current_pick": "false_fold_voice",
+      "current_pick_score": 0.9076,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.105,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.105
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.0045
+        },
+        {
+          "id": "opera_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "false_fold_voice",
+          "score": 0.9076
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.455
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.13
+        }
+      ]
+    },
+    {
+      "tid": "jam_band",
+      "name": "Jam band",
+      "family": null,
+      "parent": "improvOnFrame.jamFree",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "early_rock_and_roll_50s",
+        "garage_rock_revival_2000s"
+      ],
+      "current_pick": "blues_shouter_voice",
+      "current_pick_score": 1.7875,
+      "primary_pick": "opera_voice",
+      "primary_pick_score": 0,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "opera_voice",
+          "score": 0
+        },
+        {
+          "id": "speech_voice",
+          "score": 0
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "blues_shouter_voice",
+          "score": 1.7875
+        },
+        {
+          "id": "opera_voice",
+          "score": 0
+        },
+        {
+          "id": "speech_voice",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "j_rock",
+      "name": "J-rock",
+      "family": null,
+      "parent": "distortedRock.regional",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.eastAsianPop"
+      ],
+      "staples": [
+        "enka",
+        "k_pop_modern"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 1.235,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.0997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.0997
+        },
+        {
+          "id": "opera_voice",
+          "score": 0.045
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 1.235
+        },
+        {
+          "id": "rap_voice",
+          "score": 1.155
+        },
+        {
+          "id": "fado_voice",
+          "score": 0.975
+        }
+      ]
+    },
+    {
+      "tid": "rockabilly_50s",
+      "name": "Rockabilly",
+      "family": null,
+      "parent": "functionalSong.country.honkyTonkEra",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.popRock",
+        "balladPoetry.bluesNarrative"
+      ],
+      "staples": [
+        "yacht_rock",
+        "folk_rock"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 5.055,
+      "primary_pick": "worn_fold_voice",
+      "primary_pick_score": 3.295,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "worn_fold_voice",
+          "score": 3.295
+        },
+        {
+          "id": "crooner_voice",
+          "score": 3.185
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 1.335
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 5.055
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 3.52
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 1.71
+        }
+      ]
+    },
+    {
+      "tid": "garage_rock_revival_2000s",
+      "name": "Garage-rock revival (2001–2010)",
+      "family": null,
+      "parent": "distortedRock.classic",
+      "lineage": null,
+      "crossRefs": [
+        "distortedRock.punk"
+      ],
+      "staples": [
+        "post_punk",
+        "punk"
+      ],
+      "current_pick": "child_voice",
+      "current_pick_score": 0.13,
+      "primary_pick": "opera_voice",
+      "primary_pick_score": 0,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "opera_voice",
+          "score": 0
+        },
+        {
+          "id": "speech_voice",
+          "score": 0
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "child_voice",
+          "score": 0.13
+        },
+        {
+          "id": "opera_voice",
+          "score": 0
+        },
+        {
+          "id": "speech_voice",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "globalized_african_pop_crossover",
+      "name": "Globalized African-pop crossover",
+      "family": null,
+      "parent": "functionalSong.africanPop",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.centralEastSouthAfrican"
+      ],
+      "staples": [
+        "ndombolo",
+        "chimurenga"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 1.0075,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.192,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.192
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.0251
+        },
+        {
+          "id": "opera_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 1.0075
+        },
+        {
+          "id": "chest_mix_belt_voice",
+          "score": 0.715
+        },
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.325
+        }
+      ]
+    },
+    {
+      "tid": "sertanejo",
+      "name": "Sertanejo",
+      "family": null,
+      "parent": "groovePercussion.brazilian",
+      "lineage": null,
+      "crossRefs": [
+        "functionalSong.country"
+      ],
+      "staples": [
+        "country_rock",
+        "pre_commercial_country"
+      ],
+      "current_pick": "yodel_voice",
+      "current_pick_score": 1.4287,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.79,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.79
+        },
+        {
+          "id": "opera_voice",
+          "score": 0.15
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.0487
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "yodel_voice",
+          "score": 1.4287
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 1.375
+        },
+        {
+          "id": "register_break_voice",
+          "score": 1.1137
+        }
+      ]
+    },
+    {
+      "tid": "capoeira_music",
+      "name": "Capoeira music",
+      "family": null,
+      "parent": "ritualDevotional.afroDiasporic",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.brazilian"
+      ],
+      "staples": [
+        "embolada",
+        "pagode"
+      ],
+      "current_pick": "aspirated_voice",
+      "current_pick_score": 6.295,
+      "primary_pick": "praise_voice",
+      "primary_pick_score": 3.4895,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "praise_voice",
+          "score": 3.4895
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.26
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.21
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "aspirated_voice",
+          "score": 6.295
+        },
+        {
+          "id": "praise_voice",
+          "score": 3.7895
+        },
+        {
+          "id": "rap_voice",
+          "score": 2.3075
+        }
+      ]
+    },
+    {
+      "tid": "jongo",
+      "name": "Jongo",
+      "family": null,
+      "parent": "ritualDevotional.afroDiasporic",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.brazilian"
+      ],
+      "staples": [
+        "embolada",
+        "pagode"
+      ],
+      "current_pick": "aspirated_voice",
+      "current_pick_score": 7.045,
+      "primary_pick": "praise_voice",
+      "primary_pick_score": 3.485,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "praise_voice",
+          "score": 3.485
+        },
+        {
+          "id": "aspirated_voice",
+          "score": 0.545
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.21
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "aspirated_voice",
+          "score": 7.045
+        },
+        {
+          "id": "praise_voice",
+          "score": 3.785
+        },
+        {
+          "id": "rap_voice",
+          "score": 1.9175
+        }
+      ]
+    },
+    {
+      "tid": "parang_trini",
+      "name": "Parang (Trinidadian)",
+      "family": null,
+      "parent": "groovePercussion.caribbean",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.latinAmTroubadour"
+      ],
+      "staples": [
+        "milonga",
+        "jibaro"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 2.86,
+      "primary_pick": "sprechgesang_voice",
+      "primary_pick_score": 0.24,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.24
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 2.86
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.775
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.24
+        }
+      ]
+    },
+    {
+      "tid": "cadence_lypso",
+      "name": "Cadence-lypso",
+      "family": null,
+      "parent": "groovePercussion.caribbean",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.afroDiasporicElec"
+      ],
+      "staples": [
+        "kompa",
+        "afrobeat"
+      ],
+      "current_pick": "full_chest_belt_voice",
+      "current_pick_score": 6.2842,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.2681,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.2681
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.26
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.21
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "full_chest_belt_voice",
+          "score": 6.2842
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.91
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.21
+        }
+      ]
+    },
+    {
+      "tid": "malhun_maghrebi",
+      "name": "Malhun (Maghrebi)",
+      "family": null,
+      "parent": "improvOnFrame.persianArabImprov",
+      "lineage": null,
+      "crossRefs": [
+        "ritualDevotional.sufi"
+      ],
+      "staples": [
+        "qawwali",
+        "sufi_sama"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 18.936,
+      "primary_pick": "crooner_voice",
+      "primary_pick_score": 2.72,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "crooner_voice",
+          "score": 2.72
+        },
+        {
+          "id": "praise_voice",
+          "score": 2.136
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 18.936
+        },
+        {
+          "id": "crooner_voice",
+          "score": 3.37
+        },
+        {
+          "id": "blues_shouter_voice",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "iraqi_maqam",
+      "name": "Iraqi maqam (al-Maqam al-Iraqi)",
+      "family": null,
+      "parent": "improvOnFrame.persianArabImprov",
+      "lineage": null,
+      "crossRefs": [
+        "artMusic.middleEasternClassical"
+      ],
+      "staples": [
+        "armenian_traditional",
+        "turkish_makam"
+      ],
+      "current_pick": "rap_voice",
+      "current_pick_score": 0.91,
+      "primary_pick": "yodel_voice",
+      "primary_pick_score": 0.295,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "yodel_voice",
+          "score": 0.295
+        },
+        {
+          "id": "register_break_voice",
+          "score": 0.065
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.05
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "rap_voice",
+          "score": 0.91
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.65
+        },
+        {
+          "id": "yodel_voice",
+          "score": 0.295
+        }
+      ]
+    },
+    {
+      "tid": "vajrayana_broader",
+      "name": "Himalayan Vajrayana liturgy",
+      "family": null,
+      "parent": "ritualDevotional.buddhist",
+      "lineage": null,
+      "crossRefs": [
+        "artMusic.eastAsian"
+      ],
+      "staples": [
+        "beijing_opera",
+        "cantonese_opera"
+      ],
+      "current_pick": "pressed_phonation_voice",
+      "current_pick_score": 15.3,
+      "primary_pick": "praise_voice",
+      "primary_pick_score": 3.6225,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "praise_voice",
+          "score": 3.6225
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.2275
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.1108
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pressed_phonation_voice",
+          "score": 15.3
+        },
+        {
+          "id": "praise_voice",
+          "score": 3.9225
+        },
+        {
+          "id": "crooner_voice",
+          "score": 2.925
+        }
+      ]
+    },
+    {
+      "tid": "hyperion_classical_aesthetic",
+      "name": "Hyperion-school classical-recording aesthetic",
+      "family": null,
+      "parent": "artMusic.westernCommonPractice",
+      "lineage": null,
+      "crossRefs": [
+        "artMusic.westernEarly"
+      ],
+      "staples": [
+        "historical_informed_performance",
+        "baroque_period"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 1.4315,
+      "primary_pick": "crooner_voice",
+      "primary_pick_score": 0.195,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.0717
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.0056
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 1.4315
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        },
+        {
+          "id": "child_voice",
+          "score": 0.13
+        }
+      ]
+    },
+    {
+      "tid": "historical_informed_performance",
+      "name": "Historically-informed performance recording",
+      "family": null,
+      "parent": "artMusic.westernEarly",
+      "lineage": null,
+      "crossRefs": [
+        "artMusic.westernCommonPractice"
+      ],
+      "staples": [
+        "anglican_choral_cathedral",
+        "hyperion_classical_aesthetic"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 1.5995,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.0987,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.0987
+        },
+        {
+          "id": "whisper_voice",
+          "score": 0.0037
+        },
+        {
+          "id": "opera_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 1.5995
+        },
+        {
+          "id": "child_voice",
+          "score": 0.2565
+        },
+        {
+          "id": "crooner_voice",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "vietnamese_traditional",
+      "name": "Vietnamese chamber (nhạc tài tử and ca trù)",
+      "family": null,
+      "parent": "artMusic.southeastAsian",
+      "lineage": null,
+      "crossRefs": [
+        "artMusic.eastAsian",
+        "artMusic.southAsian"
+      ],
+      "staples": [
+        "beijing_opera",
+        "cantonese_opera"
+      ],
+      "current_pick": "pressed_phonation_voice",
+      "current_pick_score": 15.75,
+      "primary_pick": "crooner_voice",
+      "primary_pick_score": 1.885,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "crooner_voice",
+          "score": 1.885
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.26
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.2565
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pressed_phonation_voice",
+          "score": 15.75
+        },
+        {
+          "id": "crooner_voice",
+          "score": 5.005
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.65
+        }
+      ]
+    },
+    {
+      "tid": "finnish_kantele_folk",
+      "name": "Finnish kantele folk and Kalevala-recitation",
+      "family": null,
+      "parent": "balladPoetry.celticBalladic",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.slavicBard"
+      ],
+      "staples": [
+        "russian_byliny",
+        "czech_pisnicka"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 1.4,
+      "primary_pick": "incomplete_closure_voice",
+      "primary_pick_score": 0.25,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.25
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.0482
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.0315
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 1.4
+        },
+        {
+          "id": "fado_voice",
+          "score": 0.875
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.25
+        }
+      ]
+    },
+    {
+      "tid": "swedish_nyckelharpa_folk",
+      "name": "Swedish nyckelharpa folk",
+      "family": null,
+      "parent": "balladPoetry.celticBalladic",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.slavicBard",
+        "balladPoetry.celticBalladic.scottishBallad"
+      ],
+      "staples": [
+        "czech_pisnicka",
+        "child_ballad_revival"
+      ],
+      "current_pick": "incomplete_closure_voice",
+      "current_pick_score": 5.84,
+      "primary_pick": "twang_voice",
+      "primary_pick_score": 0.7,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "twang_voice",
+          "score": 0.7
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.325
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "incomplete_closure_voice",
+          "score": 5.84
+        },
+        {
+          "id": "child_voice",
+          "score": 1.625
+        },
+        {
+          "id": "fado_voice",
+          "score": 0.875
+        }
+      ]
+    },
+    {
+      "tid": "bulgarian_dance_traditional",
+      "name": "Bulgarian dance traditional (horo, ruchenitsa)",
+      "family": null,
+      "parent": "groovePercussion",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.slavicBard",
+        "balladPoetry.mediterraneanBallad"
+      ],
+      "staples": [
+        "russian_folk_balalaika_choir",
+        "italian_southern_folk"
+      ],
+      "current_pick": "praise_voice",
+      "current_pick_score": 3.345,
+      "primary_pick": "crooner_voice",
+      "primary_pick_score": 0.585,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "crooner_voice",
+          "score": 0.585
+        },
+        {
+          "id": "fry_bleed_voice",
+          "score": 0.25
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.09
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "praise_voice",
+          "score": 3.345
+        },
+        {
+          "id": "crooner_voice",
+          "score": 1.625
+        },
+        {
+          "id": "incomplete_closure_voice",
+          "score": 0.775
+        }
+      ]
+    },
+    {
+      "tid": "japanese_taiko_ensemble",
+      "name": "Japanese kumi-daiko (modern taiko ensemble)",
+      "family": null,
+      "parent": "groovePercussion.eastAsian",
+      "lineage": null,
+      "crossRefs": [
+        "artMusic.eastAsian",
+        "ritualDevotional.buddhist"
+      ],
+      "staples": [
+        "beijing_opera",
+        "cantonese_opera"
+      ],
+      "current_pick": "pressed_phonation_voice",
+      "current_pick_score": 15.3,
+      "primary_pick": "praise_voice",
+      "primary_pick_score": 2.07,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "praise_voice",
+          "score": 2.07
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.39
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.225
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pressed_phonation_voice",
+          "score": 15.3
+        },
+        {
+          "id": "crooner_voice",
+          "score": 2.925
+        },
+        {
+          "id": "praise_voice",
+          "score": 2.37
+        }
+      ]
+    },
+    {
+      "tid": "turkish_romani_cumbus",
+      "name": "Turkish-Romani çümbüş music",
+      "family": null,
+      "parent": "improvOnFrame.persianArabImprov",
+      "lineage": null,
+      "crossRefs": [
+        "balladPoetry.medEastPoetic",
+        "improvOnFrame.klezmerImprov"
+      ],
+      "staples": [
+        "ghazal",
+        "hungarian_cimbalom_trad"
+      ],
+      "current_pick": "crooner_voice",
+      "current_pick_score": 2.535,
+      "primary_pick": "speech_voice",
+      "primary_pick_score": 0.0082,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "speech_voice",
+          "score": 0.0082
+        },
+        {
+          "id": "opera_voice",
+          "score": 0
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "crooner_voice",
+          "score": 2.535
+        },
+        {
+          "id": "praise_voice",
+          "score": 0.4352
+        },
+        {
+          "id": "rap_voice",
+          "score": 0.065
+        }
+      ]
+    },
+    {
+      "tid": "tango_traditional",
+      "name": "Tango traditional (orquesta típica era)",
+      "family": null,
+      "parent": "balladPoetry.latinAmTroubadour",
+      "lineage": null,
+      "crossRefs": [
+        "groovePercussion.latinAm"
+      ],
+      "staples": [
+        "joropo"
+      ],
+      "current_pick": "twang_voice",
+      "current_pick_score": 2.975,
+      "primary_pick": "worn_fold_voice",
+      "primary_pick_score": 0.55,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "worn_fold_voice",
+          "score": 0.55
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.3
+        },
+        {
+          "id": "speech_voice",
+          "score": 0.1982
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "twang_voice",
+          "score": 2.975
+        },
+        {
+          "id": "worn_fold_voice",
+          "score": 0.55
+        },
+        {
+          "id": "sprechgesang_voice",
+          "score": 0.3
+        }
+      ]
+    }
+  ]
+}

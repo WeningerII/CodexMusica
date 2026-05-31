@@ -1,0 +1,373 @@
+{
+  "_meta": {
+    "version": 1,
+    "classified_at": "2026-05-10",
+    "buckets": {
+      "A": "current pick wrong, primary-only right (flip target)",
+      "B": "current pick right, primary-only would regress (no action; document)",
+      "C": "both defensible, bin-3 (no action) — or both wrong, separate fix needed"
+    },
+    "phase_d_completed": "2026-05-10",
+    "phase_d_summary": "39 bucket-A targets resolved via voice_isolated crossRef migrations; rationale preserved in tests/voice_audit_phase_d_resolved.json",
+    "warm_audit_drift_classifications": "5 new mismatches emerged from warm-audit context shifts (not the warm changes themselves but downstream merged-context scoring drift); classified inline to keep tandem coherent",
+    "vibes_audit_drift_classifications": "1 new mismatch (tango) classified post-vibes-audit; field_holler_solo resolved via voice_isolated",
+    "refresh_note": "Refreshed post-substring-tokenization-bleed structural fix. Stale entries removed (mismatches resolved); new mismatches auto-classified by stapled-vs-runner-up gap: gap<0.5 → C, else → B.",
+    "refreshed_at": "2026-05-11",
+    "last_refresh_added": 61,
+    "last_refresh_removed": 36
+  },
+  "classifications": {
+    "soukous": [
+      "C",
+      "Lingala vocals range melodic to responsorial-praise; both defensible"
+    ],
+    "aor": [
+      "B",
+      "AOR-tenor strain-belt (Perry, Gramm); pressed correct"
+    ],
+    "cadence_lypso": [
+      "C",
+      "Caribbean call-and-response; both loose"
+    ],
+    "swedish_nyckelharpa_folk": [
+      "C",
+      "Mostly instrumental tradition; vocal sections are folk-untrained"
+    ],
+    "bulgarian_dance_traditional": [
+      "C",
+      "Bulgarian open-throat dance vocals; neither pick canonical"
+    ],
+    "ska_rocksteady": [
+      "B",
+      "Rocksteady-era smooth-melodic with declamatory edge; blues_shouter defensible"
+    ],
+    "uk_garage_2step": [
+      "B",
+      "Garage MC vocals are shouted; current right"
+    ],
+    "liquid_funk": [
+      "C",
+      "Liquid drum'n'bass uses smooth-aspirated samples; neither pick canonical"
+    ],
+    "mento": [
+      "C",
+      "Jamaican mento vocals are conversational-narrative; both picks loose"
+    ],
+    "kizomba": [
+      "C",
+      "Kizomba is sung-romantic crossover; neither pick canonical (would prefer aspirated/crooner)"
+    ],
+    "twee_pop": [
+      "B",
+      "Twee/cuddlecore is deliberately untrained-thin; incomplete_closure correct"
+    ],
+    "kizomba_song_form": [
+      "B",
+      "Kizomba lyrical-romantic; aspirated closer than whisper"
+    ],
+    "vietnamese_traditional": [
+      "B",
+      "Vietnamese cải lương / hát chèo theatrical art-vocal; opera correct, speech wrong"
+    ],
+    "tango": [
+      "B",
+      "Tango canonical vocal (Gardel/Goyeneche) is dramatic-declamatory crooner; current right, praise wrong"
+    ],
+    "honky_tonk": [
+      "B",
+      "Stapled context delivers canonical pick incomplete_closure_voice with margin (gap=2.51); primary-only speech_voice would regress."
+    ],
+    "outlaw_country": [
+      "B",
+      "Stapled context delivers canonical pick incomplete_closure_voice with margin (gap=12.16); primary-only speech_voice would regress."
+    ],
+    "noise_rock": [
+      "C",
+      "Stapled vs primary picks defensibly close (current=speech_voice@1.10, gap=0.03); both within bin-3 ambiguity post-substring-bleed-fix."
+    ],
+    "synthpop": [
+      "B",
+      "Stapled context delivers canonical pick blues_shouter_voice with margin (gap=1.35); primary-only nasal_voice would regress."
+    ],
+    "heartland_rock": [
+      "B",
+      "Stapled context delivers canonical pick incomplete_closure_voice with margin (gap=2.47); primary-only speech_voice would regress."
+    ],
+    "punk": [
+      "C",
+      "Stapled vs primary picks defensibly close (current=blues_shouter_voice@2.41, gap=0.44); both within bin-3 ambiguity post-substring-bleed-fix."
+    ],
+    "boom_bap": [
+      "B",
+      "Stapled context delivers canonical pick blues_shouter_voice with margin (gap=6.98); primary-only rap_voice would regress."
+    ],
+    "hawaiian_slack_key": [
+      "B",
+      "Stapled context delivers canonical pick fado_voice with margin (gap=0.65); primary-only speech_voice would regress."
+    ],
+    "alt_country_americana": [
+      "B",
+      "Stapled context delivers canonical pick incomplete_closure_voice with margin (gap=2.11); primary-only speech_voice would regress."
+    ],
+    "classic_rb": [
+      "B",
+      "Stapled context delivers canonical pick praise_voice with margin (gap=2.05); primary-only blues_shouter_voice would regress."
+    ],
+    "hardcore_punk": [
+      "C",
+      "Stapled vs primary picks defensibly close (current=false_fold_voice@0.85, gap=0.40); both within bin-3 ambiguity post-substring-bleed-fix."
+    ],
+    "chimurenga": [
+      "B",
+      "Stapled context delivers canonical pick twang_voice with margin (gap=1.98); primary-only praise_voice would regress."
+    ],
+    "mongolian_long_song": [
+      "B",
+      "Stapled context delivers canonical pick false_fold_voice with margin (gap=6.81); primary-only fado_voice would regress."
+    ],
+    "javanese_gamelan": [
+      "B",
+      "Stapled context delivers canonical pick pressed_phonation_voice with margin (gap=9.98); primary-only speech_voice would regress."
+    ],
+    "nashville_sound": [
+      "C",
+      "Stapled vs primary picks defensibly close (current=blues_shouter_voice@2.66, gap=0.17); both within bin-3 ambiguity post-substring-bleed-fix."
+    ],
+    "gothic_country": [
+      "B",
+      "Stapled context delivers canonical pick incomplete_closure_voice with margin (gap=3.21); primary-only speech_voice would regress."
+    ],
+    "ethio_jazz": [
+      "B",
+      "Stapled context delivers canonical pick nasal_voice with margin (gap=1.76); primary-only speech_voice would regress."
+    ],
+    "sophisti_pop": [
+      "B",
+      "Stapled context delivers canonical pick crooner_voice with margin (gap=0.52); primary-only aspirated_voice would regress."
+    ],
+    "russian_estrada": [
+      "B",
+      "Stapled context delivers canonical pick incomplete_closure_voice with margin (gap=3.50); primary-only full_chest_belt_voice would regress."
+    ],
+    "salsa_cubana_timba": [
+      "B",
+      "Stapled context delivers canonical pick blues_shouter_voice with margin (gap=4.35); primary-only speech_voice would regress."
+    ],
+    "vocal_trance": [
+      "B",
+      "Stapled context delivers canonical pick blues_shouter_voice with margin (gap=0.75); primary-only whisper_voice would regress."
+    ],
+    "folk_metal_european": [
+      "C",
+      "Stapled vs primary picks defensibly close (current=crooner_voice@2.21, gap=0.39); both within bin-3 ambiguity post-substring-bleed-fix."
+    ],
+    "latin_house_percussion": [
+      "B",
+      "Stapled context delivers canonical pick blues_shouter_voice with margin (gap=3.61); primary-only speech_voice would regress."
+    ],
+    "hot_country_2010s": [
+      "B",
+      "Stapled context delivers canonical pick incomplete_closure_voice with margin (gap=3.50); primary-only whisper_voice would regress."
+    ],
+    "country_pop_crossover": [
+      "C",
+      "Stapled vs primary picks defensibly close (current=incomplete_closure_voice@2.51, gap=0.43); both within bin-3 ambiguity post-substring-bleed-fix."
+    ],
+    "technical_death_metal": [
+      "B",
+      "Stapled context delivers canonical pick opera_voice with margin (gap=1.27); primary-only whisper_voice would regress."
+    ],
+    "brutal_death_metal": [
+      "C",
+      "Stapled vs primary picks defensibly close (current=false_fold_voice@0.88, gap=0.01); both within bin-3 ambiguity post-substring-bleed-fix."
+    ],
+    "jam_band": [
+      "B",
+      "Stapled context delivers canonical pick blues_shouter_voice with margin (gap=4.10); primary-only speech_voice would regress."
+    ],
+    "garage_rock_revival_2000s": [
+      "C",
+      "Stapled vs primary picks defensibly close (current=child_voice@0.13, gap=0.04); both within bin-3 ambiguity post-substring-bleed-fix."
+    ],
+    "sertanejo": [
+      "B",
+      "Stapled context delivers canonical pick crooner_voice with margin (gap=1.97); primary-only speech_voice would regress."
+    ],
+    "capoeira_music": [
+      "B",
+      "Stapled context delivers canonical pick aspirated_voice with margin (gap=2.56); primary-only praise_voice would regress."
+    ],
+    "vajrayana_broader": [
+      "B",
+      "Stapled context delivers canonical pick pressed_phonation_voice with margin (gap=8.55); primary-only praise_voice would regress."
+    ],
+    "hyperion_classical_aesthetic": [
+      "B",
+      "Stapled context delivers canonical pick praise_voice with margin (gap=0.52); primary-only opera_voice would regress."
+    ],
+    "historical_informed_performance": [
+      "B",
+      "Stapled context delivers canonical pick praise_voice with margin (gap=1.14); primary-only opera_voice would regress."
+    ],
+    "japanese_taiko_ensemble": [
+      "B",
+      "Stapled context delivers canonical pick pressed_phonation_voice with margin (gap=10.37); primary-only praise_voice would regress."
+    ],
+    "turkish_romani_cumbus": [
+      "B",
+      "Stapled context delivers canonical pick praise_voice with margin (gap=2.54); primary-only incomplete_closure_voice would regress."
+    ],
+    "tango_traditional": [
+      "B",
+      "Stapled context delivers canonical pick twang_voice with margin (gap=2.33); primary-only speech_voice would regress."
+    ],
+    "j_rock": [
+      "B",
+      "Stapled context delivers canonical pick breath_admixed_voice with margin (gap=0.68); primary-only whisper_voice would regress."
+    ],
+    "garage_rock": [
+      "C",
+      "Stapled vs primary picks defensibly close (current=nasal_voice@0.13, gap=0.02); bin-3 ambiguity post-substring-bleed-fix."
+    ],
+    "freestyle_music": [
+      "B",
+      "Stapled context delivers canonical pick rap_voice with margin (gap=26.36); primary-only chest_mix_belt_voice would regress."
+    ],
+    "hokum_blues_vaudeville": [
+      "B",
+      "Stapled context delivers canonical pick blues_shouter_voice with margin (gap=2.34); primary-only worn_fold_voice would regress."
+    ],
+    "talking_blues_dustbowl": [
+      "B",
+      "Stapled context delivers canonical pick rap_voice with margin (gap=22.54); primary-only worn_fold_voice would regress."
+    ],
+    "southern_rock": [
+      "B",
+      "Southern rock canonical voice (Allman, Skynyrd) is worn-fold country-rock; pick correct"
+    ],
+    "country_rock": [
+      "C",
+      "Country rock voice varies — worn-fold and register-break ornament both defensible"
+    ],
+    "big_band": [
+      "C",
+      "Big band canonically uses crooner voice (Sinatra); neither praise nor blues_shouter canonical"
+    ],
+    "hair_metal": [
+      "C",
+      "Hair metal canonical is pressed/full-belt/strain (Bret Michaels); crooner over-soft, speech wrong"
+    ],
+    "post_punk": [
+      "B",
+      "Post-punk lowered-larynx canonical (Ian Curtis, Mark E. Smith); pick correct"
+    ],
+    "desert_blues": [
+      "B",
+      "Desert blues call-response praise-tradition derived (Tinariwen, Ali Farka Touré); pick correct"
+    ],
+    "jamaican_dancehall": [
+      "C",
+      "Dancehall is rap-derived toasting/DJ-chatting; house staples wrong but blues_shouter also off — both defensible"
+    ],
+    "western_swing": [
+      "C",
+      "Western swing canonical voice is crooner (Bob Wills vocalists, Asleep at the Wheel); both defensible"
+    ],
+    "amapiano": [
+      "C",
+      "Amapiano vocals range from spoken to melodic; crooner via soukous generous but speech also present"
+    ],
+    "rapso": [
+      "C",
+      "Rapso (Trinidad) is rap-soca hybrid — rap_voice more canonical than full_chest_belt"
+    ],
+    "turkish_makam": [
+      "C",
+      "Turkish makam is melismatic-ornamented; neither crooner nor rap canonical — both off"
+    ],
+    "carnatic_vocal": [
+      "B",
+      "Carnatic vocal devotional praise-tradition (via bhajan/kirtan staples); pick correct"
+    ],
+    "mathcore": [
+      "C",
+      "Mathcore canonical is fry/scream/growl (Dillinger Escape Plan, Converge); yodel via krautrock weird"
+    ],
+    "red_dirt": [
+      "B",
+      "Red dirt narrative country-folk (Cross Canadian Ragweed); incomplete_closure storyteller-derived correct"
+    ],
+    "gothic_americana": [
+      "B",
+      "Gothic americana narrative folk-storyteller voice (16 Horsepower, murder ballad register); pick correct"
+    ],
+    "jangle_pop": [
+      "C",
+      "Jangle pop clean tenor (REM, Sundays); neither incomplete_closure nor speech canonical"
+    ],
+    "galician_kantautor": [
+      "B",
+      "Galician cantautor uses Iberian melismatic-narrative; fado_voice via fado staple canonical"
+    ],
+    "son_cubano": [
+      "C",
+      "Son cubano sonero voice is declamatory chest-belt; full_chest_belt more canonical than blues_shouter"
+    ],
+    "guaracha": [
+      "C",
+      "Guaracha (Cuban) shares sonero voice with son; full_chest_belt canonical, blues_shouter off"
+    ],
+    "forro_brasileiro": [
+      "B",
+      "Forró narrative northeastern Brazilian folk; aspirated via pagode staple defensible"
+    ],
+    "marinera": [
+      "B",
+      "Marinera (Peruvian creole) formal melodic; crooner via milonga staple defensible"
+    ],
+    "tribal_guarachero": [
+      "C",
+      "Tribal guarachero mostly instrumental/sample-based; full_chest_belt via cumbia off, sprechgesang also off"
+    ],
+    "2tone_ska_revival": [
+      "C",
+      "Two-tone (Specials, Madness) chanted speech-rhythm; child_voice via post_punk wrong, speech closer"
+    ],
+    "bedroom_pop": [
+      "C",
+      "Bedroom pop intimate/whispered (Clairo, Cuco); whisper_voice canonical, crooner via new_wave wrong era"
+    ],
+    "power_metal_european": [
+      "B",
+      "European power metal operatic-trained tenors (Helloween, Stratovarius); opera_voice canonical"
+    ],
+    "rockabilly_50s": [
+      "B",
+      "Rockabilly crooner-derived with country-blues edge (Elvis, Carl Perkins); crooner canonical"
+    ],
+    "globalized_african_pop_crossover": [
+      "B",
+      "Global Afrobeats melodic-praise hybrid (Burna Boy, Davido); praise via Congolese staples canonical"
+    ],
+    "jongo": [
+      "C",
+      "Jongo Afro-Brazilian call-response declamatory; aspirated and praise both defensible"
+    ],
+    "parang_trini": [
+      "B",
+      "Parang (Trinidad Spanish-derived Christmas folk) melodic singing; crooner via milonga staple canonical"
+    ],
+    "malhun_maghrebi": [
+      "B",
+      "Malhun (Maghreb classical) devotional poetry-singing; praise via qawwali/sufi_sama canonical"
+    ],
+    "iraqi_maqam": [
+      "C",
+      "Iraqi maqam Arab classical melismatic-ornamented; rap_voice off, yodel also off — both wrong"
+    ],
+    "finnish_kantele_folk": [
+      "B",
+      "Finnish runonlaulu epic-narrative folk; praise via Russian byliny staple defensible"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_doc": "Part-universal tokens per part-id. 1-2 tokens describing what this CATEGORY of variant generally does. Most part-IDs are construction metadata (wood, gauge, finish) with no semantic value — those are intentionally absent and contribute zero tokens.",
+
+  "_technique_categorical": {
+    "plucked_traditional_technique": ["plucked", "traditional"],
+    "wind_articulation": ["wind-driven", "articulated"],
+    "bowed_technique": ["bowed"],
+    "electronic_technique": ["electronic"],
+    "keyboard_technique": ["keyboard-driven"],
+    "percussion_technique": ["percussive-attack"],
+    "acoustic_technique": ["acoustic-only"],
+    "free_reed_technique": ["bellows-driven", "reed-driven"],
+    "electric_technique": ["electric", "picked"]
+  },
+
+  "_orchestration": {
+    "sections": ["ensemble"],
+    "section": ["ensemble"],
+    "members": ["ensemble"],
+    "voices": ["ensemble"],
+    "arrangement": ["ensemble"],
+    "voicing": ["chordal"],
+    "choir_size": ["ensemble"]
+  },
+
+  "_voice_aspects": {
+    "voice_register": ["sustained-tone"],
+    "voice_quality": ["speech-derived"],
+    "voice_vibrato": ["vibrato-rich"],
+    "voice_articulation": ["articulated"],
+    "voice_microtone": ["microtonal-bend"],
+    "throat_technique": ["throat-singing"],
+    "throat_singing_voice_region": ["throat-singing"],
+    "shape_note_part": ["choir-blendable"],
+    "qawwal_role": ["devotional"],
+    "pansori_voice_quality": ["rough-tone"],
+    "pansori_voice_repertoire": ["pansori-tradition"],
+    "griot_voice_context": ["griot-tradition"]
+  }
+}

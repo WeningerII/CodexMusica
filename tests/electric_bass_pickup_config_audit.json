@@ -1,0 +1,200 @@
+{
+  "generated_at": "2026-05-11T15:24:49.305Z",
+  "target": {
+    "instrument": "electric_bass",
+    "part": "pickup_config",
+    "num_variants": 4
+  },
+  "total_traditions": 181,
+  "mismatch_count": 4,
+  "records": [
+    {
+      "tid": "philly_soul_intl",
+      "name": "Philadelphia International soul",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb",
+      "lineage": "orchestrated soul / r&b",
+      "crossRefs": [
+        "functionalSong.popRock",
+        "electronicDance.continental"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "split_coil",
+      "current_pick_score": 0.23399999999999999,
+      "primary_pick": "soapbar",
+      "primary_pick_score": 0.23399999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "soapbar",
+          "score": 0.23399999999999999
+        },
+        {
+          "id": "split_coil",
+          "score": 0.21874999999999997
+        },
+        {
+          "id": "humbucker_mm",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "split_coil",
+          "score": 0.21874999999999997
+        },
+        {
+          "id": "soapbar",
+          "score": 0.195
+        },
+        {
+          "id": "humbucker_mm",
+          "score": 0.045
+        }
+      ]
+    },
+    {
+      "tid": "kompa_song_form",
+      "name": "Kompa (song-form)",
+      "family": "global",
+      "parent": "functionalSong.tropicalSong",
+      "lineage": "Haitian groove-led song",
+      "crossRefs": [
+        "groovePercussion.afroDiasporicElec"
+      ],
+      "staples": [
+        "afrobeat",
+        "kompa"
+      ],
+      "current_pick": "soapbar",
+      "current_pick_score": 0.0765,
+      "primary_pick": "humbucker_mm",
+      "primary_pick_score": 0.0765,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "humbucker_mm",
+          "score": 0.0765
+        },
+        {
+          "id": "soapbar",
+          "score": 0.0525
+        },
+        {
+          "id": "split_coil",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "soapbar",
+          "score": 0.195
+        },
+        {
+          "id": "humbucker_mm",
+          "score": 0.0765
+        },
+        {
+          "id": "split_coil",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "liquid_funk",
+      "name": "Liquid funk (drum & bass)",
+      "family": "global",
+      "parent": "bassSystem.ukSoundsystem",
+      "lineage": "melodic drum-and-bass",
+      "crossRefs": [
+        "groovePercussion.afroDiasporicElec"
+      ],
+      "staples": [
+        "afrobeat",
+        "kompa"
+      ],
+      "current_pick": "soapbar",
+      "current_pick_score": 0.1125,
+      "primary_pick": "humbucker_mm",
+      "primary_pick_score": 0.1125,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "humbucker_mm",
+          "score": 0.1125
+        },
+        {
+          "id": "soapbar",
+          "score": 0.0765
+        },
+        {
+          "id": "split_coil",
+          "score": 0.010499999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "soapbar",
+          "score": 0.195
+        },
+        {
+          "id": "humbucker_mm",
+          "score": 0.1125
+        },
+        {
+          "id": "split_coil",
+          "score": 0.010499999999999999
+        }
+      ]
+    },
+    {
+      "tid": "tropicalia",
+      "name": "Tropicália",
+      "family": "global",
+      "parent": "groovePercussion.brazilian",
+      "lineage": "late-1960s Brazilian art-pop fusion movement",
+      "crossRefs": [
+        "distortedRock.experimental"
+      ],
+      "staples": [
+        "krautrock"
+      ],
+      "current_pick": "soapbar",
+      "current_pick_score": 0.13649999999999998,
+      "primary_pick": "humbucker_mm",
+      "primary_pick_score": 0.13649999999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "humbucker_mm",
+          "score": 0.13649999999999998
+        },
+        {
+          "id": "soapbar",
+          "score": 0.08099999999999999
+        },
+        {
+          "id": "split_coil",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "soapbar",
+          "score": 0.195
+        },
+        {
+          "id": "humbucker_mm",
+          "score": 0.13649999999999998
+        },
+        {
+          "id": "split_coil",
+          "score": 0
+        }
+      ]
+    }
+  ]
+}

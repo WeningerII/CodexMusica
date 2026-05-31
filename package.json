@@ -1,0 +1,48 @@
+{
+  "name": "codex-music-tool",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Compressed song-recipe descriptor engine over a 1090-tradition / 421-instrument music codex. Generates structural production blueprints, blends traditions, matches axis profiles, and ships a single-file browseable HTML catalog.",
+  "license": "UNLICENSED",
+  "author": "Tony",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:html": "node scripts/build_html.js --check",
+    "build:fast": "node scripts/build.js --skip-smoke --skip-ui-check",
+    "validate": "node scripts/validate.js",
+    "audit": "node scripts/audit.js",
+    "test": "npm run test:recipes && npm run test:prefaces && npm run test:slots && npm run test:app",
+    "test:recipes": "node scripts/regression_recipes.js",
+    "test:prefaces": "node scripts/regression_prefaces.js",
+    "test:slots": "node scripts/check_slot_picks.js",
+    "test:app": "node scripts/app_recipe_regression.js",
+    "smoke": "node scripts/smoke.js",
+    "tandem": "node scripts/tandem.js",
+    "reachability": "node scripts/ui_reachability_check.js",
+    "check-docs": "node scripts/check_docs.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "ci": "npm run lint && npm run build",
+    "assets:emoji": "node scripts/build_emoji.js",
+    "assets:icons": "node scripts/build_assets.js",
+    "assets:photos": "node scripts/build_photos.js",
+    "assets:variants": "node scripts/build_variants.js",
+    "assets:fetch:emoji": "node scripts/fetch_emoji.js",
+    "assets:fetch:icons": "node scripts/fetch_icons.js",
+    "assets:fetch:commons": "node scripts/fetch_commons.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
+    "jsdom": "^24.1.3",
+    "playwright": "^1.49.1",
+    "prettier": "^3.4.2",
+    "sharp": "^0.33.5"
+  }
+}

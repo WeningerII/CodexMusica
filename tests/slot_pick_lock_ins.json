@@ -1,0 +1,69 @@
+{
+  "_purpose": "Slot-pick lock-in tests for non-iconic parts where the variant pick is mechanically correct but doesn't surface in rendered recipe text. Used to lock in isolated_parts crossRef wins that calibration_fixtures.json substring matching cannot catch. Each entry: { tradition, instrument, part, expected_variant, rationale }. Run via scripts/check_slot_picks.js.",
+  "_locked_in_by": "scripts/check_slot_picks.js — runs in tandem.js [1/4] source pipeline.",
+  "tests": [
+    {
+      "tradition": "new_orleans",
+      "instrument": "drum_kit",
+      "part": "cymbal_alloy",
+      "expected_variant": "b20",
+      "rationale": "NOLA second-line jazz cymbal canonical (b20 jazz alloy). Locks in isolated_parts: ['cymbal_alloy'] on improvOnFrame.americanJazz.bop crossRef — without isolation, bebop staples push to b23 (rock-canonical)."
+    },
+    {
+      "tradition": "chicago_blues",
+      "instrument": "drum_kit",
+      "part": "cymbal_alloy",
+      "expected_variant": "b20",
+      "rationale": "Electric blues canonical (Chess Records-era jazz-leaning cymbals). Locks in isolated_parts: ['cymbal_alloy'] on improvOnFrame.americanJazz crossRef — without isolation, free_jazz/spiritual_jazz staples push to b8 (cheap rock)."
+    },
+    {
+      "tradition": "frevo",
+      "instrument": "drum_kit",
+      "part": "cymbal_alloy",
+      "expected_variant": "b20",
+      "rationale": "Brazilian carnival ensemble canonical b20. Locks in isolated_parts: ['voice_quality', 'cymbal_alloy'] on improvOnFrame.americanJazz crossRef."
+    },
+    {
+      "tradition": "british_invasion_rb",
+      "instrument": "drum_kit",
+      "part": "shell_wood",
+      "expected_variant": "mahogany_shell",
+      "rationale": "Beatles/Stones Ludwig mahogany kit canonical. Locks in isolated_parts: ['shell_wood'] on functionalSong.bluesElectric crossRef — without isolation, blues staples push to walnut."
+    },
+    {
+      "tradition": "fusion",
+      "instrument": "drum_kit",
+      "part": "shell_wood",
+      "expected_variant": "birch_shell",
+      "rationale": "Yamaha Recording Custom birch canonical for fusion (Steve Gadd, Vinnie Colaiuta). Locks in isolated_parts: ['shell_wood'] on improvOnFrame.americanJazz.bop crossRef — without isolation, bebop staples push to walnut."
+    },
+    {
+      "tradition": "tuvan_throat",
+      "instrument": "voice",
+      "part": "voice_quality",
+      "expected_variant": "false_fold_voice",
+      "rationale": "Kargyraa is literally false-fold (ventricular) phonation. Locks in legacy voice_isolated: true on ritualDevotional.buddhist crossRef — without isolation, Buddhist liturgy staples push to praise_voice."
+    },
+    {
+      "tradition": "britfolk_revival",
+      "instrument": "voice",
+      "part": "voice_quality",
+      "expected_variant": "incomplete_closure_voice",
+      "rationale": "Pentangle/Sandy Denny clean-untrained-folk vocal canonical. Locks in voice_isolated on balladPoetry.celticBalladic crossRef — without isolation, breton_folk staples push to fry_bleed."
+    },
+    {
+      "tradition": "field_holler_solo",
+      "instrument": "voice",
+      "part": "voice_quality",
+      "expected_variant": "blues_shouter_voice",
+      "rationale": "Pre-blues agricultural holler canonical (Lomax field recordings). Locks in voice_isolated on droneModal.vocal crossRef."
+    },
+    {
+      "tradition": "contemporary_rb_late_90s_2000s",
+      "instrument": "voice",
+      "part": "voice_quality",
+      "expected_variant": "breath_admixed_voice",
+      "rationale": "Neo-soul / contemporary R&B vocal canonical (D'Angelo, Erykah Badu). Locks in voice_isolated on hip-hop crossRef. Phase D bucket-A win."
+    }
+  ]
+}

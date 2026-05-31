@@ -1,0 +1,341 @@
+{
+  "generated_at": "2026-05-11T15:22:31.725Z",
+  "target": {
+    "instrument": "electric_guitar_humbucker",
+    "part": "fretboard",
+    "num_variants": 4
+  },
+  "total_traditions": 56,
+  "mismatch_count": 7,
+  "records": [
+    {
+      "tid": "doom",
+      "name": "Doom / sludge",
+      "family": "rock_punk",
+      "parent": "distortedRock.metal.doom",
+      "lineage": "metal",
+      "crossRefs": [
+        "distortedRock.metal.sludge"
+      ],
+      "staples": [
+        "sludge_metal"
+      ],
+      "current_pick": "ebony_fb_h",
+      "current_pick_score": 0.39,
+      "primary_pick": "rosewood_fb_h",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.39
+        },
+        {
+          "id": "ebony_fb_h",
+          "score": 0.39
+        },
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "ebony_fb_h",
+          "score": 0.726
+        },
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 0.585
+        },
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.5712499999999999
+        }
+      ]
+    },
+    {
+      "tid": "hiplife",
+      "name": "Hiplife",
+      "family": "global",
+      "parent": "groovePercussion.westAfrican",
+      "lineage": "Ghanaian",
+      "crossRefs": [
+        "mcRhythm.afroDiasporic"
+      ],
+      "staples": [
+        "kwaito"
+      ],
+      "current_pick": "rosewood_fb_h",
+      "current_pick_score": 0.1575,
+      "primary_pick": "pau_ferro_fb_h",
+      "primary_pick_score": 0.1575,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 0.1575
+        },
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.09899999999999999
+        },
+        {
+          "id": "ebony_fb_h",
+          "score": 0.063
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.195
+        },
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 0.1575
+        },
+        {
+          "id": "ebony_fb_h",
+          "score": 0.063
+        }
+      ]
+    },
+    {
+      "tid": "sludge_metal",
+      "name": "Sludge metal",
+      "family": "rock",
+      "parent": "distortedRock.metal.sludge",
+      "lineage": "Southern US",
+      "crossRefs": [
+        "distortedRock.metal.doom"
+      ],
+      "staples": [
+        "stoner_metal",
+        "doom"
+      ],
+      "current_pick": "pau_ferro_fb_h",
+      "current_pick_score": 0.69825,
+      "primary_pick": "ebony_fb_h",
+      "primary_pick_score": 0.69825,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "ebony_fb_h",
+          "score": 0.69825
+        },
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.39
+        },
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 1.11
+        },
+        {
+          "id": "ebony_fb_h",
+          "score": 0.9982499999999999
+        },
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.69825
+        }
+      ]
+    },
+    {
+      "tid": "folk_metal_european",
+      "name": "Folk metal (European)",
+      "family": "global",
+      "parent": "distortedRock.metal.folkMetal",
+      "lineage": "metal-folk-instrument hybrid",
+      "crossRefs": [
+        "balladPoetry.celticBalladic"
+      ],
+      "staples": [
+        "breton_folk",
+        "swedish_nyckelharpa_folk"
+      ],
+      "current_pick": "rosewood_fb_h",
+      "current_pick_score": 0.46499999999999997,
+      "primary_pick": "ebony_fb_h",
+      "primary_pick_score": 0.46499999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "ebony_fb_h",
+          "score": 0.46499999999999997
+        },
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.39
+        },
+        {
+          "id": "maple_fb_h",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "rosewood_fb_h",
+          "score": 3.119999999999999
+        },
+        {
+          "id": "ebony_fb_h",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "maple_fb_h",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "funeral_doom",
+      "name": "Funeral doom",
+      "family": "global",
+      "parent": "distortedRock.metal.doom",
+      "lineage": "extreme-slow doom sub-style",
+      "crossRefs": [
+        "experimentalElec.ambient"
+      ],
+      "staples": [
+        "ambient",
+        "drone_dark_ambient"
+      ],
+      "current_pick": "ebony_fb_h",
+      "current_pick_score": 0.17099999999999999,
+      "primary_pick": "pau_ferro_fb_h",
+      "primary_pick_score": 0.17099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 0.17099999999999999
+        },
+        {
+          "id": "ebony_fb_h",
+          "score": 0.153
+        },
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.108
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "ebony_fb_h",
+          "score": 0.39
+        },
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.195
+        },
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "drone_metal",
+      "name": "Drone doom metal",
+      "family": "global",
+      "parent": "distortedRock.metal.doom",
+      "lineage": "extreme-minimalist doom metal",
+      "crossRefs": [
+        "droneModal.modalElectric"
+      ],
+      "staples": [
+        "desert_blues"
+      ],
+      "current_pick": "rosewood_fb_h",
+      "current_pick_score": 0.1285,
+      "primary_pick": "pau_ferro_fb_h",
+      "primary_pick_score": 0.1285,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 0.1285
+        },
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.108
+        },
+        {
+          "id": "ebony_fb_h",
+          "score": 0.108
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.195
+        },
+        {
+          "id": "ebony_fb_h",
+          "score": 0.195
+        },
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 0.1285
+        }
+      ]
+    },
+    {
+      "tid": "russian_rock",
+      "name": "Russian rock",
+      "family": "global",
+      "parent": "distortedRock.regional",
+      "lineage": "late-Soviet and post-Soviet Russian-language rock",
+      "crossRefs": [
+        {
+          "ref": "balladPoetry.slavicBard",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "russian_folk_balalaika_choir",
+        "south_slavic_kantautor"
+      ],
+      "current_pick": "pau_ferro_fb_h",
+      "current_pick_score": 0.42374999999999996,
+      "primary_pick": "rosewood_fb_h",
+      "primary_pick_score": 0.42374999999999996,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.42374999999999996
+        },
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 0.15
+        },
+        {
+          "id": "ebony_fb_h",
+          "score": 0.105
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "pau_ferro_fb_h",
+          "score": 0.65
+        },
+        {
+          "id": "rosewood_fb_h",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "ebony_fb_h",
+          "score": 0.105
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,826 @@
+{
+  "generated_at": "2026-05-11T15:21:23.865Z",
+  "target": {
+    "instrument": "grand_piano",
+    "part": "grand_piano_brand",
+    "num_variants": 4
+  },
+  "total_traditions": 66,
+  "mismatch_count": 17,
+  "records": [
+    {
+      "tid": "yacht_rock",
+      "name": "Yacht rock",
+      "family": "rock_punk",
+      "parent": "functionalSong.popRock.yachtRock",
+      "lineage": "late-1970s through mid-1980s smooth West-Coast AOR pop-rock",
+      "crossRefs": [
+        "functionalSong.popRock",
+        "distortedRock.lateAnalogMajor",
+        "improvOnFrame.americanJazz.smoothVocal"
+      ],
+      "staples": [
+        "new_wave",
+        "folk_rock"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 3.6400000000000006,
+      "primary_pick": "yamaha_cfx",
+      "primary_pick_score": 3.6400000000000006,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "yamaha_cfx",
+          "score": 3.6400000000000006
+        },
+        {
+          "id": "bosendorfer",
+          "score": 2.47
+        },
+        {
+          "id": "steinway_d",
+          "score": 2.4699999999999998
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 4.745
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 3.835
+        },
+        {
+          "id": "steinway_d",
+          "score": 3.7049999999999996
+        }
+      ]
+    },
+    {
+      "tid": "minimalist",
+      "name": "Minimalist",
+      "family": "classical",
+      "parent": "artMusic.westernModern",
+      "lineage": "late 20th century",
+      "crossRefs": [
+        "experimentalElec.ambient"
+      ],
+      "staples": [
+        "ambient",
+        "drone_dark_ambient"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 0.7478125,
+      "primary_pick": "fazioli",
+      "primary_pick_score": 0.7478125,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "fazioli",
+          "score": 0.7478125
+        },
+        {
+          "id": "bosendorfer",
+          "score": 0.4103125
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 0.3553125
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 1.625
+        },
+        {
+          "id": "fazioli",
+          "score": 0.8978125
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 0.5053124999999999
+        }
+      ]
+    },
+    {
+      "tid": "northern_soul_motown",
+      "name": "Northern / Motown soul",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb",
+      "lineage": "soul / r&b",
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 1.3050000000000002,
+      "primary_pick": "yamaha_cfx",
+      "primary_pick_score": 1.3050000000000002,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "yamaha_cfx",
+          "score": 1.3050000000000002
+        },
+        {
+          "id": "steinway_d",
+          "score": 1.2449999999999997
+        },
+        {
+          "id": "bosendorfer",
+          "score": 1.17
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 2.275
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 2.015
+        },
+        {
+          "id": "steinway_d",
+          "score": 1.4299999999999997
+        }
+      ]
+    },
+    {
+      "tid": "philly_soul_intl",
+      "name": "Philadelphia International soul",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb",
+      "lineage": "orchestrated soul / r&b",
+      "crossRefs": [
+        "functionalSong.popRock",
+        "electronicDance.continental"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 1.164,
+      "primary_pick": "steinway_d",
+      "primary_pick_score": 1.164,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "steinway_d",
+          "score": 1.164
+        },
+        {
+          "id": "bosendorfer",
+          "score": 1.0845
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 1.0334999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 2.275
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 2.015
+        },
+        {
+          "id": "steinway_d",
+          "score": 1.4299999999999997
+        }
+      ]
+    },
+    {
+      "tid": "girl_group_60s",
+      "name": "1960s girl group",
+      "family": "pop_rock",
+      "parent": "functionalSong.popRock.girlGroup",
+      "lineage": "early-1960s teen-pop female-vocal-group Brill Building",
+      "crossRefs": [
+        "functionalSong.soulRb.doowop",
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "yacht_rock",
+        "new_wave"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 1.17,
+      "primary_pick": "steinway_d",
+      "primary_pick_score": 1.17,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "steinway_d",
+          "score": 1.17
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 0.885
+        },
+        {
+          "id": "bosendorfer",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 2.6649999999999996
+        },
+        {
+          "id": "steinway_d",
+          "score": 2.6
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 2.015
+        }
+      ]
+    },
+    {
+      "tid": "bossa_nova",
+      "name": "Bossa nova",
+      "family": "global",
+      "parent": "functionalSong.brazilianSong",
+      "lineage": "Brazilian",
+      "crossRefs": [
+        "balladPoetry.latinAmTroubadour"
+      ],
+      "staples": [
+        "milonga",
+        "tango"
+      ],
+      "current_pick": "steinway_d",
+      "current_pick_score": 1.209642857142857,
+      "primary_pick": "yamaha_cfx",
+      "primary_pick_score": 1.209642857142857,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "yamaha_cfx",
+          "score": 1.209642857142857
+        },
+        {
+          "id": "steinway_d",
+          "score": 0.39
+        },
+        {
+          "id": "bosendorfer",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "steinway_d",
+          "score": 1.755
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 1.209642857142857
+        },
+        {
+          "id": "bosendorfer",
+          "score": 0.7666071428571428
+        }
+      ]
+    },
+    {
+      "tid": "brill_building_pop",
+      "name": "Brill Building pop",
+      "family": "global",
+      "parent": "functionalSong.crooners",
+      "lineage": "American 1958-65 songwriter-pop",
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "yacht_rock",
+        "folk_rock"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 1.2074999999999996,
+      "primary_pick": "steinway_d",
+      "primary_pick_score": 1.2074999999999996,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "steinway_d",
+          "score": 1.2074999999999996
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 0.885
+        },
+        {
+          "id": "bosendorfer",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 2.8599999999999994
+        },
+        {
+          "id": "steinway_d",
+          "score": 2.2749999999999995
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 1.8200000000000003
+        }
+      ]
+    },
+    {
+      "tid": "easy_listening_orchestral",
+      "name": "Easy listening (orchestral pop)",
+      "family": "global",
+      "parent": "functionalSong.crooners",
+      "lineage": "mid-century instrumental pop",
+      "crossRefs": [
+        "artMusic.westernCommonPractice",
+        "improvOnFrame.americanJazz.smoothVocal"
+      ],
+      "staples": [
+        "cool_jazz_vocal",
+        "modern_vocal_jazz"
+      ],
+      "current_pick": "yamaha_cfx",
+      "current_pick_score": 1.69,
+      "primary_pick": "bosendorfer",
+      "primary_pick_score": 1.69,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "bosendorfer",
+          "score": 1.69
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 1.69
+        },
+        {
+          "id": "fazioli",
+          "score": 0.9099999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "yamaha_cfx",
+          "score": 7.279999999999999
+        },
+        {
+          "id": "bosendorfer",
+          "score": 2.0799999999999996
+        },
+        {
+          "id": "fazioli",
+          "score": 1.105
+        }
+      ]
+    },
+    {
+      "tid": "mandopop",
+      "name": "Mandopop",
+      "family": "global",
+      "parent": "functionalSong.eastAsianPop",
+      "lineage": "Mandarin-language mainstream pop",
+      "crossRefs": [
+        {
+          "ref": "functionalSong.popRock",
+          "isolated_parts": [
+            "voice_quality"
+          ]
+        }
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 1.3050000000000002,
+      "primary_pick": "yamaha_cfx",
+      "primary_pick_score": 1.3050000000000002,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "yamaha_cfx",
+          "score": 1.3050000000000002
+        },
+        {
+          "id": "steinway_d",
+          "score": 1.2449999999999997
+        },
+        {
+          "id": "bosendorfer",
+          "score": 1.17
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 2.275
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 2.015
+        },
+        {
+          "id": "steinway_d",
+          "score": 1.4299999999999997
+        }
+      ]
+    },
+    {
+      "tid": "cantopop",
+      "name": "Cantopop",
+      "family": "global",
+      "parent": "functionalSong.eastAsianPop",
+      "lineage": "Hong Kong Cantonese mainstream pop",
+      "crossRefs": [
+        {
+          "ref": "functionalSong.popRock",
+          "isolated_parts": [
+            "voice_quality"
+          ]
+        }
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 1.1549999999999998,
+      "primary_pick": "steinway_d",
+      "primary_pick_score": 1.1549999999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "steinway_d",
+          "score": 1.1549999999999998
+        },
+        {
+          "id": "bosendorfer",
+          "score": 1.08
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 0.885
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 2.275
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 2.015
+        },
+        {
+          "id": "steinway_d",
+          "score": 1.4299999999999997
+        }
+      ]
+    },
+    {
+      "tid": "russian_estrada",
+      "name": "Russian estrada",
+      "family": "global",
+      "parent": "functionalSong.europop",
+      "lineage": "Soviet-era Russian-language popular song",
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "folk_rock",
+        "new_wave"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 1.3050000000000002,
+      "primary_pick": "yamaha_cfx",
+      "primary_pick_score": 1.3050000000000002,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "yamaha_cfx",
+          "score": 1.3050000000000002
+        },
+        {
+          "id": "steinway_d",
+          "score": 1.17
+        },
+        {
+          "id": "fazioli",
+          "score": 0.9099999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 2.6649999999999996
+        },
+        {
+          "id": "steinway_d",
+          "score": 2.405
+        },
+        {
+          "id": "fazioli",
+          "score": 0.9099999999999999
+        }
+      ]
+    },
+    {
+      "tid": "salsa_cubana_timba",
+      "name": "Salsa cubana (timba)",
+      "family": "global",
+      "parent": "groovePercussion.cuban.sonSalsa",
+      "lineage": "1990s Cuban dance-band evolution",
+      "crossRefs": [
+        "groovePercussion.cuban.rumba"
+      ],
+      "staples": [
+        "guaguanco",
+        "rumba_cubana"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 0.39,
+      "primary_pick": "yamaha_cfx",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "yamaha_cfx",
+          "score": 0.39
+        },
+        {
+          "id": "bosendorfer",
+          "score": 0.16575
+        },
+        {
+          "id": "steinway_d",
+          "score": 0.1035
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 0.585
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 0.39
+        },
+        {
+          "id": "steinway_d",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "south_slavic_kantautor",
+      "name": "South Slavic kantautor",
+      "family": "global",
+      "parent": "balladPoetry.slavicBard",
+      "lineage": "Yugoslav-era and successor singer-poet",
+      "crossRefs": [
+        "balladPoetry.chansonFado"
+      ],
+      "staples": [
+        "fado_coimbra_university",
+        "chanson_classique"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 0.4185,
+      "primary_pick": "fazioli",
+      "primary_pick_score": 0.4185,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "fazioli",
+          "score": 0.4185
+        },
+        {
+          "id": "steinway_d",
+          "score": 0.39
+        },
+        {
+          "id": "bosendorfer",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 1.4300000000000002
+        },
+        {
+          "id": "steinway_d",
+          "score": 0.585
+        },
+        {
+          "id": "fazioli",
+          "score": 0.4185
+        }
+      ]
+    },
+    {
+      "tid": "garage_house_paradise",
+      "name": "Garage house",
+      "family": "global",
+      "parent": "electronicDance.house.garageHouseUS",
+      "lineage": "NYC Paradise-Garage house",
+      "crossRefs": [
+        "functionalSong.soulRb"
+      ],
+      "staples": [
+        "doo_wop",
+        "classic_rb"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 0.685125,
+      "primary_pick": "fazioli",
+      "primary_pick_score": 0.685125,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "fazioli",
+          "score": 0.685125
+        },
+        {
+          "id": "bosendorfer",
+          "score": 0.39
+        },
+        {
+          "id": "steinway_d",
+          "score": 0.33412499999999995
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 1.5251249999999998
+        },
+        {
+          "id": "steinway_d",
+          "score": 0.78
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 0.3
+        }
+      ]
+    },
+    {
+      "tid": "country_pop_crossover",
+      "name": "Country-pop crossover",
+      "family": "global",
+      "parent": "functionalSong.country.contempMain",
+      "lineage": "2000s/10s country-pop crossover",
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "yacht_rock",
+        "new_wave"
+      ],
+      "current_pick": "bosendorfer",
+      "current_pick_score": 1.3050000000000002,
+      "primary_pick": "yamaha_cfx",
+      "primary_pick_score": 1.3050000000000002,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "yamaha_cfx",
+          "score": 1.3050000000000002
+        },
+        {
+          "id": "steinway_d",
+          "score": 0.39
+        },
+        {
+          "id": "bosendorfer",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "bosendorfer",
+          "score": 2.6649999999999996
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 2.015
+        },
+        {
+          "id": "steinway_d",
+          "score": 1.8199999999999998
+        }
+      ]
+    },
+    {
+      "tid": "early_rock_and_roll_50s",
+      "name": "Early rock-and-roll (1954–1958)",
+      "family": "vernacular",
+      "parent": "distortedRock.classic",
+      "lineage": "rhythm-and-blues into rock-and-roll transitional zone",
+      "crossRefs": [
+        "functionalSong.bluesElectric"
+      ],
+      "staples": [
+        "chicago_blues",
+        "jump_blues"
+      ],
+      "current_pick": "yamaha_cfx",
+      "current_pick_score": 0.39,
+      "primary_pick": "bosendorfer",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "bosendorfer",
+          "score": 0.39
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 0.34049999999999997
+        },
+        {
+          "id": "steinway_d",
+          "score": 0.125625
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "yamaha_cfx",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "bosendorfer",
+          "score": 0.585
+        },
+        {
+          "id": "steinway_d",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "mpb",
+      "name": "MPB (Música Popular Brasileira)",
+      "family": "global",
+      "parent": "groovePercussion.brazilian",
+      "lineage": "post-bossa Brazilian sophisticated-pop tradition",
+      "crossRefs": [
+        "balladPoetry.latinAmTroubadour"
+      ],
+      "staples": [
+        "milonga",
+        "jibaro"
+      ],
+      "current_pick": "steinway_d",
+      "current_pick_score": 0.8664999999999999,
+      "primary_pick": "bosendorfer",
+      "primary_pick_score": 0.8664999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "bosendorfer",
+          "score": 0.8664999999999999
+        },
+        {
+          "id": "steinway_d",
+          "score": 0.39
+        },
+        {
+          "id": "yamaha_cfx",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "steinway_d",
+          "score": 1.17
+        },
+        {
+          "id": "bosendorfer",
+          "score": 1.1665
+        },
+        {
+          "id": "fazioli",
+          "score": 0.39
+        }
+      ]
+    }
+  ]
+}

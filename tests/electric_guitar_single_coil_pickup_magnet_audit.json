@@ -1,0 +1,250 @@
+{
+  "generated_at": "2026-05-11T15:23:53.069Z",
+  "target": {
+    "instrument": "electric_guitar_single_coil",
+    "part": "pickup_magnet",
+    "num_variants": 4
+  },
+  "total_traditions": 96,
+  "mismatch_count": 5,
+  "records": [
+    {
+      "tid": "folk_rock",
+      "name": "Folk rock",
+      "family": "rock_punk",
+      "parent": "functionalSong.popRock.folkRock",
+      "lineage": "mid-1960s through 1970s amplified folk-rock fusion",
+      "crossRefs": [
+        "functionalSong.country",
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "ceramic",
+      "current_pick_score": 0.045,
+      "primary_pick": "alnico_5",
+      "primary_pick_score": 0.045,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alnico_5",
+          "score": 0.045
+        },
+        {
+          "id": "alnico_2",
+          "score": 0
+        },
+        {
+          "id": "alnico_3",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "ceramic",
+          "score": 0.44999999999999996
+        },
+        {
+          "id": "alnico_5",
+          "score": 0.045
+        },
+        {
+          "id": "alnico_2",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "surf_rock",
+      "name": "Surf rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.surfRock",
+      "lineage": "early-1960s southern California instrumental rock",
+      "crossRefs": [
+        "distortedRock.classic",
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "ceramic",
+      "current_pick_score": 0.40499999999999997,
+      "primary_pick": "alnico_2",
+      "primary_pick_score": 0.40499999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alnico_2",
+          "score": 0.40499999999999997
+        },
+        {
+          "id": "ceramic",
+          "score": 0.39
+        },
+        {
+          "id": "alnico_3",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "ceramic",
+          "score": 0.9328125
+        },
+        {
+          "id": "alnico_2",
+          "score": 0.40499999999999997
+        },
+        {
+          "id": "alnico_3",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "doo_wop",
+      "name": "Doo-wop",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb.doowop",
+      "lineage": "1950s African-American vocal-harmony group teen-pop r&b",
+      "crossRefs": [
+        "ritualDevotional.christianGospel.jubileeQuartet",
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "yacht_rock",
+        "folk_rock"
+      ],
+      "current_pick": "ceramic",
+      "current_pick_score": 0.15,
+      "primary_pick": "alnico_2",
+      "primary_pick_score": 0.15,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alnico_2",
+          "score": 0.15
+        },
+        {
+          "id": "ceramic",
+          "score": 0.135
+        },
+        {
+          "id": "alnico_3",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "ceramic",
+          "score": 0.39
+        },
+        {
+          "id": "alnico_2",
+          "score": 0.15
+        },
+        {
+          "id": "alnico_3",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "shibuya_kei",
+      "name": "Shibuya-kei",
+      "family": "global",
+      "parent": "functionalSong.eastAsianPop",
+      "lineage": "1990s Japanese eclectic pop",
+      "crossRefs": [
+        "experimentalElec.popExperimental"
+      ],
+      "staples": [
+        "hyperpop"
+      ],
+      "current_pick": "alnico_2",
+      "current_pick_score": 0.10575,
+      "primary_pick": "ceramic",
+      "primary_pick_score": 0.10575,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "ceramic",
+          "score": 0.10575
+        },
+        {
+          "id": "alnico_2",
+          "score": 0.045
+        },
+        {
+          "id": "alnico_5",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "alnico_2",
+          "score": 0.195
+        },
+        {
+          "id": "alnico_5",
+          "score": 0.195
+        },
+        {
+          "id": "ceramic",
+          "score": 0.10575
+        }
+      ]
+    },
+    {
+      "tid": "lebanese_pop_tarab",
+      "name": "Lebanese tarab-pop",
+      "family": "global",
+      "parent": "functionalSong.midEastNAfricanPop",
+      "lineage": "Beirut-centered modern Arabic-pop with classical-tarab roots, melismatic ornate praise devotional vocal",
+      "crossRefs": [
+        "improvOnFrame.persianArabImprov",
+        "artMusic.middleEasternClassical"
+      ],
+      "staples": [
+        "andalusi_nuba",
+        "turkish_makam"
+      ],
+      "current_pick": "ceramic",
+      "current_pick_score": 0.105,
+      "primary_pick": "alnico_2",
+      "primary_pick_score": 0.105,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alnico_2",
+          "score": 0.105
+        },
+        {
+          "id": "ceramic",
+          "score": 0.09
+        },
+        {
+          "id": "alnico_3",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "ceramic",
+          "score": 0.195
+        },
+        {
+          "id": "alnico_2",
+          "score": 0.105
+        },
+        {
+          "id": "alnico_3",
+          "score": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1064 @@
+{
+  "generated_at": "2026-05-11T15:28:53.011Z",
+  "target": {
+    "instrument": "drum_kit",
+    "part": "drumhead",
+    "num_variants": 5
+  },
+  "total_traditions": 161,
+  "mismatch_count": 22,
+  "records": [
+    {
+      "tid": "honky_tonk",
+      "name": "Honky-tonk",
+      "family": "vernacular",
+      "parent": "functionalSong.country.honkyTonkEra",
+      "lineage": "country",
+      "crossRefs": [
+        "balladPoetry.angloSingerSong"
+      ],
+      "staples": [
+        "texas_country_folk_storyteller",
+        "indie_folk_2000s"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.525,
+      "primary_pick": "hydraulic",
+      "primary_pick_score": 0.525,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "hydraulic",
+          "score": 0.525
+        },
+        {
+          "id": "double_coated",
+          "score": 0.39
+        },
+        {
+          "id": "single_clear",
+          "score": 0.135
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 0.8449999999999999
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "sacred_steel",
+      "name": "Sacred steel",
+      "family": "blues_gospel",
+      "parent": "ritualDevotional.christianGospel.sacredSteel",
+      "lineage": "sacred",
+      "crossRefs": [
+        "ritualDevotional.christianGospel.blackGospel"
+      ],
+      "staples": [
+        "black_gospel_choir",
+        "gospel_quartet_male"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.42,
+      "primary_pick": "calfskin_drum",
+      "primary_pick_score": 0.42,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "calfskin_drum",
+          "score": 0.42
+        },
+        {
+          "id": "double_coated",
+          "score": 0.39
+        },
+        {
+          "id": "single_coated",
+          "score": 0.21
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 2.1812499999999995
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 1.8199999999999998
+        },
+        {
+          "id": "single_coated",
+          "score": 0.9099999999999999
+        }
+      ]
+    },
+    {
+      "tid": "new_orleans",
+      "name": "New Orleans / Dixieland",
+      "family": "jazz",
+      "parent": "improvOnFrame.americanJazz.early",
+      "lineage": "early jazz",
+      "crossRefs": [
+        {
+          "ref": "improvOnFrame.americanJazz.bop",
+          "isolated_parts": [
+            "cymbal_alloy"
+          ]
+        }
+      ],
+      "staples": [
+        "bebop",
+        "modal_jazz"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.32575,
+      "primary_pick": "calfskin_drum",
+      "primary_pick_score": 0.32575,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "calfskin_drum",
+          "score": 0.32575
+        },
+        {
+          "id": "double_coated",
+          "score": 0.31149999999999994
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.294
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 0.32575
+        }
+      ]
+    },
+    {
+      "tid": "noise_rock",
+      "name": "Noise rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.noiseRock",
+      "lineage": "late-1970s through 1990s experimental dissonance-foreground rock",
+      "crossRefs": [
+        "distortedRock.experimental",
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "grunge",
+        "math_rock_post_rock"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.6728571428571428,
+      "primary_pick": "single_clear",
+      "primary_pick_score": 0.6728571428571428,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "single_clear",
+          "score": 0.6728571428571428
+        },
+        {
+          "id": "single_coated",
+          "score": 0.39
+        },
+        {
+          "id": "double_coated",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 1.4553571428571428
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "single_clear",
+          "score": 0.6728571428571428
+        }
+      ]
+    },
+    {
+      "tid": "hard_bop",
+      "name": "Hard bop",
+      "family": "jazz",
+      "parent": "improvOnFrame.americanJazz.hardBop",
+      "lineage": "1953-1965 blues-and-gospel-extended bebop",
+      "crossRefs": [
+        "improvOnFrame.americanJazz.bop",
+        "improvOnFrame.americanJazz.soulJazz"
+      ],
+      "staples": [
+        "soul_jazz",
+        "bebop"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 1.115875,
+      "primary_pick": "single_clear",
+      "primary_pick_score": 1.115875,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "single_clear",
+          "score": 1.115875
+        },
+        {
+          "id": "double_coated",
+          "score": 0.39
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.24412499999999998
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 1.8850000000000002
+        },
+        {
+          "id": "single_clear",
+          "score": 1.2658749999999999
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.45499999999999996
+        }
+      ]
+    },
+    {
+      "tid": "fusion",
+      "name": "Fusion",
+      "family": "jazz",
+      "parent": "improvOnFrame.americanJazz.fusion",
+      "lineage": "electric",
+      "crossRefs": [
+        {
+          "ref": "improvOnFrame.americanJazz.bop",
+          "isolated_parts": [
+            "shell_wood"
+          ]
+        }
+      ],
+      "staples": [
+        "bebop",
+        "modal_jazz"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.37725,
+      "primary_pick": "single_clear",
+      "primary_pick_score": 0.37725,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "single_clear",
+          "score": 0.37725
+        },
+        {
+          "id": "double_coated",
+          "score": 0.26337499999999997
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.22924999999999998
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "single_clear",
+          "score": 0.52725
+        }
+      ]
+    },
+    {
+      "tid": "surf_rock",
+      "name": "Surf rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.surfRock",
+      "lineage": "early-1960s southern California instrumental rock",
+      "crossRefs": [
+        "distortedRock.classic",
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 1.17,
+      "primary_pick": "calfskin_drum",
+      "primary_pick_score": 1.17,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "calfskin_drum",
+          "score": 1.17
+        },
+        {
+          "id": "double_coated",
+          "score": 0.8315625
+        },
+        {
+          "id": "single_coated",
+          "score": 0.40499999999999997
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 2.275
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 1.17
+        },
+        {
+          "id": "single_clear",
+          "score": 0.585
+        }
+      ]
+    },
+    {
+      "tid": "doom",
+      "name": "Doom / sludge",
+      "family": "rock_punk",
+      "parent": "distortedRock.metal.doom",
+      "lineage": "metal",
+      "crossRefs": [
+        "distortedRock.metal.sludge"
+      ],
+      "staples": [
+        "sludge_metal"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.39,
+      "primary_pick": "single_coated",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "single_coated",
+          "score": 0.39
+        },
+        {
+          "id": "single_clear",
+          "score": 0.39
+        },
+        {
+          "id": "double_coated",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 1.2349999999999999
+        },
+        {
+          "id": "single_clear",
+          "score": 0.585
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 0.5459999999999999
+        }
+      ]
+    },
+    {
+      "tid": "black_metal",
+      "name": "Black metal",
+      "family": "rock_punk",
+      "parent": "distortedRock.metal.black",
+      "lineage": "metal, false-fold ventricular shriek vocal",
+      "crossRefs": [
+        {
+          "ref": "distortedRock.metal.doom",
+          "isolated_parts": [
+            "voice_quality"
+          ]
+        }
+      ],
+      "staples": [
+        "doom",
+        "stoner_metal"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 1.0995,
+      "primary_pick": "single_clear",
+      "primary_pick_score": 1.0995,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "single_clear",
+          "score": 1.0995
+        },
+        {
+          "id": "double_coated",
+          "score": 0.78
+        },
+        {
+          "id": "single_coated",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 1.8199999999999998
+        },
+        {
+          "id": "single_clear",
+          "score": 1.6995
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 0.7335
+        }
+      ]
+    },
+    {
+      "tid": "punk",
+      "name": "Punk",
+      "family": "rock_punk",
+      "parent": "distortedRock.punk",
+      "lineage": "underground",
+      "crossRefs": [
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "garage_rock",
+        "hard_rock"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.54375,
+      "primary_pick": "calfskin_drum",
+      "primary_pick_score": 0.54375,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "calfskin_drum",
+          "score": 0.54375
+        },
+        {
+          "id": "double_coated",
+          "score": 0.40599999999999997
+        },
+        {
+          "id": "single_coated",
+          "score": 0.40499999999999997
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "single_coated",
+          "score": 0.40499999999999997
+        }
+      ]
+    },
+    {
+      "tid": "post_punk",
+      "name": "Post-punk",
+      "family": "rock_punk",
+      "parent": "distortedRock.punk",
+      "lineage": "underground",
+      "crossRefs": [
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "math_rock_post_rock",
+        "grunge"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.618,
+      "primary_pick": "single_clear",
+      "primary_pick_score": 0.618,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "single_clear",
+          "score": 0.618
+        },
+        {
+          "id": "double_coated",
+          "score": 0.35550000000000004
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.28350000000000003
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 1.105
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "single_clear",
+          "score": 0.618
+        }
+      ]
+    },
+    {
+      "tid": "jamaican_dancehall",
+      "name": "Jamaican dancehall",
+      "family": "global",
+      "parent": "bassSystem.jamaican",
+      "lineage": "Jamaican",
+      "crossRefs": [
+        "mcRhythm.afroDiasporic",
+        "electronicDance.house"
+      ],
+      "staples": [
+        "chicago_house",
+        "deep_house_soulful"
+      ],
+      "current_pick": "single_clear",
+      "current_pick_score": 0.43499999999999994,
+      "primary_pick": "double_coated",
+      "primary_pick_score": 0.43499999999999994,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "double_coated",
+          "score": 0.43499999999999994
+        },
+        {
+          "id": "single_clear",
+          "score": 0.26999999999999996
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.21
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "single_clear",
+          "score": 0.585
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.21
+        },
+        {
+          "id": "double_coated",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "krautrock",
+      "name": "Krautrock",
+      "family": "rock_punk",
+      "parent": "distortedRock.experimental",
+      "lineage": "experimental",
+      "crossRefs": [
+        "experimentalElec.ambient"
+      ],
+      "staples": [
+        "ambient",
+        "drone_dark_ambient"
+      ],
+      "current_pick": "calfskin_drum",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "single_coated",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "single_coated",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "single_clear",
+          "score": 0.3595535714285714
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "calfskin_drum",
+          "score": 2.0053125
+        },
+        {
+          "id": "single_coated",
+          "score": 1.8049999999999997
+        },
+        {
+          "id": "single_clear",
+          "score": 0.5095535714285714
+        }
+      ]
+    },
+    {
+      "tid": "bossa_nova",
+      "name": "Bossa nova",
+      "family": "global",
+      "parent": "functionalSong.brazilianSong",
+      "lineage": "Brazilian",
+      "crossRefs": [
+        "balladPoetry.latinAmTroubadour"
+      ],
+      "staples": [
+        "milonga",
+        "tango"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.3032142857142857,
+      "primary_pick": "single_clear",
+      "primary_pick_score": 0.3032142857142857,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "single_clear",
+          "score": 0.3032142857142857
+        },
+        {
+          "id": "double_coated",
+          "score": 0.13464285714285712
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.023749999999999997
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 0.39
+        },
+        {
+          "id": "single_clear",
+          "score": 0.3032142857142857
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.023749999999999997
+        }
+      ]
+    },
+    {
+      "tid": "post_metal",
+      "name": "Post-metal",
+      "family": "rock",
+      "parent": "distortedRock.metal.postMetal",
+      "lineage": "US/European",
+      "crossRefs": [
+        "distortedRock.experimental"
+      ],
+      "staples": [
+        "krautrock"
+      ],
+      "current_pick": "single_clear",
+      "current_pick_score": 0.7319642857142856,
+      "primary_pick": "double_coated",
+      "primary_pick_score": 0.7319642857142856,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "double_coated",
+          "score": 0.7319642857142856
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.7174999999999999
+        },
+        {
+          "id": "single_clear",
+          "score": 0.6669642857142857
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "single_clear",
+          "score": 0.8169642857142857
+        },
+        {
+          "id": "double_coated",
+          "score": 0.7319642857142856
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.7174999999999999
+        }
+      ]
+    },
+    {
+      "tid": "brill_building_pop",
+      "name": "Brill Building pop",
+      "family": "global",
+      "parent": "functionalSong.crooners",
+      "lineage": "American 1958-65 songwriter-pop",
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "yacht_rock",
+        "folk_rock"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.43749999999999994,
+      "primary_pick": "hydraulic",
+      "primary_pick_score": 0.43749999999999994,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "hydraulic",
+          "score": 0.43749999999999994
+        },
+        {
+          "id": "double_coated",
+          "score": 0.39
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 0.22499999999999998
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 2.6649999999999996
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.43749999999999994
+        },
+        {
+          "id": "single_clear",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "tid": "j_pop_classic",
+      "name": "J-pop (classic mainstream)",
+      "family": "global",
+      "parent": "functionalSong.eastAsianPop",
+      "lineage": "Japanese mainstream pop",
+      "crossRefs": [
+        {
+          "ref": "functionalSong.popRock",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.78,
+      "primary_pick": "single_clear",
+      "primary_pick_score": 0.78,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "single_clear",
+          "score": 0.78
+        },
+        {
+          "id": "double_coated",
+          "score": 0.78
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.315
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 3.055
+        },
+        {
+          "id": "single_clear",
+          "score": 1.275
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.315
+        }
+      ]
+    },
+    {
+      "tid": "texas_country_folk_storyteller",
+      "name": "Texas country-folk storyteller",
+      "family": "global",
+      "parent": "balladPoetry.angloSingerSong.countryFolkStory",
+      "lineage": "Texas songwriter-tradition narrative-folk",
+      "crossRefs": [
+        "functionalSong.country.outlaw"
+      ],
+      "staples": [
+        "outlaw_country"
+      ],
+      "current_pick": "double_coated",
+      "current_pick_score": 0.31124999999999997,
+      "primary_pick": "calfskin_drum",
+      "primary_pick_score": 0.31124999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "calfskin_drum",
+          "score": 0.31124999999999997
+        },
+        {
+          "id": "double_coated",
+          "score": 0.15625
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.14875
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "double_coated",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 0.31124999999999997
+        }
+      ]
+    },
+    {
+      "tid": "nwobhm",
+      "name": "NWOBHM",
+      "family": "global",
+      "parent": "distortedRock.metal.nwobhm",
+      "lineage": "late-70s/80s UK metal revival",
+      "crossRefs": [
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "early_rock_and_roll_50s",
+        "garage_rock_revival_2000s"
+      ],
+      "current_pick": "single_coated",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "double_coated",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "double_coated",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.870625
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 0.5399999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "single_coated",
+          "score": 1.3
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 1.3
+        },
+        {
+          "id": "double_coated",
+          "score": 0.9099999999999999
+        }
+      ]
+    },
+    {
+      "tid": "technical_death_metal",
+      "name": "Technical death metal",
+      "family": "global",
+      "parent": "distortedRock.metal.death",
+      "lineage": "virtuosic death-metal sub-style",
+      "crossRefs": [
+        "distortedRock.metal.prog"
+      ],
+      "staples": [
+        "progressive_metal_classic"
+      ],
+      "current_pick": "single_clear",
+      "current_pick_score": 0.49049999999999994,
+      "primary_pick": "double_coated",
+      "primary_pick_score": 0.49049999999999994,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "double_coated",
+          "score": 0.49049999999999994
+        },
+        {
+          "id": "single_clear",
+          "score": 0.39
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.23099999999999996
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "single_clear",
+          "score": 1.2349999999999999
+        },
+        {
+          "id": "double_coated",
+          "score": 0.49049999999999994
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.23099999999999996
+        }
+      ]
+    },
+    {
+      "tid": "gospel_quartet_male",
+      "name": "Gospel quartet (male)",
+      "family": "global",
+      "parent": "ritualDevotional.christianGospel.blackGospel",
+      "lineage": "Black-American male-quartet gospel",
+      "crossRefs": [
+        "ritualDevotional.christianGospel.southernGospel"
+      ],
+      "staples": [
+        "bluegrass_gospel",
+        "southern_gospel"
+      ],
+      "current_pick": "calfskin_drum",
+      "current_pick_score": 1.8199999999999998,
+      "primary_pick": "double_coated",
+      "primary_pick_score": 1.8199999999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "double_coated",
+          "score": 1.8199999999999998
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 1.8199999999999998
+        },
+        {
+          "id": "single_coated",
+          "score": 0.9099999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "calfskin_drum",
+          "score": 3.7982499999999995
+        },
+        {
+          "id": "double_coated",
+          "score": 3.6102142857142856
+        },
+        {
+          "id": "single_coated",
+          "score": 1.801625
+        }
+      ]
+    },
+    {
+      "tid": "jam_band",
+      "name": "Jam band",
+      "family": "global",
+      "parent": "improvOnFrame.jamFree",
+      "lineage": "late-1960s-onward improvisational rock with audience-recording culture",
+      "crossRefs": [
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "early_rock_and_roll_50s",
+        "garage_rock_revival_2000s"
+      ],
+      "current_pick": "single_coated",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "double_coated",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "double_coated",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "hydraulic",
+          "score": 0.818125
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 0.5714999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "single_coated",
+          "score": 1.3
+        },
+        {
+          "id": "calfskin_drum",
+          "score": 1.3
+        },
+        {
+          "id": "double_coated",
+          "score": 0.9099999999999999
+        }
+      ]
+    }
+  ]
+}

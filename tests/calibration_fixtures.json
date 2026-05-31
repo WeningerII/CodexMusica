@@ -1,0 +1,367 @@
+{
+  "_purpose": "Calibration fixtures for periodic quality review. Each fixture is a song with: a natural user query, the tradition framing the codex should be invoked with, a gold-standard structural blueprint written in codex output format (descriptor-only, no proper nouns, no specific gear models), and key descriptors that MUST appear in valid output. Run via scripts/calibrate.js. Treat discrepancies via the four-bin taxonomy in SKILL.md (catalog issue / algorithm issue / genuine ambiguity / curator misconception).",
+  "_curation_principles": [
+    "Songs the curator knows cold (not Wikipedia-derived) so the gold-standard is reliable",
+    "One per major tradition cluster \u2014 variety over coverage",
+    "Mix solo and ensemble, mix pure and fusion",
+    "Gold-standards follow codex output rules exactly: no artist/band/producer/studio names, no specific gear models, descriptor-level only, structural blueprint not session log",
+    "Gold-standards describe the TRADITION'S CENTRAL TENDENCY, not the specific track's anomalies (Dylan's track has no harmonica but delta_blues canonically does \u2014 the gold-standard reflects the tradition)",
+    "Key descriptors use catalog vocabulary (verified by running recipe.js on the tradition first), not the curator's preferred phrasing"
+  ],
+  "_known_catalog_gaps": [],
+  "_resolved_catalog_gaps": [
+    {
+      "tradition": "golden_age_hip_hop_1986_1991",
+      "fix": "Added rap_voice variant to voice_quality (rap, mc-flow, rhythmic-speech, rap-canonical, hip-hop-canonical descriptors). Added boom-bap-canonical to sampler_chopped_breaks workflow and renamed variant to 'Chopped boom-bap breakbeats' so boom-bap becomes iconic. Added 'boom-bap' token to tradition lineage so it becomes a trusted token."
+    },
+    {
+      "tradition": "qawwali",
+      "fix": "Renamed qawwal_voice variants from qawwal_lead/chorus to qawwali_lead/chorus (so 'qawwali' becomes a token in the variant id, making qawwali-canonical iconic). Enriched descriptors with melismatic, ornate, sustained-high-register, declaimed, etc. Added melismatic, ornate, declaimed, lament-wail to TRUSTED_TECHNIQUE_DESCRIPTORS in translate.js as generic vocal techniques."
+    },
+    {
+      "tradition": "fado",
+      "fix": "Added new fado_voice variant to voice_quality with descriptors [lament-wail, melismatic, ornate, saudade, fado-canonical]. Reordered so lament-wail is first (the surfacing iconic). Generic vocal-technique whitelist additions (see qawwali fix) also apply."
+    },
+    {
+      "tradition": "hindustani",
+      "fix": "Trimmed hindustani.instruments to canonical trio [sitar, tabla, tanpura]. Added new hindustani_sarod tradition for the second-most-canonical instrumental hindustani style with [sarod, tabla, tanpura]. Description updated to match the trimmed scope. Note: dilruba, esraj, rudra_veena, santoor are now temporarily orphaned in the catalog; sub-traditions for these should be added in future editorial work."
+    },
+    {
+      "tradition": "phase_b_lock_in",
+      "fix": "Added 7 calibration fixtures locking in: chain mechanism (transformer-coupled / optical / Pultec / autotune), warm-audit instrument-side wins (low-mid-rich-spectrum on archtop), vibes-audit wins (overtone-rich-sustained), voice_isolated fixes (britfolk_revival incomplete_closure), Phase 1 voice mechanism (cool_jazz aspirated). Pre-Phase-B count was 16."
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "dylan_in_my_time_of_dyin",
+      "user_query": "Bob Dylan \u2014 In My Time of Dyin' (1962 debut album)",
+      "traditions": [
+        "greenwich_village_confessional",
+        "delta_blues"
+      ],
+      "framing_note": "Folk-revivalist channeling pre-war delta blues; primary tradition is the apparatus context, secondary is the channeled aesthetic. Track is a solo simplification of an inherently multi-instrument tradition. Voice/technique update post-subtoken-dedup: Dylan's actual delivery is folk-revival fingerpicked + worn-fold-rasp (channeling Johnson), not slide-canonical pure delta. The fingerpicked rendering reflects the apparatus correctly. Bin-4 note (SKILL.md discrepancy taxonomy): the worn-fold-rasp aesthetic from delta as half-weight staple is structurally outweighed by greenwich-primary's incomplete-closure pull (folk-revival/confessional/singer-songwriter context tokens). The catalog's blend semantics is primary-dominant for voice; surfacing both fingerpicked-apparatus AND delta-aesthetic-voice from a primary+staple blend would require track-specific 'apparatus-from-primary, aesthetic-from-secondary' semantics that the catalog does not implement. Key-descriptor 'worn fold' dropped; fingerpicked + parlor remain the testable quality signals.",
+      "gold_standard": "classic 1960s greenwich village confessional folk, ballad Poetry, 60s confessional delta blues. thick, incomplete closure resting, melodic, narrative. fingerpicked acoustic guitar, straight folk harmonica, fingerpicked steel resonator guitar. parlor. large-diaphragm condenser, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "fingerpicked",
+        "parlor"
+      ]
+    },
+    {
+      "id": "robert_johnson_cross_road_blues",
+      "user_query": "Robert Johnson \u2014 Cross Road Blues (1936)",
+      "traditions": [
+        "delta_blues"
+      ],
+      "framing_note": "Pure-source delta blues \u2014 the canonical reference Dylan was channeling. Voice update post-subtoken-dedup: Robert Johnson's vocal is canonically worn-fold (irregular-fold-mass, age-roughened, raspy) not blues-shouter; the shouter style (Big Joe Turner, Wynonie Harris) belongs to belted-blues subgenres (jump_blues, kansas_city_blues, classic_blues_women) which descend from a different vocal lineage than the delta narrative tradition.",
+      "gold_standard": "classic mid-1930s delta blues, ballad Poetry, delta narrative branch, vocal drone modal. worn-fold, bent, blues inflected. open tuned bottleneck slide steel resonator guitar, bent cross harp harmonica. tin roofed shack. ribbon mic, tube pre, colored vintage console. 78rpm shellac.",
+      "key_descriptors": [
+        "worn fold",
+        "bottleneck slide",
+        "open tuned",
+        "tin roofed shack"
+      ]
+    },
+    {
+      "id": "coltrane_naima",
+      "user_query": "John Coltrane \u2014 Naima (1959, Giant Steps)",
+      "traditions": [
+        "modal_jazz"
+      ],
+      "framing_note": "Slow modal-jazz ballad. Note: codex picks alto saxophone as canonical; tenor (Coltrane's actual horn) and alto are both legitimate modal-jazz reads \u2014 track-vs-tradition ambiguity.",
+      "gold_standard": "classic modal jazz, improv on frame, bop branch, string drone modal. saxophone, trumpet, grand piano, upright bass, brushes drum kit. live tracking. large-diaphragm condenser, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "saxophone",
+        "brushes",
+        "upright bass",
+        "grand piano"
+      ]
+    },
+    {
+      "id": "aretha_i_never_loved_a_man",
+      "user_query": "Aretha Franklin \u2014 I Never Loved a Man (The Way I Love You) (1967)",
+      "traditions": [
+        "southern_soul"
+      ],
+      "framing_note": "Muscle-Shoals R&B with gospel-rooted vocal; live tracking with band + horn section",
+      "gold_standard": "classic late-1960s southern soul, functional Song, soul R&B branch, gospel inflected. blues-shouter, ornamental, blues inflected. single coil electric guitar, electric bass, drum kit, gospel runs upright piano, saxophone, trumpet. live tracking. dynamic moving-coil, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "electric guitar",
+        "electric bass",
+        "saxophone",
+        "upright piano"
+      ]
+    },
+    {
+      "id": "joy_division_atmosphere",
+      "user_query": "Joy Division \u2014 Atmosphere (1980)",
+      "traditions": [
+        "post_punk"
+      ],
+      "framing_note": "Post-punk canonical (not Joy-Division-specific): overdriven guitar lead, aggressive electric bass, backbeat kit, analog synth. The actual track has a drum machine + baritone vocal \u2014 those are JD-specific anomalies, not post_punk canonical.",
+      "gold_standard": "classic late-1970s post-punk, distorted Rock, punk branch. overdriven single coil electric guitar, aggressive electric bass, sticks backbeat drum kit, analog synth. live tracking. large-diaphragm condenser, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "electric guitar",
+        "electric bass",
+        "backbeat",
+        "analog synth"
+      ]
+    },
+    {
+      "id": "fela_water_no_get_enemy",
+      "user_query": "Fela Kuti \u2014 Water No Get Enemy (1975)",
+      "traditions": [
+        "afrobeat"
+      ],
+      "framing_note": "Large-ensemble afrobeat: lead voice, tenor sax solo over horn section, organ, electric guitars, bass, kit + congas + shekere percussion battery",
+      "gold_standard": "classic mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch. narrative, raspy. single coil electric guitar, electric bass, drum kit, tonewheel organ, saxophone, trumpet, shekere, congas. large live tracking room. dynamic moving-coil, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "saxophone",
+        "electric guitar",
+        "electric bass",
+        "shekere",
+        "congas"
+      ]
+    },
+    {
+      "id": "joao_gilberto_chega_de_saudade",
+      "user_query": "Jo\u00e3o Gilberto \u2014 Chega de Saudade (1959)",
+      "traditions": [
+        "bossa_nova"
+      ],
+      "framing_note": "Track is intimate solo voice + nylon guitar; bossa_nova tradition canonically includes full ensemble (piano, bass, kit, samba percussion). Gold reflects tradition canonical.",
+      "gold_standard": "classic bossa nova, functional Song, Brazilian song branch. classical nylon-string guitar, grand piano, brushes-and-sticks drum kit, upright bass, samba bateria. parlor. large-diaphragm condenser, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "nylon-string",
+        "grand piano",
+        "upright bass",
+        "brushes-and-sticks"
+      ]
+    },
+    {
+      "id": "os_mutantes_bat_macumba",
+      "user_query": "Os Mutantes \u2014 Bat Macumba (1968)",
+      "traditions": [
+        "tropicalia"
+      ],
+      "framing_note": "Tropicalia is psych-rock-meets-Brazilian fusion; gold reflects catalog tradition (overdriven electric, electric bass, kit, analog synth, classical nylon)",
+      "gold_standard": "classic late-1960s tropicalia, groove Percussion, Brazilian branch, experimental. classical nylon-string guitar, overdriven humbucker electric guitar, aggressive electric bass, sticks backbeat drum kit, analog synth. live tracking. large-diaphragm condenser, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "nylon-string",
+        "electric guitar",
+        "electric bass",
+        "analog synth"
+      ]
+    },
+    {
+      "id": "nusrat_tere_bin_nahi_lagda",
+      "user_query": "Nusrat Fateh Ali Khan \u2014 Tere Bin Nahi Lagda (qawwali)",
+      "traditions": [
+        "qawwali"
+      ],
+      "framing_note": "Devotional qawwali. Catalog gap RESOLVED: qawwal_voice variant now surfaces melismatic + ornate + qawwali-canonical descriptors.",
+      "gold_standard": "classic qawwali, ritual Devotional, Sufi branch, vocal drone modal. tabla, harmonium, melismatic ornate qawwali voice. live ensemble tracking. large-diaphragm condenser, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "harmonium",
+        "tabla",
+        "qawwal",
+        "melismatic",
+        "ornate",
+        "qawwali"
+      ]
+    },
+    {
+      "id": "atcq_can_i_kick_it",
+      "user_query": "A Tribe Called Quest \u2014 Can I Kick It? (1990)",
+      "traditions": [
+        "golden_age_hip_hop_1986_1991"
+      ],
+      "framing_note": "Golden-age sample-collage hip-hop. Catalog gap RESOLVED: rap voice variant added; boom-bap descriptor surfaces via lineage trust + chopped-breaks rename.",
+      "gold_standard": "classic late-1980s sample-collage hip-hop, mc Rhythm, east coast branch. rap, narrative. chopped boom bap sampler, drum break. mid manhattan studio. large-diaphragm condenser, op-amp pre, op-amp console. analog tape.",
+      "key_descriptors": [
+        "rap",
+        "narrative",
+        "boom bap",
+        "sampler"
+      ]
+    },
+    {
+      "id": "ravi_shankar_raga_jog",
+      "user_query": "Ravi Shankar \u2014 Raga Jog",
+      "traditions": [
+        "hindustani"
+      ],
+      "framing_note": "Hindustani classical instrumental. Catalog gap RESOLVED: hindustani trimmed to canonical sitar-tabla-tanpura trio. Sarod-led performances now have hindustani_sarod sub-tradition.",
+      "gold_standard": "classic hindustani classical, improv on frame, indian classical branch. sitar, tabla, tanpura drone. parlor. large-diaphragm condenser, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "sitar",
+        "tabla",
+        "tanpura"
+      ]
+    },
+    {
+      "id": "amalia_fado_portugues",
+      "user_query": "Am\u00e1lia Rodrigues \u2014 Fado Portugu\u00eas",
+      "traditions": [
+        "fado"
+      ],
+      "framing_note": "Canonical fado. Catalog gap RESOLVED: new fado_voice variant surfaces lament-wail as voice descriptor.",
+      "gold_standard": "classic fado, ballad Poetry, fado lisboa branch. lament wail. classical nylon-string guitar, fado lead fingerpicked portuguese guitar. parlor. passive ribbon, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "portuguese guitar",
+        "nylon-string",
+        "parlor",
+        "lament wail"
+      ]
+    },
+    {
+      "id": "tuvan_kargyraa_throat_singing",
+      "user_query": "Tuvan throat-singing \u2014 kargyraa style (e.g. Huun-Huur-Tu)",
+      "traditions": [
+        "tuvan_throat"
+      ],
+      "framing_note": "Editorial pass benefit (Phase 1): false_fold_voice variant \u2014 ventricular phonation \u2014 replaces vague 'ornate' voice descriptor with mechanism-correct 'false fold engaged'. Kargyraa is literally false-fold phonation; this is the canonical test of that catalog improvement.",
+      "gold_standard": "classic tuvan throat singing, drone Modal, overtone branch. false fold engaged, filtered throat. fiddle, mongolian sustained long song morin khuur morin khuur. mountain valley. large-diaphragm condenser, tube pre. 24-bit digital.",
+      "key_descriptors": [
+        "false fold engaged",
+        "morin khuur",
+        "mountain valley"
+      ]
+    },
+    {
+      "id": "samba_canonical",
+      "user_query": "Samba \u2014 canonical Brazilian (e.g. Cartola, Beth Carvalho)",
+      "traditions": [
+        "samba"
+      ],
+      "framing_note": "Editorial pass benefit (Phase 1): aspirated_voice variant surfaces for samba (jazz-vocal-aspirated-canonical + bossa-nova-vocal-canonical match the family). Replaces vague 'rich' with mechanism-named breath-as-expression.",
+      "gold_standard": "classic samba, groove Percussion, Brazilian branch, Brazilian song functional song bossa nova. aspirated, rich. classical nylon-string guitar, brushes-and-sticks drum kit, flute, samba bateria, cuica, pandeiro, surdo, tamborim. live tracking. dynamic moving-coil, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "aspirated",
+        "samba bateria",
+        "nylon-string",
+        "cuica"
+      ]
+    },
+    {
+      "id": "greenwich_village_untrained_folk",
+      "user_query": "Greenwich Village folk-revival, untrained-voice exemplar (e.g. early Joan Baez, Ramblin' Jack Elliott)",
+      "traditions": [
+        "greenwich_village_confessional"
+      ],
+      "framing_note": "Editorial pass benefit (Phase 1): incomplete_closure_voice (untrained breath-leak) replaces previous 'airy' vague descriptor. Mechanism-named, captures the folk-revival untrained delivery.",
+      "gold_standard": "classic 1960s greenwich village confessional folk, ballad Poetry, 60s confessional. incomplete closure resting. fingerpicked acoustic guitar, straight folk harmonica. parlor. large-diaphragm condenser, tube pre, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "incomplete closure",
+        "fingerpicked",
+        "parlor"
+      ]
+    },
+    {
+      "id": "doom_metal_baritone",
+      "user_query": "Doom metal \u2014 baritone-vocal exemplar (e.g. early Black Sabbath, Type O Negative)",
+      "traditions": [
+        "doom"
+      ],
+      "framing_note": "Editorial pass benefit (Phase 1): lowered_larynx_voice (renamed from sob_voice with new mechanism-named descriptors) surfaces for doom \u2014 the laryngeal-lowering baritone delivery characteristic of doom vocals.",
+      "gold_standard": "classic doom / sludge, distorted Rock, doom branch, sludge metal. larynx lowered. power chord humbucker electric guitar, riff driven aggressive electric bass, sticks backbeat drum kit, downtuned palm muted baritone electric guitar. concrete basement. dynamic moving-coil, tube pre, British high-gain stack, colored vintage console. analog tape.",
+      "key_descriptors": [
+        "larynx lowered",
+        "humbucker",
+        "concrete basement"
+      ]
+    },
+    {
+      "id": "fusion_transformer_console_chain",
+      "user_query": "Mahavishnu Orchestra \u2014 Birds of Fire (1973)",
+      "traditions": [
+        "fusion"
+      ],
+      "framing_note": "Locks in chain mechanism vocabulary: fusion-era studio canonical pre-amp is transformer-coupled solid-state (Neve, API). The 'transformer-coupled solid-state' descriptor is the Phase 2 chain mechanism win.",
+      "gold_standard": "classic fusion, improv On Frame, fusion branch, American jazz bop bebop modal jazz. electric piano tine, comped clean humbucker electric guitar, walking fingerstyle electric bass, brushes drum kit, analog synth, continuous-airflow legato saxophone, continuous-airflow legato trumpet. treated studio. large-diaphragm condenser, transformer-coupled solid-state pre. Studer 30ips tape.",
+      "key_descriptors": [
+        "transformer-coupled solid-state"
+      ]
+    },
+    {
+      "id": "dub_optical_pultec_chain",
+      "user_query": "King Tubby \u2014 King Tubby Meets the Rockers Uptown",
+      "traditions": [
+        "dub"
+      ],
+      "framing_note": "Locks in dub chain mechanism wins: optical compressor (LA-2A canonical), Pultec passive program EQ, spring reverb. The 'optical compressor' and 'Pultec' tokens are Phase 2 chain-mechanism vocabulary. Spring reverb is Jamaican-canonical.",
+      "gold_standard": "classic tropical mid-1970s dub, bass System, Jamaican branch. thumb muted electric bass, rim clicks drum kit, palm muted single coil electric guitar, tonewheel organ, melodica. tiny pioneer-electronic kingston dub home. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
+      "key_descriptors": [
+        "optical compressor",
+        "Pultec",
+        "spring reverb"
+      ]
+    },
+    {
+      "id": "southern_trap_autotune_fxchain",
+      "user_query": "Future \u2014 Mask Off (2017)",
+      "traditions": [
+        "southern_trap"
+      ],
+      "framing_note": "Locks in the silent-bug fix from FX_SECTION consolidation: autotune_aesthetic now correctly emits in southern_trap's FX chain (was missing from legacy FX_SECTION before consolidation).",
+      "gold_standard": "classic Southern American modern trap, mc Rhythm, southern branch, house electronic dance deep house tech-house. rap, narrative. trap sub bass drum machine analog, trap sub bass analog synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+      "key_descriptors": [
+        "autotune",
+        "pitch shifter",
+        "pumping sidechain"
+      ]
+    },
+    {
+      "id": "british_invasion_archtop_warm_audit",
+      "user_query": "The Beatles \u2014 A Day in the Life (1967)",
+      "traditions": [
+        "british_invasion_rb"
+      ],
+      "framing_note": "Locks in instrument-side warm-audit wins: archtop body resonance now described as 'low mid rich spectrum' (was vibe-overload 'warm' pre-audit). Surfaces because archtop is iconic for british_invasion guitar layering.",
+      "gold_standard": "classic British british r&b / british invasion, distorted Rock, classic branch, blues electric. blues-shouter, overtone rich sustained, blues inflected. overdriven slide single coil electric guitar, low mid rich spectrum acoustic leaning archtop, psychedelic foregrounded organ driven rock combo organ. small Soho room indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+      "key_descriptors": [
+        "low mid rich spectrum",
+        "vari-mu",
+        "plate reverb"
+      ]
+    },
+    {
+      "id": "chicago_blues_overtone_rich_voice",
+      "user_query": "Muddy Waters \u2014 Hoochie Coochie Man (1954)",
+      "traditions": [
+        "chicago_blues"
+      ],
+      "framing_note": "Locks in vibes-audit win 'overtone rich sustained' (renamed from vibe 'rich' on voice + chain stages). Surfaces in voice descriptors via blues-shouter context. Chicago canonical voice is blues-shouter.",
+      "gold_standard": "classic chicago blues, functional Song, blues electric branch. blues-shouter, overtone rich sustained, blues inflected. slide single coil electric guitar, tonewheel organ, walking fingerstyle electric bass, brushes drum kit, chromatic lead harmonica. live tracking. dynamic moving-coil, tube pre, American tweed-style tube, colored vintage console. Studer 30ips tape.",
+      "key_descriptors": [
+        "overtone rich sustained",
+        "blues-shouter",
+        "American tweed-style tube"
+      ]
+    },
+    {
+      "id": "britfolk_revival_incomplete_closure_voice",
+      "user_query": "Sandy Denny \u2014 Who Knows Where the Time Goes (1969)",
+      "traditions": [
+        "britfolk_revival"
+      ],
+      "framing_note": "Locks in voice_isolated fix from this session: britfolk_revival's celticBalladic crossRef now isolated for voice_quality, allowing primary-canonical 'incomplete closure resting' (Pentangle/Sandy Denny clean-untrained) to surface instead of fry_bleed pulled in by breton_folk staples.",
+      "gold_standard": "classic mid-1960s britfolk revival, ballad Poetry, britfolk branch, Celtic balladic. incomplete closure resting. drone modal acoustic guitar, folk drone fiddle, Celtic melodic folk flute, electric bass, drum kit, folk drone modal autoharp. live tracking. large-diaphragm condenser, tube pre, colored vintage console. Studer 30ips tape.",
+      "key_descriptors": [
+        "incomplete closure"
+      ]
+    },
+    {
+      "id": "cool_jazz_vocal_aspirated_breath",
+      "user_query": "Chet Baker \u2014 My Funny Valentine (1954)",
+      "traditions": [
+        "cool_jazz_vocal"
+      ],
+      "framing_note": "Locks in Phase 1 voice mechanism win + soft-audit indirect: cool_jazz_vocal canonical = aspirated voice (breath-admixed delivery). The 'overtone rich sustained' chain descriptor is also locked in here.",
+      "gold_standard": "classic cool jazz vocal, improv On Frame, smooth vocal branch, Latin jazz improv on frame ethio-jazz samba-jazz. aspirated, overtone rich sustained. grand piano, chord melody upright bass, brushes drum kit, alto continuous-airflow legato saxophone, jazz trio piano. jazz club. large-diaphragm condenser, tube pre, colored vintage console. Studer 30ips tape.",
+      "key_descriptors": [
+        "aspirated",
+        "jazz club"
+      ]
+    }
+  ]
+}

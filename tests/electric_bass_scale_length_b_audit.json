@@ -1,0 +1,1064 @@
+{
+  "generated_at": "2026-05-11T15:25:37.741Z",
+  "target": {
+    "instrument": "electric_bass",
+    "part": "scale_length_b",
+    "num_variants": 3
+  },
+  "total_traditions": 181,
+  "mismatch_count": 22,
+  "records": [
+    {
+      "tid": "sacred_steel",
+      "name": "Sacred steel",
+      "family": "blues_gospel",
+      "parent": "ritualDevotional.christianGospel.sacredSteel",
+      "lineage": "sacred",
+      "crossRefs": [
+        "ritualDevotional.christianGospel.blackGospel"
+      ],
+      "staples": [
+        "black_gospel_choir",
+        "gospel_quartet_male"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 0.61875,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 0.61875,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 0.61875
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.39
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.21375
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 2.1462499999999998
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.9099999999999999
+        }
+      ]
+    },
+    {
+      "tid": "black_metal",
+      "name": "Black metal",
+      "family": "rock_punk",
+      "parent": "distortedRock.metal.black",
+      "lineage": "metal, false-fold ventricular shriek vocal",
+      "crossRefs": [
+        {
+          "ref": "distortedRock.metal.doom",
+          "isolated_parts": [
+            "voice_quality"
+          ]
+        }
+      ],
+      "staples": [
+        "doom",
+        "stoner_metal"
+      ],
+      "current_pick": "long_scale_b",
+      "current_pick_score": 0.771,
+      "primary_pick": "short_scale_b",
+      "primary_pick_score": 0.771,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.771
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.39
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "long_scale_b",
+          "score": 1.32
+        },
+        {
+          "id": "short_scale_b",
+          "score": 1.2209999999999999
+        },
+        {
+          "id": "extra_long_b",
+          "score": 1.17
+        }
+      ]
+    },
+    {
+      "tid": "g_funk",
+      "name": "G-funk",
+      "family": "hip_hop",
+      "parent": "mcRhythm.usHipHop.westCoast",
+      "lineage": "west coast",
+      "crossRefs": [
+        "groovePercussion.funkPercussive"
+      ],
+      "staples": [
+        "funk",
+        "minneapolis_synth_funk_pop"
+      ],
+      "current_pick": "extra_long_b",
+      "current_pick_score": 0.650625,
+      "primary_pick": "short_scale_b",
+      "primary_pick_score": 0.650625,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.650625
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.39
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.316875
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "extra_long_b",
+          "score": 1.3162500000000001
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.800625
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.316875
+        }
+      ]
+    },
+    {
+      "tid": "highlife",
+      "name": "Highlife",
+      "family": "global",
+      "parent": "groovePercussion.westAfrican",
+      "lineage": "West African",
+      "crossRefs": [
+        "functionalSong.africanPop"
+      ],
+      "staples": [
+        "congolese_rumba",
+        "isicathamiya"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 1.641,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 1.641,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 1.641
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.24862499999999998
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.108
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.585
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.39
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "classic_rb",
+      "name": "Classic R&B",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb",
+      "lineage": "soul / r&b",
+      "crossRefs": [
+        "ritualDevotional.christianGospel.blackGospel"
+      ],
+      "staples": [
+        "black_gospel_choir",
+        "contemporary_urban_gospel"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 0.961875,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 0.961875,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 0.961875
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.78
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.22874999999999998
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 1.6899999999999997
+        },
+        {
+          "id": "extra_long_b",
+          "score": 1.3
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.45499999999999996
+        }
+      ]
+    },
+    {
+      "tid": "makossa",
+      "name": "Makossa",
+      "family": "global",
+      "parent": "groovePercussion.westAfrican",
+      "lineage": "Cameroonian",
+      "crossRefs": [
+        "functionalSong.africanPop"
+      ],
+      "staples": [
+        "congolese_rumba",
+        "isicathamiya"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 1.5149999999999997,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 1.5149999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 1.5149999999999997
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.39
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.045
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.9299999999999999
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.39
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "sludge_metal",
+      "name": "Sludge metal",
+      "family": "rock",
+      "parent": "distortedRock.metal.sludge",
+      "lineage": "Southern US",
+      "crossRefs": [
+        "distortedRock.metal.doom"
+      ],
+      "staples": [
+        "stoner_metal",
+        "doom"
+      ],
+      "current_pick": "long_scale_b",
+      "current_pick_score": 1.17,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 1.17,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 1.17
+        },
+        {
+          "id": "long_scale_b",
+          "score": 1.1452499999999999
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.7477499999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "long_scale_b",
+          "score": 1.89525
+        },
+        {
+          "id": "extra_long_b",
+          "score": 1.79475
+        },
+        {
+          "id": "short_scale_b",
+          "score": 1.1977499999999999
+        }
+      ]
+    },
+    {
+      "tid": "stoner_metal",
+      "name": "Stoner metal",
+      "family": "rock",
+      "parent": "distortedRock.metal.doom",
+      "lineage": "California desert",
+      "crossRefs": [
+        "distortedRock.metal.sludge"
+      ],
+      "staples": [
+        "sludge_metal"
+      ],
+      "current_pick": "extra_long_b",
+      "current_pick_score": 0.78,
+      "primary_pick": "long_scale_b",
+      "primary_pick_score": 0.78,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "long_scale_b",
+          "score": 0.78
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.78
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.735
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "extra_long_b",
+          "score": 1.3424999999999998
+        },
+        {
+          "id": "long_scale_b",
+          "score": 1.2974999999999999
+        },
+        {
+          "id": "short_scale_b",
+          "score": 1.035
+        }
+      ]
+    },
+    {
+      "tid": "laiko",
+      "name": "Laikó",
+      "family": "global",
+      "parent": "balladPoetry.mediterraneanBallad",
+      "lineage": "post-rebetiko Greek popular song, lament wail keening melismatic ornate vocal",
+      "crossRefs": [
+        "droneModal.vocal",
+        "balladPoetry.chansonFado"
+      ],
+      "staples": [
+        "greek_entechno",
+        "morna"
+      ],
+      "current_pick": "extra_long_b",
+      "current_pick_score": 0,
+      "primary_pick": "short_scale_b",
+      "primary_pick_score": 0,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "extra_long_b",
+          "score": 0.15
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "dream_pop",
+      "name": "Dream pop",
+      "family": "global",
+      "parent": "functionalSong.popRock",
+      "lineage": "1980s-onward atmospheric guitar pop",
+      "crossRefs": [
+        {
+          "ref": "distortedRock.alternative",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "math_rock_post_rock",
+        "shoegaze"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 0.16799999999999998,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 0.16799999999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 0.16799999999999998
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.0765
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.195
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.16799999999999998
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "power_pop",
+      "name": "Power pop",
+      "family": "global",
+      "parent": "functionalSong.popRock",
+      "lineage": "British Invasion-derived hooky guitar-pop",
+      "crossRefs": [
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "math_rock_post_rock",
+        "grunge"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 0.16799999999999998,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 0.16799999999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 0.16799999999999998
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.0765
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.195
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.16799999999999998
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "bubblegum_pop",
+      "name": "Bubblegum pop",
+      "family": "global",
+      "parent": "functionalSong.popRock",
+      "lineage": "late-60s manufactured teen-pop",
+      "crossRefs": [
+        {
+          "ref": "functionalSong.crooners",
+          "isolated_parts": [
+            "voice_quality"
+          ]
+        }
+      ],
+      "staples": [
+        "brill_building_pop",
+        "barbershop_quartet"
+      ],
+      "current_pick": "extra_long_b",
+      "current_pick_score": 0.4875,
+      "primary_pick": "short_scale_b",
+      "primary_pick_score": 0.4875,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.4875
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.206125
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.09
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "extra_long_b",
+          "score": 0.206125
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.195
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "spanish_cancion_pop",
+      "name": "Spanish canción pop",
+      "family": "global",
+      "parent": "functionalSong.iberian",
+      "lineage": "Spanish-language mainstream song",
+      "crossRefs": [
+        "balladPoetry.chansonFado"
+      ],
+      "staples": [
+        "fado_coimbra_university",
+        "chanson_classique"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 0.5607499999999999,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 0.5607499999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 0.5607499999999999
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.2025
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.845
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.195
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "bedroom_pop",
+      "name": "Bedroom pop",
+      "family": "global",
+      "parent": "experimentalElec.lofi",
+      "lineage": "2010s-onward DIY-DAW indie pop",
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 1.935,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 1.935,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 1.935
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.39
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.345
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 2.6649999999999996
+        },
+        {
+          "id": "extra_long_b",
+          "score": 2.2349999999999994
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.345
+        }
+      ]
+    },
+    {
+      "tid": "britfolk_revival",
+      "name": "Britfolk revival",
+      "family": "global",
+      "parent": "balladPoetry.angloSingerSong.britfolk",
+      "lineage": "1960s-70s UK folk-revival singer-songwriter",
+      "crossRefs": [
+        {
+          "ref": "balladPoetry.celticBalladic",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "breton_folk",
+        "swedish_nyckelharpa_folk"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 1.0199999999999998,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 1.0199999999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 1.0199999999999998
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.9749999999999999
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.42
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 1.8199999999999998
+        },
+        {
+          "id": "extra_long_b",
+          "score": 1.4949999999999999
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.9099999999999999
+        }
+      ]
+    },
+    {
+      "tid": "folk_metal_european",
+      "name": "Folk metal (European)",
+      "family": "global",
+      "parent": "distortedRock.metal.folkMetal",
+      "lineage": "metal-folk-instrument hybrid",
+      "crossRefs": [
+        "balladPoetry.celticBalladic"
+      ],
+      "staples": [
+        "breton_folk",
+        "swedish_nyckelharpa_folk"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 1.0199999999999998,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 1.0199999999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 1.0199999999999998
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.39
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 2.2099999999999995
+        },
+        {
+          "id": "extra_long_b",
+          "score": 1.4949999999999999
+        },
+        {
+          "id": "long_scale_b",
+          "score": 1.3
+        }
+      ]
+    },
+    {
+      "tid": "avant_metal_classic",
+      "name": "Avant-garde metal",
+      "family": "global",
+      "parent": "distortedRock.metal.avant",
+      "lineage": "experimental-leaning metal",
+      "crossRefs": [
+        {
+          "ref": "experimentalElec.idmGlitch",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [],
+      "current_pick": "long_scale_b",
+      "current_pick_score": 0.3,
+      "primary_pick": "short_scale_b",
+      "primary_pick_score": 0.3,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.3
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.3
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.3
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.3
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "traditional_doom",
+      "name": "Traditional doom",
+      "family": "global",
+      "parent": "distortedRock.metal.doom",
+      "lineage": "early-1970s English heavy-blues-rock-derived heavy doom",
+      "crossRefs": [
+        "distortedRock.metal.nwobhm"
+      ],
+      "staples": [
+        "nwobhm"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 0.189,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 0.189,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 0.189
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.1575
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.15075
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.195
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.189
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.1575
+        }
+      ]
+    },
+    {
+      "tid": "norwegian_2nd_wave_black",
+      "name": "Norwegian 2nd-wave black metal",
+      "family": "global",
+      "parent": "distortedRock.metal.black",
+      "lineage": "early-90s Norwegian black-metal, false-fold ventricular shriek vocal",
+      "crossRefs": [
+        "experimentalElec.ambient"
+      ],
+      "staples": [],
+      "current_pick": "long_scale_b",
+      "current_pick_score": 0.39,
+      "primary_pick": "short_scale_b",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.39
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.39
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.39
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.39
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "tid": "anadolu_rock",
+      "name": "Anadolu rock",
+      "family": "global",
+      "parent": "distortedRock.regional",
+      "lineage": "late-1960s-onward Turkish psychedelic-folk rock",
+      "crossRefs": [
+        {
+          "ref": "distortedRock.classic",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "british_invasion_rb",
+        "early_rock_and_roll_50s"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 0.39,
+      "primary_pick": "long_scale_b",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "long_scale_b",
+          "score": 0.39
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.24
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.845
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.7902499999999999
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "latin_alternative",
+      "name": "Latin alternative",
+      "family": "global",
+      "parent": "distortedRock.regional",
+      "lineage": "Spanish-language alternative rock",
+      "crossRefs": [
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "grunge",
+        "math_rock_post_rock"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 0.075,
+      "primary_pick": "long_scale_b",
+      "primary_pick_score": 0.075,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "long_scale_b",
+          "score": 0.075
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.056249999999999994
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.011249999999999998
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.195
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.075
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.011249999999999998
+        }
+      ]
+    },
+    {
+      "tid": "contemporary_rb_late_90s_2000s",
+      "name": "Contemporary R&B (late-90s / 2000s)",
+      "family": "vernacular",
+      "parent": "functionalSong.soulRb",
+      "lineage": "Darkchild / Jam-Lewis / Timbaland producer-team era, neo-soul / contemporary-r&b breath-admixed vocal aesthetic",
+      "crossRefs": [
+        {
+          "ref": "mcRhythm.usHipHop.eastCoast",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "golden_age_hip_hop_1986_1991",
+        "boom_bap"
+      ],
+      "current_pick": "short_scale_b",
+      "current_pick_score": 0.49499999999999994,
+      "primary_pick": "extra_long_b",
+      "primary_pick_score": 0.49499999999999994,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "extra_long_b",
+          "score": 0.49499999999999994
+        },
+        {
+          "id": "short_scale_b",
+          "score": 0.387
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.135
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "short_scale_b",
+          "score": 0.65
+        },
+        {
+          "id": "long_scale_b",
+          "score": 0.585
+        },
+        {
+          "id": "extra_long_b",
+          "score": 0.585
+        }
+      ]
+    }
+  ]
+}

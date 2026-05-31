@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-05-11T15:21:42.719Z",
+  "target": {
+    "instrument": "saxophone",
+    "part": "sax_mouthpiece",
+    "num_variants": 3
+  },
+  "total_traditions": 50,
+  "mismatch_count": 2,
+  "records": [
+    {
+      "tid": "highlife",
+      "name": "Highlife",
+      "family": "global",
+      "parent": "groovePercussion.westAfrican",
+      "lineage": "West African",
+      "crossRefs": [
+        "functionalSong.africanPop"
+      ],
+      "staples": [
+        "congolese_rumba",
+        "isicathamiya"
+      ],
+      "current_pick": "hard_rubber_mp",
+      "current_pick_score": 0.668625,
+      "primary_pick": "metal_mp",
+      "primary_pick_score": 0.668625,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "metal_mp",
+          "score": 0.668625
+        },
+        {
+          "id": "hard_rubber_mp",
+          "score": 0.49649999999999994
+        },
+        {
+          "id": "ebonite_vintage",
+          "score": 0.0765
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "hard_rubber_mp",
+          "score": 0.975
+        },
+        {
+          "id": "metal_mp",
+          "score": 0.668625
+        },
+        {
+          "id": "ebonite_vintage",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "free_improvisation",
+      "name": "Free improvisation (non-idiomatic)",
+      "family": "global",
+      "parent": "improvOnFrame.jamFree",
+      "lineage": "post-1960s European and American non-idiomatic improvisation",
+      "crossRefs": [
+        "experimentalElec.musiqueConcrete"
+      ],
+      "staples": [
+        "musique_concrete",
+        "electroacoustic_composition"
+      ],
+      "current_pick": "hard_rubber_mp",
+      "current_pick_score": 0.3332307692307692,
+      "primary_pick": "metal_mp",
+      "primary_pick_score": 0.3332307692307692,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "metal_mp",
+          "score": 0.3332307692307692
+        },
+        {
+          "id": "hard_rubber_mp",
+          "score": 0.25038461538461537
+        },
+        {
+          "id": "ebonite_vintage",
+          "score": 0.0040384615384615385
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "hard_rubber_mp",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "metal_mp",
+          "score": 0.3332307692307692
+        },
+        {
+          "id": "ebonite_vintage",
+          "score": 0.0040384615384615385
+        }
+      ]
+    }
+  ]
+}

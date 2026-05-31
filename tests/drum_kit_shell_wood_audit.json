@@ -1,0 +1,1245 @@
+{
+  "generated_at": "2026-05-11T15:28:04.117Z",
+  "target": {
+    "instrument": "drum_kit",
+    "part": "shell_wood",
+    "num_variants": 9
+  },
+  "total_traditions": 161,
+  "mismatch_count": 26,
+  "records": [
+    {
+      "tid": "chicago_blues",
+      "name": "Chicago blues",
+      "family": "blues_gospel",
+      "parent": "functionalSong.bluesElectric",
+      "lineage": "electric blues",
+      "crossRefs": [
+        {
+          "ref": "improvOnFrame.americanJazz",
+          "isolated_parts": [
+            "cymbal_alloy"
+          ]
+        }
+      ],
+      "staples": [
+        "soul_jazz",
+        "hard_bop"
+      ],
+      "current_pick": "birch_shell",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.40499999999999997
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "birch_shell",
+          "score": 1.2349999999999999
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "steel_shell",
+          "score": 0.845
+        }
+      ]
+    },
+    {
+      "tid": "sacred_steel",
+      "name": "Sacred steel",
+      "family": "blues_gospel",
+      "parent": "ritualDevotional.christianGospel.sacredSteel",
+      "lineage": "sacred",
+      "crossRefs": [
+        "ritualDevotional.christianGospel.blackGospel"
+      ],
+      "staples": [
+        "black_gospel_choir",
+        "gospel_quartet_male"
+      ],
+      "current_pick": "maple_shell",
+      "current_pick_score": 0.7537499999999999,
+      "primary_pick": "oak_shell",
+      "primary_pick_score": 0.7537499999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "oak_shell",
+          "score": 0.7537499999999999
+        },
+        {
+          "id": "acrylic_shell",
+          "score": 0.70875
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.42
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "maple_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.9099999999999999
+        }
+      ]
+    },
+    {
+      "tid": "noise_rock",
+      "name": "Noise rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.noiseRock",
+      "lineage": "late-1970s through 1990s experimental dissonance-foreground rock",
+      "crossRefs": [
+        "distortedRock.experimental",
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "grunge",
+        "math_rock_post_rock"
+      ],
+      "current_pick": "walnut_shell",
+      "current_pick_score": 0.7628571428571429,
+      "primary_pick": "oak_shell",
+      "primary_pick_score": 0.7628571428571429,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "oak_shell",
+          "score": 0.7628571428571429
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.6728571428571428
+        },
+        {
+          "id": "steel_shell",
+          "score": 0.6728571428571428
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "walnut_shell",
+          "score": 1.2426785714285715
+        },
+        {
+          "id": "oak_shell",
+          "score": 1.0628571428571427
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.78
+        }
+      ]
+    },
+    {
+      "tid": "pop_punk",
+      "name": "Pop-punk",
+      "family": "rock_punk",
+      "parent": "distortedRock.popPunk",
+      "lineage": "mid-1970s onward pop-melody punk hybrid",
+      "crossRefs": [
+        "distortedRock.punk",
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "grunge",
+        "math_rock_post_rock"
+      ],
+      "current_pick": "walnut_shell",
+      "current_pick_score": 0.290625,
+      "primary_pick": "mahogany_shell",
+      "primary_pick_score": 0.290625,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_shell",
+          "score": 0.290625
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.233625
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.22312499999999996
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.39
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "tid": "folk_rock",
+      "name": "Folk rock",
+      "family": "rock_punk",
+      "parent": "functionalSong.popRock.folkRock",
+      "lineage": "mid-1960s through 1970s amplified folk-rock fusion",
+      "crossRefs": [
+        "functionalSong.country",
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "birch_shell",
+      "current_pick_score": 0.87,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.87,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.87
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.735
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.105
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "birch_shell",
+          "score": 1.335
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.87
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.5549999999999999
+        }
+      ]
+    },
+    {
+      "tid": "hair_metal",
+      "name": "Hair metal",
+      "family": "rock",
+      "parent": "distortedRock.lateAnalogMajor",
+      "lineage": "Sunset Strip glam-metal commercial",
+      "crossRefs": [
+        "distortedRock.metal.nwobhm"
+      ],
+      "staples": [
+        "nwobhm"
+      ],
+      "current_pick": "walnut_shell",
+      "current_pick_score": 0.3,
+      "primary_pick": "brass_shell",
+      "primary_pick_score": 0.3,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "brass_shell",
+          "score": 0.3
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.128625
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.049499999999999995
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "brass_shell",
+          "score": 0.3
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "black_metal",
+      "name": "Black metal",
+      "family": "rock_punk",
+      "parent": "distortedRock.metal.black",
+      "lineage": "metal, false-fold ventricular shriek vocal",
+      "crossRefs": [
+        {
+          "ref": "distortedRock.metal.doom",
+          "isolated_parts": [
+            "voice_quality"
+          ]
+        }
+      ],
+      "staples": [
+        "doom",
+        "stoner_metal"
+      ],
+      "current_pick": "mahogany_shell",
+      "current_pick_score": 1.0995,
+      "primary_pick": "birch_shell",
+      "primary_pick_score": 1.0995,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "birch_shell",
+          "score": 1.0995
+        },
+        {
+          "id": "oak_shell",
+          "score": 1.0995
+        },
+        {
+          "id": "steel_shell",
+          "score": 1.0995
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_shell",
+          "score": 2.925
+        },
+        {
+          "id": "birch_shell",
+          "score": 1.6995
+        },
+        {
+          "id": "oak_shell",
+          "score": 1.6995
+        }
+      ]
+    },
+    {
+      "tid": "punk",
+      "name": "Punk",
+      "family": "rock_punk",
+      "parent": "distortedRock.punk",
+      "lineage": "underground",
+      "crossRefs": [
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "garage_rock",
+        "hard_rock"
+      ],
+      "current_pick": "walnut_shell",
+      "current_pick_score": 0.49274999999999997,
+      "primary_pick": "mahogany_shell",
+      "primary_pick_score": 0.49274999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_shell",
+          "score": 0.49274999999999997
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.23774999999999996
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.20925
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.195
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "grunge",
+      "name": "Grunge",
+      "family": "rock_punk",
+      "parent": "distortedRock.alternative",
+      "lineage": "alt rock",
+      "crossRefs": [
+        "distortedRock.metal.sludge"
+      ],
+      "staples": [
+        "sludge_metal"
+      ],
+      "current_pick": "mahogany_shell",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.78
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.6749999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_shell",
+          "score": 1.56
+        },
+        {
+          "id": "walnut_shell",
+          "score": 1.4454999999999998
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.825
+        }
+      ]
+    },
+    {
+      "tid": "northern_soul_motown",
+      "name": "Northern / Motown soul",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb",
+      "lineage": "soul / r&b",
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "birch_shell",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.39
+        },
+        {
+          "id": "maple_shell",
+          "score": 0.345
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "birch_shell",
+          "score": 1.17
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.585
+        }
+      ]
+    },
+    {
+      "tid": "doo_wop",
+      "name": "Doo-wop",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb.doowop",
+      "lineage": "1950s African-American vocal-harmony group teen-pop r&b",
+      "crossRefs": [
+        "ritualDevotional.christianGospel.jubileeQuartet",
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "yacht_rock",
+        "folk_rock"
+      ],
+      "current_pick": "birch_shell",
+      "current_pick_score": 0.46499999999999997,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.46499999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.46499999999999997
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.39
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.38999999999999996
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "birch_shell",
+          "score": 1.17
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.46499999999999997
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "tid": "western_swing",
+      "name": "Western swing",
+      "family": "country",
+      "parent": "functionalSong.country.westernSwing",
+      "lineage": "1930s-1940s Texas-Oklahoma string-band swing-era jazz hybrid",
+      "crossRefs": [
+        "functionalSong.country.honkyTonkEra",
+        "improvOnFrame.americanJazz.early"
+      ],
+      "staples": [
+        "new_orleans",
+        "big_band"
+      ],
+      "current_pick": "walnut_shell",
+      "current_pick_score": 0.38887499999999997,
+      "primary_pick": "birch_shell",
+      "primary_pick_score": 0.38887499999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "birch_shell",
+          "score": 0.38887499999999997
+        },
+        {
+          "id": "maple_shell",
+          "score": 0.3
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.25987499999999997
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.38887499999999997
+        },
+        {
+          "id": "maple_shell",
+          "score": 0.3
+        }
+      ]
+    },
+    {
+      "tid": "death_metal",
+      "name": "Death metal",
+      "family": "rock_punk",
+      "parent": "distortedRock.metal.death",
+      "lineage": "metal",
+      "crossRefs": [
+        "distortedRock.metal.thrash"
+      ],
+      "staples": [
+        "thrash_metal"
+      ],
+      "current_pick": "walnut_shell",
+      "current_pick_score": 0.78,
+      "primary_pick": "mahogany_shell",
+      "primary_pick_score": 0.78,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_shell",
+          "score": 0.78
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.78
+        },
+        {
+          "id": "brass_shell",
+          "score": 0.6795
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "walnut_shell",
+          "score": 1.2349999999999999
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.78
+        },
+        {
+          "id": "brass_shell",
+          "score": 0.6795
+        }
+      ]
+    },
+    {
+      "tid": "city_pop",
+      "name": "City pop (Japanese)",
+      "family": "global",
+      "parent": "functionalSong.eastAsianPop",
+      "lineage": "late-70s/80s Japanese funk-jazz-pop",
+      "crossRefs": [
+        {
+          "ref": "functionalSong.soulRb",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "doo_wop",
+        "classic_rb"
+      ],
+      "current_pick": "birch_shell",
+      "current_pick_score": 0.525,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.525,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.525
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.39
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.378
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "birch_shell",
+          "score": 0.585
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.378
+        }
+      ]
+    },
+    {
+      "tid": "chanson_pop_modern",
+      "name": "Chanson pop (modern)",
+      "family": "global",
+      "parent": "functionalSong.europop",
+      "lineage": "modern French songwriter pop",
+      "crossRefs": [
+        "balladPoetry.chansonFado"
+      ],
+      "staples": [
+        "chanson_classique",
+        "greek_entechno"
+      ],
+      "current_pick": "maple_shell",
+      "current_pick_score": 0.24975,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.24975,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.24975
+        },
+        {
+          "id": "maple_shell",
+          "score": 0.22349999999999998
+        },
+        {
+          "id": "brass_shell",
+          "score": 0.22349999999999998
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "maple_shell",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "brass_shell",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.24975
+        }
+      ]
+    },
+    {
+      "tid": "portuguese_pop_modern",
+      "name": "Portuguese pop (modern)",
+      "family": "global",
+      "parent": "functionalSong.iberian",
+      "lineage": "modern Portuguese mainstream pop",
+      "crossRefs": [
+        "balladPoetry.chansonFado"
+      ],
+      "staples": [
+        "chanson_classique",
+        "greek_entechno"
+      ],
+      "current_pick": "maple_shell",
+      "current_pick_score": 0.31449999999999995,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.31449999999999995,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.31449999999999995
+        },
+        {
+          "id": "maple_shell",
+          "score": 0.15
+        },
+        {
+          "id": "brass_shell",
+          "score": 0.15
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "maple_shell",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "brass_shell",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.31449999999999995
+        }
+      ]
+    },
+    {
+      "tid": "nwobhm",
+      "name": "NWOBHM",
+      "family": "global",
+      "parent": "distortedRock.metal.nwobhm",
+      "lineage": "late-70s/80s UK metal revival",
+      "crossRefs": [
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "early_rock_and_roll_50s",
+        "garage_rock_revival_2000s"
+      ],
+      "current_pick": "mahogany_shell",
+      "current_pick_score": 0.870625,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.870625,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.870625
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.39
+        },
+        {
+          "id": "steel_shell",
+          "score": 0.140625
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_shell",
+          "score": 1.69
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.870625
+        },
+        {
+          "id": "maple_shell",
+          "score": 0.45499999999999996
+        }
+      ]
+    },
+    {
+      "tid": "technical_death_metal",
+      "name": "Technical death metal",
+      "family": "global",
+      "parent": "distortedRock.metal.death",
+      "lineage": "virtuosic death-metal sub-style",
+      "crossRefs": [
+        "distortedRock.metal.prog"
+      ],
+      "staples": [
+        "progressive_metal_classic"
+      ],
+      "current_pick": "steel_shell",
+      "current_pick_score": 0.39,
+      "primary_pick": "birch_shell",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "birch_shell",
+          "score": 0.39
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.39
+        },
+        {
+          "id": "steel_shell",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "steel_shell",
+          "score": 1.2349999999999999
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.571125
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.571125
+        }
+      ]
+    },
+    {
+      "tid": "norwegian_2nd_wave_black",
+      "name": "Norwegian 2nd-wave black metal",
+      "family": "global",
+      "parent": "distortedRock.metal.black",
+      "lineage": "early-90s Norwegian black-metal, false-fold ventricular shriek vocal",
+      "crossRefs": [
+        "experimentalElec.ambient"
+      ],
+      "staples": [],
+      "current_pick": "mahogany_shell",
+      "current_pick_score": 0.39,
+      "primary_pick": "maple_shell",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "maple_shell",
+          "score": 0.39
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.39
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "maple_shell",
+          "score": 0.39
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.39
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "tid": "gospel_quartet_male",
+      "name": "Gospel quartet (male)",
+      "family": "global",
+      "parent": "ritualDevotional.christianGospel.blackGospel",
+      "lineage": "Black-American male-quartet gospel",
+      "crossRefs": [
+        "ritualDevotional.christianGospel.southernGospel"
+      ],
+      "staples": [
+        "bluegrass_gospel",
+        "southern_gospel"
+      ],
+      "current_pick": "brass_shell",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "maple_shell",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "maple_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.9099999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "brass_shell",
+          "score": 2.0041249999999997
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 1.8199999999999998
+        },
+        {
+          "id": "maple_shell",
+          "score": 1.801625
+        }
+      ]
+    },
+    {
+      "tid": "drone_metal",
+      "name": "Drone doom metal",
+      "family": "global",
+      "parent": "distortedRock.metal.doom",
+      "lineage": "extreme-minimalist doom metal",
+      "crossRefs": [
+        "droneModal.modalElectric"
+      ],
+      "staples": [
+        "desert_blues"
+      ],
+      "current_pick": "aluminum_shell",
+      "current_pick_score": 0.8197499999999999,
+      "primary_pick": "mahogany_shell",
+      "primary_pick_score": 0.8197499999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_shell",
+          "score": 0.8197499999999999
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.255
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.1285
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "aluminum_shell",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.39
+        },
+        {
+          "id": "maple_shell",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "jam_band",
+      "name": "Jam band",
+      "family": "global",
+      "parent": "improvOnFrame.jamFree",
+      "lineage": "late-1960s-onward improvisational rock with audience-recording culture",
+      "crossRefs": [
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "early_rock_and_roll_50s",
+        "garage_rock_revival_2000s"
+      ],
+      "current_pick": "mahogany_shell",
+      "current_pick_score": 0.818125,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.818125,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.818125
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.44999999999999996
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_shell",
+          "score": 1.3
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.818125
+        },
+        {
+          "id": "maple_shell",
+          "score": 0.45499999999999996
+        }
+      ]
+    },
+    {
+      "tid": "free_improvisation",
+      "name": "Free improvisation (non-idiomatic)",
+      "family": "global",
+      "parent": "improvOnFrame.jamFree",
+      "lineage": "post-1960s European and American non-idiomatic improvisation",
+      "crossRefs": [
+        "experimentalElec.musiqueConcrete"
+      ],
+      "staples": [
+        "musique_concrete",
+        "electroacoustic_composition"
+      ],
+      "current_pick": "maple_shell",
+      "current_pick_score": 0.3349615384615384,
+      "primary_pick": "oak_shell",
+      "primary_pick_score": 0.3349615384615384,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "oak_shell",
+          "score": 0.3349615384615384
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.3332307692307692
+        },
+        {
+          "id": "steel_shell",
+          "score": 0.3332307692307692
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "maple_shell",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "brass_shell",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.3349615384615384
+        }
+      ]
+    },
+    {
+      "tid": "j_rock",
+      "name": "J-rock",
+      "family": "global",
+      "parent": "distortedRock.regional",
+      "lineage": "Japanese-language alt-rock and visual-kei rock",
+      "crossRefs": [
+        "functionalSong.eastAsianPop"
+      ],
+      "staples": [
+        "k_pop_modern",
+        "j_pop_classic"
+      ],
+      "current_pick": "birch_shell",
+      "current_pick_score": 0.18637499999999996,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.18637499999999996,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.18637499999999996
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.18
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.135
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "birch_shell",
+          "score": 0.39
+        },
+        {
+          "id": "oak_shell",
+          "score": 0.39
+        },
+        {
+          "id": "steel_shell",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "tid": "early_rock_and_roll_50s",
+      "name": "Early rock-and-roll (1954–1958)",
+      "family": "vernacular",
+      "parent": "distortedRock.classic",
+      "lineage": "rhythm-and-blues into rock-and-roll transitional zone",
+      "crossRefs": [
+        "functionalSong.bluesElectric"
+      ],
+      "staples": [
+        "chicago_blues",
+        "jump_blues"
+      ],
+      "current_pick": "walnut_shell",
+      "current_pick_score": 0.7,
+      "primary_pick": "aluminum_shell",
+      "primary_pick_score": 0.7,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "aluminum_shell",
+          "score": 0.7
+        },
+        {
+          "id": "mahogany_shell",
+          "score": 0.44062499999999993
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.301
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "aluminum_shell",
+          "score": 0.7
+        },
+        {
+          "id": "birch_shell",
+          "score": 0.195
+        }
+      ]
+    },
+    {
+      "tid": "lebanese_pop_tarab",
+      "name": "Lebanese tarab-pop",
+      "family": "global",
+      "parent": "functionalSong.midEastNAfricanPop",
+      "lineage": "Beirut-centered modern Arabic-pop with classical-tarab roots, melismatic ornate praise devotional vocal",
+      "crossRefs": [
+        "improvOnFrame.persianArabImprov",
+        "artMusic.middleEasternClassical"
+      ],
+      "staples": [
+        "andalusi_nuba",
+        "turkish_makam"
+      ],
+      "current_pick": "maple_shell",
+      "current_pick_score": 0.8916249999999999,
+      "primary_pick": "walnut_shell",
+      "primary_pick_score": 0.8916249999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "walnut_shell",
+          "score": 0.8916249999999999
+        },
+        {
+          "id": "brass_shell",
+          "score": 0.84
+        },
+        {
+          "id": "maple_shell",
+          "score": 0.735
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "maple_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "brass_shell",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "walnut_shell",
+          "score": 0.8916249999999999
+        }
+      ]
+    }
+  ]
+}

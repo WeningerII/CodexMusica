@@ -1,0 +1,2528 @@
+[
+  {
+    "id": "choir_ensemble",
+    "name": "Choir / vocal ensemble",
+    "wikipedia": "Choir",
+    "commons_category": "Choirs"
+  },
+  {
+    "id": "griot_voice",
+    "name": "Griot / jeli voice",
+    "wikipedia": "Griot",
+    "commons_category": "Griots"
+  },
+  {
+    "id": "pansori_voice",
+    "name": "Pansori voice (rough-pressed seongeum mechanism, Korean narrative-song tradition)",
+    "wikipedia": "Pansori",
+    "commons_category": "Pansori"
+  },
+  {
+    "id": "qawwal_voice",
+    "name": "Qawwal lead voice",
+    "wikipedia": "Qawwali",
+    "commons_category": "Qawwali"
+  },
+  {
+    "id": "shape_note_voice",
+    "name": "Shape-note voice",
+    "wikipedia": "Shape note",
+    "commons_category": "Shape note singing"
+  },
+  {
+    "id": "throat_singing_voice",
+    "name": "Throat-singing voice (compound-mechanism phonation)",
+    "wikipedia": "Throat singing",
+    "commons_category": "Throat singing"
+  },
+  {
+    "id": "voice",
+    "name": "Voice",
+    "wikipedia": "Human voice",
+    "commons_category": "Singers"
+  },
+  {
+    "id": "vocal_percussion_voice",
+    "name": "Vocal percussion voice (beatbox / syllabic-drum / click-articulated)",
+    "wikipedia": "Beatboxing",
+    "commons_category": "Beatboxers"
+  },
+  {
+    "id": "multitrack_vocal_stack",
+    "name": "Multi-track vocal stack (recorded-stack as constitutive instrument)",
+    "wikipedia": "Multitrack recording",
+    "commons_category": "Multitrack recording"
+  },
+  {
+    "id": "whistled_voice",
+    "name": "Whistled voice (lip/tongue turbulent source, no vocal-fold vibration)",
+    "wikipedia": "Whistled voice",
+    "commons_category": "Whistled voices"
+  },
+  {
+    "id": "twelve_string_electric",
+    "name": "Twelve-string electric guitar",
+    "wikipedia": "Twelve-string electric guitar",
+    "commons_category": "Twelve-string electric guitars"
+  },
+  {
+    "id": "archtop_jazz",
+    "name": "Archtop jazz guitar",
+    "wikipedia": "Archtop jazz guitar",
+    "commons_category": "Archtop jazz guitars"
+  },
+  {
+    "id": "baritone_electric",
+    "name": "Baritone electric guitar",
+    "wikipedia": "Baritone electric guitar",
+    "commons_category": "Baritone electric guitars"
+  },
+  {
+    "id": "electric_bass",
+    "name": "Solid-body electric bass",
+    "wikipedia": "Solid-body electric bass",
+    "commons_category": "Solid-body electric basses"
+  },
+  {
+    "id": "fretless_bass",
+    "name": "Fretless electric bass",
+    "wikipedia": "Fretless electric bass",
+    "commons_category": "Fretless electric basses"
+  },
+  {
+    "id": "electric_guitar_humbucker",
+    "name": "Solid-body electric guitar with humbucking pickups",
+    "wikipedia": "Solid-body electric guitar with humbucking pickups",
+    "commons_category": "Solid-body electric guitar with humbucking pickupses"
+  },
+  {
+    "id": "pedal_steel",
+    "name": "Pedal steel guitar",
+    "wikipedia": "Pedal steel guitar",
+    "commons_category": "Pedal steel guitars"
+  },
+  {
+    "id": "semi_hollow",
+    "name": "Semi-hollow electric guitar",
+    "wikipedia": "Semi-hollow electric guitar",
+    "commons_category": "Semi-hollow electric guitars"
+  },
+  {
+    "id": "short_scale_bass",
+    "name": "Short-scale electric bass",
+    "wikipedia": "Short-scale electric bass",
+    "commons_category": "Short-scale electric basses"
+  },
+  {
+    "id": "semi_hollow_bass",
+    "name": "Semi-hollow / hollow-body electric bass",
+    "wikipedia": "Semi-hollow",
+    "commons_category": "Semi-hollows"
+  },
+  {
+    "id": "electric_guitar_single_coil",
+    "name": "Solid-body electric guitar with single-coil pickups",
+    "wikipedia": "Solid-body electric guitar with single-coil pickups",
+    "commons_category": "Solid-body electric guitar with single-coil pickupses"
+  },
+  {
+    "id": "autoharp",
+    "name": "Autoharp (chorded zither)",
+    "wikipedia": "Autoharp",
+    "commons_category": "Autoharps"
+  },
+  {
+    "id": "celtic_harp",
+    "name": "Celtic / lever harp (clàrsach)",
+    "wikipedia": "Celtic",
+    "commons_category": "Celtics"
+  },
+  {
+    "id": "cittern",
+    "name": "Cittern (Renaissance / British folk)",
+    "wikipedia": "Cittern",
+    "commons_category": "Citterns"
+  },
+  {
+    "id": "acoustic_guitar_dread",
+    "name": "Dreadnought acoustic guitar",
+    "wikipedia": "Dreadnought acoustic guitar",
+    "commons_category": "Dreadnought acoustic guitars"
+  },
+  {
+    "id": "mandola",
+    "name": "Mandola (alto mandolin)",
+    "wikipedia": "Mandola",
+    "commons_category": "Mandolas"
+  },
+  {
+    "id": "mandolin",
+    "name": "Mandolin",
+    "wikipedia": "Mandolin",
+    "commons_category": "Mandolins"
+  },
+  {
+    "id": "mountain_dulcimer",
+    "name": "Appalachian (mountain) dulcimer",
+    "wikipedia": "Appalachiandulcimer",
+    "commons_category": "Appalachiandulcimers"
+  },
+  {
+    "id": "acoustic_guitar_om",
+    "name": "Orchestra-model acoustic guitar",
+    "wikipedia": "Orchestra-model acoustic guitar",
+    "commons_category": "Orchestra-model acoustic guitars"
+  },
+  {
+    "id": "acoustic_guitar_parlor",
+    "name": "Parlor / compact-body acoustic guitar",
+    "wikipedia": "Parlor",
+    "commons_category": "Parlors"
+  },
+  {
+    "id": "classical_nylon_string_guitar",
+    "name": "Classical / nylon-string guitar",
+    "wikipedia": "Classical",
+    "commons_category": "Classicals"
+  },
+  {
+    "id": "concert_harp",
+    "name": "Concert pedal harp",
+    "wikipedia": "Concert pedal harp",
+    "commons_category": "Concert pedal harps"
+  },
+  {
+    "id": "acoustic_resonator_steel",
+    "name": "Steel-body single-cone resonator guitar",
+    "wikipedia": "Steel-body single-cone resonator guitar",
+    "commons_category": "Steel-body single-cone resonator guitars"
+  },
+  {
+    "id": "upright_bass",
+    "name": "Upright (double) bass",
+    "wikipedia": "Uprightbass",
+    "commons_category": "Uprightbasses"
+  },
+  {
+    "id": "akonting",
+    "name": "Akonting (Senegambian banjo ancestor)",
+    "wikipedia": "Akonting",
+    "commons_category": "Akontings"
+  },
+  {
+    "id": "baglamas",
+    "name": "Baglamás (Greek miniature bouzouki)",
+    "wikipedia": "Baglamás",
+    "commons_category": "Baglamáses"
+  },
+  {
+    "id": "bajo_sexto",
+    "name": "Bajo sexto",
+    "wikipedia": "Bajo sexto",
+    "commons_category": "Bajo sextos"
+  },
+  {
+    "id": "balalaika",
+    "name": "Balalaika (Russian triangular)",
+    "wikipedia": "Balalaika",
+    "commons_category": "Balalaikas"
+  },
+  {
+    "id": "biwa_lute",
+    "name": "Biwa (Japanese plucked lute)",
+    "wikipedia": "Biwa",
+    "commons_category": "Biwas"
+  },
+  {
+    "id": "bouzouki",
+    "name": "Bouzouki (Greek long-neck lute)",
+    "wikipedia": "Bouzouki",
+    "commons_category": "Bouzoukis"
+  },
+  {
+    "id": "cavaquinho",
+    "name": "Cavaquinho (Portuguese / Brazilian)",
+    "wikipedia": "Cavaquinho",
+    "commons_category": "Cavaquinhos"
+  },
+  {
+    "id": "charango",
+    "name": "Charango (Andean compact lute)",
+    "wikipedia": "Charango",
+    "commons_category": "Charangos"
+  },
+  {
+    "id": "cuatro_pr",
+    "name": "Cuatro (Puerto Rican)",
+    "wikipedia": "Cuatro",
+    "commons_category": "Cuatros"
+  },
+  {
+    "id": "cuatro_venezolano",
+    "name": "Cuatro venezolano",
+    "wikipedia": "Cuatro venezolano",
+    "commons_category": "Cuatro venezolanos"
+  },
+  {
+    "id": "cumbus",
+    "name": "Çümbüş (Turkish banjo-bodied lute)",
+    "wikipedia": "Çümbüş",
+    "commons_category": "Çümbüşs"
+  },
+  {
+    "id": "dan_bau",
+    "name": "Đàn bầu (Vietnamese monochord)",
+    "wikipedia": "Đàn bầu",
+    "commons_category": "Đàn bầus"
+  },
+  {
+    "id": "dan_tranh",
+    "name": "Đàn tranh (Vietnamese 16-string zither)",
+    "wikipedia": "Đàn tranh",
+    "commons_category": "Đàn tranhs"
+  },
+  {
+    "id": "domra",
+    "name": "Domra (Russian round-body lute)",
+    "wikipedia": "Domra",
+    "commons_category": "Domras"
+  },
+  {
+    "id": "dotara",
+    "name": "Dotara (Bengali plucked lute)",
+    "wikipedia": "Dotara",
+    "commons_category": "Dotaras"
+  },
+  {
+    "id": "banjo_5_string",
+    "name": "Five-string banjo",
+    "wikipedia": "Five-string banjo",
+    "commons_category": "Five-string banjos"
+  },
+  {
+    "id": "gayageum",
+    "name": "Gayageum (Korean 12-string zither)",
+    "wikipedia": "Gayageum",
+    "commons_category": "Gayageums"
+  },
+  {
+    "id": "geomungo",
+    "name": "Geomungo (Korean six-string fretted zither)",
+    "wikipedia": "Geomungo",
+    "commons_category": "Geomungos"
+  },
+  {
+    "id": "guqin",
+    "name": "Gǔqín (Chinese 7-string zither)",
+    "wikipedia": "Gǔqín",
+    "commons_category": "Gǔqíns"
+  },
+  {
+    "id": "gusli",
+    "name": "Gusli (Slavic psaltery)",
+    "wikipedia": "Gusli",
+    "commons_category": "Guslis"
+  },
+  {
+    "id": "guzheng",
+    "name": "Guzheng (Chinese long zither)",
+    "wikipedia": "Guzheng",
+    "commons_category": "Guzhengs"
+  },
+  {
+    "id": "jarana_jarocha",
+    "name": "Jarana jarocha (Veracruz)",
+    "wikipedia": "Jarana jarocha",
+    "commons_category": "Jarana jarochas"
+  },
+  {
+    "id": "kantele",
+    "name": "Kantele (Finnish/Karelian zither)",
+    "wikipedia": "Kantele",
+    "commons_category": "Kanteles"
+  },
+  {
+    "id": "kora",
+    "name": "Kora (Mande 21-string harp-lute)",
+    "wikipedia": "Kora (instrument)",
+    "commons_category": "Kora"
+  },
+  {
+    "id": "koto",
+    "name": "Koto (Japanese 13-string zither)",
+    "wikipedia": "Koto",
+    "commons_category": "Kotos"
+  },
+  {
+    "id": "leona",
+    "name": "Leona (son jarocho bass)",
+    "wikipedia": "Leona",
+    "commons_category": "Leonas"
+  },
+  {
+    "id": "lute_renaissance",
+    "name": "Renaissance lute",
+    "wikipedia": "Renaissance lute",
+    "commons_category": "Renaissance lutes"
+  },
+  {
+    "id": "mbira",
+    "name": "Mbira (lamellophone)",
+    "wikipedia": "Mbira",
+    "commons_category": "Mbiras"
+  },
+  {
+    "id": "ngoni",
+    "name": "Ngoni (West African plucked spike-lute)",
+    "wikipedia": "Ngoni",
+    "commons_category": "Ngonis"
+  },
+  {
+    "id": "kamele_ngoni",
+    "name": "Kamele ngoni (Wassoulou youth's harp-lute)",
+    "wikipedia": "Kamele ngoni",
+    "commons_category": "Kamele ngonis"
+  },
+  {
+    "id": "donso_ngoni",
+    "name": "Donso ngoni (Mande hunters' harp-lute)",
+    "wikipedia": "Donso ngoni",
+    "commons_category": "Donso ngonis"
+  },
+  {
+    "id": "ektara",
+    "name": "Ektara (Indian/Bengali one-string drone)",
+    "wikipedia": "Ektara",
+    "commons_category": "Ektaras"
+  },
+  {
+    "id": "khamak",
+    "name": "Khamak (Bengali plucked-drone tension lute)",
+    "wikipedia": "Khamak",
+    "commons_category": "Khamaks"
+  },
+  {
+    "id": "tambura_balkan",
+    "name": "Tambura (Balkan long-neck lute)",
+    "wikipedia": "Tambura",
+    "commons_category": "Tamburas"
+  },
+  {
+    "id": "kanun",
+    "name": "Kanun / qānūn (Middle Eastern plucked zither)",
+    "wikipedia": "Kanun",
+    "commons_category": "Kanuns"
+  },
+  {
+    "id": "bandola_andina",
+    "name": "Bandola andina (Colombian Andean 12-string lute)",
+    "wikipedia": "Bandola andina",
+    "commons_category": "Bandola andinas"
+  },
+  {
+    "id": "oud",
+    "name": "ʿŪd (Arab/Mediterranean fretless lute)",
+    "wikipedia": "ʿŪd",
+    "commons_category": "ʿŪds"
+  },
+  {
+    "id": "pipa",
+    "name": "Pipa (Chinese pear-shaped lute)",
+    "wikipedia": "Pipa",
+    "commons_category": "Pipas"
+  },
+  {
+    "id": "qanun",
+    "name": "Qānūn (Arab/Turkish trapezoidal zither)",
+    "wikipedia": "Qānūn",
+    "commons_category": "Qānūns"
+  },
+  {
+    "id": "requinto_jarocho",
+    "name": "Requinto jarocho (Veracruz lead)",
+    "wikipedia": "Requinto jarocho",
+    "commons_category": "Requinto jarochos"
+  },
+  {
+    "id": "ronroco",
+    "name": "Ronroco (large charango)",
+    "wikipedia": "Ronroco",
+    "commons_category": "Ronrocos"
+  },
+  {
+    "id": "ruan",
+    "name": "Ruan (Chinese moon-bodied lute)",
+    "wikipedia": "Ruan",
+    "commons_category": "Ruans"
+  },
+  {
+    "id": "rudra_veena",
+    "name": "Rudra vīṇā (dhrupad bin)",
+    "wikipedia": "Rudra vīṇā",
+    "commons_category": "Rudra vīṇās"
+  },
+  {
+    "id": "santoor",
+    "name": "Santoor (Hindustani hammered dulcimer)",
+    "wikipedia": "Santoor",
+    "commons_category": "Santoors"
+  },
+  {
+    "id": "santur",
+    "name": "Santūr (Persian hammered dulcimer)",
+    "wikipedia": "Santūr",
+    "commons_category": "Santūrs"
+  },
+  {
+    "id": "sanxian",
+    "name": "Sanxian (Chinese three-string)",
+    "wikipedia": "Sanxian",
+    "commons_category": "Sanxians"
+  },
+  {
+    "id": "sarod",
+    "name": "Sarod (Hindustani fretless lute)",
+    "wikipedia": "Sarod",
+    "commons_category": "Sarods"
+  },
+  {
+    "id": "saz_baglama",
+    "name": "Saz / bağlama (Turkish long-neck lute)",
+    "wikipedia": "Saz",
+    "commons_category": "Sazes"
+  },
+  {
+    "id": "setar_persian",
+    "name": "Setār (Persian long-neck lute)",
+    "wikipedia": "Setār",
+    "commons_category": "Setārs"
+  },
+  {
+    "id": "shamisen",
+    "name": "Shamisen (Japanese three-string)",
+    "wikipedia": "Shamisen",
+    "commons_category": "Shamisens"
+  },
+  {
+    "id": "sintir",
+    "name": "Sintir / guembri (Moroccan Gnawa bass-lute)",
+    "wikipedia": "Sintir",
+    "commons_category": "Sintirs"
+  },
+  {
+    "id": "sitar",
+    "name": "Sitar",
+    "wikipedia": "Sitar",
+    "commons_category": "Sitars"
+  },
+  {
+    "id": "tanbur_persian",
+    "name": "Tanbur (Persian/Kurdish long-neck lute)",
+    "wikipedia": "Tanbur",
+    "commons_category": "Tanburs"
+  },
+  {
+    "id": "tanpura",
+    "name": "Tanpura (Indian drone lute)",
+    "wikipedia": "Tanpura",
+    "commons_category": "Tanpuras"
+  },
+  {
+    "id": "tar_persian",
+    "name": "Tār (Persian double-bowl lute)",
+    "wikipedia": "Tar (string instrument)",
+    "commons_category": "Tar (instrument)"
+  },
+  {
+    "id": "theorbo",
+    "name": "Theorbo (extended-bass baroque lute)",
+    "wikipedia": "Theorbo",
+    "commons_category": "Theorbos"
+  },
+  {
+    "id": "tiple",
+    "name": "Tiple (Andean 12-string)",
+    "wikipedia": "Tiple",
+    "commons_category": "Tiples"
+  },
+  {
+    "id": "tres_cubano",
+    "name": "Tres (Cuban three-course)",
+    "wikipedia": "Tres",
+    "commons_category": "Treses"
+  },
+  {
+    "id": "tumbi",
+    "name": "Tumbi (Punjabi single-string)",
+    "wikipedia": "Tumbi",
+    "commons_category": "Tumbis"
+  },
+  {
+    "id": "veena",
+    "name": "Saraswati vīṇā (South Indian fretted lute)",
+    "wikipedia": "Saraswati vīṇā",
+    "commons_category": "Saraswati vīṇās"
+  },
+  {
+    "id": "vihuela_mexicana",
+    "name": "Vihuela (Mexican mariachi)",
+    "wikipedia": "Vihuela",
+    "commons_category": "Vihuelas"
+  },
+  {
+    "id": "viola_caipira",
+    "name": "Viola caipira (Brazilian 10-string)",
+    "wikipedia": "Viola caipira",
+    "commons_category": "Viola caipiras"
+  },
+  {
+    "id": "xalam",
+    "name": "Xalam / tehardent (Sahelian lute)",
+    "wikipedia": "Xalam",
+    "commons_category": "Xalams"
+  },
+  {
+    "id": "yueqin",
+    "name": "Yueqin (Chinese moon lute)",
+    "wikipedia": "Yueqin",
+    "commons_category": "Yueqins"
+  },
+  {
+    "id": "violin_carnatic",
+    "name": "Violin (Carnatic tuning)",
+    "wikipedia": "Violin",
+    "commons_category": "Violins"
+  },
+  {
+    "id": "cello",
+    "name": "Cello (orchestral bass-baritone)",
+    "wikipedia": "Cello",
+    "commons_category": "Cellos"
+  },
+  {
+    "id": "dilruba",
+    "name": "Dilruba (Punjabi bowed lute)",
+    "wikipedia": "Dilruba",
+    "commons_category": "Dilrubas"
+  },
+  {
+    "id": "double_bass",
+    "name": "Double bass (orchestral / jazz upright)",
+    "wikipedia": "Double bass",
+    "commons_category": "Double basses"
+  },
+  {
+    "id": "erhu",
+    "name": "Erhu (Chinese two-string fiddle)",
+    "wikipedia": "Erhu",
+    "commons_category": "Erhus"
+  },
+  {
+    "id": "jinghu",
+    "name": "Jīnghú (Beijing-opera bamboo fiddle)",
+    "wikipedia": "Jīnghú",
+    "commons_category": "Jīnghús"
+  },
+  {
+    "id": "esraj",
+    "name": "Esraj (bowed Indian lute)",
+    "wikipedia": "Esraj",
+    "commons_category": "Esrajs"
+  },
+  {
+    "id": "fiddle",
+    "name": "Fiddle",
+    "wikipedia": "Fiddle",
+    "commons_category": "Fiddles"
+  },
+  {
+    "id": "gusle",
+    "name": "Gusle (Balkan single-string)",
+    "wikipedia": "Gusle",
+    "commons_category": "Gusles"
+  },
+  {
+    "id": "haegeum",
+    "name": "Haegeum (Korean two-string fiddle)",
+    "wikipedia": "Haegeum",
+    "commons_category": "Haegeums"
+  },
+  {
+    "id": "hardanger_fiddle_inst",
+    "name": "Hardingfele (Hardanger fiddle)",
+    "wikipedia": "Hardingfele",
+    "commons_category": "Hardingfeles"
+  },
+  {
+    "id": "hurdy_gurdy",
+    "name": "Hurdy-gurdy (vielle à roue)",
+    "wikipedia": "Hurdy-gurdy",
+    "commons_category": "Hurdy-gurdies"
+  },
+  {
+    "id": "kamancheh",
+    "name": "Kamāncheh (Persian spike fiddle)",
+    "wikipedia": "Kamāncheh",
+    "commons_category": "Kamānchehs"
+  },
+  {
+    "id": "kemence",
+    "name": "Kemençe (Black Sea / Constantinople bowed)",
+    "wikipedia": "Kemençe",
+    "commons_category": "Kemençes"
+  },
+  {
+    "id": "cretan_lyra",
+    "name": "Cretan lyra",
+    "wikipedia": "Cretan lyra",
+    "commons_category": "Cretan lyras"
+  },
+  {
+    "id": "morin_khuur",
+    "name": "Morin khuur (Mongolian horse-head fiddle)",
+    "wikipedia": "Morin khuur",
+    "commons_category": "Morin khuurs"
+  },
+  {
+    "id": "nyckelharpa",
+    "name": "Nyckelharpa (Swedish keyed fiddle)",
+    "wikipedia": "Nyckelharpa",
+    "commons_category": "Nyckelharpas"
+  },
+  {
+    "id": "violin_orchestral",
+    "name": "Orchestral violin / viola / cello",
+    "wikipedia": "Orchestral violin",
+    "commons_category": "Orchestral violins"
+  },
+  {
+    "id": "rebab",
+    "name": "Rebab (Indonesian/Malay spike fiddle)",
+    "wikipedia": "Rebab",
+    "commons_category": "Rebabs"
+  },
+  {
+    "id": "sarangi",
+    "name": "Sārangī (bowed Indian lute with sympathetic strings)",
+    "wikipedia": "Sārangī",
+    "commons_category": "Sārangīs"
+  },
+  {
+    "id": "string_quartet_inst",
+    "name": "String quartet (ensemble)",
+    "wikipedia": "String quartet",
+    "commons_category": "String quartets"
+  },
+  {
+    "id": "viola_classical",
+    "name": "Viola (orchestral alto)",
+    "wikipedia": "Viola",
+    "commons_category": "Violas"
+  },
+  {
+    "id": "viola_da_gamba",
+    "name": "Viola da gamba",
+    "wikipedia": "Viola da gamba",
+    "commons_category": "Viola da gambas"
+  },
+  {
+    "id": "agogo",
+    "name": "Agogô (Brazilian double bell)",
+    "wikipedia": "Agogô",
+    "commons_category": "Agogôs"
+  },
+  {
+    "id": "atabaque",
+    "name": "Atabaque (Brazilian conical drum)",
+    "wikipedia": "Atabaque",
+    "commons_category": "Atabaques"
+  },
+  {
+    "id": "balafon",
+    "name": "Balafon (West African pentatonic marimba)",
+    "wikipedia": "Balafon",
+    "commons_category": "Balafons"
+  },
+  {
+    "id": "bata",
+    "name": "Batá drums (Yoruba/Cuban triple-set)",
+    "wikipedia": "Batá drums",
+    "commons_category": "Batá drumses"
+  },
+  {
+    "id": "bendir",
+    "name": "Bendir (Maghrebi frame drum)",
+    "wikipedia": "Bendir",
+    "commons_category": "Bendirs"
+  },
+  {
+    "id": "berimbau",
+    "name": "Berimbau (Brazilian musical bow)",
+    "wikipedia": "Berimbau",
+    "commons_category": "Berimbaus"
+  },
+  {
+    "id": "bodhran",
+    "name": "Bodhrán (Irish frame drum)",
+    "wikipedia": "Bodhrán",
+    "commons_category": "Bodhráns"
+  },
+  {
+    "id": "bombo_andino",
+    "name": "Bombo (Andean bass drum)",
+    "wikipedia": "Bombo",
+    "commons_category": "Bombos"
+  },
+  {
+    "id": "bonang",
+    "name": "Bonang (gamelan kettle gong row)",
+    "wikipedia": "Bonang",
+    "commons_category": "Bonangs"
+  },
+  {
+    "id": "bongos",
+    "name": "Bongos (Cuban paired drums)",
+    "wikipedia": "Bongos",
+    "commons_category": "Bongoses"
+  },
+  {
+    "id": "buk_korean",
+    "name": "Buk (Korean barrel drum)",
+    "wikipedia": "Buk",
+    "commons_category": "Buks"
+  },
+  {
+    "id": "sabar",
+    "name": "Sabar (Senegalese hand-and-stick drum)",
+    "wikipedia": "Sabar",
+    "commons_category": "Sabars"
+  },
+  {
+    "id": "castanets",
+    "name": "Castanets",
+    "wikipedia": "Castanets",
+    "commons_category": "Castanetses"
+  },
+  {
+    "id": "caxixi",
+    "name": "Caxixi (Brazilian basket shaker)",
+    "wikipedia": "Caxixi",
+    "commons_category": "Caxixis"
+  },
+  {
+    "id": "claves",
+    "name": "Claves (Cuban hardwood sticks)",
+    "wikipedia": "Claves",
+    "commons_category": "Claveses"
+  },
+  {
+    "id": "congas",
+    "name": "Congas / tumbadoras (Cuban)",
+    "wikipedia": "Congas",
+    "commons_category": "Congases"
+  },
+  {
+    "id": "cuica",
+    "name": "Cuíca (Brazilian friction drum)",
+    "wikipedia": "Cuíca",
+    "commons_category": "Cuícas"
+  },
+  {
+    "id": "daf",
+    "name": "Daf (Persian/Sufi frame drum)",
+    "wikipedia": "Daf",
+    "commons_category": "Dafs"
+  },
+  {
+    "id": "darbuka",
+    "name": "Darbuka / doumbek (Middle Eastern goblet drum)",
+    "wikipedia": "Darbuka",
+    "commons_category": "Darbukas"
+  },
+  {
+    "id": "dholak",
+    "name": "Dholak (North Indian double-headed)",
+    "wikipedia": "Dholak",
+    "commons_category": "Dholaks"
+  },
+  {
+    "id": "djembe",
+    "name": "Djembe (West African goblet drum)",
+    "wikipedia": "Djembe",
+    "commons_category": "Djembes"
+  },
+  {
+    "id": "drum_kit",
+    "name": "Drum kit (Western)",
+    "wikipedia": "Drum kit",
+    "commons_category": "Drum kits"
+  },
+  {
+    "id": "dunun",
+    "name": "Dunun family (West African bass drums)",
+    "wikipedia": "Dunun family",
+    "commons_category": "Dunun families"
+  },
+  {
+    "id": "frottoir",
+    "name": "Frottoir / washboard (zydeco rubboard)",
+    "wikipedia": "Frottoir",
+    "commons_category": "Frottoirs"
+  },
+  {
+    "id": "jug_inst",
+    "name": "Jug (blown ceramic / glass jug, bass instrument)",
+    "wikipedia": "Jug",
+    "commons_category": "Jugs"
+  },
+  {
+    "id": "tea_chest_bass",
+    "name": "Tea-chest bass (UK skiffle homemade bass)",
+    "wikipedia": "Tea-chest bass",
+    "commons_category": "Tea-chest basses"
+  },
+  {
+    "id": "kazoo",
+    "name": "Kazoo (membranophone hummed-through pipe)",
+    "wikipedia": "Kazoo",
+    "commons_category": "Kazoos"
+  },
+  {
+    "id": "turntable",
+    "name": "Turntable (DJ vinyl deck)",
+    "wikipedia": "Turntable",
+    "commons_category": "Turntables"
+  },
+  {
+    "id": "ranat_ek",
+    "name": "Ranat ek (Thai lead xylophone, 21 wooden bars)",
+    "wikipedia": "Ranat ek",
+    "commons_category": "Ranat eks"
+  },
+  {
+    "id": "khong_wong_yai",
+    "name": "Khong wong yai (Thai large gong circle, 16 tuned gongs)",
+    "wikipedia": "Khong wong yai",
+    "commons_category": "Khong wong yais"
+  },
+  {
+    "id": "pi_nai",
+    "name": "Pi nai (Thai quadruple-reed oboe)",
+    "wikipedia": "Pi nai",
+    "commons_category": "Pi nais"
+  },
+  {
+    "id": "taphon",
+    "name": "Taphon (Thai two-headed barrel drum)",
+    "wikipedia": "Taphon",
+    "commons_category": "Taphons"
+  },
+  {
+    "id": "gender",
+    "name": "Gender (gamelan multi-octave metallophone)",
+    "wikipedia": "Gender",
+    "commons_category": "Genders"
+  },
+  {
+    "id": "ghatam",
+    "name": "Ghatam (clay pot)",
+    "wikipedia": "Ghatam",
+    "commons_category": "Ghatams"
+  },
+  {
+    "id": "glockenspiel",
+    "name": "Glockenspiel (orchestral bells)",
+    "wikipedia": "Glockenspiel",
+    "commons_category": "Glockenspiels"
+  },
+  {
+    "id": "guiro",
+    "name": "Güiro (scraper)",
+    "wikipedia": "Güiro",
+    "commons_category": "Güiros"
+  },
+  {
+    "id": "hammered_dulcimer",
+    "name": "Hammered dulcimer",
+    "wikipedia": "Hammered dulcimer",
+    "commons_category": "Hammered dulcimers"
+  },
+  {
+    "id": "handpan",
+    "name": "Handpan (steel tongue drum)",
+    "wikipedia": "Handpan",
+    "commons_category": "Handpans"
+  },
+  {
+    "id": "janggu",
+    "name": "Janggu / changgo (Korean hourglass drum)",
+    "wikipedia": "Janggu",
+    "commons_category": "Janggus"
+  },
+  {
+    "id": "kkwaenggwari",
+    "name": "Kkwaenggwari (Korean small flat brass gong)",
+    "wikipedia": "Kkwaenggwari",
+    "commons_category": "Kkwaenggwaris"
+  },
+  {
+    "id": "jing_korean",
+    "name": "Jing (Korean large hanging brass gong)",
+    "wikipedia": "Jing",
+    "commons_category": "Jings"
+  },
+  {
+    "id": "luogu",
+    "name": "Luogu (Chinese gong-and-drum percussion ensemble)",
+    "wikipedia": "Luogu",
+    "commons_category": "Luogus"
+  },
+  {
+    "id": "kanjira",
+    "name": "Kanjira (South Indian frame drum)",
+    "wikipedia": "Kanjira",
+    "commons_category": "Kanjiras"
+  },
+  {
+    "id": "kulintang_set",
+    "name": "Kulintang gong row (Mindanao)",
+    "wikipedia": "Kulintang gong row",
+    "commons_category": "Kulintang gong rows"
+  },
+  {
+    "id": "maracas",
+    "name": "Maracas",
+    "wikipedia": "Maracas",
+    "commons_category": "Maracases"
+  },
+  {
+    "id": "marimba_orchestral",
+    "name": "Marimba (orchestral)",
+    "wikipedia": "Marimba",
+    "commons_category": "Marimbas"
+  },
+  {
+    "id": "mridangam",
+    "name": "Mridangam (Carnatic double-headed)",
+    "wikipedia": "Mridangam",
+    "commons_category": "Mridangams"
+  },
+  {
+    "id": "pakhawaj",
+    "name": "Pakhawaj (Hindustani barrel drum)",
+    "wikipedia": "Pakhawaj",
+    "commons_category": "Pakhawajs"
+  },
+  {
+    "id": "pandeiro",
+    "name": "Pandeiro (Brazilian frame drum)",
+    "wikipedia": "Pandeiro",
+    "commons_category": "Pandeiros"
+  },
+  {
+    "id": "qarqaba",
+    "name": "Qarqaba / karkabou (Moroccan iron castanets)",
+    "wikipedia": "Qarqaba",
+    "commons_category": "Qarqabas"
+  },
+  {
+    "id": "riq",
+    "name": "Riq (Egyptian frame drum with jingles)",
+    "wikipedia": "Riq",
+    "commons_category": "Riqs"
+  },
+  {
+    "id": "shekere",
+    "name": "Shekere (West African beaded gourd)",
+    "wikipedia": "Shekere",
+    "commons_category": "Shekeres"
+  },
+  {
+    "id": "steelpan",
+    "name": "Steelpan (Trinidadian)",
+    "wikipedia": "Steelpan",
+    "commons_category": "Steelpans"
+  },
+  {
+    "id": "surdo",
+    "name": "Surdo (Brazilian samba bass)",
+    "wikipedia": "Surdo",
+    "commons_category": "Surdos"
+  },
+  {
+    "id": "tabla",
+    "name": "Tabla (pair: dayan and bayan)",
+    "wikipedia": "Tabla",
+    "commons_category": "Tablas"
+  },
+  {
+    "id": "taiko_drums",
+    "name": "Taiko (Japanese ensemble drums)",
+    "wikipedia": "Taiko",
+    "commons_category": "Taikos"
+  },
+  {
+    "id": "talking_drum",
+    "name": "Talking drum (West African pressure drum)",
+    "wikipedia": "Talking drum",
+    "commons_category": "Talking drums"
+  },
+  {
+    "id": "tamborim",
+    "name": "Tamborim (compact frame, Brazilian)",
+    "wikipedia": "Tamborim",
+    "commons_category": "Tamborims"
+  },
+  {
+    "id": "tambourine_orch",
+    "name": "Tambourine (orchestral)",
+    "wikipedia": "Tambourine",
+    "commons_category": "Tambourines"
+  },
+  {
+    "id": "tar_frame_drum",
+    "name": "Tār (Middle Eastern frame drum)",
+    "wikipedia": "Tār",
+    "commons_category": "Tārs"
+  },
+  {
+    "id": "thavil",
+    "name": "Thavil (South Indian double-headed)",
+    "wikipedia": "Thavil",
+    "commons_category": "Thavils"
+  },
+  {
+    "id": "timbales",
+    "name": "Timbales (Cuban metal-shell)",
+    "wikipedia": "Timbales",
+    "commons_category": "Timbaleses"
+  },
+  {
+    "id": "timpani",
+    "name": "Timpani (orchestral kettle drums)",
+    "wikipedia": "Timpani",
+    "commons_category": "Timpanis"
+  },
+  {
+    "id": "tombak",
+    "name": "Tombak / zarb (Persian goblet drum)",
+    "wikipedia": "Tombak",
+    "commons_category": "Tombaks"
+  },
+  {
+    "id": "vibraphone",
+    "name": "Vibraphone",
+    "wikipedia": "Vibraphone",
+    "commons_category": "Vibraphones"
+  },
+  {
+    "id": "xylophone",
+    "name": "Xylophone (orchestral)",
+    "wikipedia": "Xylophone",
+    "commons_category": "Xylophones"
+  },
+  {
+    "id": "accordion",
+    "name": "Diatonic / chromatic accordion",
+    "wikipedia": "Diatonic",
+    "commons_category": "Diatonics"
+  },
+  {
+    "id": "concertina_anglo",
+    "name": "Anglo concertina",
+    "wikipedia": "Anglo concertina",
+    "commons_category": "Anglo concertinas"
+  },
+  {
+    "id": "bandoneon",
+    "name": "Bandoneón (Argentine tango concertina)",
+    "wikipedia": "Bandoneón",
+    "commons_category": "Bandoneóns"
+  },
+  {
+    "id": "bawu",
+    "name": "Bawu (Chinese free-reed flute)",
+    "wikipedia": "Bawu",
+    "commons_category": "Bawus"
+  },
+  {
+    "id": "concertina_english",
+    "name": "English concertina",
+    "wikipedia": "English concertina",
+    "commons_category": "English concertinas"
+  },
+  {
+    "id": "concertina",
+    "name": "Concertina (English / Anglo / Irish)",
+    "wikipedia": "Concertina",
+    "commons_category": "Concertinas"
+  },
+  {
+    "id": "harmonica",
+    "name": "Harmonica",
+    "wikipedia": "Harmonica",
+    "commons_category": "Harmonicas"
+  },
+  {
+    "id": "harmonium_indian",
+    "name": "Harmonium (Indian / South Asian)",
+    "wikipedia": "Harmonium",
+    "commons_category": "Harmoniums"
+  },
+  {
+    "id": "hulusi",
+    "name": "Hulusi (Chinese gourd reed pipe)",
+    "wikipedia": "Hulusi",
+    "commons_category": "Hulusis"
+  },
+  {
+    "id": "khaen",
+    "name": "Khaen (Lao mouth organ)",
+    "wikipedia": "Khaen",
+    "commons_category": "Khaens"
+  },
+  {
+    "id": "melodeon_diatonic",
+    "name": "Melodeon (diatonic button accordion)",
+    "wikipedia": "Melodeon",
+    "commons_category": "Melodeons"
+  },
+  {
+    "id": "piano_accordion",
+    "name": "Piano accordion",
+    "wikipedia": "Piano accordion",
+    "commons_category": "Piano accordions"
+  },
+  {
+    "id": "sheng",
+    "name": "Sheng (Chinese mouth organ)",
+    "wikipedia": "Sheng",
+    "commons_category": "Shengs"
+  },
+  {
+    "id": "sho_mouth_organ",
+    "name": "Shō (gagaku mouth organ)",
+    "wikipedia": "Shō",
+    "commons_category": "Shōs"
+  },
+  {
+    "id": "alto_flute",
+    "name": "Alto flute (in G)",
+    "wikipedia": "Alto flute",
+    "commons_category": "Alto flutes"
+  },
+  {
+    "id": "bansuri",
+    "name": "Bansuri (Indian transverse bamboo flute)",
+    "wikipedia": "Bansuri",
+    "commons_category": "Bansuris"
+  },
+  {
+    "id": "bass_flute",
+    "name": "Bass flute (in C, octave below concert)",
+    "wikipedia": "Bass flute",
+    "commons_category": "Bass flutes"
+  },
+  {
+    "id": "bassoon",
+    "name": "Bassoon",
+    "wikipedia": "Bassoon",
+    "commons_category": "Bassoons"
+  },
+  {
+    "id": "biniou",
+    "name": "Biniou (Breton pipes)",
+    "wikipedia": "Biniou",
+    "commons_category": "Binious"
+  },
+  {
+    "id": "clarinet",
+    "name": "Clarinet (B♭ / bass / contrabass)",
+    "wikipedia": "Clarinet",
+    "commons_category": "Clarinets"
+  },
+  {
+    "id": "conch_shell_horn",
+    "name": "Conch shell trumpet",
+    "wikipedia": "Conch shell trumpet",
+    "commons_category": "Conch shell trumpets"
+  },
+  {
+    "id": "contrabassoon",
+    "name": "Contrabassoon",
+    "wikipedia": "Contrabassoon",
+    "commons_category": "Contrabassoons"
+  },
+  {
+    "id": "cornet",
+    "name": "Cornet",
+    "wikipedia": "Cornet",
+    "commons_category": "Cornets"
+  },
+  {
+    "id": "didgeridoo",
+    "name": "Didgeridoo",
+    "wikipedia": "Didgeridoo",
+    "commons_category": "Didgeridoos"
+  },
+  {
+    "id": "dizi",
+    "name": "Dizi (Chinese transverse bamboo)",
+    "wikipedia": "Dizi",
+    "commons_category": "Dizis"
+  },
+  {
+    "id": "duduk",
+    "name": "Duduk (Armenian apricot-wood reed)",
+    "wikipedia": "Duduk",
+    "commons_category": "Duduks"
+  },
+  {
+    "id": "english_horn",
+    "name": "English horn / cor anglais",
+    "wikipedia": "English horn",
+    "commons_category": "English horns"
+  },
+  {
+    "id": "euphonium",
+    "name": "Euphonium (tenor tuba)",
+    "wikipedia": "Euphonium",
+    "commons_category": "Euphoniums"
+  },
+  {
+    "id": "flugelhorn",
+    "name": "Flugelhorn",
+    "wikipedia": "Flugelhorn",
+    "commons_category": "Flugelhorns"
+  },
+  {
+    "id": "flute",
+    "name": "Flute (concert / alto / bass / piccolo)",
+    "wikipedia": "Flute",
+    "commons_category": "Flutes"
+  },
+  {
+    "id": "french_horn",
+    "name": "French horn (orchestral)",
+    "wikipedia": "French horn",
+    "commons_category": "French horns"
+  },
+  {
+    "id": "gaida_bulgarian",
+    "name": "Gaida bulgarian (Balkan pipes)",
+    "wikipedia": "Gaida bulgarian",
+    "commons_category": "Gaida bulgarians"
+  },
+  {
+    "id": "ghaita",
+    "name": "Ghaita (Maghrebi shawm)",
+    "wikipedia": "Ghaita",
+    "commons_category": "Ghaitas"
+  },
+  {
+    "id": "hichiriki_double_reed",
+    "name": "Hichiriki (double-reed bamboo aerophone)",
+    "wikipedia": "Hichiriki",
+    "commons_category": "Hichirikis"
+  },
+  {
+    "id": "highland_bagpipes",
+    "name": "Great Highland bagpipes",
+    "wikipedia": "Great Highland bagpipes",
+    "commons_category": "Great Highland bagpipeses"
+  },
+  {
+    "id": "gaita_galega",
+    "name": "Gaita galega (Galician bagpipes)",
+    "wikipedia": "Gaita galega",
+    "commons_category": "Gaita galegas"
+  },
+  {
+    "id": "bombarde",
+    "name": "Bombarde (Breton oboe-shawm)",
+    "wikipedia": "Bombarde",
+    "commons_category": "Bombardes"
+  },
+  {
+    "id": "ciaramella",
+    "name": "Ciaramella (Italian shawm partner to zampogna)",
+    "wikipedia": "Ciaramella",
+    "commons_category": "Ciaramellas"
+  },
+  {
+    "id": "gaita_colombiana",
+    "name": "Gaita colombiana (Caribbean Colombian flute)",
+    "wikipedia": "Gaita colombiana",
+    "commons_category": "Gaita colombianas"
+  },
+  {
+    "id": "kakaki",
+    "name": "Kakaki (West African long trumpet)",
+    "wikipedia": "Kakaki",
+    "commons_category": "Kakakis"
+  },
+  {
+    "id": "kaval",
+    "name": "Kaval (Bulgarian/Turkish end-blown flute)",
+    "wikipedia": "Kaval",
+    "commons_category": "Kavals"
+  },
+  {
+    "id": "launeddas",
+    "name": "Launeddas (Sardinian triple pipe)",
+    "wikipedia": "Launeddas",
+    "commons_category": "Launeddases"
+  },
+  {
+    "id": "tin_whistle_low",
+    "name": "Low whistle (Irish)",
+    "wikipedia": "Low whistle",
+    "commons_category": "Low whistles"
+  },
+  {
+    "id": "mey",
+    "name": "Mey (Turkish double reed)",
+    "wikipedia": "Mey",
+    "commons_category": "Meys"
+  },
+  {
+    "id": "mizmar",
+    "name": "Mizmar / Egyptian shawm",
+    "wikipedia": "Mizmar",
+    "commons_category": "Mizmars"
+  },
+  {
+    "id": "ney",
+    "name": "Nāy / nay (Persian/Arab end-blown reed flute)",
+    "wikipedia": "Nāy",
+    "commons_category": "Nāies"
+  },
+  {
+    "id": "oboe",
+    "name": "Oboe",
+    "wikipedia": "Oboe",
+    "commons_category": "Oboes"
+  },
+  {
+    "id": "ocarina",
+    "name": "Ocarina",
+    "wikipedia": "Ocarina",
+    "commons_category": "Ocarinas"
+  },
+  {
+    "id": "piccolo",
+    "name": "Piccolo",
+    "wikipedia": "Piccolo",
+    "commons_category": "Piccolos"
+  },
+  {
+    "id": "quena",
+    "name": "Quena (Andean notched flute)",
+    "wikipedia": "Quena",
+    "commons_category": "Quenas"
+  },
+  {
+    "id": "recorder",
+    "name": "Recorder (renaissance / baroque)",
+    "wikipedia": "Recorder",
+    "commons_category": "Recorders"
+  },
+  {
+    "id": "saxophone",
+    "name": "Saxophone (soprano / alto / tenor / baritone)",
+    "wikipedia": "Saxophone",
+    "commons_category": "Saxophones"
+  },
+  {
+    "id": "shakuhachi",
+    "name": "Shakuhachi (Japanese end-blown bamboo flute)",
+    "wikipedia": "Shakuhachi",
+    "commons_category": "Shakuhachis"
+  },
+  {
+    "id": "shawm",
+    "name": "Shawm (renaissance double reed)",
+    "wikipedia": "Shawm",
+    "commons_category": "Shawms"
+  },
+  {
+    "id": "shofar",
+    "name": "Shofar (ram's horn)",
+    "wikipedia": "Shofar",
+    "commons_category": "Shofars"
+  },
+  {
+    "id": "suling",
+    "name": "Suling (Indonesian end-blown flute)",
+    "wikipedia": "Suling",
+    "commons_category": "Sulings"
+  },
+  {
+    "id": "tin_whistle",
+    "name": "Tin whistle / penny whistle",
+    "wikipedia": "Tin whistle",
+    "commons_category": "Tin whistles"
+  },
+  {
+    "id": "trombone",
+    "name": "Trombone (tenor / bass / valve)",
+    "wikipedia": "Trombone",
+    "commons_category": "Trombones"
+  },
+  {
+    "id": "trumpet",
+    "name": "Trumpet / cornet / flugelhorn",
+    "wikipedia": "Trumpet",
+    "commons_category": "Trumpets"
+  },
+  {
+    "id": "tuba",
+    "name": "Tuba (orchestral / brass band)",
+    "wikipedia": "Tuba",
+    "commons_category": "Tubas"
+  },
+  {
+    "id": "uilleann_pipes",
+    "name": "Uilleann pipes (Irish bellows-blown)",
+    "wikipedia": "Uilleann pipes",
+    "commons_category": "Uilleann pipeses"
+  },
+  {
+    "id": "xiao",
+    "name": "Xiao (Chinese end-blown bamboo flute)",
+    "wikipedia": "Xiao",
+    "commons_category": "Xiaos"
+  },
+  {
+    "id": "zampogna",
+    "name": "Zampogna (Italian pipes)",
+    "wikipedia": "Zampogna",
+    "commons_category": "Zampognas"
+  },
+  {
+    "id": "zurna",
+    "name": "Zurna / surnay (Anatolian/Caucasian)",
+    "wikipedia": "Zurna",
+    "commons_category": "Zurnas"
+  },
+  {
+    "id": "celesta",
+    "name": "Celesta",
+    "wikipedia": "Celesta",
+    "commons_category": "Celestas"
+  },
+  {
+    "id": "clavinet",
+    "name": "Clavinet (Hohner D6)",
+    "wikipedia": "Clavinet",
+    "commons_category": "Clavinets"
+  },
+  {
+    "id": "grand_piano",
+    "name": "Grand piano (acoustic)",
+    "wikipedia": "Grand piano",
+    "commons_category": "Grand pianos"
+  },
+  {
+    "id": "harpsichord",
+    "name": "Harpsichord",
+    "wikipedia": "Harpsichord",
+    "commons_category": "Harpsichords"
+  },
+  {
+    "id": "mellotron",
+    "name": "Mellotron (tape sample keyboard)",
+    "wikipedia": "Mellotron",
+    "commons_category": "Mellotrons"
+  },
+  {
+    "id": "melodica",
+    "name": "Melodica",
+    "wikipedia": "Melodica",
+    "commons_category": "Melodicas"
+  },
+  {
+    "id": "pipe_organ",
+    "name": "Pipe organ",
+    "wikipedia": "Pipe organ",
+    "commons_category": "Pipe organs"
+  },
+  {
+    "id": "rhodes_electric",
+    "name": "Rhodes electric piano",
+    "wikipedia": "Rhodes electric piano",
+    "commons_category": "Rhodes electric pianos"
+  },
+  {
+    "id": "tack_piano",
+    "name": "Tack piano (modified upright)",
+    "wikipedia": "Tack piano",
+    "commons_category": "Tack pianos"
+  },
+  {
+    "id": "tape_replay_keyboard",
+    "name": "Tape-replay polyphonic keyboard",
+    "wikipedia": "Tape-replay polyphonic keyboard",
+    "commons_category": "Tape-replay polyphonic keyboards"
+  },
+  {
+    "id": "electric_piano_tine",
+    "name": "Tine-and-tonebar electric piano",
+    "wikipedia": "Tine-and-tonebar electric piano",
+    "commons_category": "Tine-and-tonebar electric pianos"
+  },
+  {
+    "id": "tonewheel_organ",
+    "name": "Drawbar tonewheel organ (with rotating-speaker cabinet)",
+    "wikipedia": "Drawbar tonewheel organ",
+    "commons_category": "Drawbar tonewheel organs"
+  },
+  {
+    "id": "combo_organ",
+    "name": "Combo organ (transistor-divider)",
+    "wikipedia": "Combo organ",
+    "commons_category": "Combo organs"
+  },
+  {
+    "id": "upright_piano",
+    "name": "Upright piano",
+    "wikipedia": "Upright piano",
+    "commons_category": "Upright pianos"
+  },
+  {
+    "id": "wurlitzer_ep",
+    "name": "Wurlitzer 200/200A electric piano",
+    "wikipedia": "Wurlitzer 200",
+    "commons_category": "Wurlitzer 200s"
+  },
+  {
+    "id": "drum_machine_analog",
+    "name": "Analog drum machine (synthesized voices)",
+    "wikipedia": "Analog drum machine",
+    "commons_category": "Analog drum machines"
+  },
+  {
+    "id": "analog_mono_synth",
+    "name": "Analog monophonic synthesizer",
+    "wikipedia": "Analog monophonic synthesizer",
+    "commons_category": "Analog monophonic synthesizers"
+  },
+  {
+    "id": "analog_poly_synth",
+    "name": "Analog polyphonic synthesizer",
+    "wikipedia": "Analog polyphonic synthesizer",
+    "commons_category": "Analog polyphonic synthesizers"
+  },
+  {
+    "id": "analog_synth",
+    "name": "Analog synthesizer (subtractive)",
+    "wikipedia": "Analog synthesizer",
+    "commons_category": "Analog synthesizers"
+  },
+  {
+    "id": "digital_subtractive",
+    "name": "Digital subtractive synthesizer (VA)",
+    "wikipedia": "Digital subtractive synthesizer",
+    "commons_category": "Digital subtractive synthesizers"
+  },
+  {
+    "id": "eurorack_modular",
+    "name": "Eurorack modular synthesizer",
+    "wikipedia": "Eurorack modular synthesizer",
+    "commons_category": "Eurorack modular synthesizers"
+  },
+  {
+    "id": "fm_synth",
+    "name": "FM synthesizer (operator-based)",
+    "wikipedia": "FM synthesizer",
+    "commons_category": "FM synthesizers"
+  },
+  {
+    "id": "granular_synth",
+    "name": "Granular synthesizer",
+    "wikipedia": "Granular synthesizer",
+    "commons_category": "Granular synthesizers"
+  },
+  {
+    "id": "linndrum",
+    "name": "LinnDrum (LM-2)",
+    "wikipedia": "LinnDrum",
+    "commons_category": "LinnDrums"
+  },
+  {
+    "id": "log_drum",
+    "name": "Log drum (amapiano)",
+    "wikipedia": "Log drum",
+    "commons_category": "Log drums"
+  },
+  {
+    "id": "modular_synth",
+    "name": "Modular synthesizer (patch-based)",
+    "wikipedia": "Modular synthesizer",
+    "commons_category": "Modular synthesizers"
+  },
+  {
+    "id": "monosynth_acid_bass",
+    "name": "Monophonic transistor-bass synthesizer",
+    "wikipedia": "Monophonic transistor-bass synthesizer",
+    "commons_category": "Monophonic transistor-bass synthesizers"
+  },
+  {
+    "id": "ondes_martenot",
+    "name": "Ondes Martenot",
+    "wikipedia": "Ondes Martenot",
+    "commons_category": "Ondes Martenots"
+  },
+  {
+    "id": "sampler_classic",
+    "name": "Sampler (vintage)",
+    "wikipedia": "Sampler",
+    "commons_category": "Samplers"
+  },
+  {
+    "id": "sampler_drum_machine",
+    "name": "Sample-based drum machine / sampler",
+    "wikipedia": "Sample-based drum machine",
+    "commons_category": "Sample-based drum machines"
+  },
+  {
+    "id": "string_machine",
+    "name": "Analog string machine",
+    "wikipedia": "Analog string machine",
+    "commons_category": "Analog string machines"
+  },
+  {
+    "id": "talkbox",
+    "name": "Talkbox",
+    "wikipedia": "Talkbox",
+    "commons_category": "Talkboxes"
+  },
+  {
+    "id": "theremin",
+    "name": "Theremin",
+    "wikipedia": "Theremin",
+    "commons_category": "Theremins"
+  },
+  {
+    "id": "drum_machine_606",
+    "name": "Roland TR-606 drum machine",
+    "wikipedia": "Roland TR-606 drum machine",
+    "commons_category": "Roland TR-606 drum machines"
+  },
+  {
+    "id": "drum_machine_808",
+    "name": "Roland TR-808 drum machine",
+    "wikipedia": "Roland TR-808 drum machine",
+    "commons_category": "Roland TR-808 drum machines"
+  },
+  {
+    "id": "drum_machine_909",
+    "name": "Roland TR-909 drum machine",
+    "wikipedia": "Roland TR-909 drum machine",
+    "commons_category": "Roland TR-909 drum machines"
+  },
+  {
+    "id": "drum_machine_707",
+    "name": "Roland TR-707 drum machine",
+    "wikipedia": "Roland TR-707 drum machine",
+    "commons_category": "Roland TR-707 drum machines"
+  },
+  {
+    "id": "pump_organ_harmonium",
+    "name": "Pump organ / American reed organ",
+    "wikipedia": "Pump organ",
+    "commons_category": "Pump organs"
+  },
+  {
+    "id": "vocoder",
+    "name": "Vocoder (analysis / synthesis)",
+    "wikipedia": "Vocoder",
+    "commons_category": "Vocoders"
+  },
+  {
+    "id": "wavetable_synth",
+    "name": "Wavetable synthesizer",
+    "wikipedia": "Wavetable synthesizer",
+    "commons_category": "Wavetable synthesizers"
+  },
+  {
+    "id": "a_tenores_quartet",
+    "name": "A tenores (Sardinian male polyphonic quartet)",
+    "wikipedia": "tenores",
+    "commons_category": "tenoreses"
+  },
+  {
+    "id": "brass_band_balkan_romani",
+    "name": "Balkan Romani brass band",
+    "wikipedia": "Balkan Romani brass band",
+    "commons_category": "Balkan Romani brass bands"
+  },
+  {
+    "id": "banda_sinaloense",
+    "name": "Banda sinaloense (Mexican wind-percussion band)",
+    "wikipedia": "Banda sinaloense",
+    "commons_category": "Banda sinaloenses"
+  },
+  {
+    "id": "choir_barbershop_quartet",
+    "name": "Barbershop quartet",
+    "wikipedia": "Barbershop quartet",
+    "commons_category": "Barbershop quartets"
+  },
+  {
+    "id": "jazz_big_band",
+    "name": "Jazz orchestra (full ensemble)",
+    "wikipedia": "Jazz orchestra",
+    "commons_category": "Jazz orchestras"
+  },
+  {
+    "id": "brass_band_british",
+    "name": "British brass band (full)",
+    "wikipedia": "British brass band",
+    "commons_category": "British brass bands"
+  },
+  {
+    "id": "choir_brother_duet",
+    "name": "Close-harmony brother / sibling duet",
+    "wikipedia": "Close-harmony brother",
+    "commons_category": "Close-harmony brothers"
+  },
+  {
+    "id": "choir_bulgarian_womens",
+    "name": "Bulgarian women's choir",
+    "wikipedia": "Bulgarian women's choir",
+    "commons_category": "Bulgarian women's choirs"
+  },
+  {
+    "id": "capoeira_roda",
+    "name": "Capoeira roda",
+    "wikipedia": "Capoeira roda",
+    "commons_category": "Capoeira rodas"
+  },
+  {
+    "id": "choir_cathedral_satb",
+    "name": "Cathedral / classical SATB choir",
+    "wikipedia": "Cathedral",
+    "commons_category": "Cathedrals"
+  },
+  {
+    "id": "choro_group",
+    "name": "Choro group (regional Brazilian)",
+    "wikipedia": "Choro group",
+    "commons_category": "Choro groups"
+  },
+  {
+    "id": "choir_pentecostal_cogic",
+    "name": "Pentecostal / COGIC gospel choir",
+    "wikipedia": "Pentecostal",
+    "commons_category": "Pentecostals"
+  },
+  {
+    "id": "choir_doo_wop_group",
+    "name": "Doo-wop vocal group",
+    "wikipedia": "Doo-wop vocal group",
+    "commons_category": "Doo-wop vocal groups"
+  },
+  {
+    "id": "drumline_dci",
+    "name": "Drum corps (DCI / drum-and-bugle)",
+    "wikipedia": "Drum corps",
+    "commons_category": "Drum corpses"
+  },
+  {
+    "id": "gamelan_balinese_full",
+    "name": "Full Balinese gamelan ensemble",
+    "wikipedia": "Full Balinese gamelan ensemble",
+    "commons_category": "Full Balinese gamelan ensembles"
+  },
+  {
+    "id": "gamelan_javanese_full",
+    "name": "Full Javanese gamelan ensemble",
+    "wikipedia": "Full Javanese gamelan ensemble",
+    "commons_category": "Full Javanese gamelan ensembles"
+  },
+  {
+    "id": "gypsy_jazz_quintet",
+    "name": "Gypsy jazz quintet",
+    "wikipedia": "Gypsy jazz quintet",
+    "commons_category": "Gypsy jazz quintets"
+  },
+  {
+    "id": "drumline_hbcu",
+    "name": "HBCU show-style drumline",
+    "wikipedia": "HBCU show-style drumline",
+    "commons_category": "HBCU show-style drumlines"
+  },
+  {
+    "id": "klezmer_ensemble",
+    "name": "Klezmer ensemble",
+    "wikipedia": "Klezmer ensemble",
+    "commons_category": "Klezmer ensembles"
+  },
+  {
+    "id": "marching_band_full",
+    "name": "Marching band (full)",
+    "wikipedia": "Marching band",
+    "commons_category": "Marching bands"
+  },
+  {
+    "id": "mariachi_full",
+    "name": "Full mariachi ensemble",
+    "wikipedia": "Full mariachi ensemble",
+    "commons_category": "Full mariachi ensembles"
+  },
+  {
+    "id": "brass_band_new_orleans",
+    "name": "New Orleans brass band",
+    "wikipedia": "New Orleans brass band",
+    "commons_category": "New Orleans brass bands"
+  },
+  {
+    "id": "jazz_trio_piano",
+    "name": "Piano trio (jazz)",
+    "wikipedia": "Piano trio",
+    "commons_category": "Piano trios"
+  },
+  {
+    "id": "powwow_drum_circle",
+    "name": "Powwow drum circle",
+    "wikipedia": "Powwow drum circle",
+    "commons_category": "Powwow drum circles"
+  },
+  {
+    "id": "choir_russian_orthodox",
+    "name": "Russian Orthodox choir",
+    "wikipedia": "Russian Orthodox choir",
+    "commons_category": "Russian Orthodox choirs"
+  },
+  {
+    "id": "choir_sacred_harp",
+    "name": "Sacred Harp / shape-note congregation",
+    "wikipedia": "Sacred Harp",
+    "commons_category": "Sacred Harps"
+  },
+  {
+    "id": "samba_bateria",
+    "name": "Samba escola batería",
+    "wikipedia": "Samba escola batería",
+    "commons_category": "Samba escola baterías"
+  },
+  {
+    "id": "drumline_school_marching",
+    "name": "School marching drumline",
+    "wikipedia": "School marching drumline",
+    "commons_category": "School marching drumlines"
+  },
+  {
+    "id": "choir_southern_black_gospel",
+    "name": "Southern Black gospel choir",
+    "wikipedia": "Southern Black gospel choir",
+    "commons_category": "Southern Black gospel choirs"
+  },
+  {
+    "id": "takht_arab",
+    "name": "Takht (Arab classical chamber ensemble)",
+    "wikipedia": "Takht",
+    "commons_category": "Takhts"
+  },
+  {
+    "id": "choir_welsh_male",
+    "name": "Welsh male voice choir",
+    "wikipedia": "Welsh male voice choir",
+    "commons_category": "Welsh male voice choirs"
+  },
+  {
+    "id": "inverted_calabash",
+    "name": "Inverted half-calabash (Saharan ground percussion)",
+    "wikipedia": "Inverted half-calabash",
+    "commons_category": "Inverted half-calabashes"
+  },
+  {
+    "id": "imzad",
+    "name": "Imzad (Tuareg single-string bowed fiddle)",
+    "wikipedia": "Imzad",
+    "commons_category": "Imzads"
+  },
+  {
+    "id": "krar",
+    "name": "Krar (Ethiopian bowl lyre)",
+    "wikipedia": "Krar",
+    "commons_category": "Krars"
+  },
+  {
+    "id": "masenqo",
+    "name": "Masenqo (Ethiopian spike fiddle)",
+    "wikipedia": "Masenqo",
+    "commons_category": "Masenqos"
+  },
+  {
+    "id": "washint",
+    "name": "Washint (Ethiopian bamboo flute)",
+    "wikipedia": "Washint",
+    "commons_category": "Washints"
+  },
+  {
+    "id": "kebero",
+    "name": "Kebero (Ethiopian double-headed conical drum)",
+    "wikipedia": "Kebero",
+    "commons_category": "Keberos"
+  },
+  {
+    "id": "tbel",
+    "name": "Tbel (Gnawa processional double-headed drum)",
+    "wikipedia": "Tbel",
+    "commons_category": "Tbels"
+  },
+  {
+    "id": "trinidadian_iron",
+    "name": "Trinidadian iron (engine-room percussion)",
+    "wikipedia": "Trinidadian iron",
+    "commons_category": "Trinidadian irons"
+  },
+  {
+    "id": "tassa_drum",
+    "name": "Tassa drum (Indo-Trinidadian)",
+    "wikipedia": "Tassa drum",
+    "commons_category": "Tassa drums"
+  },
+  {
+    "id": "cape_verdean_cavaquinho",
+    "name": "Cape Verdean cavaquinho",
+    "wikipedia": "Cape Verdean cavaquinho",
+    "commons_category": "Cape Verdean cavaquinhos"
+  },
+  {
+    "id": "bandolim",
+    "name": "Bandolim (Brazilian mandolin)",
+    "wikipedia": "Bandolim",
+    "commons_category": "Bandolims"
+  },
+  {
+    "id": "violao_7_cordas",
+    "name": "Violão de 7 cordas (Brazilian 7-string guitar)",
+    "wikipedia": "Violão de 7 cordas",
+    "commons_category": "Violão de 7 cordases"
+  },
+  {
+    "id": "alfaia",
+    "name": "Alfaia (Pernambuco maracatu bass drum)",
+    "wikipedia": "Alfaia",
+    "commons_category": "Alfaias"
+  },
+  {
+    "id": "zabumba",
+    "name": "Zabumba (Northeast Brazilian bass drum)",
+    "wikipedia": "Zabumba",
+    "commons_category": "Zabumbas"
+  },
+  {
+    "id": "triangulo_forro",
+    "name": "Triângulo (Brazilian forró triangle)",
+    "wikipedia": "Triângulo",
+    "commons_category": "Triângulos"
+  },
+  {
+    "id": "reco_reco",
+    "name": "Reco-reco (Brazilian scraper)",
+    "wikipedia": "Reco-reco",
+    "commons_category": "Reco-recos"
+  },
+  {
+    "id": "ganza",
+    "name": "Ganzá (Brazilian tube shaker)",
+    "wikipedia": "Ganzá",
+    "commons_category": "Ganzás"
+  },
+  {
+    "id": "afoxe",
+    "name": "Afoxé (Afro-Brazilian net-bead shaker)",
+    "wikipedia": "Afoxé",
+    "commons_category": "Afoxés"
+  },
+  {
+    "id": "repinique",
+    "name": "Repinique (samba lead drum)",
+    "wikipedia": "Repinique",
+    "commons_category": "Repiniques"
+  },
+  {
+    "id": "daegeum",
+    "name": "Daegeum (Korean large bamboo transverse flute)",
+    "wikipedia": "Daegeum",
+    "commons_category": "Daegeums"
+  },
+  {
+    "id": "piri",
+    "name": "Piri (Korean cylindrical double-reed)",
+    "wikipedia": "Piri",
+    "commons_category": "Piris"
+  },
+  {
+    "id": "ajaeng",
+    "name": "Ajaeng (Korean bowed zither)",
+    "wikipedia": "Ajaeng",
+    "commons_category": "Ajaengs"
+  },
+  {
+    "id": "taiko_drum",
+    "name": "Taiko (Japanese ensemble drum)",
+    "wikipedia": "Taiko",
+    "commons_category": "Taikos"
+  },
+  {
+    "id": "yangqin",
+    "name": "Yangqin (Chinese hammered dulcimer)",
+    "wikipedia": "Yangqin",
+    "commons_category": "Yangqins"
+  },
+  {
+    "id": "kendang_indonesian",
+    "name": "Kendang (Indonesian gamelan hand drum)",
+    "wikipedia": "Kendang",
+    "commons_category": "Kendangs"
+  },
+  {
+    "id": "saron_gamelan",
+    "name": "Saron (gamelan metallophone)",
+    "wikipedia": "Saron",
+    "commons_category": "Sarons"
+  },
+  {
+    "id": "slenthem",
+    "name": "Slenthem (gamelan low-octave metallophone)",
+    "wikipedia": "Slenthem",
+    "commons_category": "Slenthems"
+  },
+  {
+    "id": "kenong",
+    "name": "Kenong (gamelan large-pot gong)",
+    "wikipedia": "Kenong",
+    "commons_category": "Kenongs"
+  },
+  {
+    "id": "tibetan_dungchen",
+    "name": "Dungchen (Tibetan long horn)",
+    "wikipedia": "Dungchen",
+    "commons_category": "Dungchens"
+  },
+  {
+    "id": "tibetan_gyaling",
+    "name": "Gyaling (Tibetan double-reed oboe)",
+    "wikipedia": "Gyaling",
+    "commons_category": "Gyalings"
+  },
+  {
+    "id": "tovshuur",
+    "name": "Tovshuur (Mongolian / Tuvan plucked lute)",
+    "wikipedia": "Tovshuur",
+    "commons_category": "Tovshuurs"
+  },
+  {
+    "id": "igil",
+    "name": "Igil (Tuvan two-string bowed horsehead fiddle)",
+    "wikipedia": "Igil",
+    "commons_category": "Igils"
+  },
+  {
+    "id": "bata_drums",
+    "name": "Batá drums (Afro-Cuban liturgical three-drum set)",
+    "wikipedia": "Batá drums",
+    "commons_category": "Batá drumses"
+  },
+  {
+    "id": "guitarron_mexicano",
+    "name": "Guitarrón (Mexican mariachi bass guitar)",
+    "wikipedia": "Guitarrón",
+    "commons_category": "Guitarróns"
+  },
+  {
+    "id": "arpa_jarocha",
+    "name": "Arpa jarocha (Veracruz diatonic harp)",
+    "wikipedia": "Arpa jarocha",
+    "commons_category": "Arpa jarochas"
+  },
+  {
+    "id": "arpa_llanera",
+    "name": "Arpa llanera (Venezuelan/Colombian plains harp)",
+    "wikipedia": "Arpa llanera",
+    "commons_category": "Arpa llaneras"
+  },
+  {
+    "id": "caja_vallenata",
+    "name": "Caja vallenata (Colombian single-headed drum)",
+    "wikipedia": "Caja vallenata",
+    "commons_category": "Caja vallenatas"
+  },
+  {
+    "id": "acordeon_vallenato",
+    "name": "Acordeón vallenato (Hohner button accordion)",
+    "wikipedia": "Acordeón vallenato",
+    "commons_category": "Acordeón vallenatos"
+  },
+  {
+    "id": "guacharaca",
+    "name": "Guacharaca (Colombian scraper)",
+    "wikipedia": "Guacharaca",
+    "commons_category": "Guacharacas"
+  },
+  {
+    "id": "siku_panpipes",
+    "name": "Siku panpipes (Andean Aymara)",
+    "wikipedia": "Siku panpipes",
+    "commons_category": "Siku panpipeses"
+  },
+  {
+    "id": "cajon_peruano",
+    "name": "Cajón peruano (Peruvian box drum)",
+    "wikipedia": "Cajón peruano",
+    "commons_category": "Cajón peruanos"
+  },
+  {
+    "id": "tambora_dominicana",
+    "name": "Tambora dominicana (Dominican double-headed barrel drum)",
+    "wikipedia": "Tambora dominicana",
+    "commons_category": "Tambora dominicanas"
+  },
+  {
+    "id": "acoustic_guitar_12_string",
+    "name": "Twelve-string acoustic guitar (steel-string)",
+    "wikipedia": "Twelve-string acoustic guitar",
+    "commons_category": "Twelve-string acoustic guitars"
+  },
+  {
+    "id": "resonator_guitar",
+    "name": "Resonator guitar (National / Dobro)",
+    "wikipedia": "Resonator guitar",
+    "commons_category": "Resonator guitars"
+  },
+  {
+    "id": "flamenco_guitar",
+    "name": "Flamenco guitar (cypress-body Spanish)",
+    "wikipedia": "Flamenco guitar",
+    "commons_category": "Flamenco guitars"
+  },
+  {
+    "id": "guitarra_portuguesa",
+    "name": "Guitarra portuguesa (Portuguese pear-shaped 12-string)",
+    "wikipedia": "Guitarra portuguesa",
+    "commons_category": "Guitarra portuguesas"
+  },
+  {
+    "id": "scottish_smallpipes",
+    "name": "Scottish smallpipes (bellows-blown indoor pipe)",
+    "wikipedia": "Scottish smallpipes",
+    "commons_category": "Scottish smallpipeses"
+  },
+  {
+    "id": "cajun_accordion",
+    "name": "Cajun single-row diatonic accordion",
+    "wikipedia": "Cajun single-row diatonic accordion",
+    "commons_category": "Cajun single-row diatonic accordions"
+  },
+  {
+    "id": "cimbalom",
+    "name": "Cimbalom (Hungarian hammered dulcimer with pedal damper)",
+    "wikipedia": "Cimbalom",
+    "commons_category": "Cimbaloms"
+  },
+  {
+    "id": "shehnai",
+    "name": "Shehnai (North Indian double-reed oboe)",
+    "wikipedia": "Shehnai",
+    "commons_category": "Shehnais"
+  },
+  {
+    "id": "nadaswaram",
+    "name": "Nadaswaram (South Indian temple double-reed)",
+    "wikipedia": "Nadaswaram",
+    "commons_category": "Nadaswarams"
+  },
+  {
+    "id": "kamancha",
+    "name": "Kamancha (Caucasian / Persian spiked fiddle)",
+    "wikipedia": "Kamancha",
+    "commons_category": "Kamanchas"
+  },
+  {
+    "id": "dutar",
+    "name": "Dutār (Central Asian two-string long-necked lute)",
+    "wikipedia": "Dutār",
+    "commons_category": "Dutārs"
+  },
+  {
+    "id": "sato",
+    "name": "Sato (bowed tanbur, Central Asian)",
+    "wikipedia": "Sato",
+    "commons_category": "Satos"
+  },
+  {
+    "id": "komuz",
+    "name": "Komuz (Kyrgyz three-string fretless lute)",
+    "wikipedia": "Komuz",
+    "commons_category": "Komuzes"
+  },
+  {
+    "id": "roneat_ek",
+    "name": "Roneat ek (Khmer high-pitched bamboo xylophone)",
+    "wikipedia": "Roneat ek",
+    "commons_category": "Roneat eks"
+  },
+  {
+    "id": "roneat_thung",
+    "name": "Roneat thung (Khmer low-pitched bamboo xylophone)",
+    "wikipedia": "Roneat thung",
+    "commons_category": "Roneat thungs"
+  },
+  {
+    "id": "sralai",
+    "name": "Sralai (Khmer quadruple-reed conical oboe)",
+    "wikipedia": "Sralai",
+    "commons_category": "Sralais"
+  },
+  {
+    "id": "sampho",
+    "name": "Sampho (Khmer barrel timekeeper drum)",
+    "wikipedia": "Sampho",
+    "commons_category": "Samphos"
+  },
+  {
+    "id": "skor_thom",
+    "name": "Skor thom (Khmer large barrel drum pair)",
+    "wikipedia": "Skor thom",
+    "commons_category": "Skor thoms"
+  },
+  {
+    "id": "kong_vong_thom",
+    "name": "Kong vong thom (Khmer large gong circle)",
+    "wikipedia": "Kong vong thom",
+    "commons_category": "Kong vong thoms"
+  },
+  {
+    "id": "koauau",
+    "name": "Kōauau (Maori notched flute)",
+    "wikipedia": "Kōauau",
+    "commons_category": "Kōauaus"
+  },
+  {
+    "id": "putorino",
+    "name": "Pūtōrino (Maori bugle-flute)",
+    "wikipedia": "Pūtōrino",
+    "commons_category": "Pūtōrinos"
+  },
+  {
+    "id": "pahu",
+    "name": "Pahu (Hawaiian sharkskin log drum)",
+    "wikipedia": "Pahu",
+    "commons_category": "Pahus"
+  },
+  {
+    "id": "ipu_heke",
+    "name": "Ipu heke (Hawaiian double-gourd percussion)",
+    "wikipedia": "Ipu heke",
+    "commons_category": "Ipu hekes"
+  },
+  {
+    "id": "kamaicha",
+    "name": "Kamaicha (Rajasthani bowed lute)",
+    "wikipedia": "Kamaicha",
+    "commons_category": "Kamaichas"
+  },
+  {
+    "id": "kultrun",
+    "name": "Kultrún (Mapuche shamanic frame-drum)",
+    "wikipedia": "Kultrún",
+    "commons_category": "Kultrúns"
+  },
+  {
+    "id": "dung_chen",
+    "name": "Dung chen (Tibetan long metal trumpet)",
+    "wikipedia": "Dung chen",
+    "commons_category": "Dung chens"
+  },
+  {
+    "id": "gaval",
+    "name": "Gaval (Azerbaijani frame-drum)",
+    "wikipedia": "Gaval",
+    "commons_category": "Gavals"
+  },
+  {
+    "id": "joza",
+    "name": "Joza (Iraqi four-string spike-fiddle)",
+    "wikipedia": "Joza",
+    "commons_category": "Jozas"
+  },
+  {
+    "id": "dan_day",
+    "name": "Đàn đáy (Vietnamese ca trù lute)",
+    "wikipedia": "Đàn đáy",
+    "commons_category": "Đàn đáies"
+  },
+  {
+    "id": "chapei_lute",
+    "name": "Chapei dang veng (Cambodian two-string lute)",
+    "wikipedia": "Chapei dang veng",
+    "commons_category": "Chapei dang vengs"
+  },
+  {
+    "id": "qanbus",
+    "name": "Qanbus (Yemeni short-neck skin-bellied lute)",
+    "wikipedia": "Qanbus",
+    "commons_category": "Qanbuses"
+  },
+  {
+    "id": "viola_machete",
+    "name": "Viola machete (Brazilian small five-string lute)",
+    "wikipedia": "Viola machete",
+    "commons_category": "Viola machetes"
+  },
+  {
+    "id": "begena",
+    "name": "Begena (Ethiopian ten-string box-lyre)",
+    "wikipedia": "Begena",
+    "commons_category": "Begenas"
+  },
+  {
+    "id": "uhadi",
+    "name": "Uhadi (Xhosa gourd-resonator mouth-bow)",
+    "wikipedia": "Uhadi",
+    "commons_category": "Uhadis"
+  },
+  {
+    "id": "tende_drum",
+    "name": "Tendé (Tuareg mortar-drum)",
+    "wikipedia": "Tendé",
+    "commons_category": "Tendés"
+  },
+  {
+    "id": "naqqarat",
+    "name": "Naqqarāt (Iraqi small kettle-drum pair)",
+    "wikipedia": "Naqqarāt",
+    "commons_category": "Naqqarāts"
+  },
+  {
+    "id": "nafa",
+    "name": "Nafa (Tongan wooden slit-drum)",
+    "wikipedia": "Nafa",
+    "commons_category": "Nafas"
+  },
+  {
+    "id": "dumbek",
+    "name": "Dumbek / darbuka (Middle Eastern goblet drum)",
+    "wikipedia": "Dumbek",
+    "commons_category": "Dumbeks"
+  },
+  {
+    "id": "riqq",
+    "name": "Riqq (Middle Eastern small tambourine)",
+    "wikipedia": "Riqq",
+    "commons_category": "Riqqs"
+  },
+  {
+    "id": "damaru",
+    "name": "Damaru (Tibetan double-headed hand-drum)",
+    "wikipedia": "Damaru",
+    "commons_category": "Damarus"
+  },
+  {
+    "id": "tsenatsil",
+    "name": "Tsenatsil (Ethiopian sistrum)",
+    "wikipedia": "Tsenatsil",
+    "commons_category": "Tsenatsils"
+  },
+  {
+    "id": "sanj",
+    "name": "Sanj (Coptic small hand-cymbals)",
+    "wikipedia": "Sanj",
+    "commons_category": "Sanjs"
+  },
+  {
+    "id": "muthallath",
+    "name": "Muthallath (Coptic metal triangle)",
+    "wikipedia": "Muthallath",
+    "commons_category": "Muthallaths"
+  },
+  {
+    "id": "sisera",
+    "name": "Sisera (Garifuna gourd-shaker)",
+    "wikipedia": "Sisera",
+    "commons_category": "Siseras"
+  },
+  {
+    "id": "pulili",
+    "name": "Pūʻili (Hawaiian bamboo split-rattle)",
+    "wikipedia": "Pūʻili",
+    "commons_category": "Pūʻilis"
+  },
+  {
+    "id": "shacapa",
+    "name": "Shacapa (Shipibo leaf-bundle rattle)",
+    "wikipedia": "Shacapa",
+    "commons_category": "Shacapas"
+  },
+  {
+    "id": "khartal",
+    "name": "Khartāl (Rajasthani wooden castanet pair)",
+    "wikipedia": "Khartāl",
+    "commons_category": "Khartāls"
+  },
+  {
+    "id": "zeze",
+    "name": "Zeze (Wagogo board zither)",
+    "wikipedia": "Zeze",
+    "commons_category": "Zezes"
+  },
+  {
+    "id": "rolmo",
+    "name": "Rolmo (Tibetan large paired cymbals)",
+    "wikipedia": "Rolmo",
+    "commons_category": "Rolmos"
+  },
+  {
+    "id": "rgya_gling",
+    "name": "Rgya gling (Tibetan double-reed oboe)",
+    "wikipedia": "Rgya gling",
+    "commons_category": "Rgya glings"
+  },
+  {
+    "id": "sopele",
+    "name": "Sopele (Croatian Istrian paired double-reed shawms)",
+    "wikipedia": "Sopele",
+    "commons_category": "Sopeles"
+  },
+  {
+    "id": "gajda",
+    "name": "Gajda (Balkan bagpipe)",
+    "wikipedia": "Gajda",
+    "commons_category": "Gajdas"
+  },
+  {
+    "id": "putatara",
+    "name": "Pūtātara (Māori conch-shell trumpet)",
+    "wikipedia": "Pūtātara",
+    "commons_category": "Pūtātaras"
+  },
+  {
+    "id": "kankles",
+    "name": "Kanklės (Lithuanian board zither)",
+    "wikipedia": "Kanklės",
+    "commons_category": "Kanklėses"
+  },
+  {
+    "id": "skuduciai",
+    "name": "Skudučiai (Lithuanian pan-pipes)",
+    "wikipedia": "Skudučiai",
+    "commons_category": "Skudučiais"
+  },
+  {
+    "id": "phach",
+    "name": "Phách (Vietnamese bamboo clapper)",
+    "wikipedia": "Phách",
+    "commons_category": "Pháches"
+  },
+  {
+    "id": "trong_chau",
+    "name": "Trống chầu (Vietnamese ca trù praise-drum)",
+    "wikipedia": "Trống chầu",
+    "commons_category": "Trống chầus"
+  }
+]

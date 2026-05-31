@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-05-11T15:21:06.652Z",
+  "target": {
+    "instrument": "acoustic_guitar_dread",
+    "part": "top_wood",
+    "num_variants": 5
+  },
+  "total_traditions": 8,
+  "mismatch_count": 1,
+  "records": [
+    {
+      "tid": "alt_country_americana",
+      "name": "Alt-country / Americana",
+      "family": "vernacular",
+      "parent": "functionalSong.country.americana",
+      "lineage": "country",
+      "crossRefs": [
+        "balladPoetry.angloSingerSong"
+      ],
+      "staples": [
+        "texas_country_folk_storyteller",
+        "indie_folk_2000s"
+      ],
+      "current_pick": "adirondack",
+      "current_pick_score": 0.3,
+      "primary_pick": "cedar",
+      "primary_pick_score": 0.3,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "cedar",
+          "score": 0.3
+        },
+        {
+          "id": "mahogany_top",
+          "score": 0.21
+        },
+        {
+          "id": "sitka",
+          "score": 0.135
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "adirondack",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "cedar",
+          "score": 0.3
+        },
+        {
+          "id": "mahogany_top",
+          "score": 0.21
+        }
+      ]
+    }
+  ]
+}

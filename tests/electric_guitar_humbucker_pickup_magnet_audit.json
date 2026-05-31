@@ -1,0 +1,251 @@
+{
+  "generated_at": "2026-05-11T15:22:15.693Z",
+  "target": {
+    "instrument": "electric_guitar_humbucker",
+    "part": "pickup_magnet",
+    "num_variants": 5
+  },
+  "total_traditions": 56,
+  "mismatch_count": 5,
+  "records": [
+    {
+      "tid": "emo",
+      "name": "Emo",
+      "family": "rock_punk",
+      "parent": "distortedRock.emo",
+      "lineage": "mid-1980s through present post-hardcore-derived confessional rock",
+      "crossRefs": [
+        "distortedRock.punk",
+        "distortedRock.popPunk",
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "pop_punk",
+        "post_punk"
+      ],
+      "current_pick": "alnico_8_h",
+      "current_pick_score": 0.39,
+      "primary_pick": "alnico_2_h",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alnico_2_h",
+          "score": 0.39
+        },
+        {
+          "id": "alnico_8_h",
+          "score": 0.39
+        },
+        {
+          "id": "alnico_4_h",
+          "score": 0.105
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "alnico_8_h",
+          "score": 0.885
+        },
+        {
+          "id": "alnico_2_h",
+          "score": 0.585
+        },
+        {
+          "id": "alnico_4_h",
+          "score": 0.105
+        }
+      ]
+    },
+    {
+      "tid": "dangdut",
+      "name": "Dangdut",
+      "family": "global",
+      "parent": "functionalSong.southAsianPop",
+      "lineage": "Indonesian",
+      "crossRefs": [
+        "functionalSong.midEastNAfricanPop"
+      ],
+      "staples": [
+        "rai",
+        "shaabi_egyptian"
+      ],
+      "current_pick": "alnico_2_h",
+      "current_pick_score": 0.5565,
+      "primary_pick": "alnico_8_h",
+      "primary_pick_score": 0.5565,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alnico_8_h",
+          "score": 0.5565
+        },
+        {
+          "id": "alnico_2_h",
+          "score": 0.39
+        },
+        {
+          "id": "alnico_4_h",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "alnico_2_h",
+          "score": 0.975
+        },
+        {
+          "id": "alnico_8_h",
+          "score": 0.5565
+        },
+        {
+          "id": "alnico_4_h",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "folk_metal_european",
+      "name": "Folk metal (European)",
+      "family": "global",
+      "parent": "distortedRock.metal.folkMetal",
+      "lineage": "metal-folk-instrument hybrid",
+      "crossRefs": [
+        "balladPoetry.celticBalladic"
+      ],
+      "staples": [
+        "breton_folk",
+        "swedish_nyckelharpa_folk"
+      ],
+      "current_pick": "alnico_8_h",
+      "current_pick_score": 0.4799999999999999,
+      "primary_pick": "alnico_2_h",
+      "primary_pick_score": 0.4799999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alnico_2_h",
+          "score": 0.4799999999999999
+        },
+        {
+          "id": "alnico_8_h",
+          "score": 0.18
+        },
+        {
+          "id": "alnico_4_h",
+          "score": 0
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "alnico_8_h",
+          "score": 0.585
+        },
+        {
+          "id": "alnico_2_h",
+          "score": 0.195
+        },
+        {
+          "id": "alnico_4_h",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "tid": "russian_rock",
+      "name": "Russian rock",
+      "family": "global",
+      "parent": "distortedRock.regional",
+      "lineage": "late-Soviet and post-Soviet Russian-language rock",
+      "crossRefs": [
+        {
+          "ref": "balladPoetry.slavicBard",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "russian_folk_balalaika_choir",
+        "south_slavic_kantautor"
+      ],
+      "current_pick": "alnico_4_h",
+      "current_pick_score": 0.16687499999999997,
+      "primary_pick": "alnico_2_h",
+      "primary_pick_score": 0.16687499999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alnico_2_h",
+          "score": 0.16687499999999997
+        },
+        {
+          "id": "alnico_4_h",
+          "score": 0.105
+        },
+        {
+          "id": "alnico_5_h",
+          "score": 0.03712499999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "alnico_4_h",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "alnico_2_h",
+          "score": 0.39
+        },
+        {
+          "id": "alnico_5_h",
+          "score": 0.03712499999999999
+        }
+      ]
+    },
+    {
+      "tid": "tropicalia",
+      "name": "Tropicália",
+      "family": "global",
+      "parent": "groovePercussion.brazilian",
+      "lineage": "late-1960s Brazilian art-pop fusion movement",
+      "crossRefs": [
+        "distortedRock.experimental"
+      ],
+      "staples": [
+        "krautrock"
+      ],
+      "current_pick": "alnico_2_h",
+      "current_pick_score": 0.3315,
+      "primary_pick": "alnico_5_h",
+      "primary_pick_score": 0.3315,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "alnico_5_h",
+          "score": 0.3315
+        },
+        {
+          "id": "alnico_2_h",
+          "score": 0.273
+        },
+        {
+          "id": "alnico_8_h",
+          "score": 0.1725
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "alnico_2_h",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "alnico_4_h",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "alnico_5_h",
+          "score": 0.3315
+        }
+      ]
+    }
+  ]
+}

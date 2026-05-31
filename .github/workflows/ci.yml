@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium (for UI reachability)
+        run: npx playwright install --with-deps chromium
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Validate references
+        run: npm run validate
+
+      - name: Audit data quality
+        run: npm run audit
+
+      - name: Regression (recipes, prefaces, slots, app)
+        run: npm run test
+
+      - name: Build single-file HTML (+ data + byte-ceiling check)
+        run: npm run build:html
+
+      - name: UI reachability
+        run: npm run reachability
+
+  # The catalog-wide smoke (~16 min, all 1090 traditions) is intentionally not
+  # on the per-push path. Run it on demand:
+  #   npm run smoke            (smoke only)
+  #   npm run build            (full canonical ship: everything above + smoke)

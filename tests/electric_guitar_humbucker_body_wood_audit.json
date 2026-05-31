@@ -1,0 +1,734 @@
+{
+  "generated_at": "2026-05-11T15:21:59.329Z",
+  "target": {
+    "instrument": "electric_guitar_humbucker",
+    "part": "body_wood",
+    "num_variants": 4
+  },
+  "total_traditions": 56,
+  "mismatch_count": 15,
+  "records": [
+    {
+      "tid": "glam_rock",
+      "name": "Glam rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.glamRock",
+      "lineage": "early-mid-1970s androgynous theatrical riff-rock",
+      "crossRefs": [
+        "distortedRock.classic",
+        "distortedRock.artRock"
+      ],
+      "staples": [
+        "art_rock",
+        "hard_rock"
+      ],
+      "current_pick": "mahogany_maple_cap",
+      "current_pick_score": 2.8025,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 2.8025,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 2.8025
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 2.8025
+        },
+        {
+          "id": "korina",
+          "score": 2.8025
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_h",
+          "score": 2.8025
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 2.8025
+        },
+        {
+          "id": "korina",
+          "score": 2.8025
+        }
+      ]
+    },
+    {
+      "tid": "southern_rock",
+      "name": "Southern rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.southernRock",
+      "lineage": "late-1960s through 1970s American Southern blues-rock",
+      "crossRefs": [
+        "distortedRock.classic",
+        "functionalSong.country.countryRock"
+      ],
+      "staples": [
+        "country_rock",
+        "hard_rock"
+      ],
+      "current_pick": "mahogany_maple_cap",
+      "current_pick_score": 0.31124999999999997,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 0.31124999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.31124999999999997
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.31124999999999997
+        },
+        {
+          "id": "korina",
+          "score": 0.31124999999999997
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.31124999999999997
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.31124999999999997
+        },
+        {
+          "id": "korina",
+          "score": 0.31124999999999997
+        }
+      ]
+    },
+    {
+      "tid": "fusion",
+      "name": "Fusion",
+      "family": "jazz",
+      "parent": "improvOnFrame.americanJazz.fusion",
+      "lineage": "electric",
+      "crossRefs": [
+        {
+          "ref": "improvOnFrame.americanJazz.bop",
+          "isolated_parts": [
+            "shell_wood"
+          ]
+        }
+      ],
+      "staples": [
+        "bebop",
+        "modal_jazz"
+      ],
+      "current_pick": "mahogany_maple_cap",
+      "current_pick_score": 0.034125,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 0.034125,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.034125
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.034125
+        },
+        {
+          "id": "korina",
+          "score": 0.034125
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.034125
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.034125
+        },
+        {
+          "id": "korina",
+          "score": 0.034125
+        }
+      ]
+    },
+    {
+      "tid": "arena_rock",
+      "name": "Arena rock",
+      "family": "rock",
+      "parent": "distortedRock.lateAnalogMajor",
+      "lineage": "American mid-major stadium rock",
+      "crossRefs": [
+        "functionalSong.popRock",
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "korina",
+      "current_pick_score": 1.69,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 1.69,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 1.69
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 1.69
+        },
+        {
+          "id": "korina",
+          "score": 1.69
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "korina",
+          "score": 4.055000000000001
+        },
+        {
+          "id": "mahogany_h",
+          "score": 3.9650000000000003
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 3.9050000000000002
+        }
+      ]
+    },
+    {
+      "tid": "northern_soul_motown",
+      "name": "Northern / Motown soul",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb",
+      "lineage": "soul / r&b",
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "korina",
+      "current_pick_score": 1.005,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 1.005,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 1.005
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.8550000000000001
+        },
+        {
+          "id": "korina",
+          "score": 0.8550000000000001
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "korina",
+          "score": 2.4699999999999998
+        },
+        {
+          "id": "mahogany_h",
+          "score": 2.275
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 2.275
+        }
+      ]
+    },
+    {
+      "tid": "philly_soul_intl",
+      "name": "Philadelphia International soul",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb",
+      "lineage": "orchestrated soul / r&b",
+      "crossRefs": [
+        "functionalSong.popRock",
+        "electronicDance.continental"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "korina",
+      "current_pick_score": 1.07375,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 1.07375,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 1.07375
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.81
+        },
+        {
+          "id": "korina",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "korina",
+          "score": 2.8599999999999994
+        },
+        {
+          "id": "mahogany_h",
+          "score": 2.275
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 2.275
+        }
+      ]
+    },
+    {
+      "tid": "dangdut",
+      "name": "Dangdut",
+      "family": "global",
+      "parent": "functionalSong.southAsianPop",
+      "lineage": "Indonesian",
+      "crossRefs": [
+        "functionalSong.midEastNAfricanPop"
+      ],
+      "staples": [
+        "rai",
+        "shaabi_egyptian"
+      ],
+      "current_pick": "mahogany_maple_cap",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "korina",
+          "score": 0.9099999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_h",
+          "score": 3.055
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 3.055
+        },
+        {
+          "id": "korina",
+          "score": 3.055
+        }
+      ]
+    },
+    {
+      "tid": "grindcore",
+      "name": "Grindcore",
+      "family": "rock",
+      "parent": "distortedRock.metal.death",
+      "lineage": "UK/US, false-fold ventricular growl vocal",
+      "crossRefs": [
+        {
+          "ref": "distortedRock.punk",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "hardcore_punk",
+        "post_punk"
+      ],
+      "current_pick": "mahogany_maple_cap",
+      "current_pick_score": 0.39,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.39
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.39
+        },
+        {
+          "id": "alder_h",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.78
+        },
+        {
+          "id": "mahogany_h",
+          "score": 0.585
+        },
+        {
+          "id": "korina",
+          "score": 0.585
+        }
+      ]
+    },
+    {
+      "tid": "art_pop",
+      "name": "Art pop",
+      "family": "global",
+      "parent": "functionalSong.popRock",
+      "lineage": "high-concept songwriter-pop",
+      "crossRefs": [
+        "experimentalElec.popExperimental"
+      ],
+      "staples": [
+        "hyperpop"
+      ],
+      "current_pick": "alder_h",
+      "current_pick_score": 0.17849999999999996,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 0.17849999999999996,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.17849999999999996
+        },
+        {
+          "id": "alder_h",
+          "score": 0.108
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.063
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "alder_h",
+          "score": 0.195
+        },
+        {
+          "id": "mahogany_h",
+          "score": 0.17849999999999996
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.063
+        }
+      ]
+    },
+    {
+      "tid": "nwobhm",
+      "name": "NWOBHM",
+      "family": "global",
+      "parent": "distortedRock.metal.nwobhm",
+      "lineage": "late-70s/80s UK metal revival",
+      "crossRefs": [
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "early_rock_and_roll_50s",
+        "garage_rock_revival_2000s"
+      ],
+      "current_pick": "mahogany_maple_cap",
+      "current_pick_score": 0.24,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 0.24,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.24
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.24
+        },
+        {
+          "id": "korina",
+          "score": 0.24
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.24
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.24
+        },
+        {
+          "id": "korina",
+          "score": 0.24
+        }
+      ]
+    },
+    {
+      "tid": "folk_metal_european",
+      "name": "Folk metal (European)",
+      "family": "global",
+      "parent": "distortedRock.metal.folkMetal",
+      "lineage": "metal-folk-instrument hybrid",
+      "crossRefs": [
+        "balladPoetry.celticBalladic"
+      ],
+      "staples": [
+        "breton_folk",
+        "swedish_nyckelharpa_folk"
+      ],
+      "current_pick": "mahogany_h",
+      "current_pick_score": 0.78,
+      "primary_pick": "mahogany_maple_cap",
+      "primary_pick_score": 0.78,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.78
+        },
+        {
+          "id": "alder_h",
+          "score": 0.46499999999999997
+        },
+        {
+          "id": "mahogany_h",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_h",
+          "score": 3.119999999999999
+        },
+        {
+          "id": "korina",
+          "score": 3.119999999999999
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 2.794999999999999
+        }
+      ]
+    },
+    {
+      "tid": "jam_band",
+      "name": "Jam band",
+      "family": "global",
+      "parent": "improvOnFrame.jamFree",
+      "lineage": "late-1960s-onward improvisational rock with audience-recording culture",
+      "crossRefs": [
+        "distortedRock.classic"
+      ],
+      "staples": [
+        "early_rock_and_roll_50s",
+        "garage_rock_revival_2000s"
+      ],
+      "current_pick": "mahogany_maple_cap",
+      "current_pick_score": 0.24,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 0.24,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.24
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.24
+        },
+        {
+          "id": "korina",
+          "score": 0.24
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.24
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.24
+        },
+        {
+          "id": "korina",
+          "score": 0.24
+        }
+      ]
+    },
+    {
+      "tid": "anadolu_rock",
+      "name": "Anadolu rock",
+      "family": "global",
+      "parent": "distortedRock.regional",
+      "lineage": "late-1960s-onward Turkish psychedelic-folk rock",
+      "crossRefs": [
+        {
+          "ref": "distortedRock.classic",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "british_invasion_rb",
+        "early_rock_and_roll_50s"
+      ],
+      "current_pick": "mahogany_maple_cap",
+      "current_pick_score": 0.24,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 0.24,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.24
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.24
+        },
+        {
+          "id": "korina",
+          "score": 0.24
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.845
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.845
+        },
+        {
+          "id": "korina",
+          "score": 0.845
+        }
+      ]
+    },
+    {
+      "tid": "russian_rock",
+      "name": "Russian rock",
+      "family": "global",
+      "parent": "distortedRock.regional",
+      "lineage": "late-Soviet and post-Soviet Russian-language rock",
+      "crossRefs": [
+        {
+          "ref": "balladPoetry.slavicBard",
+          "voice_isolated": true
+        }
+      ],
+      "staples": [
+        "russian_folk_balalaika_choir",
+        "south_slavic_kantautor"
+      ],
+      "current_pick": "alder_h",
+      "current_pick_score": 0.42374999999999996,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 0.42374999999999996,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.42374999999999996
+        },
+        {
+          "id": "korina",
+          "score": 0.42374999999999996
+        },
+        {
+          "id": "alder_h",
+          "score": 0.42
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "alder_h",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "mahogany_h",
+          "score": 0.45499999999999996
+        },
+        {
+          "id": "korina",
+          "score": 0.45499999999999996
+        }
+      ]
+    },
+    {
+      "tid": "latin_alternative",
+      "name": "Latin alternative",
+      "family": "global",
+      "parent": "distortedRock.regional",
+      "lineage": "Spanish-language alternative rock",
+      "crossRefs": [
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "grunge",
+        "math_rock_post_rock"
+      ],
+      "current_pick": "mahogany_maple_cap",
+      "current_pick_score": 0.056249999999999994,
+      "primary_pick": "mahogany_h",
+      "primary_pick_score": 0.056249999999999994,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.056249999999999994
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.056249999999999994
+        },
+        {
+          "id": "korina",
+          "score": 0.056249999999999994
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "mahogany_h",
+          "score": 0.195
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "score": 0.195
+        },
+        {
+          "id": "korina",
+          "score": 0.195
+        }
+      ]
+    }
+  ]
+}

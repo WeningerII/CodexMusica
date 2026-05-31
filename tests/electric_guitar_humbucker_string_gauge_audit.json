@@ -1,0 +1,436 @@
+{
+  "generated_at": "2026-05-11T15:22:47.941Z",
+  "target": {
+    "instrument": "electric_guitar_humbucker",
+    "part": "string_gauge",
+    "num_variants": 4
+  },
+  "total_traditions": 56,
+  "mismatch_count": 9,
+  "records": [
+    {
+      "tid": "southern_rock",
+      "name": "Southern rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.southernRock",
+      "lineage": "late-1960s through 1970s American Southern blues-rock",
+      "crossRefs": [
+        "distortedRock.classic",
+        "functionalSong.country.countryRock"
+      ],
+      "staples": [
+        "country_rock",
+        "hard_rock"
+      ],
+      "current_pick": "g_10_hum",
+      "current_pick_score": 0.31124999999999997,
+      "primary_pick": "g_11_hum",
+      "primary_pick_score": 0.31124999999999997,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "g_11_hum",
+          "score": 0.31124999999999997
+        },
+        {
+          "id": "g_12_hum",
+          "score": 0.31124999999999997
+        },
+        {
+          "id": "g_10_hum",
+          "score": 0.17812499999999998
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "g_10_hum",
+          "score": 0.65
+        },
+        {
+          "id": "g_11_hum",
+          "score": 0.31124999999999997
+        },
+        {
+          "id": "g_12_hum",
+          "score": 0.31124999999999997
+        }
+      ]
+    },
+    {
+      "tid": "noise_rock",
+      "name": "Noise rock",
+      "family": "rock_punk",
+      "parent": "distortedRock.noiseRock",
+      "lineage": "late-1970s through 1990s experimental dissonance-foreground rock",
+      "crossRefs": [
+        "distortedRock.experimental",
+        "distortedRock.alternative"
+      ],
+      "staples": [
+        "grunge",
+        "math_rock_post_rock"
+      ],
+      "current_pick": "g_10_hum",
+      "current_pick_score": 0.39,
+      "primary_pick": "g_12_hum",
+      "primary_pick_score": 0.39,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "g_12_hum",
+          "score": 0.39
+        },
+        {
+          "id": "g_11_hum",
+          "score": 0.38035714285714284
+        },
+        {
+          "id": "g_10_hum",
+          "score": 0.3182142857142857
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "g_10_hum",
+          "score": 1.105
+        },
+        {
+          "id": "g_12_hum",
+          "score": 0.5474999999999999
+        },
+        {
+          "id": "g_11_hum",
+          "score": 0.5303571428571427
+        }
+      ]
+    },
+    {
+      "tid": "northern_soul_motown",
+      "name": "Northern / Motown soul",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb",
+      "lineage": "soul / r&b",
+      "crossRefs": [
+        "functionalSong.popRock"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "g_11_hum",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "g_10_hum",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "g_10_hum",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "g_11_hum",
+          "score": 0.81
+        },
+        {
+          "id": "g_12_hum",
+          "score": 0.81
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "g_11_hum",
+          "score": 2.275
+        },
+        {
+          "id": "g_12_hum",
+          "score": 2.275
+        },
+        {
+          "id": "g_10_hum",
+          "score": 0.9099999999999999
+        }
+      ]
+    },
+    {
+      "tid": "philly_soul_intl",
+      "name": "Philadelphia International soul",
+      "family": "blues_gospel",
+      "parent": "functionalSong.soulRb",
+      "lineage": "orchestrated soul / r&b",
+      "crossRefs": [
+        "functionalSong.popRock",
+        "electronicDance.continental"
+      ],
+      "staples": [
+        "new_wave",
+        "yacht_rock"
+      ],
+      "current_pick": "g_11_hum",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "g_10_hum",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "g_10_hum",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "g_11_hum",
+          "score": 0.765
+        },
+        {
+          "id": "g_12_hum",
+          "score": 0.765
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "g_11_hum",
+          "score": 2.275
+        },
+        {
+          "id": "g_12_hum",
+          "score": 2.275
+        },
+        {
+          "id": "g_10_hum",
+          "score": 0.9099999999999999
+        }
+      ]
+    },
+    {
+      "tid": "dangdut",
+      "name": "Dangdut",
+      "family": "global",
+      "parent": "functionalSong.southAsianPop",
+      "lineage": "Indonesian",
+      "crossRefs": [
+        "functionalSong.midEastNAfricanPop"
+      ],
+      "staples": [
+        "rai",
+        "shaabi_egyptian"
+      ],
+      "current_pick": "g_11_hum",
+      "current_pick_score": 0.9099999999999999,
+      "primary_pick": "g_10_hum",
+      "primary_pick_score": 0.9099999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "g_10_hum",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "g_11_hum",
+          "score": 0.9099999999999999
+        },
+        {
+          "id": "g_12_hum",
+          "score": 0.9099999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "g_11_hum",
+          "score": 3.055
+        },
+        {
+          "id": "g_12_hum",
+          "score": 3.055
+        },
+        {
+          "id": "g_10_hum",
+          "score": 1.8199999999999998
+        }
+      ]
+    },
+    {
+      "tid": "stoner_metal",
+      "name": "Stoner metal",
+      "family": "rock",
+      "parent": "distortedRock.metal.doom",
+      "lineage": "California desert",
+      "crossRefs": [
+        "distortedRock.metal.sludge"
+      ],
+      "staples": [
+        "sludge_metal"
+      ],
+      "current_pick": "g_12_hum",
+      "current_pick_score": 1.2269999999999999,
+      "primary_pick": "g_10_hum",
+      "primary_pick_score": 1.2269999999999999,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "g_10_hum",
+          "score": 1.2269999999999999
+        },
+        {
+          "id": "g_12_hum",
+          "score": 0.78
+        },
+        {
+          "id": "g_11_hum",
+          "score": 0.735
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "g_12_hum",
+          "score": 1.755
+        },
+        {
+          "id": "g_10_hum",
+          "score": 1.577
+        },
+        {
+          "id": "g_11_hum",
+          "score": 1.035
+        }
+      ]
+    },
+    {
+      "tid": "deathcore",
+      "name": "Deathcore",
+      "family": "rock",
+      "parent": "distortedRock.metal.death",
+      "lineage": "US",
+      "crossRefs": [
+        "distortedRock.metal.thrash"
+      ],
+      "staples": [
+        "thrash_metal"
+      ],
+      "current_pick": "g_10_hum",
+      "current_pick_score": 1.0724999999999998,
+      "primary_pick": "g_11_hum",
+      "primary_pick_score": 1.0724999999999998,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "g_11_hum",
+          "score": 1.0724999999999998
+        },
+        {
+          "id": "g_12_hum",
+          "score": 1.0724999999999998
+        },
+        {
+          "id": "g_10_hum",
+          "score": 0.9099999999999999
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "g_10_hum",
+          "score": 1.3361249999999998
+        },
+        {
+          "id": "g_11_hum",
+          "score": 1.0724999999999998
+        },
+        {
+          "id": "g_12_hum",
+          "score": 1.0724999999999998
+        }
+      ]
+    },
+    {
+      "tid": "folk_metal_european",
+      "name": "Folk metal (European)",
+      "family": "global",
+      "parent": "distortedRock.metal.folkMetal",
+      "lineage": "metal-folk-instrument hybrid",
+      "crossRefs": [
+        "balladPoetry.celticBalladic"
+      ],
+      "staples": [
+        "breton_folk",
+        "swedish_nyckelharpa_folk"
+      ],
+      "current_pick": "g_11_hum",
+      "current_pick_score": 0.835,
+      "primary_pick": "g_10_hum",
+      "primary_pick_score": 0.835,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "g_10_hum",
+          "score": 0.835
+        },
+        {
+          "id": "g_11_hum",
+          "score": 0.39
+        },
+        {
+          "id": "g_12_hum",
+          "score": 0.39
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "g_11_hum",
+          "score": 2.2099999999999995
+        },
+        {
+          "id": "g_12_hum",
+          "score": 2.2099999999999995
+        },
+        {
+          "id": "g_10_hum",
+          "score": 0.835
+        }
+      ]
+    },
+    {
+      "tid": "j_rock",
+      "name": "J-rock",
+      "family": "global",
+      "parent": "distortedRock.regional",
+      "lineage": "Japanese-language alt-rock and visual-kei rock",
+      "crossRefs": [
+        "functionalSong.eastAsianPop"
+      ],
+      "staples": [
+        "k_pop_modern",
+        "j_pop_classic"
+      ],
+      "current_pick": "g_11_hum",
+      "current_pick_score": 0.18637499999999996,
+      "primary_pick": "g_10_hum",
+      "primary_pick_score": 0.18637499999999996,
+      "mismatch": true,
+      "primary_top": [
+        {
+          "id": "g_10_hum",
+          "score": 0.18637499999999996
+        },
+        {
+          "id": "g_11_hum",
+          "score": 0.135
+        },
+        {
+          "id": "g_12_hum",
+          "score": 0.135
+        }
+      ],
+      "stapled_top": [
+        {
+          "id": "g_11_hum",
+          "score": 0.39
+        },
+        {
+          "id": "g_12_hum",
+          "score": 0.39
+        },
+        {
+          "id": "g_10_hum",
+          "score": 0.18637499999999996
+        }
+      ]
+    }
+  ]
+}
