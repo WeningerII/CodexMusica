@@ -2201,37 +2201,13 @@ function _resolvePreface(card) {
 // ranks survivors by specificity then register-hit count. Deterministic:
 // same card always produces the same preface.
 
-function _cardDescriptorSet(card) {
-  const inst = Inst(card.instrumentId);
-  if (!inst) return new Set();
-  const set = new Set();
-  // Instrument variants
-  for (const partDef of (inst.parts || [])) {
-    const varId = card.parts && card.parts[partDef.id];
-    if (!varId) continue;
-    const variant = (partDef.variants || []).find(v => v.id === varId);
-    if (variant) for (const d of (variant.descriptors || [])) set.add(d);
-  }
-  // Tuning + room — tradition's sonic flavor
-  const tuning = card.tuning ? Tuning(card.tuning) : null;
-  if (tuning) for (const d of (tuning.descriptors || [])) set.add(d);
-  const room = card.room ? Room(card.room) : null;
-  if (room) for (const d of (room.descriptors || [])) set.add(d);
-  // Chain stages
-  const chain = card.chain || {};
-  for (const stageId of ['mic','pre','medium','console']) {
-    const itemId = chain[stageId];
-    if (!itemId) continue;
-    const item = ChainItem(stageId, itemId);
-    if (item) for (const d of (item.descriptors || [])) set.add(d);
-  }
-  // Tradition signature — diffuse tradition-defining descriptors.
-  // These are kept as a delivery vehicle for the genuinely diffuse stuff
-  // (e.g. sufi-mystical across all sufi instruments). Most per-tradition
-  // identity has migrated into variants and chain items in enrichment.
-  for (const d of _traditionSignatureFor(card.traditionId)) set.add(d);
-  return set;
-}
+// _cardDescriptorSet(card) is NOT defined here — it is the single source in
+// scripts/_card_descriptors.js (the `harvestDescriptors` core + a browser
+// adapter) and is INJECTED into codex.html by scripts/build_html.js, ahead of
+// this app code, so the call sites below resolve it at runtime. This collapses
+// the formerly hand-duplicated copy that drifted from the Node primitive.
+// (Standalone-HTML note: the function only exists in the built artifact, not in
+// this source file; run scripts/build_html.js to produce a runnable page.)
 
 function _matchSurvivors(card) {
   // v2 matcher — precision-normalized scoring over preface.tokens.
