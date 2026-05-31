@@ -445,6 +445,83 @@ node scripts/preface_configure.js --instrument voice --preface liturgical
   variants whose `descriptors` overlap the preface tokens. Coverage `k/N` is
   how many of the preface's N tokens the new config covers.
 
+**A preface override can move your settings — including the room.** The inverse
+re-picks across part-variants, tuning, **room**, and chain stages (mic/pre/
+medium/console). Verified: `caressing` on a `voice` card moved
+`Room → Front parlor (period furniture, rugs, drapes)` (and on a fuller card,
+Register Head→Chest + Quality lowered-larynx→Opera). So if you commit a preface
+*after* hand-setting a room/tuning, expect it may overwrite them — check the
+returned `changes[]` and re-set anything you wanted to keep.
+
+**Two override paths — pick by intent:**
+- **Reshape** (inverse): `preface_configure.js` / the app's `commitPrefaceChange`
+  — re-selects settings to fit the preface. Use when you want the preface to
+  *drive* the configuration.
+- **Label only** (no reshape): set `card.preface = id; card.prefaceAuto = false`
+  directly. Use when your settings are already where you want them and you only
+  want to relabel — or for a free-form word that isn't in the lexicon (the engine
+  can't reshape toward a token-less target, so it just sets the label).
+
+**Manual prefaces are locked; auto prefaces dedup.** At recipe-compile, two cards
+that auto-resolve to the same preface collide — the higher-scoring card keeps it
+and the loser is bumped to its next-best (so no two cards in one recipe show the
+same preface). Cards with `prefaceAuto = false` (anything you set by hand) are
+**locked**: they keep their id and reserve it, and the auto cards flow around
+them. This is why a hand-picked preface survives while auto-picks shuffle.
+
+### 3h. Produce a named recipe format (rich / prose / tags / compact)
+
+**`recipe.js` does NOT emit these four formats.** It uses `translate.js`, a
+single descriptor-stack renderer. The four named formats the app shows (the
+"current recipe" panel, the Stack tab) — **rich**, **prose**, **tags**,
+**compact** — live only in `src/app.js` as `compress{Rich,Prose,Tags,Compact}Recipe`,
+compiled via `compileRecipeStack(cards, format, opts)`. To produce them you run
+the **browser engine headless** (jsdom over the built `codex.html`). This is the
+faithful path — the real function the app calls, not a reimplementation.
+
+```js
+// rich_recipe.js — emit a named-format recipe via the real browser engine.
+// Save at the REPO ROOT and run `node rich_recipe.js` from there: jsdom +
+// build_html.js resolve relative to the repo, so running from elsewhere fails
+// with "Cannot find module 'jsdom'". (Mirrors scripts/app_recipe_regression.js.)
+const fs=require('fs'),os=require('os'),path=require('path');
+const {execFileSync}=require('child_process');
+const {JSDOM}=require('jsdom');                 // devDependency, already installed
+const tmp=path.join(os.tmpdir(),`codex_${process.pid}.html`);
+execFileSync('node',[path.join('scripts','build_html.js'),`--out=${tmp}`,'--quiet'],{stdio:['ignore','ignore','inherit']});
+const html=fs.readFileSync(tmp,'utf8'); fs.unlinkSync(tmp);
+const dom=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,beforeParse(w){
+  w.storage={async get(){return null;},async set(){},async delete(){},async list(){return{keys:[]};}};
+  w.matchMedia=()=>({matches:false,addEventListener(){},removeEventListener(){},addListener(){},removeListener(){}});
+  w.scrollTo=()=>{};
+}});
+setTimeout(()=>{
+  const probe=`(function(){
+    // Build cards with the app's OWN makeCard, then tweak parts/tuning/room/chain.
+    const TRAD='tin_pan_alley_song';
+    const v=makeCard('voice',{traditionId:TRAD});
+    v.parts.voice_register='head_voice';                 // example tweak
+    const cards=[v, makeCard('cornet',{traditionId:TRAD})];
+    // commitPrefaceChange(cards[0],'caressing');         // optional: reshape toward a preface
+    window.__out=compileRecipeStack(cards,'rich',{});     // 'rich' | 'prose' | 'tags' | 'compact'
+  })();`;
+  const s=dom.window.document.createElement('script'); s.textContent=probe;
+  dom.window.document.body.appendChild(s);
+  console.log(dom.window.__out); dom.window.close();
+},1500);
+```
+- Inside the probe you have the full app API: `makeCard(id,{traditionId})`,
+  `card.parts`/`tuning`/`room`/`chain`, `commitPrefaceChange(card,id)`,
+  `compileRecipeStack(cards, format, {})`. Tweak, then compile.
+- The chain shape is `{fx:[],amp,pre,comp,eq,console,mic,medium}`; set acoustic-era
+  gear by id, e.g. `card.chain={...card.chain, mic:'mic_acoustic_horn_pre1925', medium:'shellac_78'}`.
+- **Validate the result against §6** before returning it (≤1000 chars, no proper
+  names, ids resolve). The four formats all honor the ceiling via the same trim
+  cascade.
+- Iterate: build 2-3 variants (e.g. with/without a stapled tradition, or different
+  preface picks) and compare — the catalog rewards play, and one-shotting hides
+  the better fit.
+
 ---
 
 ## 4. Output contract
