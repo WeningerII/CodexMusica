@@ -754,3 +754,65 @@ name: Bill Monroe`, and the made-up archetype in `soft` (verified).
 
 When in doubt, re-run §6's `validate.js`. A clean `{"ok":true,"hard":[]}` (with any
 issues confined to `soft`) is the bar for returning any output.
+
+---
+
+## 8. GUI ↔ agent capability map
+
+The browser app (`codex.html`) and this agent path are two front-ends over the **same
+engine**. Anything a human does by clicking in the app, you can do from `scripts/`. This
+table maps every interactive GUI capability to the command that reproduces it, so nothing
+the human can do is out of reach for an agent. (All commands verified against the real
+data; run from the repo root. Add `--json` where noted for machine-readable output.)
+
+### Browse & look things up
+
+| In the app | Agent command |
+|---|---|
+| Browse traditions / instruments / rooms / tunings | `node scripts/list.js --traditions` (or `--instruments`, `--rooms`, `--archetypes`, `--aesthetics`, `--variants --instrument=<id>`) — all take filters like `--family=`, `--era=`, `--region=`, `--has-part=` |
+| Chain-section menu (mic/pre/console/…) contents | `node scripts/list.js --section <mic\|pre\|console\|comp\|eq\|medium\|fx\|amp>` |
+| Deep-view one entry with its refs resolved | `node scripts/expand.js --tradition <id>` (or `--instrument`, `--room`, `--archetype`, `--aesthetic`, `--tree`) — emits JSON |
+| Tradition fingerprint strip (13-axis profile) | `node scripts/fingerprint.js <tradition_id>` (`--json`; optional `--aesthetic=<id>`) |
+
+### Find similar (nearest-neighbor) — the app's "Find similar" buttons
+
+| In the app | Agent command |
+|---|---|
+| "Find similar" on a tradition leaf | `node scripts/nearest_neighbor.js --type tradition --id <id>` |
+| "Find similar" on a card (similar instruments) | `node scripts/nearest_neighbor.js --type instrument --id <id>` |
+| Keyword search across traditions | `node scripts/nearest_neighbor.js --type tradition --keyword "<term>"` |
+| Axis-vector search | `node scripts/nearest_neighbor.js --type tradition --axes "harm:1,density:2,…"` |
+| Neighbors of a variant / tree-node / chain-item / room | `--type variant\|tree-node\|chain-item\|room --id <id>` |
+
+Verified: `nearest_neighbor.js --type instrument --id voice` → top neighbor `griot_voice`
+(score 0.80); `--type tradition --id delta_blues` → `jug_band` (0.31).
+
+### Compare & diagnose
+
+| In the app | Agent command |
+|---|---|
+| Compare two traditions structurally | `node scripts/compare.js --traditions <a> <b>` (axis deltas, instrument Venn, room/chain diff) — also `--instruments`, `--rooms`, `--archetypes` |
+| "Why did this variant win?" (per-slot scoring) | `node scripts/inspect.js --tradition=<id>` (`--staples=<id1,id2>`, `--instrument=<id>`, `--part=<id>`, `--runner-up=N`, `--filtered`) |
+| Why a recipe came out the way it did | `node scripts/recipe.js --tradition=<id> --why` / `--why-prefaces` (each has a `-json` variant) — see §3f |
+| Full descriptor stack a config draws from | `node scripts/stack.js --tradition=<id>` (`--mode=cloud` for the merged weighted cloud) |
+
+### Build, customize & shape the recipe
+
+These are in §3 — cross-referenced here for completeness:
+- Ensemble from a tradition → §3a. Select by capability/genre → §3b. Chain+room+tuning → §3c.
+- **Customize / delete / add / blend** instruments → §3f (`recipe.js` `--swap-variant` /
+  `--exclude-instrument` / `--add-instrument` / `--diff`).
+- **Reshape toward a preface** (the app's preface inverse) → §3g (`preface_configure.js`).
+- Stapling **order** sets recipe lead order (matches dragging groups up/down in the app) → §3f.
+
+### Extend the catalog (the app has no UI for this — agent/CRUD only)
+
+| Task | Agent command |
+|---|---|
+| Pre-flight a new tradition before adding | `node scripts/placement_check.js --id <new_id> --parent <tree_path> [--instruments id1,id2] [--room <id>] [--archetype <id>] [--tuning <id>]` |
+| Add / edit / delete entities + invariants | §5 (then `validate.js`, then `build_signatures.js` if signatures changed) |
+
+**Parity guarantee.** If you find a GUI capability with no command here, it's a
+documentation gap, not a missing feature — the engine is shared. Check `scripts/` (every
+file has a usage header) and `tests/ui_capability_inventory.md` (the canonical list of
+GUI surfaces), and prefer adding a thin script wrapper over reimplementing engine logic.
