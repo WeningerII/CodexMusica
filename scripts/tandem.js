@@ -84,6 +84,17 @@ check('regression_recipes', () => {
   if (pass !== total) throw new Error(`only ${pass}/${total} pass`);
   return m[1];
 });
+// Behavioral browser↔node equivalence. The HTML-embed/Node-primitive parity
+// checks above are TEXTUAL (they grep for matching invariant patterns); this
+// one EXECUTES both implementations on the same card fixtures and asserts
+// identical descriptor sets + preface suggestions. Catches output drift the
+// textual checks can't see — the class that shipped a forked signature set.
+check('equivalence (browser ↔ node behavioral)', () => {
+  const out = RUN('node scripts/equivalence.js');
+  const m = out.match(/EQUIVALENCE: (\d+\/\d+) PASS/);
+  if (!m) throw new Error('browser↔node equivalence failed:\n' + out.trim());
+  return m[1] + ' fixtures agree';
+});
 check('smoke', () => {
   const out = RUN('node scripts/smoke.js');
   const m = out.match(/SMOKE: (\d+\/\d+) pass/);
