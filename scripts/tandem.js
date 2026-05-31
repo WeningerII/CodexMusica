@@ -605,7 +605,17 @@ check('recently-added catalog content present', () => {
 
 console.log('\n[3/4] Zip artifact');
 check('exists', () => {
-  if (!fs.existsSync(ZIP_PATH)) throw new Error('not found at ' + ZIP_PATH);
+  // Build the zip on demand if it isn't already on disk, so tandem is
+  // self-sufficient in a fresh checkout (nothing else in the pipeline builds
+  // it). build_zip.sh honors ZIP_OUT; point it at the path tandem reads.
+  if (!fs.existsSync(ZIP_PATH)) {
+    try {
+      RUN(`ZIP_OUT=${ZIP_PATH} bash scripts/build_zip.sh`);
+    } catch (e) {
+      throw new Error('not found and build_zip.sh failed: ' + (e.message || '').slice(0, 200));
+    }
+    if (!fs.existsSync(ZIP_PATH)) throw new Error('build_zip.sh ran but produced no zip at ' + ZIP_PATH);
+  }
   return (fs.statSync(ZIP_PATH).size / 1024).toFixed(0) + ' KB';
 });
 check('round-trip extract + run validate', () => {

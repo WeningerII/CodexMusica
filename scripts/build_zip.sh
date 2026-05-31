@@ -21,8 +21,18 @@ cd "$(dirname "$0")/.."
 STAGE=$(mktemp -d)
 trap "rm -rf $STAGE" EXIT
 mkdir -p "$STAGE/$SKILL_NAME"
-cp -r references scripts docs tests SKILL.md \
-  "$STAGE/$SKILL_NAME/"
+# Stage only the paths that exist. SKILL.md + references + scripts are required;
+# tests/ and docs/ are optional (docs/ in particular isn't present in every
+# checkout). Missing a required path is fatal; missing an optional one is fine.
+REQUIRED=(SKILL.md references scripts)
+OPTIONAL=(tests docs)
+for p in "${REQUIRED[@]}"; do
+  if [ ! -e "$p" ]; then echo "build_zip: required path missing: $p" >&2; exit 1; fi
+  cp -r "$p" "$STAGE/$SKILL_NAME/"
+done
+for p in "${OPTIONAL[@]}"; do
+  [ -e "$p" ] && cp -r "$p" "$STAGE/$SKILL_NAME/"
+done
 
 # Strip refactor backups and pre-refactor archives from the staged copy.
 # These are dev-only safety copies; nothing in the engine reads them.
@@ -33,5 +43,6 @@ rm -f "$ZIP_OUT"
 (cd "$STAGE" && zip -rq "$ZIP_OUT" "$SKILL_NAME")
 
 size_kb=$(( $(stat -c %s "$ZIP_OUT" 2>/dev/null || stat -f %z "$ZIP_OUT") / 1024 ))
+staged=$(cd "$STAGE/$SKILL_NAME" && ls -1 | tr '\n' ' ')
 echo "Built: $ZIP_OUT (${size_kb} KB)"
-echo "Layout: ZIP root → $SKILL_NAME/ → SKILL.md + references/ + scripts/ + tests/ + docs/"
+echo "Layout: ZIP root → $SKILL_NAME/ → ${staged}"
