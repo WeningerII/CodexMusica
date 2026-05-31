@@ -34,6 +34,7 @@
 
 const fs = require('fs');
 const { parseInventory } = require('./_inventory_parser.js');
+const { HTML_OUT } = require('./_paths.js');
 
 const args = process.argv.slice(2);
 const flags = {};
@@ -45,7 +46,7 @@ for (const a of args) {
   }
 }
 
-const HTML_PATH = flags.html || '/mnt/user-data/outputs/codex.html';
+const HTML_PATH = flags.html || HTML_OUT;
 const VERBOSE = !!flags.verbose;
 
 // Precondition setup snippets — each runs inside page.evaluate after navigation
