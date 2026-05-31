@@ -34,6 +34,7 @@
 
 const fs = require('fs');
 const { parseInventory } = require('./_inventory_parser.js');
+const { HTML_OUT } = require('./_paths.js');
 
 const args = process.argv.slice(2);
 const flags = {};
