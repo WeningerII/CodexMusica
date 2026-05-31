@@ -445,6 +445,83 @@ node scripts/preface_configure.js --instrument voice --preface liturgical
   variants whose `descriptors` overlap the preface tokens. Coverage `k/N` is
   how many of the preface's N tokens the new config covers.
 
+**A preface override can move your settings — including the room.** The inverse
+re-picks across part-variants, tuning, **room**, and chain stages (mic/pre/
+medium/console). Verified: `caressing` on a `voice` card moved
+`Room → Front parlor (period furniture, rugs, drapes)` (and on a fuller card,
+Register Head→Chest + Quality lowered-larynx→Opera). So if you commit a preface
+*after* hand-setting a room/tuning, expect it may overwrite them — check the
+returned `changes[]` and re-set anything you wanted to keep.
+
+**Two override paths — pick by intent:**
+- **Reshape** (inverse): `preface_configure.js` / the app's `commitPrefaceChange`
+  — re-selects settings to fit the preface. Use when you want the preface to
+  *drive* the configuration.
+- **Label only** (no reshape): set `card.preface = id; card.prefaceAuto = false`
+  directly. Use when your settings are already where you want them and you only
+  want to relabel — or for a free-form word that isn't in the lexicon (the engine
+  can't reshape toward a token-less target, so it just sets the label).
+
+**Manual prefaces are locked; auto prefaces dedup.** At recipe-compile, two cards
+that auto-resolve to the same preface collide — the higher-scoring card keeps it
+and the loser is bumped to its next-best (so no two cards in one recipe show the
+same preface). Cards with `prefaceAuto = false` (anything you set by hand) are
+**locked**: they keep their id and reserve it, and the auto cards flow around
+them. This is why a hand-picked preface survives while auto-picks shuffle.
+
+### 3h. Produce a named recipe format (rich / prose / tags / compact)
+
+**`recipe.js` does NOT emit these four formats.** It uses `translate.js`, a
+single descriptor-stack renderer. The four named formats the app shows (the
+"current recipe" panel, the Stack tab) — **rich**, **prose**, **tags**,
+**compact** — live only in `src/app.js` as `compress{Rich,Prose,Tags,Compact}Recipe`,
+compiled via `compileRecipeStack(cards, format, opts)`. To produce them you run
+the **browser engine headless** (jsdom over the built `codex.html`). This is the
+faithful path — the real function the app calls, not a reimplementation.
+
+```js
+// rich_recipe.js — emit a named-format recipe via the real browser engine.
+// Save at the REPO ROOT and run `node rich_recipe.js` from there: jsdom +
+// build_html.js resolve relative to the repo, so running from elsewhere fails
+// with "Cannot find module 'jsdom'". (Mirrors scripts/app_recipe_regression.js.)
+const fs=require('fs'),os=require('os'),path=require('path');
+const {execFileSync}=require('child_process');
+const {JSDOM}=require('jsdom');                 // devDependency, already installed
+const tmp=path.join(os.tmpdir(),`codex_${process.pid}.html`);
+execFileSync('node',[path.join('scripts','build_html.js'),`--out=${tmp}`,'--quiet'],{stdio:['ignore','ignore','inherit']});
+const html=fs.readFileSync(tmp,'utf8'); fs.unlinkSync(tmp);
+const dom=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,beforeParse(w){
+  w.storage={async get(){return null;},async set(){},async delete(){},async list(){return{keys:[]};}};
+  w.matchMedia=()=>({matches:false,addEventListener(){},removeEventListener(){},addListener(){},removeListener(){}});
+  w.scrollTo=()=>{};
+}});
+setTimeout(()=>{
+  const probe=`(function(){
+    // Build cards with the app's OWN makeCard, then tweak parts/tuning/room/chain.
+    const TRAD='tin_pan_alley_song';
+    const v=makeCard('voice',{traditionId:TRAD});
+    v.parts.voice_register='head_voice';                 // example tweak
+    const cards=[v, makeCard('cornet',{traditionId:TRAD})];
+    // commitPrefaceChange(cards[0],'caressing');         // optional: reshape toward a preface
+    window.__out=compileRecipeStack(cards,'rich',{});     // 'rich' | 'prose' | 'tags' | 'compact'
+  })();`;
+  const s=dom.window.document.createElement('script'); s.textContent=probe;
+  dom.window.document.body.appendChild(s);
+  console.log(dom.window.__out); dom.window.close();
+},1500);
+```
+- Inside the probe you have the full app API: `makeCard(id,{traditionId})`,
+  `card.parts`/`tuning`/`room`/`chain`, `commitPrefaceChange(card,id)`,
+  `compileRecipeStack(cards, format, {})`. Tweak, then compile.
+- The chain shape is `{fx:[],amp,pre,comp,eq,console,mic,medium}`; set acoustic-era
+  gear by id, e.g. `card.chain={...card.chain, mic:'mic_acoustic_horn_pre1925', medium:'shellac_78'}`.
+- **Validate the result against §6** before returning it (≤1000 chars, no proper
+  names, ids resolve). The four formats all honor the ceiling via the same trim
+  cascade.
+- Iterate: build 2-3 variants (e.g. with/without a stapled tradition, or different
+  preface picks) and compare — the catalog rewards play, and one-shotting hides
+  the better fit.
+
 ---
 
 ## 4. Output contract
@@ -540,6 +617,18 @@ shim, change the in-memory table, **re-serialize the whole file** as
 re-run the §5 checker. In a full distribution also run `scripts/validate.js` and
 `scripts/build.js` (validate + audit + regression + rebuild HTML). After ANY edit the
 checker must still print `{"totalIssues":0,…}`.
+
+**Two surfaces, kept honest by gates.** Core logic ships twice — inlined in
+`src/app.js` (the browser/`codex.html`) and as `scripts/` primitives (the CLI/agent
+path). Don't hand-edit the duplicated pieces independently:
+- **Tradition signatures** live canonically in `references/_tradition_signatures.json`;
+  `node scripts/build_signatures.js` regenerates the `app.js` inline copy from it. Never
+  edit the `app.js` `TRADITION_SIGNATURES` block by hand.
+- `scripts/equivalence.js` (in `npm test` and `build.js`) executes both the browser
+  functions (in jsdom) and the node primitives on shared fixtures and fails if their
+  descriptor sets or preface picks diverge — behavioral parity, not just textual. If you
+  change `_cardDescriptorSet`/`_matchSurvivors` in `app.js`, change the matching
+  `scripts/_card_descriptors.js`/`_preface_match.js` too, or this gate fails.
 
 **Add an instrument**
 1. New bare-slug `id`, never reused.
@@ -742,3 +831,65 @@ name: Bill Monroe`, and the made-up archetype in `soft` (verified).
 
 When in doubt, re-run §6's `validate.js`. A clean `{"ok":true,"hard":[]}` (with any
 issues confined to `soft`) is the bar for returning any output.
+
+---
+
+## 8. GUI ↔ agent capability map
+
+The browser app (`codex.html`) and this agent path are two front-ends over the **same
+engine**. Anything a human does by clicking in the app, you can do from `scripts/`. This
+table maps every interactive GUI capability to the command that reproduces it, so nothing
+the human can do is out of reach for an agent. (All commands verified against the real
+data; run from the repo root. Add `--json` where noted for machine-readable output.)
+
+### Browse & look things up
+
+| In the app | Agent command |
+|---|---|
+| Browse traditions / instruments / rooms / tunings | `node scripts/list.js --traditions` (or `--instruments`, `--rooms`, `--archetypes`, `--aesthetics`, `--variants --instrument=<id>`) — all take filters like `--family=`, `--era=`, `--region=`, `--has-part=` |
+| Chain-section menu (mic/pre/console/…) contents | `node scripts/list.js --section <mic\|pre\|console\|comp\|eq\|medium\|fx\|amp>` |
+| Deep-view one entry with its refs resolved | `node scripts/expand.js --tradition <id>` (or `--instrument`, `--room`, `--archetype`, `--aesthetic`, `--tree`) — emits JSON |
+| Tradition fingerprint strip (13-axis profile) | `node scripts/fingerprint.js <tradition_id>` (`--json`; optional `--aesthetic=<id>`) |
+
+### Find similar (nearest-neighbor) — the app's "Find similar" buttons
+
+| In the app | Agent command |
+|---|---|
+| "Find similar" on a tradition leaf | `node scripts/nearest_neighbor.js --type tradition --id <id>` |
+| "Find similar" on a card (similar instruments) | `node scripts/nearest_neighbor.js --type instrument --id <id>` |
+| Keyword search across traditions | `node scripts/nearest_neighbor.js --type tradition --keyword "<term>"` |
+| Axis-vector search | `node scripts/nearest_neighbor.js --type tradition --axes "harm:1,density:2,…"` |
+| Neighbors of a variant / tree-node / chain-item / room | `--type variant\|tree-node\|chain-item\|room --id <id>` |
+
+Verified: `nearest_neighbor.js --type instrument --id voice` → top neighbor `griot_voice`
+(score 0.80); `--type tradition --id delta_blues` → `jug_band` (0.31).
+
+### Compare & diagnose
+
+| In the app | Agent command |
+|---|---|
+| Compare two traditions structurally | `node scripts/compare.js --traditions <a> <b>` (axis deltas, instrument Venn, room/chain diff) — also `--instruments`, `--rooms`, `--archetypes` |
+| "Why did this variant win?" (per-slot scoring) | `node scripts/inspect.js --tradition=<id>` (`--staples=<id1,id2>`, `--instrument=<id>`, `--part=<id>`, `--runner-up=N`, `--filtered`) |
+| Why a recipe came out the way it did | `node scripts/recipe.js --tradition=<id> --why` / `--why-prefaces` (each has a `-json` variant) — see §3f |
+| Full descriptor stack a config draws from | `node scripts/stack.js --tradition=<id>` (`--mode=cloud` for the merged weighted cloud) |
+
+### Build, customize & shape the recipe
+
+These are in §3 — cross-referenced here for completeness:
+- Ensemble from a tradition → §3a. Select by capability/genre → §3b. Chain+room+tuning → §3c.
+- **Customize / delete / add / blend** instruments → §3f (`recipe.js` `--swap-variant` /
+  `--exclude-instrument` / `--add-instrument` / `--diff`).
+- **Reshape toward a preface** (the app's preface inverse) → §3g (`preface_configure.js`).
+- Stapling **order** sets recipe lead order (matches dragging groups up/down in the app) → §3f.
+
+### Extend the catalog (the app has no UI for this — agent/CRUD only)
+
+| Task | Agent command |
+|---|---|
+| Pre-flight a new tradition before adding | `node scripts/placement_check.js --id <new_id> --parent <tree_path> [--instruments id1,id2] [--room <id>] [--archetype <id>] [--tuning <id>]` |
+| Add / edit / delete entities + invariants | §5 (then `validate.js`, then `build_signatures.js` if signatures changed) |
+
+**Parity guarantee.** If you find a GUI capability with no command here, it's a
+documentation gap, not a missing feature — the engine is shared. Check `scripts/` (every
+file has a usage header) and `tests/ui_capability_inventory.md` (the canonical list of
+GUI surfaces), and prefer adding a thin script wrapper over reimplementing engine logic.

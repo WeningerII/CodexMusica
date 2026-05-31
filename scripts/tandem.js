@@ -84,6 +84,17 @@ check('regression_recipes', () => {
   if (pass !== total) throw new Error(`only ${pass}/${total} pass`);
   return m[1];
 });
+// Behavioral browser↔node equivalence. The HTML-embed/Node-primitive parity
+// checks above are TEXTUAL (they grep for matching invariant patterns); this
+// one EXECUTES both implementations on the same card fixtures and asserts
+// identical descriptor sets + preface suggestions. Catches output drift the
+// textual checks can't see — the class that shipped a forked signature set.
+check('equivalence (browser ↔ node behavioral)', () => {
+  const out = RUN('node scripts/equivalence.js');
+  const m = out.match(/EQUIVALENCE: (\d+\/\d+) PASS/);
+  if (!m) throw new Error('browser↔node equivalence failed:\n' + out.trim());
+  return m[1] + ' fixtures agree';
+});
 check('smoke', () => {
   const out = RUN('node scripts/smoke.js');
   const m = out.match(/SMOKE: (\d+\/\d+) pass/);
@@ -594,7 +605,17 @@ check('recently-added catalog content present', () => {
 
 console.log('\n[3/4] Zip artifact');
 check('exists', () => {
-  if (!fs.existsSync(ZIP_PATH)) throw new Error('not found at ' + ZIP_PATH);
+  // Build the zip on demand if it isn't already on disk, so tandem is
+  // self-sufficient in a fresh checkout (nothing else in the pipeline builds
+  // it). build_zip.sh honors ZIP_OUT; point it at the path tandem reads.
+  if (!fs.existsSync(ZIP_PATH)) {
+    try {
+      RUN(`ZIP_OUT=${ZIP_PATH} bash scripts/build_zip.sh`);
+    } catch (e) {
+      throw new Error('not found and build_zip.sh failed: ' + (e.message || '').slice(0, 200));
+    }
+    if (!fs.existsSync(ZIP_PATH)) throw new Error('build_zip.sh ran but produced no zip at ' + ZIP_PATH);
+  }
   return (fs.statSync(ZIP_PATH).size / 1024).toFixed(0) + ' KB';
 });
 check('round-trip extract + run validate', () => {
