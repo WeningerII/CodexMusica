@@ -353,13 +353,13 @@ Each reuses `const db = require('./q.js')`. Run from the package root or with
 ### 3d. Voice & preface lexicon (descriptor enrichment)
 
 `PREFACE_LEXICON` is 332 named bundles of descriptor tokens for **vocal/character**
-description (`sobbing`, `belting`, `whisper_intimate`, `growl_raspy`, …). Use it to enrich
-a voice chair's descriptors with consistent tokens; there is **no numeric op-model and no
-conflicts table**.
+description (`sobbing`, `belting`, `keening`, `wailing`, `crooning`, `purring`, …). Use it
+to enrich a voice chair's descriptors with consistent tokens; there is **no numeric
+op-model and no conflicts table**.
 ```bash
 node -e 'const db=require("./q.js");const p=db.byPreface["belting"];
 console.log(p.id,"=>",p.tokens.slice(0,8).join(", "))'
-# belting => high-energy, chest-dominant, powerful, forward-projection, sustained-tone, emotional-peak, belt-register
+# belting => projecting, chest-resonance-low-mid, vibrato-rich, late-Romantic-onward, ringing, blues-shouter, characteristic-cry, choir-blendable
 ```
 Pick a bundle whose name matches the intended delivery and fold a few tokens into the
 voice chair's `descriptors`. Keep the output free of impressionistic contradictions
