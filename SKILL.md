@@ -184,11 +184,14 @@ node -e 'console.log(require("./references/07_preface_lexicon.js").PREFACE_LEXIC
 
 ```bash
 grep -oE "name: '[^']*[Oo]ud[^']*'" references/02_instruments.js | head -2
-# name: 'Oud (fretless, Arabic/Turkish)'
-# name: 'Oud section (unison/heterophonic)'
+# name: 'Jingju role-type mechanism (… jing pressed-loud …)'   ← false positive ("l[oud]")
+# name: 'Fretless (oud-style neck)'                             ← a variant name, not the instrument
 ```
-Caveat: a substring pattern catches false positives (e.g. `[Ss]ax` also matches
-"Saxony"/"Saxhorns"). Records are pretty-printed over many lines, so `grep -c "^  { id:"`
+Caveat: a substring pattern catches false positives (here `[Oo]ud` matches "l**oud**") **and
+can miss the record you want** — the real instrument's name is
+`'ʿŪd (Arab/Mediterranean fretless lute)'` (id `oud`), whose non-ASCII spelling this pattern
+never matches. So grep is for rough locating only; resolve the actual record by **id** via
+`q.js` (`db.byInst['oud']`). Records are pretty-printed over many lines, so `grep -c "^  { id:"`
 does NOT count records — use the loader to count.
 
 ### D. `jq` works on the auxiliary `_*.json` files (real JSON), not the bundles.
@@ -289,17 +292,17 @@ Each reuses `const db = require('./q.js')`. Run from the package root or with
    ```
    Verified output:
    ```
-   electric_guitar_single_coil Electric guitar (single-coil) [electric_strings]
-   electric_bass Electric bass [electric_strings]
-   drum_kit Drum kit [percussion]
-   tonewheel_organ Tonewheel organ [keyboard]
+   electric_guitar_single_coil Solid-body electric guitar with single-coil pickups [electric_strings]
+   electric_bass Solid-body electric bass [electric_strings]
+   drum_kit Drum kit (Western) [percussion]
+   tonewheel_organ Drawbar tonewheel organ (with rotating-speaker cabinet) [keyboard]
    saxophone Saxophone (soprano / alto / tenor / baritone) [wind]
-   trumpet Trumpet [wind]
+   trumpet Trumpet / cornet / flugelhorn [wind]
    voice Voice [voice]
-   shekere Shekere [percussion]
-   congas Congas [percussion]
-   room: studio_emi_lagos_african (pro_studio_2inch_16_24)
-   archetype: arch_emi_lagos_african_70s era=1970-1980 mic=mic_condenser_ldc comp=comp_dbx_160_vca
+   shekere Shekere (West African beaded gourd) [percussion]
+   congas Congas / tumbadoras (Cuban) [percussion]
+   room: studio_emi_lagos_african (commercial_studio)
+   archetype: arch_emi_lagos_african_70s era=1965-1985 mic=condenser_ldc comp=comp_vari_mu
    tuning: twelve_tet
    ```
 3. **Assign one variant per relevant instrument part** (technique/voicing) from
@@ -343,7 +346,7 @@ Each reuses `const db = require('./q.js')`. Run from the package root or with
    ```bash
    node -e 'const db=require("./q.js");const r=db.byRoom["studio_emi_lagos_african"];
    console.log(r.id,"|",r.cluster,"|",r.descriptors.join("/"))'
-   # studio_emi_lagos_african | pro_studio_2inch_16_24 | punchy/analog-warm/tight
+   # studio_emi_lagos_african | commercial_studio | large-tropical/ensemble-volume/EMI-equipment-heritage
    ```
    (List clusters with `[...new Set(db.ROOMS.map(r=>r.cluster))]`.)
 3. **Tuning** (usually one): start from `tradition.tuning` (often `twelve_tet`). Mixing
@@ -395,7 +398,7 @@ flags below are verified; run from the repo root.
 |---|---|
 | Recipe for one tradition | `node scripts/recipe.js --tradition <id>` |
 | Staple multiple traditions (order = lead order) | `node scripts/recipe.js --traditions <id1>,<id2>` |
-| Weighted blend of two (0=A … 1=B) | `node scripts/recipe.js --diff <idA> <idB> --weight=0.7` |
+| Weighted blend of two (0=A … 1=B) | `node scripts/recipe.js --diff --weight=0.7 <idA> <idB>` |
 | Best-fit tradition for an axis target | `node scripts/recipe.js --axis-target "harm:2,density:2,intensity:2"` |
 | **Customize** a part's variant | `node scripts/recipe.js --tradition <id> --swap-variant=<inst>:<part>:<variant>` |
 | **Delete** instrument(s) from the ensemble | `node scripts/recipe.js --tradition <id> --exclude-instrument=<id>,<id>` |
@@ -405,9 +408,12 @@ flags below are verified; run from the repo root.
 | Explain variant picks / preface picks | `… --why` / `… --why-prefaces` (add `-json` for either) |
 
 Notes that bite:
-- `--diff` takes its two ids as **positional** args (`--diff <a> <b>`), not
-  `=`-joined. Keep `--swap-variant`/`--exclude-instrument` away from them or the
-  positionals get consumed.
+- `--diff` is a boolean flag, but the CLI's generic parser makes a *bare* `--diff`
+  swallow the next token — so `--diff <a> <b>` consumes `<a>` and dies with
+  `--diff requires two tradition ids`. **Protect it by putting a `--`flag immediately
+  after `--diff`**: `--diff --weight=0.7 <a> <b>` keeps both ids positional (verified).
+  `--weight` defaults to 0.5, so always include it to anchor the form, and keep
+  `--swap-variant`/`--exclude-instrument` *after* the two ids, not between them.
 - `--swap-variant` is `inst:part:variant`; multiple swaps separated by `;`.
   Validate the triple first via `db.partsFor(inst)` (§2) — recipe.js rejects
   unknown part/variant ids with exit 2.
@@ -419,7 +425,7 @@ Verified examples:
 ```bash
 node scripts/recipe.js --tradition delta_blues --swap-variant=voice:voice_register:falsetto
 node scripts/recipe.js --tradition afrobeat --exclude-instrument=saxophone,trumpet
-node scripts/recipe.js --diff delta_blues detroit_techno --weight=0.5
+node scripts/recipe.js --diff --weight=0.5 delta_blues detroit_techno
 ```
 
 ### 3g. Reshape a card toward a preface (inverse-configure)
@@ -556,7 +562,7 @@ Emit exactly this shape. **Required:** `meta.title`, and each `ensemble[]` item'
       "parts": [                                         // each part_id ∈ db.partsFor(instrument_id)
         { "part_id": "electric_technique",
           "variant_id": "electric_chicken_scratch",      // ∈ that part's variants
-          "descriptors": ["percussive-muted","rhythmic-scratch"] } ] }
+          "descriptors": ["chicken-scratch","midrange-forward"] } ] }
   ],
   "room_id": "studio_emi_lagos_african",                // exactly one
   "chain": { "archetype_id": "arch_emi_lagos_african_70s",  // resolves; supersedes inline
@@ -580,7 +586,7 @@ is a real variant of the single-coil guitar's `electric_technique` part:
   "ensemble": [
     { "instrument_id": "electric_guitar_single_coil",
       "parts": [ { "part_id": "electric_technique", "variant_id": "electric_chicken_scratch",
-                   "descriptors": ["percussive-muted","rhythmic-scratch","funk-canonical"] } ] },
+                   "descriptors": ["chicken-scratch","midrange-forward","clean"] } ] },
     { "instrument_id": "electric_bass", "parts": [] },
     { "instrument_id": "drum_kit", "parts": [] },
     { "instrument_id": "tonewheel_organ", "parts": [] },
@@ -594,15 +600,16 @@ is a real variant of the single-coil guitar's `electric_technique` part:
   "chain": { "archetype_id": "arch_emi_lagos_african_70s", "mic": null, "pre": null, "console": null, "comp": null, "eq": null, "medium": null },
   "tuning_id": "twelve_tet",
   "aesthetic_id": null,
-  "recipe": "classic West African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion. thick, nervy, narrative. percussive-muted rhythmic-scratch single coil electric guitar, fingerstyle electric bass, bronze drum kit, tonewheel organ Leslie, tenor saxophone, trumpet, shekere, congas. large-diaphragm condenser, Neve 1073 pre, Neve Class-A console, dbx 160 VCA compressor, Neve console EQ. sixteen-track two-inch tape.",
+  "recipe": "classic West African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion. thick, nervy, narrative. chicken-scratch midrange-forward clean single coil electric guitar, fingerstyle electric bass, bronze drum kit, tonewheel organ Leslie, tenor saxophone, trumpet, shekere, congas. large-diaphragm condenser, German tube V72-school preamp, German tube console, vari-mu tube compressor, Pultec-style passive program EQ. two-inch thirty-ips tape.",
   "validation": { "checked": true, "issues": [] }
 }
 ```
-(`electric_chicken_scratch` descriptors are `["percussive-muted","rhythmic-scratch",
-"funk-canonical"]` — verbatim from the data. The chain reflects afrobeat's real refs:
-inline `chain_mic` (condenser LDC), `chain_pre` (Neve 1073), `chain_console` (Neve 8028
-Class-A), `chain_medium` (16-track 2-inch tape), plus the archetype's `comp` (dbx 160
-VCA) and `eq` (Neve console EQ). The recipe contains none of afrobeat's exemplars
+(`electric_chicken_scratch` descriptors are `["chicken-scratch","midrange-forward",
+"clean"]` — verbatim from the data. Because the arrangement sets `chain.archetype_id`, the
+chain uses archetype `arch_emi_lagos_african_70s`'s components (which **supersede**
+afrobeat's inline `chain_*` per §4B): `mic=condenser_ldc`, `pre=pre_tube_german_v72`,
+`console=console_german_tube_50s`, `comp=comp_vari_mu`, `eq=eq_passive_program_pultec`,
+`medium=tape_30ips`. The recipe contains none of afrobeat's exemplars
 (`Fela Kuti, Tony Allen, Antibalas`). Caveat: variants are family-part-level, so the §6
 validator confirms a `variant_id` belongs to its part but cannot judge musical idiom —
 choose idiomatic variants yourself.)
@@ -780,7 +787,7 @@ if (typeof A.recipe === 'string') {
 }
 console.log(JSON.stringify({ ok: hard.length === 0, hard, soft, recipeLen: (A.recipe || '').length }, null, 1));
 ```
-On the §4 worked example: `{"ok":true,"hard":[],"soft":[],"recipeLen":431}` (verified).
+On the §4 worked example: `{"ok":true,"hard":[],"soft":[],"recipeLen":480}` (verified).
 On a deliberately broken arrangement (unknown instrument `NOPE`; a `brass_mute` part the
 acoustic guitar can't take; a real `acoustic_technique` part with a bogus
 `acoustic_moonwalk` variant; unknown room/tuning/aesthetic; a made-up archetype; and a
@@ -990,10 +997,11 @@ Recipe compile runs a **dedup**: no two cards may show the same preface in the r
 card claims its top-scoring preface; collisions are resolved by giving it to the highest-scoring card and
 bumping the losers to their *next-best*. With many cards in one tradition, the good on-genre prefaces get
 claimed early and later cards cascade **past their whole top-N** to a leftover that can be cross-cultural
-— e.g. a bluegrass fiddle labeled `erhuang` (Chinese opera), or a tarab violin labeled `mor-lam` (Thai).
+— e.g. a bluegrass fiddle labeled `erhuang` (Chinese opera), or a tarab violin labeled `mor-lam-storytelling` (Thai mor lam).
 Worst case observed (dogfooding): a Notre-Dame-organum recipe whose voices cascaded to `street-pulsing`
-(club) and pipe organ to `breaks-skittering` (breakbeat), because the chant voice had only ~1 compatible
-preface in the lexicon.
+(club) and pipe organ to `breaks-skittering` (breakbeat) — once every apt sacred preface had been claimed
+by a higher-scoring card, the losers cascaded down the shared ranked list (the cause is generic-token
+overlap, *not* a shallow pool — see below).
 
 - **`card.preface` is NOT the rendered preface.** Dedup runs at *compile* time into a render-only
   override (`_RECIPE_PREFACE_OVERRIDES`, consumed by `_resolvePreface`); the stored `card.preface` is left
