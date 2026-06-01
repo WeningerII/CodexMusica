@@ -31,8 +31,9 @@ module.exports = [
       sourceType: 'script',
       globals: {
         ...globals.browser,
-        // Catalog data tables (references/*.js) and the family-parts merge
-        // (scripts/_merge.js) are injected into the app at build time.
+        // Catalog data tables (references/*.js), the family-parts merge
+        // (scripts/_merge.js), and the card-descriptor harvester
+        // (scripts/_card_descriptors.js) are injected into the app at build time.
         ARRANGEMENTS: 'readonly',
         AXIS_DEFINITIONS: 'readonly',
         CHAIN_ARCHETYPES: 'readonly',
@@ -55,6 +56,8 @@ module.exports = [
         TREE_NODES: 'readonly',
         TUNINGS: 'readonly',
         mergeFamilyParts: 'readonly',
+        harvestDescriptors: 'readonly',
+        _cardDescriptorSet: 'readonly',
       },
     },
     rules: {

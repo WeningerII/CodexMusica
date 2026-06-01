@@ -350,14 +350,22 @@ check('tradition-signature parity (app.js inline ↔ canonical JSON)', () => {
 // If either invariant breaks, fail loudly: the divergence is a known design
 // choice, not a bug to be "fixed" by silent equalization.
 check('card-descriptor semantics aligned (production vs audit)', () => {
-  const htmlSrc = fs.readFileSync(path.join(ROOT, 'src/app.js'), 'utf8');
+  // The production harvester is now SINGLE-SOURCE in scripts/_card_descriptors.js
+  // (the @inline `harvestDescriptors` core) and injected into codex.html by
+  // build_html.js. There is no hand-duplicated copy in src/app.js anymore, so we
+  // read the production body from the built HTML (proving the inject happened)
+  // and still guard the match_tokens divergence vs the audit harvester.
   const prodNodeSrc = fs.readFileSync(path.join(ROOT, 'scripts/_card_descriptors.js'), 'utf8');
   const auditNodeSrc = fs.readFileSync(path.join(ROOT, 'scripts/_matcher.js'), 'utf8');
+  const builtHtml = fs.readFileSync(HTML_PATH, 'utf8');
 
-  // Extract _cardDescriptorSet body from HTML template
-  const m = htmlSrc.match(/function _cardDescriptorSet\(card\)\s*\{([\s\S]*?)\n\}/);
-  if (!m) throw new Error('_cardDescriptorSet not found in HTML template');
+  // The injected core in the built HTML.
+  const m = builtHtml.match(/function harvestDescriptors\(card, lookups\)\s*\{([\s\S]*?)\n\}/);
+  if (!m) throw new Error('harvestDescriptors not found in built codex.html — build_html inject missing');
   const embedBody = m[1];
+  if (!/function _cardDescriptorSet\(card\)/.test(builtHtml)) {
+    throw new Error('_cardDescriptorSet browser adapter not found in built codex.html');
+  }
 
   // Extract cardDescriptors body from _matcher.js
   const m2 = auditNodeSrc.match(/function cardDescriptors\(card\)\s*\{([\s\S]*?)\n\}/);
