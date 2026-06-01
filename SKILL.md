@@ -920,10 +920,14 @@ nothing else. There are exactly these levers, and no others:
 | **Preface** | `card.preface` + `card.prefaceAuto` | the per-card affective label; auto-derived unless locked |
 
 > **Not levers for the Rich/browser recipe:** `ARRANGEMENTS` and `PRODUCTION_AESTHETICS` do **not**
-> enter `compileRecipeStack` at all (verified: 0 references in the browser compile path). They are
-> **CLI-only** — `recipe.js --arrangement=<id>` and a tradition's `production_aesthetic` field feed the
-> `translate.js` renderer, which is a *different* output from the four named formats. If a user asks for
-> the "Rich" recipe, arrangement/aesthetic are irrelevant; don't reach for them.
+> enter `compileRecipeStack` at all (verified: 0 references in the browser compile path; its signature is
+> `compileRecipeStack(cards, format, options)` — no arrangement param). They are **CLI-only** —
+> `recipe.js --arrangement=<id>` and a tradition's `production_aesthetic` field feed the `translate.js`
+> renderer, a *different* output from the four named formats. Verified both directions:
+> `recipe.js --tradition delta_blues --arrangement twelve_bar_blues_repeated` injects a clause
+> (`twelve-bar blues repeated, twelve bar cyclic, i iv v foundation, call and response within cycle`)
+> that the browser Rich for the same tradition does **not** contain. If a user asks for the "Rich"
+> recipe, arrangement/aesthetic are irrelevant; don't reach for them.
 
 ### 9.2 The chain stages — SCORED vs cosmetic (non-obvious, matters)
 
@@ -982,25 +986,88 @@ then set `card.parts[partId] = periodVariantId` (or via the CLI, `recipe.js --sw
 
 ### 9.4 GOTCHA — preface dedup can cascade to a semantically-distant label
 
-Recipe compile runs a **dedup**: no two cards may show the same preface. Each card claims its
-top-scoring preface; collisions are resolved by giving it to the highest-scoring card and bumping the
-losers to their *next-best*. With many cards in one tradition, the good on-genre prefaces get claimed
-early and later cards cascade **past their whole top-N** to a leftover that can be cross-cultural —
-e.g. a bluegrass fiddle labeled `erhuang` (Chinese opera), or a tarab violin labeled `mor-lam` (Thai).
+Recipe compile runs a **dedup**: no two cards may show the same preface in the rendered output. Each
+card claims its top-scoring preface; collisions are resolved by giving it to the highest-scoring card and
+bumping the losers to their *next-best*. With many cards in one tradition, the good on-genre prefaces get
+claimed early and later cards cascade **past their whole top-N** to a leftover that can be cross-cultural
+— e.g. a bluegrass fiddle labeled `erhuang` (Chinese opera), or a tarab violin labeled `mor-lam` (Thai).
+Worst case observed (dogfooding): a Notre-Dame-organum recipe whose voices cascaded to `street-pulsing`
+(club) and pipe organ to `breaks-skittering` (breakbeat), because the chant voice had only ~1 compatible
+preface in the lexicon.
 
+- **`card.preface` is NOT the rendered preface.** Dedup runs at *compile* time into a render-only
+  override (`_RECIPE_PREFACE_OVERRIDES`, consumed by `_resolvePreface`); the stored `card.preface` is left
+  untouched. So several cards can show the same `card.preface` value while the *recipe* renders them all
+  distinct. When debugging prefaces, **read the rendered recipe, not `card.preface`.**
 - **It is not a bad match** — the card's *true* top prefaces are right; dedup just couldn't give it one.
-- **Severity scales inversely with the tradition's compatible-preface pool depth.** Token-rich
-  traditions (afrobeat) stay coherent even at 21 cards; small same-flavor traditions exhaust good
-  options fast and cascade sooner.
-- **Mitigation (verified): lock the iconic cards' prefaces.** Set a card's preface by hand and it is
+- **Root cause is generic-token overlap, not a shallow pool.** The matcher is pure token-overlap with no
+  cultural awareness. Culturally-distant prefaces share *generic* tokens (`thick`, `grounded`,
+  `speech-derived`, `high-falsetto`) with a card's descriptors, so they can score **as high as** the
+  apt ones — e.g. a default chant voice ranks `jeong` (Korean) and `nadryv` (Russian) at the same 0.56
+  as sacred prefaces. (The pool itself is usually deep — that same chant voice has ~106 scoring prefaces,
+  not a handful; an earlier "shallow pool" reading was a measurement artifact of scoring a parts-stripped
+  card.) So even the *top* picks can be cross-cultural, and **many same-tradition cards amplify it**:
+  the more cards competing for the same high-scorers, the further down the shared ranked list the losers
+  cascade.
+- **Mitigation (verified) — an escalating ladder.** Set a card's preface by hand and it is
   **locked** (`prefaceAuto = false`) — dedup skips it and *reserves* its id, so the auto cards flow
-  around it and land nearer. Lock the lead vocal + the 1-2 signature instruments:
+  around it.
+  - *Few same-instrument cards:* locking the lead vocal + 1-2 signature instruments is usually enough.
+  - *Many cards competing (e.g. a big vocal/choir section, or a blend):* locking the lead alone only frees
+    one id — the others still cascade. **Lock EVERY iconic card** (one apt preface each). Verified on the
+    organum case: locking voice→`inshad-cantillating`, choir→`hymnic`, organ→`liturgical` fully rescued the
+    primary positions (the lexicon does carry sacred prefaces: `inshad-cantillating, oli-chanting,
+    liturgical, hymnic, monastic, doxological, devotional, sepulchral, penitential, sermonizing, oracular,
+    …` — confirm an id exists before relying on it; e.g. there is no bare `cantillating`, only
+    `inshad-cantillating`).
   ```js
   commitPrefaceChange(voiceCard, 'keening');   // locks it; reshapes settings toward the preface (see §3g)
   // or label-only, no reshape:  card.preface = 'keening'; card.prefaceAuto = false;
   ```
   (Locking via `commitPrefaceChange` runs the inverse and may move the card's room/tuning/parts — see §3g.
   If you've already period-pinned the chain, re-pin it after locking.)
+
+### 9.4a GOTCHA — the same instrument across traditions COLLAPSES into one chunk (lossy in blends)
+
+The Rich/Tags renderers group chunks by **trailing token (the instrument noun)**: two-plus chunks ending
+in the same noun merge into one, prefaces stacked. Within one tradition this is tidy (a 12-piece
+percussion bench renders as compact merged chunks). **In a blend it is lossy:** if `voice` appears in
+4 stapled traditions, all four voice cards merge into a single `voice` chunk with their prefaces piled in
+front (e.g. `street-pulsing rasping apollonian spoken-flowing voice`) — you **cannot** show "trap voice"
+and "chant voice" as separate lines. Past ~3 same-noun cards the stack becomes an unreadable adjective
+pile (a 41-voice stress build stacked 41 distinct preface words before one `voice:`). It never errors and
+stays under ceiling, but the per-tradition distinction is gone. **If you need two traditions' takes on the same
+instrument to read distinctly, give them different instrument *ids*** (e.g. `voice` vs a specific vocal
+variant, or `violin_orchestral` vs `fiddle`) so they don't share a trailing noun — or accept the merge.
+
+### 9.4b GOTCHA — the environment (tuning/room/chain) comes from the FIRST card only
+
+The env section of a recipe is built from `cards[0]` alone — one shared sonic environment for the whole
+recipe. Consequences:
+- Only the **primary (first) card's** tuning/room/chain render as env chunks. Other cards' tunings survive
+  *only* as their own instrument-level descriptors, never as an env tuning. A 5-tradition build with five
+  incompatible tunings (12-TET + maqam + shruti + just + Pythagorean) renders just **one** env
+  tuning — the first card's — and looks perfectly clean; the clash is **invisible, not flagged**.
+- To make a particular tuning/room/chain drive the recipe, put that card **first** (reordering the array
+  moves the env, confirmed). This is the same order-lever as the header (§9.1).
+- Therefore **tuning coherence is the agent's judgment call, not something the output will surface** — the
+  engine cannot show a tuning conflict because it only ever emits one env tuning. If you stapled
+  incompatible-tuning traditions on purpose, fine; if not, the recipe won't warn you.
+
+### 9.4c The engine is PERMISSIVE — it never validates your ids; §6 checks are mandatory
+
+Verified by feeding deliberately-broken cards: an invalid part-variant id, a nonexistent tuning, and a
+nonexistent room were all **silently dropped** (no throw, no raw id in the output — the valid parts still
+rendered). A preface force-locked to a zero-overlap value was **held verbatim** (locks are absolute), and
+**locked duplicates are NOT deduped** — three cards locked to the same preface all render it (dedup only
+governs `prefaceAuto !== false` cards). Takeaways:
+- The engine will not reject or flag a bad id; it just omits it. A recipe can **silently lack** a tuning
+  or part you thought you set. So §6's "all ids resolve" is **mandatory, not optional** — validate before
+  emitting.
+- You *can* deliberately force duplicate prefaces by locking them (dedup won't touch locked cards).
+- Empty card set → `compileRecipeStack` returns `''` (all formats). Guard against emitting an empty recipe
+  after a delete-to-empty. Conversely, a **sparse** recipe is *verbose*, not short: the trim cascade
+  expands per-instrument detail to fill the budget (a 2-card build dumped ~25 descriptors on a piano).
 
 ### 9.5 Pre-flight checklist — run before emitting a recipe for a specific recording
 
