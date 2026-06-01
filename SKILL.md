@@ -893,3 +893,153 @@ These are in §3 — cross-referenced here for completeness:
 documentation gap, not a missing feature — the engine is shared. Check `scripts/` (every
 file has a usage header) and `tests/ui_capability_inventory.md` (the canonical list of
 GUI surfaces), and prefer adding a thin script wrapper over reimplementing engine logic.
+
+---
+
+## 9. Building a faithful recipe — the complete checklist
+
+§3 shows the happy path. This section is the **exhaustive** reference for getting a recipe to
+faithfully match a *specific real recording* — every lever that shapes the output, the gotchas where
+a default silently overrides your intent, and a pre-flight checklist. All of it is verified by driving
+the real engine; the gotchas are real (each bit during dogfooding).
+
+### 9.1 The complete set of levers (what actually shapes a Rich recipe)
+
+A browser/Rich recipe (`compileRecipeStack(cards, 'rich', {})`) is built **entirely from the cards** —
+nothing else. There are exactly these levers, and no others:
+
+| Lever | Where it lives | What it controls in the output |
+|---|---|---|
+| **Which traditions** | `card.traditionId` per card | the genre header + each card's signature-token baseline + which prefaces score well |
+| **Tradition ORDER** | order of cards in the array | header reads `Name1 + Name2, …` in **first-appearance order**; reorder cards to reorder the header (and the per-instrument order) |
+| **Which instruments** | one card per instrument | the instrument chunks (the body of the recipe) |
+| **Instrument PART variants** | `card.parts[<partId>] = <variantId>` | the post-noun descriptor stack per instrument (material/technique/lineage/**era**) |
+| **Tuning** | `card.tuning` | the tuning chunk (e.g. `arabic-maqam-framework: microtonal-bend`) |
+| **Room** | `card.room` | the room chunk (acoustics) |
+| **Signal chain** | `card.chain.{mic,pre,comp,eq,medium,console,amp,fx}` | the chain chunks (gear) **and** (for 4 of the 8 stages) the prefaces |
+| **Preface** | `card.preface` + `card.prefaceAuto` | the per-card affective label; auto-derived unless locked |
+
+> **Not levers for the Rich/browser recipe:** `ARRANGEMENTS` and `PRODUCTION_AESTHETICS` do **not**
+> enter `compileRecipeStack` at all (verified: 0 references in the browser compile path). They are
+> **CLI-only** — `recipe.js --arrangement=<id>` and a tradition's `production_aesthetic` field feed the
+> `translate.js` renderer, which is a *different* output from the four named formats. If a user asks for
+> the "Rich" recipe, arrangement/aesthetic are irrelevant; don't reach for them.
+
+### 9.2 The chain stages — SCORED vs cosmetic (non-obvious, matters)
+
+`CHAIN_SECTIONS` = `fx, amp, mic, pre, comp, eq, medium, console`. They split into two classes:
+
+- **SCORED** — `mic`, `pre`, `medium`, `console`. Their item `descriptors` are pooled into the card's
+  descriptor set (`_card_descriptors.js`), so **changing these changes which preface auto-selects.**
+- **Cosmetic-only** — `fx` (multi-select), `amp`, `comp`, `eq`. They render in the recipe text but do
+  **not** affect preface scoring.
+
+Practical consequence: if you set a period-correct mic/pre/medium/console, expect the preface to move
+too (that's correct). If you want to change the *sound description* without disturbing prefaces, the
+cosmetic stages are safe.
+
+### 9.3 GOTCHA — derived/inherited state does NOT auto-propagate (override per-axis)
+
+The single biggest source of "the recipe says the wrong thing." Three independent instances, all real:
+
+**(a) Relocating `room` does NOT move the `chain`.** A card's chain comes from the tradition's inline
+`chain_*` fields, fixed at `importTradition` time — not from the room and not from the chain archetype.
+So setting `card.room` to a period studio leaves an anachronistic chain behind (e.g. a "1968 Düsseldorf
+Kling Klang" room with an "SSL-clone 1989" chain). **Fix:** set `card.chain` explicitly to the period
+archetype's components. To read an archetype's components:
+```bash
+node scripts/list.js --archetypes 2>&1 | grep -A1 arch_acoustic_horn_pre1925
+# arch_acoustic_horn_pre1925  era=1900-1925 ...
+#   components: mic=mic_acoustic_horn_pre1925  comp=comp_none  eq=eq_none  medium=shellac_78
+```
+then in the build: `card.chain = { fx:[], amp:null, mic:'mic_acoustic_horn_pre1925', pre:null, comp:null, eq:null, medium:'shellac_78', console:null }`.
+
+**(b) `makeCard(id, {traditionId})` does NOT inherit tuning/room/chain.** It sets
+`tuning:null, room:null, chain:emptyChain()` — only `importTradition` populates those from the
+tradition row. An instrument added via `makeCard` (the agent equivalent of `--add-instrument`) comes out
+**bare** and renders without tuning/room/chain context. **Fix — copy from a sibling card** (the clean idiom):
+```js
+const sib = cards[0];  // any already-populated card in the same tradition
+const c = makeCard('riq', { traditionId: TRAD, tuning: sib.tuning, room: sib.room, chain: { ...sib.chain } });
+```
+
+**(c) PART variants can carry an anachronistic ERA — from defaults *or* from preface-reshaping.**
+Era/date lives inside part-variant `descriptors`, and era-bearing parts are **systemic across all 11
+families** (e.g. `voice.voice_multitrack_stack`, `voice.voice_processing_chain`, `piano_pitch_standard`,
+`cymbal_alloy`, pickup/string/lineage parts on guitars). Two ways a wrong era sneaks in: (1) the
+instrument's **default** variant is modern, or (2) **locking a preface** via `commitPrefaceChange` runs
+the inverse (§3g), which **re-picks** parts toward the preface's tokens and can land on an era-stamped
+variant — in dogfooding, locking a 1949 vocal to `keening` reshaped its `voice_multitrack_stack` to a
+*late-1980s-reverb-saturated-bus* variant, stamping "late-1980s" on the recipe. The signal-chain tweak
+can't touch this — it's a *part*, a different axis. **Fix:** after any preface lock, re-check and
+explicitly set era-bearing part variants. Find which
+parts carry era on an instrument:
+```bash
+node -e 'const db=require("./scripts/_loader.js");const i=db.INSTRUMENTS.find(x=>x.id==="voice");
+for(const p of i.parts){for(const v of (p.variants||[])){if(/\b(19|20)\d{2}\b|late-|early-|-era/.test((v.descriptors||[]).join(" "))){console.log(p.id,"->",v.id);break;}}}'
+```
+then set `card.parts[partId] = periodVariantId` (or via the CLI, `recipe.js --swap-variant=inst:part:variant`).
+
+### 9.4 GOTCHA — preface dedup can cascade to a semantically-distant label
+
+Recipe compile runs a **dedup**: no two cards may show the same preface. Each card claims its
+top-scoring preface; collisions are resolved by giving it to the highest-scoring card and bumping the
+losers to their *next-best*. With many cards in one tradition, the good on-genre prefaces get claimed
+early and later cards cascade **past their whole top-N** to a leftover that can be cross-cultural —
+e.g. a bluegrass fiddle labeled `erhuang` (Chinese opera), or a tarab violin labeled `mor-lam` (Thai).
+
+- **It is not a bad match** — the card's *true* top prefaces are right; dedup just couldn't give it one.
+- **Severity scales inversely with the tradition's compatible-preface pool depth.** Token-rich
+  traditions (afrobeat) stay coherent even at 21 cards; small same-flavor traditions exhaust good
+  options fast and cascade sooner.
+- **Mitigation (verified): lock the iconic cards' prefaces.** Set a card's preface by hand and it is
+  **locked** (`prefaceAuto = false`) — dedup skips it and *reserves* its id, so the auto cards flow
+  around it and land nearer. Lock the lead vocal + the 1-2 signature instruments:
+  ```js
+  commitPrefaceChange(voiceCard, 'keening');   // locks it; reshapes settings toward the preface (see §3g)
+  // or label-only, no reshape:  card.preface = 'keening'; card.prefaceAuto = false;
+  ```
+  (Locking via `commitPrefaceChange` runs the inverse and may move the card's room/tuning/parts — see §3g.
+  If you've already period-pinned the chain, re-pin it after locking.)
+
+### 9.5 Pre-flight checklist — run before emitting a recipe for a specific recording
+
+Research first (the tool's slots tell you what to find): **era, region, genre lineage, voice character,
+instrumentation, recording technology**. Then:
+
+1. **Tradition** — find it (`nearest_neighbor.js --type tradition --keyword …`, §8). Read its `lineage`
+   and `extras.description` to confirm era/region fit. Prefer a tradition whose room/tuning already match
+   over one you'd have to heavily retrofit.
+2. **Instruments** — `importTradition` for the canonical roster; add/remove to match the real session
+   (`--add-instrument` / `--exclude-instrument`, §3f). For every **added** card, set
+   `{traditionId, tuning, room, chain}` from a sibling (§9.3b).
+3. **Period accuracy — align ALL THREE era-bearing axes** (§9.3): (a) signal **chain** to the period
+   archetype's components, (b) **room** to a period-appropriate space, (c) era-bearing **part variants**
+   (don't trust modern defaults). Cross-check the rendered recipe for stray modern tokens
+   (`grep -oE '(19|20)[0-9]{2}'`-style sanity on the output) — a 1949 song must not contain "1980s".
+4. **Tuning** — set to the tradition's vocabulary tuning (maqam/shruti/pentatonic/etc.) or `twelve_tet`.
+   If two cards use tunings from different families (Western vs maqam vs gamelan), that's a hard flag
+   unless intentional (§6.4).
+5. **Voice** — if voiced, set `voice_register / voice_quality / voice_vibrato` (and the era-bearing
+   `voice_multitrack_stack` / `voice_processing_chain`) to match the singer; don't leave the modern-pop
+   defaults.
+6. **Prefaces** — let them auto-derive, then **lock the lead + signature instruments** if you see a
+   cross-cultural cascade (§9.4). Iterate: a hand-locked anchor reshapes the others' cascade.
+7. **Order** — put the primary tradition's cards first (header leads with it); reorder cards to reorder
+   the header and instrument sequence.
+8. **Compile + validate** — `compileRecipeStack(cards, 'rich', {})` (§3h), then run §6:
+   ≤1000 chars, no artist/band/exemplar names, no axis numbers, all ids resolve, sealed with `.`.
+9. **Iterate, don't one-shot** — build 2-3 variants (with/without a stapled tradition, different period
+   archetypes, different preface locks) and compare. The catalog rewards play.
+
+### 9.6 Quick reference — "the recipe says X, I wanted Y"
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| Right room, wrong-era gear | chain ≠ room (§9.3a) | set `card.chain` to the period archetype's components |
+| Added instrument has no tuning/room/chain | `makeCard` doesn't inherit (§9.3b) | copy `{tuning,room,chain}` from a sibling card |
+| Modern year on an old recording | default part variant carries era (§9.3c) | swap the era-bearing `card.parts[partId]` |
+| Cross-cultural preface on a card | dedup cascade (§9.4) | lock the iconic cards' prefaces |
+| Changing mic/pre/medium/console moved the preface | those stages are SCORED (§9.2) | expected; use cosmetic stages (fx/amp/comp/eq) to avoid it |
+| Recipe over 1000 chars | (rare) trim cascade exhausted | drop a low-priority instrument, or accept the `[+N hidden]` notice |
+| Arrangement/aesthetic not in Rich output | they're CLI-only (§9.1) | use `recipe.js` if you need them; they don't apply to the four browser formats |
