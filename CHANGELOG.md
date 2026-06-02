@@ -7,6 +7,39 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased] — production hardening
 
 ### Added
+- `scripts/audit_coherence.js` (`npm run audit:coherence`): a substantive
+  **coherence** auditor that complements `validate` (reference resolution) and
+  `audit` (token/descriptor health) by checking that a tradition's fields are
+  mutually consistent — the class of issue that passes every structural gate
+  because a generic default was stamped early and never customized. Checks:
+  archetype↔explicit-medium recording-era clash, voice-multitrack-stack era vs
+  medium, stamped `voice_tradition: modern_pop_vocal_training` on traditional
+  forms (with palette suggestions), precise non-12-TET tuning contradictions
+  (pentatonic/modal correctly excluded), plus advisory environment-collapse and
+  single-instrument reports. `--json` / `--full` / `--section=` / `--strict`.
+- `scripts/_apply_trad_edits.js`: surgical, id-scoped field editor for
+  `05_traditions.js` (one tradition per line). Asserts the prior value and a
+  unique, delimiter-anchored match before writing, so an edit can never corrupt
+  a neighbouring field (e.g. top-level `tuning` vs the `string_tuning` part).
+
+### Changed
+- Tradition defaults refined (61 traditions; recipe outputs re-snapshotted, all
+  regression/equivalence gates green, `codex.html` rebuilt):
+  - **Recording-era coherence (21):** corrected anachronistic `chain_archetype`
+    labels and the explicit medium/voice-multitrack stamps that contradicted
+    them — e.g. modern digital genres (reggaeton, merengue urbano, bachata,
+    cumbia electrónica, sertanejo universitário, reggae fusion) no longer carry
+    1950s Kingston/Havana tape archetypes; vintage forms (Lebanese tarab-pop,
+    Sahel praise) no longer carry a modern-DAW archetype over a researched tube
+    chain; Minneapolis synth-funk moved off a 2010s Melodyne stack.
+  - **Vocal-tradition defaults (43):** replaced the catalog default
+    `modern_pop_vocal_training` with the accurate vocal lineage on clearly
+    traditional forms — Sardinian/Corsican/Balkan polyphony → Mediterranean
+    demotic, Irish/Breton lament → sean-nós, Scottish/Hebridean → Gaelic,
+    Japanese/Korean folk → min'yō/minsogak, Maghrebi/Levantine art-song → maqām,
+    Yoruba dirge → Yoruba tonal, sacred-steel/prison-song → gospel. Heritage-named
+    but modern-pop-sung genres (baroque pop, mandopop, Greek rock) were left as-is.
+
 - Project scaffold: `package.json` (declared dev dependencies, `npm run` command
   surface, `engines.node >= 22`), committed lockfile, ESLint flat config, Prettier,
   `.gitignore`, `.editorconfig`, `README.md`, this changelog, and `LICENSE`.
