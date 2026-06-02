@@ -12932,6 +12932,64 @@ INSTRUMENTS.push({
         { id: 'thunder_sheet_struck', name: 'Struck with mallet', descriptors: ['booming-crash', 'metallic-roar'], match_tokens: ['orchestral', 'dramatic'] },
       ] },
     ]
+  },
+  {
+    id: 'ukulele',
+    name: 'Ukulele',
+    family: 'acoustic_strings',
+    class: 'plucked_string_lead',
+    axes: { pitchFix: 0, sustain: -1, polyphony: 1, harmonicity: 1, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'ukulele',
+    parts: [
+      { id: 'ukulele_size', name: 'Size / tuning', variants: [
+        { id: 'uke_soprano', default: true, name: 'Soprano (re-entrant gCEA, brightest)', descriptors: ['bright', 'plinky', 'cheerful'], match_tokens: ['hawaiian', 'folk', 'pop'] },
+        { id: 'uke_concert', name: 'Concert (re-entrant gCEA, fuller)', descriptors: ['warm-bright', 'balanced'], match_tokens: ['hawaiian', 'folk'] },
+        { id: 'uke_tenor', name: 'Tenor (gCEA or linear, richer)', descriptors: ['rich', 'resonant', 'fuller-low'], match_tokens: ['hawaiian', 'jazz', 'solo'] },
+        { id: 'uke_baritone', name: 'Baritone (linear DGBE, deepest)', descriptors: ['mellow', 'guitar-like', 'deep'], match_tokens: ['folk', 'jazz'] },
+      ] },
+    ]
+  },
+  {
+    id: 'clavichord',
+    name: 'Clavichord',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: -1, polyphony: 2, harmonicity: 1, register: 0, range: 1, articulation: 0, transduction: -2, dynamics: -2 },
+    short: 'clavichord',
+    parts: [
+      { id: 'clavichord_type', name: 'Type', variants: [
+        { id: 'clavichord_fretted', default: true, name: 'Fretted (gebunden — tangents share strings)', descriptors: ['intimate', 'delicate', 'touch-sensitive', 'bebung-vibrato'], match_tokens: ['baroque', 'renaissance', 'early-music'] },
+        { id: 'clavichord_unfretted', name: 'Unfretted (bundfrei — string per note)', descriptors: ['expressive', 'fuller-intimate'], match_tokens: ['baroque', 'classical', 'early-music'] },
+      ] },
+    ]
+  },
+  {
+    id: 'davul',
+    name: 'Davul (Anatolian double-headed drum)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -2, range: 0, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'davul',
+    parts: [
+      { id: 'davul_voice', name: 'Voice / region', variants: [
+        { id: 'davul_bass_treble', default: true, name: 'Bass head (tokmak mallet) + treble head (çubuk switch)', descriptors: ['booming-bass', 'sharp-treble', 'outdoor', 'processional'], match_tokens: ['turkish', 'anatolian', 'davul-zurna', 'wedding'] },
+        { id: 'davul_tapan', name: 'Tapan (Balkan variant)', descriptors: ['deep-thud', 'driving'], match_tokens: ['balkan', 'macedonian', 'bulgarian', 'roma'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gadulka',
+    name: 'Gadulka (Bulgarian bowed fiddle)',
+    family: 'bowed',
+    class: 'bowed_string',
+    axes: { pitchFix: -2, sustain: 2, polyphony: -1, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'gadulka',
+    parts: [
+      { id: 'gadulka_type', name: 'Type', variants: [
+        { id: 'gadulka_sympathetic', default: true, name: 'With sympathetic strings (3 melody A-E-A + ~10 resonating)', descriptors: ['ringing-resonance', 'nasal-bright', 'ornamented'], match_tokens: ['bulgarian', 'balkan', 'thracian'] },
+        { id: 'gadulka_plain', name: 'Plain (melody strings only, older form)', descriptors: ['raw-fiddle', 'reedy'], match_tokens: ['balkan', 'traditional', 'village'] },
+      ] },
+    ]
   });
 </script>
 <script>// ─── 03_rooms_chains_tunings.js ───

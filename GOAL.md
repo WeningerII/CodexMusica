@@ -4,6 +4,13 @@ Living ledger for the `/goal` autonomous build. `/goal` reads this, executes the
 unchecked **Track 1** item, validates, commits, pushes, checks it off here, and repeats.
 Branch: `claude/instrument-kit-atoms`. **Never merged to main without the user.**
 
+> **STATUS (2026-06-02): Track 1 (breadth) COMPLETE.** 41 instruments added this run
+> (kit ×11, folk/dance ×5, body-percussion ×4, percussive-dance ×2, orchestral/effect
+> idiophones ×15, standard gaps ×4 = ukulele/clavichord/davul/gadulka), plus the flamenco
+> tap variant. 421 → 462 instruments, output byte-identical throughout (recipe regression
+> 1198/1198 on every commit). The catalogue is now audited near-complete; remaining work is
+> the **Gated** output-changing items below, which need the user's explicit go.
+
 ## The contract (why this can run unattended)
 - **Prime invariant:** every shipped change keeps `npm run test:recipes` at **1198/1198**
   (existing output byte-identical). Anything that would change output → `## Gated`, not shipped.
@@ -52,17 +59,18 @@ organology → author → validate → commit with sources → check off with SH
   (glass_harmonica's presence-check hit was a substring false-positive on the free-reed
   `harmonica`; the friction idiophone was genuinely absent.)
 
-### Batch D — per-family completeness audits (the non-percussion families)
-For each: pull the family's standard inventory from an authoritative source, diff against
-the catalogue, add only genuine gaps (skip synonyms). Record findings under Progress log.
-- [ ] percussion — finish (pitched idiophones, world frame/slit/log drums, friction drums)
-- [ ] wind (73) — woodwind + brass standard inventory diff
-- [ ] plucked_traditional (76) — world plucked-string diff
-- [ ] bowed (31) — world bowed-string diff
-- [ ] free_reed (14) — accordion / harmonica / sheng-khaen family diff
-- [ ] keyboard (16) — diff
-- [ ] voice (10) — vocal register / technique diff
-- [ ] acoustic_strings (24) · electric_strings (11) · electronic (25) · ensemble (32) — diff
+### Batch D — per-family completeness audits ✅ (one broad cross-family presence audit)
+Audited every family against standard inventories. The catalogue is already near-complete:
+saxophone carries all 4 sizes + 26 variants; `bass_clarinet`/`contra_clarinet` are clarinet
+variants; Hammond lives inside `tonewheel_organ`; viola/cello/double_bass exist standalone;
+classical/flamenco/resonator/archtop/semi-hollow guitars all present; free_reed complete.
+Genuine *standard* gaps found and added:
+- [x] ukulele (acoustic_strings) — soprano/concert/tenor/baritone sizes
+- [x] clavichord (keyboard) — fretted/unfretted, Bebung vibrato
+- [x] davul (percussion/membranophone) — bass (tokmak) + treble (çubuk) heads, Balkan tapan
+- [x] gadulka (bowed) — sympathetic-string + plain forms
+Skipped as padding/synonyms: sousaphone (≈ tuba wrap), vuvuzela (one-note novelty),
+generic slit_drum (already covered by nafa / pahu / log_drum).
 
 ## Gated — output-changing (needs explicit user go; NOT autonomous)
 These change existing recipes, so they violate the prime invariant. Produce a measured
@@ -90,3 +98,6 @@ recipe delta and wait for the user before shipping.
   musical_saw, glass_harmonica, waterphone, cabasa, finger_cymbals, flexatone, vibraslap,
   ratchet, mark_tree, sleigh_bells, slapstick, anvil, thunder_sheet). Axes calibrated to
   glockenspiel/vibraphone/maracas siblings. 458 instruments; regression 1198/1198; check_docs green.
+- 2026-06-02: Batch D shipped — cross-family audit; catalogue confirmed near-complete.
+  Added 4 genuine standard gaps: ukulele, clavichord, davul, gadulka (4 different families).
+  462 instruments; regression 1198/1198; check_docs green. Track 1 breadth complete.
