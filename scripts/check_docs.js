@@ -66,9 +66,6 @@ const EXCLUDED_PREFIXES = [
 const EXCLUDED_FILES = [
   'README.md',
   'CHANGELOG.md',
-  // GOAL.md is the /goal autonomous-build ledger: its "~N traditions" figures are
-  // approximate scope notes for pending work, not canonical catalogue totals.
-  'GOAL.md',
 ];
 
 const STATUS_RE = /\*\*STATUS:\*\*\s+(SHIPPED|ACTED ON|MOSTLY SHIPPED)/;
