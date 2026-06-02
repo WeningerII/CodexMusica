@@ -11223,6 +11223,7 @@ const INSTRUMENTS = [
         { id: 'tap_rhythm_metal', default: true, name: 'Rhythm/jazz tap (aluminum taps, toe and heel)', descriptors: ['metallic-click', 'syncopated', 'rhythm-tap'], match_tokens: ['jazz', 'rhythm-tap', 'hoofing'] },
         { id: 'tap_broadway', name: 'Broadway tap (theatrical)', descriptors: ['bright-tap', 'show-tap'], match_tokens: ['musical-theater', 'broadway'] },
         { id: 'tap_irish_hard_fiberglass', name: 'Irish hard shoe (fiberglass tip and heel)', descriptors: ['loud-click', 'fiberglass-tip', 'percussive-jig'], match_tokens: ['irish', 'celtic', 'step-dance'] },
+        { id: 'tap_flamenco_clavos', name: 'Flamenco shoe (clavos — nails driven into toe and heel)', descriptors: ['earthy-dry', 'nailed-clavos', 'soniquete'], match_tokens: ['flamenco', 'spanish', 'zapateado'] },
       ] },
     ]
   },
@@ -11339,6 +11340,35 @@ const INSTRUMENTS = [
         { id: 'hambone_thigh', default: true, name: 'Thigh slap / pat', descriptors: ['patting', 'mid-slap', 'rhythmic'], match_tokens: ['hambone', 'juba', 'old-time', 'folk'] },
         { id: 'hambone_chest', name: 'Chest slap', descriptors: ['hollow-thump', 'resonant-body'], match_tokens: ['hambone', 'juba'] },
         { id: 'hambone_cheek', name: 'Cheek pop', descriptors: ['mouth-pop', 'pitched-pop'], match_tokens: ['hambone', 'juba'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gumboot',
+    name: 'Gumboot boots (isicathulo)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: -1, range: -2, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'gumboots',
+    parts: [
+      { id: 'gumboot_type', name: 'Boot type', variants: [
+        { id: 'gumboot_plain', default: true, name: 'Wellington rubber boots (stomp + boot-slap)', descriptors: ['rubber-thud', 'slapping', 'resonant-stomp'], match_tokens: ['south-african', 'isicathulo', 'mining'] },
+        { id: 'gumboot_belled', name: 'Boots with bells attached', descriptors: ['jingling-stomp', 'ringing'], match_tokens: ['south-african', 'street'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ghungroo',
+    name: 'Ghungroo (ankle bells)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -1, register: 1, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'ankle bells',
+    parts: [
+      { id: 'ghungroo_type', name: 'Metal / regional type', variants: [
+        { id: 'ghungroo_brass_kathak', default: true, name: 'Brass bells on cord (Kathak; ~100 per ankle)', descriptors: ['bright-jingle', 'resonant-cluster', 'rhythmic-shimmer'], match_tokens: ['kathak', 'indian', 'hindustani'] },
+        { id: 'ghungroo_copper', name: 'Copper / bronze bells', descriptors: ['warm-jingle', 'mellow-cluster'], match_tokens: ['indian', 'folk'] },
+        { id: 'ghungroo_salangai', name: 'Salangai — leather pad with bells (Bharatanatyam)', descriptors: ['dense-jingle', 'padded'], match_tokens: ['bharatanatyam', 'carnatic', 'south-indian'] },
       ] },
     ]
   },

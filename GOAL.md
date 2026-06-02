@@ -37,10 +37,11 @@ organology → author → validate → commit with sources → check off with SH
 - [x] hambone / body percussion (patting juba — thigh, chest, cheek)
   (beatbox already present in the voice family — skipped)
 
-### Batch B — percussive dance (tap_shoes already done)
-- [ ] zapateado footwear (flamenco; clavos/nails in toe & heel)
-- [ ] gumboot boots (isicathulo; wellington boots, body slaps)
-- [ ] ghungroo / ankle bells (kathak, bharatanatyam — pitched cluster of small bells)
+### Batch B — percussive dance (tap_shoes already done) ✅
+- [x] zapateado footwear → added as a 4th `tap_shoes` variant (`tap_flamenco_clavos`),
+      consistent with how tap_shoes already bundles rhythm/Broadway/Irish footwear
+- [x] gumboot (isicathulo; Wellington boots, stomp+slap, optional belled variant)
+- [x] ghungroo / ankle bells (brass-Kathak default, copper, salangai-Bharatanatyam)
 
 ### Batch C — orchestral & effect idiophones (VERIFY-then-add; some may be synonyms)
 - [ ] musical saw (bowed/struck idiophone)
@@ -91,3 +92,5 @@ recipe delta and wait for the user before shipping.
 - 2026-06-02: Batch A shipped — body percussion ×4 (hand_clap, finger_snap, foot_stomp,
   hambone), class hand_percussion, grounded in flamenco-palmas + patting-juba sources.
   441 instruments; regression 1198/1198; check_docs green.
+- 2026-06-02: Batch B shipped — percussive dance: +gumboot, +ghungroo (class idiophone),
+  + flamenco clavos variant on tap_shoes. 443 instruments; regression 1198/1198; check_docs green.
