@@ -12391,6 +12391,634 @@ INSTRUMENTS.push({
         { id: 'trong_chau_ca_tru_patron_response_canonical', default: true, name: 'Ca trù patron-response signaling (canonical)', descriptors: ['ca-tru-patron-response-canonical-vietnamese'], match_tokens: ['hand-drum', 'vietnamese-ca-tru-tradition'] },
       ] },
     ]
+  },
+  {
+    id: 'bass_drum',
+    name: 'Bass drum (kick / concert)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: 0, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'bass drum',
+    parts: [
+      { id: 'bass_drum_size', name: 'Size', variants: [
+        { id: 'bass_drum_22_standard', default: true, name: '22-inch standard kick', descriptors: ['punchy', 'round-low-end'], match_tokens: ['rock', 'pop', 'standard-kit'] },
+        { id: 'bass_drum_18_jazz', name: '18-inch jazz bass drum', descriptors: ['warm', 'resonant', 'open'], match_tokens: ['jazz', 'bop', 'small-kit'] },
+        { id: 'bass_drum_24_26_big', name: '24-26-inch big kick', descriptors: ['deep', 'cavernous', 'thunderous'], match_tokens: ['metal', 'arena-rock', 'heavy-rock'] },
+        { id: 'bass_drum_concert', name: 'Concert / orchestral bass drum (mallet-struck)', descriptors: ['orchestral', 'broad', 'low-boom'], match_tokens: ['orchestral', 'marching', 'concert'] },
+      ] },
+      { id: 'bass_drum_beater', surface: false, name: 'Beater / pedal', variants: [
+        { id: 'bass_drum_felt_pedal', default: true, name: 'Felt beater, single pedal', descriptors: ['rounded-attack', 'felt-thump'], match_tokens: ['rock', 'pop'] },
+        { id: 'bass_drum_wood_click', name: 'Wood / plastic beater', descriptors: ['clicky-attack', 'defined-point'], match_tokens: ['metal', 'modern'] },
+        { id: 'bass_drum_double_pedal', name: 'Double pedal', descriptors: ['rapid', 'gallop'], match_tokens: ['metal', 'double-bass'] },
+      ] },
+    ]
+  },
+  {
+    id: 'snare_drum',
+    name: 'Snare drum',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'snare',
+    parts: [
+      { id: 'snare_drum_type', name: 'Drum type', variants: [
+        { id: 'snare_14_wood', default: true, name: '14-inch wood-shell snare', descriptors: ['warm-crack', 'woody'], match_tokens: ['rock', 'pop', 'standard-kit'] },
+        { id: 'snare_14_metal', name: '14-inch metal-shell snare', descriptors: ['bright-crack', 'cutting', 'ringy'], match_tokens: ['rock', 'metal', 'funk'] },
+        { id: 'snare_piccolo', name: 'Piccolo snare (shallow)', descriptors: ['high-pitched', 'snappy', 'tight'], match_tokens: ['pop', 'fusion'] },
+        { id: 'snare_popcorn', name: 'Popcorn / soprano snare', descriptors: ['very-high', 'firecracker', 'auxiliary'], match_tokens: ['fusion', 'latin'] },
+        { id: 'snare_marching', name: 'Marching / field snare (Kevlar head)', descriptors: ['dry', 'high-tension', 'cracking'], match_tokens: ['marching', 'drumline'] },
+        { id: 'snare_orchestral', name: 'Orchestral concert snare', descriptors: ['crisp', 'controlled-roll', 'gut-snares'], match_tokens: ['orchestral', 'concert'] },
+      ] },
+    ]
+  },
+  {
+    id: 'rack_tom',
+    name: 'Rack tom (mounted tom-tom)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -2, harmonicity: 0, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'rack tom',
+    parts: [
+      { id: 'rack_tom_size', name: 'Size', variants: [
+        { id: 'rack_tom_standard', default: true, name: '10-13-inch mounted tom', descriptors: ['rounded', 'singing-decay'], match_tokens: ['rock', 'pop', 'fusion'] },
+        { id: 'rack_tom_concert', name: 'Single-headed concert tom', descriptors: ['focused', 'pitched', 'punchy'], match_tokens: ['fusion', 'studio-70s'] },
+      ] },
+    ]
+  },
+  {
+    id: 'floor_tom',
+    name: 'Floor tom',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -2, harmonicity: 0, register: -1, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'floor tom',
+    parts: [
+      { id: 'floor_tom_size', name: 'Size', variants: [
+        { id: 'floor_tom_16', default: true, name: '16-inch floor tom', descriptors: ['deep', 'resonant', 'rounded-low'], match_tokens: ['rock', 'pop'] },
+        { id: 'floor_tom_18', name: '18-inch floor tom', descriptors: ['cavernous', 'booming'], match_tokens: ['metal', 'arena-rock'] },
+      ] },
+    ]
+  },
+  {
+    id: 'hi_hats',
+    name: 'Hi-hat cymbals (foot-controlled pair)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -2, register: 2, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'hi-hat',
+    parts: [
+      { id: 'hi_hats_articulation', name: 'Articulation', variants: [
+        { id: 'hihat_tight_closed', default: true, name: 'Tight closed chick', descriptors: ['crisp', 'tight', 'ticking'], match_tokens: ['rock', 'pop', 'funk'] },
+        { id: 'hihat_open_sloshy', name: 'Open / sloshy', descriptors: ['washy', 'open-sizzle'], match_tokens: ['punk', 'rock'] },
+        { id: 'hihat_foot_chick', name: 'Foot chick (offbeat)', descriptors: ['pedal-chick', 'timekeeping'], match_tokens: ['jazz', 'disco'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ride_cymbal',
+    name: 'Ride cymbal',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: -1, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'ride',
+    parts: [
+      { id: 'ride_cymbal_type', name: 'Type', variants: [
+        { id: 'ride_ping', default: true, name: 'Ping ride (defined bell)', descriptors: ['pinging', 'articulate', 'clear-stick-definition'], match_tokens: ['rock', 'pop', 'jazz'] },
+        { id: 'ride_sizzle', name: 'Sizzle ride (rivets)', descriptors: ['shimmering', 'sustained-wash', 'rivets'], match_tokens: ['jazz', 'ballad', 'gospel'] },
+        { id: 'ride_flat', name: 'Flat ride (no bell)', descriptors: ['dry', 'controlled', 'low-wash'], match_tokens: ['jazz', 'fusion'] },
+      ] },
+    ]
+  },
+  {
+    id: 'crash_cymbal',
+    name: 'Crash cymbal',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: -2, register: 2, range: -1, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'crash',
+    parts: [
+      { id: 'crash_cymbal_weight', name: 'Weight / type', variants: [
+        { id: 'crash_thin_fast', default: true, name: 'Thin fast crash', descriptors: ['explosive', 'quick-decay', 'bright'], match_tokens: ['rock', 'pop'] },
+        { id: 'crash_heavy_big', name: 'Heavy / large crash', descriptors: ['big-wash', 'long-sustain', 'loud'], match_tokens: ['metal', 'arena-rock'] },
+        { id: 'crash_china', name: 'China / trash cymbal', descriptors: ['trashy', 'explosive', 'aggressive'], match_tokens: ['metal', 'fusion'] },
+        { id: 'crash_splash', name: 'Splash (small fast accent)', descriptors: ['quick-splash', 'short', 'accent'], match_tokens: ['fusion', 'pop'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gong',
+    name: 'Gong / tam-tam',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 2, polyphony: -2, harmonicity: -1, register: -1, range: -1, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'gong',
+    parts: [
+      { id: 'gong_type', name: 'Gong type', variants: [
+        { id: 'gong_flat_tam_tam', default: true, name: 'Flat tam-tam (indefinite pitch)', descriptors: ['shimmering-wash', 'indefinite-pitch', 'orchestral-swell'], match_tokens: ['orchestral', 'cinematic', 'rock'] },
+        { id: 'gong_bossed_pitched', name: 'Bossed gong (definite pitch)', descriptors: ['focused-pitch', 'bossed', 'bending-tone'], match_tokens: ['gamelan', 'chinese-opera', 'gong-ageng'] },
+      ] },
+      { id: 'gong_size', surface: false, name: 'Size', variants: [
+        { id: 'gong_large_symphonic', default: true, name: 'Large symphonic gong', descriptors: ['deep', 'enveloping'], match_tokens: ['orchestral', 'prog-rock'] },
+        { id: 'gong_small', name: 'Small gong', descriptors: ['quick', 'higher-pitched'], match_tokens: ['opera', 'ritual'] },
+      ] },
+    ]
+  },
+  {
+    id: 'octoban',
+    name: 'Octoban (tube tom)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -2, harmonicity: 0, register: 1, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'octoban',
+    parts: [
+      { id: 'octoban_pitch', name: 'Pitch (by tube length)', variants: [
+        { id: 'octoban_high', default: true, name: 'High (short tube)', descriptors: ['high-pitched', 'tight', 'tom-tube'], match_tokens: ['fusion', 'prog'] },
+        { id: 'octoban_low', name: 'Low (long tube)', descriptors: ['descending-pitch', 'focused'], match_tokens: ['fusion', 'prog'] },
+      ] },
+    ]
+  },
+  {
+    id: 'cowbell',
+    name: 'Cowbell',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 1, sustain: -2, polyphony: -2, harmonicity: -1, register: 1, range: -2, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'cowbell',
+    parts: [
+      { id: 'cowbell_type', name: 'Type', variants: [
+        { id: 'cowbell_rock_mounted', default: true, name: 'Rock cowbell (mounted, stick-played)', descriptors: ['clanky', 'cutting', 'mounted'], match_tokens: ['rock', 'pop', 'disco'] },
+        { id: 'cowbell_mambo', name: 'Mambo / cha-cha bell (timbale-mounted)', descriptors: ['open-closed-contrast', 'latin-bell'], match_tokens: ['latin', 'salsa', 'afro-cuban'] },
+        { id: 'cowbell_almglocken', name: 'Almglocken (tuned alpine bells)', descriptors: ['pitched', 'mellow', 'tuned-set'], match_tokens: ['orchestral'] },
+      ] },
+    ]
+  },
+  {
+    id: 'woodblock',
+    name: 'Woodblock / jam block',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 1, sustain: -2, polyphony: -2, harmonicity: -1, register: 1, range: -2, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'woodblock',
+    parts: [
+      { id: 'woodblock_voice', name: 'Voice', variants: [
+        { id: 'woodblock_hollow', default: true, name: 'Hollow wood block', descriptors: ['hollow-knock', 'dry', 'clip-clop'], match_tokens: ['latin', 'orchestral', 'country'] },
+        { id: 'woodblock_jam_block', name: 'Jam block (synthetic, durable)', descriptors: ['sharp-knock', 'cutting', 'punchy'], match_tokens: ['fusion', 'latin'] },
+        { id: 'woodblock_temple', name: 'Temple block (rounded, pitched set)', descriptors: ['rounded-tone', 'pitched-set', 'mellow'], match_tokens: ['orchestral', 'ritual'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tap_shoes',
+    name: 'Tap shoes (percussive dance)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'tap shoes',
+    parts: [
+      { id: 'tap_shoes_type', name: 'Shoe / tap type', variants: [
+        { id: 'tap_rhythm_metal', default: true, name: 'Rhythm/jazz tap (aluminum taps, toe and heel)', descriptors: ['metallic-click', 'syncopated', 'rhythm-tap'], match_tokens: ['jazz', 'rhythm-tap', 'hoofing'] },
+        { id: 'tap_broadway', name: 'Broadway tap (theatrical)', descriptors: ['bright-tap', 'show-tap'], match_tokens: ['musical-theater', 'broadway'] },
+        { id: 'tap_irish_hard_fiberglass', name: 'Irish hard shoe (fiberglass tip and heel)', descriptors: ['loud-click', 'fiberglass-tip', 'percussive-jig'], match_tokens: ['irish', 'celtic', 'step-dance'] },
+        { id: 'tap_flamenco_clavos', name: 'Flamenco shoe (clavos — nails driven into toe and heel)', descriptors: ['earthy-dry', 'nailed-clavos', 'soniquete'], match_tokens: ['flamenco', 'spanish', 'zapateado'] },
+      ] },
+    ]
+  },
+  {
+    id: 'spoons',
+    name: 'Musical spoons (concussion idiophone)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: 1, range: -2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'spoons',
+    parts: [
+      { id: 'spoons_material', name: 'Material', variants: [
+        { id: 'spoons_metal', default: true, name: 'Metal spoons (back-to-back, struck on knee/hand)', descriptors: ['clattering', 'bright-click', 'syncopated'], match_tokens: ['folk', 'old-time', 'jug-band'] },
+        { id: 'spoons_wooden', name: 'Wooden spoons', descriptors: ['hollow-clack', 'warm-knock'], match_tokens: ['folk', 'celtic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'rhythm_bones',
+    name: 'Rhythm bones (concussion idiophone)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: 0, range: -2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'bones',
+    parts: [
+      { id: 'rhythm_bones_material', name: 'Material', variants: [
+        { id: 'bones_wood', default: true, name: 'Wooden bones (curved, ~5-7 in)', descriptors: ['triple-click', 'clattering', 'rattling'], match_tokens: ['folk', 'old-time', 'irish'] },
+        { id: 'bones_animal', name: 'Animal rib/leg bones', descriptors: ['dry-clack', 'sharp-rattle'], match_tokens: ['folk', 'traditional'] },
+      ] },
+    ]
+  },
+  {
+    id: 'jaw_harp',
+    name: 'Jaw harp / jew\'s harp (plucked lamellophone)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'jaw harp',
+    parts: [
+      { id: 'jaw_harp_type', name: 'Construction / regional type', variants: [
+        { id: 'jaw_harp_heteroglot_steel', default: true, name: 'Heteroglot steel-tongue frame (Western jew\'s harp)', descriptors: ['twanging', 'overtone-buzz', 'metallic-boing'], match_tokens: ['folk', 'appalachian', 'ozark'] },
+        { id: 'jaw_harp_idioglot_bamboo', name: 'Idioglot bamboo (dan moi / genggong)', descriptors: ['soft-twang', 'breathy-overtone'], match_tokens: ['vietnamese', 'indonesian', 'southeast-asian'] },
+        { id: 'jaw_harp_morsing', name: 'Morsing (South Indian iron)', descriptors: ['rhythmic-twang', 'carnatic-percussive'], match_tokens: ['indian', 'carnatic', 'south-indian'] },
+        { id: 'jaw_harp_khomus', name: 'Khomus (Sakha/Yakut steel)', descriptors: ['resonant-twang', 'deep-overtone'], match_tokens: ['siberian', 'yakut', 'turkic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'washboard',
+    name: 'Washboard (thimble-scraped idiophone)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'washboard',
+    parts: [
+      { id: 'washboard_type', name: 'Type', variants: [
+        { id: 'washboard_galvanized_thimbles', default: true, name: 'Galvanized washboard, thimble-scraped (jug-band/old-time)', descriptors: ['scraping', 'rhythmic-rasp', 'ribbed-metal'], match_tokens: ['jug-band', 'old-time', 'skiffle'] },
+        { id: 'washboard_stainless', name: 'Stainless ribbed board', descriptors: ['bright-rasp', 'cutting-scrape'], match_tokens: ['folk', 'roots'] },
+      ] },
+    ]
+  },
+  {
+    id: 'hand_clap',
+    name: 'Hand claps',
+    family: 'percussion',
+    class: 'hand_percussion',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'claps',
+    parts: [
+      { id: 'hand_clap_type', name: 'Clap type', variants: [
+        { id: 'clap_flat', default: true, name: 'Flat / cupped clap', descriptors: ['sharp-clap', 'broadband', 'rhythmic'], match_tokens: ['gospel', 'pop', 'stomp-clap', 'choir'] },
+        { id: 'clap_palmas_claras', name: 'Palmas claras (flamenco, bright)', descriptors: ['bright-clap', 'cutting', 'high-pitched'], match_tokens: ['flamenco', 'bulerias'] },
+        { id: 'clap_palmas_sordas', name: 'Palmas sordas (flamenco, muffled)', descriptors: ['muffled-pop', 'low-clap', 'soft'], match_tokens: ['flamenco', 'accompaniment'] },
+      ] },
+    ]
+  },
+  {
+    id: 'finger_snap',
+    name: 'Finger snaps',
+    family: 'percussion',
+    class: 'hand_percussion',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'snaps',
+    parts: [
+      { id: 'finger_snap_type', name: 'Snap type', variants: [
+        { id: 'snap_single', default: true, name: 'Single finger snap', descriptors: ['sharp-snap', 'dry', 'high'], match_tokens: ['doo-wop', 'jazz', 'vocal-jazz', 'pop'] },
+        { id: 'snap_pitos', name: 'Pitos (flamenco finger snaps)', descriptors: ['crisp-snap', 'syncopated'], match_tokens: ['flamenco'] },
+      ] },
+    ]
+  },
+  {
+    id: 'foot_stomp',
+    name: 'Foot stomps',
+    family: 'percussion',
+    class: 'hand_percussion',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: -1, range: -2, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'stomps',
+    parts: [
+      { id: 'foot_stomp_surface', name: 'Surface', variants: [
+        { id: 'stomp_floor', default: true, name: 'Floor stomp', descriptors: ['low-thud', 'broadband', 'heavy'], match_tokens: ['stomp-clap', 'folk', 'sacred-harp', 'arena'] },
+        { id: 'stomp_platform', name: 'Resonant board / platform stomp', descriptors: ['resonant-thud', 'woody'], match_tokens: ['appalachian', 'flatfoot', 'clogging'] },
+      ] },
+    ]
+  },
+  {
+    id: 'hambone',
+    name: 'Hambone / body percussion (patting juba)',
+    family: 'percussion',
+    class: 'hand_percussion',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'hambone',
+    parts: [
+      { id: 'hambone_surface', name: 'Body surface struck', variants: [
+        { id: 'hambone_thigh', default: true, name: 'Thigh slap / pat', descriptors: ['patting', 'mid-slap', 'rhythmic'], match_tokens: ['hambone', 'juba', 'old-time', 'folk'] },
+        { id: 'hambone_chest', name: 'Chest slap', descriptors: ['hollow-thump', 'resonant-body'], match_tokens: ['hambone', 'juba'] },
+        { id: 'hambone_cheek', name: 'Cheek pop', descriptors: ['mouth-pop', 'pitched-pop'], match_tokens: ['hambone', 'juba'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gumboot',
+    name: 'Gumboot boots (isicathulo)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: -1, range: -2, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'gumboots',
+    parts: [
+      { id: 'gumboot_type', name: 'Boot type', variants: [
+        { id: 'gumboot_plain', default: true, name: 'Wellington rubber boots (stomp + boot-slap)', descriptors: ['rubber-thud', 'slapping', 'resonant-stomp'], match_tokens: ['south-african', 'isicathulo', 'mining'] },
+        { id: 'gumboot_belled', name: 'Boots with bells attached', descriptors: ['jingling-stomp', 'ringing'], match_tokens: ['south-african', 'street'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ghungroo',
+    name: 'Ghungroo (ankle bells)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -1, register: 1, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'ankle bells',
+    parts: [
+      { id: 'ghungroo_type', name: 'Metal / regional type', variants: [
+        { id: 'ghungroo_brass_kathak', default: true, name: 'Brass bells on cord (Kathak; ~100 per ankle)', descriptors: ['bright-jingle', 'resonant-cluster', 'rhythmic-shimmer'], match_tokens: ['kathak', 'indian', 'hindustani'] },
+        { id: 'ghungroo_copper', name: 'Copper / bronze bells', descriptors: ['warm-jingle', 'mellow-cluster'], match_tokens: ['indian', 'folk'] },
+        { id: 'ghungroo_salangai', name: 'Salangai — leather pad with bells (Bharatanatyam)', descriptors: ['dense-jingle', 'padded'], match_tokens: ['bharatanatyam', 'carnatic', 'south-indian'] },
+      ] },
+    ]
+  },
+  {
+    id: 'crotales',
+    name: 'Crotales (antique cymbals)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 0, harmonicity: -1, register: 2, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'crotales',
+    parts: [
+      { id: 'crotales_technique', name: 'Playing technique', variants: [
+        { id: 'crotales_struck', default: true, name: 'Struck with hard mallet', descriptors: ['bright-bell', 'long-resonance', 'shimmering'], match_tokens: ['orchestral', 'impressionist', 'film'] },
+        { id: 'crotales_bowed', name: 'Bowed', descriptors: ['ethereal', 'sustained-shimmer'], match_tokens: ['contemporary', 'ambient'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tubular_bells',
+    name: 'Tubular bells (orchestral chimes)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 2, polyphony: 0, harmonicity: -1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'chimes',
+    parts: [
+      { id: 'tubular_bells_mallet', name: 'Mallet', variants: [
+        { id: 'chimes_rawhide', default: true, name: 'Rawhide / plastic hammer', descriptors: ['church-bell', 'tolling', 'long-decay'], match_tokens: ['orchestral', 'film', 'rock'] },
+        { id: 'chimes_metal', name: 'Metal hammer (brighter)', descriptors: ['clangorous', 'bright-strike'], match_tokens: ['orchestral', 'dramatic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'musical_saw',
+    name: 'Musical saw (bowed)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: 0, register: 1, range: 0, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'saw',
+    parts: [
+      { id: 'musical_saw_technique', name: 'Technique', variants: [
+        { id: 'saw_bowed', default: true, name: 'Bowed (S-curve, pitch bent by flex)', descriptors: ['ethereal', 'wavering-glissando', 'vocal-like'], match_tokens: ['folk', 'vaudeville', 'film', 'eerie'] },
+        { id: 'saw_struck', name: 'Struck with mallet', descriptors: ['soft-ping', 'wobbling'], match_tokens: ['folk'] },
+      ] },
+    ]
+  },
+  {
+    id: 'glass_harmonica',
+    name: 'Glass harmonica / glass harp (friction idiophone)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 0, harmonicity: 1, register: 1, range: 0, articulation: -2, transduction: -2, dynamics: -2 },
+    short: 'glass harmonica',
+    parts: [
+      { id: 'glass_harmonica_type', name: 'Type', variants: [
+        { id: 'glass_armonica_bowls', default: true, name: 'Armonica — nested spinning glass bowls (wet fingers)', descriptors: ['ethereal', 'pure-tone', 'glassy-sustain'], match_tokens: ['classical', 'baroque', 'film', 'eerie'] },
+        { id: 'glass_harp_glasses', name: 'Glass harp — tuned wine glasses (rubbed rims)', descriptors: ['crystalline', 'singing-glass'], match_tokens: ['folk', 'novelty', 'ambient'] },
+      ] },
+    ]
+  },
+  {
+    id: 'waterphone',
+    name: 'Waterphone',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -1, harmonicity: -2, register: 1, range: -1, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'waterphone',
+    parts: [
+      { id: 'waterphone_technique', name: 'Technique', variants: [
+        { id: 'waterphone_bowed', default: true, name: 'Bowed rods (water-bent pitch)', descriptors: ['eerie', 'whale-song', 'inharmonic-glissando'], match_tokens: ['horror', 'film', 'ambient', 'sound-design'] },
+        { id: 'waterphone_struck', name: 'Struck rods', descriptors: ['metallic-splash', 'resonant-ping'], match_tokens: ['film', 'sound-design'] },
+      ] },
+    ]
+  },
+  {
+    id: 'cabasa',
+    name: 'Cabasa (afuche)',
+    family: 'percussion',
+    class: 'hand_percussion',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'cabasa',
+    parts: [
+      { id: 'cabasa_type', name: 'Type', variants: [
+        { id: 'cabasa_steel', default: true, name: 'Modern steel bead-chain cabasa (afuche)', descriptors: ['sizzling', 'scraping-shaker', 'dry-rasp'], match_tokens: ['latin', 'funk', 'pop', 'fusion'] },
+        { id: 'cabasa_gourd', name: 'Traditional gourd with bead net', descriptors: ['rattling', 'earthy-shaker'], match_tokens: ['afro-brazilian', 'traditional'] },
+      ] },
+    ]
+  },
+  {
+    id: 'finger_cymbals',
+    name: 'Finger cymbals (zills / sagat)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -2, harmonicity: -1, register: 2, range: -2, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'zills',
+    parts: [
+      { id: 'finger_cymbals_type', name: 'Type', variants: [
+        { id: 'zills_two_hole', default: true, name: 'Zills (Turkish, two-hole, high dome)', descriptors: ['bright-ring', 'shimmering-ting', 'sustained-chime'], match_tokens: ['belly-dance', 'turkish', 'middle-eastern'] },
+        { id: 'sagat_one_hole', name: 'Sagat (Egyptian, one-hole, louder)', descriptors: ['clangy-ring', 'cutting'], match_tokens: ['egyptian', 'arabic', 'raqs-sharqi'] },
+      ] },
+    ]
+  },
+  {
+    id: 'flexatone',
+    name: 'Flexatone',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'flexatone',
+    parts: [
+      { id: 'flexatone_voice', name: 'Voice', variants: [
+        { id: 'flexatone_standard', default: true, name: 'Shaken, thumb-bent pitch (spooky glissando)', descriptors: ['wobbling-glissando', 'eerie', 'trembling'], match_tokens: ['cartoon', 'novelty', 'film', 'eerie'] },
+      ] },
+    ]
+  },
+  {
+    id: 'vibraslap',
+    name: 'Vibraslap',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'vibraslap',
+    parts: [
+      { id: 'vibraslap_voice', name: 'Voice', variants: [
+        { id: 'vibraslap_standard', default: true, name: 'Palm-struck ball, rattling teeth', descriptors: ['rattling', 'buzzing-rattle', 'rattlesnake'], match_tokens: ['latin', 'rock', 'jazz', 'novelty'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ratchet',
+    name: 'Ratchet (cog rattle)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'ratchet',
+    parts: [
+      { id: 'ratchet_type', name: 'Type', variants: [
+        { id: 'ratchet_cog', default: true, name: 'Crank cog rattle (continuous clatter)', descriptors: ['clattering', 'mechanical-rattle', 'grinding'], match_tokens: ['orchestral', 'festive', 'theatrical', 'film'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mark_tree',
+    name: 'Mark tree (bar chimes)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 0, sustain: 1, polyphony: 1, harmonicity: -1, register: 2, range: 0, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'bar chimes',
+    parts: [
+      { id: 'mark_tree_material', name: 'Material', variants: [
+        { id: 'mark_tree_metal', default: true, name: 'Graduated metal rods (swept cascade)', descriptors: ['shimmering-cascade', 'tinkling', 'glissando-sweep'], match_tokens: ['pop', 'orchestral', 'new-age', 'film'] },
+        { id: 'mark_tree_bamboo', name: 'Bamboo wind chimes', descriptors: ['hollow-clatter', 'wooden-tinkle'], match_tokens: ['ambient', 'world', 'meditative'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sleigh_bells',
+    name: 'Sleigh bells (jingles)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -1, harmonicity: -1, register: 2, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'sleigh bells',
+    parts: [
+      { id: 'sleigh_bells_mount', name: 'Mounting', variants: [
+        { id: 'sleigh_bells_strap', default: true, name: 'Bells on leather strap (shaken)', descriptors: ['jingling', 'festive-shimmer', 'ringing-cluster'], match_tokens: ['christmas', 'orchestral', 'folk', 'pop'] },
+        { id: 'sleigh_bells_handle', name: 'Bells on handle / frame', descriptors: ['controlled-jingle', 'rhythmic-shake'], match_tokens: ['orchestral'] },
+      ] },
+    ]
+  },
+  {
+    id: 'slapstick',
+    name: 'Slapstick (whip)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'whip',
+    parts: [
+      { id: 'slapstick_type', name: 'Type', variants: [
+        { id: 'slapstick_hinged', default: true, name: 'Hinged hardwood boards (whip crack)', descriptors: ['sharp-crack', 'whip-snap', 'percussive-slap'], match_tokens: ['orchestral', 'cartoon', 'film', 'theatrical'] },
+      ] },
+    ]
+  },
+  {
+    id: 'anvil',
+    name: 'Anvil (struck steel)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'anvil',
+    parts: [
+      { id: 'anvil_type', name: 'Type', variants: [
+        { id: 'anvil_steel_bar', default: true, name: 'Steel bar / brake drum (hammer-struck)', descriptors: ['ringing-clang', 'metallic-strike', 'industrial'], match_tokens: ['orchestral', 'industrial', 'dramatic', 'film'] },
+      ] },
+    ]
+  },
+  {
+    id: 'thunder_sheet',
+    name: 'Thunder sheet',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -2, sustain: 1, polyphony: -2, harmonicity: -2, register: -1, range: -2, articulation: -1, transduction: -2, dynamics: 2 },
+    short: 'thunder sheet',
+    parts: [
+      { id: 'thunder_sheet_technique', name: 'Technique', variants: [
+        { id: 'thunder_sheet_shaken', default: true, name: 'Shaken metal sheet (thunder rumble)', descriptors: ['rumbling', 'crashing-roar', 'storm'], match_tokens: ['film', 'theatrical', 'orchestral', 'sound-design'] },
+        { id: 'thunder_sheet_struck', name: 'Struck with mallet', descriptors: ['booming-crash', 'metallic-roar'], match_tokens: ['orchestral', 'dramatic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ukulele',
+    name: 'Ukulele',
+    family: 'acoustic_strings',
+    class: 'plucked_string_lead',
+    axes: { pitchFix: 0, sustain: -1, polyphony: 1, harmonicity: 1, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'ukulele',
+    parts: [
+      { id: 'ukulele_size', name: 'Size / tuning', variants: [
+        { id: 'uke_soprano', default: true, name: 'Soprano (re-entrant gCEA, brightest)', descriptors: ['bright', 'plinky', 'cheerful'], match_tokens: ['hawaiian', 'folk', 'pop'] },
+        { id: 'uke_concert', name: 'Concert (re-entrant gCEA, fuller)', descriptors: ['warm-bright', 'balanced'], match_tokens: ['hawaiian', 'folk'] },
+        { id: 'uke_tenor', name: 'Tenor (gCEA or linear, richer)', descriptors: ['rich', 'resonant', 'fuller-low'], match_tokens: ['hawaiian', 'jazz', 'solo'] },
+        { id: 'uke_baritone', name: 'Baritone (linear DGBE, deepest)', descriptors: ['mellow', 'guitar-like', 'deep'], match_tokens: ['folk', 'jazz'] },
+      ] },
+    ]
+  },
+  {
+    id: 'clavichord',
+    name: 'Clavichord',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: -1, polyphony: 2, harmonicity: 1, register: 0, range: 1, articulation: 0, transduction: -2, dynamics: -2 },
+    short: 'clavichord',
+    parts: [
+      { id: 'clavichord_type', name: 'Type', variants: [
+        { id: 'clavichord_fretted', default: true, name: 'Fretted (gebunden — tangents share strings)', descriptors: ['intimate', 'delicate', 'touch-sensitive', 'bebung-vibrato'], match_tokens: ['baroque', 'renaissance', 'early-music'] },
+        { id: 'clavichord_unfretted', name: 'Unfretted (bundfrei — string per note)', descriptors: ['expressive', 'fuller-intimate'], match_tokens: ['baroque', 'classical', 'early-music'] },
+      ] },
+    ]
+  },
+  {
+    id: 'davul',
+    name: 'Davul (Anatolian double-headed drum)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -2, range: 0, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'davul',
+    parts: [
+      { id: 'davul_voice', name: 'Voice / region', variants: [
+        { id: 'davul_bass_treble', default: true, name: 'Bass head (tokmak mallet) + treble head (çubuk switch)', descriptors: ['booming-bass', 'sharp-treble', 'outdoor', 'processional'], match_tokens: ['turkish', 'anatolian', 'davul-zurna', 'wedding'] },
+        { id: 'davul_tapan', name: 'Tapan (Balkan variant)', descriptors: ['deep-thud', 'driving'], match_tokens: ['balkan', 'macedonian', 'bulgarian', 'roma'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gadulka',
+    name: 'Gadulka (Bulgarian bowed fiddle)',
+    family: 'bowed',
+    class: 'bowed_string',
+    axes: { pitchFix: -2, sustain: 2, polyphony: -1, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'gadulka',
+    parts: [
+      { id: 'gadulka_type', name: 'Type', variants: [
+        { id: 'gadulka_sympathetic', default: true, name: 'With sympathetic strings (3 melody A-E-A + ~10 resonating)', descriptors: ['ringing-resonance', 'nasal-bright', 'ornamented'], match_tokens: ['bulgarian', 'balkan', 'thracian'] },
+        { id: 'gadulka_plain', name: 'Plain (melody strings only, older form)', descriptors: ['raw-fiddle', 'reedy'], match_tokens: ['balkan', 'traditional', 'village'] },
+      ] },
+    ]
+  },
+  {
+    id: 'shinobue',
+    name: 'Shinobue (Japanese transverse bamboo flute)',
+    family: 'wind',
+    class: 'wind_blown',
+    axes: { pitchFix: 1, sustain: 1, polyphony: -2, harmonicity: 0, register: 2, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'shinobue',
+    parts: [
+      { id: 'shinobue_style', name: 'Style / tuning', variants: [
+        { id: 'shinobue_uta', default: true, name: 'Uta-bue (song, tuned to traditional scale)', descriptors: ['high-bright', 'melodic', 'breathy'], match_tokens: ['japanese', 'min-yo', 'nagauta'] },
+        { id: 'shinobue_hayashi', name: 'Hayashi / matsuri-bue (festival)', descriptors: ['piercing', 'rhythmic', 'celebratory'], match_tokens: ['japanese', 'matsuri', 'festival', 'taiko'] },
+        { id: 'shinobue_doremi', name: 'Doremi (Western-tuned)', descriptors: ['clear', 'even-tempered'], match_tokens: ['japanese', 'modern', 'ensemble'] },
+      ] },
+    ]
+  },
+  {
+    id: 'bandurria',
+    name: 'Bandurria (Spanish / Filipino plucked lute)',
+    family: 'acoustic_strings',
+    class: 'plucked_string_lead',
+    axes: { pitchFix: 2, sustain: -1, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'bandurria',
+    parts: [
+      { id: 'bandurria_type', name: 'Type', variants: [
+        { id: 'bandurria_spanish', default: true, name: 'Spanish (6 courses / 12 strings, tuned in fourths, plectrum tremolo)', descriptors: ['bright-tremolo', 'mandolin-like', 'ringing'], match_tokens: ['spanish', 'tuna', 'estudiantina', 'rondalla'] },
+        { id: 'bandurria_filipino', name: 'Filipino (14 strings, top courses tripled, tuned a tone lower)', descriptors: ['percussive-bright', 'ensemble-cutting'], match_tokens: ['filipino', 'rondalla', 'kundiman'] },
+      ] },
+    ]
   });
 </script>
 <script>// ─── 03_rooms_chains_tunings.js ───
