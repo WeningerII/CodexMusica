@@ -30,12 +30,12 @@ electric_strings 11 · voice 10.
 Each item: verify it isn't a synonym/variant of an existing instrument → research real
 organology → author → validate → commit with sources → check off with SHA.
 
-### Batch A — body percussion (genuinely absent; includes the user's stomp-clap)
-- [ ] hand_clap (claps; flamenco palmas — palmas sordas/claras — as variants)
-- [ ] finger_snap (pitos)
-- [ ] foot_stomp (stomp; the stomp-clap / Sacred Harp / arena context)
-- [ ] hambone / body percussion (patting juba — thigh, chest, hand slaps)
-  (beatbox already present in the voice family — skip)
+### Batch A — body percussion (genuinely absent; includes the user's stomp-clap) ✅
+- [x] hand_clap (claps; flamenco palmas — claras/sordas — as variants)
+- [x] finger_snap (single + pitos)
+- [x] foot_stomp (floor + resonant-platform; stomp-clap / Sacred Harp / clogging)
+- [x] hambone / body percussion (patting juba — thigh, chest, cheek)
+  (beatbox already present in the voice family — skipped)
 
 ### Batch B — percussive dance (tap_shoes already done)
 - [ ] zapateado footwear (flamenco; clavos/nails in toe & heel)
@@ -88,3 +88,6 @@ recipe delta and wait for the user before shipping.
 - 2026-06-02: `/goal` created; catalogue audited (437 instruments already fully decomposed);
   Track 1 backlog grounded against a presence-check (36 candidates already present, ~20
   genuine gaps). Prior work: kit pieces (`c7f045e`), folk/dance idiophones (`e25ff89`).
+- 2026-06-02: Batch A shipped — body percussion ×4 (hand_clap, finger_snap, foot_stomp,
+  hambone), class hand_percussion, grounded in flamenco-palmas + patting-juba sources.
+  441 instruments; regression 1198/1198; check_docs green.

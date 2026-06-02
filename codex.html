@@ -12639,6 +12639,64 @@ INSTRUMENTS.push({
         { id: 'washboard_stainless', name: 'Stainless ribbed board', descriptors: ['bright-rasp', 'cutting-scrape'], match_tokens: ['folk', 'roots'] },
       ] },
     ]
+  },
+  {
+    id: 'hand_clap',
+    name: 'Hand claps',
+    family: 'percussion',
+    class: 'hand_percussion',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'claps',
+    parts: [
+      { id: 'hand_clap_type', name: 'Clap type', variants: [
+        { id: 'clap_flat', default: true, name: 'Flat / cupped clap', descriptors: ['sharp-clap', 'broadband', 'rhythmic'], match_tokens: ['gospel', 'pop', 'stomp-clap', 'choir'] },
+        { id: 'clap_palmas_claras', name: 'Palmas claras (flamenco, bright)', descriptors: ['bright-clap', 'cutting', 'high-pitched'], match_tokens: ['flamenco', 'bulerias'] },
+        { id: 'clap_palmas_sordas', name: 'Palmas sordas (flamenco, muffled)', descriptors: ['muffled-pop', 'low-clap', 'soft'], match_tokens: ['flamenco', 'accompaniment'] },
+      ] },
+    ]
+  },
+  {
+    id: 'finger_snap',
+    name: 'Finger snaps',
+    family: 'percussion',
+    class: 'hand_percussion',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'snaps',
+    parts: [
+      { id: 'finger_snap_type', name: 'Snap type', variants: [
+        { id: 'snap_single', default: true, name: 'Single finger snap', descriptors: ['sharp-snap', 'dry', 'high'], match_tokens: ['doo-wop', 'jazz', 'vocal-jazz', 'pop'] },
+        { id: 'snap_pitos', name: 'Pitos (flamenco finger snaps)', descriptors: ['crisp-snap', 'syncopated'], match_tokens: ['flamenco'] },
+      ] },
+    ]
+  },
+  {
+    id: 'foot_stomp',
+    name: 'Foot stomps',
+    family: 'percussion',
+    class: 'hand_percussion',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: -1, range: -2, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'stomps',
+    parts: [
+      { id: 'foot_stomp_surface', name: 'Surface', variants: [
+        { id: 'stomp_floor', default: true, name: 'Floor stomp', descriptors: ['low-thud', 'broadband', 'heavy'], match_tokens: ['stomp-clap', 'folk', 'sacred-harp', 'arena'] },
+        { id: 'stomp_platform', name: 'Resonant board / platform stomp', descriptors: ['resonant-thud', 'woody'], match_tokens: ['appalachian', 'flatfoot', 'clogging'] },
+      ] },
+    ]
+  },
+  {
+    id: 'hambone',
+    name: 'Hambone / body percussion (patting juba)',
+    family: 'percussion',
+    class: 'hand_percussion',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'hambone',
+    parts: [
+      { id: 'hambone_surface', name: 'Body surface struck', variants: [
+        { id: 'hambone_thigh', default: true, name: 'Thigh slap / pat', descriptors: ['patting', 'mid-slap', 'rhythmic'], match_tokens: ['hambone', 'juba', 'old-time', 'folk'] },
+        { id: 'hambone_chest', name: 'Chest slap', descriptors: ['hollow-thump', 'resonant-body'], match_tokens: ['hambone', 'juba'] },
+        { id: 'hambone_cheek', name: 'Cheek pop', descriptors: ['mouth-pop', 'pitched-pop'], match_tokens: ['hambone', 'juba'] },
+      ] },
+    ]
   });
 </script>
 <script>// ─── 03_rooms_chains_tunings.js ───
