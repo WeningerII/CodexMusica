@@ -15,6 +15,7 @@
     "build:fast": "node scripts/build.js --skip-smoke --skip-ui-check",
     "validate": "node scripts/validate.js",
     "audit": "node scripts/audit.js",
+    "audit:coherence": "node scripts/audit_coherence.js",
     "test": "npm run test:recipes && npm run test:prefaces && npm run test:slots && npm run test:app && npm run test:equiv",
     "test:recipes": "node scripts/regression_recipes.js",
     "test:prefaces": "node scripts/regression_prefaces.js",

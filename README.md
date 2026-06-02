@@ -31,6 +31,7 @@ Every operation is an `npm run` script (see `package.json`):
 | `npm run build:html` | Just (re)build `codex.html` from `references/`, with a post-build syntax check |
 | `npm run validate` | Reference-integrity check (fatal on broken refs, axis violations, duplicate ids) |
 | `npm run audit` | Data-quality audit (advisory warnings) |
+| `npm run audit:coherence` | Substantive coherence audit: field-vs-field consistency (recording-era clashes, stamped vocal-tradition defaults, non-12-TET tuning contradictions) |
 | `npm run test` | Regression: recipe snapshots + preface assignments + slot-pick lock-ins |
 | `npm run smoke` | Catalog-wide pipeline health across every tradition (slow) |
 | `npm run tandem` | End-to-end coherence across source + HTML artifacts |
