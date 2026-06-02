@@ -43,22 +43,14 @@ organology → author → validate → commit with sources → check off with SH
 - [x] gumboot (isicathulo; Wellington boots, stomp+slap, optional belled variant)
 - [x] ghungroo / ankle bells (brass-Kathak default, copper, salangai-Bharatanatyam)
 
-### Batch C — orchestral & effect idiophones (VERIFY-then-add; some may be synonyms)
-- [ ] musical saw (bowed/struck idiophone)
-- [ ] glass harmonica / glass harp (friction idiophone)
-- [ ] flexatone
-- [ ] vibraslap (modern jawbone/quijada substitute — verify quijada absent)
-- [ ] ratchet (cog rattle / crécelle)
-- [ ] mark tree / wind chimes (bar chimes)
-- [ ] sleigh bells (jingles)
-- [ ] slapstick / whip
-- [ ] anvil (tuned/untuned)
-- [ ] thunder sheet
-- [ ] waterphone
-- [ ] crotales / antique cymbals — VERIFY vs any existing antique/finger cymbal first
-- [ ] tubular bells / chimes — VERIFY vs existing celesta/glockenspiel naming first
-- [ ] finger cymbals / zills — VERIFY vs existing
-- [ ] cabasa — VERIFY vs existing afuche/shaker first
+### Batch C — orchestral & effect idiophones ✅ (all 15 verified genuinely absent, then added)
+- [x] crotales (tuned_percussion; struck + bowed) · [x] tubular_bells (tuned_percussion)
+- [x] musical_saw (bowed friction) · [x] glass_harmonica (+ glass-harp variant)
+- [x] waterphone (bowed/struck) · [x] cabasa (steel + gourd) · [x] finger_cymbals (zills + sagat)
+- [x] flexatone · [x] vibraslap · [x] ratchet · [x] mark_tree (+ bamboo) · [x] sleigh_bells
+- [x] slapstick · [x] anvil · [x] thunder_sheet
+  (glass_harmonica's presence-check hit was a substring false-positive on the free-reed
+  `harmonica`; the friction idiophone was genuinely absent.)
 
 ### Batch D — per-family completeness audits (the non-percussion families)
 For each: pull the family's standard inventory from an authoritative source, diff against
@@ -94,3 +86,7 @@ recipe delta and wait for the user before shipping.
   441 instruments; regression 1198/1198; check_docs green.
 - 2026-06-02: Batch B shipped — percussive dance: +gumboot, +ghungroo (class idiophone),
   + flamenco clavos variant on tap_shoes. 443 instruments; regression 1198/1198; check_docs green.
+- 2026-06-02: Batch C shipped — orchestral & effect idiophones ×15 (crotales, tubular_bells,
+  musical_saw, glass_harmonica, waterphone, cabasa, finger_cymbals, flexatone, vibraslap,
+  ratchet, mark_tree, sleigh_bells, slapstick, anvil, thunder_sheet). Axes calibrated to
+  glockenspiel/vibraphone/maracas siblings. 458 instruments; regression 1198/1198; check_docs green.

@@ -12727,6 +12727,211 @@ INSTRUMENTS.push({
         { id: 'ghungroo_salangai', name: 'Salangai — leather pad with bells (Bharatanatyam)', descriptors: ['dense-jingle', 'padded'], match_tokens: ['bharatanatyam', 'carnatic', 'south-indian'] },
       ] },
     ]
+  },
+  {
+    id: 'crotales',
+    name: 'Crotales (antique cymbals)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 0, harmonicity: -1, register: 2, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'crotales',
+    parts: [
+      { id: 'crotales_technique', name: 'Playing technique', variants: [
+        { id: 'crotales_struck', default: true, name: 'Struck with hard mallet', descriptors: ['bright-bell', 'long-resonance', 'shimmering'], match_tokens: ['orchestral', 'impressionist', 'film'] },
+        { id: 'crotales_bowed', name: 'Bowed', descriptors: ['ethereal', 'sustained-shimmer'], match_tokens: ['contemporary', 'ambient'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tubular_bells',
+    name: 'Tubular bells (orchestral chimes)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 2, polyphony: 0, harmonicity: -1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'chimes',
+    parts: [
+      { id: 'tubular_bells_mallet', name: 'Mallet', variants: [
+        { id: 'chimes_rawhide', default: true, name: 'Rawhide / plastic hammer', descriptors: ['church-bell', 'tolling', 'long-decay'], match_tokens: ['orchestral', 'film', 'rock'] },
+        { id: 'chimes_metal', name: 'Metal hammer (brighter)', descriptors: ['clangorous', 'bright-strike'], match_tokens: ['orchestral', 'dramatic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'musical_saw',
+    name: 'Musical saw (bowed)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: 0, register: 1, range: 0, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'saw',
+    parts: [
+      { id: 'musical_saw_technique', name: 'Technique', variants: [
+        { id: 'saw_bowed', default: true, name: 'Bowed (S-curve, pitch bent by flex)', descriptors: ['ethereal', 'wavering-glissando', 'vocal-like'], match_tokens: ['folk', 'vaudeville', 'film', 'eerie'] },
+        { id: 'saw_struck', name: 'Struck with mallet', descriptors: ['soft-ping', 'wobbling'], match_tokens: ['folk'] },
+      ] },
+    ]
+  },
+  {
+    id: 'glass_harmonica',
+    name: 'Glass harmonica / glass harp (friction idiophone)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 0, harmonicity: 1, register: 1, range: 0, articulation: -2, transduction: -2, dynamics: -2 },
+    short: 'glass harmonica',
+    parts: [
+      { id: 'glass_harmonica_type', name: 'Type', variants: [
+        { id: 'glass_armonica_bowls', default: true, name: 'Armonica — nested spinning glass bowls (wet fingers)', descriptors: ['ethereal', 'pure-tone', 'glassy-sustain'], match_tokens: ['classical', 'baroque', 'film', 'eerie'] },
+        { id: 'glass_harp_glasses', name: 'Glass harp — tuned wine glasses (rubbed rims)', descriptors: ['crystalline', 'singing-glass'], match_tokens: ['folk', 'novelty', 'ambient'] },
+      ] },
+    ]
+  },
+  {
+    id: 'waterphone',
+    name: 'Waterphone',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -1, harmonicity: -2, register: 1, range: -1, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'waterphone',
+    parts: [
+      { id: 'waterphone_technique', name: 'Technique', variants: [
+        { id: 'waterphone_bowed', default: true, name: 'Bowed rods (water-bent pitch)', descriptors: ['eerie', 'whale-song', 'inharmonic-glissando'], match_tokens: ['horror', 'film', 'ambient', 'sound-design'] },
+        { id: 'waterphone_struck', name: 'Struck rods', descriptors: ['metallic-splash', 'resonant-ping'], match_tokens: ['film', 'sound-design'] },
+      ] },
+    ]
+  },
+  {
+    id: 'cabasa',
+    name: 'Cabasa (afuche)',
+    family: 'percussion',
+    class: 'hand_percussion',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'cabasa',
+    parts: [
+      { id: 'cabasa_type', name: 'Type', variants: [
+        { id: 'cabasa_steel', default: true, name: 'Modern steel bead-chain cabasa (afuche)', descriptors: ['sizzling', 'scraping-shaker', 'dry-rasp'], match_tokens: ['latin', 'funk', 'pop', 'fusion'] },
+        { id: 'cabasa_gourd', name: 'Traditional gourd with bead net', descriptors: ['rattling', 'earthy-shaker'], match_tokens: ['afro-brazilian', 'traditional'] },
+      ] },
+    ]
+  },
+  {
+    id: 'finger_cymbals',
+    name: 'Finger cymbals (zills / sagat)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -2, harmonicity: -1, register: 2, range: -2, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'zills',
+    parts: [
+      { id: 'finger_cymbals_type', name: 'Type', variants: [
+        { id: 'zills_two_hole', default: true, name: 'Zills (Turkish, two-hole, high dome)', descriptors: ['bright-ring', 'shimmering-ting', 'sustained-chime'], match_tokens: ['belly-dance', 'turkish', 'middle-eastern'] },
+        { id: 'sagat_one_hole', name: 'Sagat (Egyptian, one-hole, louder)', descriptors: ['clangy-ring', 'cutting'], match_tokens: ['egyptian', 'arabic', 'raqs-sharqi'] },
+      ] },
+    ]
+  },
+  {
+    id: 'flexatone',
+    name: 'Flexatone',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'flexatone',
+    parts: [
+      { id: 'flexatone_voice', name: 'Voice', variants: [
+        { id: 'flexatone_standard', default: true, name: 'Shaken, thumb-bent pitch (spooky glissando)', descriptors: ['wobbling-glissando', 'eerie', 'trembling'], match_tokens: ['cartoon', 'novelty', 'film', 'eerie'] },
+      ] },
+    ]
+  },
+  {
+    id: 'vibraslap',
+    name: 'Vibraslap',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'vibraslap',
+    parts: [
+      { id: 'vibraslap_voice', name: 'Voice', variants: [
+        { id: 'vibraslap_standard', default: true, name: 'Palm-struck ball, rattling teeth', descriptors: ['rattling', 'buzzing-rattle', 'rattlesnake'], match_tokens: ['latin', 'rock', 'jazz', 'novelty'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ratchet',
+    name: 'Ratchet (cog rattle)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'ratchet',
+    parts: [
+      { id: 'ratchet_type', name: 'Type', variants: [
+        { id: 'ratchet_cog', default: true, name: 'Crank cog rattle (continuous clatter)', descriptors: ['clattering', 'mechanical-rattle', 'grinding'], match_tokens: ['orchestral', 'festive', 'theatrical', 'film'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mark_tree',
+    name: 'Mark tree (bar chimes)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 0, sustain: 1, polyphony: 1, harmonicity: -1, register: 2, range: 0, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'bar chimes',
+    parts: [
+      { id: 'mark_tree_material', name: 'Material', variants: [
+        { id: 'mark_tree_metal', default: true, name: 'Graduated metal rods (swept cascade)', descriptors: ['shimmering-cascade', 'tinkling', 'glissando-sweep'], match_tokens: ['pop', 'orchestral', 'new-age', 'film'] },
+        { id: 'mark_tree_bamboo', name: 'Bamboo wind chimes', descriptors: ['hollow-clatter', 'wooden-tinkle'], match_tokens: ['ambient', 'world', 'meditative'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sleigh_bells',
+    name: 'Sleigh bells (jingles)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -1, harmonicity: -1, register: 2, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'sleigh bells',
+    parts: [
+      { id: 'sleigh_bells_mount', name: 'Mounting', variants: [
+        { id: 'sleigh_bells_strap', default: true, name: 'Bells on leather strap (shaken)', descriptors: ['jingling', 'festive-shimmer', 'ringing-cluster'], match_tokens: ['christmas', 'orchestral', 'folk', 'pop'] },
+        { id: 'sleigh_bells_handle', name: 'Bells on handle / frame', descriptors: ['controlled-jingle', 'rhythmic-shake'], match_tokens: ['orchestral'] },
+      ] },
+    ]
+  },
+  {
+    id: 'slapstick',
+    name: 'Slapstick (whip)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'whip',
+    parts: [
+      { id: 'slapstick_type', name: 'Type', variants: [
+        { id: 'slapstick_hinged', default: true, name: 'Hinged hardwood boards (whip crack)', descriptors: ['sharp-crack', 'whip-snap', 'percussive-slap'], match_tokens: ['orchestral', 'cartoon', 'film', 'theatrical'] },
+      ] },
+    ]
+  },
+  {
+    id: 'anvil',
+    name: 'Anvil (struck steel)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'anvil',
+    parts: [
+      { id: 'anvil_type', name: 'Type', variants: [
+        { id: 'anvil_steel_bar', default: true, name: 'Steel bar / brake drum (hammer-struck)', descriptors: ['ringing-clang', 'metallic-strike', 'industrial'], match_tokens: ['orchestral', 'industrial', 'dramatic', 'film'] },
+      ] },
+    ]
+  },
+  {
+    id: 'thunder_sheet',
+    name: 'Thunder sheet',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -2, sustain: 1, polyphony: -2, harmonicity: -2, register: -1, range: -2, articulation: -1, transduction: -2, dynamics: 2 },
+    short: 'thunder sheet',
+    parts: [
+      { id: 'thunder_sheet_technique', name: 'Technique', variants: [
+        { id: 'thunder_sheet_shaken', default: true, name: 'Shaken metal sheet (thunder rumble)', descriptors: ['rumbling', 'crashing-roar', 'storm'], match_tokens: ['film', 'theatrical', 'orchestral', 'sound-design'] },
+        { id: 'thunder_sheet_struck', name: 'Struck with mallet', descriptors: ['booming-crash', 'metallic-roar'], match_tokens: ['orchestral', 'dramatic'] },
+      ] },
+    ]
   });
 </script>
 <script>// ─── 03_rooms_chains_tunings.js ───
