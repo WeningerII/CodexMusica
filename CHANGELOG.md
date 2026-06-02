@@ -7,6 +7,15 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased] — production hardening
 
 ### Added
+- Four new `voice_tradition` variants (32 total) for vocal lineages the palette
+  lacked: `sami_joik_tradition` (Nordic Sápmi joik), `andean_quechua_tradition`
+  (Quechua/Aymara wayno), `native_american_vocal_tradition` (Plains/Southwest
+  powwow & ceremonial), `southeast_asian_folk_vocal_tradition` (lam/mor-lam,
+  luk-thung). 20 traditions reassigned off the `modern_pop_vocal_training`
+  default onto these. Variant descriptor tokens were tuned to distinctive
+  proper-noun stems so the engine's scorer surfaces them only for their own
+  region (Sámi/Andean/SE-Asian/Lakota traditions auto-select correctly; spurious
+  cross-genre bleed eliminated — verified by sweeping the scorer over all 1090).
 - `scripts/audit_coherence.js` (`npm run audit:coherence`): a substantive
   **coherence** auditor that complements `validate` (reference resolution) and
   `audit` (token/descriptor health) by checking that a tradition's fields are
@@ -76,6 +85,12 @@ All notable changes to this project are recorded here. Format loosely follows
   token-set chain in `build_variants.js`. `npm run lint` is clean.
 
 ### Fixed
+- Two false-positive `tandem` gates (flagging source untouched by data work):
+  the card-descriptor-semantics gate now strips comments before scanning the
+  HTML embed for `match_tokens` (the injected `harvestDescriptors` core carries
+  a "NOT match_tokens" comment); and the inline-SVG gate now allowlists
+  `glyphSvg()`, the tradition glyph/emoji renderer (a hand-rolled SVG renderer
+  like the already-allowlisted viz functions, not an `icon()` bypass).
 - Delete-workspace used native `confirm()` (which browsers can suppress in the embed) —
   it now uses the app's `confirmDialog`.
 - `saveWS` and `delWS` now guard `window.storage` symmetrically with `safeGet`.
