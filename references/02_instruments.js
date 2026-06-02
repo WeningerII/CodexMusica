@@ -11635,4 +11635,33 @@ const INSTRUMENTS = [
       ] },
     ]
   },
+  {
+    id: 'shinobue',
+    name: 'Shinobue (Japanese transverse bamboo flute)',
+    family: 'wind',
+    class: 'wind_blown',
+    axes: { pitchFix: 1, sustain: 1, polyphony: -2, harmonicity: 0, register: 2, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'shinobue',
+    parts: [
+      { id: 'shinobue_style', name: 'Style / tuning', variants: [
+        { id: 'shinobue_uta', default: true, name: 'Uta-bue (song, tuned to traditional scale)', descriptors: ['high-bright', 'melodic', 'breathy'], match_tokens: ['japanese', 'min-yo', 'nagauta'] },
+        { id: 'shinobue_hayashi', name: 'Hayashi / matsuri-bue (festival)', descriptors: ['piercing', 'rhythmic', 'celebratory'], match_tokens: ['japanese', 'matsuri', 'festival', 'taiko'] },
+        { id: 'shinobue_doremi', name: 'Doremi (Western-tuned)', descriptors: ['clear', 'even-tempered'], match_tokens: ['japanese', 'modern', 'ensemble'] },
+      ] },
+    ]
+  },
+  {
+    id: 'bandurria',
+    name: 'Bandurria (Spanish / Filipino plucked lute)',
+    family: 'acoustic_strings',
+    class: 'plucked_string_lead',
+    axes: { pitchFix: 2, sustain: -1, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'bandurria',
+    parts: [
+      { id: 'bandurria_type', name: 'Type', variants: [
+        { id: 'bandurria_spanish', default: true, name: 'Spanish (6 courses / 12 strings, tuned in fourths, plectrum tremolo)', descriptors: ['bright-tremolo', 'mandolin-like', 'ringing'], match_tokens: ['spanish', 'tuna', 'estudiantina', 'rondalla'] },
+        { id: 'bandurria_filipino', name: 'Filipino (14 strings, top courses tripled, tuned a tone lower)', descriptors: ['percussive-bright', 'ensemble-cutting'], match_tokens: ['filipino', 'rondalla', 'kundiman'] },
+      ] },
+    ]
+  },
 ];

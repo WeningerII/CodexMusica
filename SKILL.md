@@ -1,6 +1,6 @@
 ---
 name: codex-music-tool
-description: Query, compose, validate, and mutate the Codex Musica dataset — 1090 recorded-music traditions (in a 311-node genre tree, 13-axis space), 462 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 332-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
+description: Query, compose, validate, and mutate the Codex Musica dataset — 1090 recorded-music traditions (in a 311-node genre tree, 13-axis space), 464 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 332-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
 license: MIT
 ---
 
@@ -49,7 +49,7 @@ Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you 
 |---|---|---|---|
 | instrument families | 11 | bare slug: `bowed`,`percussion`,`wind`,… | `INSTRUMENT_FAMILIES` (array) |
 | family part-groups | 9 | keyed by family slug | `INSTRUMENT_FAMILY_PARTS` (object) |
-| instruments | 462 | bare slug, e.g. `oud`, `electric_bass` | `INSTRUMENTS` (array) |
+| instruments | 464 | bare slug, e.g. `oud`, `electric_bass` | `INSTRUMENTS` (array) |
 | rooms | 256 | bare slug, e.g. `parlor` | `ROOMS` (array) |
 | chain archetypes | 22 | `arch_<slug>` | `CHAIN_ARCHETYPES` (array) |
 | chain sections (UI menus) | 8 | `mic`/`pre`/`fx`/… | `CHAIN_SECTIONS` (array) |
@@ -171,7 +171,7 @@ module.exports = T;
 ```bash
 CODEX_REF="$PWD/references" node -e 'const T=require("./load.js");
 console.log("loaded:",T.INSTRUMENTS.length,"insts,",T.TRADITIONS.length,"trads")'
-# → loaded: 462 insts, 1090 trads
+# → loaded: 464 insts, 1090 trads
 ```
 
 ### B. `require` for the preface lexicon only (it has `module.exports`)
@@ -246,7 +246,7 @@ For any query, `const db = require('./q.js')` and read `db.*` / `db.by*` /
 # 1) instruments per family, top 5
 node -e 'const db=require("./q.js");const c={};db.INSTRUMENTS.forEach(i=>c[i.family]=(c[i.family]||0)+1);
 console.log(JSON.stringify(Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,5)))'
-# → [["percussion",147],["plucked_traditional",76],["wind",73],["bowed",32],["ensemble",32]]
+# → [["percussion",147],["plucked_traditional",76],["wind",74],["bowed",32],["ensemble",32]]
 
 # 2) traditions under a genre-tree branch (extras.parent is a full dotted path)
 node -e 'const db=require("./q.js");
@@ -798,7 +798,7 @@ name: Bill Monroe`, and the made-up archetype in `soft` (verified).
 - Load once with `q.js`; reuse `db.by*` and `db.partsFor`. Never re-parse the 1–2 MB
   bundles per query.
 - Project to `{id,name}` and `slice`/`head` before printing — never dump a full table
-  (462 instruments / 1090 traditions is a lot of tokens).
+  (464 instruments / 1090 traditions is a lot of tokens).
 - Prefer counts/samples while exploring; pull full records only for the few ids that
   land in the output.
 - For a single name lookup, `grep -oE "name: '…'"` beats spinning up node.
