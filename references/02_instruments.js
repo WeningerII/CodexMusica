@@ -11211,4 +11211,77 @@ const INSTRUMENTS = [
       ] },
     ]
   },
+  {
+    id: 'tap_shoes',
+    name: 'Tap shoes (percussive dance)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'tap shoes',
+    parts: [
+      { id: 'tap_shoes_type', name: 'Shoe / tap type', variants: [
+        { id: 'tap_rhythm_metal', default: true, name: 'Rhythm/jazz tap (aluminum taps, toe and heel)', descriptors: ['metallic-click', 'syncopated', 'rhythm-tap'], match_tokens: ['jazz', 'rhythm-tap', 'hoofing'] },
+        { id: 'tap_broadway', name: 'Broadway tap (theatrical)', descriptors: ['bright-tap', 'show-tap'], match_tokens: ['musical-theater', 'broadway'] },
+        { id: 'tap_irish_hard_fiberglass', name: 'Irish hard shoe (fiberglass tip and heel)', descriptors: ['loud-click', 'fiberglass-tip', 'percussive-jig'], match_tokens: ['irish', 'celtic', 'step-dance'] },
+      ] },
+    ]
+  },
+  {
+    id: 'spoons',
+    name: 'Musical spoons (concussion idiophone)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: -1, register: 1, range: -2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'spoons',
+    parts: [
+      { id: 'spoons_material', name: 'Material', variants: [
+        { id: 'spoons_metal', default: true, name: 'Metal spoons (back-to-back, struck on knee/hand)', descriptors: ['clattering', 'bright-click', 'syncopated'], match_tokens: ['folk', 'old-time', 'jug-band'] },
+        { id: 'spoons_wooden', name: 'Wooden spoons', descriptors: ['hollow-clack', 'warm-knock'], match_tokens: ['folk', 'celtic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'rhythm_bones',
+    name: 'Rhythm bones (concussion idiophone)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: 0, range: -2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'bones',
+    parts: [
+      { id: 'rhythm_bones_material', name: 'Material', variants: [
+        { id: 'bones_wood', default: true, name: 'Wooden bones (curved, ~5-7 in)', descriptors: ['triple-click', 'clattering', 'rattling'], match_tokens: ['folk', 'old-time', 'irish'] },
+        { id: 'bones_animal', name: 'Animal rib/leg bones', descriptors: ['dry-clack', 'sharp-rattle'], match_tokens: ['folk', 'traditional'] },
+      ] },
+    ]
+  },
+  {
+    id: 'jaw_harp',
+    name: 'Jaw harp / jew\'s harp (plucked lamellophone)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'jaw harp',
+    parts: [
+      { id: 'jaw_harp_type', name: 'Construction / regional type', variants: [
+        { id: 'jaw_harp_heteroglot_steel', default: true, name: 'Heteroglot steel-tongue frame (Western jew\'s harp)', descriptors: ['twanging', 'overtone-buzz', 'metallic-boing'], match_tokens: ['folk', 'appalachian', 'ozark'] },
+        { id: 'jaw_harp_idioglot_bamboo', name: 'Idioglot bamboo (dan moi / genggong)', descriptors: ['soft-twang', 'breathy-overtone'], match_tokens: ['vietnamese', 'indonesian', 'southeast-asian'] },
+        { id: 'jaw_harp_morsing', name: 'Morsing (South Indian iron)', descriptors: ['rhythmic-twang', 'carnatic-percussive'], match_tokens: ['indian', 'carnatic', 'south-indian'] },
+        { id: 'jaw_harp_khomus', name: 'Khomus (Sakha/Yakut steel)', descriptors: ['resonant-twang', 'deep-overtone'], match_tokens: ['siberian', 'yakut', 'turkic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'washboard',
+    name: 'Washboard (thimble-scraped idiophone)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'washboard',
+    parts: [
+      { id: 'washboard_type', name: 'Type', variants: [
+        { id: 'washboard_galvanized_thimbles', default: true, name: 'Galvanized washboard, thimble-scraped (jug-band/old-time)', descriptors: ['scraping', 'rhythmic-rasp', 'ribbed-metal'], match_tokens: ['jug-band', 'old-time', 'skiffle'] },
+        { id: 'washboard_stainless', name: 'Stainless ribbed board', descriptors: ['bright-rasp', 'cutting-scrape'], match_tokens: ['folk', 'roots'] },
+      ] },
+    ]
+  },
 ];
