@@ -219,7 +219,7 @@ notes: only renders when 1+ cards (filter has nothing to filter on empty)
 name: sidebar-tradition-header
 kind: widget
 selector: '.sb-tradition-header'
-surface: sidebar — per-tradition group header (chevron + name + status pill + count)
+surface: sidebar — per-tradition group header; title row (chevron + glyphs + name + count) over a meta row (status pill + move/delete controls), sticky to the sidebar top
 implementation: click toggles app.collapsedTraditionGroups Set entry
 status: reachable
 precondition: 1+ cards

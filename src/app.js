@@ -4258,14 +4258,18 @@ function renderSidebarTraditions() {
     return (
       '<section class="sb-tradition-group' + (isCollapsed ? ' is-collapsed' : '') + '" data-tradition-id="' + esc(tradId) + '">' +
         '<div class="sb-tradition-header" role="button" tabindex="0"' + (tradId !== '__ungrouped__' ? ' draggable="true"' : '') + '>' +
-          '<span class="sb-chev">' + icon('chevron-down', 12) + '</span>' +
-          (tradId !== '__ungrouped__' ? traditionGlyphsHTML(tradId, 22) : '') +
-          '<span class="sb-tradition-name">' + esc(name) + '</span>' +
-          (tradId !== '__ungrouped__' ? '<span class="sb-status-pill ' + (isPrimary ? 'primary' : 'secondary') + '">' + (isPrimary ? 'PRIMARY' : 'SECONDARY') + '</span>' : '') +
-          '<span class="sb-tradition-count">' + cards.length + '</span>' +
-          moverButtons +
+          '<div class="sb-tradition-titlerow">' +
+            '<span class="sb-chev">' + icon('chevron-down', 12) + '</span>' +
+            (tradId !== '__ungrouped__' ? traditionGlyphsHTML(tradId, 22) : '') +
+            '<span class="sb-tradition-name">' + esc(name) + '</span>' +
+            '<span class="sb-tradition-count">' + cards.length + '</span>' +
+          '</div>' +
           (tradId !== '__ungrouped__'
-            ? '<button class="sb-tradition-delete" data-delete-tradition="' + esc(tradId) + '" data-tooltip="Remove tradition from workspace" data-tooltip-pos="left" aria-label="Remove ' + esc(name) + ' group">' + icon('trash-2', 11) + '</button>'
+            ? '<div class="sb-tradition-metarow">' +
+                '<span class="sb-status-pill ' + (isPrimary ? 'primary' : 'secondary') + '">' + (isPrimary ? 'PRIMARY' : 'SECONDARY') + '</span>' +
+                moverButtons +
+                '<button class="sb-tradition-delete" data-delete-tradition="' + esc(tradId) + '" data-tooltip="Remove tradition from workspace" data-tooltip-pos="left" aria-label="Remove ' + esc(name) + ' group">' + icon('trash-2', 11) + '</button>' +
+              '</div>'
             : '') +
         '</div>' +
         '<div class="sb-tradition-cards">' +

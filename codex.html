@@ -78,14 +78,14 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
-body { font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.5; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body { font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.5; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; display: flex; flex-direction: column; }
 button { font: inherit; color: inherit; cursor: pointer; }
 input { font: inherit; color: inherit; }
 ul { list-style: none; }
 ::selection { background: var(--text); color: var(--surface); }
 
 /* App bar */
-.app-bar { position: sticky; top: 0; z-index: 30; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: var(--s3) var(--s6); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); }
+.app-bar { flex: 0 0 auto; position: sticky; top: 0; z-index: 30; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: var(--s3) var(--s6); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); }
 .app-bar h1 { font-family: var(--font-display); font-size: var(--fs-display-modal); font-weight: var(--fw-semibold); letter-spacing: -0.005em; display: inline-flex; align-items: center; gap: var(--s2); color: var(--text); font-variation-settings: "SOFT" 50, "opsz" 30; }
 .app-bar-wordmark { gap: var(--s3); }
 .app-bar-wordmark .wordmark-text { font-weight: var(--fw-semibold); font-size: var(--fs-display-modal); letter-spacing: -0.01em; }
@@ -162,7 +162,10 @@ ul { list-style: none; }
 .workspace {
   display: grid;
   grid-template-columns: 320px 1fr;
-  min-height: calc(100vh - var(--app-bar-height, 56px));
+  grid-template-rows: minmax(0, 1fr);
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
   gap: 0;
   max-width: none;
   margin: 0;
@@ -208,14 +211,16 @@ ul { list-style: none; }
 
 .sb-tradition-group { display: flex; flex-direction: column; gap: var(--s1); }
 .sb-tradition-group + .sb-tradition-group { margin-top: var(--s3); }
-.sb-tradition-header { display: flex; align-items: center; gap: var(--s2); cursor: pointer; padding: 4px 0; user-select: none; }
-.sb-chev { display: inline-flex; transition: transform 150ms ease; color: var(--text-3); }
+.sb-tradition-header { display: flex; flex-direction: column; align-items: stretch; gap: 4px; cursor: pointer; padding: 6px 0; user-select: none; position: sticky; top: 0; z-index: 2; background: var(--surface); }
+.sb-tradition-titlerow { display: flex; align-items: center; gap: var(--s2); min-width: 0; }
+.sb-tradition-metarow { display: flex; align-items: center; gap: var(--s2); padding-left: calc(12px + var(--s2)); }
+.sb-chev { display: inline-flex; flex: none; transition: transform 150ms ease; color: var(--text-3); }
 .sb-tradition-group.is-collapsed .sb-chev { transform: rotate(-90deg); }
-.sb-tradition-name { font-weight: var(--fw-semibold); color: var(--text); font-size: var(--fs-body); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sb-tradition-name { font-weight: var(--fw-semibold); color: var(--text); font-size: var(--fs-body); line-height: 1.3; flex: 1; min-width: 0; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .sb-status-pill { font-size: var(--fs-nano); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 10px; }
 .sb-status-pill.primary { background: var(--color-blue, #4a7cb8); color: white; }
 .sb-status-pill.secondary { background: var(--surface-2); color: var(--text-2); }
-.sb-tradition-count { font-size: var(--fs-caption); color: var(--text-3); margin-left: 4px; }
+.sb-tradition-count { font-size: var(--fs-caption); color: var(--text-3); margin-left: auto; flex: none; }
 /* Mover buttons — always visible (vs delete which only appears on hover),
    because this is the primary affordance for "reorder my groups" that
    replaces the previously-confusing drag-to-reorder. Always-visible so the
@@ -235,7 +240,7 @@ ul { list-style: none; }
 }
 .sb-tradition-move:hover:not([disabled]) { color: var(--text); background: var(--surface-2); }
 .sb-tradition-move[disabled] { opacity: 0.25; cursor: default; }
-.sb-tradition-move-up { margin-left: 4px; }
+.sb-tradition-move-up { margin-left: auto; }
 .sb-tradition-move-down { margin-left: 1px; }
 .sb-tradition-delete { background: transparent; border: none; padding: 2px 4px; margin-left: 2px; color: var(--text-3); cursor: pointer; border-radius: var(--r1); opacity: 0; transition: opacity var(--t-fast) var(--ease), color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); display: inline-flex; align-items: center; justify-content: center; }
 .sb-tradition-header:hover .sb-tradition-delete,
@@ -306,7 +311,7 @@ ul { list-style: none; }
 
 /* Sidebar recipe preview (Phase 8). Live compressRichRecipe output for the
    full workspace, with char counter against the 1000-char ceiling. */
-#sidebar-recipe-preview { margin-top: auto; padding-top: var(--s4); border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: var(--s2); }
+#sidebar-recipe-preview { margin-top: auto; position: sticky; bottom: 0; z-index: 5; background: var(--surface); padding-top: var(--s4); padding-bottom: var(--s2); border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: var(--s2); }
 .rp-head { display: flex; align-items: center; gap: 6px; }
 .rp-head .rp-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); flex: 1; }
 .rp-head .rp-count { font-size: var(--fs-micro); font-variant-numeric: tabular-nums; color: var(--text-3); }
@@ -30455,14 +30460,18 @@ function renderSidebarTraditions() {
     return (
       '<section class="sb-tradition-group' + (isCollapsed ? ' is-collapsed' : '') + '" data-tradition-id="' + esc(tradId) + '">' +
         '<div class="sb-tradition-header" role="button" tabindex="0"' + (tradId !== '__ungrouped__' ? ' draggable="true"' : '') + '>' +
-          '<span class="sb-chev">' + icon('chevron-down', 12) + '</span>' +
-          (tradId !== '__ungrouped__' ? traditionGlyphsHTML(tradId, 22) : '') +
-          '<span class="sb-tradition-name">' + esc(name) + '</span>' +
-          (tradId !== '__ungrouped__' ? '<span class="sb-status-pill ' + (isPrimary ? 'primary' : 'secondary') + '">' + (isPrimary ? 'PRIMARY' : 'SECONDARY') + '</span>' : '') +
-          '<span class="sb-tradition-count">' + cards.length + '</span>' +
-          moverButtons +
+          '<div class="sb-tradition-titlerow">' +
+            '<span class="sb-chev">' + icon('chevron-down', 12) + '</span>' +
+            (tradId !== '__ungrouped__' ? traditionGlyphsHTML(tradId, 22) : '') +
+            '<span class="sb-tradition-name">' + esc(name) + '</span>' +
+            '<span class="sb-tradition-count">' + cards.length + '</span>' +
+          '</div>' +
           (tradId !== '__ungrouped__'
-            ? '<button class="sb-tradition-delete" data-delete-tradition="' + esc(tradId) + '" data-tooltip="Remove tradition from workspace" data-tooltip-pos="left" aria-label="Remove ' + esc(name) + ' group">' + icon('trash-2', 11) + '</button>'
+            ? '<div class="sb-tradition-metarow">' +
+                '<span class="sb-status-pill ' + (isPrimary ? 'primary' : 'secondary') + '">' + (isPrimary ? 'PRIMARY' : 'SECONDARY') + '</span>' +
+                moverButtons +
+                '<button class="sb-tradition-delete" data-delete-tradition="' + esc(tradId) + '" data-tooltip="Remove tradition from workspace" data-tooltip-pos="left" aria-label="Remove ' + esc(name) + ' group">' + icon('trash-2', 11) + '</button>' +
+              '</div>'
             : '') +
         '</div>' +
         '<div class="sb-tradition-cards">' +
