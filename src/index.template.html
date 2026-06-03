@@ -945,42 +945,33 @@ ul { list-style: none; }
    appearing is 400ms to avoid showing during quick mouse passes, which is
    the Material Design tooltip convention. */
 [data-tooltip] { position: relative; }
-[data-tooltip]::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 8px);
-  transform: translateX(-50%) translateY(2px);
+/* Tooltips are rendered into a single <body>-level layer by initTooltips() in
+   the app JS — NOT a CSS ::after — so they escape the overflow clipping of the
+   scrolling panels (sidebar scroll zone, detail pane, modal bodies) that
+   swallowed the old pseudo-element bubbles. The JS positions .app-tooltip in
+   viewport coordinates and flips it to whichever side stays on-screen. */
+.app-tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  max-width: min(280px, 90vw);
   background: #3c4043;
   color: #ffffff;
   font-size: var(--fs-micro);
   font-weight: var(--fw-medium);
   line-height: var(--lh-tight);
+  text-align: center;
   padding: 5px 9px;
   border-radius: var(--r2);
-  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(32, 33, 36, 0.2);
   pointer-events: none;
   opacity: 0;
+  transform: translateY(2px);
   transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
-  transition-delay: 0ms;
-  z-index: 250;
-  box-shadow: 0 2px 6px rgba(32, 33, 36, 0.2);
 }
-[data-tooltip]:hover::after,
-[data-tooltip]:focus-visible::after {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-  transition-delay: 400ms;
-}
-[data-tooltip-pos="bottom"]::after {
-  bottom: auto;
-  top: calc(100% + 8px);
-  transform: translateX(-50%) translateY(-2px);
-}
-[data-tooltip-pos="bottom"]:hover::after,
-[data-tooltip-pos="bottom"]:focus-visible::after {
-  transform: translateX(-50%) translateY(0);
-}
+.app-tooltip.is-shown { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .app-tooltip { transition: none; } }
 </style>
 </head>
 <body>

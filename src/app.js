@@ -5932,6 +5932,82 @@ function syncAppBarHeight() {
   document.documentElement.style.setProperty('--app-bar-height', bar.offsetHeight + 'px');
 }
 
+// ── Tooltips ────────────────────────────────────────────────────────────
+// data-tooltip bubbles are rendered into one <body>-level layer instead of a
+// CSS ::after, so they escape the overflow clipping of the scrolling panels
+// (sidebar scroll zone, detail pane, modal bodies) that swallowed the old
+// pseudo-element version. The bubble is positioned in viewport coordinates
+// from the target's rect honoring data-tooltip-pos (top default / bottom /
+// left / right), but flips to whichever side keeps it fully on-screen — so the
+// top app-bar buttons, whose default upward bubble drew off the top of the
+// window, now show below. 400ms reveal delay matches the prior timing.
+(function initTooltips() {
+  const DELAY = 400, GAP = 8;
+  let bubble = null, timer = null, current = null;
+
+  function el() {
+    if (!bubble) {
+      bubble = document.createElement('div');
+      bubble.className = 'app-tooltip';
+      bubble.setAttribute('role', 'tooltip');
+      (document.body || document.documentElement).appendChild(bubble);
+    }
+    return bubble;
+  }
+  function compute(p, r, w, h) {
+    switch (p) {
+      case 'bottom': return { top: r.bottom + GAP,               left: r.left + r.width / 2 - w / 2 };
+      case 'left':   return { top: r.top + r.height / 2 - h / 2, left: r.left - w - GAP };
+      case 'right':  return { top: r.top + r.height / 2 - h / 2, left: r.right + GAP };
+      default:       return { top: r.top - h - GAP,              left: r.left + r.width / 2 - w / 2 };
+    }
+  }
+  function place(target) {
+    const text = target.getAttribute('data-tooltip');
+    if (!text) return hide();
+    const b = el();
+    b.textContent = text;
+    b.classList.add('is-shown');                  // shown first so it's measurable
+    const pos = target.getAttribute('data-tooltip-pos') || 'top';
+    const r = target.getBoundingClientRect();
+    const w = b.offsetWidth, h = b.offsetHeight;
+    const order = pos === 'bottom' ? ['bottom', 'top', 'right', 'left']
+                : pos === 'left'   ? ['left', 'right', 'top', 'bottom']
+                : pos === 'right'  ? ['right', 'left', 'top', 'bottom']
+                :                    ['top', 'bottom', 'right', 'left'];
+    const fits = c => c.top >= GAP && c.left >= GAP &&
+                      c.top + h <= window.innerHeight - GAP && c.left + w <= window.innerWidth - GAP;
+    const c = order.map(p => compute(p, r, w, h)).find(fits) || compute(order[0], r, w, h);
+    b.style.top  = Math.max(GAP, Math.min(c.top,  window.innerHeight - h - GAP)) + 'px';
+    b.style.left = Math.max(GAP, Math.min(c.left, window.innerWidth  - w - GAP)) + 'px';
+  }
+  function show(target) {
+    if (current === target) return;
+    current = target;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      if (current === target && document.body.contains(target)) place(target);
+    }, DELAY);
+  }
+  function hide() {
+    clearTimeout(timer);
+    current = null;
+    if (bubble) bubble.classList.remove('is-shown');
+  }
+  const targetFrom = e => (e.target && e.target.closest ? e.target.closest('[data-tooltip]') : null);
+
+  document.addEventListener('mouseover', e => { const t = targetFrom(e); if (t) show(t); });
+  document.addEventListener('mouseout', e => {
+    const t = targetFrom(e);
+    if (t && (!e.relatedTarget || !t.contains(e.relatedTarget))) hide();
+  });
+  document.addEventListener('focusin',  e => { const t = targetFrom(e); if (t) show(t); });
+  document.addEventListener('focusout', hide);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+  window.addEventListener('scroll', hide, true);   // capture: catches inner panels too
+  document.addEventListener('click', hide, true);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   // Hydrate all icon placeholders in the static HTML shell. Each
   // <span data-icon="name" data-size="N"></span> placeholder gets its
