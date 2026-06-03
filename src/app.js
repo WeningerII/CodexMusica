@@ -4261,12 +4261,16 @@ function renderSidebarTraditions() {
           '<span class="sb-chev">' + icon('chevron-down', 12) + '</span>' +
           (tradId !== '__ungrouped__' ? traditionGlyphsHTML(tradId, 22) : '') +
           '<span class="sb-tradition-name">' + esc(name) + '</span>' +
-          (tradId !== '__ungrouped__' ? '<span class="sb-status-pill ' + (isPrimary ? 'primary' : 'secondary') + '">' + (isPrimary ? 'PRIMARY' : 'SECONDARY') + '</span>' : '') +
-          '<span class="sb-tradition-count">' + cards.length + '</span>' +
-          moverButtons +
-          (tradId !== '__ungrouped__'
-            ? '<button class="sb-tradition-delete" data-delete-tradition="' + esc(tradId) + '" data-tooltip="Remove tradition from workspace" data-tooltip-pos="left" aria-label="Remove ' + esc(name) + ' group">' + icon('trash-2', 11) + '</button>'
-            : '') +
+          // Meta cluster wraps to its own line beneath the name (see the
+          // .sb-tradition-meta rule) so the controls never crowd the name out.
+          '<span class="sb-tradition-meta">' +
+            (tradId !== '__ungrouped__' ? '<span class="sb-status-pill ' + (isPrimary ? 'primary' : 'secondary') + '">' + (isPrimary ? 'PRIMARY' : 'SECONDARY') + '</span>' : '') +
+            '<span class="sb-tradition-count">' + cards.length + '</span>' +
+            moverButtons +
+            (tradId !== '__ungrouped__'
+              ? '<button class="sb-tradition-delete" data-delete-tradition="' + esc(tradId) + '" data-tooltip="Remove tradition from workspace" data-tooltip-pos="left" aria-label="Remove ' + esc(name) + ' group">' + icon('trash-2', 11) + '</button>'
+              : '') +
+          '</span>' +
         '</div>' +
         '<div class="sb-tradition-cards">' +
           cards.map(c => renderSidebarCard(c)).join('') +
@@ -5917,6 +5921,17 @@ window.addEventListener('unhandledrejection', e => {
   }
 });
 
+// Keep the CSS --app-bar-height variable in sync with the real rendered app
+// bar. The sidebar pane (height/top = calc(100vh - app-bar-height)) and the
+// mobile drawer offsets are derived from it; measuring the actual bar — which
+// shifts with web-font loading and viewport width — keeps those panes
+// pixel-aligned to the sticky bar instead of trusting the 56px fallback.
+function syncAppBarHeight() {
+  const bar = document.querySelector('.app-bar');
+  if (!bar) return;
+  document.documentElement.style.setProperty('--app-bar-height', bar.offsetHeight + 'px');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Hydrate all icon placeholders in the static HTML shell. Each
   // <span data-icon="name" data-size="N"></span> placeholder gets its
@@ -5927,6 +5942,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const size = parseInt(el.dataset.size, 10) || 16;
     el.innerHTML = icon(el.dataset.icon, size);
   });
+  // Now that the bar's icons are hydrated, measure it; re-measure once the
+  // web fonts settle and on every resize so the sidebar/detail panes stay
+  // locked to the bar's actual height.
+  syncAppBarHeight();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncAppBarHeight).catch(() => {});
+  window.addEventListener('resize', syncAppBarHeight);
   populatePrefaceDatalist();
   // Escape closes any currently-open modal. Backdrop click closes are wired
   // elsewhere via data-close; this adds the keyboard parity for accessibility.
