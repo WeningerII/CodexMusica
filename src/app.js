@@ -1366,7 +1366,12 @@ const app = {
   // - sidebarFilter: live text filter narrowing sidebar cards by name/preface.
   selected: null,
   workspaceName: 'Untitled session',
-  sidebarFilter: ''
+  sidebarFilter: '',
+  // Preface browse modal: live search text, set of collapsed category names,
+  // and the card the modal is currently acting on.
+  prefaceSearch: '',
+  prefaceCollapsed: new Set(),
+  prefaceCard: null
 };
 const HISTORY_MAX = 50;
 
@@ -5101,6 +5106,50 @@ function renderPartsSection(card, inst) {
   return sec;
 }
 
+// Attach a live text filter to an already-rendered option panel (the expanded
+// tuning / room / chain pickers). Filters .chip-block options by visible text
+// via show/hide — no re-render, so the input keeps focus while typing. Clicks
+// and keys are stopped from bubbling to the row's expand/collapse handler.
+// `groupSelector` (optional) hides group wrappers that have no visible item.
+function attachInlineFilter(panel, opts) {
+  opts = opts || {};
+  const itemSel = opts.itemSelector || '.chip-block';
+  const bar = document.createElement('div');
+  bar.className = 'inline-filter';
+  bar.innerHTML = '<span class="inline-filter-icon">' + icon('search', 13) + '</span>' +
+    '<input type="search" class="inline-filter-input" placeholder="' + esc(opts.placeholder || 'Filter…') + '" autocomplete="off">' +
+    '<span class="inline-filter-count"></span>';
+  bar.addEventListener('click', e => e.stopPropagation());
+  bar.addEventListener('mousedown', e => e.stopPropagation());
+  const input = bar.querySelector('input');
+  const countEl = bar.querySelector('.inline-filter-count');
+  const items = Array.prototype.slice.call(panel.querySelectorAll(itemSel));
+  function apply() {
+    const q = normalizeSearch(input.value);
+    let shown = 0;
+    items.forEach(it => {
+      if (it.dataset.filterPin === '1') return; // e.g. "Not set" stays visible
+      const match = !q || normalizeSearch(it.textContent).indexOf(q) >= 0;
+      it.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    if (opts.groupSelector) {
+      panel.querySelectorAll(opts.groupSelector).forEach(g => {
+        const any = Array.prototype.slice.call(g.querySelectorAll(itemSel)).some(it => it.style.display !== 'none');
+        g.style.display = any ? '' : 'none';
+      });
+    }
+    countEl.textContent = q ? (shown + ' match' + (shown === 1 ? '' : 'es')) : '';
+  }
+  input.addEventListener('input', apply);
+  input.addEventListener('keydown', e => {
+    e.stopPropagation();
+    if (e.key === 'Escape' && input.value) { input.value = ''; apply(); }
+  });
+  panel.insertBefore(bar, panel.firstChild);
+  return bar;
+}
+
 function renderEnvSection(card) {
   const sec = document.createElement('section');
   sec.className = 'composer-section';
@@ -5148,22 +5197,35 @@ function renderEnvRow(card, kind) {
     const opts = document.createElement('div');
     opts.className = 'env-options';
     if (isTuning) {
-      opts.innerHTML = `<button class="chip-block ${!card.tuning ? 'selected' : ''}" data-set-tuning="">Not set</button>`;
+      opts.innerHTML = `<button class="chip-block ${!card.tuning ? 'selected' : ''}" data-set-tuning="" data-filter-pin="1">Not set</button>`;
       TUNINGS.forEach(t => {
         opts.innerHTML += `<button class="chip-block ${card.tuning === t.id ? 'selected' : ''}" data-set-tuning="${esc(t.id)}">${esc(t.name)}<span class="chip-block-sub">${esc(t.sub)}</span></button>`;
       });
+      row.appendChild(opts);
+      attachInlineFilter(opts, { placeholder: `Filter ${TUNINGS.length} tunings…` });
     } else {
-      opts.innerHTML = `<button class="chip-block ${!card.room ? 'selected' : ''}" data-set-room="">Not set</button>`;
+      opts.innerHTML = `<button class="chip-block ${!card.room ? 'selected' : ''}" data-set-room="" data-filter-pin="1">Not set</button>`;
       ROOM_CLUSTERS.forEach(cl => {
         const rooms = ROOMS.filter(r => r.cluster === cl.id);
         if (!rooms.length) return;
-        opts.innerHTML += `<div class="env-options-cluster-head">${esc(cl.name)}</div>`;
+        let inner = `<button class="env-cluster-head" type="button" data-env-cluster><span class="env-cluster-chevron">${icon('chevron-down', 12)}</span><span class="env-cluster-name">${esc(cl.name)}</span><span class="env-cluster-count">${rooms.length}</span></button><div class="env-cluster-items">`;
         rooms.forEach(r => {
-          opts.innerHTML += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" data-set-room="${esc(r.id)}">${esc(r.name)}<span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
+          inner += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" data-set-room="${esc(r.id)}">${esc(r.name)}<span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
         });
+        inner += `</div>`;
+        const wrap = document.createElement('div');
+        wrap.className = 'env-cluster';
+        wrap.innerHTML = inner;
+        opts.appendChild(wrap);
       });
+      row.appendChild(opts);
+      // Collapsible cluster heads (DOM toggle — no re-render, keeps it cheap).
+      opts.querySelectorAll('[data-env-cluster]').forEach(h => h.addEventListener('click', e => {
+        e.stopPropagation();
+        h.parentElement.classList.toggle('collapsed');
+      }));
+      attachInlineFilter(opts, { placeholder: `Filter ${ROOMS.length} rooms…`, groupSelector: '.env-cluster' });
     }
-    row.appendChild(opts);
   }
   return row;
 }
@@ -5216,6 +5278,7 @@ function renderChainSection(card) {
         noneBtn.className = 'chip-block' + (!card.chain[stageDef.id] ? ' selected' : '');
         noneBtn.dataset.setChain = stageDef.id;
         noneBtn.dataset.item = '';
+        noneBtn.dataset.filterPin = '1';
         noneBtn.textContent = 'Not set';
         opts.appendChild(noneBtn);
       }
@@ -5235,6 +5298,10 @@ function renderChainSection(card) {
         opts.appendChild(b);
       });
       panel.appendChild(opts);
+      // Long stages (e.g. mics, mediums) get a live filter; small ones don't need it.
+      if (stageDef.items.length > 8) {
+        attachInlineFilter(opts, { placeholder: `Filter ${stageDef.items.length} options…` });
+      }
       sec.appendChild(panel);
     }
   }
@@ -5379,34 +5446,200 @@ function populatePrefaceDatalist() {
   dl.dataset.populated = '1';
 }
 
-// Browse modal: lexicon entries grouped by category, click applies to card.
-function openPrefaceModal(card) {
-  if (typeof PREFACE_LEXICON === 'undefined') return;
+// ============================================================
+// PREFACE BROWSE MODAL — categorized, collapsible, searchable
+// ============================================================
+//
+// The lexicon is large (hundreds of entries). A flat chip cloud is unscannable,
+// so the browse modal organizes entries into affect/function categories and
+// lets the user search (findability) or scan collapsible sections (discovery).
+//
+// Categorization is derived, not stored on the data: an explicit override map
+// handles affect words whose (shared, generic) tokens don't disambiguate them,
+// and everything else is classified by keyword-scoring its descriptor tokens.
+// This keeps the lexicon data clean and auto-classifies any future entry.
+const PREFACE_CAT_ORDER = [
+  'Grief & lament', 'Rage & aggression', 'Fear & unease', 'Tenderness & warmth',
+  'Joy & play', 'Energy & the epic', 'Wonder & the uncanny', 'Sacred & devotional',
+  'Ambient & space', 'Groove & motion', 'Low end & weight', 'Bright & cutting',
+  'Ornament & melisma', 'Speech & rhetoric', 'Craft & ensemble', 'Lo-fi & broken'
+];
+const PREFACE_CAT_OVERRIDE = {
+  happy: 'Joy & play', merry: 'Joy & play', jovial: 'Joy & play', gleeful: 'Joy & play',
+  tickled: 'Joy & play', fun: 'Joy & play', playful: 'Joy & play', funny: 'Joy & play',
+  cheeky: 'Joy & play', optimistic: 'Joy & play', upbeat: 'Joy & play', hopeful: 'Joy & play',
+  charming: 'Joy & play', bodacious: 'Joy & play', radical: 'Joy & play', catchy: 'Joy & play',
+  terrified: 'Fear & unease', fearful: 'Fear & unease', nervous: 'Fear & unease',
+  anxious: 'Fear & unease', timid: 'Fear & unease', bashful: 'Fear & unease',
+  sheepish: 'Fear & unease', exposed: 'Fear & unease', shamed: 'Fear & unease',
+  humiliated: 'Fear & unease', guilty: 'Fear & unease', disappointed: 'Fear & unease',
+  tense: 'Fear & unease', suspenseful: 'Fear & unease', chilling: 'Fear & unease',
+  ambivalent: 'Fear & unease', regretful: 'Fear & unease',
+  exhilarating: 'Energy & the epic', uplifting: 'Energy & the epic', energizing: 'Energy & the epic',
+  epic: 'Energy & the epic', cinematic: 'Energy & the epic', spiraling: 'Energy & the epic',
+  'pulse-quickening': 'Energy & the epic', 'four-stomping': 'Energy & the epic',
+  'spine-rooting': 'Energy & the epic', apocalyptic: 'Energy & the epic',
+  numinous: 'Wonder & the uncanny', mystifying: 'Wonder & the uncanny', mystified: 'Wonder & the uncanny',
+  bewildered: 'Wonder & the uncanny', bewildering: 'Wonder & the uncanny', haunting: 'Wonder & the uncanny',
+  eldritch: 'Wonder & the uncanny', oracular: 'Wonder & the uncanny', vatic: 'Wonder & the uncanny',
+  'spine-tingling': 'Wonder & the uncanny', 'scalp-prickling': 'Wonder & the uncanny',
+  'blood-curdling': 'Wonder & the uncanny', adbhuta: 'Wonder & the uncanny', 'jaw-dropping': 'Wonder & the uncanny',
+  intoxicating: 'Wonder & the uncanny', entrancing: 'Wonder & the uncanny',
+  orchestral: 'Craft & ensemble', conductors: 'Craft & ensemble', choirmasters: 'Craft & ensemble',
+  belting: 'Craft & ensemble', enunciating: 'Craft & ensemble', confident: 'Craft & ensemble',
+  hyperbolic: 'Craft & ensemble', harmonizing: 'Craft & ensemble', 'technically-proficient': 'Craft & ensemble',
+  improvisational: 'Craft & ensemble', authentic: 'Craft & ensemble', unembellished: 'Craft & ensemble',
+  tight: 'Craft & ensemble', transient: 'Craft & ensemble', dynamic: 'Craft & ensemble', focused: 'Craft & ensemble',
+  galloping: 'Groove & motion', rocking: 'Groove & motion', prancing: 'Groove & motion',
+  'two-stepping': 'Groove & motion', loping: 'Groove & motion', skittering: 'Groove & motion',
+  groovy: 'Groove & motion', loose: 'Groove & motion', 'up-tempo': 'Groove & motion',
+  'down-tempo': 'Groove & motion', downbeat: 'Groove & motion', tubular: 'Bright & cutting',
+  'balafon-pattering': 'Groove & motion', dunun: 'Groove & motion', donso: 'Ornament & melisma',
+  'interlocking-hocketing': 'Ornament & melisma', 'yodel-throating': 'Ornament & melisma',
+  stereophonic: 'Ambient & space', panoramic: 'Ambient & space', spacious: 'Ambient & space',
+  airy: 'Ambient & space', experimental: 'Ambient & space', unpredictable: 'Ambient & space',
+  patient: 'Ambient & space', austere: 'Ambient & space', minimalist: 'Ambient & space',
+  maximalist: 'Ambient & space',
+  heavy: 'Low end & weight', brutalist: 'Low end & weight',
+  cold: 'Bright & cutting', twangy: 'Bright & cutting', light: 'Bright & cutting', alert: 'Bright & cutting',
+  cramped: 'Lo-fi & broken', slurred: 'Lo-fi & broken', broken: 'Lo-fi & broken',
+  malfunctioning: 'Lo-fi & broken', tarnished: 'Lo-fi & broken', flawed: 'Lo-fi & broken',
+  alcoholic: 'Lo-fi & broken', imperfect: 'Lo-fi & broken',
+  sensual: 'Tenderness & warmth', warm: 'Tenderness & warmth', soothing: 'Tenderness & warmth',
+  adored: 'Tenderness & warmth', adoring: 'Tenderness & warmth', satisfying: 'Tenderness & warmth',
+  satisfied: 'Tenderness & warmth', lustful: 'Tenderness & warmth', luxurious: 'Tenderness & warmth',
+  indulgent: 'Tenderness & warmth', generous: 'Tenderness & warmth', calming: 'Tenderness & warmth',
+  devastated: 'Grief & lament', somber: 'Grief & lament', bitter: 'Grief & lament', sad: 'Grief & lament',
+  tragic: 'Grief & lament', weeping: 'Grief & lament', melancholic: 'Grief & lament', crushed: 'Grief & lament',
+  jaded: 'Speech & rhetoric', grumpy: 'Speech & rhetoric', irked: 'Speech & rhetoric',
+  disgusted: 'Speech & rhetoric', impatient: 'Speech & rhetoric',
+  ornate: 'Ornament & melisma', embellished: 'Ornament & melisma', opulent: 'Ornament & melisma',
+  solemn: 'Sacred & devotional', repentant: 'Sacred & devotional', grateful: 'Sacred & devotional',
+  thankful: 'Sacred & devotional',
+  vengeful: 'Rage & aggression', hostile: 'Rage & aggression', livid: 'Rage & aggression',
+  savage: 'Rage & aggression', barbaric: 'Rage & aggression', brutal: 'Rage & aggression',
+  frustrated: 'Rage & aggression'
+};
+const PREFACE_CAT_RULES = [
+  ['Lo-fi & broken', ['surface-noise', 'wow-and-flutter', 'cassette', 'degraded', 'broken', 'hf-distortion', 'bandwidth-narrow', 'shellac', 'consumer-format', 'archival', 'pre-war', 'disc', 'no-bass-extension', 'horn-mechanical']],
+  ['Sacred & devotional', ['sacred', 'devotional', 'liturgical', 'ceremonial', 'sufi', 'gospel-rooted', 'gospel-runs', 'congregation', 'hindu-ritual', 'dhrupad', 'medieval', 'court-ceremonial', 'reverent']],
+  ['Rage & aggression', ['high-gain', 'distorted', 'transient-grab-aggressive', 'shouted', 'growly', 'metal-context', 'metallic', 'saturation-distortion', 'palm-muting', 'power-chord']],
+  ['Grief & lament', ['mournful', 'lament', 'glissando-heavy', 'fado', 'keening', 'dark-romantic', 'haunted-romantic']],
+  ['Ornament & melisma', ['ornament', 'melismatic', 'microtonal', 'meend', 'gamak', 'shruti', 'neutral-third', 'makam', 'maqam', 'raga-bound', 'tarab', 'avaz']],
+  ['Groove & motion', ['dance-rhythm', 'dance-driving', 'swung', 'funk', 'backbeat', 'samba', 'bateria', 'walking-bass', 'beat-suited', 'club-staple', 'breaks-and-loops', 'chopped']],
+  ['Ambient & space', ['ambient', 'drone-foundation', 'drone-like', 'layered-ambient', 'lush-ambient', 'reverberant', 'beat-free', 'sustained-tone', 'cavernous', 'naturally-reverberant', 'halo', 'floating', 'swimming', 'pad', 'meditative', 'minimal']],
+  ['Low end & weight', ['sub-bass', 'low-end-heavy', 'foundational-sub', 'sub-driven', 'boomy', 'sub-fundamental', 'low-fundamental-tuning', 'deep-bass']],
+  ['Bright & cutting', ['treble-extended', 'glassy', 'sharp', 'cutting', 'chimey', 'jangly', 'chime-shimmer', 'high-frequency', 'shimmer', 'bright', 'piercing', 'crisp']],
+  ['Tenderness & warmth', ['warm-glowing', 'plush', 'intimate-aspirated', 'soft-onset', 'cozy', 'warmed', 'mellow', 'gentle', 'smoothed']],
+  ['Speech & rhetoric', ['rhythmic-speech', 'speech-mimicking', 'speech-derived', 'speech-mimicry', 'declaimed', 'declamatory', 'narrative', 'conversational', 'heightened-speech', 'rhythmic-spoken', 'recitative', 'speech-like', 'speech-pitched']],
+  ['Craft & ensemble', ['virtuoso', 'controlled', 'articulate', 'legato', 'refined', 'clean-articulation', 'tight-articulation', 'jazz-trained', 'classical-jazz', 'balanced']]
+];
+function prefaceCategoryOf(e) {
+  if (PREFACE_CAT_OVERRIDE[e.id]) return PREFACE_CAT_OVERRIDE[e.id];
+  const toks = (e.tokens || []).map(t => String(t).toLowerCase());
+  let best = null, bestScore = 0;
+  for (let i = 0; i < PREFACE_CAT_RULES.length; i++) {
+    const [name, keys] = PREFACE_CAT_RULES[i];
+    let s = 0;
+    for (const t of toks) { for (const k of keys) { if (t.indexOf(k) >= 0) { s++; break; } } }
+    const adj = s + (PREFACE_CAT_RULES.length - i) * 0.001; // priority tiebreak
+    if (s > 0 && adj > bestScore) { bestScore = adj; best = name; }
+  }
+  return best || 'Craft & ensemble';
+}
+let _prefaceGroupsCache = null;
+function prefaceGroups() {
+  if (_prefaceGroupsCache) return _prefaceGroupsCache;
+  const g = {};
+  for (const e of PREFACE_LEXICON) { const c = prefaceCategoryOf(e); (g[c] = g[c] || []).push(e); }
+  _prefaceGroupsCache = g;
+  return g;
+}
+
+// Recently-used prefaces — persisted across sessions (guarded; localStorage may
+// be unavailable or throw in restricted contexts).
+const PREFACE_RECENT_KEY = 'codex:prefaceRecent';
+function loadPrefaceRecent() {
+  try { const raw = localStorage.getItem(PREFACE_RECENT_KEY); const a = raw ? JSON.parse(raw) : []; return Array.isArray(a) ? a : []; }
+  catch { return []; }
+}
+function recordPrefaceRecent(id) {
+  try {
+    let a = loadPrefaceRecent().filter(x => x !== id);
+    a.unshift(id);
+    localStorage.setItem(PREFACE_RECENT_KEY, JSON.stringify(a.slice(0, 8)));
+  } catch { /* storage unavailable — recents are best-effort */ }
+}
+
+function prefaceChipHtml(e) {
+  return `<button class="chip preface-pick" data-pref-id="${esc(e.id)}" data-tooltip="${esc(e.note || '')}">${esc(e.id)}</button>`;
+}
+
+// Render the modal body from current search + collapse state. Called on open and
+// on every search keystroke / collapse toggle. The search input lives outside
+// #preface-modal-body, so re-rendering the body never steals its focus.
+function renderPrefaceModalBody() {
   const body = document.getElementById('preface-modal-body');
   if (!body) return;
-  // Group by category (entries may have a `category` field; otherwise 'general').
-  const groups = {};
-  for (const e of PREFACE_LEXICON) {
-    const cat = e.category || 'general';
-    if (!groups[cat]) groups[cat] = [];
-    groups[cat].push(e);
+  const card = app.prefaceCard;
+  const q = normalizeSearch(app.prefaceSearch || '');
+  const groups = prefaceGroups();
+  const matches = (e) => !q || normalizeSearch(e.id).includes(q) || normalizeSearch(e.note || '').includes(q);
+
+  let matchCount = 0;
+  for (const cat of PREFACE_CAT_ORDER) matchCount += (groups[cat] || []).filter(matches).length;
+
+  let html = `<div class="preface-toolbar"><span class="preface-toolbar-count">${q ? `${matchCount} match${matchCount === 1 ? '' : 'es'}` : `${PREFACE_LEXICON.length} prefaces · ${PREFACE_CAT_ORDER.length} categories`}</span><span class="preface-toolbar-actions"><button data-pref-expand="all">Expand all</button><button data-pref-expand="none">Collapse all</button></span></div>`;
+
+  if (!q) {
+    const recent = loadPrefaceRecent().map(id => PREFACE_LEXICON.find(x => x.id === id)).filter(Boolean);
+    if (recent.length) {
+      html += `<div class="preface-recent"><div class="preface-recent-label">Recently used</div><div class="preface-recent-items">${recent.map(prefaceChipHtml).join('')}</div></div>`;
+    }
   }
-  const cats = Object.keys(groups).sort();
-  body.innerHTML = cats.map(cat => {
-    const items = groups[cat].map(e =>
-      `<button class="chip preface-pick" data-pref-id="${esc(e.id)}" data-tooltip="${esc(e.note || '')}">${esc(e.id)}</button>`
-    ).join('');
-    return `<div class="preface-cat"><div class="preface-cat-title">${esc(cat)}</div><div class="preface-cat-items">${items}</div></div>`;
-  }).join('');
-  body.querySelectorAll('[data-pref-id]').forEach(b => {
-    b.addEventListener('click', () => {
-      const prefId = b.dataset.prefId;
-      closeModal('modal-preface');
-      // Route through commitPrefaceChange so inverseConfigureForPreface
-      // fires and reshapes the card's parts/env toward the chosen target.
-      commitPrefaceChange(card, prefId);
-    });
-  });
+
+  for (const cat of PREFACE_CAT_ORDER) {
+    const list = (groups[cat] || []).filter(matches);
+    if (!list.length) continue;
+    // While searching, force every matching section open so hits are visible.
+    const collapsed = !q && app.prefaceCollapsed.has(cat);
+    html += `<div class="preface-cat${collapsed ? ' collapsed' : ''}">` +
+      `<button class="preface-cat-head" data-pref-cat="${esc(cat)}"><span class="preface-cat-chevron">${icon('chevron-down', 14)}</span><span class="preface-cat-title">${esc(cat)}</span><span class="preface-cat-count">${list.length}</span></button>` +
+      `<div class="preface-cat-items">${list.map(prefaceChipHtml).join('')}</div></div>`;
+  }
+  if (matchCount === 0) html += `<div class="preface-empty">No prefaces match “${esc(app.prefaceSearch)}”.</div>`;
+
+  body.innerHTML = html;
+
+  body.querySelectorAll('[data-pref-id]').forEach(b => b.addEventListener('click', () => {
+    const prefId = b.dataset.prefId;
+    recordPrefaceRecent(prefId);
+    closeModal('modal-preface');
+    // Route through commitPrefaceChange so inverseConfigureForPreface fires and
+    // reshapes the card's parts/env toward the chosen target.
+    commitPrefaceChange(card, prefId);
+  }));
+  body.querySelectorAll('[data-pref-cat]').forEach(b => b.addEventListener('click', () => {
+    const c = b.dataset.prefCat;
+    if (app.prefaceCollapsed.has(c)) app.prefaceCollapsed.delete(c); else app.prefaceCollapsed.add(c);
+    renderPrefaceModalBody();
+  }));
+  body.querySelectorAll('[data-pref-expand]').forEach(b => b.addEventListener('click', () => {
+    if (b.dataset.prefExpand === 'all') app.prefaceCollapsed.clear();
+    else PREFACE_CAT_ORDER.forEach(c => app.prefaceCollapsed.add(c));
+    renderPrefaceModalBody();
+  }));
+}
+
+// Browse modal: open for a card. Search box is auto-focused by openModal().
+function openPrefaceModal(card) {
+  if (typeof PREFACE_LEXICON === 'undefined') return;
+  app.prefaceCard = card;
+  app.prefaceSearch = '';
+  if (!app.prefaceCollapsed) app.prefaceCollapsed = new Set();
+  const input = document.getElementById('search-preface');
+  if (input) input.value = '';
+  renderPrefaceModalBody();
   openModal('modal-preface');
 }
 
@@ -6008,6 +6241,20 @@ document.addEventListener('DOMContentLoaded', () => {
     app.similarFor = null;
     renderTradPicker();
   });
+  const searchPreface = document.getElementById('search-preface');
+  if (searchPreface) {
+    searchPreface.addEventListener('input', e => {
+      app.prefaceSearch = e.target.value;
+      renderPrefaceModalBody();
+    });
+    // Enter commits the top-listed match — keyboard-first for power users.
+    searchPreface.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        const first = document.querySelector('#preface-modal-body .preface-pick');
+        if (first) { e.preventDefault(); first.click(); }
+      }
+    });
+  }
 
   // Attribution modal — opens from the footer link added below renderAll().
   const attrLink = document.getElementById('btn-attributions');
@@ -6734,11 +6981,16 @@ function renderInstPicker() {
   }
   filterBar += `</div>`;
 
+  if (!app.instCollapsed) app.instCollapsed = new Set();
+  // While searching or filtering, force every family open so matches show.
+  const forceExpand = !!q || filters.size > 0;
+
   let html = '';
   INSTRUMENT_FAMILIES.forEach(fam => {
     const list = INSTRUMENTS.filter(i => i.family === fam.id && matchesQuery(i) && matchesFilters(i));
     if (!list.length) return;
-    html += `<div class="fam-block"><div class="fam-name">${esc(fam.name)}</div>`;
+    const collapsed = !forceExpand && app.instCollapsed.has(fam.id);
+    html += `<div class="fam-block${collapsed ? ' collapsed' : ''}"><button class="fam-head" data-fam-toggle="${esc(fam.id)}"><span class="fam-chevron">${icon('chevron-down', 12)}</span><span class="fam-name">${esc(fam.name)}</span><span class="fam-count">${list.length}</span></button>`;
 
     // Letter bands only for large families AND when not actively searching/filtering
     if (list.length >= LETTER_BAND_THRESHOLD && !q && filters.size === 0) {
@@ -6773,7 +7025,23 @@ function renderInstPicker() {
   } else {
     body = html;
   }
-  c.innerHTML = filterBar + body;
+  // Expand/collapse-all only matters when families are collapsible (not while
+  // searching/filtering, which force-expands everything).
+  const toolbar = (html && !forceExpand)
+    ? `<div class="picker-toolbar"><button data-inst-expand="all">Expand all</button><button data-inst-expand="none">Collapse all</button></div>`
+    : '';
+  c.innerHTML = filterBar + toolbar + body;
+
+  c.querySelectorAll('[data-fam-toggle]').forEach(b => b.addEventListener('click', () => {
+    const id = b.dataset.famToggle;
+    if (app.instCollapsed.has(id)) app.instCollapsed.delete(id); else app.instCollapsed.add(id);
+    renderInstPicker();
+  }));
+  c.querySelectorAll('[data-inst-expand]').forEach(b => b.addEventListener('click', () => {
+    if (b.dataset.instExpand === 'all') app.instCollapsed.clear();
+    else INSTRUMENT_FAMILIES.forEach(f => app.instCollapsed.add(f.id));
+    renderInstPicker();
+  }));
 
   // Wire filter pill toggles
   c.querySelectorAll('[data-filter-toggle]').forEach(b => b.addEventListener('click', () => {

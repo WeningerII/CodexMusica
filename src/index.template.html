@@ -791,6 +791,32 @@ ul { list-style: none; }
 .chain-edit-hint { font-size: var(--fs-micro); color: var(--text-3); margin-bottom: var(--s3); }
 .chain-edit-options { display: flex; flex-direction: column; gap: var(--s1); }
 
+/* Inline option filter (tuning / room / chain expanded pickers) + collapsible clusters */
+.inline-filter { display: flex; align-items: center; gap: 6px; margin-bottom: var(--s2); }
+.inline-filter-icon { display: inline-flex; color: var(--text-3); }
+.inline-filter-input { flex: 1; min-width: 0; padding: 5px 8px; border: 1px solid var(--border-strong); border-radius: var(--r2); font-size: var(--fs-caption); background: var(--surface); }
+.inline-filter-input:focus { outline: none; border-color: var(--color-blue); box-shadow: 0 0 0 2px var(--color-blue-soft); }
+.inline-filter-count { font-size: var(--fs-micro); color: var(--text-3); white-space: nowrap; font-family: var(--font-mono); }
+.env-cluster-head { display: flex; align-items: center; gap: 6px; width: 100%; background: none; border: none; cursor: pointer; padding: var(--s3) 0 4px; text-align: left; }
+.env-cluster-head:hover .env-cluster-name { color: var(--text); }
+.env-cluster-chevron { display: inline-flex; color: var(--text-3); transition: transform var(--t-fast) var(--ease); }
+.env-cluster.collapsed .env-cluster-chevron { transform: rotate(-90deg); }
+.env-cluster.collapsed .env-cluster-items { display: none; }
+.env-cluster-name { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); }
+.env-cluster-count { font-size: var(--fs-micro); color: var(--text-3); font-family: var(--font-mono); }
+.env-cluster-items { display: flex; flex-direction: column; gap: var(--s1); }
+/* Collapsible instrument families in the Add-instrument modal */
+.fam-head { display: flex; align-items: center; gap: var(--s2); width: 100%; background: none; border: none; cursor: pointer; padding: 0; margin-bottom: var(--s2); text-align: left; }
+.fam-head:hover .fam-name { color: var(--text); }
+.fam-name { margin-bottom: 0; }
+.fam-chevron { display: inline-flex; color: var(--text-3); transition: transform var(--t-fast) var(--ease); }
+.fam-block.collapsed .fam-chevron { transform: rotate(-90deg); }
+.fam-block.collapsed .fam-grid, .fam-block.collapsed .letter-section { display: none; }
+.fam-count { font-size: var(--fs-micro); color: var(--text-3); font-family: var(--font-mono); font-weight: var(--fw-regular); }
+.picker-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: var(--s2); margin-bottom: var(--s3); }
+.picker-toolbar button { font-size: var(--fs-micro); color: var(--text-2); padding: 3px 9px; border: 1px solid var(--border-strong); border-radius: var(--r2); background: var(--surface); }
+.picker-toolbar button:hover { border-color: var(--text-3); color: var(--text); }
+
 /* Card actions footer */
 /* Drift suggestions panel */
 .drift-panel { margin-top: var(--s4); padding: var(--s4); background: var(--surface-2); border-radius: var(--r3); border: 1px solid var(--border); }
@@ -851,6 +877,25 @@ ul { list-style: none; }
 .modal-search .search-adornment svg { width: 14px; height: 14px; }
 .modal-body { overflow-y: auto; flex: 1; padding: var(--s5); }
 .modal-foot { padding: var(--s3) var(--s5); border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: var(--s2); background: var(--surface-2); }
+
+/* Preface browse modal — categorized, collapsible, searchable */
+.preface-toolbar { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin-bottom: var(--s4); flex-wrap: wrap; }
+.preface-toolbar-count { font-size: var(--fs-caption); color: var(--text-3); }
+.preface-toolbar-actions { display: flex; gap: var(--s2); }
+.preface-toolbar-actions button { font-size: var(--fs-micro); color: var(--text-2); padding: 3px 9px; border: 1px solid var(--border-strong); border-radius: var(--r2); background: var(--surface); transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease); }
+.preface-toolbar-actions button:hover { border-color: var(--text-3); color: var(--text); }
+.preface-recent { margin-bottom: var(--s4); }
+.preface-recent-label, .preface-cat-title { font-size: var(--fs-micro); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); font-weight: var(--fw-semibold); }
+.preface-recent-items, .preface-cat-items { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s3); }
+.preface-cat { margin-bottom: var(--s2); border-top: 1px solid var(--border); padding-top: var(--s3); }
+.preface-cat:first-child { border-top: none; padding-top: 0; }
+.preface-cat-head { display: flex; align-items: center; gap: var(--s2); width: 100%; cursor: pointer; padding: 3px 0; background: none; border: none; text-align: left; }
+.preface-cat-head:hover .preface-cat-title { color: var(--text); }
+.preface-cat-chevron { display: inline-flex; color: var(--text-3); transition: transform var(--t-fast) var(--ease); }
+.preface-cat.collapsed .preface-cat-chevron { transform: rotate(-90deg); }
+.preface-cat.collapsed .preface-cat-items { display: none; }
+.preface-cat-count { font-size: var(--fs-micro); color: var(--text-3); font-weight: var(--fw-regular); font-family: var(--font-mono); }
+.preface-empty { color: var(--text-3); font-style: italic; padding: var(--s5) 0; text-align: center; }
 
 /* Confirm dialog — compact modal for destructive-action confirmation. Smaller
    max-width than the full modals (which run wide for picker grids), action
@@ -1108,6 +1153,7 @@ ul { list-style: none; }
       <h2>Aesthetic preface — browse</h2>
       <button class="icon-btn" data-close="modal-preface" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
     </div>
+    <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-preface" placeholder="Search prefaces by name or description…" autocomplete="off"></div>
     <div class="modal-body" id="preface-modal-body" style="padding: var(--s5);"></div>
   </div>
 </div>
