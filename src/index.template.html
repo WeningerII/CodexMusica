@@ -852,6 +852,25 @@ ul { list-style: none; }
 .modal-body { overflow-y: auto; flex: 1; padding: var(--s5); }
 .modal-foot { padding: var(--s3) var(--s5); border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: var(--s2); background: var(--surface-2); }
 
+/* Preface browse modal — categorized, collapsible, searchable */
+.preface-toolbar { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin-bottom: var(--s4); flex-wrap: wrap; }
+.preface-toolbar-count { font-size: var(--fs-caption); color: var(--text-3); }
+.preface-toolbar-actions { display: flex; gap: var(--s2); }
+.preface-toolbar-actions button { font-size: var(--fs-micro); color: var(--text-2); padding: 3px 9px; border: 1px solid var(--border-strong); border-radius: var(--r2); background: var(--surface); transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease); }
+.preface-toolbar-actions button:hover { border-color: var(--text-3); color: var(--text); }
+.preface-recent { margin-bottom: var(--s4); }
+.preface-recent-label, .preface-cat-title { font-size: var(--fs-micro); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); font-weight: var(--fw-semibold); }
+.preface-recent-items, .preface-cat-items { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s3); }
+.preface-cat { margin-bottom: var(--s2); border-top: 1px solid var(--border); padding-top: var(--s3); }
+.preface-cat:first-child { border-top: none; padding-top: 0; }
+.preface-cat-head { display: flex; align-items: center; gap: var(--s2); width: 100%; cursor: pointer; padding: 3px 0; background: none; border: none; text-align: left; }
+.preface-cat-head:hover .preface-cat-title { color: var(--text); }
+.preface-cat-chevron { display: inline-flex; color: var(--text-3); transition: transform var(--t-fast) var(--ease); }
+.preface-cat.collapsed .preface-cat-chevron { transform: rotate(-90deg); }
+.preface-cat.collapsed .preface-cat-items { display: none; }
+.preface-cat-count { font-size: var(--fs-micro); color: var(--text-3); font-weight: var(--fw-regular); font-family: var(--font-mono); }
+.preface-empty { color: var(--text-3); font-style: italic; padding: var(--s5) 0; text-align: center; }
+
 /* Confirm dialog — compact modal for destructive-action confirmation. Smaller
    max-width than the full modals (which run wide for picker grids), action
    row at bottom, message body. Built dynamically by confirmDialog() in the
@@ -1108,6 +1127,7 @@ ul { list-style: none; }
       <h2>Aesthetic preface — browse</h2>
       <button class="icon-btn" data-close="modal-preface" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
     </div>
+    <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-preface" placeholder="Search prefaces by name or description…" autocomplete="off"></div>
     <div class="modal-body" id="preface-modal-body" style="padding: var(--s5);"></div>
   </div>
 </div>
