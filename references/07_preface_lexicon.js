@@ -1492,6 +1492,236 @@ const PREFACE_LEXICON = [
     note: "wandering-outsider register — bardic dust-road register that's earned its scratches, world-weary-romantic narrative delivery with breath-heavy low-mid-rich sustain",
     tokens: ['bardic', 'wandering-bardic', 'speech-derived', 'narrative', 'low-mid-rich-spectrum', 'breath-heavy', 'rhythmic-speech', 'expressive-extended', 'sustained-tone']
   },
+  {
+    id: 'galloping',
+    note: "a driving three-beat gait — the figure breaking into a run, hooves answering the downbeat",
+    tokens: ['snappy', 'fast-attack-transient', 'dance-driving', 'articulate', 'balanced', 'walking', 'hyped-mids', 'backbeat', 'percussive']
+  },
+  {
+    id: 'playful',
+    note: "light springy mischief — the line winking as it skips, never quite serious",
+    tokens: ['expressive', 'speech-derived', 'conversational', 'rhythmic-speech', 'vibrato-y', 'characteristic-cry', 'soft-attack', 'subtle', 'ornamented']
+  },
+  {
+    id: 'weeping',
+    note: "open crying carried in the tone — breath broken by the sob, the pitch sliding under the grief",
+    tokens: ['lament-wail', 'mournful', 'breath-heavy', 'rapid-tremolo', 'glissando-heavy', 'lament-leaning', 'vibrato-y', 'intimate-aspirated', 'speech-derived']
+  },
+  {
+    id: 'tragic',
+    note: "the fall written into the line — late-Romantic weight, the ending known before it arrives",
+    tokens: ['late-Romantic-onward', 'lament-leaning', 'dark-romantic', 'mournful', 'sustained', 'expressive', 'romantic', 'haunted-romantic', 'full']
+  },
+  {
+    id: 'numinous',
+    note: "the sacred felt as pressure in the room — vast reverberant sustain pointing past itself",
+    tokens: ['sacred-Latin', 'ceremonial', 'reverberant', 'naturally-reverberant', 'sustained-tone', 'drone-foundation', 'sacred-traditional', 'devotional', 'cavernous']
+  },
+  {
+    id: 'disgusted',
+    note: "the recoil in the voice — rough speech-derived delivery curling away from its object",
+    tokens: ['speech-derived', 'rhythmic-speech', 'conversational', 'rough', 'growly', 'dark', 'low-mid-rich-spectrum', 'expressive', 'declaimed']
+  },
+  {
+    id: 'lustful',
+    note: "appetite close to the mic — breath-forward and slow, the tone leaning in",
+    tokens: ['breathy-low', 'intimate-aspirated', 'smoothed', 'vibrato-y', 'soft-onset', 'close', 'warm-glowing', 'plush', 'covered']
+  },
+  {
+    id: 'experimental',
+    note: "timbre as the subject — patch-cable drift, extended technique, the sound recombining as it goes",
+    tokens: ['experimental', 'extended-techniques', 'timbral', 'arranged', 'patient', 'Buchla-derived', 'pad', 'digital', 'synthesized']
+  },
+  {
+    id: 'regretful',
+    note: "the backward look that wishes otherwise — sustained, vibrato-shaded, the phrase descending into what can't be undone",
+    tokens: ['sustained-tone', 'expressive', 'vibrato-y', 'low-mid-rich-spectrum', 'controlled', 'plush', 'soft-attack', 'mournful', 'speech-derived']
+  },
+  {
+    id: 'happy',
+    note: "unguarded brightness — lively attack and forward lift, the line smiling through every phrase",
+    tokens: ['lively', 'snappy', 'dance-driving', 'hyped-mids', 'expressive', 'vibrato-y', 'articulate', 'balanced', 'controlled']
+  },
+  {
+    id: 'tickled',
+    note: "the laugh about to break loose — light bright phrasing with a catch of delight in it",
+    tokens: ['expressive', 'vibrato-y', 'soft-attack', 'characteristic-cry', 'conversational', 'speech-derived', 'subtle', 'plush', 'lively']
+  },
+  {
+    id: 'humiliated',
+    note: "the voice made small — soft descending phrases, low projection, the body folding inward",
+    tokens: ['soft-attack', 'speech-derived', 'intimate-aspirated', 'controlled', 'low-projection-volume', 'plush', 'breath-heavy', 'subtle', 'covered']
+  },
+  {
+    id: 'guilty',
+    note: "the confession that won't quite land — hesitant breath-forward delivery, eyes down",
+    tokens: ['intimate-aspirated', 'soft-onset', 'breathy-low', 'breath-heavy', 'rhythmic-speech', 'speech-mimicking', 'soft-attack', 'covered', 'controlled']
+  },
+  {
+    id: 'grumpy',
+    note: "the low muttered complaint — rough chest-anchored register grumbling under its breath",
+    tokens: ['low-register', 'rough', 'rough-tone', 'low-mid-rich-spectrum', 'dark', 'growly', 'speech-derived', 'rhythmic-speech', 'chest-resonance-low-mid']
+  },
+  {
+    id: 'tense',
+    note: "the spring wound tight — low fast-attack pulse coiled and waiting, every transient clenched",
+    tokens: ['growly', 'sub-bass-foundational', 'thumpy', 'dark-romantic', 'fast-attack-transient', 'transient-grab-aggressive', 'walking', 'articulate', 'balanced']
+  },
+  {
+    id: 'suspenseful',
+    note: "the held breath before the turn — dark sustained low-end and reverb leaving room for what's coming",
+    tokens: ['dark', 'sub-bass-foundational', 'drone-foundation', 'sustained-tone', 'beat-free', 'naturally-reverberant', 'low-mid-thick', 'layered-ambient', 'cavernous']
+  },
+  {
+    id: 'epic',
+    note: "the scale that dwarfs the listener — orchestral mass and thunderous low end, the heroic register",
+    tokens: ['thunderous', 'sub-bass-foundational', 'orchestral', 'late-Romantic-onward', 'sustained-projection', 'dark-romantic', 'asymmetric-saturation', 'balanced', 'full']
+  },
+  {
+    id: 'cinematic',
+    note: "scored for an unseen screen — lush orchestral sustain layered into wide ambient space",
+    tokens: ['orchestral', 'late-Romantic-onward', 'sustained-projection', 'layered-ambient', 'lush-ambient', 'dark-romantic', 'asymmetric-saturation', 'sustained-tone', 'full']
+  },
+  {
+    id: 'warm',
+    note: "glowing low-mid embrace — close, plush, the tone radiating comfort from the chest",
+    tokens: ['warm-glowing', 'warmed', 'plush', 'intimate-aspirated', 'soft-onset', 'low-overtone-rich', 'cozy', 'smoothed', 'mellow']
+  },
+  {
+    id: 'cold',
+    note: "glassy and distant — sharp high overtones with no warmth left in, the surface of ice",
+    tokens: ['glassy', 'sharp', 'cutting', 'metallic', 'high-frequency', 'treble-extended', 'clean', 'digital', 'airless']
+  },
+  {
+    id: 'chilling',
+    note: "the eerie register that raises the hair — cavernous reverb and sustained tone suggesting a presence",
+    tokens: ['cavernous', 'naturally-reverberant', 'drone-foundation', 'sustained-tone', 'beat-free', 'pure', 'key-locked', 'layered-ambient', 'haunted-romantic']
+  },
+  {
+    id: 'funny',
+    note: "the comic turn played straight-faced — mimicry and characteristic-cry color landing the joke",
+    tokens: ['conversational', 'rhythmic-speech', 'expressive', 'speech-mimicry', 'characteristic-cry', 'speech-derived', 'vibrato-y', 'soft-attack', 'ornamented']
+  },
+  {
+    id: 'savage',
+    note: "the attack with the teeth still in it — saturated mid-range aggression, raw and unrelenting",
+    tokens: ['growly', 'high-gain-cascading-saturation', 'transient-grab-aggressive', 'metallic', 'sub-bass', 'distorted', 'fast-attack-transient', 'mid-rich', 'articulate']
+  },
+  {
+    id: 'barbaric',
+    note: "the primal stomp — thunderous low end under distorted brute force, ceremony before civilization",
+    tokens: ['thunderous', 'sub-bass-foundational', 'transient-grab-aggressive', 'distorted', 'metal-context', 'growly', 'low-mid-thick', 'percussive', 'articulate']
+  },
+  {
+    id: 'sad',
+    note: "plain sorrow in the line — mournful, falling, the grief stated without ornament's distraction",
+    tokens: ['mournful', 'lament-leaning', 'lament-wail', 'melismatic', 'glissando-heavy', 'dark-romantic', 'sustained-tone', 'expressive', 'full']
+  },
+  {
+    id: 'fun',
+    note: "the groove that just wants the body moving — swung, funky, no weight to it",
+    tokens: ['dance-rhythm', 'swung', 'dance-driving', 'snappy', 'funky', 'funk-derived', 'hyped-mids', 'lively', 'controlled']
+  },
+  {
+    id: 'soothing',
+    note: "the line that lowers the pulse — soft, warm, close-harmony comfort with nothing sharp left in it",
+    tokens: ['cozy', 'soft', 'plush', 'warmed', 'jazz-trained', 'smoothed', 'close-harmony', 'intimate-aspirated', 'gentle']
+  },
+  {
+    id: 'grateful',
+    note: "thanks carried on a warm release — gospel-rooted chest-anchored gratitude, choir-blended",
+    tokens: ['warm-glowing', 'gospel-rooted', 'choir-blendable', 'chest-resonance-low-mid', 'sustained-projection', 'devotional', 'plush', 'melismatic', 'low-mid-rich']
+  },
+  {
+    id: 'nervous',
+    note: "the jitter under the surface — rapid tremolo and shallow breath, the line unable to hold still",
+    tokens: ['rapid-tremolo', 'fast-tremolo', 'vibrato-y', 'breath-heavy', 'breathy-low', 'articulated', 'fast-attack-transient', 'soft-onset', 'intimate-aspirated']
+  },
+  {
+    id: 'frustrated',
+    note: "the effort hitting a wall — growling low-mid tension that can't quite break through",
+    tokens: ['growly', 'transient-grab-aggressive', 'dark', 'low-mid-thick', 'sticks', 'articulate', 'sub-bass', 'fast-attack-transient', 'balanced']
+  },
+  {
+    id: 'adored',
+    note: "the beloved seen up close — warm vibrato-rich tenderness, breath-forward and cherishing",
+    tokens: ['warm-glowing', 'intimate-aspirated', 'plush', 'soft-onset', 'vibrato-rich', 'breathy-low', 'smoothed', 'cozy', 'expressive']
+  },
+  {
+    id: 'adoring',
+    note: "love pointed outward — intimate warm singing leaning toward its object, devotion in the sustain",
+    tokens: ['intimate-aspirated', 'warm-glowing', 'vibrato-rich', 'soft-onset', 'expressive', 'plush', 'breathy-low', 'singing-sustain', 'romantic']
+  },
+  {
+    id: 'hopeful',
+    note: "the line that lifts toward something — warm soft onset rising, the phrase reaching upward",
+    tokens: ['warm-glowing', 'soft-onset', 'sustained-tone', 'expressive', 'plush', 'vibrato-y', 'legato', 'balanced', 'soaring']
+  },
+  {
+    id: 'optimistic',
+    note: "bright forward-leaning ease — major-keyed lift, lively and balanced, sure it works out",
+    tokens: ['lively', 'warm-glowing', 'expressive', 'snappy', 'balanced', 'articulate', 'vibrato-y', 'controlled', 'dance-driving']
+  },
+  {
+    id: 'satisfying',
+    note: "the resolution that lands in the body — round swung groove settling into the pocket",
+    tokens: ['warm-glowing', 'plush', 'smoothed', 'round', 'swung', 'controlled', 'balanced', 'body-resonance-low-mid', 'cozy']
+  },
+  {
+    id: 'satisfied',
+    note: "the contented exhale — warm, mellow, nothing left wanting, the tone at rest",
+    tokens: ['warmed', 'warm-glowing', 'plush', 'cozy', 'smoothed', 'soft-onset', 'intimate-aspirated', 'mellow', 'soft']
+  },
+  {
+    id: 'uplifting',
+    note: "the build that carries the room up — energetic lead and pad pushing forward into light",
+    tokens: ['energetic', 'trance-suited', 'lead-and-pad', 'high-gain-saturation', 'dance-driving', 'digital', 'modern', 'pad', 'soaring']
+  },
+  {
+    id: 'jaded',
+    note: "the world-weary register — low-mid breath-worn delivery that has heard it all already",
+    tokens: ['low-mid-rich-spectrum', 'breath-heavy', 'speech-derived', 'rhythmic-speech', 'sustained-tone', 'dark', 'expressive', 'mournful', 'controlled']
+  },
+  {
+    id: 'bitter',
+    note: "resentment held in dark sustain — late-Romantic shadow, the sweetness gone sour",
+    tokens: ['dark-romantic', 'low-mid-thick', 'haunted-romantic', 'mournful', 'dark', 'late-Romantic-onward', 'intimate-aspirated', 'sustained-tone', 'expressive']
+  },
+  {
+    id: 'furious',
+    note: "rage past control — cascading saturation and shouted aggression, every transient grabbing",
+    tokens: ['high-gain-cascading-saturation', 'distorted', 'transient-grab-aggressive', 'growly', 'metal-context', 'shouted', 'fast-attack-transient', 'percussive', 'articulate']
+  },
+  {
+    id: 'angry',
+    note: "the heat in the voice — distorted forward aggression, the line shoving against its limits",
+    tokens: ['distorted', 'transient-grab-aggressive', 'growly', 'high-gain-saturation', 'shouted', 'rock-context', 'fast-attack-transient', 'articulate', 'metal-context']
+  },
+  {
+    id: 'thankful',
+    note: "gratitude raised as praise — gospel-rooted congregational warmth, the thanks sung outward",
+    tokens: ['gospel-rooted', 'sacred-traditional', 'devotional', 'choir-blendable', 'sustained-projection', 'chest-resonance-low-mid', 'melismatic', 'congregation-loud', 'warm-glowing']
+  },
+  {
+    id: 'fearful',
+    note: "the shrinking from a threat — trembling breath and dark low end, the voice pulling back",
+    tokens: ['breath-heavy', 'breathy-low', 'rapid-tremolo', 'vibrato-y', 'soft-onset', 'intimate-aspirated', 'dark', 'sub-bass-foundational', 'covered']
+  },
+  {
+    id: 'rebellious',
+    note: "the refusal made loud — distorted rock defiance shouted against the chest's full push",
+    tokens: ['rock-context', 'distorted', 'high-gain-saturation', 'shouted', 'transient-grab-aggressive', 'chest-resonance-low-mid', 'growly', 'hyped-mids', 'balanced']
+  },
+  {
+    id: 'impatient',
+    note: "the clipped hurry — fast-attack speech-rhythm pushing ahead of the beat, drumming its fingers",
+    tokens: ['fast-attack-transient', 'rhythmic-speech', 'speech-derived', 'snappy', 'articulated', 'transient-grab-aggressive', 'punctuated', 'controlled', 'rapid-tremolo']
+  },
+  {
+    id: 'bashful',
+    note: "the shy half-turn away — soft breath-forward intimacy, the tone ducking from attention",
+    tokens: ['soft-onset', 'breathy-low', 'intimate-aspirated', 'soft', 'plush', 'subtle', 'controlled', 'low-projection-volume', 'covered']
+  },
 ];
 
 if (typeof module !== 'undefined' && module.exports) {

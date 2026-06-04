@@ -1,6 +1,6 @@
 ---
 name: codex-music-tool
-description: Query, compose, validate, and mutate the Codex Musica dataset — 1090 recorded-music traditions (in a 311-node genre tree, 13-axis space), 421 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 332-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
+description: Query, compose, validate, and mutate the Codex Musica dataset — 1090 recorded-music traditions (in a 311-node genre tree, 13-axis space), 421 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 378-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
 license: MIT
 ---
 
@@ -59,7 +59,7 @@ Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you 
 | tree nodes | 311 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |
 | traditions | 1090 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
 | tradition extras | 1090 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
-| voice/preface lexicon | 332 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
+| voice/preface lexicon | 378 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
 | axis definitions | 13 (trad) / 9 (inst) | bare slug, e.g. `harm` | `AXIS_DEFINITIONS`, `INSTRUMENT_AXIS_DEFINITIONS` |
 
 **Bundles → tables.** Each file declares bare `const NAME = …;` (no `window`; only
@@ -177,7 +177,7 @@ console.log("loaded:",T.INSTRUMENTS.length,"insts,",T.TRADITIONS.length,"trads")
 ### B. `require` for the preface lexicon only (it has `module.exports`)
 
 ```bash
-node -e 'console.log(require("./references/07_preface_lexicon.js").PREFACE_LEXICON.length)'  # → 332
+node -e 'console.log(require("./references/07_preface_lexicon.js").PREFACE_LEXICON.length)'  # → 378
 ```
 
 ### C. grep to locate fast (single-quoted JS; the field is `name`)
@@ -355,7 +355,7 @@ Each reuses `const db = require('./q.js')`. Run from the package root or with
 
 ### 3d. Voice & preface lexicon (descriptor enrichment)
 
-`PREFACE_LEXICON` is 332 named bundles of descriptor tokens for **vocal/character**
+`PREFACE_LEXICON` is 378 named bundles of descriptor tokens for **vocal/character**
 description (`sobbing`, `belting`, `keening`, `wailing`, `crooning`, `purring`, …). Use it
 to enrich a voice chair's descriptors with consistent tokens; there is **no numeric
 op-model and no conflicts table**.
