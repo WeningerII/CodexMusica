@@ -1,0 +1,56 @@
+name: Sync site to Pages branch
+
+# Every push to the production branch rebuilds codex.html from source and
+# publishes it to `main` — the branch GitHub Pages serves — so the live site is
+# never stale and no manual refresh is needed.
+#
+# This needs NO Pages settings change: Pages keeps serving `main`; this workflow
+# just keeps main's codex.html in lockstep with the production source. (If you
+# later point Pages directly at this branch in Settings, you can delete this
+# workflow — that's the lower-history-churn option.)
+
+on:
+  push:
+    branches: [claude/loving-hawking-vq5m4] # production / default branch
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-pages
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build codex.html from source
+        run: |
+          CODEX_OUT_DIR="$PWD/_dist" node scripts/build_html.js --check
+          test -f _dist/codex.html
+
+      - name: Publish codex.html to main (only if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git checkout -B main origin/main
+          cp _dist/codex.html codex.html
+          if git diff --quiet -- codex.html; then
+            echo "codex.html unchanged — nothing to publish."
+            exit 0
+          fi
+          git add codex.html
+          git commit -m "Auto-publish codex.html from ${GITHUB_SHA:0:7}"
+          git push origin main
