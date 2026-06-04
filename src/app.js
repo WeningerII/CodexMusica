@@ -5106,6 +5106,50 @@ function renderPartsSection(card, inst) {
   return sec;
 }
 
+// Attach a live text filter to an already-rendered option panel (the expanded
+// tuning / room / chain pickers). Filters .chip-block options by visible text
+// via show/hide — no re-render, so the input keeps focus while typing. Clicks
+// and keys are stopped from bubbling to the row's expand/collapse handler.
+// `groupSelector` (optional) hides group wrappers that have no visible item.
+function attachInlineFilter(panel, opts) {
+  opts = opts || {};
+  const itemSel = opts.itemSelector || '.chip-block';
+  const bar = document.createElement('div');
+  bar.className = 'inline-filter';
+  bar.innerHTML = '<span class="inline-filter-icon">' + icon('search', 13) + '</span>' +
+    '<input type="search" class="inline-filter-input" placeholder="' + esc(opts.placeholder || 'Filter…') + '" autocomplete="off">' +
+    '<span class="inline-filter-count"></span>';
+  bar.addEventListener('click', e => e.stopPropagation());
+  bar.addEventListener('mousedown', e => e.stopPropagation());
+  const input = bar.querySelector('input');
+  const countEl = bar.querySelector('.inline-filter-count');
+  const items = Array.prototype.slice.call(panel.querySelectorAll(itemSel));
+  function apply() {
+    const q = normalizeSearch(input.value);
+    let shown = 0;
+    items.forEach(it => {
+      if (it.dataset.filterPin === '1') return; // e.g. "Not set" stays visible
+      const match = !q || normalizeSearch(it.textContent).indexOf(q) >= 0;
+      it.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    if (opts.groupSelector) {
+      panel.querySelectorAll(opts.groupSelector).forEach(g => {
+        const any = Array.prototype.slice.call(g.querySelectorAll(itemSel)).some(it => it.style.display !== 'none');
+        g.style.display = any ? '' : 'none';
+      });
+    }
+    countEl.textContent = q ? (shown + ' match' + (shown === 1 ? '' : 'es')) : '';
+  }
+  input.addEventListener('input', apply);
+  input.addEventListener('keydown', e => {
+    e.stopPropagation();
+    if (e.key === 'Escape' && input.value) { input.value = ''; apply(); }
+  });
+  panel.insertBefore(bar, panel.firstChild);
+  return bar;
+}
+
 function renderEnvSection(card) {
   const sec = document.createElement('section');
   sec.className = 'composer-section';
@@ -5153,22 +5197,35 @@ function renderEnvRow(card, kind) {
     const opts = document.createElement('div');
     opts.className = 'env-options';
     if (isTuning) {
-      opts.innerHTML = `<button class="chip-block ${!card.tuning ? 'selected' : ''}" data-set-tuning="">Not set</button>`;
+      opts.innerHTML = `<button class="chip-block ${!card.tuning ? 'selected' : ''}" data-set-tuning="" data-filter-pin="1">Not set</button>`;
       TUNINGS.forEach(t => {
         opts.innerHTML += `<button class="chip-block ${card.tuning === t.id ? 'selected' : ''}" data-set-tuning="${esc(t.id)}">${esc(t.name)}<span class="chip-block-sub">${esc(t.sub)}</span></button>`;
       });
+      row.appendChild(opts);
+      attachInlineFilter(opts, { placeholder: `Filter ${TUNINGS.length} tunings…` });
     } else {
-      opts.innerHTML = `<button class="chip-block ${!card.room ? 'selected' : ''}" data-set-room="">Not set</button>`;
+      opts.innerHTML = `<button class="chip-block ${!card.room ? 'selected' : ''}" data-set-room="" data-filter-pin="1">Not set</button>`;
       ROOM_CLUSTERS.forEach(cl => {
         const rooms = ROOMS.filter(r => r.cluster === cl.id);
         if (!rooms.length) return;
-        opts.innerHTML += `<div class="env-options-cluster-head">${esc(cl.name)}</div>`;
+        let inner = `<button class="env-cluster-head" type="button" data-env-cluster><span class="env-cluster-chevron">${icon('chevron-down', 12)}</span><span class="env-cluster-name">${esc(cl.name)}</span><span class="env-cluster-count">${rooms.length}</span></button><div class="env-cluster-items">`;
         rooms.forEach(r => {
-          opts.innerHTML += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" data-set-room="${esc(r.id)}">${esc(r.name)}<span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
+          inner += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" data-set-room="${esc(r.id)}">${esc(r.name)}<span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
         });
+        inner += `</div>`;
+        const wrap = document.createElement('div');
+        wrap.className = 'env-cluster';
+        wrap.innerHTML = inner;
+        opts.appendChild(wrap);
       });
+      row.appendChild(opts);
+      // Collapsible cluster heads (DOM toggle — no re-render, keeps it cheap).
+      opts.querySelectorAll('[data-env-cluster]').forEach(h => h.addEventListener('click', e => {
+        e.stopPropagation();
+        h.parentElement.classList.toggle('collapsed');
+      }));
+      attachInlineFilter(opts, { placeholder: `Filter ${ROOMS.length} rooms…`, groupSelector: '.env-cluster' });
     }
-    row.appendChild(opts);
   }
   return row;
 }
@@ -5221,6 +5278,7 @@ function renderChainSection(card) {
         noneBtn.className = 'chip-block' + (!card.chain[stageDef.id] ? ' selected' : '');
         noneBtn.dataset.setChain = stageDef.id;
         noneBtn.dataset.item = '';
+        noneBtn.dataset.filterPin = '1';
         noneBtn.textContent = 'Not set';
         opts.appendChild(noneBtn);
       }
@@ -5240,6 +5298,10 @@ function renderChainSection(card) {
         opts.appendChild(b);
       });
       panel.appendChild(opts);
+      // Long stages (e.g. mics, mediums) get a live filter; small ones don't need it.
+      if (stageDef.items.length > 8) {
+        attachInlineFilter(opts, { placeholder: `Filter ${stageDef.items.length} options…` });
+      }
       sec.appendChild(panel);
     }
   }
@@ -6919,11 +6981,16 @@ function renderInstPicker() {
   }
   filterBar += `</div>`;
 
+  if (!app.instCollapsed) app.instCollapsed = new Set();
+  // While searching or filtering, force every family open so matches show.
+  const forceExpand = !!q || filters.size > 0;
+
   let html = '';
   INSTRUMENT_FAMILIES.forEach(fam => {
     const list = INSTRUMENTS.filter(i => i.family === fam.id && matchesQuery(i) && matchesFilters(i));
     if (!list.length) return;
-    html += `<div class="fam-block"><div class="fam-name">${esc(fam.name)}</div>`;
+    const collapsed = !forceExpand && app.instCollapsed.has(fam.id);
+    html += `<div class="fam-block${collapsed ? ' collapsed' : ''}"><button class="fam-head" data-fam-toggle="${esc(fam.id)}"><span class="fam-chevron">${icon('chevron-down', 12)}</span><span class="fam-name">${esc(fam.name)}</span><span class="fam-count">${list.length}</span></button>`;
 
     // Letter bands only for large families AND when not actively searching/filtering
     if (list.length >= LETTER_BAND_THRESHOLD && !q && filters.size === 0) {
@@ -6958,7 +7025,23 @@ function renderInstPicker() {
   } else {
     body = html;
   }
-  c.innerHTML = filterBar + body;
+  // Expand/collapse-all only matters when families are collapsible (not while
+  // searching/filtering, which force-expands everything).
+  const toolbar = (html && !forceExpand)
+    ? `<div class="picker-toolbar"><button data-inst-expand="all">Expand all</button><button data-inst-expand="none">Collapse all</button></div>`
+    : '';
+  c.innerHTML = filterBar + toolbar + body;
+
+  c.querySelectorAll('[data-fam-toggle]').forEach(b => b.addEventListener('click', () => {
+    const id = b.dataset.famToggle;
+    if (app.instCollapsed.has(id)) app.instCollapsed.delete(id); else app.instCollapsed.add(id);
+    renderInstPicker();
+  }));
+  c.querySelectorAll('[data-inst-expand]').forEach(b => b.addEventListener('click', () => {
+    if (b.dataset.instExpand === 'all') app.instCollapsed.clear();
+    else INSTRUMENT_FAMILIES.forEach(f => app.instCollapsed.add(f.id));
+    renderInstPicker();
+  }));
 
   // Wire filter pill toggles
   c.querySelectorAll('[data-filter-toggle]').forEach(b => b.addEventListener('click', () => {
