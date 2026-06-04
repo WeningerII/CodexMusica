@@ -1722,6 +1722,411 @@ const PREFACE_LEXICON = [
     note: "the shy half-turn away — soft breath-forward intimacy, the tone ducking from attention",
     tokens: ['soft-onset', 'breathy-low', 'intimate-aspirated', 'soft', 'plush', 'subtle', 'controlled', 'low-projection-volume', 'covered']
   },
+  {
+    id: 'disappointed',
+    note: "the deflation after the hope — sustained line sagging downward, the let-down carried in a dimming tone",
+    tokens: ['sustained-tone', 'expressive', 'vibrato-y', 'low-mid-rich-spectrum', 'controlled', 'plush', 'soft-attack', 'mournful', 'dark']
+  },
+  {
+    id: 'terrified',
+    note: "raw fear at full pitch — trembling breath over dark low end, the body braced against a threat",
+    tokens: ['breath-heavy', 'breathy-low', 'rapid-tremolo', 'vibrato-y', 'soft-onset', 'intimate-aspirated', 'dark', 'sub-bass-foundational', 'transient-grab-aggressive']
+  },
+  {
+    id: 'ambivalent',
+    note: "the line that won't choose — drifting unresolved between poles, neither rising nor falling",
+    tokens: ['drone-foundation', 'sustained-tone', 'beat-free', 'key-locked', 'minimal', 'naturally-reverberant', 'balanced', 'pure', 'layered-ambient']
+  },
+  {
+    id: 'jovial',
+    note: "hearty good cheer — warm full-throated lift, the laugh just under every phrase",
+    tokens: ['lively', 'warm-glowing', 'expressive', 'vibrato-y', 'dance-driving', 'hyped-mids', 'plush', 'balanced', 'conversational']
+  },
+  {
+    id: 'merry',
+    note: "festive bright skip — snappy dance-lift, the line tipsy on its own gladness",
+    tokens: ['lively', 'snappy', 'dance-driving', 'hyped-mids', 'articulate', 'balanced', 'swung', 'vibrato-y', 'controlled']
+  },
+  {
+    id: 'gleeful',
+    note: "barely-contained delight — bright excited phrasing on the edge of a laugh",
+    tokens: ['expressive', 'vibrato-y', 'soft-attack', 'characteristic-cry', 'lively', 'snappy', 'dance-driving', 'hyped-mids', 'articulate']
+  },
+  {
+    id: 'hostile',
+    note: "cold aggression held just in check — dark growling low-mid, menace that hasn't struck yet",
+    tokens: ['growly', 'sub-bass', 'transient-grab-aggressive', 'dark', 'low-mid-thick', 'sticks', 'articulate', 'fast-attack-transient', 'distorted']
+  },
+  {
+    id: 'somber',
+    note: "grave and low-lit — dark sustained weight, the register of a service for the dead",
+    tokens: ['low-mid-thick', 'dark', 'dark-romantic', 'sub-bass-foundational', 'mournful', 'sustained-tone', 'late-Romantic-onward', 'low-end-heavy', 'controlled']
+  },
+  {
+    id: 'solemn',
+    note: "ceremonial gravity — sacred reverberant sustain, the room hushed for ritual weight",
+    tokens: ['sacred-Latin', 'ceremonial', 'sustained-projection', 'reverberant', 'naturally-reverberant', 'drone-foundation', 'devotional', 'low-mid-rich', 'sustained-tone']
+  },
+  {
+    id: 'repentant',
+    note: "the penitent's lowered head — devotional contrition, sin confessed in a liturgical register",
+    tokens: ['devotional', 'liturgical', 'medieval', 'congregation-loud', 'sacred-Latin', 'mournful', 'gospel-rooted', 'singing-sustain', 'ceremonial']
+  },
+  {
+    id: 'mystifying',
+    note: "the line that casts a spell — enigmatic reverbed sustain suggesting more than it states",
+    tokens: ['layered-ambient', 'ambient', 'cavernous', 'beat-free', 'pure', 'key-locked', 'drone-foundation', 'sustained-tone', 'naturally-reverberant']
+  },
+  {
+    id: 'mystified',
+    note: "struck still by wonder — a sudden resonance the listener can't account for",
+    tokens: ['undamped-resonance', 'microtonal', 'ornamented', 'drone-foundation', 'sustained-tone', 'naturally-reverberant', 'beat-free', 'pure', 'balanced']
+  },
+  {
+    id: 'exposed',
+    note: "nothing to hide behind — dry close-miked bareness, every breath and flaw audible",
+    tokens: ['intimate-aspirated', 'breathy-low', 'breath-heavy', 'dry', 'close', 'soft-attack', 'speech-derived', 'covered', 'low-projection-volume']
+  },
+  {
+    id: 'shamed',
+    note: "the voice that wants to disappear — dark covered contrition, projection pulled to the floor",
+    tokens: ['soft-attack', 'intimate-aspirated', 'breath-heavy', 'covered', 'low-projection-volume', 'dark', 'mournful', 'controlled', 'speech-derived']
+  },
+  {
+    id: 'sheepish',
+    note: "caught out and half-grinning — shy soft delivery ducking away from its own admission",
+    tokens: ['soft-onset', 'breathy-low', 'intimate-aspirated', 'soft', 'subtle', 'controlled', 'low-projection-volume', 'conversational', 'plush']
+  },
+  {
+    id: 'timid',
+    note: "the meek half-step forward — quiet soft onset, the line afraid to take up room",
+    tokens: ['soft-onset', 'breathy-low', 'intimate-aspirated', 'soft', 'plush', 'subtle', 'controlled', 'low-projection-volume', 'quiet']
+  },
+  {
+    id: 'exhilarating',
+    note: "the rush that lifts the pulse — energetic lead and fast tremolo driving the room upward",
+    tokens: ['energetic', 'trance-suited', 'dance-driving', 'lead-and-pad', 'high-gain-saturation', 'rapid-tremolo', 'hyped-mids', 'digital', 'soaring']
+  },
+  {
+    id: 'braggadocious',
+    note: "swagger over a sub-bass anchor — hip-hop bravado, the boast carried as cadence",
+    tokens: ['rhythmic-speech', 'speech-mimicking', 'speech-mimicry', 'sub-bass', 'sub-bass-foundational', 'funk-derived', 'hip-hop-warm', 'projecting', 'low-fundamental-tuning']
+  },
+  {
+    id: 'bewildered',
+    note: "the listener lost in it — drifting beat-free haze with no landmark to fix on",
+    tokens: ['drone-foundation', 'sustained-tone', 'beat-free', 'naturally-reverberant', 'layered-ambient', 'minimal', 'key-locked', 'pure', 'dark']
+  },
+  {
+    id: 'bewildering',
+    note: "engineered to disorient — chopped fragments and shifting timbre refusing to resolve into sense",
+    tokens: ['chopped', 'sampled', 'breaks-and-loops', 'digital', 'experimental', 'layered-ambient', 'modern', 'beat-suited', 'low-distortion-low-coloration']
+  },
+  {
+    id: 'melancholic',
+    note: "the sweet ache of dwelling in sorrow — late-Romantic shadow, longing with nowhere to go",
+    tokens: ['dark-romantic', 'haunted-romantic', 'mournful', 'lament-leaning', 'late-Romantic-onward', 'intimate-aspirated', 'sustained-tone', 'low-mid-rich-spectrum', 'expressive']
+  },
+  {
+    id: 'vengeful',
+    note: "grievance sharpened to a point — dark driven declamation, the strike being readied",
+    tokens: ['dark-romantic', 'growly', 'transient-grab-aggressive', 'sub-bass-foundational', 'low-mid-thick', 'declaimed', 'projecting', 'fast-attack-transient', 'articulate']
+  },
+  {
+    id: 'alcoholic',
+    note: "the room tilting after the third — warm tape-wobble drift, pitch and time loosening their grip",
+    tokens: ['wow-and-flutter-noticeable', 'cassette', 'warm-glowing', 'warmed', 'vibrato-y', 'bandwidth-narrow', 'hf-distortion-prone', 'consumer-format', 'drift']
+  },
+  {
+    id: 'slurred',
+    note: "the consonants gone soft — smeared gliding line, every note running into the next",
+    tokens: ['glissando-heavy', 'slide', 'microtonal-bend', 'vibrato-y', 'smoothed', 'legato', 'blues-shouter', 'breathy-low', 'intimate-aspirated']
+  },
+  {
+    id: 'improvisational',
+    note: "made up in the moment — jazz and modal improvisation taking its own unrepeatable path",
+    tokens: ['virtuoso', 'classical-jazz', 'jazz-trained', 'jazz-influenced', 'swung', 'jazz-improvisation', 'lyrical', 'expressive', 'modal-improvisation']
+  },
+  {
+    id: 'imperfect',
+    note: "the rough edge left in on purpose — wabi-rustic plainness, the flaw that makes it human",
+    tokens: ['pure', 'beat-free', 'low-overtone-rich', 'soft', 'rough', 'gritty', 'broken-in', 'surface-noise-bedded', 'natural-material-resonance']
+  },
+  {
+    id: 'sensual',
+    note: "the body in the tone — breathy vibrato-rich warmth leaning slow against the listener",
+    tokens: ['breathy-low', 'intimate-aspirated', 'vibrato-rich', 'soft-onset', 'smoothed', 'plush', 'close', 'warm-glowing', 'jazz-influenced']
+  },
+  {
+    id: 'authentic',
+    note: "unprocessed and rooted — acoustic traditional sound with the room left honestly in",
+    tokens: ['authentic', 'traditional', 'folk-tradition', 'folkloric', 'acoustic-only', 'natural-absorption', 'low-distortion-low-coloration', 'naturally-reverberant', 'classical']
+  },
+  {
+    id: 'heavy',
+    note: "weight you feel in the floor — sub-driven low-mid mass, the sound pressing down",
+    tokens: ['sub-bass', 'sub-driven', 'low-fundamental-tuning', 'low-mid-thick', 'sub-bass-foundational', 'foundational-sub', 'low-end-heavy', 'boomy', 'dark']
+  },
+  {
+    id: 'light',
+    note: "weightless and bright — airy soft onset with the low end stripped away",
+    tokens: ['airy', 'soft', 'soft-attack', 'breath-tone-airy', 'treble-extended', 'bright', 'plush', 'gentle', 'clean']
+  },
+  {
+    id: 'airy',
+    note: "more air than note — breath-toned top end floating in open space",
+    tokens: ['airy', 'breath-tone-airy', 'silky-airy-top', 'breathy', 'floating', 'halo', 'ambient', 'lush-ambient', 'naturally-reverberant']
+  },
+  {
+    id: 'focused',
+    note: "narrowed to a point — tight controlled output with no blur at the edges",
+    tokens: ['focused', 'focused-low-end-decay', 'focused-narrow-output', 'articulate', 'tight-articulation', 'controlled', 'clean-articulation-low-blur', 'balanced', 'dry']
+  },
+  {
+    id: 'alert',
+    note: "sharp and forward-leaning — fast transients and bright presence, every sense switched on",
+    tokens: ['fast-attack-transient', 'snappy', 'treble-extended', 'articulate', 'bright', 'present', 'transient-grab-aggressive', 'crisp', 'hyped-mids']
+  },
+  {
+    id: 'cramped',
+    note: "the small dead room — boxy dry close sound with the walls pressing in",
+    tokens: ['boxy', 'dry', 'close', 'intimate', 'airless', 'natural-absorption', 'low-mid-rich-spectrum', 'controlled', 'articulate']
+  },
+  {
+    id: 'spacious',
+    note: "the big room breathing — long reverberant decay opening wide behind the source",
+    tokens: ['expansive-reverb', 'naturally-reverberant', 'cavernous', 'reverberant', 'wide', 'wide-soundstage', 'ambient', 'sustained-tone', 'vast']
+  },
+  {
+    id: 'panoramic',
+    note: "the wide vista — image spread edge to edge, the field opening past the speakers",
+    tokens: ['panoramic-image', 'wide-soundstage', 'wide', 'dynamic-range-wide', 'expansive-reverb', 'layered-ambient', 'vast', 'soaring', 'naturally-reverberant']
+  },
+  {
+    id: 'stereophonic',
+    note: "width as the subject — hard-panned spread and wide-format image, the field fully opened",
+    tokens: ['panoramic-image', 'wide-soundstage', 'stereo-pair-tracking', 'wide', 'dynamic-range-wide', 'wide-frequency', 'expansive-reverb', 'head-bump-wide-format', 'soaring']
+  },
+  {
+    id: 'unpredictable',
+    note: "refusing the expected turn — extended technique and chopped recombination, never twice the same",
+    tokens: ['experimental', 'extended-techniques', 'timbral', 'arranged', 'chopped', 'sampled', 'breaks-and-loops', 'digital', 'modern']
+  },
+  {
+    id: 'catchy',
+    note: "the hook that won't leave — snappy commercial production built to lodge on first listen",
+    tokens: ['twenty-first-century', 'production-staple', 'commercial', 'snappy', 'versatile', 'dance-driving', 'hyped-mids', 'digital', 'modern']
+  },
+  {
+    id: 'dynamic',
+    note: "the full sweep from hush to roar — wide dynamic arc shaping every phrase",
+    tokens: ['dynamic', 'dynamic-range-wide', 'dynamic-arc-foundational', 'expressive', 'expressive-extended', 'controlled', 'balanced', 'projecting', 'articulate']
+  },
+  {
+    id: 'transient',
+    note: "all attack, no tail — the strike itself, fast onset cleanly cut from its decay",
+    tokens: ['fast-attack-transient', 'transient-grab-aggressive', 'snappy', 'percussive', 'narrow-attack-onset', 'articulate', 'clean-articulation-low-blur', 'dry', 'balanced']
+  },
+  {
+    id: 'technically-proficient',
+    note: "the run that costs nothing — virtuoso articulation so clean it sounds inevitable",
+    tokens: ['virtuoso', 'controlled', 'articulate', 'legato', 'classical', 'clean-articulation-low-blur', 'fast-runs', 'balanced', 'expressive']
+  },
+  {
+    id: 'choirmasters',
+    note: "voices ruled into one — pure key-locked choral blend, every part placed by a guiding ear",
+    tokens: ['choir-blendable', 'pure', 'beat-free', 'key-locked', 'sacred-traditional', 'devotional', 'congregation-loud', 'sustained-projection', 'close-harmony']
+  },
+  {
+    id: 'conductors',
+    note: "the ensemble shaped by one arm — orchestral mass moving as a single dynamic body",
+    tokens: ['orchestral', 'soloistic', 'professional', 'late-Romantic-onward', 'sustained-projection', 'dark-romantic', 'legato', 'classical', 'dynamic-arc-foundational']
+  },
+  {
+    id: 'tight',
+    note: "locked to the grid — drilled rhythmic articulation with no slack anywhere in it",
+    tokens: ['tight-rhythmic-articulation', 'tight-low-end', 'military-tight', 'controlled', 'tight-articulation', 'fast-attack-transient', 'articulate', 'drilled', 'balanced']
+  },
+  {
+    id: 'loose',
+    note: "the easy pocket — swung and slightly behind, the rhythm section breathing not gripping",
+    tokens: ['swung', 'backbeat', 'low-bridge-loose-action', 'drafty', 'washy', 'breathing', 'jazz-trained', 'controlled', 'walking']
+  },
+  {
+    id: 'twangy',
+    note: "the country pluck — bright woody string snap with the bend left ringing",
+    tokens: ['twangy', 'country-twang', 'woody', 'flatpicked', 'backbeat', 'articulate', 'balanced', 'bright', 'snappy']
+  },
+  {
+    id: 'jangling',
+    note: "twelve strings ringing at once — bright chime-shimmer guitars, the chord blooming in overtones",
+    tokens: ['jangly', 'chimey', 'chime-shimmer', 'treble-extended', 'strummed', 'bright', 'open-chord-ringing-overtones', 'articulate', 'backbeat']
+  },
+  {
+    id: 'patient',
+    note: "unhurried to a fault — long sustained tone letting the figure arrive in its own time",
+    tokens: ['patient', 'meditative', 'beat-free', 'sustained', 'drone-foundation', 'sustained-tone', 'naturally-reverberant', 'key-locked', 'pure']
+  },
+  {
+    id: 'anxious',
+    note: "the worry that won't settle — rapid tremolo and shallow breath edged with dark tension",
+    tokens: ['rapid-tremolo', 'fast-tremolo', 'vibrato-y', 'breath-heavy', 'articulated', 'fast-attack-transient', 'dark', 'transient-grab-aggressive', 'breathy-low']
+  },
+  {
+    id: 'calming',
+    note: "the line that lowers the pulse — soft warm sustain with every sharp edge smoothed off",
+    tokens: ['cozy', 'soft', 'plush', 'warmed', 'smoothed', 'soft-onset', 'intimate-aspirated', 'gentle', 'mellow']
+  },
+  {
+    id: 'generous',
+    note: "giving warmth without stint — full choir-blended low-mid radiance opening outward",
+    tokens: ['warm-glowing', 'plush', 'full', 'choir-blendable', 'sustained-projection', 'low-mid-rich', 'chest-resonance-low-mid', 'gospel-rooted', 'balanced']
+  },
+  {
+    id: 'livid',
+    note: "rage gone white — cascading saturation and shouted overload past any restraint",
+    tokens: ['high-gain-cascading-saturation', 'distorted', 'transient-grab-aggressive', 'shouted', 'growly', 'metal-context', 'fast-attack-transient', 'percussive', 'mid-rich']
+  },
+  {
+    id: 'irked',
+    note: "the low irritated mutter — grumbling speech-rhythm worrying at a small grievance",
+    tokens: ['rhythmic-speech', 'speech-derived', 'growly', 'dark', 'low-mid-rich-spectrum', 'controlled', 'punctuated', 'articulate', 'conversational']
+  },
+  {
+    id: 'malfunctioning',
+    note: "the signal eating itself — glitched chops and tape artifacts, the machine coming apart",
+    tokens: ['chopped', 'sampled', 'breaks-and-loops', 'hf-distortion-prone', 'cassette', 'consumer-format', 'fast-attack-transient', 'percussive', 'digital']
+  },
+  {
+    id: 'broken',
+    note: "the gear past saving — degraded narrow-band noise riding under a failing source",
+    tokens: ['broken', 'degraded', 'surface-noise-bedded', 'bandwidth-narrow', 'hf-distortion-prone', 'wow-and-flutter-noticeable', 'cassette', 'consumer-format', 'gritty']
+  },
+  {
+    id: 'devastating',
+    note: "the line that levels the room — grief at full melismatic extension, the wound laid open",
+    tokens: ['lament-leaning', 'mournful', 'lament-wail', 'glissando-heavy', 'melismatic', 'ornamental-melismatic', 'dark-romantic', 'sustained-tone', 'full']
+  },
+  {
+    id: 'devastated',
+    note: "the hollow after — breath-worn and emptied, sorrow with the strength gone out of it",
+    tokens: ['breath-heavy', 'breathy-low', 'intimate-aspirated', 'mournful', 'lament-leaning', 'soft-attack', 'low-mid-rich-spectrum', 'sustained-tone', 'covered']
+  },
+  {
+    id: 'flawed',
+    note: "the take with the cracks kept in — slight degrade and surface grit, honest about its seams",
+    tokens: ['broken-in', 'surface-noise-bedded', 'wow-and-flutter-light', 'gritty', 'rough', 'bandwidth-narrow', 'hf-distortion-prone', 'low-mid-rich-spectrum', 'cassette']
+  },
+  {
+    id: 'crushed',
+    note: "flattened under the weight — dark low-mid mass pressing the voice down and covered",
+    tokens: ['low-mid-thick', 'dark', 'sub-bass-foundational', 'mournful', 'breath-heavy', 'covered', 'sustained-tone', 'low-end-heavy', 'controlled']
+  },
+  {
+    id: 'confident',
+    note: "sure of every note — projected chest-anchored assurance, nothing tentative in the line",
+    tokens: ['projecting', 'chest-resonance-low-mid', 'sustained-projection', 'declaimed', 'belt-projection', 'controlled', 'balanced', 'full', 'articulate']
+  },
+  {
+    id: 'upbeat',
+    note: "glad and forward-driving — snappy swung lift, the tempo pulling everyone along",
+    tokens: ['lively', 'snappy', 'dance-driving', 'dance-rhythm', 'swung', 'hyped-mids', 'articulate', 'balanced', 'funky']
+  },
+  {
+    id: 'downbeat',
+    note: "weight on the one — heavy on-beat groove anchoring the body to the floor",
+    tokens: ['foundation', 'foundational-sub', 'dance-driving', 'funky', 'funk-derived', 'backbeat', 'low-fundamental-tuning', 'controlled', 'low-mid-thick']
+  },
+  {
+    id: 'up-tempo',
+    note: "fast and lifting — quick dance-driving pulse pushing past the comfortable",
+    tokens: ['fast-tempo-110-160', 'dance-driving', 'snappy', 'fast-attack-transient', 'lively', 'hyped-mids', 'articulate', 'dance-rhythm', 'controlled']
+  },
+  {
+    id: 'down-tempo',
+    note: "slow and low — dub-leaning sub groove unspooling under no hurry",
+    tokens: ['beat-suited', 'swung', 'low-fundamental-tuning', 'sub-bass', 'dub-friendly', 'meditative-tempo', 'layered-ambient', 'controlled', 'low-mid-thick']
+  },
+  {
+    id: 'groovy',
+    note: "deep in the pocket — funk-derived swung backbeat the body answers on its own",
+    tokens: ['funk-derived', 'dance-rhythm', 'swung', 'dance-driving', 'hyped-mids', 'backbeat', 'funky', 'controlled', 'top-rolled-off-12k']
+  },
+  {
+    id: 'radical',
+    note: "loud and unbothered — rock-context energy shoved forward with an edge of revolt",
+    tokens: ['rock-context', 'distorted', 'backbeat', 'energetic', 'hyped-mids', 'dance-driving', 'edgy', 'articulate', 'balanced']
+  },
+  {
+    id: 'bodacious',
+    note: "big and brash and fun — bold funky swing that takes up all the room it wants",
+    tokens: ['funky', 'funk-derived', 'swung', 'dance-driving', 'snappy', 'hyped-mids', 'lively', 'backbeat', 'controlled']
+  },
+  {
+    id: 'tubular',
+    note: "bright surf-rock spring — twangy reverbed treble, the wave caught at its crest",
+    tokens: ['rock-context', 'backbeat', 'twangy', 'bright', 'treble-extended', 'hyped-mids', 'snappy', 'articulate', 'balanced']
+  },
+  {
+    id: 'ornate',
+    note: "every surface carved — ornament-heavy melismatic line where decoration is the content",
+    tokens: ['ornament-heavy', 'ornamental-melismatic', 'ornamented', 'baroque-ornamental', 'melismatic', 'microtonal-bend', 'expressive', 'classical', 'ornamental']
+  },
+  {
+    id: 'embellished',
+    note: "the plain line dressed up — trills and runs added over a melody that didn't need them",
+    tokens: ['ornamented', 'ornamental', 'ornamental-melismatic', 'ornament-heavy', 'melismatic', 'expressive', 'vibrato-rich', 'glissando-heavy', 'classical']
+  },
+  {
+    id: 'unembellished',
+    note: "the bare melody, nothing added — one note per syllable, plainness as a discipline",
+    tokens: ['pure', 'beat-free', 'key-locked', 'syllabic-singing-one-note-per-syllable', 'minimal', 'controlled', 'balanced', 'clean-articulation-low-blur', 'speech-derived']
+  },
+  {
+    id: 'tarnished',
+    note: "the patina of years on it — shellac surface-noise and narrowed band, beauty under the wear",
+    tokens: ['archival', 'pre-war', 'shellac', 'surface-noise-bedded', 'horn-mechanical-pickup', 'disc', 'no-bass-extension', 'bandwidth-narrow', 'mid-emphasized']
+  },
+  {
+    id: 'austere',
+    note: "stripped to the essential — bare meditative sustain, no comfort and no excess",
+    tokens: ['austere-meditative', 'pure', 'beat-free', 'key-locked', 'minimal', 'controlled', 'drone-foundation', 'sustained-tone', 'balanced']
+  },
+  {
+    id: 'minimalist',
+    note: "as few elements as will hold — sparse sustained tone, the space between the notes load-bearing",
+    tokens: ['minimal', 'drone-foundation', 'sustained-tone', 'beat-free', 'key-locked', 'pure', 'naturally-reverberant', 'drone-like', 'balanced']
+  },
+  {
+    id: 'maximalist',
+    note: "everything at once — dense layered pads stacked until the field is full to the edges",
+    tokens: ['layered-ambient', 'lush-ambient', 'dense', 'sustained', 'pad', 'paraphonic', 'soaring', 'overtone-rich', 'full']
+  },
+  {
+    id: 'brutal',
+    note: "force without mercy — cascading metal saturation over a sub floor, sheer crushing mass",
+    tokens: ['high-gain-cascading-saturation', 'sub-bass', 'metal-context', 'metallic', 'transient-grab-aggressive', 'low-mid-thick', 'growly', 'thunderous', 'articulate']
+  },
+  {
+    id: 'brutalist',
+    note: "raw monolithic concrete — distorted dry sub-mass with the surfaces left harsh and unsoftened",
+    tokens: ['distorted', 'sub-bass', 'transient-grab-aggressive', 'airless', 'dry', 'low-mid-thick', 'metallic', 'foundational-sub', 'articulate']
+  },
+  {
+    id: 'luxurious',
+    note: "plush and unhurried wealth — lush sweetened orchestral-soul warmth wrapping the listener",
+    tokens: ['lush-ambient', 'lush-orchestral-soul-aesthetic', 'plush', 'sweetened', 'warm-glowing', 'overtone-rich-sustained', 'soaring', 'paraphonic', 'full']
+  },
+  {
+    id: 'indulgent',
+    note: "more than enough on purpose — rich ornamented sustain laid on thick, excess as the point",
+    tokens: ['lush-ambient', 'plush', 'sweetened', 'ornament-heavy', 'overtone-rich', 'warm-glowing', 'dense', 'sustained', 'full']
+  },
+  {
+    id: 'opulent',
+    note: "gilded and ornate — baroque ornament over sweetened orchestral richness, the sound of gold",
+    tokens: ['ornate', 'ornament-heavy', 'lush-orchestral-soul-aesthetic', 'sweetened', 'plush', 'overtone-rich', 'baroque-ornamental', 'full', 'sustained-projection']
+  },
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
