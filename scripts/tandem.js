@@ -374,8 +374,11 @@ check('card-descriptor semantics aligned (production vs audit)', () => {
 
   const issues = [];
 
-  // Production-side: HTML embed and _card_descriptors.js must NOT reference match_tokens
-  if (/match_tokens/.test(embedBody)) {
+  // Production-side: HTML embed and _card_descriptors.js must NOT reference match_tokens.
+  // Strip comments first — the injected core carries an explanatory comment that
+  // literally says "NOT match_tokens", which is documentation, not a code reference.
+  const stripComments = (s) => s.replace(/\/\/[^\n]*/g, '').replace(/\/\*[\s\S]*?\*\//g, '');
+  if (/match_tokens/.test(stripComments(embedBody))) {
     issues.push('HTML _cardDescriptorSet references match_tokens — would silently change production preface assignments');
   }
   if (/match_tokens/.test(prodNodeSrc.replace(/\/\/[^\n]*/g, '').replace(/\/\*[\s\S]*?\*\//g, ''))) {
@@ -474,15 +477,17 @@ check('Icons — no inline SVGs bypassing the icon() renderer', () => {
   // build before the inconsistency ships.
   //
   // Exception: data visualizations (UpSet, future viz) render hand-rolled
-  // SVG by design — they're not icons, they're charts. Those functions
-  // are explicitly allowlisted below.
+  // SVG by design — they're not icons, they're charts. Likewise the tradition
+  // glyph/emoji iconography system (glyphSvg) wraps glyph-registry path data in
+  // an <svg> by design — a separate renderer from the UI icon() chrome, not a
+  // call-site bypass. Those functions are explicitly allowlisted below.
   const top = fs.readFileSync(path.join(ROOT, 'src/index.template.html'), 'utf8');
   const bottom = fs.readFileSync(path.join(ROOT, 'src/app.js'), 'utf8');
   const topSvgs = (top.match(/<svg\b/g) || []).length;
   if (topSvgs > 0) throw new Error(`${topSvgs} inline <svg> in top template — use <span data-icon="name"> placeholder instead`);
   // Bottom template: <svg> is permitted inside icon() and inside hand-rolled
   // visualization functions (allowlist below). Anything else is a bypass.
-  const VIZ_ALLOWLIST = ['function renderUpSet(', 'function image('];
+  const VIZ_ALLOWLIST = ['function renderUpSet(', 'function image(', 'function glyphSvg('];
   const allowedRegions = [];
   // icon() function — ~200-char window around its definition
   const iconFnIdx = bottom.indexOf('function icon(name');
