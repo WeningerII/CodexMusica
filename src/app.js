@@ -2003,6 +2003,48 @@ function importTradition(tradId) {
   return created;
 }
 
+// Import a tradition and give the standard feedback (toast + scroll-to-first).
+// Shared by the traditions picker, the empty-state starter gallery, and the
+// "Surprise me" button so all three behave identically.
+function importTraditionWithFeedback(tradId, opts) {
+  opts = opts || {};
+  const trad = Tradition(tradId);
+  if (!trad) { showToast('Tradition not found', 'error'); return []; }
+  const created = importTradition(tradId);
+  if (opts.closeModalId) closeModal(opts.closeModalId);
+  app.similarFor = null;
+  renderAll();
+  if (created.length === 0) {
+    showToast(`"${trad.name}" has no recognised instruments`, 'error');
+    return created;
+  }
+  const expected = (trad.instruments || []).length;
+  showToast(created.length < expected
+    ? `Imported ${created.length}/${expected} instruments from "${trad.name}"`
+    : `Imported ${trad.name}`, 'success');
+  setTimeout(() => {
+    const elc = document.querySelector(`[data-card-id="${created[0].id}"]`);
+    if (elc) elc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 60);
+  return created;
+}
+
+// Drop a random, coherent tradition onto an empty (or any) workbench — a
+// discovery on-ramp. Pools traditions carrying 2+ recognised instruments so the
+// result is always a real multi-instrument recipe, and avoids repeating the
+// immediately-previous pick.
+function surpriseTradition() {
+  const pool = (typeof TRADITIONS !== 'undefined' ? TRADITIONS : []).filter(t => (t.instruments || []).length >= 2);
+  if (!pool.length) { showToast('No traditions available', 'error'); return; }
+  let pick = pool[0];
+  for (let i = 0; i < 8; i++) {
+    pick = pool[Math.floor(Math.random() * pool.length)];
+    if (pick.id !== app._lastSurprise) break;
+  }
+  app._lastSurprise = pick.id;
+  importTraditionWithFeedback(pick.id);
+}
+
 // ---- Drift: produce candidate moves; do not apply until walked ----
 function buildDriftCandidates(card) {
   const inst = Inst(card.instrumentId);
@@ -4077,10 +4119,40 @@ function renderAll() {
   renderDetail();
 }
 
+// Curated starter recipes for the empty-state gallery — chosen to span the
+// catalog's extremes and continents (verified to exist with 2+ instruments).
+const STARTER_TRADITIONS = [
+  'delta_blues',      // sparse American roots
+  'hindustani',       // microtonal, free-meter, heavily ornamented
+  'detroit_techno',   // electronic, strict isochronous meter
+  'javanese_gamelan', // non-12-TET, cyclic, dense metallophone texture
+  'symphonic',        // dense functional-harmony orchestral
+  'dub'               // studio-as-instrument, effects-forward
+];
+
 function renderEmpty() {
   const e = document.getElementById('empty-state');
   e.style.display = app.cards.length === 0 ? 'block' : 'none';
   if (app.cards.length === 0) {
+    // Starter gallery — a curated row of full recipes that span the catalog's
+    // range (sparse↔dense, acoustic↔electronic, modal↔functional, 12-TET↔not,
+    // and across continents) so a first-time opener sees the payoff immediately.
+    const gallery = document.getElementById('starter-gallery');
+    if (gallery) {
+      gallery.innerHTML = STARTER_TRADITIONS.map(id => {
+        const t = Tradition(id);
+        if (!t) return '';
+        const n = (t.instruments || []).length;
+        return `<button class="starter-trad" data-starter-trad="${esc(id)}">`
+          + `<span class="starter-trad-name">${esc(t.name)}</span>`
+          + `<span class="starter-trad-count">${n}</span></button>`;
+      }).join('');
+      gallery.querySelectorAll('[data-starter-trad]').forEach(b =>
+        b.addEventListener('click', () => importTraditionWithFeedback(b.dataset.starterTrad)));
+    }
+    const surprise = document.getElementById('empty-surprise');
+    if (surprise) surprise.addEventListener('click', surpriseTradition);
+
     const qp = document.getElementById('quick-pick');
     const picks = ['voice', 'electric_guitar_single_coil', 'sitar', 'drum_kit', 'analog_synth'];
     qp.innerHTML = picks.map(id => {
@@ -7359,27 +7431,7 @@ function wireTreeEvents(container) {
   container.querySelectorAll('[data-import]').forEach(el => {
     el.addEventListener('click', e => {
       e.stopPropagation();
-      const tid = el.dataset.import;
-      const trad = Tradition(tid);
-      if (!trad) { showToast('Tradition not found', 'error'); return; }
-      const created = importTradition(tid);
-      closeModal('modal-trad');
-      app.similarFor = null;
-      renderAll();
-      if (created.length === 0) {
-        showToast(`"${trad.name}" has no recognised instruments`, 'error');
-        return;
-      }
-      const expected = (trad.instruments || []).length;
-      if (created.length < expected) {
-        showToast(`Imported ${created.length}/${expected} instruments from "${trad.name}"`, 'success');
-      } else {
-        showToast(`Imported ${trad.name}`, 'success');
-      }
-      setTimeout(() => {
-        const elc = document.querySelector(`[data-card-id="${created[0].id}"]`);
-        if (elc) elc.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 60);
+      importTraditionWithFeedback(el.dataset.import, { closeModalId: 'modal-trad' });
     });
   });
   container.querySelectorAll('[data-similar]').forEach(el => {

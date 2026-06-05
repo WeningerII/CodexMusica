@@ -144,6 +144,28 @@ precondition: empty
 ```
 
 ```yaml
+name: empty-starter-gallery
+kind: data-action
+selector: '#starter-gallery [data-starter-trad]'
+surface: empty state — curated starter-recipe buttons
+implementation: renderEmpty populates STARTER_TRADITIONS; click calls importTraditionWithFeedback
+status: reachable
+precondition: empty
+```
+
+Loads a full curated tradition recipe onto the empty workbench.
+
+```yaml
+name: empty-surprise
+kind: widget
+selector: '#empty-surprise'
+surface: empty state — "Surprise me" button
+implementation: renderEmpty wires click to surpriseTradition (random tradition with 2+ instruments)
+status: reachable
+precondition: empty
+```
+
+```yaml
 name: app-bar-drawer-toggle
 kind: widget
 selector: '#btn-drawer-toggle'

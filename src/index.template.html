@@ -551,6 +551,15 @@ ul { list-style: none; }
 .empty-state-cta { padding: 10px 18px; font-size: var(--fs-body); }
 .empty-state .quick-pick { display: flex; gap: var(--s2); justify-content: center; flex-wrap: wrap; margin-top: var(--s3); }
 .empty-state .quick-pick-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); margin-bottom: var(--s2); }
+.empty-state .quick-pick-label-sub { margin-top: var(--s6); }
+/* Starter gallery — curated full-recipe entry points */
+.starter-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s2); margin-bottom: var(--s3); }
+.starter-trad { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); padding: 10px 14px; border: 1px solid var(--border-strong); border-radius: var(--r2); background: var(--surface); cursor: pointer; transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); text-align: left; }
+.starter-trad:hover { border-color: var(--color-blue); background: var(--color-blue-soft); }
+.starter-trad-name { font-size: var(--fs-caption); font-weight: var(--fw-medium); color: var(--text); }
+.starter-trad-count { font-size: var(--fs-micro); font-family: var(--font-mono); color: var(--text-3); background: var(--surface-2); border-radius: 999px; padding: 1px 7px; flex-shrink: 0; }
+.starter-surprise-row { display: flex; justify-content: center; margin-bottom: var(--s2); }
+.starter-surprise-row .btn { gap: 6px; }
 
 /* Pin button active state — when the card is pinned, the icon fills with
    the blue accent color. Mirrors the active treatment of other icon-toggles. */
@@ -1074,7 +1083,12 @@ ul { list-style: none; }
         <button class="btn btn-secondary empty-state-cta" id="empty-add-genre"><span data-icon="plus" data-size="14"></span>Add a Genre</button>
       </div>
       <div class="empty-state-or">
-        <div class="quick-pick-label">Or jump in with a starter</div>
+        <div class="quick-pick-label">Or load a complete recipe</div>
+        <div class="starter-gallery" id="starter-gallery"></div>
+        <div class="starter-surprise-row">
+          <button class="btn btn-secondary" id="empty-surprise"><span data-icon="shuffle" data-size="14"></span>Surprise me</button>
+        </div>
+        <div class="quick-pick-label quick-pick-label-sub">Or start from a single instrument</div>
         <div class="quick-pick" id="quick-pick"></div>
       </div>
     </section>
