@@ -1,0 +1,96 @@
+{
+  "id": "sisera",
+  "name": "Sisera (Garifuna gourd-shaker)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sisera",
+  "parts": [
+    {
+      "id": "sisera_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "sisera_gourd_seeds_hardwood_handle_canonical",
+          "default": true,
+          "name": "Gourd-shaker filled with seeds, hardwood handle (canonical Garifuna paranda)",
+          "descriptors": [
+            "gourd-seeds-hardwood-handle-canonical-garifuna"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "garifuna-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sisera_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "sisera_paranda_canonical",
+          "default": true,
+          "name": "Paranda song-and-drum accompaniment (canonical)",
+          "descriptors": [
+            "paranda-accompaniment-canonical-garifuna"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "garifuna-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sisera_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "sisera_gourd_seeds_hardwood_handle_canonical",
+          "default": true,
+          "name": "Gourd-shaker filled with seeds, hardwood handle (canonical Garifuna paranda)",
+          "descriptors": [
+            "gourd-seeds-hardwood-handle-canonical-garifuna"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "garifuna-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sisera_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "sisera_paranda_canonical",
+          "default": true,
+          "name": "Paranda song-and-drum accompaniment (canonical)",
+          "descriptors": [
+            "paranda-accompaniment-canonical-garifuna"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "garifuna-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

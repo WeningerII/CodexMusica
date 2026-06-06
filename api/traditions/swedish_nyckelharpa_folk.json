@@ -1,0 +1,104 @@
+{
+  "id": "swedish_nyckelharpa_folk",
+  "name": "Swedish nyckelharpa folk",
+  "family": "global",
+  "lineage": "Swedish Uppland regional folk tradition centered on the nyckelharpa (Swedish keyed fiddle with twelve sympathetic resonance strings), performed alongside ordinary fiddle (spelman tradition) for the polska dance forms (slängpolska, åttondelspolska, smedjespolska variants) at midsummer celebrations and folk festivals",
+  "recipe": "classic modern swedish nyckelharpa folk, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry, Celtic balladic Scottish ballad child ballad revival karelian rune-singing. thick, incomplete closure resting, chest resonance low mid, Scottish Gaelic vocal. spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, magic rosin modern acrylic base drone like fiddle. norwegian hardanger outdoor alpine. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 549,
+  "score": 136.42,
+  "config": {
+    "traditions": [
+      "swedish_nyckelharpa_folk",
+      "child_ballad_revival",
+      "karelian_rune_singing"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 7,
+          "voice_quality": 0.6999999999999997,
+          "voice_vibrato": 1.195,
+          "voice_articulation": 0.435,
+          "voice_microtone": 0.39,
+          "voice_tradition": 21.125,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 2.4050000000000002,
+          "voice_ensemble_config": 2.34,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 0.885,
+          "voice_processing_chain": 1.2750000000000001,
+          "voice_multitrack_stack": 1.02
+        }
+      },
+      {
+        "id": "nyckelharpa",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "nyckel_keys": "modern_chromatic_nyckel",
+          "nyckel_strings": "nyckel_12_sympathetic",
+          "nyckel_body_wood": "nyckel_spruce_maple",
+          "nyckel_string_material": "nyckel_gut_historical",
+          "nyckel_mechanism": "nyckel_2_row_diatonic_silverbas"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "nyckel_keys": 3.9,
+          "nyckel_strings": 7.5,
+          "nyckel_body_wood": 4.035,
+          "nyckel_string_material": 4,
+          "nyckel_mechanism": -1.3099999999999998
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 7.75,
+          "fiddle_strings": 0.6,
+          "fiddle_bow": 1.5,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.585
+        }
+      }
+    ],
+    "room": "norwegian_hardanger_outdoor_alpine",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

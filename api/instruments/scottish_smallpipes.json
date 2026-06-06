@@ -1,0 +1,292 @@
+{
+  "id": "scottish_smallpipes",
+  "name": "Scottish smallpipes (bellows-blown indoor pipe)",
+  "family": "wind",
+  "class": "reed-bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "smallpipes",
+  "parts": [
+    {
+      "id": "smallpipes_bellows_blown",
+      "name": "Air source",
+      "variants": [
+        {
+          "id": "smallpipes_bellows_blown",
+          "default": true,
+          "name": "Bellows-blown (modern Scottish smallpipes)",
+          "descriptors": [
+            "bellows-blown",
+            "indoor-volume",
+            "session-amenable",
+            "celtic-tradition"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smallpipes_pitch",
+      "name": "Pitch / key",
+      "variants": [
+        {
+          "id": "smallpipes_a_major",
+          "default": true,
+          "name": "A major (standard smallpipes pitch)",
+          "descriptors": [
+            "a-major",
+            "session-key-compatible"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        },
+        {
+          "id": "smallpipes_d_major",
+          "name": "D major (Border pipe variant)",
+          "descriptors": [
+            "d-major",
+            "border-pipe-tradition"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smallpipes_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "smallpipes_african_blackwood",
+          "default": true,
+          "name": "African blackwood (canonical Scottish)",
+          "descriptors": [
+            "african-blackwood-canonical-scottish"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "smallpipes_boxwood_alt",
+          "name": "Boxwood (Northumbrian alternative)",
+          "descriptors": [
+            "boxwood-northumbrian-alternative"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smallpipes_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "smallpipes_cane_canonical",
+          "default": true,
+          "name": "Cane single-reed Arundo donax (canonical Scottish smallpipes)",
+          "descriptors": [
+            "cane-arundo-donax-canonical-scottish-smallpipes"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        },
+        {
+          "id": "smallpipes_synthetic_reed",
+          "name": "Synthetic reeds (modern stable)",
+          "descriptors": [
+            "synthetic-reeds-modern-stable"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smallpipes_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "smallpipes_leather_canonical",
+          "default": true,
+          "name": "Leather (canonical Scottish bellows-fed)",
+          "descriptors": [
+            "leather-canonical-scottish-bellows-fed"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "smallpipes_bellows_blown",
+      "name": "Air source",
+      "variants": [
+        {
+          "id": "smallpipes_bellows_blown",
+          "default": true,
+          "name": "Bellows-blown (modern Scottish smallpipes)",
+          "descriptors": [
+            "bellows-blown",
+            "indoor-volume",
+            "session-amenable",
+            "celtic-tradition"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smallpipes_pitch",
+      "name": "Pitch / key",
+      "variants": [
+        {
+          "id": "smallpipes_a_major",
+          "default": true,
+          "name": "A major (standard smallpipes pitch)",
+          "descriptors": [
+            "a-major",
+            "session-key-compatible"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        },
+        {
+          "id": "smallpipes_d_major",
+          "name": "D major (Border pipe variant)",
+          "descriptors": [
+            "d-major",
+            "border-pipe-tradition"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smallpipes_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "smallpipes_african_blackwood",
+          "default": true,
+          "name": "African blackwood (canonical Scottish)",
+          "descriptors": [
+            "african-blackwood-canonical-scottish"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "smallpipes_boxwood_alt",
+          "name": "Boxwood (Northumbrian alternative)",
+          "descriptors": [
+            "boxwood-northumbrian-alternative"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smallpipes_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "smallpipes_cane_canonical",
+          "default": true,
+          "name": "Cane single-reed Arundo donax (canonical Scottish smallpipes)",
+          "descriptors": [
+            "cane-arundo-donax-canonical-scottish-smallpipes"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        },
+        {
+          "id": "smallpipes_synthetic_reed",
+          "name": "Synthetic reeds (modern stable)",
+          "descriptors": [
+            "synthetic-reeds-modern-stable"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smallpipes_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "smallpipes_leather_canonical",
+          "default": true,
+          "name": "Leather (canonical Scottish bellows-fed)",
+          "descriptors": [
+            "leather-canonical-scottish-bellows-fed"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "celtic-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

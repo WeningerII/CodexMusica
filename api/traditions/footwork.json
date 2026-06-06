@@ -1,0 +1,75 @@
+{
+  "id": "footwork",
+  "name": "Footwork",
+  "family": "electronic",
+  "lineage": "Chicago footwork dance-music genre evolved from juke and ghetto-house through the late-2000s — characterized by 160 bpm syncopated triplet-based programming, chopped-and-pitched sampled vocals, sparse arrangement designed for the underground dance-battle-circuit footwork dance — codified through DJ Rashad (Double Cup 2013, the genre's breakthrough album), DJ Spinn, Traxman, RP Boo, and the Teklife crew",
+  "recipe": "classic 2007-2009 footwork, electronic Dance, footwork branch, us hip hop modern cloud rap. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 338,
+  "score": 70.729,
+  "config": {
+    "traditions": [
+      "footwork",
+      "cloud_rap"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 1.879875,
+          "drum_machine_808_context": 3.7049999999999996,
+          "tr808_production_origin": 1.9249999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.6716249999999997,
+          "sampler_archetypes": 1.9749999999999996,
+          "sampler_bit_depth": 0.9099999999999999,
+          "sampler_workflow": 2.621625,
+          "sampler_classic_context": 16.910874999999994
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 1.7798749999999999,
+          "va_archetypes": 0.06862499999999999,
+          "digital_subtractive_context": 7.799999999999997
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "id": "ghatam",
+  "name": "Ghatam (clay pot)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ghatam",
+  "parts": [
+    {
+      "id": "ghatam_school",
+      "surface": false,
+      "name": "Clay-temper school",
+      "variants": [
+        {
+          "id": "ghatam_manamadurai",
+          "default": true,
+          "name": "Manamadurai (Madras-school)",
+          "descriptors": [
+            "deep-bass",
+            "professional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "ghatam_trichy",
+          "name": "Trichy",
+          "descriptors": [
+            "regional-school",
+            "alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "ghatam_pondicherry",
+          "name": "Pondicherry",
+          "descriptors": [
+            "unique-temper",
+            "rare"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghatam_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ghatam_full",
+          "default": true,
+          "name": "Full-bowl strike",
+          "descriptors": [
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "ghatam_rim",
+          "name": "Rim-tap",
+          "descriptors": [
+            "high",
+            "ornamental",
+            "sharp"
+          ],
+          "match_tokens": [
+            "rim-clicks",
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "ghatam_mouth",
+          "name": "Open-mouth pressure (gumukha)",
+          "descriptors": [
+            "pitch-bending",
+            "colour",
+            "gimik"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ghatam_school",
+      "surface": false,
+      "name": "Clay-temper school",
+      "variants": [
+        {
+          "id": "ghatam_manamadurai",
+          "default": true,
+          "name": "Manamadurai (Madras-school)",
+          "descriptors": [
+            "deep-bass",
+            "professional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "ghatam_trichy",
+          "name": "Trichy",
+          "descriptors": [
+            "regional-school",
+            "alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "ghatam_pondicherry",
+          "name": "Pondicherry",
+          "descriptors": [
+            "unique-temper",
+            "rare"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghatam_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ghatam_full",
+          "default": true,
+          "name": "Full-bowl strike",
+          "descriptors": [
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "ghatam_rim",
+          "name": "Rim-tap",
+          "descriptors": [
+            "high",
+            "ornamental",
+            "sharp"
+          ],
+          "match_tokens": [
+            "rim-clicks",
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "ghatam_mouth",
+          "name": "Open-mouth pressure (gumukha)",
+          "descriptors": [
+            "pitch-bending",
+            "colour",
+            "gimik"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

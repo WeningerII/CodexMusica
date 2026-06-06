@@ -1,0 +1,137 @@
+{
+  "id": "quechua_wayno_traditional",
+  "name": "Quechua wayno (traditional Andean)",
+  "family": "global",
+  "lineage": "Traditional Quechua wayno (also huayno, huayño) Andean folk-music form of the Quechua-and-Aymara-speaking populations of highland Peru, Bolivia, and Ecuador. The wayno is the canonical Andean dance-and-song form, in 2/4 meter with characteristic syncopation pattern, slow-to-medium tempo, and pentatonic-to-modal melodic vocabulary. Performance: small ensemble of quena end-blown notched flute, charango armadillo-shell ten-string-paired lute, bombo bass-drum, and voice — with the lyric content addressing rural-Andean life, love, mourning, and Quechua-cultural-identity. The mid-twentieth-century Cusco-and-Ayacucho-and-Huancayo regional canonical traditions are the most institutionally preserved; the Bolivian Cochabamba-and-Potosí lineages constitute the parallel highland-Bolivian tradition.",
+  "recipe": "classic modern quechua wayno, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. sygyt, forward-resonance, melodic, punctuated. bamboo melodic quena, naranjillo andean premium wood cedar andean andean classical charango, vicuña hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, conch shell horn, ceramic melodic ocarina. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 598,
+  "score": 346.635,
+  "config": {
+    "traditions": [
+      "quechua_wayno_traditional",
+      "shipibo_icaros",
+      "inuit_katajjaq_games"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "twang_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.155,
+          "voice_quality": 15.299999999999997,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.9750000000000001,
+          "voice_microtone": 0.39,
+          "voice_tradition": 40.260000000000005,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 13.184999999999999,
+          "voice_speech_song": 16.835000000000008,
+          "voice_ensemble_config": 17.389999999999997,
+          "voice_ornament_system": 21.605,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 4.8975,
+          "voice_multitrack_stack": 4.13
+        }
+      },
+      {
+        "id": "quena",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "quena_material": "quena_bamboo",
+          "quena_pitch": "quena_g"
+        },
+        "scores": {
+          "wind_articulation": 5.850000000000001,
+          "quena_material": 2.8699999999999997,
+          "quena_pitch": 3.25
+        }
+      },
+      {
+        "id": "charango",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "charango_back": "charango_naranjillo",
+          "charango_top_wood": "charango_cedar_top",
+          "charango_strings": "charango_5_double",
+          "charango_string_material": "charango_nylon_canonical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.915000000000001,
+          "charango_back": 4.8999999999999995,
+          "charango_top_wood": 8.235,
+          "charango_strings": 4.8999999999999995,
+          "charango_string_material": 3.7049999999999996
+        }
+      },
+      {
+        "id": "bombo_andino",
+        "slots": {
+          "bombo_andino_construction": "bombo_andino_leguero",
+          "bombo_andino_skin": "bombo_andino_llama",
+          "bombo_andino_shell_wood": "bombo_andino_ceibo"
+        },
+        "scores": {
+          "bombo_andino_construction": 3.8249999999999997,
+          "bombo_andino_skin": 5.124999999999999,
+          "bombo_andino_shell_wood": 3.3799999999999994
+        }
+      },
+      {
+        "id": "conch_shell_horn",
+        "slots": {
+          "wind_articulation": "wind_call_blowing",
+          "conch_use": "conch_polynesian",
+          "conch_shell_horn_region": "conch_shell_horn_polynesian"
+        },
+        "scores": {
+          "wind_articulation": 0.7799999999999998,
+          "conch_use": 0.885,
+          "conch_shell_horn_region": 15.210000000000008
+        }
+      },
+      {
+        "id": "ocarina",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "ocarina_chamber": "ocarina_triple",
+          "ocarina_material": "ocarina_ceramic"
+        },
+        "scores": {
+          "wind_articulation": 5.850000000000001,
+          "ocarina_chamber": 1.69,
+          "ocarina_material": 2.7199999999999998
+        }
+      }
+    ],
+    "room": "bogota_colombian_andean_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "huayno_2_4_andean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

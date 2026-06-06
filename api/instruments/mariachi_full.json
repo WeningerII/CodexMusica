@@ -1,0 +1,246 @@
+{
+  "id": "mariachi_full",
+  "name": "Full mariachi ensemble",
+  "family": "ensemble",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mariachi",
+  "parts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "mariachi_violins",
+          "name": "Violins (6-8)",
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        },
+        {
+          "id": "mariachi_trumpets",
+          "name": "Trumpets (2)",
+          "descriptors": [
+            "lead"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        },
+        {
+          "id": "mariachi_vihuela",
+          "default": true,
+          "name": "Vihuela (chord-foundation)",
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        },
+        {
+          "id": "mariachi_guitarron",
+          "name": "Guitarrón (bass)",
+          "descriptors": [
+            "grounding",
+            "octaves"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        },
+        {
+          "id": "mariachi_guitar",
+          "name": "Classical guitar",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        },
+        {
+          "id": "mariachi_voices",
+          "surface": false,
+          "name": "Lead and harmony voices",
+          "descriptors": [
+            "melismatic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era / school",
+      "variants": [
+        {
+          "id": "mariachi_traditional",
+          "name": "Traditional rural Jaliscan",
+          "descriptors": [
+            "rural",
+            "foundational",
+            "authentic"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "mariachi_modern",
+          "default": true,
+          "name": "Modern concert (arranged-school)",
+          "descriptors": [
+            "virtuoso",
+            "arranged"
+          ],
+          "match_tokens": [
+            "modern",
+            "ensemble",
+            "mariachi-standard"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "mariachi_violins",
+          "name": "Violins (6-8)",
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        },
+        {
+          "id": "mariachi_trumpets",
+          "name": "Trumpets (2)",
+          "descriptors": [
+            "lead"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        },
+        {
+          "id": "mariachi_vihuela",
+          "default": true,
+          "name": "Vihuela (chord-foundation)",
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        },
+        {
+          "id": "mariachi_guitarron",
+          "name": "Guitarrón (bass)",
+          "descriptors": [
+            "grounding",
+            "octaves"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        },
+        {
+          "id": "mariachi_guitar",
+          "name": "Classical guitar",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        },
+        {
+          "id": "mariachi_voices",
+          "surface": false,
+          "name": "Lead and harmony voices",
+          "descriptors": [
+            "melismatic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "mariachi-standard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era / school",
+      "variants": [
+        {
+          "id": "mariachi_traditional",
+          "name": "Traditional rural Jaliscan",
+          "descriptors": [
+            "rural",
+            "foundational",
+            "authentic"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "mariachi_modern",
+          "default": true,
+          "name": "Modern concert (arranged-school)",
+          "descriptors": [
+            "virtuoso",
+            "arranged"
+          ],
+          "match_tokens": [
+            "modern",
+            "ensemble",
+            "mariachi-standard"
+          ]
+        }
+      ]
+    }
+  ]
+}

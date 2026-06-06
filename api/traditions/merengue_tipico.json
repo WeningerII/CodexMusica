@@ -1,0 +1,112 @@
+{
+  "id": "merengue_tipico",
+  "name": "Merengue típico (Cibao traditional)",
+  "family": "global",
+  "lineage": "Traditional Dominican merengue variant of the Cibao region (Santiago, La Vega, Moca, San Francisco de Macorís). Button-accordion (German-immigrant introduction, adopted as canonical), tambora double-headed drum, güira metal-scraper, marímbula or electric-bass, voice. Tatico Henríquez (1944-1976) is the canonical tipico accordionist; Fefita La Grande (born 1943) is the canonical female lead.",
+  "recipe": "classic tropical early-1940s merengue típico, functional Song, tropical song branch, Caribbean groove percussion zydeco cadence-lypso. punctuated, blues inflected, beatbox, false fold distorted phonation. leather castagnari Italian premium folk music accordion, la bella flats Detroit soul bass canon electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 490,
+  "score": 76.858,
+  "config": {
+    "traditions": [
+      "merengue_tipico",
+      "zydeco",
+      "cadence_lypso"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "twang_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0.22499999999999998,
+          "voice_quality": 0.3,
+          "voice_vibrato": 0.195,
+          "voice_articulation": 0.765,
+          "voice_microtone": 0.63,
+          "voice_tradition": 0.8449999999999999,
+          "voice_mechanism_compound": 3.1500000000000004,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 3.835,
+          "voice_ensemble_config": 5.6899999999999995,
+          "voice_ornament_system": 1.56,
+          "voice_pitch_organization": 4.289999999999999,
+          "voice_processing_chain": 3.75,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 1.49,
+          "accordion_reed_material": 0.195,
+          "musette_offset": 2.3,
+          "reed_config": 1.02,
+          "bellows": 2.3,
+          "voicing_chamber": 0.15,
+          "accordion_maker_school": 5.289999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 1.625,
+          "body_wood": 0.38999999999999996,
+          "pickup_config": 0,
+          "string_type": 4.625,
+          "scale_length_b": 0.24,
+          "fretted_or_not": 0.09,
+          "bass_technique": -0.035
+        }
+      }
+    ],
+    "room": "dominican_capital_studio_80s",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_field_recorder_portable",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_15ips"
+    },
+    "tuning": "merengue_2_4_perico_ripiao",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

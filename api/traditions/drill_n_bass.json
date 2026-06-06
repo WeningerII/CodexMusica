@@ -1,0 +1,80 @@
+{
+  "id": "drill_n_bass",
+  "name": "Drill'n'bass (mid-1990s UK extreme-virtuoso drum-and-bass)",
+  "family": "electronic",
+  "lineage": "Mid-1990s UK electronic subgenre developed by Aphex Twin (Richard D. James) and Squarepusher (Tom Jenkinson) as extreme-virtuoso drum-and-bass adjacent style with hyperactive drum-machine programming, complex polymetric rhythmic-structures, and integration with broader IDM compositional aesthetic. Aphex Twin's Hangable Auto Bulb (1995) and Squarepusher's Hard Normal Daddy (1997) constitute canonical type-specimens.",
+  "recipe": "classic British drill'n'bass, experimental Elec, idm glitch branch, bass descendants bass system atmospheric drum-and-bass neurofunk. TR-808, sub bass analog synth, glitched textural sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 410,
+  "score": 139.107,
+  "config": {
+    "traditions": [
+      "drill_n_bass",
+      "atmospheric_dnb",
+      "neurofunk"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 6.045,
+          "drum_machine_808_context": 6.11,
+          "tr808_production_origin": 0.195
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 5.915000000000001,
+          "oscillator": 6.11,
+          "filter_topology": 9.1,
+          "envelope": 1.69,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s900",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 10.99,
+          "sampler_archetypes": 0,
+          "sampler_bit_depth": 2.8600000000000003,
+          "sampler_workflow": 10.75,
+          "sampler_classic_context": 7.994999999999999
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

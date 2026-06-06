@@ -1,0 +1,219 @@
+{
+  "id": "enka",
+  "name": "Enka",
+  "family": "global",
+  "lineage": "Japanese 20th-century sentimental popular-ballad genre derived from late-Meiji-period (1880s-1912) enka-shi street-political-protest-song tradition, transformed mid-Showa-period (1930s-1960s) into commercial recording-industry sentimental-vocal-pop. The vocal technique stresses kobushi melismatic-ornamental vibrato-and-microtonal-bend, koe-on chest-resonance projected-vocal, and pentatonic-yo minor-leaning melodic-vocabulary (often modulating through 4-cycle key changes per verse). Lyrical themes center on lost-love, distant-homeland, mother-and-rural-nostalgia, and ocean-and-port-imagery. The 1960s-1980s golden-age enka-orchestra featured strings-and-shamisen-and-shakuhachi hybrid-arrangement; 1990s-onward enka declined as a youth-genre but persists as a senior-audience-and-karaoke staple.",
+  "recipe": "classic North American mid-1880s enka, functional Song, enka branch, crooners functional song american barbershop quartet great american songbook. thick, low dynamic level, chest resonance low mid, ornamental. dog skin ivory mulberry kuwa mid tier traditional min yo shamisen, koto, mahogany rosewood clean strummed single coil electric guitar, alder pyramid pure nickel bass British mid 60s era walking electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly synth, string quartet inst. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 743,
+  "score": 398.726,
+  "config": {
+    "traditions": [
+      "enka",
+      "barbershop_quartet",
+      "great_american_songbook"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 14.403999999999991,
+          "voice_quality": 3.185000000000001,
+          "voice_vibrato": 3.9312499999999995,
+          "voice_articulation": 0.95,
+          "voice_microtone": 14.419999999999993,
+          "voice_tradition": 29.47825,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 2.9435000000000007,
+          "voice_speech_song": 22.685000000000013,
+          "voice_ensemble_config": 16.510000000000012,
+          "voice_ornament_system": 2.2,
+          "voice_pitch_organization": 1.15,
+          "voice_processing_chain": 5.719999999999999,
+          "voice_multitrack_stack": 7.5745
+        }
+      },
+      {
+        "id": "shamisen",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "shamisen_size": "futozao",
+          "shamisen_skin": "shamisen_dog",
+          "shamisen_pick": "bachi_ivory",
+          "shamisen_neck_wood": "shamisen_mulberry",
+          "shamisen_strings": "shamisen_silk_traditional",
+          "shamisen_tradition": "shamisen_min_yo"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.25,
+          "shamisen_size": 0.345,
+          "shamisen_skin": 1.524,
+          "shamisen_pick": 1.625,
+          "shamisen_neck_wood": 3.4297499999999994,
+          "shamisen_strings": 0,
+          "shamisen_tradition": 8.19
+        }
+      },
+      {
+        "id": "koto",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "koto_strings": "koto_13",
+          "koto_picks": "koto_yamada",
+          "koto_body_wood": "koto_modern_paulownia",
+          "koto_strings_material": "koto_silk_historical",
+          "koto_bridge_material": "koto_plastic_bridges_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.25,
+          "koto_strings": 0.0255,
+          "koto_picks": 3.4552499999999995,
+          "koto_body_wood": 0.16499999999999998,
+          "koto_strings_material": 0.61875,
+          "koto_bridge_material": -1.311
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_3",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_short",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 12.999999999999996,
+          "amp_make": 1.444,
+          "body_wood": 1.69,
+          "neck_wood": 1.69,
+          "fretboard": 1.625,
+          "pickup_magnet": 0.045,
+          "string_material": 0.009,
+          "string_gauge": 1.69,
+          "bridge": 0,
+          "scale_length": 2.84,
+          "finish": 1,
+          "string_tuning": 1.3945
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": 0.245,
+          "amp_make": 1.4299999999999997,
+          "body_wood": 1.69,
+          "pickup_config": 0,
+          "string_type": 3.5100000000000002,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.3,
+          "bass_technique": 1.0449999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 17.550000000000015,
+          "shell_wood": 0.3135,
+          "shell_thickness": 1,
+          "bearing_edges": 1.69,
+          "drumhead": 12.488749999999996,
+          "snare_wires": 1.69,
+          "cymbal_alloy": 13.089999999999996,
+          "cymbal_hammering": 12.949999999999996,
+          "cymbal_lathing": 13.044499999999996,
+          "cymbal_finish": 1.054,
+          "drum_technique": 17.550000000000015
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 12.853999999999996,
+          "poly_archetypes": 0.39,
+          "poly_voices": 1.1,
+          "poly_maker_lineage": 0.6265
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_modern",
+          "string_quartet_inst_era": "string_quartet_inst_romantic"
+        },
+        "scores": {
+          "bowed_technique": 0.25,
+          "quartet_school": 0.009,
+          "string_quartet_inst_era": 2.8600000000000003
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "japanese_in_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

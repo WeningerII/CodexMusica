@@ -1,0 +1,188 @@
+{
+  "id": "bonang",
+  "name": "Bonang (gamelan kettle gong row)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bonang",
+  "parts": [
+    {
+      "id": "bonang_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "bonang_pelog",
+          "name": "Pelog (7-tone subset)",
+          "descriptors": [
+            "ceremonial",
+            "court",
+            "pentatonic-derived"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bonang_slendro",
+          "name": "Slendro (5-tone evenly-spaced)",
+          "descriptors": [
+            "narrative",
+            "wayang"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bonang_full_set",
+          "default": true,
+          "name": "Pelog-slendro pair",
+          "descriptors": [
+            "professional"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "court"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bonang_register",
+      "name": "Register / role",
+      "variants": [
+        {
+          "id": "bonang_barung",
+          "default": true,
+          "name": "Bonang barung (low, lead)",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bonang_panerus",
+          "name": "Bonang panerus (high, ornament)",
+          "descriptors": [
+            "fast-elaboration",
+            "doubling",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bonang_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "bonang_pelog",
+          "name": "Pelog (7-tone subset)",
+          "descriptors": [
+            "ceremonial",
+            "court",
+            "pentatonic-derived"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bonang_slendro",
+          "name": "Slendro (5-tone evenly-spaced)",
+          "descriptors": [
+            "narrative",
+            "wayang"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bonang_full_set",
+          "default": true,
+          "name": "Pelog-slendro pair",
+          "descriptors": [
+            "professional"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "court"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bonang_register",
+      "name": "Register / role",
+      "variants": [
+        {
+          "id": "bonang_barung",
+          "default": true,
+          "name": "Bonang barung (low, lead)",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bonang_panerus",
+          "name": "Bonang panerus (high, ornament)",
+          "descriptors": [
+            "fast-elaboration",
+            "doubling",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

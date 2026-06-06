@@ -1,0 +1,68 @@
+{
+  "id": "corsican_paghjella_modern",
+  "name": "Corsican paghjella modern revival",
+  "family": "classical",
+  "lineage": "Corsican paghjella three-voice male polyphonic singing tradition of Corsica (France), recognized as UNESCO Intangible Cultural Heritage in Need of Urgent Safeguarding 2009. Performance: three male singers in close-position polyphonic configuration: a bassu low-register foundational voice, a sicunda middle-register voice, and a terza high-register ornamental voice, all male-only, performing sacred (especially the canonical Mass-of-the-Dead repertoire) and secular repertoire. The genre nearly disappeared by the mid-twentieth century but was revived through the 1970s riacquistu Corsican-cultural-revival movement under the canonical group A Filetta. Distinguished from Sardinian cantu a tenore by Corsican paghjella's three-voice-male (vs four-voice-with-guttural-bass) configuration.",
+  "recipe": "classic North American mid-1970s corsican paghjella modern revival, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. vocal fry, false fold engaged, chest resonance low mid, hocket articulation. mountain valley. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 449,
+  "score": 185.425,
+  "config": {
+    "traditions": [
+      "corsican_paghjella_modern",
+      "sardinian_traditional",
+      "croatian_klapa_dalmatian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_sob",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 3.6399999999999997,
+          "voice_quality": 6.050000000000001,
+          "voice_vibrato": 4.32,
+          "voice_articulation": 1.295,
+          "voice_microtone": 1.345,
+          "voice_tradition": 13.844999999999995,
+          "voice_mechanism_compound": 4.095,
+          "voice_estill_quality": 6.694999999999999,
+          "voice_speech_song": 5.329999999999999,
+          "voice_ensemble_config": 22.894999999999996,
+          "voice_ornament_system": 8.84,
+          "voice_pitch_organization": 4.1,
+          "voice_processing_chain": 8.79,
+          "voice_multitrack_stack": 1.95
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

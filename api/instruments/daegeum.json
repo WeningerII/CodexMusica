@@ -1,0 +1,128 @@
+{
+  "id": "daegeum",
+  "name": "Daegeum (Korean large bamboo transverse flute)",
+  "family": "wind",
+  "class": "flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "daegeum",
+  "parts": [
+    {
+      "id": "daegeum_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "daegeum_bamboo_cheongong",
+          "default": true,
+          "name": "Bamboo with cheonggong buzzer membrane",
+          "descriptors": [
+            "traditional",
+            "membrane-buzz",
+            "transverse",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "gugak-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daegeum_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "daegeum_jeongak",
+          "default": true,
+          "name": "Jeongak (court music)",
+          "descriptors": [
+            "slow",
+            "sustained",
+            "modal"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "jeongak"
+          ]
+        },
+        {
+          "id": "daegeum_minsogak",
+          "name": "Minsogak (folk music)",
+          "descriptors": [
+            "agile",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "minsogak"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "daegeum_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "daegeum_bamboo_cheongong",
+          "default": true,
+          "name": "Bamboo with cheonggong buzzer membrane",
+          "descriptors": [
+            "traditional",
+            "membrane-buzz",
+            "transverse",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "gugak-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daegeum_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "daegeum_jeongak",
+          "default": true,
+          "name": "Jeongak (court music)",
+          "descriptors": [
+            "slow",
+            "sustained",
+            "modal"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "jeongak"
+          ]
+        },
+        {
+          "id": "daegeum_minsogak",
+          "name": "Minsogak (folk music)",
+          "descriptors": [
+            "agile",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "minsogak"
+          ]
+        }
+      ]
+    }
+  ]
+}

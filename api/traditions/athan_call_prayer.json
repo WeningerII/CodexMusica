@@ -1,0 +1,68 @@
+{
+  "id": "athan_call_prayer",
+  "name": "Athān (Islamic call to prayer)",
+  "family": "global",
+  "lineage": "Islamic ceremonial call-to-prayer (adhān) tradition broadcast five times daily from mosque minarets — codified through the seven phrases (takbīr, shahāda, hayya, etc.) in unmetered melismatic-modal singing, varying by regional tradition (Turkish, Egyptian, Maghrebi, Persian, Indo-Pakistani recitation schools)",
+  "recipe": "classic modern athān, ritual Devotional, islamic branch, Sufi ritual devotional sufi inshad qawwali. vocal fry, declaimed, chest resonance low mid, maqam neutral step. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 308,
+  "score": 153.782,
+  "config": {
+    "traditions": [
+      "athan_call_prayer",
+      "sufi_inshad_egyptian",
+      "qawwali"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.17,
+          "voice_quality": 6.116250000000001,
+          "voice_vibrato": 0.9279999999999998,
+          "voice_articulation": 0.1815,
+          "voice_microtone": 7.73775,
+          "voice_tradition": 12.804999999999996,
+          "voice_mechanism_compound": 3.1500000000000004,
+          "voice_estill_quality": 3.15325,
+          "voice_speech_song": 2.532,
+          "voice_ensemble_config": 1.6899999999999997,
+          "voice_ornament_system": 6.67925,
+          "voice_pitch_organization": 3.9365,
+          "voice_processing_chain": 2.649,
+          "voice_multitrack_stack": 2.34
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

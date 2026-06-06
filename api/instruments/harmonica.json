@@ -1,0 +1,1049 @@
+{
+  "id": "harmonica",
+  "name": "Harmonica",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "harmonica",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_blues_cross",
+          "name": "Blues cross-position (bent)",
+          "applies_to": [
+            "harmonica"
+          ],
+          "descriptors": [
+            "bent",
+            "cross-harp",
+            "wailing"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "blues-derived",
+            "blues-inflected"
+          ],
+          "canonical_tags": [
+            "blues-canonical",
+            "delta"
+          ]
+        },
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_chromatic_jazz",
+          "name": "Chromatic jazz lead",
+          "applies_to": [
+            "accordion",
+            "piano_accordion",
+            "harmonica"
+          ],
+          "descriptors": [
+            "chromatic",
+            "lead"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "jazz-trained"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "harmonica_type",
+      "surface": false,
+      "name": "Variant",
+      "variants": [
+        {
+          "id": "diatonic_blues",
+          "name": "Ten-hole diatonic (blues harp)",
+          "descriptors": [
+            "bendy",
+            "expressive"
+          ],
+          "match_tokens": [
+            "blues-derived",
+            "blues-inflected",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "chromatic_harm",
+          "name": "Chromatic (slide-button)",
+          "descriptors": [
+            "slick",
+            "even",
+            "jazz-ready"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "tremolo_harm",
+          "default": true,
+          "name": "Tremolo (double-reed)",
+          "descriptors": [
+            "wavy",
+            "organ-like",
+            "traditional",
+            "reed"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "rapid-tremolo",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "octave_harm",
+          "name": "Octave",
+          "descriptors": [
+            "huge",
+            "full",
+            "accordion-like"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bass_harm",
+          "name": "Bass harmonica",
+          "descriptors": [
+            "deep",
+            "fundamental",
+            "supporting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harmonica_comb",
+      "surface": false,
+      "name": "Comb material",
+      "variants": [
+        {
+          "id": "pearwood_comb",
+          "default": true,
+          "name": "Pearwood (sealed, Marine Band canon)",
+          "descriptors": [
+            "pearwood",
+            "low-overtone-rich",
+            "traditional",
+            "mellow",
+            "marine-band-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "blues",
+            "vintage"
+          ]
+        },
+        {
+          "id": "abs_comb",
+          "name": "ABS plastic",
+          "descriptors": [
+            "abs-plastic",
+            "treble-extended",
+            "consistent",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "aluminum_comb",
+          "name": "Aluminum",
+          "descriptors": [
+            "aluminum",
+            "cold",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "bamboo_comb",
+          "name": "Bamboo (Hohner Crossover)",
+          "descriptors": [
+            "bamboo",
+            "treble-extended",
+            "woody",
+            "natural-material-resonance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "maple_comb",
+          "name": "Maple (Seydel 1847)",
+          "descriptors": [
+            "maple",
+            "sealed",
+            "warm-projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "resin_comb",
+          "name": "Synthetic resin (Suzuki Manji)",
+          "descriptors": [
+            "synthetic-resin",
+            "humidity-resistant",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harmonica_reed",
+      "name": "Reedplate material",
+      "variants": [
+        {
+          "id": "brass_harm",
+          "default": true,
+          "name": "Brass (Marine Band traditional)",
+          "descriptors": [
+            "brass",
+            "low-overtone-rich",
+            "traditional",
+            "mid-strong"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "blues",
+            "vintage"
+          ]
+        },
+        {
+          "id": "bronze_harm",
+          "name": "Bronze",
+          "descriptors": [
+            "bronze",
+            "overtone-rich-sustained",
+            "overtone-rich",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "stainless_harm",
+          "name": "Stainless steel (Seydel 1847)",
+          "descriptors": [
+            "stainless-steel",
+            "steel",
+            "treble-extended",
+            "durable",
+            "snappy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "phosphor_bronze_harm",
+          "name": "Phosphor bronze (Suzuki Manji)",
+          "descriptors": [
+            "phosphor-bronze",
+            "darker-sustaining"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "double_brass_harm",
+          "name": "Double brass (Hohner Super 64 chromatic)",
+          "descriptors": [
+            "double-brass",
+            "chromatic-canon",
+            "projection"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harmonica_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "harm_blues_cross",
+          "default": true,
+          "name": "Blues cross-harp (second position)",
+          "descriptors": [
+            "bent",
+            "cross-harp",
+            "wailing"
+          ],
+          "match_tokens": [
+            "blues-derived",
+            "blues-inflected",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "blues",
+            "delta"
+          ]
+        },
+        {
+          "id": "harm_folk_first_position",
+          "surface": false,
+          "name": "Folk first-position",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "harm_chordal_chugging",
+          "name": "Chordal chugging",
+          "descriptors": [
+            "chordal",
+            "rhythm",
+            "train-imitating"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "old-time"
+          ]
+        },
+        {
+          "id": "harm_chromatic_jazz",
+          "name": "Chromatic jazz lead",
+          "descriptors": [
+            "lead",
+            "chromatic"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "harm_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "modern",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern-blues"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harmonica_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "harmonica_hohner_marine_band",
+          "default": true,
+          "name": "Hohner Marine Band 1896 (canonical blues — Trossingen Germany)",
+          "descriptors": [
+            "hohner-marine-band-1896-canonical-blues-trossingen"
+          ],
+          "match_tokens": [
+            "blues-derived",
+            "blues-inflected",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "blues",
+            "vintage"
+          ]
+        },
+        {
+          "id": "harmonica_hering_brazilian",
+          "name": "Hering (Brazilian premium — Brazilian forró canon)",
+          "descriptors": [
+            "hering-brazilian-premium-forro-canon"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "harmonica_suzuki_japanese",
+          "name": "Suzuki (Japanese modern precision)",
+          "descriptors": [
+            "suzuki-japanese-modern-precision"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "harmonica_seydel_german",
+          "name": "Seydel (German premium stainless reedplate)",
+          "descriptors": [
+            "seydel-german-premium-stainless-reedplate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harmonica_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "harmonica_richter_canonical",
+          "default": true,
+          "name": "Richter tuning (canonical 10-hole diatonic blues)",
+          "descriptors": [
+            "richter-canonical-10-hole-diatonic-blues"
+          ],
+          "match_tokens": [
+            "blues-derived",
+            "blues-inflected",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "harmonica_solo_chromatic",
+          "name": "Solo tuning (canonical chromatic)",
+          "descriptors": [
+            "solo-canonical-chromatic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "harmonica_minor_key",
+          "name": "Minor-key tuning (Lee Oskar natural minor canonical)",
+          "descriptors": [
+            "minor-key-lee-oskar-natural-minor-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "harmonica_type",
+      "surface": false,
+      "name": "Variant",
+      "variants": [
+        {
+          "id": "diatonic_blues",
+          "name": "Ten-hole diatonic (blues harp)",
+          "descriptors": [
+            "bendy",
+            "expressive"
+          ],
+          "match_tokens": [
+            "blues-derived",
+            "blues-inflected",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "chromatic_harm",
+          "name": "Chromatic (slide-button)",
+          "descriptors": [
+            "slick",
+            "even",
+            "jazz-ready"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "tremolo_harm",
+          "default": true,
+          "name": "Tremolo (double-reed)",
+          "descriptors": [
+            "wavy",
+            "organ-like",
+            "traditional",
+            "reed"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "rapid-tremolo",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "octave_harm",
+          "name": "Octave",
+          "descriptors": [
+            "huge",
+            "full",
+            "accordion-like"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bass_harm",
+          "name": "Bass harmonica",
+          "descriptors": [
+            "deep",
+            "fundamental",
+            "supporting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harmonica_comb",
+      "surface": false,
+      "name": "Comb material",
+      "variants": [
+        {
+          "id": "pearwood_comb",
+          "default": true,
+          "name": "Pearwood (sealed, Marine Band canon)",
+          "descriptors": [
+            "pearwood",
+            "low-overtone-rich",
+            "traditional",
+            "mellow",
+            "marine-band-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "blues",
+            "vintage"
+          ]
+        },
+        {
+          "id": "abs_comb",
+          "name": "ABS plastic",
+          "descriptors": [
+            "abs-plastic",
+            "treble-extended",
+            "consistent",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "aluminum_comb",
+          "name": "Aluminum",
+          "descriptors": [
+            "aluminum",
+            "cold",
+            "projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "bamboo_comb",
+          "name": "Bamboo (Hohner Crossover)",
+          "descriptors": [
+            "bamboo",
+            "treble-extended",
+            "woody",
+            "natural-material-resonance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "maple_comb",
+          "name": "Maple (Seydel 1847)",
+          "descriptors": [
+            "maple",
+            "sealed",
+            "warm-projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "resin_comb",
+          "name": "Synthetic resin (Suzuki Manji)",
+          "descriptors": [
+            "synthetic-resin",
+            "humidity-resistant",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harmonica_reed",
+      "name": "Reedplate material",
+      "variants": [
+        {
+          "id": "brass_harm",
+          "default": true,
+          "name": "Brass (Marine Band traditional)",
+          "descriptors": [
+            "brass",
+            "low-overtone-rich",
+            "traditional",
+            "mid-strong"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "blues",
+            "vintage"
+          ]
+        },
+        {
+          "id": "bronze_harm",
+          "name": "Bronze",
+          "descriptors": [
+            "bronze",
+            "overtone-rich-sustained",
+            "overtone-rich",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "stainless_harm",
+          "name": "Stainless steel (Seydel 1847)",
+          "descriptors": [
+            "stainless-steel",
+            "steel",
+            "treble-extended",
+            "durable",
+            "snappy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "phosphor_bronze_harm",
+          "name": "Phosphor bronze (Suzuki Manji)",
+          "descriptors": [
+            "phosphor-bronze",
+            "darker-sustaining"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "double_brass_harm",
+          "name": "Double brass (Hohner Super 64 chromatic)",
+          "descriptors": [
+            "double-brass",
+            "chromatic-canon",
+            "projection"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harmonica_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "harm_blues_cross",
+          "default": true,
+          "name": "Blues cross-harp (second position)",
+          "descriptors": [
+            "bent",
+            "cross-harp",
+            "wailing"
+          ],
+          "match_tokens": [
+            "blues-derived",
+            "blues-inflected",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "blues",
+            "delta"
+          ]
+        },
+        {
+          "id": "harm_folk_first_position",
+          "surface": false,
+          "name": "Folk first-position",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "harm_chordal_chugging",
+          "name": "Chordal chugging",
+          "descriptors": [
+            "chordal",
+            "rhythm",
+            "train-imitating"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "old-time"
+          ]
+        },
+        {
+          "id": "harm_chromatic_jazz",
+          "name": "Chromatic jazz lead",
+          "descriptors": [
+            "lead",
+            "chromatic"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "harm_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "modern",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern-blues"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harmonica_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "harmonica_hohner_marine_band",
+          "default": true,
+          "name": "Hohner Marine Band 1896 (canonical blues — Trossingen Germany)",
+          "descriptors": [
+            "hohner-marine-band-1896-canonical-blues-trossingen"
+          ],
+          "match_tokens": [
+            "blues-derived",
+            "blues-inflected",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "blues",
+            "vintage"
+          ]
+        },
+        {
+          "id": "harmonica_hering_brazilian",
+          "name": "Hering (Brazilian premium — Brazilian forró canon)",
+          "descriptors": [
+            "hering-brazilian-premium-forro-canon"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "harmonica_suzuki_japanese",
+          "name": "Suzuki (Japanese modern precision)",
+          "descriptors": [
+            "suzuki-japanese-modern-precision"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "harmonica_seydel_german",
+          "name": "Seydel (German premium stainless reedplate)",
+          "descriptors": [
+            "seydel-german-premium-stainless-reedplate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harmonica_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "harmonica_richter_canonical",
+          "default": true,
+          "name": "Richter tuning (canonical 10-hole diatonic blues)",
+          "descriptors": [
+            "richter-canonical-10-hole-diatonic-blues"
+          ],
+          "match_tokens": [
+            "blues-derived",
+            "blues-inflected",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "harmonica_solo_chromatic",
+          "name": "Solo tuning (canonical chromatic)",
+          "descriptors": [
+            "solo-canonical-chromatic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "harmonica_minor_key",
+          "name": "Minor-key tuning (Lee Oskar natural minor canonical)",
+          "descriptors": [
+            "minor-key-lee-oskar-natural-minor-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

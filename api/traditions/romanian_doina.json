@@ -1,0 +1,112 @@
+{
+  "id": "romanian_doina",
+  "name": "Romanian doina (free-rhythm lament)",
+  "family": "global",
+  "lineage": "Romanian doina free-rhythm extended-melismatic lament-and-pastoral solo vocal-or-instrumental tradition of Romania and Moldova, recognized as UNESCO Intangible Cultural Heritage 2009. Performance: solo unaccompanied voice (or solo violin, solo wooden-flute caval, or solo wooden-clarinet) in characteristic free-rhythm parlando-rubato style with extensive ornamental-melismatic figuration on long vowels. The doina has multiple regional sub-traditions: doină de jale (lament-doina), doină ciobănească (shepherd-doina), doină haiducească (outlaw-doina), and doină de dragoste (love-doina), each with characteristic regional intonation conventions. Distinguished from broader Romanian folk-song by doina's strict free-rhythm extended-melismatic structural requirement.",
+  "recipe": "classic late-2000s romanian doina, ballad Poetry, med east poetic branch, vocal drone modal armenian duduk-accompanied chant skolt sámi leuʹdd. vocal fry, declaimed, nervy, ornamental. sustained tone silver wound lamb gut core violin orchestral, softer tone ebonite hard rubber klezmer tradition clarinet. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 526,
+  "score": 205.445,
+  "config": {
+    "traditions": [
+      "romanian_doina",
+      "armenian_duduk_chant",
+      "sami_skolt_leudd"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_solo_over_choral_drone",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.37,
+          "voice_quality": 7.794999999999999,
+          "voice_vibrato": 2.5999999999999996,
+          "voice_articulation": 1.295,
+          "voice_microtone": 1.3900000000000001,
+          "voice_tradition": 19.754999999999995,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 10.415,
+          "voice_ensemble_config": 13.519999999999998,
+          "voice_ornament_system": 6.31,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 2.4699999999999998,
+          "voice_multitrack_stack": 2.6
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "orch_strings": 2.5999999999999996,
+          "orch_top_wood": -0.035,
+          "orch_back_wood": -0.035,
+          "orch_varnish": -0.035,
+          "orch_setup_period": -0.07,
+          "orch_bow": 0.46499999999999997,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 1.0199999999999998,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "clarinet_body": 1.56,
+          "clarinet_size": 4.755,
+          "clarinet_reed": 2.5999999999999996,
+          "clarinet_articulation": 0.045
+        }
+      }
+    ],
+    "room": "naples_canzone_napoletana_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "balkan_odd_meter_aksak",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "id": "hawaiian_slack_key",
+  "name": "Hawaiian slack-key (kī hōʻalu)",
+  "family": "global",
+  "lineage": "Hawaiian fingerstyle guitar tradition that emerged after 1832 when Spanish-Mexican vaquero cowboys brought to Hawaii by King Kamehameha III to manage the new ranching industry left their guitars behind as gifts to Hawaiian musicians — who slackened the strings (kī hōʻalu literally means loosen the key) into open tunings and developed the fingerstyle vocabulary; 20th-century figures Gabby Pahinui (1921-1980, the voice, his Sons of Hawaii ensemble preserving the tradition), Sonny Chillingworth, Atta Isaacs, Raymond Kane, Leonard Kwan, Keola Beamer, the modern Cyril Pahinui and Ledward Kaapana lineage",
+  "recipe": "classic North American early-1920s hawaiian slack-key, drone Modal, string branch, vocal drone modal sámi yoik bulgarian women's choir. vocal fry, declaimed, tasteful, continuous-phonation. low tension strings mellow parlor classic steel silk parlor acoustic steel silk drone like modal dreadnought acoustic guitar. honolulu hawaiian slack key lanai. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 497,
+  "score": 117.08,
+  "config": {
+    "traditions": [
+      "hawaiian_slack_key",
+      "sami_yoik",
+      "bulgarian_womens_choir"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.9099999999999999,
+          "voice_quality": 1.1049999999999998,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 0.615,
+          "voice_microtone": 0.39,
+          "voice_tradition": 16.694999999999993,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 4.095000000000001,
+          "voice_speech_song": 5.264999999999999,
+          "voice_ensemble_config": 6.499999999999999,
+          "voice_ornament_system": 1.17,
+          "voice_pitch_organization": 2.665000000000001,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 1.7850000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "rosewood_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
+        },
+        "scores": {
+          "acoustic_technique": 2.125,
+          "string_tuning": 2.4700000000000006,
+          "top_wood_parlor": 0.54,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 1.495
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "string_tuning": "open_g",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 5.590000000000001,
+          "string_tuning": 2.4700000000000006,
+          "top_wood": 0.345,
+          "back_sides": 0.51,
+          "string_acoustic": 1.495
+        }
+      }
+    ],
+    "room": "honolulu_hawaiian_slack_key_lanai",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "slack_key_hawaiian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

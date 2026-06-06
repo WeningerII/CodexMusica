@@ -1,0 +1,126 @@
+{
+  "id": "vallenato",
+  "name": "Vallenato",
+  "family": "global",
+  "lineage": "Colombian-Caribbean accordion-led song-form codified 1940s-onward in Valledupar (Cesar-department, northeastern Colombia) from earlier 19th-century rural-troubadour traditions of the Magdalena-basin cattle-ranch lineage. The canonical ensemble: button-accordion (the diatonic Hohner-3-row accordion imported via 1880s-onward German maritime-trade with Caribbean-port-cities), caja-vallenata small two-headed drum, guacharaca grooved-bamboo scraper. The four canonical vallenato airs: paseo moderate-tempo-narrative, merengue (different from Dominican) faster-2/4, son slower-double-meter, and puya fastest-rural-virtuosic. The lyric-tradition is heavily narrative-storytelling, often improvised, and the Vallenato-Festival-de-la-Leyenda annual competition (since 1968) codifies regional standards. UNESCO intangible-heritage 2015-inscribed.",
+  "recipe": "classic tropical mid-1940s vallenato, groove Percussion, Latin am branch, Latin am troubadour ballad poetry milonga cueca. thick, full chest belt, chest resonance low mid, narrative. button accordion three row hohner legato acordeon vallenato, wood vallenato tradition fastest puya carreto canonical colombian Caribbean coast goat skin canonical vallenato caja vallenata, vallenato tradition wood metal fork guacharaca, alder la bella flats Detroit soul bass canon fingerpicked electric bass. colombian canon 1934-present mid tier discos fuentes medellin. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 665,
+  "score": 132.84,
+  "config": {
+    "traditions": [
+      "vallenato",
+      "milonga",
+      "cueca_chilena"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 0.9999999999999999,
+          "voice_quality": 6.85,
+          "voice_vibrato": 0.8250000000000002,
+          "voice_articulation": 3.4450000000000003,
+          "voice_microtone": 0.24,
+          "voice_tradition": 4.8100000000000005,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 4.615,
+          "voice_ensemble_config": 4.55,
+          "voice_ornament_system": 0.28500000000000003,
+          "voice_pitch_organization": 2.6,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 1.6300000000000001
+        }
+      },
+      {
+        "id": "acordeon_vallenato",
+        "slots": {
+          "acordeon_vallenato_make": "acordeon_hohner_3_filas",
+          "acordeon_vallenato_style": "acordeon_paseo_legato"
+        },
+        "scores": {
+          "acordeon_vallenato_make": 10.275,
+          "acordeon_vallenato_style": 5.59
+        }
+      },
+      {
+        "id": "caja_vallenata",
+        "slots": {
+          "caja_shell": "caja_carved_wood_single_head",
+          "caja_pattern": "caja_puya",
+          "caja_shell_wood": "caja_carreto_canonical",
+          "caja_head": "caja_goat_skin_canonical"
+        },
+        "scores": {
+          "caja_shell": 5.9799999999999995,
+          "caja_pattern": 2.3,
+          "caja_shell_wood": 6.89,
+          "caja_head": 6.17
+        }
+      },
+      {
+        "id": "guacharaca",
+        "slots": {
+          "guacharaca_body": "guacharaca_palm_wood"
+        },
+        "scores": {
+          "guacharaca_body": 5.59
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 0.8949999999999999,
+          "body_wood": 1.11,
+          "pickup_config": 0.345,
+          "string_type": 1.17,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.435,
+          "bass_technique": 2.5949999999999998
+        }
+      }
+    ],
+    "room": "discos_fuentes_medellin",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_15ips"
+    },
+    "tuning": "vallenato_four_airs",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

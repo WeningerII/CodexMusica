@@ -1,0 +1,156 @@
+{
+  "id": "alfaia",
+  "name": "Alfaia (Pernambuco maracatu bass drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "alfaia",
+  "parts": [
+    {
+      "id": "alfaia_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "alfaia_wood_rope",
+          "default": true,
+          "name": "Wooden shell, rope-tensioned",
+          "descriptors": [
+            "traditional",
+            "deep",
+            "foundational",
+            "wood",
+            "rope-tensioned"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "maracatu-tradition",
+            "outdoor-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alfaia_skin",
+      "name": "Heads",
+      "variants": [
+        {
+          "id": "alfaia_cowhide",
+          "default": true,
+          "name": "Cowhide (both heads)",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "maracatu-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alfaia_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "alfaia_two_sticks",
+          "default": true,
+          "name": "Two wooden sticks (maracatu-nacao)",
+          "descriptors": [
+            "driving",
+            "processional",
+            "maracatu-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "maracatu-tradition",
+            "outdoor-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "alfaia_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "alfaia_wood_rope",
+          "default": true,
+          "name": "Wooden shell, rope-tensioned",
+          "descriptors": [
+            "traditional",
+            "deep",
+            "foundational",
+            "wood",
+            "rope-tensioned"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "maracatu-tradition",
+            "outdoor-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alfaia_skin",
+      "name": "Heads",
+      "variants": [
+        {
+          "id": "alfaia_cowhide",
+          "default": true,
+          "name": "Cowhide (both heads)",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "maracatu-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alfaia_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "alfaia_two_sticks",
+          "default": true,
+          "name": "Two wooden sticks (maracatu-nacao)",
+          "descriptors": [
+            "driving",
+            "processional",
+            "maracatu-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "maracatu-tradition",
+            "outdoor-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

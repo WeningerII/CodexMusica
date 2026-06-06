@@ -1,0 +1,396 @@
+{
+  "id": "violao_7_cordas",
+  "name": "Violão de 7 cordas (Brazilian 7-string guitar)",
+  "family": "acoustic_strings",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "violão 7",
+  "parts": [
+    {
+      "id": "violao_7_string7",
+      "name": "7th-string tuning",
+      "variants": [
+        {
+          "id": "violao_7_low_C",
+          "default": true,
+          "name": "Low C (modern standard)",
+          "descriptors": [
+            "extended-bass-reach",
+            "choro-bordao",
+            "wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition",
+            "bordão-counter-melody"
+          ]
+        },
+        {
+          "id": "violao_7_low_B",
+          "name": "Low B (older convention)",
+          "descriptors": [
+            "extended-bass-reach",
+            "traditional",
+            "wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violao_7_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "violao_7_nylon",
+          "default": true,
+          "name": "Nylon (choro canonical)",
+          "descriptors": [
+            "warm",
+            "choro-tradition",
+            "nylon-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "violao_7_steel",
+          "name": "Steel (samba-pagode)",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "steel"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "violao_7_gut_historical",
+          "name": "Gut (pre-1950s historical choro)",
+          "descriptors": [
+            "gut-pre-1950s-historical-choro"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violao_7_body_wood",
+      "surface": false,
+      "name": "Back / sides wood",
+      "variants": [
+        {
+          "id": "violao_7_brazilian_rosewood",
+          "default": true,
+          "name": "Brazilian rosewood (pre-1992 canonical choro)",
+          "descriptors": [
+            "brazilian-rosewood-pre-1992-choro"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-i",
+            "vintage"
+          ]
+        },
+        {
+          "id": "violao_7_indian_rosewood",
+          "name": "Indian rosewood (modern alternative)",
+          "descriptors": [
+            "indian-rosewood"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "violao_7_pau_ferro",
+          "name": "Pau-ferro (modern CITES-friendly)",
+          "descriptors": [
+            "pau-ferro"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violao_7_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "violao_7_cedar_top",
+          "default": true,
+          "name": "Cedar top (canonical choro warmth)",
+          "descriptors": [
+            "cedar-canonical-choro"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "violao_7_spruce_top",
+          "name": "Spruce top (brighter modern alternative)",
+          "descriptors": [
+            "spruce-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violao_7_role",
+      "name": "Functional role",
+      "variants": [
+        {
+          "id": "violao_7_bordao_counter",
+          "default": true,
+          "name": "Bordão counter-melody (choro)",
+          "descriptors": [
+            "walking-bass",
+            "countermelody",
+            "choro-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "violao_7_chord_accompaniment",
+          "name": "Chord accompaniment",
+          "descriptors": [
+            "accompaniment"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "violao_7_string7",
+      "name": "7th-string tuning",
+      "variants": [
+        {
+          "id": "violao_7_low_C",
+          "default": true,
+          "name": "Low C (modern standard)",
+          "descriptors": [
+            "extended-bass-reach",
+            "choro-bordao",
+            "wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition",
+            "bordão-counter-melody"
+          ]
+        },
+        {
+          "id": "violao_7_low_B",
+          "name": "Low B (older convention)",
+          "descriptors": [
+            "extended-bass-reach",
+            "traditional",
+            "wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violao_7_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "violao_7_nylon",
+          "default": true,
+          "name": "Nylon (choro canonical)",
+          "descriptors": [
+            "warm",
+            "choro-tradition",
+            "nylon-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "violao_7_steel",
+          "name": "Steel (samba-pagode)",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "steel"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "violao_7_gut_historical",
+          "name": "Gut (pre-1950s historical choro)",
+          "descriptors": [
+            "gut-pre-1950s-historical-choro"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violao_7_body_wood",
+      "surface": false,
+      "name": "Back / sides wood",
+      "variants": [
+        {
+          "id": "violao_7_brazilian_rosewood",
+          "default": true,
+          "name": "Brazilian rosewood (pre-1992 canonical choro)",
+          "descriptors": [
+            "brazilian-rosewood-pre-1992-choro"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-i",
+            "vintage"
+          ]
+        },
+        {
+          "id": "violao_7_indian_rosewood",
+          "name": "Indian rosewood (modern alternative)",
+          "descriptors": [
+            "indian-rosewood"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "violao_7_pau_ferro",
+          "name": "Pau-ferro (modern CITES-friendly)",
+          "descriptors": [
+            "pau-ferro"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violao_7_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "violao_7_cedar_top",
+          "default": true,
+          "name": "Cedar top (canonical choro warmth)",
+          "descriptors": [
+            "cedar-canonical-choro"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "violao_7_spruce_top",
+          "name": "Spruce top (brighter modern alternative)",
+          "descriptors": [
+            "spruce-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violao_7_role",
+      "name": "Functional role",
+      "variants": [
+        {
+          "id": "violao_7_bordao_counter",
+          "default": true,
+          "name": "Bordão counter-melody (choro)",
+          "descriptors": [
+            "walking-bass",
+            "countermelody",
+            "choro-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "violao_7_chord_accompaniment",
+          "name": "Chord accompaniment",
+          "descriptors": [
+            "accompaniment"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

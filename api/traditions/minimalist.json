@@ -1,0 +1,86 @@
+{
+  "id": "minimalist",
+  "name": "Minimalist",
+  "family": "classical",
+  "lineage": "Late-1960s onward American art-music movement characterized by repetitive cells, gradual processual change, sustained tonal centers, and rejection of post-Webern serialism — codified through La Monte Young (early drone works), Terry Riley (In C 1964), Steve Reich (Music for 18 Musicians 1976, Music for Mallet Instruments Voices and Organ), Philip Glass (Music in Twelve Parts 1971-74, Einstein on the Beach 1976), and continuing through John Adams (Shaker Loops 1978)",
+  "recipe": "classic 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric. soft felt lacquer voiced beech laminated maple laminated European tradition grand piano, analog synth, bass flute. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 361,
+  "score": 60.635,
+  "config": {
+    "traditions": [
+      "minimalist"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 0.7,
+          "grand_piano_brand": 1.995,
+          "piano_hammer": 6.46,
+          "piano_rim": 6.595,
+          "piano_soundboard": 6.25,
+          "piano_pinblock": 6.445,
+          "piano_plate": 7.57,
+          "piano_pitch_standard": 6.34
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 2.9850000000000003,
+          "oscillator": 1.3,
+          "filter_topology": 0.6299999999999999,
+          "envelope": 1,
+          "modulation": 0.045
+        }
+      },
+      {
+        "id": "bass_flute",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "bass_flute_pitch": "bass_flute_contra_g",
+          "bass_flute_context": "bass_flute_jazz"
+        },
+        "scores": {
+          "wind_articulation": 2.5,
+          "bass_flute_pitch": 0.045,
+          "bass_flute_context": 1.95
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "edo_31",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

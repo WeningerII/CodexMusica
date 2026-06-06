@@ -1,0 +1,85 @@
+{
+  "id": "sudanese_aghani_al_banat",
+  "name": "Sudanese aghani al-banat (\"girls' songs\")",
+  "family": "global",
+  "lineage": "Sudanese aghani al-banat women's vocal-and-percussion tradition of central and northern Sudan, performed at women's gatherings (subhia mid-morning gatherings, henna ceremonies, weddings). Performance configuration: lead singer (haggaaba) with all-female chorus and tar frame-drum in characteristic 6/8 swing. Lyric base spans courtship, marriage-celebration, and political-protest. Modal vocabulary draws on Sudanese seven-mode pentatonic-leaning system. The Khartoum-radio golden-age 1950s-1970s anchored documentation. Featured prominently in the 2018-2019 Sudanese revolution protest contexts.",
+  "recipe": "classic 2018-2019 sudanese aghani al-banat, ballad Poetry, west African griot branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, declaimed, chest resonance low mid, mande jeli vocal. walnut bent frame canonical Iranian tar frame drum. saharan desert encampment. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 440,
+  "score": 144.773,
+  "config": {
+    "traditions": [
+      "sudanese_aghani_al_banat",
+      "pontic_greek",
+      "azmari_ethiopian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 4.355000000000001,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0,
+          "voice_microtone": 0.24,
+          "voice_tradition": 16.639999999999997,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 2.4050000000000002,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 4.45,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "tar_frame_drum",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "tar_size": "tar_small",
+          "tar_frame_drum_context": "tar_frame_drum_art",
+          "tar_frame_shell_wood": "tar_frame_walnut",
+          "tar_frame_head": "tar_frame_goat_skin"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "tar_size": 0.39,
+          "tar_frame_drum_context": 0.8602500000000001,
+          "tar_frame_shell_wood": 1.69,
+          "tar_frame_head": 0.9577499999999999
+        }
+      }
+    ],
+    "room": "saharan_desert_encampment",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

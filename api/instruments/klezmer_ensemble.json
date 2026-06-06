@@ -1,0 +1,204 @@
+{
+  "id": "klezmer_ensemble",
+  "name": "Klezmer ensemble",
+  "family": "ensemble",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "klezmer ensemble",
+  "parts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Lead instruments",
+      "variants": [
+        {
+          "id": "klez_clarinet_lead",
+          "default": true,
+          "name": "Clarinet (lead)",
+          "descriptors": [
+            "ornamental",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "ensemble",
+            "klezmer-ornamented"
+          ]
+        },
+        {
+          "id": "klez_violin_lead",
+          "name": "Violin (lead, older tradition)",
+          "descriptors": [
+            "traditional",
+            "ornamental",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "klez_trumpet_lead",
+          "name": "Trumpet (lead)",
+          "descriptors": [
+            "dance-driving",
+            "foundational"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "ensemble",
+            "klezmer-ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rhythm_section",
+      "surface": false,
+      "name": "Backing",
+      "variants": [
+        {
+          "id": "klez_accordion",
+          "default": true,
+          "name": "Accordion / piano",
+          "descriptors": [
+            "low-mid-rich-spectrum"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "klezmer-ornamented"
+          ]
+        },
+        {
+          "id": "klez_bass",
+          "name": "Bass (upright / tuba)",
+          "descriptors": [
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "klezmer-ornamented"
+          ]
+        },
+        {
+          "id": "klez_drums",
+          "name": "Drum (frame or kit)",
+          "descriptors": [
+            "driving"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "klezmer-ornamented"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Lead instruments",
+      "variants": [
+        {
+          "id": "klez_clarinet_lead",
+          "default": true,
+          "name": "Clarinet (lead)",
+          "descriptors": [
+            "ornamental",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "ensemble",
+            "klezmer-ornamented"
+          ]
+        },
+        {
+          "id": "klez_violin_lead",
+          "name": "Violin (lead, older tradition)",
+          "descriptors": [
+            "traditional",
+            "ornamental",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "klez_trumpet_lead",
+          "name": "Trumpet (lead)",
+          "descriptors": [
+            "dance-driving",
+            "foundational"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "ensemble",
+            "klezmer-ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rhythm_section",
+      "surface": false,
+      "name": "Backing",
+      "variants": [
+        {
+          "id": "klez_accordion",
+          "default": true,
+          "name": "Accordion / piano",
+          "descriptors": [
+            "low-mid-rich-spectrum"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "klezmer-ornamented"
+          ]
+        },
+        {
+          "id": "klez_bass",
+          "name": "Bass (upright / tuba)",
+          "descriptors": [
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "klezmer-ornamented"
+          ]
+        },
+        {
+          "id": "klez_drums",
+          "name": "Drum (frame or kit)",
+          "descriptors": [
+            "driving"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "klezmer-ornamented"
+          ]
+        }
+      ]
+    }
+  ]
+}

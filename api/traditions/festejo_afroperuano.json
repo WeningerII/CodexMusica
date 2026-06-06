@@ -1,0 +1,111 @@
+{
+  "id": "festejo_afroperuano",
+  "name": "Festejo (Afro-Peruvian celebration)",
+  "family": "global",
+  "lineage": "Afro-Peruvian folk-popular dance-and-song tradition of coastal Peru (Lima, Chincha, El Carmen, Ica regions), descended from West-African-enslaved-population cultural memory through colonial-Peruvian slavery period. Fast 6/8 meter, virtuoso cajón lead, quijada jawbone-rattle, acoustic-guitar. Nicomedes Santa Cruz (1925-1992) and Victoria Santa Cruz (1922-2014) consolidated twentieth-century cultural revival. Susana Baca, Eva Ayllón anchor contemporary scene.",
+  "recipe": "classic early-1920s festejo, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, melodic, punctuated. lead open slap hand drum congas, fingerpicked parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 453,
+  "score": 104.16,
+  "config": {
+    "traditions": [
+      "festejo_afroperuano",
+      "pagode",
+      "baiao"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 2.750000000000001,
+          "voice_quality": 1.9,
+          "voice_vibrato": 1.445,
+          "voice_articulation": 0.9299999999999999,
+          "voice_microtone": 0.045,
+          "voice_tradition": 10.075000000000001,
+          "voice_mechanism_compound": 2.4299999999999993,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 3.25,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.75,
+          "voice_processing_chain": 2.07,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 10.1,
+          "conga_set": 1.57,
+          "conga_skin": 0.705,
+          "conga_shell_wood": 0.705
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "sitka_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "coated_nano_p"
+        },
+        "scores": {
+          "acoustic_technique": 5.050000000000001,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.24,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.24
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_open_back",
+          "cajon_peruano_role": "cajon_peruano_festejo"
+        },
+        "scores": {
+          "cajon_peruano_construction": 10.659999999999998,
+          "cajon_peruano_role": 4.68
+        }
+      }
+    ],
+    "room": "bogota_colombian_andean_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "rumba_clave_3_2",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

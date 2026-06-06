@@ -1,0 +1,83 @@
+{
+  "id": "mozarabic_chant",
+  "name": "Mozarabic chant (Hispanic rite)",
+  "family": "classical",
+  "lineage": "Iberian liturgical chant tradition of the pre-Roman-rite-imposition Hispanic Christian church, in continuous use in parts of Spain from late-antiquity through eleventh-century Roman-rite imposition. Survived after the eleventh-century replacement in restricted use at the Corpus Christi Chapel of Toledo Cathedral (where six Mozarabic chaplaincies were maintained) and the parish of Saints Justa and Rufina in Toledo. The post-Vatican-II 1988 Liber Antiphonarius Officii Mozarabici codified the modern recension. Distinguished from Gregorian by Mozarabic's distinct neume-notation system and Visigothic-Hispanic liturgical structure.",
+  "recipe": "classic North American late-1980s mozarabic chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum ars nova. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble. parish church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 487,
+  "score": 130.96,
+  "config": {
+    "traditions": [
+      "mozarabic_chant",
+      "ars_antiqua_organum",
+      "ars_nova_french"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 5.735,
+          "voice_quality": 7.540000000000001,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.99,
+          "voice_microtone": 3.3799999999999994,
+          "voice_tradition": 4.8100000000000005,
+          "voice_mechanism_compound": 2.40775,
+          "voice_estill_quality": 3.5500000000000007,
+          "voice_speech_song": 7.02,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 2.745,
+          "voice_processing_chain": 2.1774999999999993,
+          "voice_multitrack_stack": 1.625
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_svanetian_complex_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 4.113249999999999,
+          "choir_polyphonic_configuration": 5.407500000000001,
+          "choir_regional_canonical_configuration": 4.1925,
+          "choir_ensemble_repertoire": 3.3799999999999994
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

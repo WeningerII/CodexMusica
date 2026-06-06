@@ -1,0 +1,98 @@
+{
+  "id": "sardinian_traditional",
+  "name": "Sardinian cantu a tenore and launeddas",
+  "family": "global",
+  "lineage": "Sardinian-interior pastoral traditional music — comprising cantu a tenore four-voice male polyphony (UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2005, with the four voices sa oghe lead, sa mesu oghe upper third, su contra contra at the fifth, su bassu, Sardinian guttural-throated bass) and launeddas (the unique Sardinian triple-pipe instrument made of three cane pipes simultaneously circular-breathed by a single player, dating from the Nuragic civilization c. 1500 BCE); preserved in the Barbagia, Marghine, Logudoro, Goceano regions through 20th-century tenore quartets and launeddas players like Efisio Melis, Antonio Lara, Luigi Lai",
+  "recipe": "classic mid-2000s sardinian cantu a tenore and launeddas, ballad Poetry, Mediterranean ballad branch, vocal drone modal macedonian glasoechko male diaphonic alpine yodel. kargyraa, false fold engaged, melodic, hocket articulation. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, m1 modal compound with overtone tuning khoomei foundational mechanism Mediterranean pastoral polyphonic subharmonic bassu throat singing voice. sardinian outdoor a tenore polyphony. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 686,
+  "score": 249.122,
+  "config": {
+    "traditions": [
+      "sardinian_traditional",
+      "macedonian_glasoechko",
+      "alpine_yodel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.17,
+          "voice_quality": 20.824999999999996,
+          "voice_vibrato": 0.763125,
+          "voice_articulation": 2.4000000000000004,
+          "voice_microtone": 0.325,
+          "voice_tradition": 24.634999999999994,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 6.305,
+          "voice_ensemble_config": 16.185,
+          "voice_ornament_system": 2.8600000000000003,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 2.08,
+          "voice_multitrack_stack": 3.9
+        }
+      },
+      {
+        "id": "launeddas",
+        "slots": {
+          "wind_articulation": "wind_circular_breathing_drone",
+          "launeddas_pipes": "launeddas_3",
+          "launeddas_breath": "launeddas_circular",
+          "launeddas_material": "launeddas_cane_canonical",
+          "launeddas_reed": "launeddas_idioglot_canonical"
+        },
+        "scores": {
+          "wind_articulation": 4.225,
+          "launeddas_pipes": 5.89,
+          "launeddas_breath": 0.39,
+          "launeddas_material": 10.27,
+          "launeddas_reed": 8.059999999999999
+        }
+      },
+      {
+        "id": "throat_singing_voice",
+        "slots": {
+          "throat_mechanism_root": "throat_mechanism_M1_compound_with_overtones",
+          "throat_overtone_target_region": "throat_overtone_8th_to_12th_partial",
+          "throat_singing_voice_region": "throat_singing_voice_mediterranean_pastoral"
+        },
+        "scores": {
+          "throat_mechanism_root": 2.9899999999999998,
+          "throat_overtone_target_region": 0.9731249999999999,
+          "throat_singing_voice_region": 20.07
+        }
+      }
+    ],
+    "room": "sardinian_outdoor_a_tenore_polyphony",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,432 @@
+{
+  "id": "guqin",
+  "name": "Gǔqín (Chinese 7-string zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "guqin",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "guqin_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "guqin_silk",
+          "name": "Silk strings",
+          "descriptors": [
+            "breathing-attack",
+            "meditative",
+            "silk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "wenrenyue"
+          ]
+        },
+        {
+          "id": "guqin_metal_silk",
+          "default": true,
+          "name": "Metal-wound silk",
+          "descriptors": [
+            "sustaining",
+            "modern",
+            "silk"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "plucked",
+            "classical-trained",
+            "soloistic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guqin_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "guqin_literati",
+          "default": true,
+          "name": "Solo literati (canonical)",
+          "descriptors": [
+            "meditative",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "soloistic"
+          ]
+        },
+        {
+          "id": "guqin_qin_xiao",
+          "name": "Qin-xiao duet",
+          "descriptors": [
+            "paired-music",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "soloistic"
+          ]
+        },
+        {
+          "id": "guqin_composed",
+          "name": "Modern composition",
+          "descriptors": [
+            "concert",
+            "cross-genre",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "soloistic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guqin_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "guqin_tongmu_aged",
+          "default": true,
+          "name": "Aged tongmu (paulownia) — canonical Tang-Song lineage",
+          "descriptors": [
+            "tongmu-aged",
+            "tang-song-canon",
+            "literati-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guqin_fir_modern",
+          "name": "Fir (modern alternative)",
+          "descriptors": [
+            "fir",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guqin_cedar_modern",
+          "name": "Cedar (Sichuan school modern)",
+          "descriptors": [
+            "cedar",
+            "sichuan-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guqin_lacquer",
+      "surface": false,
+      "name": "Lacquer + crack pattern (duanwen)",
+      "variants": [
+        {
+          "id": "guqin_lacquer_modern_plain",
+          "default": true,
+          "name": "Modern lacquer (no aged cracking)",
+          "descriptors": [
+            "modern-lacquer",
+            "no-aged-cracking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guqin_lacquer_changran",
+          "name": "Changran cracks (snake-belly pattern, antique)",
+          "descriptors": [
+            "changran-cracks",
+            "snake-belly-pattern",
+            "antique"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guqin_lacquer_meihua",
+          "name": "Meihua cracks (plum-blossom pattern, premium antique)",
+          "descriptors": [
+            "meihua-cracks",
+            "plum-blossom-pattern",
+            "premium-antique"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "guqin_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "guqin_silk",
+          "name": "Silk strings",
+          "descriptors": [
+            "breathing-attack",
+            "meditative",
+            "silk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "soloistic"
+          ],
+          "canonical_tags": [
+            "wenrenyue"
+          ]
+        },
+        {
+          "id": "guqin_metal_silk",
+          "default": true,
+          "name": "Metal-wound silk",
+          "descriptors": [
+            "sustaining",
+            "modern",
+            "silk"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "plucked",
+            "classical-trained",
+            "soloistic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guqin_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "guqin_literati",
+          "default": true,
+          "name": "Solo literati (canonical)",
+          "descriptors": [
+            "meditative",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "soloistic"
+          ]
+        },
+        {
+          "id": "guqin_qin_xiao",
+          "name": "Qin-xiao duet",
+          "descriptors": [
+            "paired-music",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "soloistic"
+          ]
+        },
+        {
+          "id": "guqin_composed",
+          "name": "Modern composition",
+          "descriptors": [
+            "concert",
+            "cross-genre",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "soloistic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guqin_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "guqin_tongmu_aged",
+          "default": true,
+          "name": "Aged tongmu (paulownia) — canonical Tang-Song lineage",
+          "descriptors": [
+            "tongmu-aged",
+            "tang-song-canon",
+            "literati-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guqin_fir_modern",
+          "name": "Fir (modern alternative)",
+          "descriptors": [
+            "fir",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guqin_cedar_modern",
+          "name": "Cedar (Sichuan school modern)",
+          "descriptors": [
+            "cedar",
+            "sichuan-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guqin_lacquer",
+      "surface": false,
+      "name": "Lacquer + crack pattern (duanwen)",
+      "variants": [
+        {
+          "id": "guqin_lacquer_modern_plain",
+          "default": true,
+          "name": "Modern lacquer (no aged cracking)",
+          "descriptors": [
+            "modern-lacquer",
+            "no-aged-cracking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guqin_lacquer_changran",
+          "name": "Changran cracks (snake-belly pattern, antique)",
+          "descriptors": [
+            "changran-cracks",
+            "snake-belly-pattern",
+            "antique"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guqin_lacquer_meihua",
+          "name": "Meihua cracks (plum-blossom pattern, premium antique)",
+          "descriptors": [
+            "meihua-cracks",
+            "plum-blossom-pattern",
+            "premium-antique"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

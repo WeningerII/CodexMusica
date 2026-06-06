@@ -1,0 +1,98 @@
+{
+  "id": "dark_electro_aggrotech",
+  "name": "Dark electro / aggrotech",
+  "family": "electronic",
+  "lineage": "1990s and 2000s German-and-European electronic subgenre developed from EBM into more aggressive, harsher direction. Characterized by distorted-screamed-or-growled male vocals, hyperactive 145-160 BPM tempo, dark-industrial synth-bass-line production, and explicit goth-industrial-club functional context. Hocico (Mexican), Suicide Commando (Belgian), Combichrist, [:SITD:], and the broader Out of Line and Metropolis Records label rosters anchor the canonical aggrotech roster.",
+  "recipe": "classic mid-1990s dark electro / aggrotech, experimental Elec, industrial noise branch, thrash metal groove metal djent. thick, low dynamic level, chest resonance low mid, punctuated. analog synth, TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 399,
+  "score": 121.695,
+  "config": {
+    "traditions": [
+      "dark_electro_aggrotech",
+      "groove_metal",
+      "djent"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.4764999999999993,
+          "voice_quality": 1.9500000000000008,
+          "voice_vibrato": 0.885,
+          "voice_articulation": 0.8745,
+          "voice_microtone": 1.6049999999999995,
+          "voice_tradition": 4.875,
+          "voice_mechanism_compound": 8.385,
+          "voice_estill_quality": 0.08124999999999999,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 6.126,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 1.4046249999999998,
+          "oscillator": 1.69,
+          "filter_topology": 1.69,
+          "envelope": 0.6479999999999999,
+          "modulation": 0.063
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 1.5046249999999999,
+          "drum_machine_808_context": 1.69,
+          "tr808_production_origin": 0.9749999999999996
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

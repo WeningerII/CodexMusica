@@ -1,0 +1,130 @@
+{
+  "id": "choir_bulgarian_womens",
+  "name": "Bulgarian women's choir",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Bulgarian women's choir",
+  "parts": [
+    {
+      "id": "technique",
+      "name": "Vocal technique",
+      "variants": [
+        {
+          "id": "bulgarian_open_throat",
+          "default": true,
+          "name": "Open-throat chest-voice technique",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "throat-singing",
+            "choir-blendable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arrangement",
+      "surface": false,
+      "name": "Arrangement",
+      "variants": [
+        {
+          "id": "bulgarian_diaphonic",
+          "default": true,
+          "name": "Diaphonic (close-second drones)",
+          "descriptors": [
+            "folk",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bulgarian_kutev_arrangement",
+          "surface": false,
+          "name": "Kutev / state-ensemble arrangement",
+          "descriptors": [
+            "arranged",
+            "virtuoso",
+            "modern-folk"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "technique",
+      "name": "Vocal technique",
+      "variants": [
+        {
+          "id": "bulgarian_open_throat",
+          "default": true,
+          "name": "Open-throat chest-voice technique",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "throat-singing",
+            "choir-blendable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arrangement",
+      "surface": false,
+      "name": "Arrangement",
+      "variants": [
+        {
+          "id": "bulgarian_diaphonic",
+          "default": true,
+          "name": "Diaphonic (close-second drones)",
+          "descriptors": [
+            "folk",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bulgarian_kutev_arrangement",
+          "surface": false,
+          "name": "Kutev / state-ensemble arrangement",
+          "descriptors": [
+            "arranged",
+            "virtuoso",
+            "modern-folk"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

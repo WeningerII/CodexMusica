@@ -1,0 +1,433 @@
+{
+  "id": "english_horn",
+  "name": "English horn / cor anglais",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "english horn",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "english_horn_school",
+      "surface": false,
+      "name": "Maker school",
+      "variants": [
+        {
+          "id": "english_horn_french",
+          "name": "French (Loree-style)",
+          "descriptors": [
+            "lyrical",
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "paris"
+          ]
+        },
+        {
+          "id": "english_horn_german",
+          "name": "German",
+          "descriptors": [
+            "low-overtone-rich",
+            "robust",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "english_horn_american",
+          "default": true,
+          "name": "American",
+          "descriptors": [
+            "versatile",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "english_horn_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "english_horn_orch_solo",
+          "default": true,
+          "name": "Orchestral solo",
+          "descriptors": [],
+          "match_tokens": [
+            "orchestral",
+            "soloistic",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "english_horn_chamber",
+          "name": "Chamber music",
+          "descriptors": [
+            "blending",
+            "middle-voice",
+            "expressive"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "english_horn_film",
+          "name": "Film score",
+          "descriptors": [
+            "cinematic",
+            "plaintive",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "english_horn_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "english_horn_grenadilla",
+          "default": true,
+          "name": "Grenadilla / African blackwood (canonical)",
+          "descriptors": [
+            "grenadilla-african-blackwood-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "english_horn_violetwood",
+          "name": "Violetwood (premium Lorée)",
+          "descriptors": [
+            "violetwood-premium-loree"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "english_horn_cocobolo",
+          "name": "Cocobolo (premium alternative)",
+          "descriptors": [
+            "cocobolo-premium-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "english_horn_resin_composite",
+          "name": "Composite resin (modern climate-stable Buffet Greenline style)",
+          "descriptors": [
+            "composite-resin-modern-climate-stable-buffet-greenline-style"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "english_horn_school",
+      "surface": false,
+      "name": "Maker school",
+      "variants": [
+        {
+          "id": "english_horn_french",
+          "name": "French (Loree-style)",
+          "descriptors": [
+            "lyrical",
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "paris"
+          ]
+        },
+        {
+          "id": "english_horn_german",
+          "name": "German",
+          "descriptors": [
+            "low-overtone-rich",
+            "robust",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "english_horn_american",
+          "default": true,
+          "name": "American",
+          "descriptors": [
+            "versatile",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "english_horn_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "english_horn_orch_solo",
+          "default": true,
+          "name": "Orchestral solo",
+          "descriptors": [],
+          "match_tokens": [
+            "orchestral",
+            "soloistic",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "english_horn_chamber",
+          "name": "Chamber music",
+          "descriptors": [
+            "blending",
+            "middle-voice",
+            "expressive"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "english_horn_film",
+          "name": "Film score",
+          "descriptors": [
+            "cinematic",
+            "plaintive",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "english_horn_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "english_horn_grenadilla",
+          "default": true,
+          "name": "Grenadilla / African blackwood (canonical)",
+          "descriptors": [
+            "grenadilla-african-blackwood-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "english_horn_violetwood",
+          "name": "Violetwood (premium Lorée)",
+          "descriptors": [
+            "violetwood-premium-loree"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "english_horn_cocobolo",
+          "name": "Cocobolo (premium alternative)",
+          "descriptors": [
+            "cocobolo-premium-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "english_horn_resin_composite",
+          "name": "Composite resin (modern climate-stable Buffet Greenline style)",
+          "descriptors": [
+            "composite-resin-modern-climate-stable-buffet-greenline-style"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

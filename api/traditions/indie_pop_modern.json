@@ -1,0 +1,187 @@
+{
+  "id": "indie_pop_modern",
+  "name": "Indie pop (modern)",
+  "family": "global",
+  "lineage": "Post-2000 streaming-era indie-pop with bedroom-recording aesthetic and DIY production — codified through Vampire Weekend (Vampire Weekend 2008), Beach House (Teen Dream 2010), Grimes (Visions 2012), and the broader Pitchfork-canonical indie ecosystem; characterized by reverb-soaked guitars, drum-machine programming, and confessional first-person lyrical register",
+  "recipe": "classic early-2000s indie pop, functional Song, pop rock branch, alternative distorted rock bedroom pop dreampop. thick, incomplete closure resting, tasteful, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric humbucker roundwound short-scale short scale bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly synth. live tracking. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital klon centaur.",
+  "recipe_chars": 636,
+  "score": 450.853,
+  "config": {
+    "traditions": [
+      "indie_pop_modern",
+      "bedroom_pop_2010s",
+      "dreampop_modern"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 21.32999999999999,
+          "voice_quality": 2.9899999999999998,
+          "voice_vibrato": 1.45,
+          "voice_articulation": 0.585,
+          "voice_microtone": 20.799999999999994,
+          "voice_tradition": 20.894999999999996,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 9.294999999999998,
+          "voice_ensemble_config": 7.2799999999999985,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 8.36,
+          "voice_multitrack_stack": 5.265
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 14.939999999999996,
+          "amp_make": 3.380000000000001,
+          "body_wood": 0.9750000000000001,
+          "neck_wood": 0.9750000000000001,
+          "fretboard": 0.3,
+          "pickup_magnet": 0.15,
+          "string_material": 0.15,
+          "string_gauge": 0.9750000000000001,
+          "bridge": 1.645,
+          "scale_length": 1.9500000000000002,
+          "finish": 0,
+          "string_tuning": 4.55
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 1.45,
+          "amp_make": 3.575,
+          "body_wood": 1.9500000000000002,
+          "pickup_config": 1.69,
+          "string_type": 8.125,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.105,
+          "bass_technique": 6.2
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 7.2799999999999985,
+          "shell_wood": 0.9099999999999999,
+          "shell_thickness": 0.43499999999999994,
+          "bearing_edges": 1.6,
+          "drumhead": 18.194999999999997,
+          "snare_wires": 1.365,
+          "cymbal_alloy": 21.389999999999997,
+          "cymbal_hammering": 25.294999999999998,
+          "cymbal_lathing": 24.444999999999997,
+          "cymbal_finish": 0.38999999999999996,
+          "drum_technique": 7.2799999999999985
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 14.849999999999996,
+          "poly_archetypes": 3.6399999999999997,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "short_scale_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "short_scale_bass_model": "short_scale_bass_mustang",
+          "short_scale_bass_context": "short_scale_bass_british_invasion",
+          "short_scale_bass_pickup": "short_scale_bass_eb0_humbucker",
+          "short_scale_bass_strings": "short_scale_bass_roundwound"
+        },
+        "scores": {
+          "electric_technique": 1.45,
+          "amp_make": 2.4699999999999998,
+          "short_scale_bass_model": 1.77,
+          "short_scale_bass_context": 6.764999999999999,
+          "short_scale_bass_pickup": 1.17,
+          "short_scale_bass_strings": 1.45
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_home_portastudio",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_american_blackface",
+      "medium": "medium_cassette_4track_bedroom"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_klon_centaur"
+    ]
+  }
+}

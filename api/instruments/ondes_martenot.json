@@ -1,0 +1,332 @@
+{
+  "id": "ondes_martenot",
+  "name": "Ondes Martenot",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "ondes martenot",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_pad_drone",
+          "default": true,
+          "name": "Pad / drone",
+          "applies_to": [
+            "analog_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "string_machine",
+            "granular_synth",
+            "ondes_martenot",
+            "modular_synth",
+            "eurorack_modular"
+          ],
+          "descriptors": [
+            "sustained",
+            "pad"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-and-pad",
+            "drone-like",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "shoegaze"
+          ]
+        },
+        {
+          "id": "electronic_lead_line",
+          "name": "Lead synth line",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth",
+            "ondes_martenot",
+            "theremin"
+          ],
+          "descriptors": [
+            "lead",
+            "singing"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "pop",
+            "synthwave"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ondes_martenot_model",
+      "surface": false,
+      "name": "Model variant",
+      "variants": [
+        {
+          "id": "ondes_martenot_mark_vi",
+          "default": true,
+          "name": "Mark VI (1950s)",
+          "descriptors": [
+            "post-war",
+            "refined"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "ondes_martenot_mark_vii",
+          "name": "Mark VII (1970s, late)",
+          "descriptors": [
+            "final-production"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ondes_martenot_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "ondes_martenot_classical",
+          "default": true,
+          "name": "Classical solo / chamber",
+          "descriptors": [
+            "concert"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "ondes_martenot_film",
+          "name": "Film score",
+          "descriptors": [
+            "atmospheric",
+            "eerie-lyric"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "ondes_martenot_rock",
+          "name": "Rock / experimental",
+          "descriptors": [
+            "rare",
+            "modern-art-rock",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "rock-context",
+            "electronic",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ondes_martenot_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "ondes_martenot_maurice_canonical",
+          "default": true,
+          "name": "Maurice Martenot Paris 1928 lineage (canonical inventor — Conservatoire de Paris pedagogy)",
+          "descriptors": [
+            "maurice-martenot-paris-1928-lineage-canonical-inventor-conservatoire-de-paris-pedagogy"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "ondes_martenot_messiaen_repertoire",
+          "name": "Messiaen Turangalîla repertoire tradition (canonical mid-20th-century French)",
+          "descriptors": [
+            "messiaen-turangalila-repertoire-canonical-mid-20th-century-french"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "ondes_martenot_radiohead_modern",
+          "name": "Modern Greenwood revival (Radiohead post-2000 — solo and Ennio Morricone film)",
+          "descriptors": [
+            "modern-greenwood-revival-radiohead-post-2000-ennio-morricone-film"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ondes_martenot_model",
+      "surface": false,
+      "name": "Model variant",
+      "variants": [
+        {
+          "id": "ondes_martenot_mark_vi",
+          "default": true,
+          "name": "Mark VI (1950s)",
+          "descriptors": [
+            "post-war",
+            "refined"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "ondes_martenot_mark_vii",
+          "name": "Mark VII (1970s, late)",
+          "descriptors": [
+            "final-production"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ondes_martenot_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "ondes_martenot_classical",
+          "default": true,
+          "name": "Classical solo / chamber",
+          "descriptors": [
+            "concert"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "ondes_martenot_film",
+          "name": "Film score",
+          "descriptors": [
+            "atmospheric",
+            "eerie-lyric"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "ondes_martenot_rock",
+          "name": "Rock / experimental",
+          "descriptors": [
+            "rare",
+            "modern-art-rock",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "rock-context",
+            "electronic",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ondes_martenot_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "ondes_martenot_maurice_canonical",
+          "default": true,
+          "name": "Maurice Martenot Paris 1928 lineage (canonical inventor — Conservatoire de Paris pedagogy)",
+          "descriptors": [
+            "maurice-martenot-paris-1928-lineage-canonical-inventor-conservatoire-de-paris-pedagogy"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "ondes_martenot_messiaen_repertoire",
+          "name": "Messiaen Turangalîla repertoire tradition (canonical mid-20th-century French)",
+          "descriptors": [
+            "messiaen-turangalila-repertoire-canonical-mid-20th-century-french"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "ondes_martenot_radiohead_modern",
+          "name": "Modern Greenwood revival (Radiohead post-2000 — solo and Ennio Morricone film)",
+          "descriptors": [
+            "modern-greenwood-revival-radiohead-post-2000-ennio-morricone-film"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

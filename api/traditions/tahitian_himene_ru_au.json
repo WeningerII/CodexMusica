@@ -1,0 +1,68 @@
+{
+  "id": "tahitian_himene_ru_au",
+  "name": "Tahitian himene rū'au (chant of the elders)",
+  "family": "global",
+  "lineage": "Tahitian himene rū'au (\"chant of the elders\") slow-tempo unaccompanied chant tradition of the Society Islands (French Polynesia), distinct from the better-known himene tarava festival-chorus form. Performance: elders sing slow-tempo Tahitian-language sacred-or-genealogical verse in unison or two-part configuration, with characteristic free-rhythm phrasing and chest-register projection. The form survived the post-1810 Christianization period as a sanctioned-folk-cultural practice and entered the twentieth-century Polynesian-cultural-revival as a marker of pre-contact tradition. The annual Heiva i Tahiti festival hosts himene competitions across multiple categories. Distinguished from himene tarava by himene rū'au's slow-tempo elder-led (vs festival-chorus mass-participation) functional context.",
+  "recipe": "classic early-1810s tahitian himene rū'au, ritual Devotional, indigenous branch, vocal drone modal skolt sámi leuʹdd macedonian glasoechko male diaphonic. kargyraa, declaimed, melodic, Scottish Gaelic vocal. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 432,
+  "score": 139.39,
+  "config": {
+    "traditions": [
+      "tahitian_himene_ru_au",
+      "sami_skolt_leudd",
+      "macedonian_glasoechko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.8400000000000007,
+          "voice_quality": 5.925000000000001,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.375,
+          "voice_microtone": 0.24,
+          "voice_tradition": 17.5795,
+          "voice_mechanism_compound": 3.8449999999999998,
+          "voice_estill_quality": 1.56,
+          "voice_speech_song": 6.9799999999999995,
+          "voice_ensemble_config": 3.25,
+          "voice_ornament_system": 13.299999999999997,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 1.69
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "id": "rapso",
+  "name": "Rapso",
+  "family": "global",
+  "lineage": "Trinidadian chantwell spoken-word over soca-derived rhythm bed — codified through Brother Resistance (Lutalo Masimba) and the Network Riddum Band starting late 1970s, then Brother Marvin and the broader 3 Canal collective bringing rapso into Trinidad’s carnival mainstream; characterized by oratorical-political rapso-flow delivery over Caribbean percussion-and-electronic-instrument production",
+  "recipe": "classic North American 1977-1979 rapso, ballad Poetry, anglo singer song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, full chest belt, nervy, Yoruba tonal vocal. thomastik infeld low tension jazz warm fingerstyle locked electric bass, over hammered post lathe strikes brushes-and-sticks drum kit, bell like soca engine room iron trinidadian iron, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, steelpan, clean strummed single coil electric guitar, darker dense phosphor bronze saxophone, yellow brass canonical 70 30 bach stradivarius trumpet, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. brent black community studio london. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 911,
+  "score": 272.104,
+  "config": {
+    "traditions": [
+      "rapso",
+      "afrobeat",
+      "kompa"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 2.128000000000002,
+          "voice_quality": 3.094,
+          "voice_vibrato": 0.78,
+          "voice_articulation": 0.3899999999999999,
+          "voice_microtone": 0.4035,
+          "voice_tradition": 3.3799999999999994,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 3.835000000000001,
+          "voice_speech_song": 10.464999999999996,
+          "voice_ensemble_config": 8.449999999999998,
+          "voice_ornament_system": 1.755,
+          "voice_pitch_organization": 0.78,
+          "voice_processing_chain": 8.3135,
+          "voice_multitrack_stack": 2.3440000000000003
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 2.3265,
+          "amp_make": 0.9099999999999997,
+          "body_wood": 0.78,
+          "pickup_config": 0.105,
+          "string_type": 1.0399999999999998,
+          "scale_length_b": 0.7695,
+          "fretted_or_not": 0.3315,
+          "bass_technique": 2.3265
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 8.449999999999998,
+          "shell_wood": 0.6,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 0.7695,
+          "drumhead": 0.8044999999999998,
+          "snare_wires": 0.78,
+          "cymbal_alloy": 0.3,
+          "cymbal_hammering": 3.3329999999999997,
+          "cymbal_lathing": 0.7799999999999998,
+          "cymbal_finish": 0.78,
+          "drum_technique": 8.449999999999998
+        }
+      },
+      {
+        "id": "trinidadian_iron",
+        "slots": {
+          "iron_source": "iron_brake_drum",
+          "iron_pattern": "iron_quarter"
+        },
+        "scores": {
+          "iron_source": 4.9449999999999985,
+          "iron_pattern": 0.054
+        }
+      },
+      {
+        "id": "tassa_drum",
+        "slots": {
+          "tassa_skin": "tassa_goatskin",
+          "tassa_shell": "tassa_metal",
+          "tassa_lineage": "tassa_modern_carnival"
+        },
+        "scores": {
+          "tassa_skin": 12.219999999999999,
+          "tassa_shell": 2.705,
+          "tassa_lineage": 3.7800000000000002
+        }
+      },
+      {
+        "id": "steelpan",
+        "slots": {
+          "steelpan_voice": "cello_pan",
+          "steelpan_context": "steelpan_panyard"
+        },
+        "scores": {
+          "steelpan_voice": 0.39,
+          "steelpan_context": 2.671
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "c_standard"
+        },
+        "scores": {
+          "electric_technique": 5,
+          "amp_make": 2.5595000000000003,
+          "body_wood": 0.7695,
+          "neck_wood": 0.7695,
+          "fretboard": 0.7149999999999999,
+          "pickup_magnet": 0.44999999999999996,
+          "string_material": 0.39,
+          "string_gauge": 0.78,
+          "bridge": 0.39,
+          "scale_length": 0.78,
+          "finish": 0.0045,
+          "string_tuning": 0.8474999999999998
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 0.2,
+          "sax_size": 0.78,
+          "sax_reed": 0.44999999999999996,
+          "sax_body_alloy": 1.0399999999999998,
+          "sax_mouthpiece": 0.44999999999999996,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.39
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 0.2,
+          "brass_size": 0.44999999999999996,
+          "trumpet_mouthpiece": 0.325,
+          "brass_mute": 0.39,
+          "trumpet_technique": 0.19500000000000003,
+          "trumpet_bell_metal": 1.17,
+          "trumpet_maker_school": 0.39
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 1.3849999999999998,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.414,
+          "poly_maker_lineage": 1.1049999999999998
+        }
+      }
+    ],
+    "room": "brent_black_community_studio_london",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "tube_pre",
+      "console": "console_uk_community_studio_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_roland_jc120",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

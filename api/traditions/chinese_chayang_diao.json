@@ -1,0 +1,100 @@
+{
+  "id": "chinese_chayang_diao",
+  "name": "Chinese chayang-diao (插秧调, rice-planting tunes)",
+  "family": "global",
+  "lineage": "Chinese rice-planting song (chayang-diao, 插秧调) tradition continuous from premodern Chinese-agricultural village-labor practice across rice-growing Southern China (Hunan, Jiangsu, Fujian, Jiangxi, Sichuan, Yunnan) through 20th-century Chinese-folklorist documentation into modern Chinese-rural-and-folk-revival practice; foundational repertoire integrates rice-paddy planting and weeding and harvest-song coordination",
+  "recipe": "classic modern chinese chayang-diao, field Work, east Asian branch, south Asian field work, east Asian lullaby, east Asian wedding chinese xǐqìng (喜慶) wedding music japanese komoriuta. thick, incomplete closure resting, tasteful, unrestrained. qudi southern jiangnan kunqu canonical lyrical melodic dizi, bamboo pipes copper brass free reeds canonical Chinese straight sheng. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 541,
+  "score": 165.678,
+  "config": {
+    "traditions": [
+      "chinese_chayang_diao",
+      "chinese_xiqing_wedding",
+      "japanese_komoriuta"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.500000000000001,
+          "voice_quality": 1.795,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.545,
+          "voice_microtone": 0,
+          "voice_tradition": 30.671499999999995,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.39,
+          "voice_speech_song": 8.774999999999999,
+          "voice_ensemble_config": 5.719999999999999,
+          "voice_ornament_system": 4.345000000000001,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "dizi_membrane": "dizi_without",
+          "dizi_pitch": "dizi_cd",
+          "dizi_body_material": "dizi_bitter_bamboo",
+          "dizi_regional_style": "dizi_qudi_southern"
+        },
+        "scores": {
+          "wind_articulation": 4.175,
+          "dizi_membrane": 0.08549999999999999,
+          "dizi_pitch": 0.5572499999999999,
+          "dizi_body_material": 0.39,
+          "dizi_regional_style": 2.08
+        }
+      },
+      {
+        "id": "sheng",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "sheng_size": "sheng_traditional_17",
+          "sheng_context": "sheng_virtuoso",
+          "sheng_pipe_material": "sheng_bamboo_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 4.125,
+          "sheng_size": 0,
+          "sheng_context": 3.77,
+          "sheng_pipe_material": 9.619999999999997
+        }
+      }
+    ],
+    "room": "tanzanian_outdoor_village_clearing",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

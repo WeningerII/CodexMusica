@@ -1,0 +1,123 @@
+{
+  "id": "new_orleans_brass_parade",
+  "name": "New Orleans brass band second-line",
+  "family": "global",
+  "lineage": "New Orleans brass-band second-line tradition continuous from late-19th-century African-American funeral-and-celebration brass-band practice through early-20th-century jazz-foundation era through late-20th-century brass-band-revival (Dirty Dozen Brass Band, Rebirth Brass Band 1980s-onward) into modern New Orleans continuous brass-parade practice; the second-line is the documented processional form where mourners-and-celebrants-and-onlookers parade behind the band",
+  "recipe": "classic mid-1980s new orleans brass band second-line, carnival Processional, American south branch, Caribbean carnival processional, African diasporic funeral lament, americas wedding andean matrimonio huayno trinidadian panorama steelpan competition. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line student friendly trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line tenor standard standard backbore trombone, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, brass fiberskyn synthetic calf machine hammered symmetric pattern drum kit. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 894,
+  "score": 238.191,
+  "config": {
+    "traditions": [
+      "new_orleans_brass_parade",
+      "andean_matrimonio_huayno",
+      "caribbean_carnival_steelpan_panorama"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "plunger",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 9.274,
+          "brass_size": 0.008839285714285713,
+          "trumpet_mouthpiece": 5.703357142857143,
+          "brass_mute": 0.045,
+          "trumpet_technique": 9.274,
+          "trumpet_bell_metal": 10.906642857142861,
+          "trumpet_maker_school": 4.419999999999999
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "plunger_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 9.274,
+          "trombone_type": 4.75,
+          "trombone_mouthpiece": 4.7454285714285716,
+          "trombone_mute": 0.045,
+          "trombone_technique": 0.14914285714285716,
+          "trombone_bell_metal": 10.906642857142861,
+          "trombone_maker_school": 4.419999999999999
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 3.9,
+          "tuba_pitch": 9.922857142857145,
+          "tuba_context": 13.578928571428575,
+          "tuba_bell_metal": 10.906642857142861,
+          "tuba_valve_system": 3.8075714285714284,
+          "tuba_maker_school": 20.529500000000006
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "fiberskyn_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "brass_cymbal",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 8.969999999999999,
+          "shell_wood": 10.058928571428575,
+          "shell_thickness": 0,
+          "bearing_edges": 1.69,
+          "drumhead": 8,
+          "snare_wires": 0.2536875,
+          "cymbal_alloy": 10.058928571428575,
+          "cymbal_hammering": 5.019142857142858,
+          "cymbal_lathing": 4.945,
+          "cymbal_finish": 0.105,
+          "drum_technique": 8.969999999999999
+        }
+      }
+    ],
+    "room": "havana_solar_outdoor_courtyard",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

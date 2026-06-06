@@ -1,0 +1,141 @@
+{
+  "id": "cantonese_opera",
+  "name": "Cantonese opera (yueju)",
+  "family": "classical",
+  "lineage": "Mid-19th-century onward Pearl-River-Delta Cantonese yueju operatic tradition centered on Guangdong, Guangzhou, and Hong Kong — codified through the 19th-century touring red-boat troupes (hongchuan) and the early-20th-century Hong Kong commercial recording era — characterized by literary-Cantonese sung text, gaohu-fiddle-and-percussion accompaniment, and the male / female / clown role types of jingju adapted to Cantonese language and aesthetic",
+  "recipe": "classic North American mid-1970s cantonese opera, art Music, Cantonese opera branch, east Asian beijing opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, chest resonance low mid, Chinese classical vocal. yueqin, python skin snake skin red sandalwood zitan premium legato erhu, silk padauk mid tier pipa, percussion section ban clapper luogu, yangqin. kabuki theater japanese. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 532,
+  "score": 363.671,
+  "config": {
+    "traditions": [
+      "cantonese_opera",
+      "beijing_opera",
+      "tibetan_ache_lhamo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.8987499999999999,
+          "voice_quality": 15.149999999999999,
+          "voice_vibrato": 3.7700000000000005,
+          "voice_articulation": 0.30374999999999996,
+          "voice_microtone": 0.49999999999999983,
+          "voice_tradition": 20.091250000000002,
+          "voice_mechanism_compound": 4.095000000000001,
+          "voice_estill_quality": 18.824999999999996,
+          "voice_speech_song": 14.95,
+          "voice_ensemble_config": 9.879999999999999,
+          "voice_ornament_system": 14.95,
+          "voice_pitch_organization": 21.916249999999998,
+          "voice_processing_chain": 3.3612500000000005,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "yueqin",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "yueqin_use": "yueqin_solo",
+          "yueqin_construction": "yueqin_large_concert",
+          "yueqin_strings": "yueqin_silk_traditional"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4,
+          "yueqin_use": 0.39,
+          "yueqin_construction": 4.7437499999999995,
+          "yueqin_strings": 0
+        }
+      },
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_jiangnan",
+          "erhu_body_wood": "erhu_red_sandalwood",
+          "erhu_strings": "erhu_steel_modern",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": 4,
+          "erhu_skin": 4.55,
+          "erhu_use": 0.78,
+          "erhu_body_wood": 1.32,
+          "erhu_strings": -1.1725,
+          "erhu_bow": 0.21500000000000002
+        }
+      },
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_traditional_frets",
+          "pipa_strings": "pipa_silk",
+          "pipa_pick": "pipa_fingerpicks",
+          "pipa_body_wood": "pipa_padauk"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4,
+          "pipa_frets": 0.35624999999999996,
+          "pipa_strings": 4.55,
+          "pipa_pick": 0.012499999999999999,
+          "pipa_body_wood": 2.27
+        }
+      },
+      {
+        "id": "luogu",
+        "slots": {
+          "luogu_use": "luogu_jingju",
+          "luogu_sections": "luogu_full_jingju"
+        },
+        "scores": {
+          "luogu_use": 12.349999999999998,
+          "luogu_sections": 6.3625
+        }
+      },
+      {
+        "id": "yangqin",
+        "slots": {
+          "yangqin_courses": "yangqin_traditional_smaller",
+          "yangqin_technique": "yangqin_bamboo_mallets"
+        },
+        "scores": {
+          "yangqin_courses": 0,
+          "yangqin_technique": 0
+        }
+      }
+    ],
+    "room": "kabuki_theater_japanese",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

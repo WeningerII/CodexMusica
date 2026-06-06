@@ -1,0 +1,155 @@
+{
+  "id": "desert_rock_palm",
+  "name": "Desert rock (Palm Desert scene)",
+  "family": "rock_punk",
+  "lineage": "Late-1980s-and-1990s Palm Desert California scene that birthed stoner rock through generator-party performances in the high desert outside Palm Springs and Joshua Tree. The \"generator parties\" allowed local bands (Kyuss, Yawning Man, Across the River, Fatso Jetson) to perform with the band powered by gasoline generators in remote desert locations free of police interference. The 1988-1992 generator-party period mythologized the geographic-cultural specificity of the desert-rock scene.",
+  "recipe": "classic North American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, equal tempered. orange amp British heavy crunch alnico power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky riff driven electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
+  "recipe_chars": 576,
+  "score": 509.999,
+  "config": {
+    "traditions": [
+      "desert_rock_palm",
+      "post_metal_2000s",
+      "sludge_metal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 14.442499999999994,
+          "voice_quality": 5.25,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 0.1995,
+          "voice_microtone": 14.354999999999997,
+          "voice_tradition": 1.56,
+          "voice_mechanism_compound": 9.880000000000003,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 3.3149999999999995,
+          "voice_ensemble_config": 3.25,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 1.2420000000000002,
+          "voice_processing_chain": 5.1865000000000006,
+          "voice_multitrack_stack": 5.420000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_orange",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 9.945,
+          "amp_make": 9.443000000000001,
+          "body_wood": 0.9100000000000003,
+          "neck_wood": 0.7012499999999999,
+          "fretboard": 0.7012499999999999,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 0.53325,
+          "string_material": 0.7012499999999999,
+          "bridge": 0.32475,
+          "scale_length": 0.9100000000000003,
+          "string_gauge": 1.2075,
+          "finish": 0,
+          "string_tuning": 10.4
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 3.9025000000000003,
+          "amp_make": 9.443000000000001,
+          "body_wood": 0.663,
+          "pickup_config": 0,
+          "string_type": 18.835,
+          "scale_length_b": 0.36974999999999997,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 15.749999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "single_clear",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 3.25,
+          "shell_wood": 2.1825,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 0.663,
+          "drumhead": 0.7012499999999999,
+          "snare_wires": 0.36974999999999997,
+          "cymbal_alloy": 20.651249999999997,
+          "cymbal_hammering": 14.399999999999999,
+          "cymbal_lathing": 14.431499999999998,
+          "cymbal_finish": 0.7012499999999999,
+          "drum_technique": 14.5
+        }
+      }
+    ],
+    "room": "stoner_doom_garage_amplifier_room",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_british_orange_dirty",
+      "medium": "tape_15ips"
+    },
+    "tuning": "doom_sabbath_tritone_diminished",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_big_muff_pi"
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "slenthem",
+  "name": "Slenthem (gamelan low-octave metallophone)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "slenthem",
+  "parts": [
+    {
+      "id": "slenthem_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "slenthem_slendro",
+          "default": true,
+          "name": "Slendro (5-tone)",
+          "descriptors": [
+            "slendro-tuning",
+            "foundational",
+            "low-fundamental-tuning"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "slendro"
+          ]
+        },
+        {
+          "id": "slenthem_pelog",
+          "name": "Pelog (7-tone)",
+          "descriptors": [
+            "pelog-tuning",
+            "foundational",
+            "low-fundamental-tuning"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "pelog"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "slenthem_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "slenthem_slendro",
+          "default": true,
+          "name": "Slendro (5-tone)",
+          "descriptors": [
+            "slendro-tuning",
+            "foundational",
+            "low-fundamental-tuning"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "slendro"
+          ]
+        },
+        {
+          "id": "slenthem_pelog",
+          "name": "Pelog (7-tone)",
+          "descriptors": [
+            "pelog-tuning",
+            "foundational",
+            "low-fundamental-tuning"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "pelog"
+          ]
+        }
+      ]
+    }
+  ]
+}

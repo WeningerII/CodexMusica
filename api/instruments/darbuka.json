@@ -1,0 +1,350 @@
+{
+  "id": "darbuka",
+  "name": "Darbuka / doumbek (Middle Eastern goblet drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "darbuka",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_hands_layered",
+          "default": true,
+          "name": "Hand percussion layered",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "pandeiro",
+            "tar_frame_drum",
+            "timbales",
+            "darbuka",
+            "cuica"
+          ],
+          "descriptors": [
+            "hands",
+            "layered"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        },
+        {
+          "id": "percussion_open_slap",
+          "name": "Open / slap (hand-drum)",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "darbuka",
+            "timbales"
+          ],
+          "descriptors": [
+            "open-slap",
+            "hand-drum"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "slappy",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "darbuka_material",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "darbuka_aluminum_sombaty",
+          "default": true,
+          "name": "Spun aluminum Egyptian Sombaty (modern canonical)",
+          "descriptors": [
+            "spun-aluminum-egyptian-sombaty-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_copper_engraved",
+          "name": "Copper engraved (Egyptian premium Sombaty)",
+          "descriptors": [
+            "copper-engraved-egyptian-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_clay_traditional",
+          "name": "Clay (pre-modern traditional)",
+          "descriptors": [
+            "clay-pre-modern-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_brass",
+          "name": "Brass (warmer alternative)",
+          "descriptors": [
+            "brass-warmer-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "darbuka_skin",
+      "surface": false,
+      "name": "Skin",
+      "variants": [
+        {
+          "id": "darbuka_synthetic_mylar",
+          "default": true,
+          "name": "Synthetic Remo Mylar (modern canonical Egyptian)",
+          "descriptors": [
+            "synthetic-remo-mylar-modern-canonical-egyptian"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_fish_skin",
+          "name": "Fish skin (pre-modern Egyptian traditional)",
+          "descriptors": [
+            "fish-skin-pre-modern-egyptian-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_goat_skin",
+          "name": "Goat-skin (Turkish darbuka regional)",
+          "descriptors": [
+            "goat-skin-turkish-darbuka-regional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "darbuka_regional_style",
+      "surface": false,
+      "name": "Regional style",
+      "variants": [
+        {
+          "id": "darbuka_egyptian_sombaty",
+          "default": true,
+          "name": "Egyptian Sombaty (canonical mid-East — Hossam Ramzy / Said El Artist lineage)",
+          "descriptors": [
+            "egyptian-sombaty-canonical-mid-east"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_turkish_split",
+          "name": "Turkish darbuka (split-finger technique, smaller goat-skin)",
+          "descriptors": [
+            "turkish-darbuka-split-finger-smaller-goat-skin"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_iraqi_zarb",
+          "name": "Iraqi maqam zarb (drier finger technique)",
+          "descriptors": [
+            "iraqi-maqam-zarb-drier-finger"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "darbuka_material",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "darbuka_aluminum_sombaty",
+          "default": true,
+          "name": "Spun aluminum Egyptian Sombaty (modern canonical)",
+          "descriptors": [
+            "spun-aluminum-egyptian-sombaty-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_copper_engraved",
+          "name": "Copper engraved (Egyptian premium Sombaty)",
+          "descriptors": [
+            "copper-engraved-egyptian-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_clay_traditional",
+          "name": "Clay (pre-modern traditional)",
+          "descriptors": [
+            "clay-pre-modern-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_brass",
+          "name": "Brass (warmer alternative)",
+          "descriptors": [
+            "brass-warmer-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "darbuka_skin",
+      "surface": false,
+      "name": "Skin",
+      "variants": [
+        {
+          "id": "darbuka_synthetic_mylar",
+          "default": true,
+          "name": "Synthetic Remo Mylar (modern canonical Egyptian)",
+          "descriptors": [
+            "synthetic-remo-mylar-modern-canonical-egyptian"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_fish_skin",
+          "name": "Fish skin (pre-modern Egyptian traditional)",
+          "descriptors": [
+            "fish-skin-pre-modern-egyptian-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_goat_skin",
+          "name": "Goat-skin (Turkish darbuka regional)",
+          "descriptors": [
+            "goat-skin-turkish-darbuka-regional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "darbuka_regional_style",
+      "surface": false,
+      "name": "Regional style",
+      "variants": [
+        {
+          "id": "darbuka_egyptian_sombaty",
+          "default": true,
+          "name": "Egyptian Sombaty (canonical mid-East — Hossam Ramzy / Said El Artist lineage)",
+          "descriptors": [
+            "egyptian-sombaty-canonical-mid-east"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_turkish_split",
+          "name": "Turkish darbuka (split-finger technique, smaller goat-skin)",
+          "descriptors": [
+            "turkish-darbuka-split-finger-smaller-goat-skin"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "darbuka_iraqi_zarb",
+          "name": "Iraqi maqam zarb (drier finger technique)",
+          "descriptors": [
+            "iraqi-maqam-zarb-drier-finger"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

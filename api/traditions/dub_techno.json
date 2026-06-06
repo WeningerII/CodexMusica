@@ -1,0 +1,68 @@
+{
+  "id": "dub_techno",
+  "name": "Dub techno",
+  "family": "electronic",
+  "lineage": "Berlin dub-techno subgenre codified by Basic Channel and Chain Reaction (founded 1993 by Moritz von Oswald and Mark Ernestus, at the Hardwax record store / Kreuzberg techno-scene infrastructure) — fuses Detroit techno-foundational vocabulary with King Tubby-derived dub mixing aesthetic; recordings: Basic Channel Phylyps Trak 1993, Maurizio Domina 1995, Porter Ricks Biokinetics 1996",
+  "recipe": "classic early-1990s dub techno, bass System, dub descendants branch, techno electronic dance detroit techno peak-time techno. drum machine analog, analog synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter roland RE-201 space echo hall reverb.",
+  "recipe_chars": 423,
+  "score": 16.791,
+  "config": {
+    "traditions": [
+      "dub_techno",
+      "detroit_techno",
+      "peak_techno"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.3,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 0
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 1.755,
+          "oscillator": 1.95,
+          "filter_topology": 1.95,
+          "envelope": 0.78,
+          "modulation": 0.195
+        }
+      }
+    ],
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_roland_space_echo",
+      "hall_reverb"
+    ]
+  }
+}

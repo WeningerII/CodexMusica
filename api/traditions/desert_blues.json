@@ -1,0 +1,167 @@
+{
+  "id": "desert_blues",
+  "name": "Tuareg desert blues (Ishumar / Tishoumaren / Assouf)",
+  "family": "global",
+  "lineage": "Saharan Tamasheq ishumar / tishoumaren electric-guitar tradition codified through Tinariwen (formed 1979 in Algerian refugee camps among Tuareg exiles) — characterized by hypnotic modal pentatonic guitar figures, call-and-response Tamasheq vocals, and dry desert-room production aesthetic; Bombino, Mdou Moctar, and Etran Finatawa extending the lineage post-2000s",
+  "recipe": "classic mid-2000s tuareg desert blues, drone Modal, modal electric branch, west African groove percussion palm-wine guitar jùjú. thick, declaimed, melodic, rhythmic. dry roasted maple maple single coil electric guitar, rock canon ernie ball slinky electric bass, foundational low fundamental tuning deep calabash inverted calabash, horsehair bow canonical tuareg tuareg women canonical solo imzad, call-and-response xalam. cement block broadcast booth. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 582,
+  "score": 203.034,
+  "config": {
+    "traditions": [
+      "desert_blues",
+      "palm_wine",
+      "juju"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 6.490000000000002,
+          "voice_quality": 1.5987500000000006,
+          "voice_vibrato": 0.8250000000000001,
+          "voice_articulation": 0.9015000000000001,
+          "voice_microtone": 2.2487500000000002,
+          "voice_tradition": 20.085,
+          "voice_mechanism_compound": 8.179749999999999,
+          "voice_estill_quality": 4.8999999999999995,
+          "voice_speech_song": 8.904999999999998,
+          "voice_ensemble_config": 8.449999999999998,
+          "voice_ornament_system": 3.7050000000000005,
+          "voice_pitch_organization": 1.3499999999999999,
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 4.7787500000000005
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_soldano_slo100",
+          "body_wood": "mahogany",
+          "neck_wood": "roasted_maple",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "vintage_trem",
+          "scale_length": "scale_short",
+          "finish": "nitro",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 0.6544999999999999,
+          "amp_make": 0.585,
+          "body_wood": 0.39,
+          "neck_wood": 1,
+          "fretboard": 0.8250000000000001,
+          "pickup_magnet": 0.8250000000000001,
+          "string_material": 0.924,
+          "string_gauge": 0.39,
+          "bridge": 0.39,
+          "scale_length": 0.39,
+          "finish": 0.11374999999999998,
+          "string_tuning": 5.289999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 1.6899999999999997,
+          "body_wood": 0.41400000000000003,
+          "pickup_config": 0.195,
+          "string_type": 1.1744999999999999,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0.24,
+          "bass_technique": 0.7044999999999999
+        }
+      },
+      {
+        "id": "inverted_calabash",
+        "slots": {
+          "inverted_calabash_size": "inverted_calabash_large",
+          "inverted_calabash_technique": "inverted_calabash_hands"
+        },
+        "scores": {
+          "inverted_calabash_size": 1.17,
+          "inverted_calabash_technique": 0.39
+        }
+      },
+      {
+        "id": "imzad",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "imzad_body": "imzad_halfgourd",
+          "imzad_string": "imzad_horsehair",
+          "imzad_bow": "imzad_horsehair_bow",
+          "imzad_tradition": "imzad_tuareg_women"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "imzad_body": 0.78,
+          "imzad_string": 0.0045,
+          "imzad_bow": 4.294999999999999,
+          "imzad_tradition": 4.599499999999999
+        }
+      },
+      {
+        "id": "xalam",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "xalam_strings": "xalam_five",
+          "xalam_context": "xalam_praise",
+          "xalam_body": "xalam_gourd_skin",
+          "xalam_string_material": "xalam_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 14.689999999999996,
+          "xalam_strings": 0.78,
+          "xalam_context": 0.39,
+          "xalam_body": 0.39,
+          "xalam_string_material": 0.195
+        }
+      }
+    ],
+    "room": "cement_block_broadcast_booth",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_american_tweed",
+      "medium": "digital_high"
+    },
+    "tuning": "tuareg_pentatonic_raised4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

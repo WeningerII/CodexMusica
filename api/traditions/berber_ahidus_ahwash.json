@@ -1,0 +1,100 @@
+{
+  "id": "berber_ahidus_ahwash",
+  "name": "Berber ahidus and ahwash (Atlas Mountains)",
+  "family": "global",
+  "lineage": "Berber (Imazighen / Amazigh) collective song-and-dance tradition of the Atlas Mountain ranges across Morocco, with ahidus the central-and-northern Middle-Atlas form (Tamazight-speaking populations) and ahwash the Souss-region southern-Atlas form (Tashelhiyt-speaking populations). Performance involves two facing rows of dancers (mixed men and women in ahidus, often single-sex in ahwash) executing synchronized arm-and-shoulder choreography while singing antiphonal call-and-response over bendir frame-drum accompaniment, with the amdyaz (poet-leader) improvising the opening verse-line that the chorus answers in unison. Modal vocabulary draws on regional pentatonic frameworks with characteristic Atlas-region melodic-contour conventions. The amzwaj poetic-form (couplet-and-response architecture) governs verse structure, with seasonal-and-occasional repertoires for harvest, wedding, and tribal-assembly contexts. Miriam Rovsing Olsen's 1990s Atlas fieldwork (published as Chants et danses de l'Atlas, Actes Sud / Cité de la musique 1997, with Ocora-Radio France C 559035 companion recordings) is the principal scholarly documentation. Distinguished from Berber Rif and Kabyle vocal traditions by Atlas-region poly-strophic verse structure and bendir-frame-drum-dominant percussion; distinguished from Andalusi-Maghrebi nuba by Tamazight-language and outdoor-village (not court-and-chamber) performance context; distinguished from Tuareg by sedentary-village (not nomadic-pastoral) base and bendir (vs tendé pestle-drum) percussion.",
+  "recipe": "classic mid-1990s berber ahidus and ahwash, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. vocal fry, melodic, callresponse articulation, Yoruba tonal vocal. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, olive Mediterranean alternative arundo donax canonical Maghrebi ghaita. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 525,
+  "score": 183.525,
+  "config": {
+    "traditions": [
+      "berber_ahidus_ahwash",
+      "indonesian_jaipongan",
+      "fuji"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "call_response_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.39,
+          "voice_quality": 0.29999999999999966,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 1.25,
+          "voice_microtone": 0.15,
+          "voice_tradition": 13.455000000000002,
+          "voice_mechanism_compound": 9.0915,
+          "voice_estill_quality": 7.475,
+          "voice_speech_song": 23.465000000000003,
+          "voice_ensemble_config": 21.710000000000004,
+          "voice_ornament_system": 0.345,
+          "voice_pitch_organization": 0.9749999999999996,
+          "voice_processing_chain": 3.9,
+          "voice_multitrack_stack": 2.9899999999999998
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_no_snares",
+          "bendir_context": "bendir_folk",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_synthetic_modern"
+        },
+        "scores": {
+          "bendir_snares": 7.279999999999999,
+          "bendir_context": 1.3,
+          "bendir_shell_wood": 3.54,
+          "bendir_head": 2.6099999999999994
+        }
+      },
+      {
+        "id": "ghaita",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "ghaita_region": "ghaita_tunisian",
+          "ghaita_context": "ghaita_wedding",
+          "ghaita_body_wood": "ghaita_olive",
+          "ghaita_reed": "ghaita_arundo_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000002,
+          "ghaita_region": 3.274,
+          "ghaita_context": 2.828,
+          "ghaita_body_wood": 1.8975,
+          "ghaita_reed": 1.195
+        }
+      }
+    ],
+    "room": "atlas_mountain_village_square",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "tuareg_pentatonic_raised4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

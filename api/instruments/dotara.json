@@ -1,0 +1,299 @@
+{
+  "id": "dotara",
+  "name": "Dotara (Bengali plucked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dotara",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dotara_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "dotara_4",
+          "name": "Four-string",
+          "descriptors": [
+            "rural",
+            "bauls",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dotara_5",
+          "default": true,
+          "name": "Five-string",
+          "descriptors": [
+            "traditional",
+            "versatile"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dotara_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "dotara_baul",
+          "default": true,
+          "name": "Bengali Baul / bhakti",
+          "descriptors": [
+            "devotional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dotara_folk",
+          "name": "Folk celebration",
+          "descriptors": [
+            "communal",
+            "rhythm-and-melody",
+            "traditional"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "plucked"
+          ]
+        },
+        {
+          "id": "dotara_stage",
+          "name": "Modern stage / fusion",
+          "descriptors": [
+            "concert",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dotara_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "dotara_4",
+          "name": "Four-string",
+          "descriptors": [
+            "rural",
+            "bauls",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dotara_5",
+          "default": true,
+          "name": "Five-string",
+          "descriptors": [
+            "traditional",
+            "versatile"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dotara_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "dotara_baul",
+          "default": true,
+          "name": "Bengali Baul / bhakti",
+          "descriptors": [
+            "devotional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dotara_folk",
+          "name": "Folk celebration",
+          "descriptors": [
+            "communal",
+            "rhythm-and-melody",
+            "traditional"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "plucked"
+          ]
+        },
+        {
+          "id": "dotara_stage",
+          "name": "Modern stage / fusion",
+          "descriptors": [
+            "concert",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

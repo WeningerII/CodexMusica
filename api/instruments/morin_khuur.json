@@ -1,0 +1,439 @@
+{
+  "id": "morin_khuur",
+  "name": "Morin khuur (Mongolian horse-head fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "morin khuur",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_rough_drone",
+          "name": "Rough drone",
+          "applies_to": [
+            "fiddle",
+            "gusle",
+            "kamancheh",
+            "rebab",
+            "morin_khuur"
+          ],
+          "descriptors": [
+            "drone-like",
+            "raspy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "folk",
+            "medieval"
+          ]
+        },
+        {
+          "id": "bowed_microtonal_inflected",
+          "name": "Microtonal-inflected",
+          "applies_to": [
+            "kamancheh",
+            "rebab",
+            "sarangi",
+            "esraj",
+            "violin_carnatic",
+            "morin_khuur",
+            "erhu",
+            "jinghu",
+            "haegeum"
+          ],
+          "descriptors": [
+            "microtonal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "microtonal-bend",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "maqam",
+            "arabic",
+            "hindustani"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "morin_khuur_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "morin_khuur_long_song",
+          "default": true,
+          "name": "Long-song (urtyn duu) accompaniment",
+          "descriptors": [
+            "long-song",
+            "morin",
+            "khuur",
+            "sustained",
+            "vocal-supportive",
+            "meditative"
+          ],
+          "canonical_tags": [
+            "mongolian"
+          ]
+        },
+        {
+          "id": "morin_khuur_dance",
+          "name": "Festival dance music",
+          "descriptors": [
+            "morin",
+            "khuur",
+            "driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "mongolian"
+          ]
+        },
+        {
+          "id": "morin_khuur_tatlaga",
+          "name": "Tatlaga programmatic solo",
+          "descriptors": [
+            "tatlaga",
+            "morin",
+            "khuur",
+            "horse-imitating",
+            "programmatic"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "mongolian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morin_khuur_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "morin_khuur_traditional",
+          "default": true,
+          "name": "Wood-and-horsehide (canonical)",
+          "descriptors": [
+            "traditional",
+            "authentic",
+            "pastoral",
+            "horsehide",
+            "hide"
+          ],
+          "match_tokens": [
+            "folk-tradition",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "morin_khuur_modern_wood",
+          "name": "Modern wood-only",
+          "descriptors": [
+            "concert-grade",
+            "consistent",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "modern",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "morin_khuur_synthetic",
+          "name": "Synthetic-bow modern",
+          "descriptors": [
+            "durable",
+            "standardized",
+            "twenty-first-century",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morin_khuur_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "morin_khuur_sycamore",
+          "default": true,
+          "name": "Sycamore body (canonical Mongolian)",
+          "descriptors": [
+            "sycamore-canonical-mongolian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "morin_khuur_cedar",
+          "name": "Cedar body (alternative)",
+          "descriptors": [
+            "cedar-alternative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morin_khuur_strings",
+      "surface": false,
+      "name": "String material — 118 to 130 horsehair strands per string (canonical)",
+      "variants": [
+        {
+          "id": "morin_khuur_horsehair_canonical",
+          "default": true,
+          "name": "Horsehair strands (118-130 per string, canonical)",
+          "descriptors": [
+            "horsehair-118-130-strands-canonical",
+            "two-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "morin_khuur_nylon_modern_concert",
+          "name": "Nylon-wound (modern concert alternative)",
+          "descriptors": [
+            "nylon-wound-modern-concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "morin_khuur_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "morin_khuur_long_song",
+          "default": true,
+          "name": "Long-song (urtyn duu) accompaniment",
+          "descriptors": [
+            "long-song",
+            "morin",
+            "khuur",
+            "sustained",
+            "vocal-supportive",
+            "meditative"
+          ],
+          "canonical_tags": [
+            "mongolian"
+          ]
+        },
+        {
+          "id": "morin_khuur_dance",
+          "name": "Festival dance music",
+          "descriptors": [
+            "morin",
+            "khuur",
+            "driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "mongolian"
+          ]
+        },
+        {
+          "id": "morin_khuur_tatlaga",
+          "name": "Tatlaga programmatic solo",
+          "descriptors": [
+            "tatlaga",
+            "morin",
+            "khuur",
+            "horse-imitating",
+            "programmatic"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "mongolian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morin_khuur_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "morin_khuur_traditional",
+          "default": true,
+          "name": "Wood-and-horsehide (canonical)",
+          "descriptors": [
+            "traditional",
+            "authentic",
+            "pastoral",
+            "horsehide",
+            "hide"
+          ],
+          "match_tokens": [
+            "folk-tradition",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "morin_khuur_modern_wood",
+          "name": "Modern wood-only",
+          "descriptors": [
+            "concert-grade",
+            "consistent",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "modern",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "morin_khuur_synthetic",
+          "name": "Synthetic-bow modern",
+          "descriptors": [
+            "durable",
+            "standardized",
+            "twenty-first-century",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morin_khuur_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "morin_khuur_sycamore",
+          "default": true,
+          "name": "Sycamore body (canonical Mongolian)",
+          "descriptors": [
+            "sycamore-canonical-mongolian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "morin_khuur_cedar",
+          "name": "Cedar body (alternative)",
+          "descriptors": [
+            "cedar-alternative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morin_khuur_strings",
+      "surface": false,
+      "name": "String material — 118 to 130 horsehair strands per string (canonical)",
+      "variants": [
+        {
+          "id": "morin_khuur_horsehair_canonical",
+          "default": true,
+          "name": "Horsehair strands (118-130 per string, canonical)",
+          "descriptors": [
+            "horsehair-118-130-strands-canonical",
+            "two-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "morin_khuur_nylon_modern_concert",
+          "name": "Nylon-wound (modern concert alternative)",
+          "descriptors": [
+            "nylon-wound-modern-concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

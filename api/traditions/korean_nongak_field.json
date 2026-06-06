@@ -1,0 +1,94 @@
+{
+  "id": "korean_nongak_field",
+  "name": "Korean nongak (농악, farmer's percussion-and-dance)",
+  "family": "global",
+  "lineage": "Korean nongak (농악, \"farmer's music\") tradition continuous from premodern Korean-agricultural-village labor-and-festival practice through Japanese-colonial-era and post-1945 continuous performance into modern UNESCO-2014-recognized Korean-folk continuous practice; the nongak is the canonical Korean village-festival-and-labor music integrating samul (four-instrument) percussion with vocal-and-dance accompaniment",
+  "recipe": "classic mid-1940s korean nongak, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian carnival processional bengali bhatiali chinese xǐqìng (喜慶) wedding music. thick, tasteful, unrestrained, equal tempered. paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu, lead kkwaenggwari. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 536,
+  "score": 170.942,
+  "config": {
+    "traditions": [
+      "korean_nongak_field",
+      "bengali_bhatiali",
+      "chinese_xiqing_wedding"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "yodel_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "korean_minsogak_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 5.504500000000001,
+          "voice_quality": 0.325,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.54875,
+          "voice_microtone": 1.7000000000000002,
+          "voice_tradition": 28.492,
+          "voice_mechanism_compound": 2.32825,
+          "voice_estill_quality": 1.80175,
+          "voice_speech_song": 8.774999999999999,
+          "voice_ensemble_config": 10.399999999999999,
+          "voice_ornament_system": 21.35,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 1.95,
+          "voice_multitrack_stack": 2.08
+        }
+      },
+      {
+        "id": "janggu",
+        "slots": {
+          "janggu_use": "janggu_samul_nori",
+          "janggu_construction": "janggu_composite",
+          "janggu_shell_wood": "janggu_paulownia_canonical",
+          "janggu_head": "janggu_horse_dog_asymmetric",
+          "janggu_lineage": "janggu_pungmul_outdoor"
+        },
+        "scores": {
+          "janggu_use": 2.47,
+          "janggu_construction": 0.6825,
+          "janggu_shell_wood": 8.987,
+          "janggu_head": 8.987,
+          "janggu_lineage": 4.892249999999999
+        }
+      },
+      {
+        "id": "kkwaenggwari",
+        "slots": {
+          "kkwaenggwari_role": "kkwaenggwari_lead"
+        },
+        "scores": {
+          "kkwaenggwari_role": 2.3000000000000003
+        }
+      }
+    ],
+    "room": "tanzanian_outdoor_village_clearing",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "korean_minsogak_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

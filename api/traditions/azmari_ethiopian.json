@@ -1,0 +1,120 @@
+{
+  "id": "azmari_ethiopian",
+  "name": "Ethiopian azmari minstrel-poet (centuries-old)",
+  "family": "global",
+  "lineage": "Ethiopian azmari itinerant minstrel-poet tradition, etymologically from Amharic mazammar (to sing), with centuries-old documentation. Compared in performance-economic role to medieval European troubadours and West African griots — improvisational extemporaneous-poetry minstrel performing for patrons in tej bet (honey-wine houses) and after the 1970s in dedicated azmari bet performance venues. Canonical instruments: masenqo one-string bowed lute (held vertically on the knee, virtuosic) and krar five-or-six-string bowl-lyre (held against the chest), with kebero conical drum and washint end-blown notched flute in larger ensembles. Modal vocabulary built on the Ethiopian qenet pentatonic mode-system: tizita (the nostalgic mode), bati (the praise-mode), ambassel (the festive-mode), anchihoye (the mournful-mode), all in pure-temperament (not equal-tempered). Eskista shoulder-dance characteristic accompaniment-form. Famous twentieth-century azmari include Asnaketch Worku (krar player and Ethiopia's first theatre actress), Bahru Qäññé, and Yerga Dubalä. Kazanchis district of Addis Ababa peaked at approximately seventeen azmari venues in the 1970s, with Fendika (founded 1990s, under Melaku Belay since 2008) now the last-bastion of the district's azmari-bet performers' styles and teacher's teacher transmission lineage. Distinguished from West African griot by Ethiopian qenet pentatonic-mode vocabulary and masenqo-and-krar instrumental signature; distinguished from Sudanese azmari-cognate traditions by Amhara-language repertoire and Addis-Ababa-Kazanchis venue-context",
+  "recipe": "classic West African mid-1970s ethiopian azmari minstrel-poet, ballad Poetry, med east poetic branch, west African griot ballad poetry tigrinya music donsongoni hunter's harp. extended whistle, declaimed, pure, equal tempered. curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo, gut ethiopian historical krar, washint, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero. addis kazanchis azmari bet tej house. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 645,
+  "score": 246.989,
+  "config": {
+    "traditions": [
+      "azmari_ethiopian",
+      "tigrinya_music_eritrean",
+      "donsongoni_hunter_harp"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.56,
+          "voice_quality": 8.549,
+          "voice_vibrato": 3.185,
+          "voice_articulation": 0.045,
+          "voice_microtone": 2.300000000000001,
+          "voice_tradition": 29.835,
+          "voice_mechanism_compound": 6.759999999999999,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 16.835000000000008,
+          "voice_ensemble_config": 16.770000000000007,
+          "voice_ornament_system": 2.4050000000000002,
+          "voice_pitch_organization": 17.79,
+          "voice_processing_chain": 6.744999999999999,
+          "voice_multitrack_stack": 6.858999999999999
+        }
+      },
+      {
+        "id": "masenqo",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "masenqo_body": "masenqo_diamond_parchment",
+          "masenqo_string": "masenqo_horsehair_single",
+          "masenqo_bow": "masenqo_horsehair_curved_bow",
+          "masenqo_tradition": "masenqo_azmari"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "masenqo_body": 0.24,
+          "masenqo_string": 0,
+          "masenqo_bow": 7.013999999999999,
+          "masenqo_tradition": 19.609
+        }
+      },
+      {
+        "id": "krar",
+        "slots": {
+          "krar_strings": "krar_five",
+          "krar_body": "krar_wood_skin",
+          "krar_string_material": "krar_gut_historical"
+        },
+        "scores": {
+          "krar_strings": 0.045,
+          "krar_body": 0.045,
+          "krar_string_material": 5.1499999999999995
+        }
+      },
+      {
+        "id": "washint",
+        "slots": {
+          "washint_body": "washint_bamboo"
+        },
+        "scores": {
+          "washint_body": 0
+        }
+      },
+      {
+        "id": "kebero",
+        "slots": {
+          "kebero_skin": "kebero_calfskin",
+          "kebero_shell_wood": "kebero_olive_canonical",
+          "kebero_tradition": "kebero_orthodox_tewahedo"
+        },
+        "scores": {
+          "kebero_skin": 7.013999999999999,
+          "kebero_shell_wood": 8.314,
+          "kebero_tradition": 1.69
+        }
+      }
+    ],
+    "room": "addis_kazanchis_azmari_bet_tej_house",
+    "archetype": "arch_emi_lagos_african_70s",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "medium_indian_lebanese_pressing"
+    },
+    "tuning": "kignit_bati_minor",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

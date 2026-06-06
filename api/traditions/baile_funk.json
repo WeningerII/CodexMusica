@@ -1,0 +1,111 @@
+{
+  "id": "baile_funk",
+  "name": "Baile funk (funk carioca)",
+  "family": "global",
+  "lineage": "Rio-favela 1985-onward block-party street-music built on the Tamborzão two-bar Brazilian-funk-percussion pattern with Miami-bass / electro-funk roots imported via 1980s American-vinyl-records trade. The genre evolved through four phases: melô-rap early-period (1985-1995, English-language samples over Volt-mix Atomic-Dog DNA), funk-melody and funk-consciente mid-period (1995-2005, Portuguese-language MC vocals layered over 808-kick patterns), proibidão hardcore underground (2000s-onward, drug-trafficking-themed-lyrics often banned from mainstream airwaves), and bregafunk-and-funk-150bpm modern-period (2010s-onward, accelerated-tempo Rio-and-Recife regional variants).",
+  "recipe": "classic mid-1990s baile funk, electronic Dance, Latin electric branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, melodic, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, digital subtractive. rio favela home baile funk. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 414,
+  "score": 305.746,
+  "config": {
+    "traditions": [
+      "baile_funk",
+      "conscious_hip_hop",
+      "gangsta_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.495,
+          "voice_quality": 7.215,
+          "voice_vibrato": 3.22,
+          "voice_articulation": 1.1699999999999997,
+          "voice_microtone": 1.25,
+          "voice_tradition": 3.7050000000000005,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 5.46,
+          "voice_ensemble_config": 6.37,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 2.750000000000001,
+          "voice_processing_chain": 20.189999999999998,
+          "voice_multitrack_stack": 7.085
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 3.0399999999999996,
+          "drum_machine_808_context": 4.454375,
+          "tr808_production_origin": 1.3
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 1.6543749999999997,
+          "sampler_archetypes": 2.83,
+          "sampler_bit_depth": 1.3,
+          "sampler_workflow": 1.5593749999999997,
+          "sampler_classic_context": 11.179999999999996
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 2.925,
+          "va_archetypes": 0.43500000000000005,
+          "digital_subtractive_context": 5.2
+        }
+      }
+    ],
+    "room": "rio_favela_home_baile_funk",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

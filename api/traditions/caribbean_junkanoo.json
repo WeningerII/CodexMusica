@@ -1,0 +1,85 @@
+{
+  "id": "caribbean_junkanoo",
+  "name": "Bahamian Junkanoo",
+  "family": "global",
+  "lineage": "Bahamian Junkanoo tradition continuous from late-18th-and-19th-century Bahamian-African Christmas-and-Boxing-Day celebration practice through 20th-century continuous performance into modern Bahamas Boxing-Day-and-New-Year's-Day Junkanoo continuous practice; Junkanoo is documented as having African origins (possibly West-African origin via the slave trade) integrated with Caribbean-British Boxing-Day timing",
+  "recipe": "classic modern bahamian junkanoo, carnival Processional, Caribbean branch, American south carnival processional, Brazilian carnival processional, African diasporic wedding yoruba aso ebi wedding music new orleans mardi gras indians. thick, low dynamic level, tasteful, continuous-phonation. synthetic remo modern tar frame drum. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 492,
+  "score": 148.684,
+  "config": {
+    "traditions": [
+      "caribbean_junkanoo",
+      "yoruba_aso_ebi_wedding",
+      "mardi_gras_indians"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 3.185,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0.0315,
+          "voice_tradition": 23.4,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 7.344999999999998,
+          "voice_ensemble_config": 7.2799999999999985,
+          "voice_ornament_system": 1.0494999999999999,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 1.4100000000000004,
+          "voice_multitrack_stack": 0.78
+        }
+      },
+      {
+        "id": "tar_frame_drum",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "tar_size": "tar_small",
+          "tar_frame_drum_context": "tar_frame_drum_art",
+          "tar_frame_shell_wood": "tar_frame_walnut",
+          "tar_frame_head": "tar_frame_synthetic"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "tar_size": 0.025625000000000002,
+          "tar_frame_drum_context": 1.69,
+          "tar_frame_shell_wood": 0.39,
+          "tar_frame_head": 1.69
+        }
+      }
+    ],
+    "room": "trinidad_calypso_panyard_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

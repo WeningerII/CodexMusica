@@ -1,0 +1,86 @@
+{
+  "id": "neurofunk",
+  "name": "Neurofunk (drum-and-bass)",
+  "family": "electronic",
+  "lineage": "Late-1990s and 2000s drum-and-bass subgenre characterized by mechanical-cinematic synth-bass lead designs, dystopian-science-fiction atmospheric pads, technical drum-programming, and minimal vocal content. Ed Rush & Optical, Noisia (Dutch trio), Phace, Mefjus, and the broader Vision Recordings-Neosignal label rosters anchor the canonical neurofunk aesthetic.",
+  "recipe": "classic 1997-1999 neurofunk, bass System, bass descendants branch, industrial noise experimental electric, thrash metal djent. TR-808, sub bass analog synth, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 425,
+  "score": 88.112,
+  "config": {
+    "traditions": [
+      "neurofunk",
+      "ebm_european_body",
+      "djent"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 8.515,
+          "drum_machine_808_context": 8.58,
+          "tr808_production_origin": 0.255
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 8.385,
+          "oscillator": 8.58,
+          "filter_topology": 8.58,
+          "envelope": 0.675,
+          "modulation": 0.09
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 0.9999999999999998,
+          "amp_make": 9.425,
+          "body_wood": 2.368,
+          "pickup_config": 0.604,
+          "string_type": 8.45,
+          "scale_length_b": 1.184,
+          "fretted_or_not": 0.24,
+          "bass_technique": 1.6999999999999997
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

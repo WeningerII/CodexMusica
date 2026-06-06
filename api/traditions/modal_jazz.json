@@ -1,0 +1,142 @@
+{
+  "id": "modal_jazz",
+  "name": "Modal jazz",
+  "family": "jazz",
+  "lineage": "Late-1950s onward jazz subgenre dispensing with rapid bebop chord-changes in favor of static modal frameworks — Miles Davis Kind of Blue (1959), Coltrane Giant Steps and the McCoy Tyner / Elvin Jones quartet years, Bill Evans modal trio voicings, Wayne Shorter, Herbie Hancock",
+  "recipe": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal huayno maskandi. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, cold pressed wurzen felt oversize maple tension resonator a 441 grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 687,
+  "score": 248.97,
+  "config": {
+    "traditions": [
+      "modal_jazz",
+      "andean_huayno",
+      "maskandi"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 4,
+          "sax_size": 4.450000000000001,
+          "sax_reed": 0.3,
+          "sax_body_alloy": 14.284714285714283,
+          "sax_mouthpiece": 0.7649999999999999,
+          "sax_technique": 14.429999999999998,
+          "sax_maker_school": 13.35542857142857
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 4,
+          "brass_size": 0.3,
+          "trumpet_mouthpiece": 15.289714285714282,
+          "brass_mute": 0.3347142857142857,
+          "trumpet_technique": 4,
+          "trumpet_bell_metal": 0.795,
+          "trumpet_maker_school": 1.95
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 2.4351428571428575,
+          "grand_piano_size": 0.195,
+          "grand_piano_brand": 0.38999999999999996,
+          "piano_hammer": 1.885,
+          "piano_rim": 1.885,
+          "piano_soundboard": 0.6499999999999999,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 1.4949999999999999
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": 2.6351428571428572,
+          "upright_strings": 14.294999999999998,
+          "upright_play": 14.249999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "hand_lathed_pit_retaining",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 11.699999999999996,
+          "shell_wood": 0.345,
+          "shell_thickness": 0.195,
+          "bearing_edges": 0.285,
+          "drumhead": 14.84542857142857,
+          "snare_wires": 0.195,
+          "cymbal_alloy": 14.294999999999996,
+          "cymbal_hammering": 15.424714285714284,
+          "cymbal_lathing": 15.249999999999998,
+          "cymbal_finish": 0.3,
+          "drum_technique": 14.249999999999998
+        }
+      }
+    ],
+    "room": "columbia_30th_street_studio_nyc",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "modal_jazz_dorian_static",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

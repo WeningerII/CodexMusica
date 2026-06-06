@@ -1,0 +1,108 @@
+{
+  "id": "southern_gospel_quartet",
+  "name": "Southern gospel quartet",
+  "family": "global",
+  "lineage": "White-Southern shape-note male-quartet gospel tradition codified through the Stamps-Baxter (founded 1924 Dallas) and James D. Vaughan (founded 1912 Lawrenceburg TN) shape-note songbook publishing infrastructure — performed by quartets including the Stamps Quartet (founded 1924), the Blackwood Brothers, the Statesmen Quartet, the Jordanaires (who backed Elvis Presley on his RCA gospel albums), Cathedral Quartet, the Gaither Vocal Band; characterized by male vocal quartet (first tenor, second tenor, baritone, bass) with piano or tonewheel organ accompaniment",
+  "recipe": "classic North American mid-1920s southern gospel quartet, ritual Devotional, southern gospel branch, christian gospel black gospel gospel quartet contemporary urban gospel. thick, declaimed, ornamental, gospel pentecostal. birch laminated maple laminated European spruce norway spruce European tradition grand piano, hocket interlocked single note distribution andean three voice parallel thirds quechua aymara choir ensemble. southern white church gospel quartet. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 596,
+  "score": 375.449,
+  "config": {
+    "traditions": [
+      "southern_gospel_quartet",
+      "gospel_quartet_male",
+      "contemporary_urban_gospel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 21.964000000000002,
+          "voice_quality": 27.633499999999998,
+          "voice_vibrato": 0.25,
+          "voice_articulation": 22.250000000000007,
+          "voice_microtone": 0.33,
+          "voice_tradition": 28.262000000000008,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 22.388,
+          "voice_speech_song": 3.712999999999999,
+          "voice_ensemble_config": 22.195000000000007,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 0.19500000000000003,
+          "voice_processing_chain": 7.232499999999998,
+          "voice_multitrack_stack": 2.754
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 27.647000000000006,
+          "grand_piano_size": 0.3045,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 0.7149999999999999,
+          "piano_rim": 2.7950000000000004,
+          "piano_soundboard": 2.7950000000000004,
+          "piano_pinblock": -0.045500000000000006,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_hocket_distribution",
+          "choir_regional_canonical_configuration": "choir_regional_andean_three_voice_parallel_thirds",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 0.6779999999999999,
+          "choir_polyphonic_configuration": 3.3754999999999993,
+          "choir_regional_canonical_configuration": 1.17,
+          "choir_ensemble_repertoire": 1.69
+        }
+      }
+    ],
+    "room": "southern_white_church_gospel_quartet",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

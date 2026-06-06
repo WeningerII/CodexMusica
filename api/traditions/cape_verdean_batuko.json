@@ -1,0 +1,68 @@
+{
+  "id": "cape_verdean_batuko",
+  "name": "Cape Verdean batuko of Santiago Island (UNESCO 2019)",
+  "family": "global",
+  "lineage": "Cape Verdean batuko (also tabanka and finaçon) Afro-Atlantic women's percussive-vocal tradition of Santiago Island, the historically-and-demographically central island of the Cape Verde archipelago, recognized as UNESCO Intangible Cultural Heritage 2019 (Cape Verdean inscription). Batuko configuration: a circle of women seated, each playing a tchabeta — a tightly-rolled cloth bundle held between the legs and struck with the open hand to produce a deep slap-tone — while one woman in the center (the txabetadeira-lead or \"the one who is dancing batuko\") sings the verse-text and dances in the center of the circle, with the surrounding women responding antiphonally and clapping in cross-rhythmic patterns over the tchabeta pulse. The tradition is genealogically connected to the West-African Mandinka and Wolof women's drum-and-dance circles that the Portuguese slave-trade transported to Santiago Island in the sixteenth and seventeenth centuries; the absence of true membrane drums in the post-arrival diaspora (slave-traders banned drums in transport and on early plantations) led to the substitution of the cloth-bundle as percussion surface, an organological adaptation of considerable interest. Vocal repertoire spans batuko (the strophic dance-rhythm song), finaçon (the slower more elaborated solo-singer-with-circle improvisatory-praise form), and txabeta (the rhythm-only instrumental cycles between vocal sections). Modal vocabulary draws on the broader Cape Verdean-creole regional folk tonal system. Santiago Island batuko ensembles such as Finaçon-bidjus and the women's associations of the Santa Catarina and Tarrafal municipalities maintain active transmission. Distinguished from morna and coladera (Cape Verde's other principal traditions) by batuko's women-only Santiago-Island-specific Afro-Atlantic percussive-vocal (vs the morna's acoustic-guitar-and-cavaquinho ballad) functional configuration; distinguished from Guinea-Bissau Manjak women's drum-circles by Cape Verdean-creole linguistic-cultural identity.",
+  "recipe": "classic cape verdean batuko of santiago island, ballad Poetry, morna branch, tropical song functional song garifuna paranda and hungu-hungu kompa. vocal fry, full chest belt, pure, punctuated. batuko outdoor village. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 346,
+  "score": 205.966,
+  "config": {
+    "traditions": [
+      "cape_verdean_batuko",
+      "garifuna_paranda_hungu_hungu",
+      "kompa_song_form"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 5.59,
+          "voice_quality": 3.84,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.9749999999999996,
+          "voice_microtone": 2.4499999999999997,
+          "voice_tradition": 19.955,
+          "voice_mechanism_compound": 6.89,
+          "voice_estill_quality": 7.141249999999999,
+          "voice_speech_song": 26.975000000000005,
+          "voice_ensemble_config": 22.100000000000005,
+          "voice_ornament_system": 2.1875,
+          "voice_pitch_organization": 2.665000000000001,
+          "voice_processing_chain": 5.46,
+          "voice_multitrack_stack": 7.9087499999999995
+        }
+      }
+    ],
+    "room": "batuko_outdoor_village",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

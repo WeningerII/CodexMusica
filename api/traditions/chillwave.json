@@ -1,0 +1,143 @@
+{
+  "id": "chillwave",
+  "name": "Chillwave",
+  "family": "global",
+  "lineage": "2009-2012 American online-distributed electronic-and-indie-pop genre characterized by lo-fi summer-nostalgic aesthetics, pitched-down vocal samples, and tape-saturated 1980s production references — codified through Washed Out (Life of Leisure 2009), Toro y Moi (Causers of This 2010), Neon Indian (Psychic Chasms 2009), Memory Tapes, with the David Carr Cole Hipster Runoff Wikipedia coinage providing the genre's name",
+  "recipe": "classic 2009-2012 chillwave, experimental Elec, lofi branch, retro aesthetic experimental electric synthwave. extended whistle, sprechgesang, pure, unrestrained. singing lead analog poly synth, soft down tuning clean strummed single coil electric guitar, glitched textural sampler, TR-808. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 397,
+  "score": 151.536,
+  "config": {
+    "traditions": [
+      "chillwave",
+      "synthwave"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "sprechgesang_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 5.135,
+          "voice_quality": 1.310125,
+          "voice_vibrato": 1.12425,
+          "voice_articulation": 1.260125,
+          "voice_microtone": 3.750000000000001,
+          "voice_tradition": 6.667375,
+          "voice_mechanism_compound": 2.314625000000001,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 7.604999999999997,
+          "voice_ensemble_config": 7.149999999999998,
+          "voice_ornament_system": 0.11549999999999999,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 6.489,
+          "voice_multitrack_stack": 3.301375
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 4.75,
+          "poly_archetypes": 0.6371249999999999,
+          "poly_voices": 0.6371249999999999,
+          "poly_maker_lineage": -1.7312499999999997
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "basswood",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 3.95,
+          "amp_make": 1.755,
+          "body_wood": 0.23625,
+          "neck_wood": 0.17925,
+          "fretboard": 0.042749999999999996,
+          "pickup_magnet": 0.042749999999999996,
+          "string_material": 0.042749999999999996,
+          "string_gauge": 0.17925,
+          "bridge": 0.1175,
+          "scale_length": 0.35849999999999993,
+          "finish": 0,
+          "string_tuning": 1.3
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 5.459375000000001,
+          "sampler_archetypes": 1.8850000000000002,
+          "sampler_bit_depth": 1.8200000000000003,
+          "sampler_workflow": 5.97425,
+          "sampler_classic_context": 11.829999999999995
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_clap",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 0,
+          "drum_machine_808_context": 5.983375,
+          "tr808_production_origin": 0.131
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "lofi_deliberate",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

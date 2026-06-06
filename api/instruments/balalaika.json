@@ -1,0 +1,509 @@
+{
+  "id": "balalaika",
+  "name": "Balalaika (Russian triangular)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "balalaika",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "balalaika_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "prima_balalaika",
+          "default": true,
+          "name": "Prima (E-E-A canonical)",
+          "descriptors": [
+            "melodic",
+            "virtuoso",
+            "prima-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "sekunda_balalaika",
+          "name": "Sekunda (A-A-D)",
+          "descriptors": [
+            "accompaniment",
+            "ensemble",
+            "sekunda-tuning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "alto_balalaika",
+          "name": "Alto (E-E-A octave below prima)",
+          "descriptors": [
+            "alto-octave-below-prima"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "bass_balalaika",
+          "name": "Bass (E-A-D)",
+          "descriptors": [
+            "bass-foundation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "kontrabas_balalaika",
+          "name": "Kontrabas (E1-A1-D2)",
+          "descriptors": [
+            "bass",
+            "grounding",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balalaika_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "nylon_balalaika",
+          "default": true,
+          "name": "Nylon (modern canonical prima)",
+          "descriptors": [
+            "nylon-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "gut_balalaika",
+          "name": "Gut (pre-1950s historical)",
+          "descriptors": [
+            "gut-pre-1950s-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "steel_balalaika",
+          "name": "Steel (modern alternative)",
+          "descriptors": [
+            "steel-modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "fluorocarbon_balalaika",
+          "name": "Fluorocarbon (modern boutique)",
+          "descriptors": [
+            "fluorocarbon-modern-boutique"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balalaika_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "balalaika_spruce_maple",
+          "default": true,
+          "name": "Spruce top + maple back (canonical)",
+          "descriptors": [
+            "spruce-maple-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "balalaika_cedar",
+          "name": "Cedar top (warmer alternative)",
+          "descriptors": [
+            "cedar-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balalaika_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "balalaika_andreyev_concert",
+          "default": true,
+          "name": "Andreyev concert orchestra (canonical revival)",
+          "descriptors": [
+            "andreyev-concert-orchestra",
+            "canonical-revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "balalaika_folk_pre_andreyev",
+          "name": "Pre-Andreyev rural folk (pre-1880s)",
+          "descriptors": [
+            "pre-andreyev-rural",
+            "pre-1880s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "balalaika_soviet_orchestra",
+          "name": "Soviet-era orchestra (1920s-1980s)",
+          "descriptors": [
+            "soviet-orchestra-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "balalaika_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "prima_balalaika",
+          "default": true,
+          "name": "Prima (E-E-A canonical)",
+          "descriptors": [
+            "melodic",
+            "virtuoso",
+            "prima-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "sekunda_balalaika",
+          "name": "Sekunda (A-A-D)",
+          "descriptors": [
+            "accompaniment",
+            "ensemble",
+            "sekunda-tuning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "alto_balalaika",
+          "name": "Alto (E-E-A octave below prima)",
+          "descriptors": [
+            "alto-octave-below-prima"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "bass_balalaika",
+          "name": "Bass (E-A-D)",
+          "descriptors": [
+            "bass-foundation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "kontrabas_balalaika",
+          "name": "Kontrabas (E1-A1-D2)",
+          "descriptors": [
+            "bass",
+            "grounding",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balalaika_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "nylon_balalaika",
+          "default": true,
+          "name": "Nylon (modern canonical prima)",
+          "descriptors": [
+            "nylon-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "gut_balalaika",
+          "name": "Gut (pre-1950s historical)",
+          "descriptors": [
+            "gut-pre-1950s-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "steel_balalaika",
+          "name": "Steel (modern alternative)",
+          "descriptors": [
+            "steel-modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "fluorocarbon_balalaika",
+          "name": "Fluorocarbon (modern boutique)",
+          "descriptors": [
+            "fluorocarbon-modern-boutique"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balalaika_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "balalaika_spruce_maple",
+          "default": true,
+          "name": "Spruce top + maple back (canonical)",
+          "descriptors": [
+            "spruce-maple-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "balalaika_cedar",
+          "name": "Cedar top (warmer alternative)",
+          "descriptors": [
+            "cedar-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balalaika_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "balalaika_andreyev_concert",
+          "default": true,
+          "name": "Andreyev concert orchestra (canonical revival)",
+          "descriptors": [
+            "andreyev-concert-orchestra",
+            "canonical-revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "balalaika_folk_pre_andreyev",
+          "name": "Pre-Andreyev rural folk (pre-1880s)",
+          "descriptors": [
+            "pre-andreyev-rural",
+            "pre-1880s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "balalaika_soviet_orchestra",
+          "name": "Soviet-era orchestra (1920s-1980s)",
+          "descriptors": [
+            "soviet-orchestra-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "breakcore",
+  "name": "Breakcore (late-1990s extreme-tempo breakbeat collage)",
+  "family": "electronic",
+  "lineage": "Late-1990s and 2000s electronic subgenre characterized by extreme-fast (200-300 BPM) chopped-Amen-break-and-other-breakbeat percussion, dense-aggressive sample-collage composition, and complex polymetric rhythmic structures. Venetian Snares (Aaron Funk, Winnipeg Canada, 2000-onward) is the canonical type-specimen; Igorrr, Drumcorps, Knifehandchop, and the broader Planet Mu and Hymen Records label rosters constitute the canonical roster.",
+  "recipe": "classic breakcore, experimental Elec, idm glitch branch, thrash metal djent groove metal. TR-808, analog synth, glitched textural sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion ring modulator.",
+  "recipe_chars": 368,
+  "score": 49.451,
+  "config": {
+    "traditions": [
+      "breakcore",
+      "djent",
+      "groove_metal"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_cowbell",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 0.195,
+          "drum_machine_808_context": 0.9318749999999999,
+          "tr808_production_origin": 0.7149999999999994
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "sample_hold"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "oscillator": 0.916875,
+          "filter_topology": 1.9514999999999998,
+          "envelope": 1.69,
+          "modulation": 0.105
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 7.6365,
+          "sampler_archetypes": 0.24,
+          "sampler_bit_depth": 0.24,
+          "sampler_workflow": 7.5,
+          "sampler_classic_context": 10.009999999999998
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "distortion_high",
+      "ring_mod"
+    ]
+  }
+}

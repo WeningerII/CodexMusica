@@ -1,0 +1,61 @@
+{
+  "id": "asturian_gaita",
+  "name": "Asturian gaita (Iberian Celtic bagpipe)",
+  "family": "global",
+  "lineage": "Asturian gaita Iberian Celtic-bagpipe tradition of Asturias (northern Spain), the canonical Asturian regional-folk-music instrumental signature. The gaita asturiana is a mouth-blown single-drone bagpipe distinct from the larger Galician gaita gallega and the Scottish Highland pipes in tuning and ornament-vocabulary. Performance: solo gaita or gaita-and-tambor (drum-pair) accompanying voice, dance, or solo instrumental display. Repertoire spans foliada wedding-celebration repertoire, vaqueirada cattle-herder dance-music, and the canonical Asturian-Celtic revival-period compositions of the late-twentieth century. Distinguished from Galician gaita gallega by Asturian-specific tuning and ornamental conventions. The Asturian Cultural Council and the parallel Galician Real Academia de la Gaita anchor institutional preservation.",
+  "recipe": "classic modern asturian gaita, ballad Poetry, Celtic balladic branch, wind pipe drone modal. gaita galega three drone muiñeira dance driving gaita galega, tambourine orch. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 318,
+  "score": 104.444,
+  "config": {
+    "traditions": [
+      "asturian_gaita"
+    ],
+    "instruments": [
+      {
+        "id": "gaita_galega",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "gaita_galega_drones": "gaita_galega_three_drones",
+          "gaita_galega_use": "gaita_galega_muiñeira",
+          "gaita_galega_chanter_wood": "gaita_galega_boxwood",
+          "gaita_galega_reed": "gaita_galega_cane_canonical",
+          "gaita_galega_bag": "gaita_galega_goatskin_canonical"
+        },
+        "scores": {
+          "wind_articulation": 16.1815,
+          "gaita_galega_drones": 34.163250000000005,
+          "gaita_galega_use": 25.007500000000004,
+          "gaita_galega_chanter_wood": 7.700374999999999,
+          "gaita_galega_reed": 7.700374999999999,
+          "gaita_galega_bag": 7.700374999999999
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.108,
+          "tambourine_orch_context": 0.108
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

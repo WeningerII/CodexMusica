@@ -1,0 +1,60 @@
+{
+  "id": "skor_thom",
+  "name": "Skor thom (Khmer large barrel drum pair)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "skor-thom",
+  "parts": [
+    {
+      "id": "skor_thom_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "skor_thom_large_pair_canonical",
+          "default": true,
+          "name": "Large barrel pair, stick-struck (canonical pinpeat bass)",
+          "descriptors": [
+            "large-barrel-pair-stick-struck-canonical-pinpeat-bass"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "skor_thom_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "skor_thom_large_pair_canonical",
+          "default": true,
+          "name": "Large barrel pair, stick-struck (canonical pinpeat bass)",
+          "descriptors": [
+            "large-barrel-pair-stick-struck-canonical-pinpeat-bass"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        }
+      ]
+    }
+  ]
+}

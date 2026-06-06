@@ -1,0 +1,68 @@
+{
+  "id": "japanese_warabe_uta",
+  "name": "Japanese warabe-uta (童歌, children's play-songs)",
+  "family": "global",
+  "lineage": "Japanese children's play-song (warabe-uta) tradition continuous from premodern Japanese folk-play-song origins (Heian-era and earlier) through Edo-period continuous performance into modern continuous Japanese childhood-practice; distinct from the modern dōyō (童謡) school-curriculum-created children's-song movement of the 1920s-onward",
+  "recipe": "classic mid-1920s japanese warabe-uta, nursery Rhyme, east Asian branch, east Asian lullaby, European nursery rhyme, east Asian funeral lament russian poteshki and pestushki mandarin yáolán qǔ. thick, low dynamic level, tasteful, continuous-phonation. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 405,
+  "score": 111.303,
+  "config": {
+    "traditions": [
+      "japanese_warabe_uta",
+      "russian_poteshki",
+      "mandarin_yaolanqu"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.750000000000001,
+          "voice_quality": 0.8449999999999999,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0,
+          "voice_tradition": 28.400624999999998,
+          "voice_mechanism_compound": 0.8268749999999999,
+          "voice_estill_quality": 0.45562499999999995,
+          "voice_speech_song": 7.865,
+          "voice_ensemble_config": 2.7300000000000004,
+          "voice_ornament_system": 4.390000000000001,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 1.2449999999999999
+        }
+      }
+    ],
+    "room": "tatami_parlor_japanese",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "japanese_in_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

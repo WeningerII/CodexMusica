@@ -1,0 +1,861 @@
+{
+  "id": "oud",
+  "name": "ʿŪd (Arab/Mediterranean fretless lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "oud",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "oud_school",
+      "surface": false,
+      "name": "Regional school",
+      "variants": [
+        {
+          "id": "oud_arab_classic",
+          "default": true,
+          "name": "Egyptian/Arab Mashriq",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "vocal-imitating",
+            "tarab-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_turkish",
+          "name": "Turkish (smaller body)",
+          "descriptors": [
+            "treble-extended",
+            "articulate",
+            "makam-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_iraqi",
+          "name": "Iraqi school",
+          "descriptors": [
+            "contemplative",
+            "spacious",
+            "meditative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_andalusi",
+          "name": "Maghrebi/Andalusi",
+          "descriptors": [
+            "archaic",
+            "resonant",
+            "nuba-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oud_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "oud_eleven",
+          "default": true,
+          "name": "11-string (5 doubled + 1 bass)",
+          "descriptors": [
+            "standard",
+            "full-spectrum",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_thirteen",
+          "name": "13-string (extra bass courses)",
+          "descriptors": [
+            "extended-low",
+            "modern",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oud_pick",
+      "surface": false,
+      "name": "Risha (pick)",
+      "variants": [
+        {
+          "id": "risha_eagle_feather",
+          "default": true,
+          "name": "Eagle feather",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "risha_plastic",
+          "name": "Plastic / nylon",
+          "descriptors": [
+            "articulate",
+            "consistent",
+            "contemporary",
+            "nylon",
+            "plastic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "risha_horn",
+          "name": "Cattle horn",
+          "descriptors": [
+            "treble-extended",
+            "vintage",
+            "authentic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oud_body_wood",
+      "surface": false,
+      "name": "Body / ribs wood",
+      "variants": [
+        {
+          "id": "oud_walnut_body",
+          "default": true,
+          "name": "Walnut ribs (canonical mid-tier)",
+          "descriptors": [
+            "walnut-ribs",
+            "canonical-mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_padauk_body",
+          "name": "Padauk (Egyptian / Syrian premium)",
+          "descriptors": [
+            "padauk",
+            "egyptian-syrian-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_mahogany_body",
+          "name": "Mahogany (modern alternative)",
+          "descriptors": [
+            "mahogany",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_rosewood_body",
+          "name": "Rosewood (premium Iraqi / Turkish)",
+          "descriptors": [
+            "rosewood",
+            "premium-iraqi-turkish"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "oud_maple_body",
+          "name": "Maple (Turkish school light projection)",
+          "descriptors": [
+            "maple-ribs",
+            "turkish-school"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oud_soundboard_wood",
+      "surface": false,
+      "name": "Soundboard / face",
+      "variants": [
+        {
+          "id": "oud_spruce_face",
+          "default": true,
+          "name": "Spruce face (canonical)",
+          "descriptors": [
+            "spruce-face",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_lebanese_cedar_face",
+          "name": "Lebanese cedar (eastern Mediterranean traditional)",
+          "descriptors": [
+            "lebanese-cedar",
+            "eastern-mediterranean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_western_red_cedar_face",
+          "name": "Western red cedar (modern alternative)",
+          "descriptors": [
+            "western-red-cedar",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oud_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "oud_pyramid_nylon",
+          "default": true,
+          "name": "Pyramid (German nylon canonical Arab school)",
+          "descriptors": [
+            "pyramid",
+            "nylon-canonical",
+            "arab-school"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_la_bella_nylon",
+          "name": "La Bella oud strings (Turkish school canon)",
+          "descriptors": [
+            "la-bella",
+            "turkish-school-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_aquila_synthetic_gut",
+          "name": "Aquila Nylgut (gut-emulating modern)",
+          "descriptors": [
+            "aquila-nylgut",
+            "gut-emulating"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_gut_historical",
+          "name": "Pre-1900 plain gut (period-correct historical)",
+          "descriptors": [
+            "plain-gut",
+            "pre-1900",
+            "period-correct"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "oud_brass_wound_bass",
+          "name": "Brass-wound bass courses (modern hybrid)",
+          "descriptors": [
+            "brass-wound-bass",
+            "modern-hybrid"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "oud_school",
+      "surface": false,
+      "name": "Regional school",
+      "variants": [
+        {
+          "id": "oud_arab_classic",
+          "default": true,
+          "name": "Egyptian/Arab Mashriq",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "vocal-imitating",
+            "tarab-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_turkish",
+          "name": "Turkish (smaller body)",
+          "descriptors": [
+            "treble-extended",
+            "articulate",
+            "makam-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_iraqi",
+          "name": "Iraqi school",
+          "descriptors": [
+            "contemplative",
+            "spacious",
+            "meditative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_andalusi",
+          "name": "Maghrebi/Andalusi",
+          "descriptors": [
+            "archaic",
+            "resonant",
+            "nuba-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oud_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "oud_eleven",
+          "default": true,
+          "name": "11-string (5 doubled + 1 bass)",
+          "descriptors": [
+            "standard",
+            "full-spectrum",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_thirteen",
+          "name": "13-string (extra bass courses)",
+          "descriptors": [
+            "extended-low",
+            "modern",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oud_pick",
+      "surface": false,
+      "name": "Risha (pick)",
+      "variants": [
+        {
+          "id": "risha_eagle_feather",
+          "default": true,
+          "name": "Eagle feather",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "risha_plastic",
+          "name": "Plastic / nylon",
+          "descriptors": [
+            "articulate",
+            "consistent",
+            "contemporary",
+            "nylon",
+            "plastic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "risha_horn",
+          "name": "Cattle horn",
+          "descriptors": [
+            "treble-extended",
+            "vintage",
+            "authentic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oud_body_wood",
+      "surface": false,
+      "name": "Body / ribs wood",
+      "variants": [
+        {
+          "id": "oud_walnut_body",
+          "default": true,
+          "name": "Walnut ribs (canonical mid-tier)",
+          "descriptors": [
+            "walnut-ribs",
+            "canonical-mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_padauk_body",
+          "name": "Padauk (Egyptian / Syrian premium)",
+          "descriptors": [
+            "padauk",
+            "egyptian-syrian-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_mahogany_body",
+          "name": "Mahogany (modern alternative)",
+          "descriptors": [
+            "mahogany",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_rosewood_body",
+          "name": "Rosewood (premium Iraqi / Turkish)",
+          "descriptors": [
+            "rosewood",
+            "premium-iraqi-turkish"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "oud_maple_body",
+          "name": "Maple (Turkish school light projection)",
+          "descriptors": [
+            "maple-ribs",
+            "turkish-school"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oud_soundboard_wood",
+      "surface": false,
+      "name": "Soundboard / face",
+      "variants": [
+        {
+          "id": "oud_spruce_face",
+          "default": true,
+          "name": "Spruce face (canonical)",
+          "descriptors": [
+            "spruce-face",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_lebanese_cedar_face",
+          "name": "Lebanese cedar (eastern Mediterranean traditional)",
+          "descriptors": [
+            "lebanese-cedar",
+            "eastern-mediterranean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_western_red_cedar_face",
+          "name": "Western red cedar (modern alternative)",
+          "descriptors": [
+            "western-red-cedar",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oud_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "oud_pyramid_nylon",
+          "default": true,
+          "name": "Pyramid (German nylon canonical Arab school)",
+          "descriptors": [
+            "pyramid",
+            "nylon-canonical",
+            "arab-school"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_la_bella_nylon",
+          "name": "La Bella oud strings (Turkish school canon)",
+          "descriptors": [
+            "la-bella",
+            "turkish-school-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_aquila_synthetic_gut",
+          "name": "Aquila Nylgut (gut-emulating modern)",
+          "descriptors": [
+            "aquila-nylgut",
+            "gut-emulating"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oud_gut_historical",
+          "name": "Pre-1900 plain gut (period-correct historical)",
+          "descriptors": [
+            "plain-gut",
+            "pre-1900",
+            "period-correct"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "oud_brass_wound_bass",
+          "name": "Brass-wound bass courses (modern hybrid)",
+          "descriptors": [
+            "brass-wound-bass",
+            "modern-hybrid"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

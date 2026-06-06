@@ -1,0 +1,378 @@
+{
+  "id": "biwa_lute",
+  "name": "Biwa (Japanese plucked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "biwa",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "biwa_type",
+      "name": "Variant",
+      "variants": [
+        {
+          "id": "gaku_biwa",
+          "default": true,
+          "name": "Gaku-biwa (gagaku ensemble)",
+          "descriptors": [
+            "rhythmic",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "satsuma_biwa",
+          "name": "Satsuma-biwa",
+          "descriptors": [
+            "narrative",
+            "declamatory",
+            "samurai-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "chikuzen_biwa",
+          "name": "Chikuzen-biwa",
+          "descriptors": [
+            "lyrical",
+            "female-tradition",
+            "softer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biwa_plectrum",
+      "name": "Plectrum (bachi)",
+      "variants": [
+        {
+          "id": "wide_bachi",
+          "default": true,
+          "name": "Wide wooden bachi (kashiwa-bachi)",
+          "descriptors": [
+            "percussive",
+            "wood",
+            "kashiwa-bachi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "small_bachi",
+          "name": "Smaller bachi",
+          "descriptors": [
+            "articulate",
+            "modest"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biwa_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "biwa_mulberry_kuwa",
+          "default": true,
+          "name": "Mulberry / kuwa (canonical)",
+          "descriptors": [
+            "mulberry-kuwa",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "biwa_cherry_yamazakura",
+          "name": "Cherry / yamazakura (premium)",
+          "descriptors": [
+            "cherry-yamazakura",
+            "premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "biwa_zelkova_keyaki",
+          "name": "Zelkova / keyaki",
+          "descriptors": [
+            "zelkova-keyaki",
+            "durable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biwa_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "biwa_silk_canonical",
+          "default": true,
+          "name": "Silk (canonical traditional)",
+          "descriptors": [
+            "silk-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "biwa_tetron_modern",
+          "name": "Tetron (modern alternative)",
+          "descriptors": [
+            "tetron-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "biwa_type",
+      "name": "Variant",
+      "variants": [
+        {
+          "id": "gaku_biwa",
+          "default": true,
+          "name": "Gaku-biwa (gagaku ensemble)",
+          "descriptors": [
+            "rhythmic",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "satsuma_biwa",
+          "name": "Satsuma-biwa",
+          "descriptors": [
+            "narrative",
+            "declamatory",
+            "samurai-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "chikuzen_biwa",
+          "name": "Chikuzen-biwa",
+          "descriptors": [
+            "lyrical",
+            "female-tradition",
+            "softer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biwa_plectrum",
+      "name": "Plectrum (bachi)",
+      "variants": [
+        {
+          "id": "wide_bachi",
+          "default": true,
+          "name": "Wide wooden bachi (kashiwa-bachi)",
+          "descriptors": [
+            "percussive",
+            "wood",
+            "kashiwa-bachi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "small_bachi",
+          "name": "Smaller bachi",
+          "descriptors": [
+            "articulate",
+            "modest"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biwa_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "biwa_mulberry_kuwa",
+          "default": true,
+          "name": "Mulberry / kuwa (canonical)",
+          "descriptors": [
+            "mulberry-kuwa",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "biwa_cherry_yamazakura",
+          "name": "Cherry / yamazakura (premium)",
+          "descriptors": [
+            "cherry-yamazakura",
+            "premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "biwa_zelkova_keyaki",
+          "name": "Zelkova / keyaki",
+          "descriptors": [
+            "zelkova-keyaki",
+            "durable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biwa_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "biwa_silk_canonical",
+          "default": true,
+          "name": "Silk (canonical traditional)",
+          "descriptors": [
+            "silk-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "biwa_tetron_modern",
+          "name": "Tetron (modern alternative)",
+          "descriptors": [
+            "tetron-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

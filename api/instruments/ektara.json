@@ -1,0 +1,278 @@
+{
+  "id": "ektara",
+  "name": "Ektara (Indian/Bengali one-string drone)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ektara",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ektara_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "ektara_baul",
+          "default": true,
+          "name": "Bengali baul accompaniment",
+          "descriptors": [
+            "baul",
+            "drone-foundation"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "bengali"
+          ]
+        },
+        {
+          "id": "ektara_bhajan",
+          "name": "North Indian bhajan accompaniment",
+          "descriptors": [
+            "devotional",
+            "drone-foundation"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "bhajan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ektara_body",
+      "surface": false,
+      "name": "Body / resonator",
+      "variants": [
+        {
+          "id": "ektara_gourd_bamboo",
+          "default": true,
+          "name": "Gourd resonator + bamboo neck (canonical Bengali)",
+          "descriptors": [
+            "gourd-bamboo-canonical-bengali"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ektara_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ektara_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "ektara_gut_historical",
+          "name": "Gut (pre-modern Bengali historical)",
+          "descriptors": [
+            "gut-pre-modern-bengali-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ektara_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "ektara_baul",
+          "default": true,
+          "name": "Bengali baul accompaniment",
+          "descriptors": [
+            "baul",
+            "drone-foundation"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "bengali"
+          ]
+        },
+        {
+          "id": "ektara_bhajan",
+          "name": "North Indian bhajan accompaniment",
+          "descriptors": [
+            "devotional",
+            "drone-foundation"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "bhajan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ektara_body",
+      "surface": false,
+      "name": "Body / resonator",
+      "variants": [
+        {
+          "id": "ektara_gourd_bamboo",
+          "default": true,
+          "name": "Gourd resonator + bamboo neck (canonical Bengali)",
+          "descriptors": [
+            "gourd-bamboo-canonical-bengali"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ektara_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ektara_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "ektara_gut_historical",
+          "name": "Gut (pre-modern Bengali historical)",
+          "descriptors": [
+            "gut-pre-modern-bengali-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

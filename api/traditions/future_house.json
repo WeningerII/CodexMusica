@@ -1,0 +1,63 @@
+{
+  "id": "future_house",
+  "name": "Future house",
+  "family": "electronic",
+  "lineage": "Mid-2010s house subgenre developed by Tchami (French producer), characterized by metallic-and-rubbery synth-bass leads (the \"future bass\" 2017-onward overlap), filtered-clean groove production, and emphasis on rolling-bass-pattern over four-on-the-floor structural foundation. Oliver Heldens' \"Gecko\" (2014) and Tchami's 2014-2015 productions inaugurated the canonical sound; Don Diablo, Curbi, and the broader Spinnin' Records-Mixmash Records rosters extended the genre.",
+  "recipe": "classic 2014-2015 future house, electronic Dance, house branch, uk soundsystem bass system speed garage bassline. TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 338,
+  "score": 67.622,
+  "config": {
+    "traditions": [
+      "future_house",
+      "speed_garage_1990s",
+      "bassline_uk"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 5.915,
+          "drum_machine_808_context": 5.9799999999999995,
+          "tr808_production_origin": 0.1365
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 5.785,
+          "oscillator": 7.669999999999999,
+          "filter_topology": 7.669999999999999,
+          "envelope": 0.585,
+          "modulation": 0
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

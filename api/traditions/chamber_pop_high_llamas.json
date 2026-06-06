@@ -1,0 +1,203 @@
+{
+  "id": "chamber_pop_high_llamas",
+  "name": "Chamber pop",
+  "family": "rock_punk",
+  "lineage": "Late-1990s-and-2000s indie rock subgenre integrating orchestral-and-chamber-instrument arrangements (strings, woodwinds, brass) with pop song-form structure, often referencing the 1960s Brian Wilson/Beach Boys, Burt Bacharach, and Van Dyke Parks compositional aesthetic. The High Llamas (UK, 1992-onward, Sean O'Hagan), Belle and Sebastian, Lambchop, the Divine Comedy, and Sufjan Stevens constitute the canonical roster.",
+  "recipe": "classic Los Angeles modern chamber pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, low dynamic level, chest resonance low mid, equal tempered. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 773,
+  "score": 469.522,
+  "config": {
+    "traditions": [
+      "chamber_pop_high_llamas",
+      "classical_period_18c",
+      "grand_opera_french"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "operatic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 16.049999999999994,
+          "voice_quality": 0.8949999999999997,
+          "voice_vibrato": 2.8649999999999993,
+          "voice_articulation": 0.24,
+          "voice_microtone": 21.004999999999995,
+          "voice_tradition": 7.035,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 10.075,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0.18,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 1.86,
+          "voice_multitrack_stack": 4.635000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 5.7,
+          "amp_make": 4.785,
+          "body_wood": 1.26,
+          "neck_wood": 0.195,
+          "fretboard": 1.02,
+          "pickup_magnet": 0.195,
+          "string_material": 1.02,
+          "string_gauge": 1.6349999999999998,
+          "bridge": 0.6749999999999999,
+          "scale_length": 1.69,
+          "finish": 0,
+          "string_tuning": 6.425
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 3.2,
+          "amp_make": 5.595,
+          "body_wood": 0.9149999999999999,
+          "pickup_config": 1.3949999999999998,
+          "string_type": 12.01,
+          "scale_length_b": 0.96,
+          "fretted_or_not": 0.345,
+          "bass_technique": 11.999999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 8.319999999999999,
+          "shell_wood": 1.69,
+          "shell_thickness": 1.17,
+          "bearing_edges": 0.8699999999999999,
+          "drumhead": 6.164999999999999,
+          "snare_wires": 0.825,
+          "cymbal_alloy": 16.545,
+          "cymbal_hammering": 16.45,
+          "cymbal_lathing": 17.125,
+          "cymbal_finish": 0.195,
+          "drum_technique": 10.75
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 5.8950000000000005,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 1.785,
+          "piano_hammer": 6.5249999999999995,
+          "piano_rim": 6.959999999999999,
+          "piano_soundboard": 5.699999999999999,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": 1.625
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.2,
+          "orch_strings": 1.17,
+          "orch_top_wood": 1.625,
+          "orch_back_wood": 5.015000000000001,
+          "orch_varnish": 1.25,
+          "orch_setup_period": -0.07,
+          "orch_bow": 1.32,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.915,
+          "orch_rosin": 2.7950000000000004
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_vox_ac30_topboost",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

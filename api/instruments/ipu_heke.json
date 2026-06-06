@@ -1,0 +1,120 @@
+{
+  "id": "ipu_heke",
+  "name": "Ipu heke (Hawaiian double-gourd percussion)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ipu-heke",
+  "parts": [
+    {
+      "id": "ipu_heke_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "ipu_heke_double_gourd_joined_neck_canonical",
+          "default": true,
+          "name": "Two dried gourds of different sizes joined at necks (canonical hula kahiko percussion)",
+          "descriptors": [
+            "two-dried-gourds-joined-necks-canonical-hula-kahiko-percussion"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition",
+            "polynesian"
+          ]
+        },
+        {
+          "id": "ipu_single_heke_ole",
+          "name": "Single-gourd ipu heke ‘ole (no top piece)",
+          "descriptors": [
+            "single-gourd-no-top-piece-mele-hula-accompaniment"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ipu_heke_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "ipu_heke_ground_strike_palm_slap",
+          "default": true,
+          "name": "Ground-strike + palm-slap pattern (canonical hula kahiko rhythm)",
+          "descriptors": [
+            "ground-strike-palm-slap-canonical-hula-kahiko-rhythm"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ipu_heke_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "ipu_heke_double_gourd_joined_neck_canonical",
+          "default": true,
+          "name": "Two dried gourds of different sizes joined at necks (canonical hula kahiko percussion)",
+          "descriptors": [
+            "two-dried-gourds-joined-necks-canonical-hula-kahiko-percussion"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition",
+            "polynesian"
+          ]
+        },
+        {
+          "id": "ipu_single_heke_ole",
+          "name": "Single-gourd ipu heke ‘ole (no top piece)",
+          "descriptors": [
+            "single-gourd-no-top-piece-mele-hula-accompaniment"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ipu_heke_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "ipu_heke_ground_strike_palm_slap",
+          "default": true,
+          "name": "Ground-strike + palm-slap pattern (canonical hula kahiko rhythm)",
+          "descriptors": [
+            "ground-strike-palm-slap-canonical-hula-kahiko-rhythm"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

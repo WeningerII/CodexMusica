@@ -1,0 +1,193 @@
+{
+  "id": "chicago_blues",
+  "name": "Chicago blues",
+  "family": "blues_gospel",
+  "lineage": "Post-WWII Chicago electric blues tradition codified through the Great Migration of Black Mississippi Delta musicians to Chicago in the 1940s-50s, with the Chess Records recording infrastructure anchoring the canon — Muddy Waters (the Chicago blues voice, Mannish Boy 1955), Howlin Wolf, Little Walter (Chicago amplified-harmonica), Willie Dixon (Chess songwriter-and-bassist), Otis Spann piano, the broader Chess house-band assembled around them",
+  "recipe": "classic North American mid-1940s chicago blues, functional Song, blues electric branch, American jazz improv on frame hard bop latin jazz. thick, blues-shouter, rhythmic, equal tempered. blues slide open string slide resonance single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard tonewheel organ, thomastik infeld low tension jazz warm walking fingerstyle electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, pearwood marine band tradition double brass chromatic canon hohner marine band 1896 canonical blues trossingen harmonica. 2120 south michigan avenue 1957-1975 indie-commercial chess studios chicago. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 840,
+  "score": 768.783,
+  "config": {
+    "traditions": [
+      "chicago_blues",
+      "hard_bop",
+      "latin_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 16.479999999999993,
+          "voice_quality": 6.775000000000001,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.9299999999999999,
+          "voice_microtone": 7.469999999999999,
+          "voice_tradition": 7.504999999999999,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 3.575,
+          "voice_ensemble_config": 2.8600000000000003,
+          "voice_ornament_system": 1.4,
+          "voice_pitch_organization": 1.14,
+          "voice_processing_chain": 3.295,
+          "voice_multitrack_stack": 0.8999999999999999
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 0.25,
+          "amp_make": 2.34,
+          "body_wood": 0.39,
+          "neck_wood": 0.39,
+          "fretboard": 0.375,
+          "pickup_magnet": 0.22499999999999998,
+          "string_material": 0.22499999999999998,
+          "string_gauge": 0.39,
+          "bridge": 0.135,
+          "scale_length": 0.39,
+          "finish": 0,
+          "string_tuning": 7.829999999999998
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "drawbar_setting": 2.23,
+          "rotary_speed": 0.39,
+          "percussion_setting": 1.7499999999999998,
+          "tonewheel_model": 1.2349999999999999,
+          "leslie_cabinet_model": 0.15
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": 0.325,
+          "amp_make": 2.34,
+          "body_wood": 0.39,
+          "pickup_config": 0.09,
+          "string_type": 2.34,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.39,
+          "bass_technique": 2.335
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "hand_lathed_pit_retaining",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_jazz"
+        },
+        "scores": {
+          "percussion_technique": 4.095,
+          "shell_wood": 0.40499999999999997,
+          "shell_thickness": 0.39,
+          "bearing_edges": 0.39,
+          "drumhead": 3.9,
+          "snare_wires": 0.39,
+          "cymbal_alloy": 16.739999999999995,
+          "cymbal_hammering": 3.575,
+          "cymbal_lathing": 2.2099999999999995,
+          "cymbal_finish": 0.18,
+          "drum_technique": 2.4699999999999998
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "free_reed_technique": "free_reed_blues_cross",
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "double_brass_harm",
+          "harmonica_technique": "harm_chromatic_jazz",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_solo_chromatic"
+        },
+        "scores": {
+          "free_reed_technique": 3.8000000000000003,
+          "harmonica_type": 0.9099999999999999,
+          "harmonica_comb": 19.274999999999995,
+          "harmonica_reed": 15.714999999999996,
+          "harmonica_technique": 18.849999999999998,
+          "harmonica_maker_school": 16.124999999999996,
+          "harmonica_tuning": 7.379999999999999
+        }
+      }
+    ],
+    "room": "chess_studios_chicago",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_tweed",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "chicago_blues_aesthetic",
+    "arrangement": null,
+    "fx_extras": [
+      "fx_tube_screamer"
+    ]
+  }
+}

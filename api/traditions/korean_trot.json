@@ -1,0 +1,153 @@
+{
+  "id": "korean_trot",
+  "name": "Korean trot (twentieth-century popular ballad)",
+  "family": "pop",
+  "lineage": "Korean trot (teuroteu) twentieth-century popular ballad genre emerging in 1920s-1930s colonial-period Korea from the synthesis of Japanese enka (then dominant on the colonial-Korean recording market) with native Korean folk vocal-inflection. Characterized by the canonical 2/4 \"trot rhythm\" (a swung syncopated pulse derived ultimately from foxtrot dance-band music), characteristic Korean vocal-vibrato called kkeokgi (\"bending\"), and emotionally direct sentimental-romantic-and-loss lyrical register. The genre survived multiple cycles of cultural-policy suppression (especially the 1965 anti-Japanese-influence purge) and remains a major mainstream Korean popular-music form today. The 2010s trot-revival under Korean cable-television trot-contests reinvigorated the genre with young audiences.",
+  "recipe": "classic North American mid-1920s korean trot, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, lament wail, pure, punctuated. mahogany maple clean strummed humbucker electric guitar, pre muffled edge muffled hot rolled annealed machine hammered drum kit, low mid rich spectrum low-mid-thick mahogany electric bass. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 585,
+  "score": 301.588,
+  "config": {
+    "traditions": [
+      "korean_trot",
+      "cape_verdean_batuko",
+      "morna"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "korean_minsogak_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 10.395000000000001,
+          "voice_quality": 2.7950000000000004,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.9202499999999999,
+          "voice_microtone": 6.335250000000001,
+          "voice_tradition": 33.3355,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 6.954999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 24.25,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 3.3799999999999994
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_soldano_slo100",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 9.5,
+          "amp_make": 1.1949999999999998,
+          "body_wood": 1.0604999999999998,
+          "neck_wood": 0.9105,
+          "fretboard": 0.345,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.6599999999999999,
+          "string_material": 0.41999999999999993,
+          "bridge": 0.9105,
+          "scale_length": 1.8209999999999997,
+          "string_gauge": 1.38075,
+          "finish": 0,
+          "string_tuning": 1.69
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 4.9399999999999995,
+          "shell_wood": 0.28500000000000003,
+          "shell_thickness": 0,
+          "bearing_edges": 1.0005,
+          "drumhead": 6.335,
+          "snare_wires": 0.9105,
+          "cymbal_alloy": 6.3950000000000005,
+          "cymbal_hammering": 6.15,
+          "cymbal_lathing": 6.195,
+          "cymbal_finish": 0.15,
+          "drum_technique": 4.9399999999999995
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_british_60s_selmer",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "half_round",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 0,
+          "body_wood": 1.8209999999999997,
+          "pickup_config": 0,
+          "string_type": 1.3005,
+          "scale_length_b": 0.9105,
+          "fretted_or_not": 0.345,
+          "bass_technique": -0.035
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "korean_minsogak_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

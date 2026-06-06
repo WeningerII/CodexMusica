@@ -1,0 +1,397 @@
+{
+  "id": "kaval",
+  "name": "Kaval (Bulgarian/Turkish end-blown flute)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kaval",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kaval_region",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "kaval_bulgarian",
+          "default": true,
+          "name": "Bulgarian",
+          "descriptors": [
+            "pastoral",
+            "south-Slavic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_turkish",
+          "name": "Turkish (çoban kavalı)",
+          "descriptors": [
+            "aksak-aware",
+            "Anatolian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_romanian",
+          "name": "Romanian (caval)",
+          "descriptors": [
+            "carpathian",
+            "lyric-pastoral",
+            "hora-context"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kaval_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "kaval_pastoral",
+          "default": true,
+          "name": "Pastoral solo",
+          "descriptors": [
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_village",
+          "name": "Village wedding / hora",
+          "descriptors": [
+            "celebratory",
+            "communal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_art_music",
+          "name": "Modern art-music",
+          "descriptors": [
+            "concert",
+            "composed",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kaval_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kaval_plum_canonical",
+          "default": true,
+          "name": "Plum wood (canonical Bulgarian)",
+          "descriptors": [
+            "plum-canonical-bulgarian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_cornel",
+          "name": "Cornel wood (Anatolian / çoban kavalı premium)",
+          "descriptors": [
+            "cornel-anatolian-coban-kavali-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_apricot",
+          "name": "Apricot (alternative)",
+          "descriptors": [
+            "apricot-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kaval_region",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "kaval_bulgarian",
+          "default": true,
+          "name": "Bulgarian",
+          "descriptors": [
+            "pastoral",
+            "south-Slavic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_turkish",
+          "name": "Turkish (çoban kavalı)",
+          "descriptors": [
+            "aksak-aware",
+            "Anatolian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_romanian",
+          "name": "Romanian (caval)",
+          "descriptors": [
+            "carpathian",
+            "lyric-pastoral",
+            "hora-context"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kaval_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "kaval_pastoral",
+          "default": true,
+          "name": "Pastoral solo",
+          "descriptors": [
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_village",
+          "name": "Village wedding / hora",
+          "descriptors": [
+            "celebratory",
+            "communal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_art_music",
+          "name": "Modern art-music",
+          "descriptors": [
+            "concert",
+            "composed",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kaval_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kaval_plum_canonical",
+          "default": true,
+          "name": "Plum wood (canonical Bulgarian)",
+          "descriptors": [
+            "plum-canonical-bulgarian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_cornel",
+          "name": "Cornel wood (Anatolian / çoban kavalı premium)",
+          "descriptors": [
+            "cornel-anatolian-coban-kavali-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kaval_apricot",
+          "name": "Apricot (alternative)",
+          "descriptors": [
+            "apricot-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

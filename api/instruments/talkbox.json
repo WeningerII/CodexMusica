@@ -1,0 +1,154 @@
+{
+  "id": "talkbox",
+  "name": "Talkbox",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "short": "talkbox",
+  "parts": [
+    {
+      "id": "talkbox_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "talkbox_funk",
+          "default": true,
+          "name": "Funk vocal-formant lead",
+          "descriptors": [],
+          "match_tokens": [
+            "funky",
+            "electronic",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talkbox_rock",
+          "name": "Arena rock",
+          "descriptors": [
+            "character"
+          ],
+          "match_tokens": [
+            "rock-context",
+            "electronic",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "rock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "talkbox_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "talkbox_tube",
+          "default": true,
+          "name": "Tube-and-driver (canonical)",
+          "descriptors": [
+            "classic",
+            "pre-modern",
+            "authentic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talkbox_combo",
+          "name": "Modern combo unit",
+          "descriptors": [
+            "integrated",
+            "consistent",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "talkbox_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "talkbox_funk",
+          "default": true,
+          "name": "Funk vocal-formant lead",
+          "descriptors": [],
+          "match_tokens": [
+            "funky",
+            "electronic",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talkbox_rock",
+          "name": "Arena rock",
+          "descriptors": [
+            "character"
+          ],
+          "match_tokens": [
+            "rock-context",
+            "electronic",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "rock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "talkbox_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "talkbox_tube",
+          "default": true,
+          "name": "Tube-and-driver (canonical)",
+          "descriptors": [
+            "classic",
+            "pre-modern",
+            "authentic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talkbox_combo",
+          "name": "Modern combo unit",
+          "descriptors": [
+            "integrated",
+            "consistent",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    }
+  ]
+}

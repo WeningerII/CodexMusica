@@ -1,0 +1,1349 @@
+{
+  "id": "banjo_5_string",
+  "name": "Five-string banjo",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "five-string banjo",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_call_and_response",
+          "name": "Call-and-response",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "akonting",
+            "banjo_5_string",
+            "sintir",
+            "xalam"
+          ],
+          "descriptors": [
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "call-response",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "griot",
+            "west-african"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "banjo_back",
+      "name": "Open-back vs resonator",
+      "variants": [
+        {
+          "id": "open_back",
+          "default": true,
+          "name": "Open-back",
+          "descriptors": [
+            "low-projection-volume",
+            "woody",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "plucked"
+          ]
+        },
+        {
+          "id": "resonator",
+          "name": "Resonator",
+          "descriptors": [
+            "loud",
+            "treble-extended",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tone_ring",
+      "surface": false,
+      "name": "Tone ring",
+      "variants": [
+        {
+          "id": "flathead",
+          "name": "Flathead bronze",
+          "descriptors": [
+            "loud",
+            "ringing",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "tubaphone",
+          "default": true,
+          "name": "Tubaphone",
+          "descriptors": [
+            "clean",
+            "woody",
+            "vintage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "wood_ring",
+          "name": "Wooden tone ring",
+          "descriptors": [
+            "low-projection-volume",
+            "woody",
+            "old-time-suited",
+            "wood"
+          ],
+          "match_tokens": [
+            "ringing",
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "no_ring",
+          "name": "No tone ring",
+          "descriptors": [
+            "undamped-resonance",
+            "primitive",
+            "clawhammer-suited"
+          ],
+          "match_tokens": [
+            "ringing",
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_head",
+      "surface": false,
+      "name": "Head",
+      "variants": [
+        {
+          "id": "frosted_plastic",
+          "name": "Frosted plastic",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "plastic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "coated_plastic",
+          "name": "Coated plastic",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "dampened",
+            "controlled",
+            "plastic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "calfskin",
+          "default": true,
+          "name": "Calfskin",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "natural-material-resonance",
+            "vintage",
+            "calfskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "fiberskyn",
+          "name": "Fiberskyn",
+          "descriptors": [
+            "between-skin-and-plastic",
+            "woody"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_pot",
+      "name": "Pot diameter",
+      "variants": [
+        {
+          "id": "pot_11",
+          "default": true,
+          "name": "11\"",
+          "descriptors": [
+            "treble-extended",
+            "focused",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "pot_12",
+          "name": "12\"",
+          "descriptors": [
+            "deeper",
+            "warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "three_finger",
+          "name": "Three-finger / Scruggs",
+          "descriptors": [
+            "rolling",
+            "bluegrass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "clawhammer",
+          "default": true,
+          "name": "Clawhammer / frailing",
+          "descriptors": [
+            "percussive",
+            "thumb-driven",
+            "old-time"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "two_finger",
+          "name": "Two-finger / drop-thumb",
+          "descriptors": [
+            "archaic",
+            "driving",
+            "piedmont"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_rim_wood",
+      "surface": false,
+      "name": "Rim wood / construction",
+      "variants": [
+        {
+          "id": "banjo_3_ply_maple_gibson",
+          "default": true,
+          "name": "3-ply maple (Gibson Mastertone canon)",
+          "descriptors": [
+            "3-ply-maple",
+            "gibson-mastertone-canon",
+            "high-projection"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_block_rim_maple",
+          "name": "Block-rim maple (boutique modern)",
+          "descriptors": [
+            "block-rim",
+            "maple",
+            "boutique-bluegrass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_walnut_rim",
+          "name": "Walnut rim (warmer)",
+          "descriptors": [
+            "walnut",
+            "warmer-than-maple"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "banjo_mahogany_rim",
+          "name": "Mahogany rim (vintage / clawhammer)",
+          "descriptors": [
+            "mahogany",
+            "warm",
+            "clawhammer-friendly"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_neck_wood",
+      "surface": false,
+      "name": "Neck wood",
+      "variants": [
+        {
+          "id": "banjo_maple_neck",
+          "default": true,
+          "name": "Maple (bluegrass canon, matches rim)",
+          "descriptors": [
+            "maple",
+            "bluegrass-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_mahogany_neck",
+          "name": "Mahogany (open-back clawhammer canon)",
+          "descriptors": [
+            "mahogany",
+            "open-back-canon",
+            "clawhammer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "banjo_walnut_neck",
+          "name": "Walnut (mid-tier modern)",
+          "descriptors": [
+            "walnut",
+            "mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "banjo_cherry_neck",
+          "name": "Cherry (boutique open-back)",
+          "descriptors": [
+            "cherry",
+            "boutique-open-back"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "banjo_medium_bluegrass",
+          "default": true,
+          "name": "Medium steel (bluegrass canon, GHS PF135 / J.D. Crowe)",
+          "descriptors": [
+            "medium-steel",
+            "bluegrass-canon",
+            "ghs-pf135"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_light_clawhammer",
+          "name": "Light steel (clawhammer)",
+          "descriptors": [
+            "light-steel",
+            "clawhammer-canon",
+            "easy-pull"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "banjo_gut_minstrel",
+          "name": "Plain gut (minstrel pre-1860s / fretless canon)",
+          "descriptors": [
+            "plain-gut",
+            "minstrel-pre-1860s",
+            "fretless-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "banjo_nylgut",
+          "name": "Nylgut (Aquila — gut-emulating modern)",
+          "descriptors": [
+            "nylgut",
+            "aquila",
+            "gut-emulating"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "banjo_fluorocarbon",
+          "name": "Fluorocarbon (modern open-back / clawhammer)",
+          "descriptors": [
+            "fluorocarbon",
+            "modern-open-back"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "banjo_d_addario_j60",
+          "name": "D'Addario J60 (medium nickel)",
+          "descriptors": [
+            "daddario-j60",
+            "medium-nickel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_bridge",
+      "surface": false,
+      "name": "Bridge",
+      "variants": [
+        {
+          "id": "banjo_maple_ebony_bridge",
+          "default": true,
+          "name": "Maple with ebony cap (5/8\" — bluegrass canon)",
+          "descriptors": [
+            "maple-ebony-cap",
+            "fixed-height",
+            "bluegrass-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_minstrel_bridge",
+          "name": "Low minstrel bridge (pre-1860s)",
+          "descriptors": [
+            "low-minstrel-bridge",
+            "pre-1860s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "banjo_compensated_bridge",
+          "name": "Compensated bridge (modern Snuffy Smith)",
+          "descriptors": [
+            "compensated-bridge",
+            "snuffy-smith"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_setup_period",
+      "surface": false,
+      "name": "Setup period / canon",
+      "variants": [
+        {
+          "id": "banjo_scruggs_bluegrass_setup",
+          "default": true,
+          "name": "Scruggs / Stelling bluegrass (Mastertone flathead, picks, high bridge)",
+          "descriptors": [
+            "scruggs-stelling",
+            "bluegrass-setup",
+            "mastertone-flathead",
+            "picks-and-thumbpick"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_old_time_open_back_setup",
+          "name": "Old-time / clawhammer open-back (low bridge, looser action)",
+          "descriptors": [
+            "old-time-clawhammer",
+            "low-bridge-loose-action",
+            "open-back"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "old-time"
+          ]
+        },
+        {
+          "id": "banjo_minstrel_period_setup",
+          "name": "Minstrel pre-1860s (fretless, gut, low bridge)",
+          "descriptors": [
+            "minstrel-pre-1860s",
+            "fretless",
+            "gut-strings",
+            "low-bridge"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "banjo_classic_5_string_setup",
+          "name": "Classic 5-string parlor (1880-1920, ragtime / classic banjo)",
+          "descriptors": [
+            "classic-5-string",
+            "ragtime-banjo",
+            "1880-1920-parlor"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "banjo_back",
+      "name": "Open-back vs resonator",
+      "variants": [
+        {
+          "id": "open_back",
+          "default": true,
+          "name": "Open-back",
+          "descriptors": [
+            "low-projection-volume",
+            "woody",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "plucked"
+          ]
+        },
+        {
+          "id": "resonator",
+          "name": "Resonator",
+          "descriptors": [
+            "loud",
+            "treble-extended",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tone_ring",
+      "surface": false,
+      "name": "Tone ring",
+      "variants": [
+        {
+          "id": "flathead",
+          "name": "Flathead bronze",
+          "descriptors": [
+            "loud",
+            "ringing",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "tubaphone",
+          "default": true,
+          "name": "Tubaphone",
+          "descriptors": [
+            "clean",
+            "woody",
+            "vintage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "wood_ring",
+          "name": "Wooden tone ring",
+          "descriptors": [
+            "low-projection-volume",
+            "woody",
+            "old-time-suited",
+            "wood"
+          ],
+          "match_tokens": [
+            "ringing",
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "no_ring",
+          "name": "No tone ring",
+          "descriptors": [
+            "undamped-resonance",
+            "primitive",
+            "clawhammer-suited"
+          ],
+          "match_tokens": [
+            "ringing",
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_head",
+      "surface": false,
+      "name": "Head",
+      "variants": [
+        {
+          "id": "frosted_plastic",
+          "name": "Frosted plastic",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "plastic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "coated_plastic",
+          "name": "Coated plastic",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "dampened",
+            "controlled",
+            "plastic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "calfskin",
+          "default": true,
+          "name": "Calfskin",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "natural-material-resonance",
+            "vintage",
+            "calfskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "fiberskyn",
+          "name": "Fiberskyn",
+          "descriptors": [
+            "between-skin-and-plastic",
+            "woody"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_pot",
+      "name": "Pot diameter",
+      "variants": [
+        {
+          "id": "pot_11",
+          "default": true,
+          "name": "11\"",
+          "descriptors": [
+            "treble-extended",
+            "focused",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "pot_12",
+          "name": "12\"",
+          "descriptors": [
+            "deeper",
+            "warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "three_finger",
+          "name": "Three-finger / Scruggs",
+          "descriptors": [
+            "rolling",
+            "bluegrass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "clawhammer",
+          "default": true,
+          "name": "Clawhammer / frailing",
+          "descriptors": [
+            "percussive",
+            "thumb-driven",
+            "old-time"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "two_finger",
+          "name": "Two-finger / drop-thumb",
+          "descriptors": [
+            "archaic",
+            "driving",
+            "piedmont"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_rim_wood",
+      "surface": false,
+      "name": "Rim wood / construction",
+      "variants": [
+        {
+          "id": "banjo_3_ply_maple_gibson",
+          "default": true,
+          "name": "3-ply maple (Gibson Mastertone canon)",
+          "descriptors": [
+            "3-ply-maple",
+            "gibson-mastertone-canon",
+            "high-projection"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_block_rim_maple",
+          "name": "Block-rim maple (boutique modern)",
+          "descriptors": [
+            "block-rim",
+            "maple",
+            "boutique-bluegrass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_walnut_rim",
+          "name": "Walnut rim (warmer)",
+          "descriptors": [
+            "walnut",
+            "warmer-than-maple"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "banjo_mahogany_rim",
+          "name": "Mahogany rim (vintage / clawhammer)",
+          "descriptors": [
+            "mahogany",
+            "warm",
+            "clawhammer-friendly"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_neck_wood",
+      "surface": false,
+      "name": "Neck wood",
+      "variants": [
+        {
+          "id": "banjo_maple_neck",
+          "default": true,
+          "name": "Maple (bluegrass canon, matches rim)",
+          "descriptors": [
+            "maple",
+            "bluegrass-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_mahogany_neck",
+          "name": "Mahogany (open-back clawhammer canon)",
+          "descriptors": [
+            "mahogany",
+            "open-back-canon",
+            "clawhammer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "banjo_walnut_neck",
+          "name": "Walnut (mid-tier modern)",
+          "descriptors": [
+            "walnut",
+            "mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "banjo_cherry_neck",
+          "name": "Cherry (boutique open-back)",
+          "descriptors": [
+            "cherry",
+            "boutique-open-back"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "banjo_medium_bluegrass",
+          "default": true,
+          "name": "Medium steel (bluegrass canon, GHS PF135 / J.D. Crowe)",
+          "descriptors": [
+            "medium-steel",
+            "bluegrass-canon",
+            "ghs-pf135"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_light_clawhammer",
+          "name": "Light steel (clawhammer)",
+          "descriptors": [
+            "light-steel",
+            "clawhammer-canon",
+            "easy-pull"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "banjo_gut_minstrel",
+          "name": "Plain gut (minstrel pre-1860s / fretless canon)",
+          "descriptors": [
+            "plain-gut",
+            "minstrel-pre-1860s",
+            "fretless-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "banjo_nylgut",
+          "name": "Nylgut (Aquila — gut-emulating modern)",
+          "descriptors": [
+            "nylgut",
+            "aquila",
+            "gut-emulating"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "banjo_fluorocarbon",
+          "name": "Fluorocarbon (modern open-back / clawhammer)",
+          "descriptors": [
+            "fluorocarbon",
+            "modern-open-back"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "banjo_d_addario_j60",
+          "name": "D'Addario J60 (medium nickel)",
+          "descriptors": [
+            "daddario-j60",
+            "medium-nickel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_bridge",
+      "surface": false,
+      "name": "Bridge",
+      "variants": [
+        {
+          "id": "banjo_maple_ebony_bridge",
+          "default": true,
+          "name": "Maple with ebony cap (5/8\" — bluegrass canon)",
+          "descriptors": [
+            "maple-ebony-cap",
+            "fixed-height",
+            "bluegrass-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_minstrel_bridge",
+          "name": "Low minstrel bridge (pre-1860s)",
+          "descriptors": [
+            "low-minstrel-bridge",
+            "pre-1860s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "banjo_compensated_bridge",
+          "name": "Compensated bridge (modern Snuffy Smith)",
+          "descriptors": [
+            "compensated-bridge",
+            "snuffy-smith"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banjo_setup_period",
+      "surface": false,
+      "name": "Setup period / canon",
+      "variants": [
+        {
+          "id": "banjo_scruggs_bluegrass_setup",
+          "default": true,
+          "name": "Scruggs / Stelling bluegrass (Mastertone flathead, picks, high bridge)",
+          "descriptors": [
+            "scruggs-stelling",
+            "bluegrass-setup",
+            "mastertone-flathead",
+            "picks-and-thumbpick"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "banjo_old_time_open_back_setup",
+          "name": "Old-time / clawhammer open-back (low bridge, looser action)",
+          "descriptors": [
+            "old-time-clawhammer",
+            "low-bridge-loose-action",
+            "open-back"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "old-time"
+          ]
+        },
+        {
+          "id": "banjo_minstrel_period_setup",
+          "name": "Minstrel pre-1860s (fretless, gut, low bridge)",
+          "descriptors": [
+            "minstrel-pre-1860s",
+            "fretless",
+            "gut-strings",
+            "low-bridge"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "banjo_classic_5_string_setup",
+          "name": "Classic 5-string parlor (1880-1920, ragtime / classic banjo)",
+          "descriptors": [
+            "classic-5-string",
+            "ragtime-banjo",
+            "1880-1920-parlor"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    }
+  ]
+}

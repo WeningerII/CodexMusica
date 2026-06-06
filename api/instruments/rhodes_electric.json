@@ -1,0 +1,581 @@
+{
+  "id": "rhodes_electric",
+  "name": "Rhodes electric piano",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 1
+  },
+  "short": "Rhodes",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_jazz_comping",
+          "name": "Jazz comping",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "electric_piano_tine"
+          ],
+          "descriptors": [
+            "comped",
+            "voice-leading"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "comping",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "keyboard_gospel_chord_runs",
+          "name": "Gospel chord-runs",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "tonewheel_organ",
+            "electric_piano_tine"
+          ],
+          "descriptors": [
+            "gospel-runs"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "chordal",
+            "block-chord",
+            "bebop-runs"
+          ],
+          "canonical_tags": [
+            "gospel",
+            "soul"
+          ]
+        },
+        {
+          "id": "keyboard_minimalist_repeated",
+          "name": "Minimalist / repeated cells",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "electric_piano_tine",
+            "celesta",
+            "rhodes_electric"
+          ],
+          "descriptors": [
+            "repeated",
+            "cellular"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "minimalist"
+          ]
+        },
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        },
+        {
+          "id": "keyboard_ostinato_groove",
+          "name": "Ostinato groove",
+          "applies_to": [
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "electric_piano_tine",
+            "clavinet",
+            "tonewheel_organ"
+          ],
+          "descriptors": [
+            "ostinato",
+            "pocket"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "soul",
+            "funk"
+          ]
+        },
+        {
+          "id": "keyboard_arpeggio_sustain_rich",
+          "name": "Arpeggiated sustain-rich",
+          "applies_to": [
+            "grand_piano",
+            "rhodes_electric",
+            "mellotron",
+            "electric_piano_tine",
+            "tape_replay_keyboard",
+            "pipe_organ"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sustain-rich-overtones"
+          ],
+          "match_tokens": [
+            "arpeggio-decoration",
+            "sustained",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "shoegaze"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "rhodes_model",
+      "surface": false,
+      "name": "Model",
+      "variants": [
+        {
+          "id": "rhodes_mark1_stage",
+          "default": true,
+          "name": "Mark I Stage 73-key",
+          "descriptors": [
+            "hammer-low-mid-emphasis"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "rhodes_suitcase",
+          "name": "Suitcase (with built-in tremolo)",
+          "descriptors": [
+            "hammer-low-mid-emphasis",
+            "tremolo"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "rhodes_mark2",
+          "name": "Mark II",
+          "descriptors": [
+            "fast-attack-transient",
+            "attack-forward"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rhodes_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "rhodes_jazz",
+          "default": true,
+          "name": "Jazz chordal",
+          "descriptors": [
+            "hammer-low-mid-emphasis",
+            "chordal",
+            "expressive"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "electric"
+          ]
+        },
+        {
+          "id": "rhodes_soul",
+          "name": "Soul / R&B",
+          "descriptors": [
+            "hammer-low-mid-emphasis",
+            "vocal-supporting",
+            "foundational"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rhodes_tine_material",
+      "surface": false,
+      "name": "Tine material",
+      "variants": [
+        {
+          "id": "rhodes_torrington_tine",
+          "default": true,
+          "name": "Torrington spring-steel tine (canonical Rhodes 1965-1984)",
+          "descriptors": [
+            "torrington-spring-steel-tine-canonical-rhodes-1965-1984"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "rhodes_raymac_tine",
+          "name": "Raymac steel tine (premium 1970s vintage replacement)",
+          "descriptors": [
+            "raymac-steel-tine-premium-1970s-vintage-replacement"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "rhodes_mark7_modern_tine",
+          "name": "Mark 7 modern tine (post-2007 reissue)",
+          "descriptors": [
+            "mark-7-modern-tine-post-2007-reissue"
+          ],
+          "match_tokens": [
+            "electric"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rhodes_hammer_tip",
+      "surface": false,
+      "name": "Hammer tip material",
+      "variants": [
+        {
+          "id": "rhodes_neoprene_hammer_tip",
+          "default": true,
+          "name": "Neoprene rubber tips (canonical Rhodes Stage / Suitcase mid-1970s)",
+          "descriptors": [
+            "neoprene-rubber-tips-canonical-rhodes-stage-suitcase-mid-1970s"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "rhodes_felt_hammer_tip",
+          "name": "Felt-tipped hammers (early Rhodes pre-1971 — bell-like)",
+          "descriptors": [
+            "felt-tipped-hammers-early-rhodes-pre-1971-bell-like"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "rhodes_harder_neoprene_late",
+          "name": "Harder neoprene (late-1970s — bark/grit)",
+          "descriptors": [
+            "harder-neoprene-late-1970s-bark-grit"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rhodes_pickup_position",
+      "surface": false,
+      "name": "Tine-pickup positioning",
+      "variants": [
+        {
+          "id": "rhodes_pickup_centered",
+          "default": true,
+          "name": "Centered tine-pickup gap (canonical balanced Rhodes voicing)",
+          "descriptors": [
+            "centered-tine-pickup-gap-canonical-balanced-rhodes-voicing"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "rhodes_pickup_close_bark",
+          "name": "Close pickup gap (more bark / dirt — Stevie Wonder canonical canon)",
+          "descriptors": [
+            "close-pickup-gap-more-bark-dirt-motown-clavinet-canon"
+          ],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "rhodes_pickup_far_bell",
+          "name": "Wide pickup gap (more bell, less bark)",
+          "descriptors": [
+            "wide-pickup-gap-more-bell-less-bark"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rhodes_model",
+      "surface": false,
+      "name": "Model",
+      "variants": [
+        {
+          "id": "rhodes_mark1_stage",
+          "default": true,
+          "name": "Mark I Stage 73-key",
+          "descriptors": [
+            "hammer-low-mid-emphasis"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "rhodes_suitcase",
+          "name": "Suitcase (with built-in tremolo)",
+          "descriptors": [
+            "hammer-low-mid-emphasis",
+            "tremolo"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "rhodes_mark2",
+          "name": "Mark II",
+          "descriptors": [
+            "fast-attack-transient",
+            "attack-forward"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rhodes_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "rhodes_jazz",
+          "default": true,
+          "name": "Jazz chordal",
+          "descriptors": [
+            "hammer-low-mid-emphasis",
+            "chordal",
+            "expressive"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "electric"
+          ]
+        },
+        {
+          "id": "rhodes_soul",
+          "name": "Soul / R&B",
+          "descriptors": [
+            "hammer-low-mid-emphasis",
+            "vocal-supporting",
+            "foundational"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rhodes_tine_material",
+      "surface": false,
+      "name": "Tine material",
+      "variants": [
+        {
+          "id": "rhodes_torrington_tine",
+          "default": true,
+          "name": "Torrington spring-steel tine (canonical Rhodes 1965-1984)",
+          "descriptors": [
+            "torrington-spring-steel-tine-canonical-rhodes-1965-1984"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "rhodes_raymac_tine",
+          "name": "Raymac steel tine (premium 1970s vintage replacement)",
+          "descriptors": [
+            "raymac-steel-tine-premium-1970s-vintage-replacement"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "rhodes_mark7_modern_tine",
+          "name": "Mark 7 modern tine (post-2007 reissue)",
+          "descriptors": [
+            "mark-7-modern-tine-post-2007-reissue"
+          ],
+          "match_tokens": [
+            "electric"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rhodes_hammer_tip",
+      "surface": false,
+      "name": "Hammer tip material",
+      "variants": [
+        {
+          "id": "rhodes_neoprene_hammer_tip",
+          "default": true,
+          "name": "Neoprene rubber tips (canonical Rhodes Stage / Suitcase mid-1970s)",
+          "descriptors": [
+            "neoprene-rubber-tips-canonical-rhodes-stage-suitcase-mid-1970s"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "rhodes_felt_hammer_tip",
+          "name": "Felt-tipped hammers (early Rhodes pre-1971 — bell-like)",
+          "descriptors": [
+            "felt-tipped-hammers-early-rhodes-pre-1971-bell-like"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "rhodes_harder_neoprene_late",
+          "name": "Harder neoprene (late-1970s — bark/grit)",
+          "descriptors": [
+            "harder-neoprene-late-1970s-bark-grit"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rhodes_pickup_position",
+      "surface": false,
+      "name": "Tine-pickup positioning",
+      "variants": [
+        {
+          "id": "rhodes_pickup_centered",
+          "default": true,
+          "name": "Centered tine-pickup gap (canonical balanced Rhodes voicing)",
+          "descriptors": [
+            "centered-tine-pickup-gap-canonical-balanced-rhodes-voicing"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "rhodes_pickup_close_bark",
+          "name": "Close pickup gap (more bark / dirt — Stevie Wonder canonical canon)",
+          "descriptors": [
+            "close-pickup-gap-more-bark-dirt-motown-clavinet-canon"
+          ],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "rhodes_pickup_far_bell",
+          "name": "Wide pickup gap (more bell, less bark)",
+          "descriptors": [
+            "wide-pickup-gap-more-bell-less-bark"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    }
+  ]
+}

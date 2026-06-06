@@ -1,0 +1,366 @@
+{
+  "id": "upright_piano",
+  "name": "Upright piano",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "upright piano",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "harpsichord",
+            "pipe_organ",
+            "pump_organ_harmonium",
+            "celesta"
+          ],
+          "descriptors": [
+            "legato",
+            "pedal-resonant"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "sustained-tone",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "keyboard_jazz_comping",
+          "name": "Jazz comping",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "electric_piano_tine"
+          ],
+          "descriptors": [
+            "comped",
+            "voice-leading"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "comping",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "keyboard_stride_left_hand",
+          "name": "Stride / boogie left-hand",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "tack_piano"
+          ],
+          "descriptors": [
+            "stride"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "boogie",
+            "pre-war-jazz"
+          ]
+        },
+        {
+          "id": "keyboard_gospel_chord_runs",
+          "name": "Gospel chord-runs",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "tonewheel_organ",
+            "electric_piano_tine"
+          ],
+          "descriptors": [
+            "gospel-runs"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "chordal",
+            "block-chord",
+            "bebop-runs"
+          ],
+          "canonical_tags": [
+            "gospel",
+            "soul"
+          ]
+        },
+        {
+          "id": "keyboard_honky_tonk",
+          "name": "Honky-tonk",
+          "applies_to": [
+            "tack_piano",
+            "upright_piano"
+          ],
+          "descriptors": [
+            "barrelhouse"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "honky-tonk",
+            "country"
+          ]
+        },
+        {
+          "id": "keyboard_minimalist_repeated",
+          "name": "Minimalist / repeated cells",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "electric_piano_tine",
+            "celesta",
+            "rhodes_electric"
+          ],
+          "descriptors": [
+            "repeated",
+            "cellular"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "minimalist"
+          ]
+        },
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        },
+        {
+          "id": "keyboard_avant_prepared",
+          "name": "Avant / prepared",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "harpsichord"
+          ],
+          "descriptors": [
+            "prepared"
+          ],
+          "match_tokens": [
+            "avant-garde",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "avant",
+            "experimental"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "upright_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "upright_studio",
+          "default": true,
+          "name": "Studio (modern)",
+          "descriptors": [
+            "accessible",
+            "hammer-low-mid-emphasis",
+            "versatile"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "upright_honky_tonk",
+          "name": "Honky-tonk (intentionally detuned)",
+          "descriptors": [
+            "saloon",
+            "vintage",
+            "character"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "upright_tack_piano",
+          "name": "Tack piano (thumbtacks on hammers)",
+          "descriptors": [
+            "vintage",
+            "character"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "upright_piano_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "upright_piano_spinet",
+          "name": "Spinet (33-39\")",
+          "descriptors": [
+            "domestic",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "upright_piano_standard",
+          "default": true,
+          "name": "Standard (40-48\")",
+          "descriptors": [
+            "common",
+            "general-purpose"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "upright_piano_concert",
+          "name": "Concert / professional (50\"+)",
+          "descriptors": [
+            "orchestral-quality",
+            "studio-grade"
+          ],
+          "match_tokens": [
+            "concert",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "upright_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "upright_studio",
+          "default": true,
+          "name": "Studio (modern)",
+          "descriptors": [
+            "accessible",
+            "hammer-low-mid-emphasis",
+            "versatile"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "upright_honky_tonk",
+          "name": "Honky-tonk (intentionally detuned)",
+          "descriptors": [
+            "saloon",
+            "vintage",
+            "character"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "upright_tack_piano",
+          "name": "Tack piano (thumbtacks on hammers)",
+          "descriptors": [
+            "vintage",
+            "character"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "upright_piano_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "upright_piano_spinet",
+          "name": "Spinet (33-39\")",
+          "descriptors": [
+            "domestic",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "upright_piano_standard",
+          "default": true,
+          "name": "Standard (40-48\")",
+          "descriptors": [
+            "common",
+            "general-purpose"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "upright_piano_concert",
+          "name": "Concert / professional (50\"+)",
+          "descriptors": [
+            "orchestral-quality",
+            "studio-grade"
+          ],
+          "match_tokens": [
+            "concert",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

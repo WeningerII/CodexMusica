@@ -1,0 +1,68 @@
+{
+  "id": "bulgarian_zhetvarski",
+  "name": "Bulgarian zhetvarski pesni (harvest songs)",
+  "family": "global",
+  "lineage": "Bulgarian harvest-song (zhetvarski pesni, женски pesni women's-songs) tradition continuous from premodern Bulgarian-agricultural village-labor practice through 19th-century Bulgarian-folklorist documentation through 20th-century Le Mystère des Voix Bulgares-era canonization into modern Bulgarian-folk-revival continuous practice; foundational harvest-song repertoire integrates women's-group-vocal close-harmony arrangement with characteristic Bulgarian-folk modal vocabulary",
+  "recipe": "classic modern bulgarian zhetvarski pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby sardinian wedding cantu and launeddas music chinese chayang-diao. thick, false fold engaged, tasteful, unrestrained. baltic outdoor village. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 405,
+  "score": 116.25,
+  "config": {
+    "traditions": [
+      "bulgarian_zhetvarski",
+      "sardinian_wedding_cantu_launeddas",
+      "chinese_chayang_diao"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 6.75,
+          "voice_quality": 3.185,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.5,
+          "voice_microtone": 0.045,
+          "voice_tradition": 19.564999999999998,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 2.925,
+          "voice_ensemble_config": 2.08,
+          "voice_ornament_system": 0.9999999999999998,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 1.95,
+          "voice_multitrack_stack": 2.08
+        }
+      }
+    ],
+    "room": "baltic_outdoor_village",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "balkan_odd_meter_aksak",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,511 @@
+{
+  "id": "viola_caipira",
+  "name": "Viola caipira (Brazilian 10-string)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "viola caipira",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "viola_caipira_courses",
+      "name": "Course tuning",
+      "variants": [
+        {
+          "id": "viola_cebolão",
+          "default": true,
+          "name": "Cebolão (open D)",
+          "descriptors": [
+            "rural",
+            "sertanejo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_rio_abaixo",
+          "name": "Rio abaixo (open G)",
+          "descriptors": [
+            "traditional",
+            "rural",
+            "folkloric"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_caipira_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "viola_caipira_caipira",
+          "default": true,
+          "name": "Caipira folk (canonical)",
+          "descriptors": [
+            "traditional",
+            "rural-Brazilian",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_sertanejo",
+          "name": "Sertanejo / popular",
+          "descriptors": [
+            "commercial",
+            "modern",
+            "urban"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_art",
+          "name": "Concert / soloist",
+          "descriptors": [
+            "art-music",
+            "twenty-first-century",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_caipira_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "viola_caipira_spruce",
+          "default": true,
+          "name": "Spruce (modern canonical)",
+          "descriptors": [
+            "spruce-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_cedar",
+          "name": "Cedar (warmer alternative)",
+          "descriptors": [
+            "cedar-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_pinho_brasil",
+          "name": "Pinho-do-paraná (traditional Brazilian)",
+          "descriptors": [
+            "pinho-paranas",
+            "traditional-brazilian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_caipira_back_wood",
+      "surface": false,
+      "name": "Back / sides wood",
+      "variants": [
+        {
+          "id": "viola_caipira_jacaranda",
+          "default": true,
+          "name": "Jacarandá-da-Bahia (Brazilian rosewood, pre-1992 canonical)",
+          "descriptors": [
+            "jacaranda-da-bahia",
+            "pre-1992-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "viola_caipira_imbuia",
+          "name": "Imbuia (Brazilian walnut alternative)",
+          "descriptors": [
+            "imbuia",
+            "brazilian-walnut-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_pau_ferro",
+          "name": "Pau-ferro (CITES-friendly modern)",
+          "descriptors": [
+            "pau-ferro",
+            "cites-friendly-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_caipira_strings",
+      "surface": false,
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "viola_caipira_steel_doubled",
+          "default": true,
+          "name": "Steel 5x doubled courses (canonical 10-string)",
+          "descriptors": [
+            "steel-doubled-courses",
+            "canonical-10-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_phosphor_bronze",
+          "name": "Phosphor bronze (warmer alternative)",
+          "descriptors": [
+            "phosphor-bronze-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "viola_caipira_courses",
+      "name": "Course tuning",
+      "variants": [
+        {
+          "id": "viola_cebolão",
+          "default": true,
+          "name": "Cebolão (open D)",
+          "descriptors": [
+            "rural",
+            "sertanejo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_rio_abaixo",
+          "name": "Rio abaixo (open G)",
+          "descriptors": [
+            "traditional",
+            "rural",
+            "folkloric"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_caipira_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "viola_caipira_caipira",
+          "default": true,
+          "name": "Caipira folk (canonical)",
+          "descriptors": [
+            "traditional",
+            "rural-Brazilian",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_sertanejo",
+          "name": "Sertanejo / popular",
+          "descriptors": [
+            "commercial",
+            "modern",
+            "urban"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_art",
+          "name": "Concert / soloist",
+          "descriptors": [
+            "art-music",
+            "twenty-first-century",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_caipira_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "viola_caipira_spruce",
+          "default": true,
+          "name": "Spruce (modern canonical)",
+          "descriptors": [
+            "spruce-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_cedar",
+          "name": "Cedar (warmer alternative)",
+          "descriptors": [
+            "cedar-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_pinho_brasil",
+          "name": "Pinho-do-paraná (traditional Brazilian)",
+          "descriptors": [
+            "pinho-paranas",
+            "traditional-brazilian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_caipira_back_wood",
+      "surface": false,
+      "name": "Back / sides wood",
+      "variants": [
+        {
+          "id": "viola_caipira_jacaranda",
+          "default": true,
+          "name": "Jacarandá-da-Bahia (Brazilian rosewood, pre-1992 canonical)",
+          "descriptors": [
+            "jacaranda-da-bahia",
+            "pre-1992-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "viola_caipira_imbuia",
+          "name": "Imbuia (Brazilian walnut alternative)",
+          "descriptors": [
+            "imbuia",
+            "brazilian-walnut-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_pau_ferro",
+          "name": "Pau-ferro (CITES-friendly modern)",
+          "descriptors": [
+            "pau-ferro",
+            "cites-friendly-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_caipira_strings",
+      "surface": false,
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "viola_caipira_steel_doubled",
+          "default": true,
+          "name": "Steel 5x doubled courses (canonical 10-string)",
+          "descriptors": [
+            "steel-doubled-courses",
+            "canonical-10-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "viola_caipira_phosphor_bronze",
+          "name": "Phosphor bronze (warmer alternative)",
+          "descriptors": [
+            "phosphor-bronze-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ]
+}

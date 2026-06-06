@@ -35,22 +35,33 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build codex.html from source
+      - name: Build site artifacts from source
         run: |
+          # Everything is staged in _dist/ so the later `git checkout main`
+          # never collides with tracked working-tree files.
           CODEX_OUT_DIR="$PWD/_dist" node scripts/build_html.js --check
           test -f _dist/codex.html
+          # Static, server-free JSON API + agent-discovery layer (~6 min compile).
+          node scripts/build_static_api.js --out=_dist/api
+          node scripts/build_discovery.js --api=_dist/api --out=_dist
+          cp AGENTS.md index.html _dist/
 
-      - name: Publish codex.html to main (only if changed)
+      - name: Publish site to main (only if changed)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin main
           git checkout -B main origin/main
           cp _dist/codex.html codex.html
-          if git diff --quiet -- codex.html; then
-            echo "codex.html unchanged — nothing to publish."
+          cp _dist/index.html index.html
+          cp _dist/AGENTS.md AGENTS.md
+          cp _dist/llms.txt llms.txt
+          cp _dist/sitemap.xml sitemap.xml
+          rm -rf api && cp -r _dist/api api
+          git add -A codex.html index.html AGENTS.md llms.txt sitemap.xml api
+          if git diff --cached --quiet; then
+            echo "Site unchanged — nothing to publish."
             exit 0
           fi
-          git add codex.html
-          git commit -m "Auto-publish codex.html from ${GITHUB_SHA:0:7}"
+          git commit -m "Auto-publish site (codex.html + static API) from ${GITHUB_SHA:0:7}"
           git push origin main

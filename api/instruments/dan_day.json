@@ -1,0 +1,96 @@
+{
+  "id": "dan_day",
+  "name": "Đàn đáy (Vietnamese ca trù lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "đàn đáy",
+  "parts": [
+    {
+      "id": "dan_day_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "dan_day_three_string_long_neck_canonical",
+          "default": true,
+          "name": "Three-string long-neck fretted wooden body, unusually high frets (canonical)",
+          "descriptors": [
+            "three-string-long-neck-fretted-canonical-vietnamese"
+          ],
+          "match_tokens": [
+            "plucked",
+            "vietnamese-ca-tru-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_day_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "dan_day_ca_tru_canonical",
+          "default": true,
+          "name": "Ca trù accompaniment with high-fret string-bending ornament (canonical)",
+          "descriptors": [
+            "ca-tru-accompaniment-high-fret-bending-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "vietnamese-ca-tru-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dan_day_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "dan_day_three_string_long_neck_canonical",
+          "default": true,
+          "name": "Three-string long-neck fretted wooden body, unusually high frets (canonical)",
+          "descriptors": [
+            "three-string-long-neck-fretted-canonical-vietnamese"
+          ],
+          "match_tokens": [
+            "plucked",
+            "vietnamese-ca-tru-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_day_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "dan_day_ca_tru_canonical",
+          "default": true,
+          "name": "Ca trù accompaniment with high-fret string-bending ornament (canonical)",
+          "descriptors": [
+            "ca-tru-accompaniment-high-fret-bending-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "vietnamese-ca-tru-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

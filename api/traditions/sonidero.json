@@ -1,0 +1,98 @@
+{
+  "id": "sonidero",
+  "name": "Sonidero (Mexican cumbia sound-system)",
+  "family": "global",
+  "lineage": "Mexican cumbia DJ-and-sound-system tradition of Mexico City and northern-Mexican border-cities, emerging 1960s-1970s. The sonidero plays cumbia records on large mobile sound-systems at outdoor street-parties, interspersed with extempore MC-shoutouts dedicated to attendees by name and Mexican-immigrant family members in the US. Slowed-down cumbia rebajada emerged through accidental incorrect-speed playback.",
+  "recipe": "classic mid-1960s sonidero, functional Song, Mexican branch, reggaeton MC rhythm moombahton. full chest belt, unrestrained, sean nos, m1 with m0 pulse borrowing. sound design field sampler, TR-808. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 411,
+  "score": 105.788,
+  "config": {
+    "traditions": [
+      "sonidero",
+      "moombahton",
+      "reggaeton"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.264,
+          "voice_quality": 11.599999999999998,
+          "voice_vibrato": 0.25875,
+          "voice_articulation": 1.445,
+          "voice_microtone": 0.09,
+          "voice_tradition": 2.4699999999999998,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 6.954999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 2.405,
+          "voice_pitch_organization": 0.9457500000000001,
+          "voice_processing_chain": 3.681,
+          "voice_multitrack_stack": 1.5600000000000003
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 0.21,
+          "sampler_bit_depth": 0.065,
+          "sampler_workflow": 4.0005,
+          "sampler_classic_context": 5.85
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 0,
+          "drum_machine_808_context": 1.02225,
+          "tr808_production_origin": 0.29024999999999995
+        }
+      }
+    ],
+    "room": "mexico_bolero_xochimilco_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "cumbia_4_4_paseo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "santeria_lucumi",
+  "name": "Lukumí ceremonial",
+  "family": "global",
+  "lineage": "Cuban Yoruba-derived Afro-Cuban religious-ritual song-and-drumming tradition preserved since the 17th-century-onward enslaved-Yoruba (Nigerian and Beninese) population, organized around the worship of the orichas (Yoruba deities transposed into Catholic-saint syncretism). The canonical batá-drum ensemble: three two-headed hourglass-shaped sacred-drums (iyá largest, itótele middle, okónkolo smallest) interlock through complex polyrhythmic patterns (toques) specific to each oricha. Each oricha has dedicated rezos invocational-songs, suyeres invocational-melodic-fragments, and toques rhythmic-patterns identifying-and-summoning the deity. The Lucumí ritual-vocabulary preserves substantial pre-colonial Yoruba liturgical-text untranslated. The 1959-onward Cuban revolution suppressed-and-then-tolerated santería; the 1990s-onward post-Special-Period economic-opening reopened public ritual practice.",
+  "recipe": "classic modern lukumí ceremonial, ritual Devotional, Afro-diasporic branch, Cuban groove percussion charanga cha-cha-chá. extended whistle, full chest belt, melodic, punctuated. ritual liturgical sacred bata drums, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 534,
+  "score": 146.76,
+  "config": {
+    "traditions": [
+      "santeria_lucumi",
+      "charanga",
+      "cha_cha_cha"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 3.5600000000000005,
+          "voice_vibrato": 2.19,
+          "voice_articulation": 1.294,
+          "voice_microtone": 0.29400000000000004,
+          "voice_tradition": 16.314999999999998,
+          "voice_mechanism_compound": 1.6845,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 8.515,
+          "voice_ensemble_config": 7.15,
+          "voice_ornament_system": 4.298500000000001,
+          "voice_pitch_organization": 10.849999999999998,
+          "voice_processing_chain": 1.2479999999999998,
+          "voice_multitrack_stack": 3.7700000000000005
+        }
+      },
+      {
+        "id": "bata_drums",
+        "slots": {
+          "bata_role": "bata_itotele",
+          "bata_consecration": "bata_aña"
+        },
+        "scores": {
+          "bata_role": 0.46950000000000003,
+          "bata_consecration": 7.333625
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 2.9899999999999998,
+          "choir_polyphonic_configuration": 2.9899999999999998,
+          "choir_regional_canonical_configuration": 2.9899999999999998,
+          "choir_ensemble_repertoire": 4.68
+        }
+      }
+    ],
+    "room": "havana_solar_outdoor_courtyard",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "rumba_clave_3_2",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

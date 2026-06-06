@@ -1,0 +1,116 @@
+{
+  "id": "javanese_wedding_gamelan",
+  "name": "Javanese wedding gamelan music",
+  "family": "global",
+  "lineage": "Javanese wedding-music tradition continuous from medieval Javanese court-and-village gamelan practice through Islamic-period (post-15th-century) continuous performance into modern Indonesian-and-Javanese-diaspora practice; defined by gamelan-ensemble accompaniment to ceremonial-and-celebratory wedding-music repertoire",
+  "recipe": "classic modern javanese wedding gamelan music, wedding, east Asian branch, south Asian wedding, east Asian art music, indigenous ritual devotional beijing opera tibetan ache lhamo opera. thick, pressed, melodic, continuous-phonation. gamelan javanese full, saron gamelan, bonang, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 544,
+  "score": 223.977,
+  "config": {
+    "traditions": [
+      "javanese_wedding_gamelan",
+      "beijing_opera",
+      "tibetan_ache_lhamo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.8850000000000002,
+          "voice_quality": 2.46,
+          "voice_vibrato": 2.2499999999999996,
+          "voice_articulation": 3.26,
+          "voice_microtone": 1.8050000000000002,
+          "voice_tradition": 7.995,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 6.174999999999999,
+          "voice_ensemble_config": 9.694999999999999,
+          "voice_ornament_system": 4.61,
+          "voice_pitch_organization": 14.020000000000001,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 0.78
+        }
+      },
+      {
+        "id": "gamelan_javanese_full",
+        "slots": {
+          "sections": "gj_rebab_voice",
+          "tuning": "gj_pelog"
+        },
+        "scores": {
+          "sections": 1.8599999999999997,
+          "tuning": 2.2949999999999995
+        }
+      },
+      {
+        "id": "saron_gamelan",
+        "slots": {
+          "saron_size": "saron_barung",
+          "saron_tuning_system": "saron_slendro"
+        },
+        "scores": {
+          "saron_size": 0.195,
+          "saron_tuning_system": 0.69
+        }
+      },
+      {
+        "id": "bonang",
+        "slots": {
+          "bonang_tuning": "bonang_pelog",
+          "bonang_register": "bonang_barung"
+        },
+        "scores": {
+          "bonang_tuning": 4.16,
+          "bonang_register": 0
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_javanese",
+          "kendang_shell_wood": "kendang_teak",
+          "kendang_head": "kendang_buffalo_hide_canonical"
+        },
+        "scores": {
+          "kendang_size": 4.47,
+          "kendang_context": 10.479999999999999,
+          "kendang_shell_wood": 8.854999999999999,
+          "kendang_head": 6.744999999999999
+        }
+      }
+    ],
+    "room": "tatami_parlor_japanese",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pelog_slendro_javanese",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

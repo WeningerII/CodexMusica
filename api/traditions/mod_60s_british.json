@@ -1,0 +1,168 @@
+{
+  "id": "mod_60s_british",
+  "name": "Mod (1960s British)",
+  "family": "rock_punk",
+  "lineage": "Early-1960s British youth-subculture and associated music style centered on sharp-suited working-class London-and-southern-English youth, characterized by integration of American R&B, soul, and Jamaican ska influences. The Who's My Generation (1965), Small Faces' Itchycoo Park (1967), and the broader Carnaby Street fashion-and-music nexus consolidated the canonical sound. The 1979 Mod revival under The Jam, Secret Affair, and The Chords renewed institutional visibility.",
+  "recipe": "classic British mod, distorted Rock, classic branch, regional distorted rock greek rock aussie pub rock. thick, blues-shouter, narrative, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky pocket fingerstyle electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, psychedelic foregrounded organ driven rock Leslie rotary combo organ. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 726,
+  "score": 372.57,
+  "config": {
+    "traditions": [
+      "mod_60s_british",
+      "greek_rock",
+      "aussie_pub_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 8.3,
+          "voice_quality": 2.650000000000002,
+          "voice_vibrato": 0.453,
+          "voice_articulation": 3.1000000000000005,
+          "voice_microtone": 5.643750000000002,
+          "voice_tradition": 3.2,
+          "voice_mechanism_compound": 2.665000000000001,
+          "voice_estill_quality": 3.1400000000000006,
+          "voice_speech_song": 10.075,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 3.2,
+          "voice_processing_chain": 1.8199999999999998,
+          "voice_multitrack_stack": 7.41
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 5.330000000000001,
+          "amp_make": 5.720000000000001,
+          "body_wood": 0.2415,
+          "neck_wood": 0.453,
+          "fretboard": 0.453,
+          "pickup_magnet": 0.453,
+          "string_material": 0.453,
+          "string_gauge": 0.2415,
+          "bridge": 0,
+          "scale_length": 0.48300000000000004,
+          "finish": 0.168,
+          "string_tuning": 6.5
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 3.1500000000000004,
+          "amp_make": 5.720000000000001,
+          "body_wood": 0.48300000000000004,
+          "pickup_config": 0,
+          "string_type": 7.15,
+          "scale_length_b": 0.2415,
+          "fretted_or_not": 0.195,
+          "bass_technique": 5.495
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "hydraulic",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 10.009999999999998,
+          "shell_wood": 0.453,
+          "shell_thickness": 0.09,
+          "bearing_edges": 0.2415,
+          "drumhead": 0.453,
+          "snare_wires": 0.2415,
+          "cymbal_alloy": 5.853000000000001,
+          "cymbal_hammering": 5.595000000000001,
+          "cymbal_lathing": 5.49,
+          "cymbal_finish": 0.453,
+          "drum_technique": 10.009999999999998
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "vox_jaguar_combo",
+          "combo_organ_voicing": "combo_organ_16_pedal",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_leslie_rotary"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "combo_organ_model": 2.3314999999999997,
+          "combo_organ_voicing": 0.603,
+          "combo_organ_context": 4.68,
+          "amp_make": 3.1000000000000005
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_uk_small_commercial",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_emi_redd",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_vox_ac30_topboost",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

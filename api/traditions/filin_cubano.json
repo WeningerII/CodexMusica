@@ -1,0 +1,110 @@
+{
+  "id": "filin_cubano",
+  "name": "Filin (Cuban jazz-trova)",
+  "family": "global",
+  "lineage": "Cuban jazz-influenced song genre developed in late-1940s-early-1950s Havana. Young composer-performers (José Antonio Méndez, Cesar Portillo de la Luz, Frank Domínguez, Marta Valdés, Frank Emilio Flynn) integrated American-jazz extended-chord harmony, blue-note vocabulary, and intimate-confessional vocal-style with the older trova canon. Havana nightclub and bohemian-cafe contexts.",
+  "recipe": "classic 1947-1949 filin, ballad Poetry, Latin am troubadour branch, American jazz smooth vocal cool jazz vocal. thick, intimate aspirated, melodic, equal tempered. cold pressed wurzen felt birch laminated maple laminated grand piano, fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 468,
+  "score": 160.216,
+  "config": {
+    "traditions": [
+      "filin_cubano",
+      "smooth_jazz_80s",
+      "cool_jazz_vocal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 10.281499999999994,
+          "voice_quality": 3.0500000000000003,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 0.258,
+          "voice_microtone": 10.499999999999996,
+          "voice_tradition": 13.331499999999998,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 3.25,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 2.4699999999999998,
+          "voice_multitrack_stack": 2.6
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_415_baroque"
+        },
+        "scores": {
+          "keyboard_technique": 1.2,
+          "grand_piano_size": 0.6165,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 2.535,
+          "piano_rim": 2.535,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "eighty_twenty_p"
+        },
+        "scores": {
+          "acoustic_technique": 5.3815,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.4815,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 1.3
+        }
+      }
+    ],
+    "room": "estudios_areito_havana",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "son_clave_3_2",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "id": "gender",
+  "name": "Gender (gamelan multi-octave metallophone)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gender",
+  "parts": [
+    {
+      "id": "gender_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "gender_javanese",
+          "default": true,
+          "name": "Javanese gamelan elaboration",
+          "descriptors": [
+            "ornamental",
+            "virtuoso",
+            "classical"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gender_balinese",
+          "name": "Balinese gender wayang",
+          "descriptors": [
+            "wayang-puppet",
+            "quartet",
+            "meditative"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gender_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "gender_pelog",
+          "name": "Pelog (Javanese court)",
+          "descriptors": [
+            "ceremonial",
+            "classical",
+            "sophisticated"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gender_slendro",
+          "default": true,
+          "name": "Slendro (Javanese narrative)",
+          "descriptors": [
+            "wayang-context",
+            "traditional"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gender_bali_tuning",
+          "surface": false,
+          "name": "Balinese (specific tunings)",
+          "descriptors": [
+            "regional-distinct",
+            "fast-interlocking",
+            "kotekan-context"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gender_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "gender_javanese",
+          "default": true,
+          "name": "Javanese gamelan elaboration",
+          "descriptors": [
+            "ornamental",
+            "virtuoso",
+            "classical"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gender_balinese",
+          "name": "Balinese gender wayang",
+          "descriptors": [
+            "wayang-puppet",
+            "quartet",
+            "meditative"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gender_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "gender_pelog",
+          "name": "Pelog (Javanese court)",
+          "descriptors": [
+            "ceremonial",
+            "classical",
+            "sophisticated"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gender_slendro",
+          "default": true,
+          "name": "Slendro (Javanese narrative)",
+          "descriptors": [
+            "wayang-context",
+            "traditional"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gender_bali_tuning",
+          "surface": false,
+          "name": "Balinese (specific tunings)",
+          "descriptors": [
+            "regional-distinct",
+            "fast-interlocking",
+            "kotekan-context"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

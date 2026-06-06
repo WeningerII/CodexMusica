@@ -1,0 +1,213 @@
+{
+  "id": "brill_building_pop",
+  "name": "Brill Building pop",
+  "family": "global",
+  "lineage": "American 1958-1965 songwriter-pop industry centered on the Brill Building at 1619 Broadway in Manhattan and the adjacent 1650 Broadway — codified through the Aldon Music writing rooms of Don Kirshner and Al Nevins housing Carole King and Gerry Goffin, Barry Mann and Cynthia Weil, Neil Sedaka and Howard Greenfield, Burt Bacharach and Hal David — assembly-line songwriter pairs producing girl-group and teen-idol hits",
+  "recipe": "classic Los Angeles mid-1960s brill building pop, functional Song, crooners branch, pop rock functional song new wave yacht rock. thick, chest mix belt, equal tempered, modern pop training. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, clean strummed single coil electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, choir doo wop group, castanets. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 808,
+  "score": 684.987,
+  "config": {
+    "traditions": [
+      "brill_building_pop",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 11.254999999999992,
+          "voice_quality": 5.490000000000002,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.45,
+          "voice_microtone": 10.549999999999997,
+          "voice_tradition": 8.709999999999999,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 6.029999999999999,
+          "voice_speech_song": 13.454999999999997,
+          "voice_ensemble_config": 10.529999999999998,
+          "voice_ornament_system": 0.645,
+          "voice_pitch_organization": 0.7400000000000001,
+          "voice_processing_chain": 1.56,
+          "voice_multitrack_stack": 1.725
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 8.802499999999998,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 0.42749999999999994,
+          "piano_hammer": 7.029999999999999,
+          "piano_rim": 8.785,
+          "piano_soundboard": 8.245,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 1.1049999999999998
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 8.379999999999999,
+          "amp_make": 1.4299999999999997,
+          "body_wood": 0.39,
+          "neck_wood": 0.39,
+          "fretboard": 0.36,
+          "pickup_magnet": 0.135,
+          "string_material": 0.225,
+          "string_gauge": 0.39,
+          "bridge": 0.15,
+          "scale_length": 0.39,
+          "finish": 0.09,
+          "string_tuning": 1.3
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 0.26,
+          "amp_make": 1.625,
+          "body_wood": 0.39,
+          "pickup_config": 0.045,
+          "string_type": 3.25,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.0975,
+          "bass_technique": 2.84
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 10.529999999999998,
+          "shell_wood": 0.49499999999999994,
+          "shell_thickness": 0.045,
+          "bearing_edges": 0.39,
+          "drumhead": 8.639999999999999,
+          "snare_wires": 0.39,
+          "cymbal_alloy": 11.184999999999999,
+          "cymbal_hammering": 11.299999999999999,
+          "cymbal_lathing": 11.014999999999999,
+          "cymbal_finish": 0.375,
+          "drum_technique": 10.529999999999998
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 2.34,
+          "choir_polyphonic_configuration": 2.47,
+          "choir_regional_canonical_configuration": 1.2475,
+          "choir_ensemble_repertoire": 1.3
+        }
+      },
+      {
+        "id": "choir_doo_wop_group",
+        "slots": {
+          "voices": "doo_wop_baritone",
+          "arrangement": "doo_wop_a_cappella"
+        },
+        "scores": {
+          "voices": 0.6100000000000001,
+          "arrangement": 0.345
+        }
+      },
+      {
+        "id": "castanets",
+        "slots": {
+          "castanets_material": "castanets_boxwood",
+          "castanets_mounting": "castanets_paddle"
+        },
+        "scores": {
+          "castanets_material": 0.325,
+          "castanets_mounting": 0.22750000000000004
+        }
+      }
+    ],
+    "room": "studio_small_la_chambers",
+    "archetype": "arch_60s_la_smallroom_chambers",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_tweed",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "wall_of_sound",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

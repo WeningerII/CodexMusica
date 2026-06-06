@@ -1,0 +1,96 @@
+{
+  "id": "isicathamiya",
+  "name": "Isicathamiya",
+  "family": "global",
+  "lineage": "1920s-onward Zulu South African male a-cappella vocal-group tradition (the name derives from the Zulu word cathama, to tread softly) that developed among Zulu migrant labourers in the Johannesburg mining hostels — codified through Solomon Linda Mbube 1939 recording (the recording that became The Lion Sleeps Tonight after a tortured rights-acquisition history), Ladysmith Black Mambazo (founded 1960 by Joseph Shabalala, the internationally famous group through their Paul Simon Graceland 1986 collaboration), and the broader Friday-night isicathamiya competition circuit in Johannesburg",
+  "recipe": "classic North American mid-1920s isicathamiya, functional Song, isicathamiya branch, Afro-diasporic ritual devotional, christian gospel jubilee quartet umbanda ceremonial. thick, declaimed, chest resonance low mid, ornamental. choir southern black gospel, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 641,
+  "score": 189.235,
+  "config": {
+    "traditions": [
+      "isicathamiya",
+      "jubilee_quartet",
+      "umbanda_brazilian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 7.290625000000002,
+          "voice_quality": 7.3950000000000005,
+          "voice_vibrato": 0.6,
+          "voice_articulation": 2.5,
+          "voice_microtone": 4.250000000000001,
+          "voice_tradition": 17.614999999999995,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 2.665000000000001,
+          "voice_speech_song": 9.814999999999998,
+          "voice_ensemble_config": 8.189999999999998,
+          "voice_ornament_system": 3.3999999999999995,
+          "voice_pitch_organization": 0.9749999999999996,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 2.47
+        }
+      },
+      {
+        "id": "choir_southern_black_gospel",
+        "slots": {
+          "voices": "alto_section",
+          "accompaniment": "gospel_piano_only",
+          "era": "gospel_quartet_lineage"
+        },
+        "scores": {
+          "voices": 0.39,
+          "accompaniment": 0.78,
+          "era": 7.929999999999997
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 9.313749999999999,
+          "choir_polyphonic_configuration": 4.9399999999999995,
+          "choir_regional_canonical_configuration": 3.6899999999999995,
+          "choir_ensemble_repertoire": 2.08
+        }
+      }
+    ],
+    "room": "johannesburg_gallo_african_studios",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

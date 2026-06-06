@@ -1,0 +1,154 @@
+{
+  "id": "shoegaze",
+  "name": "Shoegaze",
+  "family": "rock_punk",
+  "lineage": "UK underground guitar-pop genre that emerged 1988-1991 — named for the bands characteristic stage posture of staring down at effect-pedal boards rather than engaging the audience; codified through My Bloody Valentine (Loveless 1991, the wall-of-guitars masterpiece tracked over 2 years across 19 studios with Kevin Shields perfectionism), Slowdive (Just for a Day 1991, Souvlaki 1993), Ride (Nowhere 1990), Lush, Chapterhouse, the Pale Saints; built on dense overlapping guitar tracks with reverb / delay / tremolo / flanger / phaser processing and buried-in-mix vocals",
+  "recipe": "classic North American 1988-1991 shoegaze, distorted Rock, alternative branch, modal electric drone modal tuareg desert blues. thick, larynx lowered, melodic, equal tempered. lower tension down tuning clean strummed single coil electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT electro-harmonix deluxe memory man.",
+  "recipe_chars": 648,
+  "score": 178.857,
+  "config": {
+    "traditions": [
+      "shoegaze",
+      "desert_blues"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 10.140999999999993,
+          "voice_quality": 2.9500000000000006,
+          "voice_vibrato": 1.1049999999999998,
+          "voice_articulation": 0.40950000000000003,
+          "voice_microtone": 9.844999999999997,
+          "voice_tradition": 4.5455000000000005,
+          "voice_mechanism_compound": 7.279999999999999,
+          "voice_estill_quality": 3.965,
+          "voice_speech_song": 5.135,
+          "voice_ensemble_config": 4.159999999999999,
+          "voice_ornament_system": 0.273,
+          "voice_pitch_organization": 2.2574999999999994,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 1.95
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "basswood",
+          "neck_wood": "roasted_maple",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 4.868,
+          "amp_make": 2.6000000000000005,
+          "body_wood": 0.7275,
+          "neck_wood": 0.7275,
+          "fretboard": 0.255,
+          "pickup_magnet": 0.1815,
+          "string_material": 0.105,
+          "string_gauge": 0.7275,
+          "bridge": 0.1815,
+          "scale_length": 1.455,
+          "finish": 0,
+          "string_tuning": 4.03
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 2.6650000000000005,
+          "body_wood": 1.455,
+          "pickup_config": 0,
+          "string_type": 6.825,
+          "scale_length_b": 0.7275,
+          "fretted_or_not": 0.0735,
+          "bass_technique": 5.2
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 5.2,
+          "shell_wood": 0.42299999999999993,
+          "shell_thickness": 0.3045,
+          "bearing_edges": 0.909,
+          "drumhead": 4.8365,
+          "snare_wires": 1.1505,
+          "cymbal_alloy": 10.318,
+          "cymbal_hammering": 10.25,
+          "cymbal_lathing": 10.0865,
+          "cymbal_finish": 0.42299999999999993,
+          "drum_technique": 5.25
+        }
+      }
+    ],
+    "room": "dream_pop_shoegaze_4ad_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "shoegaze_dream_pop_chromatic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_big_muff_pi",
+      "fx_proco_rat",
+      "fx_memory_man_delay"
+    ]
+  }
+}

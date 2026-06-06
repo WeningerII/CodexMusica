@@ -1,0 +1,119 @@
+{
+  "id": "mande_jeli_praise",
+  "name": "Mande jeli / griot praise-song",
+  "family": "global",
+  "lineage": "Mande-and-Wolof West-African praise-song tradition continuous from medieval Mali Empire era (13th-15th century Sundiata Keita era when the jeli/griot caste-tradition was codified) through colonial-period continuous performance into modern Mande-and-Wolof and Mande-diaspora practice; the jeli is the hereditary praise-singer-and-historian role with documented professional-genealogical lineage",
+  "recipe": "classic modern mande jeli / griot praise-song, praise Song, sub saharan African branch, middle east n African praise song, west African griot ballad poetry, string drone modal donsongoni hunter's harp mandé jeli. thick, declaimed, tasteful, continuous-phonation. calabash nylon fishing line cowhide mande traditional kora, calabash gourd canonical bambara nylon modern call-and-response ngoni, balafon. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 541,
+  "score": 381.432,
+  "config": {
+    "traditions": [
+      "mande_jeli_praise",
+      "donsongoni_hunter_harp",
+      "mande_griot"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.915,
+          "voice_quality": 36.910000000000004,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.49999999999999983,
+          "voice_tradition": 60.58000000000001,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 16.054999999999996,
+          "voice_ensemble_config": 10.529999999999994,
+          "voice_ornament_system": 15.589999999999998,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.8449999999999999,
+          "voice_multitrack_stack": 1.5
+        }
+      },
+      {
+        "id": "kora",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "kora_strings": "kora_21_traditional",
+          "kora_resonator": "kora_calabash_med",
+          "kora_strings_mat": "kora_fishing_line",
+          "kora_top_skin": "kora_cowhide_canonical",
+          "kora_neck_wood": "kora_hardwood_local",
+          "kora_lineage": "kora_diabate_lineage"
+        },
+        "scores": {
+          "plucked_traditional_technique": 25.479999999999997,
+          "kora_strings": 4.29,
+          "kora_resonator": 1.69,
+          "kora_strings_mat": 1.69,
+          "kora_top_skin": 7.164999999999999,
+          "kora_neck_wood": 5.934999999999999,
+          "kora_lineage": 4.16
+        }
+      },
+      {
+        "id": "ngoni",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "ngoni_strings": "ngoni_4",
+          "ngoni_use": "ngoni_griot",
+          "ngoni_resonator": "ngoni_calabash_canonical",
+          "ngoni_skin": "ngoni_cowhide",
+          "ngoni_string_material": "ngoni_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 25.479999999999997,
+          "ngoni_strings": 4.29,
+          "ngoni_use": 0.78,
+          "ngoni_resonator": 1.69,
+          "ngoni_skin": 0.39,
+          "ngoni_string_material": 2.08
+        }
+      },
+      {
+        "id": "balafon",
+        "slots": {
+          "balafon_tuning": "balafon_mandinka",
+          "balafon_resonator": "balafon_gourd"
+        },
+        "scores": {
+          "balafon_tuning": 8.64,
+          "balafon_resonator": 0.195
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mande_pentatonic_jeli_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

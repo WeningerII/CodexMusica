@@ -1,0 +1,298 @@
+{
+  "id": "tamborim",
+  "name": "Tamborim (compact frame, Brazilian)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tamborim",
+  "parts": [
+    {
+      "id": "tamborim_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "tamborim_calf",
+          "name": "Calfskin (traditional)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "pre-modern",
+            "older-batería",
+            "calfskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_nylon",
+          "default": true,
+          "name": "Nylon (modern)",
+          "descriptors": [
+            "treble-extended",
+            "standard",
+            "carnival-default",
+            "nylon"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_kevlar",
+          "name": "Kevlar / aramid (sharp)",
+          "descriptors": [
+            "projecting",
+            "professional",
+            "modern-loud",
+            "kevlar"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tamborim_striker",
+      "name": "Striker",
+      "variants": [
+        {
+          "id": "tamborim_cluster",
+          "default": true,
+          "name": "Multi-rod cluster (canonical samba)",
+          "descriptors": [
+            "carnival-batería",
+            "standard",
+            "rapid-strikes",
+            "multi-rod-cluster-canonical-samba"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_dowel",
+          "name": "Single dowel (older)",
+          "descriptors": [
+            "traditional",
+            "softer",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_split",
+          "name": "Modern split-stick",
+          "descriptors": [
+            "tight-rhythmic-articulation",
+            "professional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tamborim_shell",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "tamborim_aluminum_canonical",
+          "default": true,
+          "name": "Aluminum (canonical Rio escola)",
+          "descriptors": [
+            "aluminum-canonical-rio-escola"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_steel_modern",
+          "name": "Steel (mass-produced)",
+          "descriptors": [
+            "steel-mass-produced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_wood_pre_modern",
+          "name": "Wood (pre-modern traditional)",
+          "descriptors": [
+            "wood-pre-modern-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tamborim_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "tamborim_calf",
+          "name": "Calfskin (traditional)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "pre-modern",
+            "older-batería",
+            "calfskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_nylon",
+          "default": true,
+          "name": "Nylon (modern)",
+          "descriptors": [
+            "treble-extended",
+            "standard",
+            "carnival-default",
+            "nylon"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_kevlar",
+          "name": "Kevlar / aramid (sharp)",
+          "descriptors": [
+            "projecting",
+            "professional",
+            "modern-loud",
+            "kevlar"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tamborim_striker",
+      "name": "Striker",
+      "variants": [
+        {
+          "id": "tamborim_cluster",
+          "default": true,
+          "name": "Multi-rod cluster (canonical samba)",
+          "descriptors": [
+            "carnival-batería",
+            "standard",
+            "rapid-strikes",
+            "multi-rod-cluster-canonical-samba"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_dowel",
+          "name": "Single dowel (older)",
+          "descriptors": [
+            "traditional",
+            "softer",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_split",
+          "name": "Modern split-stick",
+          "descriptors": [
+            "tight-rhythmic-articulation",
+            "professional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tamborim_shell",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "tamborim_aluminum_canonical",
+          "default": true,
+          "name": "Aluminum (canonical Rio escola)",
+          "descriptors": [
+            "aluminum-canonical-rio-escola"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_steel_modern",
+          "name": "Steel (mass-produced)",
+          "descriptors": [
+            "steel-mass-produced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tamborim_wood_pre_modern",
+          "name": "Wood (pre-modern traditional)",
+          "descriptors": [
+            "wood-pre-modern-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

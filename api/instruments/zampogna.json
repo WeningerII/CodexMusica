@@ -1,0 +1,384 @@
+{
+  "id": "zampogna",
+  "name": "Zampogna (Italian pipes)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "zampogna",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "zampogna_region",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "zampogna_molisana",
+          "default": true,
+          "name": "Molisana / abruzzese",
+          "descriptors": [
+            "Christmas-pastoral",
+            "central-Italian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zampogna_lucana",
+          "name": "Lucana / a chiave",
+          "descriptors": [
+            "southern",
+            "distinctive",
+            "keyed-chanter"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zampogna_calabrese",
+          "name": "Calabrese / surdulina",
+          "descriptors": [
+            "southern-Italian",
+            "smaller",
+            "regional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zampogna_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "zampogna_nativity",
+          "default": true,
+          "name": "Nativity / pastoral",
+          "descriptors": [
+            "Christmas-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zampogna_festival",
+          "name": "Festival",
+          "descriptors": [
+            "outdoor",
+            "celebratory",
+            "regional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zampogna_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "preservationist",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zampogna_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "zampogna_olivewood_canonical",
+          "default": true,
+          "name": "Olive wood (canonical southern Italian)",
+          "descriptors": [
+            "olive-wood-canonical-southern-italian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zampogna_boxwood",
+          "name": "Boxwood (alternative)",
+          "descriptors": [
+            "boxwood-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zampogna_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "zampogna_cane_canonical",
+          "default": true,
+          "name": "Cane double-reed Arundo donax (canonical Italian)",
+          "descriptors": [
+            "cane-arundo-donax-canonical-italian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zampogna_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "zampogna_goatskin_canonical",
+          "default": true,
+          "name": "Whole goatskin (canonical southern Italian pastoral)",
+          "descriptors": [
+            "whole-goatskin-canonical-southern-italian-pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zampogna_region",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "zampogna_molisana",
+          "default": true,
+          "name": "Molisana / abruzzese",
+          "descriptors": [
+            "Christmas-pastoral",
+            "central-Italian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zampogna_lucana",
+          "name": "Lucana / a chiave",
+          "descriptors": [
+            "southern",
+            "distinctive",
+            "keyed-chanter"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zampogna_calabrese",
+          "name": "Calabrese / surdulina",
+          "descriptors": [
+            "southern-Italian",
+            "smaller",
+            "regional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zampogna_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "zampogna_nativity",
+          "default": true,
+          "name": "Nativity / pastoral",
+          "descriptors": [
+            "Christmas-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zampogna_festival",
+          "name": "Festival",
+          "descriptors": [
+            "outdoor",
+            "celebratory",
+            "regional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zampogna_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "preservationist",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zampogna_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "zampogna_olivewood_canonical",
+          "default": true,
+          "name": "Olive wood (canonical southern Italian)",
+          "descriptors": [
+            "olive-wood-canonical-southern-italian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zampogna_boxwood",
+          "name": "Boxwood (alternative)",
+          "descriptors": [
+            "boxwood-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zampogna_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "zampogna_cane_canonical",
+          "default": true,
+          "name": "Cane double-reed Arundo donax (canonical Italian)",
+          "descriptors": [
+            "cane-arundo-donax-canonical-italian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zampogna_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "zampogna_goatskin_canonical",
+          "default": true,
+          "name": "Whole goatskin (canonical southern Italian pastoral)",
+          "descriptors": [
+            "whole-goatskin-canonical-southern-italian-pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

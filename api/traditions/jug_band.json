@@ -1,0 +1,206 @@
+{
+  "id": "jug_band",
+  "name": "Jug band",
+  "family": "blues_gospel",
+  "lineage": "1920s and 1930s African-American Memphis-and-Cincinnati DIY blues string-band tradition — codified through the Memphis Jug Band (recorded 1927-1934), Cannon’s Jug Stompers (Gus Cannon with Noah Lewis), and the Dixieland Jug Blowers — characterized by amateur-improvised instrumentation (clay jug as bass, kazoo, washboard, harmonica, banjo, guitar) and country-blues repertoire performed for working-class audiences",
+  "recipe": "classic mid-1930s jug band, ballad Poetry, jug band branch, blues narrative hokum blues, blues narrative delta narrative, pop rock skiffle. thick, worn fold, melodic, narrative. traditional ceramic clay jug inst, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, open g tuning fingerpicked parlor acoustic guitar, wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, drone like fiddle, k and k twin internal mounted acoustic faithful mandolin. wooden barn. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 648,
+  "score": 671.765,
+  "config": {
+    "traditions": [
+      "jug_band",
+      "hokum_blues_vaudeville",
+      "skiffle"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 28.105624999999996,
+          "voice_quality": 26.400000000000002,
+          "voice_vibrato": 3.57025,
+          "voice_articulation": 4.784500000000001,
+          "voice_microtone": 10.79,
+          "voice_tradition": 11.439999999999998,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 5.627500000000001,
+          "voice_speech_song": 15.795000000000002,
+          "voice_ensemble_config": 13.650000000000002,
+          "voice_ornament_system": 0.0225,
+          "voice_pitch_organization": 0.33824999999999994,
+          "voice_processing_chain": 9.994125,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "jug_inst",
+        "slots": {
+          "jug_material": "jug_ceramic_clay",
+          "jug_technique": "jug_lips_buzzed"
+        },
+        "scores": {
+          "jug_material": 20.084125,
+          "jug_technique": 13.950000000000001
+        }
+      },
+      {
+        "id": "frottoir",
+        "slots": {
+          "frottoir_construction": "frottoir_handheld",
+          "frottoir_striker": "frottoir_spoons"
+        },
+        "scores": {
+          "frottoir_construction": 21.499250000000004,
+          "frottoir_striker": 0.03975
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 4.31525,
+          "harmonica_type": 0.39,
+          "harmonica_comb": 33.508750000000006,
+          "harmonica_reed": 21.697874999999996,
+          "harmonica_technique": 24.0195,
+          "harmonica_maker_school": 31.327375,
+          "harmonica_tuning": 10.79
+        }
+      },
+      {
+        "id": "kazoo",
+        "slots": {
+          "kazoo_construction": "kazoo_metal"
+        },
+        "scores": {
+          "kazoo_construction": 15.7
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "mahogany_top_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 10.434500000000002,
+          "string_tuning": 4.105625,
+          "top_wood_parlor": 0.91875,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.91875
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "two_finger",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 14.430000000000003,
+          "banjo_back": 1.103125,
+          "tone_ring": 1.103125,
+          "banjo_head": 14.690000000000003,
+          "banjo_pot": 0.18412499999999998,
+          "banjo_play": 0.78,
+          "banjo_rim_wood": 0.3,
+          "banjo_neck_wood": 0.61875,
+          "banjo_strings": 0.06375,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 13.715000000000003
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_tasto"
+        },
+        "scores": {
+          "bowed_technique": 4.405,
+          "fiddle_strings": 0.195,
+          "fiddle_bow": 0.15,
+          "fiddle_mute": 0.3,
+          "fiddle_articulation": 1.013125
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 2.2899999999999996,
+          "mandolin_shape": 0.91875,
+          "mandolin_top": 0.91875,
+          "mandolin_back": 0.9099999999999999,
+          "mandolin_bracing": 0.31,
+          "mandolin_strings": 0.91875,
+          "mandolin_fingerboard": 0.8687499999999999,
+          "mandolin_pickup": 14.170000000000005
+        }
+      }
+    ],
+    "room": "wooden_barn",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

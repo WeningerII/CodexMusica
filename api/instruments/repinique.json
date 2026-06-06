@@ -1,0 +1,108 @@
+{
+  "id": "repinique",
+  "name": "Repinique (samba lead drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "repinique",
+  "parts": [
+    {
+      "id": "repinique_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "repinique_metal",
+          "default": true,
+          "name": "Metal shell (samba-escola standard)",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "samba-tradition",
+            "metal-construction"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "samba-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repinique_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "repinique_one_stick_one_hand",
+          "default": true,
+          "name": "One stick + bare hand (samba-escola)",
+          "descriptors": [
+            "callout-leader",
+            "driving",
+            "samba-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "samba-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "repinique_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "repinique_metal",
+          "default": true,
+          "name": "Metal shell (samba-escola standard)",
+          "descriptors": [
+            "bright",
+            "cutting",
+            "samba-tradition",
+            "metal-construction"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "samba-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repinique_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "repinique_one_stick_one_hand",
+          "default": true,
+          "name": "One stick + bare hand (samba-escola)",
+          "descriptors": [
+            "callout-leader",
+            "driving",
+            "samba-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "samba-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

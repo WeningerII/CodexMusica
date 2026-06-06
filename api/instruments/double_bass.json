@@ -1,0 +1,1583 @@
+{
+  "id": "double_bass",
+  "name": "Double bass (orchestral / jazz upright)",
+  "family": "bowed",
+  "class": "bass",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "double bass",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_pizzicato",
+          "name": "Pizzicato (plucked)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "plucked",
+            "pizzicato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "bowed_spiccato_articulated",
+          "name": "Spiccato (bouncing)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "spiccato",
+            "articulated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "staccato"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_sul_ponticello",
+          "name": "Sul ponticello (near bridge)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "glassy",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "avant"
+          ]
+        },
+        {
+          "id": "bowed_sul_tasto",
+          "name": "Sul tasto (over fingerboard)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "airy",
+            "distant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "bass_size",
+      "surface": false,
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "bass_three_quarter",
+          "default": true,
+          "name": "3/4 standard",
+          "descriptors": [
+            "versatile",
+            "full-range"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "bass_seven_eighth",
+          "name": "7/8 large",
+          "descriptors": [
+            "deep",
+            "soloistic",
+            "projecting"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "bass_gut",
+          "name": "Gut (jazz / baroque)",
+          "descriptors": [
+            "thumpy",
+            "fingerstyle",
+            "gut"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_bass",
+          "name": "Plain sheep gut (unsplit)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "thumpy"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_bass",
+          "name": "Plain lamb gut (Aquila HU)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "organic",
+            "thumpy"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_beef_gut_bass",
+          "name": "Plain beef gut (Aquila HV, varnished)",
+          "descriptors": [
+            "plain-gut",
+            "beef-gut",
+            "varnished",
+            "standardized"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "half_rectified_gut_bass",
+          "name": "Half-rectified gut (Aquila HU semi-polished)",
+          "descriptors": [
+            "half-rectified",
+            "partial-polish",
+            "fiber-preserved"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "silver_wound_lamb_gut_bass",
+          "name": "Silver-wound on lamb gut",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained",
+            "late-baroque",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "venice_catlin_bass",
+          "name": "Venice catlin (high-twist bass)",
+          "descriptors": [
+            "venice-catlin",
+            "high-twist",
+            "multi-strand",
+            "large-diameter",
+            "renaissance-bass"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "bass-register",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "lyon_gut_bass",
+          "name": "Lyon (Lyons) plain bass gut",
+          "descriptors": [
+            "lyon",
+            "large-diameter",
+            "twisted-plain",
+            "french-renaissance"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "bass-register",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "pistoy_gut_bass",
+          "name": "Pistoy / Pistoia (red loaded bass)",
+          "descriptors": [
+            "pistoy",
+            "cinnabar-loaded",
+            "red-dyed",
+            "high-tension",
+            "deep-dark-red"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "bass-register",
+            "late-baroque",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "loaded_gut_c_type_bass",
+          "name": "Loaded gut (Aquila C-type)",
+          "descriptors": [
+            "loaded",
+            "metal-salt-loaded",
+            "reduced-diameter",
+            "high-density"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "bass-register",
+            "period-performance",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "gimped_gut_bass",
+          "name": "Gimped gut (metal-strip-wound, c.1660-80)",
+          "descriptors": [
+            "gimped",
+            "metal-strip-wound",
+            "transitional"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "bass-register",
+            "mid-baroque-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "bass_steel",
+          "default": true,
+          "name": "Steel-core orchestral",
+          "descriptors": [
+            "treble-extended",
+            "modern",
+            "steel"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_top_wood",
+      "surface": false,
+      "name": "Top wood (table / belly)",
+      "variants": [
+        {
+          "id": "norway_spruce_alpine_bass",
+          "default": true,
+          "name": "Norway spruce / European alpine (Picea abies)",
+          "descriptors": [
+            "norway-spruce",
+            "european-alpine",
+            "low-altitude-growth",
+            "quartersawn"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "italian_alpine_spruce_bass",
+          "name": "Italian alpine spruce (Val di Fiemme)",
+          "descriptors": [
+            "italian-alpine-spruce",
+            "val-di-fiemme",
+            "low-altitude-growth"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "carpathian_spruce_bass",
+          "name": "Carpathian spruce",
+          "descriptors": [
+            "carpathian-spruce",
+            "eastern-european-source"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plywood_bass_top",
+          "name": "Plywood / laminate (modern jazz upright)",
+          "descriptors": [
+            "plywood",
+            "laminate",
+            "durable",
+            "travel-friendly"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "jazz-canon"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_back_wood",
+      "surface": false,
+      "name": "Back / rib / neck wood",
+      "variants": [
+        {
+          "id": "bosnian_flamed_maple_bass",
+          "default": true,
+          "name": "Bosnian/Yugoslavian flamed European maple",
+          "descriptors": [
+            "european-maple",
+            "acer-pseudoplatanus",
+            "bosnian-source",
+            "flamed-figure"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "european_maple_bass_back",
+          "name": "European maple (general source)",
+          "descriptors": [
+            "european-maple",
+            "sycamore-maple",
+            "standard-flamed"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "plywood_bass_back",
+          "name": "Plywood / laminate",
+          "descriptors": [
+            "plywood",
+            "laminate",
+            "durable"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "jazz-canon"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_varnish",
+      "surface": false,
+      "name": "Varnish system",
+      "variants": [
+        {
+          "id": "cremonese_pre_1750_varnish_bass",
+          "name": "Cremonese pre-1750 four-layer ground+varnish",
+          "descriptors": [
+            "cremonese-pre-1750",
+            "ground-impregnation",
+            "pickling-pore-filling",
+            "oil-base-coat",
+            "lake-color-coat",
+            "four-layer-system"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "oil_amber_varnish_bass",
+          "default": true,
+          "name": "Oil-based amber varnish",
+          "descriptors": [
+            "oil-varnish",
+            "amber-tinted"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "spirit_varnish_bass",
+          "name": "Spirit varnish",
+          "descriptors": [
+            "spirit-varnish",
+            "shellac-alcohol"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "modern_synthetic_varnish_bass",
+          "name": "Modern synthetic",
+          "descriptors": [
+            "synthetic-varnish"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_setup_period",
+      "surface": false,
+      "name": "Setup period (baroque vs modern)",
+      "variants": [
+        {
+          "id": "modern_setup_bass",
+          "default": true,
+          "name": "Modern (post-1850 convention)",
+          "descriptors": [
+            "modern-setup",
+            "longer-neck",
+            "heavier-bass-bar",
+            "endpin-fitted"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "baroque_setup_bass",
+          "name": "Baroque (pre-1850): low tension, no endpin",
+          "descriptors": [
+            "baroque-setup",
+            "short-neck",
+            "lighter-bass-bar",
+            "no-endpin",
+            "lower-tension"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "bass_arco",
+          "name": "Arco (bowed)",
+          "descriptors": [
+            "orchestral",
+            "sustained",
+            "classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bass_pizz",
+          "name": "Pizzicato",
+          "descriptors": [
+            "rhythmic",
+            "plucked"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "bass_slap",
+          "default": true,
+          "name": "Slap (rockabilly / jump)",
+          "descriptors": [
+            "percussive",
+            "rockabilly",
+            "vintage"
+          ],
+          "match_tokens": [
+            "slappy",
+            "percussive-attack",
+            "acoustic-only"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_rosin",
+      "surface": false,
+      "name": "Rosin",
+      "variants": [
+        {
+          "id": "pop_kolstein_rosin",
+          "default": true,
+          "name": "Pop / Kolstein (bass-specific modern)",
+          "descriptors": [
+            "kolstein",
+            "bass-specific",
+            "high-grip"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "low-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "galeazzi_1791_baroque_rosin_bass",
+          "name": "Galeazzi 1791 Italian-recipe (baroque reconstruction)",
+          "descriptors": [
+            "galeazzi-1791",
+            "baroque-recipe",
+            "period-rosin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "nyman_bass_rosin",
+          "name": "Nyman (jazz bass canon)",
+          "descriptors": [
+            "nyman",
+            "jazz-bass-canon",
+            "medium-grip"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_bow_stick",
+      "surface": false,
+      "name": "Bow stick wood / material",
+      "variants": [
+        {
+          "id": "pernambuco_stick_bass",
+          "default": true,
+          "name": "Pernambuco (orchestral canon)",
+          "descriptors": [
+            "pernambuco",
+            "paubrasilia-echinata",
+            "classical-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "low-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "snakewood_stick_bass",
+          "name": "Snakewood (baroque-era canon)",
+          "descriptors": [
+            "snakewood",
+            "brosimum-guianense",
+            "dense-dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "brazilwood_stick_bass",
+          "name": "Brazilwood (student / commercial)",
+          "descriptors": [
+            "brazilwood",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "carbon_fiber_stick_bass",
+          "name": "Carbon-fiber composite",
+          "descriptors": [
+            "carbon-fiber",
+            "composite",
+            "humidity-stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bass_size",
+      "surface": false,
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "bass_three_quarter",
+          "default": true,
+          "name": "3/4 standard",
+          "descriptors": [
+            "versatile",
+            "full-range"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "bass_seven_eighth",
+          "name": "7/8 large",
+          "descriptors": [
+            "deep",
+            "soloistic",
+            "projecting"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "bass_gut",
+          "name": "Gut (jazz / baroque)",
+          "descriptors": [
+            "thumpy",
+            "fingerstyle",
+            "gut"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_bass",
+          "name": "Plain sheep gut (unsplit)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "thumpy"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_bass",
+          "name": "Plain lamb gut (Aquila HU)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "organic",
+            "thumpy"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_beef_gut_bass",
+          "name": "Plain beef gut (Aquila HV, varnished)",
+          "descriptors": [
+            "plain-gut",
+            "beef-gut",
+            "varnished",
+            "standardized"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "half_rectified_gut_bass",
+          "name": "Half-rectified gut (Aquila HU semi-polished)",
+          "descriptors": [
+            "half-rectified",
+            "partial-polish",
+            "fiber-preserved"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "silver_wound_lamb_gut_bass",
+          "name": "Silver-wound on lamb gut",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained",
+            "late-baroque",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "venice_catlin_bass",
+          "name": "Venice catlin (high-twist bass)",
+          "descriptors": [
+            "venice-catlin",
+            "high-twist",
+            "multi-strand",
+            "large-diameter",
+            "renaissance-bass"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "bass-register",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "lyon_gut_bass",
+          "name": "Lyon (Lyons) plain bass gut",
+          "descriptors": [
+            "lyon",
+            "large-diameter",
+            "twisted-plain",
+            "french-renaissance"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "bass-register",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "pistoy_gut_bass",
+          "name": "Pistoy / Pistoia (red loaded bass)",
+          "descriptors": [
+            "pistoy",
+            "cinnabar-loaded",
+            "red-dyed",
+            "high-tension",
+            "deep-dark-red"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "bass-register",
+            "late-baroque",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "loaded_gut_c_type_bass",
+          "name": "Loaded gut (Aquila C-type)",
+          "descriptors": [
+            "loaded",
+            "metal-salt-loaded",
+            "reduced-diameter",
+            "high-density"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "bass-register",
+            "period-performance",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "gimped_gut_bass",
+          "name": "Gimped gut (metal-strip-wound, c.1660-80)",
+          "descriptors": [
+            "gimped",
+            "metal-strip-wound",
+            "transitional"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "bass-register",
+            "mid-baroque-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "bass_steel",
+          "default": true,
+          "name": "Steel-core orchestral",
+          "descriptors": [
+            "treble-extended",
+            "modern",
+            "steel"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_top_wood",
+      "surface": false,
+      "name": "Top wood (table / belly)",
+      "variants": [
+        {
+          "id": "norway_spruce_alpine_bass",
+          "default": true,
+          "name": "Norway spruce / European alpine (Picea abies)",
+          "descriptors": [
+            "norway-spruce",
+            "european-alpine",
+            "low-altitude-growth",
+            "quartersawn"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "italian_alpine_spruce_bass",
+          "name": "Italian alpine spruce (Val di Fiemme)",
+          "descriptors": [
+            "italian-alpine-spruce",
+            "val-di-fiemme",
+            "low-altitude-growth"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "carpathian_spruce_bass",
+          "name": "Carpathian spruce",
+          "descriptors": [
+            "carpathian-spruce",
+            "eastern-european-source"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plywood_bass_top",
+          "name": "Plywood / laminate (modern jazz upright)",
+          "descriptors": [
+            "plywood",
+            "laminate",
+            "durable",
+            "travel-friendly"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "jazz-canon"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_back_wood",
+      "surface": false,
+      "name": "Back / rib / neck wood",
+      "variants": [
+        {
+          "id": "bosnian_flamed_maple_bass",
+          "default": true,
+          "name": "Bosnian/Yugoslavian flamed European maple",
+          "descriptors": [
+            "european-maple",
+            "acer-pseudoplatanus",
+            "bosnian-source",
+            "flamed-figure"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "european_maple_bass_back",
+          "name": "European maple (general source)",
+          "descriptors": [
+            "european-maple",
+            "sycamore-maple",
+            "standard-flamed"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "plywood_bass_back",
+          "name": "Plywood / laminate",
+          "descriptors": [
+            "plywood",
+            "laminate",
+            "durable"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "jazz-canon"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_varnish",
+      "surface": false,
+      "name": "Varnish system",
+      "variants": [
+        {
+          "id": "cremonese_pre_1750_varnish_bass",
+          "name": "Cremonese pre-1750 four-layer ground+varnish",
+          "descriptors": [
+            "cremonese-pre-1750",
+            "ground-impregnation",
+            "pickling-pore-filling",
+            "oil-base-coat",
+            "lake-color-coat",
+            "four-layer-system"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "oil_amber_varnish_bass",
+          "default": true,
+          "name": "Oil-based amber varnish",
+          "descriptors": [
+            "oil-varnish",
+            "amber-tinted"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "spirit_varnish_bass",
+          "name": "Spirit varnish",
+          "descriptors": [
+            "spirit-varnish",
+            "shellac-alcohol"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "modern_synthetic_varnish_bass",
+          "name": "Modern synthetic",
+          "descriptors": [
+            "synthetic-varnish"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_setup_period",
+      "surface": false,
+      "name": "Setup period (baroque vs modern)",
+      "variants": [
+        {
+          "id": "modern_setup_bass",
+          "default": true,
+          "name": "Modern (post-1850 convention)",
+          "descriptors": [
+            "modern-setup",
+            "longer-neck",
+            "heavier-bass-bar",
+            "endpin-fitted"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "classical-trained",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "baroque_setup_bass",
+          "name": "Baroque (pre-1850): low tension, no endpin",
+          "descriptors": [
+            "baroque-setup",
+            "short-neck",
+            "lighter-bass-bar",
+            "no-endpin",
+            "lower-tension"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "bass_arco",
+          "name": "Arco (bowed)",
+          "descriptors": [
+            "orchestral",
+            "sustained",
+            "classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bass_pizz",
+          "name": "Pizzicato",
+          "descriptors": [
+            "rhythmic",
+            "plucked"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "bass_slap",
+          "default": true,
+          "name": "Slap (rockabilly / jump)",
+          "descriptors": [
+            "percussive",
+            "rockabilly",
+            "vintage"
+          ],
+          "match_tokens": [
+            "slappy",
+            "percussive-attack",
+            "acoustic-only"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_rosin",
+      "surface": false,
+      "name": "Rosin",
+      "variants": [
+        {
+          "id": "pop_kolstein_rosin",
+          "default": true,
+          "name": "Pop / Kolstein (bass-specific modern)",
+          "descriptors": [
+            "kolstein",
+            "bass-specific",
+            "high-grip"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "low-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "galeazzi_1791_baroque_rosin_bass",
+          "name": "Galeazzi 1791 Italian-recipe (baroque reconstruction)",
+          "descriptors": [
+            "galeazzi-1791",
+            "baroque-recipe",
+            "period-rosin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "nyman_bass_rosin",
+          "name": "Nyman (jazz bass canon)",
+          "descriptors": [
+            "nyman",
+            "jazz-bass-canon",
+            "medium-grip"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_bow_stick",
+      "surface": false,
+      "name": "Bow stick wood / material",
+      "variants": [
+        {
+          "id": "pernambuco_stick_bass",
+          "default": true,
+          "name": "Pernambuco (orchestral canon)",
+          "descriptors": [
+            "pernambuco",
+            "paubrasilia-echinata",
+            "classical-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "low-register",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "snakewood_stick_bass",
+          "name": "Snakewood (baroque-era canon)",
+          "descriptors": [
+            "snakewood",
+            "brosimum-guianense",
+            "dense-dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "brazilwood_stick_bass",
+          "name": "Brazilwood (student / commercial)",
+          "descriptors": [
+            "brazilwood",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "carbon_fiber_stick_bass",
+          "name": "Carbon-fiber composite",
+          "descriptors": [
+            "carbon-fiber",
+            "composite",
+            "humidity-stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

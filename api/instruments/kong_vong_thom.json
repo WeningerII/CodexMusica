@@ -1,0 +1,102 @@
+{
+  "id": "kong_vong_thom",
+  "name": "Kong vong thom (Khmer large gong circle)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kong-vong-thom",
+  "parts": [
+    {
+      "id": "kong_vong_thom_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "kong_vong_thom_sixteen_bronze_canonical",
+          "default": true,
+          "name": "Sixteen tuned bronze bossed gongs in circular rattan frame (canonical pinpeat melodic backbone)",
+          "descriptors": [
+            "sixteen-tuned-bronze-bossed-gongs-rattan-frame-canonical-pinpeat-melodic-backbone"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kong_vong_thom_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "kong_vong_thom_pinpeat_melodic_skeleton",
+          "default": true,
+          "name": "Pinpeat melodic skeleton (sustains core melody under roneat elaboration)",
+          "descriptors": [
+            "pinpeat-melodic-skeleton-sustains-core-under-roneat-elaboration"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kong_vong_thom_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "kong_vong_thom_sixteen_bronze_canonical",
+          "default": true,
+          "name": "Sixteen tuned bronze bossed gongs in circular rattan frame (canonical pinpeat melodic backbone)",
+          "descriptors": [
+            "sixteen-tuned-bronze-bossed-gongs-rattan-frame-canonical-pinpeat-melodic-backbone"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kong_vong_thom_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "kong_vong_thom_pinpeat_melodic_skeleton",
+          "default": true,
+          "name": "Pinpeat melodic skeleton (sustains core melody under roneat elaboration)",
+          "descriptors": [
+            "pinpeat-melodic-skeleton-sustains-core-under-roneat-elaboration"
+          ],
+          "match_tokens": [
+            "mallets",
+            "metallic",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

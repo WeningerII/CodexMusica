@@ -1,0 +1,470 @@
+{
+  "id": "concertina_anglo",
+  "name": "Anglo concertina",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "anglo concertina",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_bellows_articulated",
+          "name": "Bellows-articulated phrasing",
+          "applies_to": [
+            "bandoneon",
+            "accordion",
+            "piano_accordion",
+            "concertina_anglo",
+            "concertina_english"
+          ],
+          "descriptors": [
+            "bellows-articulated",
+            "phrased"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "tango",
+            "klezmer"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        },
+        {
+          "id": "free_reed_drone_under",
+          "name": "Drone-under-melody",
+          "applies_to": [
+            "concertina_anglo",
+            "concertina_english",
+            "melodeon_diatonic",
+            "accordion"
+          ],
+          "descriptors": [
+            "drone-like"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "cajun"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "concertina_anglo_config",
+      "name": "Row configuration",
+      "variants": [
+        {
+          "id": "concertina_anglo_20",
+          "name": "20-button (basic)",
+          "descriptors": [
+            "historical",
+            "simple",
+            "beginner"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_anglo_30",
+          "default": true,
+          "name": "30-button (standard)",
+          "descriptors": [
+            "Irish-traditional"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_anglo_40",
+          "name": "40-button (extended)",
+          "descriptors": [
+            "professional",
+            "chromatic-extended",
+            "specialist"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concertina_anglo_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "concertina_anglo_irish_trad",
+          "default": true,
+          "name": "Irish traditional",
+          "descriptors": [
+            "session",
+            "ornament-heavy"
+          ],
+          "match_tokens": [
+            "traditional",
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_anglo_morris",
+          "name": "English Morris dance",
+          "descriptors": [
+            "regional-traditional",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_anglo_boer",
+          "name": "South African boer",
+          "descriptors": [
+            "post-colonial",
+            "distinctive",
+            "communal"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concertina_anglo_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "concertina_jeffries",
+          "default": true,
+          "name": "Jeffries 1880s vintage (canonical Irish traditional)",
+          "descriptors": [
+            "jeffries-1880s-vintage-canonical-irish-traditional"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "concertina_wheatstone",
+          "name": "Wheatstone (English maker — pre-1939 vintage)",
+          "descriptors": [
+            "wheatstone-pre-1939-vintage"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "concertina_dipper_modern",
+          "name": "Dipper modern hybrid (UK premium)",
+          "descriptors": [
+            "dipper-modern-hybrid-uk-premium"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_irish_made_modern",
+          "name": "Modern Irish-made (Carroll / Suttner premium revival)",
+          "descriptors": [
+            "modern-irish-carroll-suttner-premium-revival"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concertina_anglo_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "concertina_anglo_steel_reeds",
+          "default": true,
+          "name": "Steel reeds (canonical Anglo)",
+          "descriptors": [
+            "steel-reeds-canonical-anglo"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_anglo_brass_reeds_vintage",
+          "name": "Brass reeds (vintage pre-1900)",
+          "descriptors": [
+            "brass-reeds-vintage-pre-1900"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "concertina_anglo_config",
+      "name": "Row configuration",
+      "variants": [
+        {
+          "id": "concertina_anglo_20",
+          "name": "20-button (basic)",
+          "descriptors": [
+            "historical",
+            "simple",
+            "beginner"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_anglo_30",
+          "default": true,
+          "name": "30-button (standard)",
+          "descriptors": [
+            "Irish-traditional"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_anglo_40",
+          "name": "40-button (extended)",
+          "descriptors": [
+            "professional",
+            "chromatic-extended",
+            "specialist"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concertina_anglo_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "concertina_anglo_irish_trad",
+          "default": true,
+          "name": "Irish traditional",
+          "descriptors": [
+            "session",
+            "ornament-heavy"
+          ],
+          "match_tokens": [
+            "traditional",
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_anglo_morris",
+          "name": "English Morris dance",
+          "descriptors": [
+            "regional-traditional",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_anglo_boer",
+          "name": "South African boer",
+          "descriptors": [
+            "post-colonial",
+            "distinctive",
+            "communal"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concertina_anglo_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "concertina_jeffries",
+          "default": true,
+          "name": "Jeffries 1880s vintage (canonical Irish traditional)",
+          "descriptors": [
+            "jeffries-1880s-vintage-canonical-irish-traditional"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "concertina_wheatstone",
+          "name": "Wheatstone (English maker — pre-1939 vintage)",
+          "descriptors": [
+            "wheatstone-pre-1939-vintage"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "concertina_dipper_modern",
+          "name": "Dipper modern hybrid (UK premium)",
+          "descriptors": [
+            "dipper-modern-hybrid-uk-premium"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_irish_made_modern",
+          "name": "Modern Irish-made (Carroll / Suttner premium revival)",
+          "descriptors": [
+            "modern-irish-carroll-suttner-premium-revival"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concertina_anglo_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "concertina_anglo_steel_reeds",
+          "default": true,
+          "name": "Steel reeds (canonical Anglo)",
+          "descriptors": [
+            "steel-reeds-canonical-anglo"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_anglo_brass_reeds_vintage",
+          "name": "Brass reeds (vintage pre-1900)",
+          "descriptors": [
+            "brass-reeds-vintage-pre-1900"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ]
+}

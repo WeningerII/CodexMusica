@@ -1,0 +1,364 @@
+{
+  "id": "choir_southern_black_gospel",
+  "name": "Southern Black gospel choir",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "Southern Black gospel choir",
+  "parts": [
+    {
+      "id": "voices",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "lead_vocalist",
+          "default": true,
+          "name": "Lead vocalist (with ad-lib)",
+          "descriptors": [
+            "call",
+            "virtuoso",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "soprano_section",
+          "name": "Soprano section (often dominant)",
+          "descriptors": [
+            "ringing",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "gospel-rooted",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "alto_section",
+          "name": "Alto section",
+          "descriptors": [
+            "inner",
+            "chest-resonance-low-mid",
+            "responsive"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "gospel-rooted",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tenor_section",
+          "name": "Tenor section",
+          "descriptors": [
+            "supportive",
+            "chest-resonance-low-mid",
+            "blended"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "gospel-rooted",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bass_shouts",
+          "name": "Bass shouts and grunts",
+          "descriptors": [
+            "percussive",
+            "responsive",
+            "grounding"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "gospel-rooted",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "accompaniment",
+      "name": "Accompaniment configuration",
+      "variants": [
+        {
+          "id": "gospel_organ_drums_bass",
+          "default": true,
+          "name": "tonewheel organ + drum kit + electric bass",
+          "descriptors": [
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "gospel_piano_only",
+          "name": "Piano only",
+          "descriptors": [
+            "traditional",
+            "low-dynamic-level",
+            "accessible"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "gospel_full_band",
+          "name": "Full band (organ, piano, bass, drums, guitar)",
+          "descriptors": [
+            "contemporary",
+            "full",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era / school",
+      "variants": [
+        {
+          "id": "gospel_traditional",
+          "default": true,
+          "name": "Traditional (mid-20th-century lineage)",
+          "descriptors": [
+            "call-response",
+            "foundational"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "traditional",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "gospel_contemporary",
+          "name": "Contemporary (post-1969 lineage)",
+          "descriptors": [
+            "extended-harmony",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "contemporary",
+            "contemporary-classical"
+          ]
+        },
+        {
+          "id": "gospel_quartet_lineage",
+          "surface": false,
+          "name": "Quartet-lineage gospel",
+          "descriptors": [
+            "lead-and-background",
+            "golden-age",
+            "tight-harmony"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "voices",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "lead_vocalist",
+          "default": true,
+          "name": "Lead vocalist (with ad-lib)",
+          "descriptors": [
+            "call",
+            "virtuoso",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "soprano_section",
+          "name": "Soprano section (often dominant)",
+          "descriptors": [
+            "ringing",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "gospel-rooted",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "alto_section",
+          "name": "Alto section",
+          "descriptors": [
+            "inner",
+            "chest-resonance-low-mid",
+            "responsive"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "gospel-rooted",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tenor_section",
+          "name": "Tenor section",
+          "descriptors": [
+            "supportive",
+            "chest-resonance-low-mid",
+            "blended"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "gospel-rooted",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bass_shouts",
+          "name": "Bass shouts and grunts",
+          "descriptors": [
+            "percussive",
+            "responsive",
+            "grounding"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "gospel-rooted",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "accompaniment",
+      "name": "Accompaniment configuration",
+      "variants": [
+        {
+          "id": "gospel_organ_drums_bass",
+          "default": true,
+          "name": "tonewheel organ + drum kit + electric bass",
+          "descriptors": [
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "gospel_piano_only",
+          "name": "Piano only",
+          "descriptors": [
+            "traditional",
+            "low-dynamic-level",
+            "accessible"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "gospel_full_band",
+          "name": "Full band (organ, piano, bass, drums, guitar)",
+          "descriptors": [
+            "contemporary",
+            "full",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era / school",
+      "variants": [
+        {
+          "id": "gospel_traditional",
+          "default": true,
+          "name": "Traditional (mid-20th-century lineage)",
+          "descriptors": [
+            "call-response",
+            "foundational"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "traditional",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "gospel_contemporary",
+          "name": "Contemporary (post-1969 lineage)",
+          "descriptors": [
+            "extended-harmony",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "contemporary",
+            "contemporary-classical"
+          ]
+        },
+        {
+          "id": "gospel_quartet_lineage",
+          "surface": false,
+          "name": "Quartet-lineage gospel",
+          "descriptors": [
+            "lead-and-background",
+            "golden-age",
+            "tight-harmony"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        }
+      ]
+    }
+  ]
+}

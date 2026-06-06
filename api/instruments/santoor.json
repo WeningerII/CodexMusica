@@ -1,0 +1,501 @@
+{
+  "id": "santoor",
+  "name": "Santoor (Hindustani hammered dulcimer)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "santoor",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "santoor_courses",
+      "name": "String courses",
+      "variants": [
+        {
+          "id": "santoor_70",
+          "default": true,
+          "name": "70-string Kashmir variant",
+          "descriptors": [
+            "full-range",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santoor_100",
+          "name": "100-string Persian-Indian hybrid",
+          "descriptors": [
+            "ringing",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "santoor_mallets",
+      "name": "Mallet material",
+      "variants": [
+        {
+          "id": "walnut_mallets",
+          "default": true,
+          "name": "Walnut wood",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "walnut"
+          ],
+          "match_tokens": [
+            "mallets",
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "felt_tipped",
+          "name": "Felt-tipped",
+          "descriptors": [
+            "damped-attack-onset",
+            "muted",
+            "contemplative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "santoor_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "steel_strings_santoor",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "treble-extended",
+            "sustaining",
+            "classical",
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bronze_strings",
+          "name": "Bronze (lower courses)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "foundational",
+            "overtone-rich-sustained",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santoor_brass_warmer",
+          "name": "Brass (warmer alternative)",
+          "descriptors": [
+            "brass-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "santoor_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "santoor_walnut_kashmir",
+          "default": true,
+          "name": "Walnut (canonical Kashmiri)",
+          "descriptors": [
+            "walnut-canonical-kashmiri"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santoor_tun",
+          "name": "Tun / Indian cedar (alternative)",
+          "descriptors": [
+            "tun-indian-cedar-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "santoor_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "santoor_shivkumar_sharma_canon",
+          "default": true,
+          "name": "Shivkumar Sharma canonical Hindustani-introduction lineage",
+          "descriptors": [
+            "shivkumar-sharma-canonical-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santoor_kashmiri_sufiana",
+          "name": "Kashmiri Sufiana traditional (pre-classical adoption)",
+          "descriptors": [
+            "kashmiri-sufiana-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "santoor_courses",
+      "name": "String courses",
+      "variants": [
+        {
+          "id": "santoor_70",
+          "default": true,
+          "name": "70-string Kashmir variant",
+          "descriptors": [
+            "full-range",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santoor_100",
+          "name": "100-string Persian-Indian hybrid",
+          "descriptors": [
+            "ringing",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "santoor_mallets",
+      "name": "Mallet material",
+      "variants": [
+        {
+          "id": "walnut_mallets",
+          "default": true,
+          "name": "Walnut wood",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "walnut"
+          ],
+          "match_tokens": [
+            "mallets",
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "felt_tipped",
+          "name": "Felt-tipped",
+          "descriptors": [
+            "damped-attack-onset",
+            "muted",
+            "contemplative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "santoor_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "steel_strings_santoor",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "treble-extended",
+            "sustaining",
+            "classical",
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bronze_strings",
+          "name": "Bronze (lower courses)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "foundational",
+            "overtone-rich-sustained",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santoor_brass_warmer",
+          "name": "Brass (warmer alternative)",
+          "descriptors": [
+            "brass-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "santoor_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "santoor_walnut_kashmir",
+          "default": true,
+          "name": "Walnut (canonical Kashmiri)",
+          "descriptors": [
+            "walnut-canonical-kashmiri"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santoor_tun",
+          "name": "Tun / Indian cedar (alternative)",
+          "descriptors": [
+            "tun-indian-cedar-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "santoor_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "santoor_shivkumar_sharma_canon",
+          "default": true,
+          "name": "Shivkumar Sharma canonical Hindustani-introduction lineage",
+          "descriptors": [
+            "shivkumar-sharma-canonical-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santoor_kashmiri_sufiana",
+          "name": "Kashmiri Sufiana traditional (pre-classical adoption)",
+          "descriptors": [
+            "kashmiri-sufiana-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

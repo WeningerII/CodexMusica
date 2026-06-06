@@ -1,0 +1,144 @@
+{
+  "id": "jazzy_hip_hop",
+  "name": "Jazzy hip-hop / lo-fi hip-hop",
+  "family": "hip_hop",
+  "lineage": "2010s lo-fi hip-hop subgenre developed through YouTube streaming-channel infrastructure (especially the canonical ChilledCow / Lofi Girl 24/7 stream launched 2017, and parallel College Music, Chillhop Music streams). Characterized by jazz-piano-and-trumpet sampling, mellow-and-relaxed drum-machine production, lo-fi-cassette-tape distortion aesthetic, and explicit \"study music\" and \"ambient productivity\" functional context. Nujabes (foundational, 1974-2010), J Dilla (foundational), Idealism, Jinsang, and the broader Lofi Girl roster anchor the canonical lo-fi hip-hop roster.",
+  "recipe": "classic early-1970s jazzy hip-hop / lo-fi hip-hop, mc Rhythm, us hip hop branch, ambient experimental electric vaporwave aesthetic outrun / synthwave. thick, rap, chest resonance low mid, narrative. chopped sampler, TR-808, Japanese factory birch laminated maple laminated 7 ply quartersawn maple grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral shallow cup lead trumpet trumpet. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 636,
+  "score": 250.295,
+  "config": {
+    "traditions": [
+      "jazzy_hip_hop",
+      "vapor_aesthetic",
+      "outrun_synthwave"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.8850000000000016,
+          "voice_quality": 10.689999999999998,
+          "voice_vibrato": 0.585,
+          "voice_articulation": 8.999999999999998,
+          "voice_microtone": 3.000000000000001,
+          "voice_tradition": 9.434999999999999,
+          "voice_mechanism_compound": 1.275,
+          "voice_estill_quality": 0.45,
+          "voice_speech_song": 10.639999999999997,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 9.799999999999999,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 9.489999999999998,
+          "sampler_archetypes": 20.134999999999998,
+          "sampler_bit_depth": 7.84,
+          "sampler_workflow": 9.439999999999998,
+          "sampler_classic_context": 25.414999999999996
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 9.239999999999998,
+          "drum_machine_808_context": 2.9899999999999998,
+          "tr808_production_origin": 0.7149999999999994
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 1.9500000000000002,
+          "grand_piano_size": 0.585,
+          "grand_piano_brand": 1.995,
+          "piano_hammer": 1.625,
+          "piano_rim": 1.56,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": 1.395,
+          "piano_plate": 1.56,
+          "piano_pitch_standard": 1.69
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "cornet",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.9000000000000001,
+          "brass_size": 1.3,
+          "trumpet_mouthpiece": 4.790000000000001,
+          "brass_mute": 1.3,
+          "trumpet_technique": -0.05,
+          "trumpet_bell_metal": 3.3799999999999994,
+          "trumpet_maker_school": 3.3799999999999994
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

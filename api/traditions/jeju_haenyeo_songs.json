@@ -1,0 +1,68 @@
+{
+  "id": "jeju_haenyeo_songs",
+  "name": "Jeju haenyeo songs (UNESCO 2016)",
+  "family": "global",
+  "lineage": "Jeju Island haenyeo women's sea-diving culture and accompanying song repertoire, recognized as UNESCO Intangible Cultural Heritage 2016 (Korean inscription). The haenyeo (\"sea women\") of Jeju are women who free-dive (without breathing apparatus, in pre-modern leather-suit and modern wetsuit) to harvest shellfish, sea-urchin, sea-cucumber, and seaweed from the seabed around the island. The accompanying song repertoire includes ieo-do-sa-na (the rowing song sung while paddling out to the diving grounds, with distinctive sumbisori-breath-whistle as the haenyeo surface for air), nodeu-jak (the work-song sung between dives on the boat or rocky shore), and minyo (general folk-song repertoire). Vocal style features unaccompanied female-group antiphonal call-and-response with characteristic Jeju-dialect-specific melodic-contour conventions and a chest-register projection developed through the sea-diving-breath-control discipline. The tradition is matrilineal (mother-to-daughter transmission) and tied to the haenyeo cooperative-economic-collective structure (the village haenyeo guild divides diving territories and harvest income collectively). The 2016 ICH inscription explicitly frames the entire haenyeo culture as the heritage element, with the song repertoire as one component alongside diving practice, ecological knowledge, and the collective social structure. Field-recording archive at the Jeju Haenyeo Museum constitutes the institutional documentary base. Distinguished from mainland Korean minyo by Jeju-dialect-specific vocabulary and sea-diving-work functional context; distinguished from Japanese ama-diver tradition by Jeju's antiphonal-group-song and matrilineal cooperative-economic structure.",
+  "recipe": "classic jeju haenyeo songs, ballad Poetry, work song branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, melodic, unrestrained. beach. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 339,
+  "score": 246.82,
+  "config": {
+    "traditions": [
+      "jeju_haenyeo_songs",
+      "inuit_katajjaq_games",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 5.800000000000001,
+          "voice_quality": 4.355000000000003,
+          "voice_vibrato": 2.195,
+          "voice_articulation": 2.89,
+          "voice_microtone": 3.19,
+          "voice_tradition": 11.375,
+          "voice_mechanism_compound": 5.33,
+          "voice_estill_quality": 5.785,
+          "voice_speech_song": 30.485000000000007,
+          "voice_ensemble_config": 16.120000000000005,
+          "voice_ornament_system": 4.95,
+          "voice_pitch_organization": 1.125,
+          "voice_processing_chain": 5.85,
+          "voice_multitrack_stack": 3.38
+        }
+      }
+    ],
+    "room": "beach",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

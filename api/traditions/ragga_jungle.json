@@ -1,0 +1,104 @@
+{
+  "id": "ragga_jungle",
+  "name": "Ragga jungle",
+  "family": "electronic",
+  "lineage": "Mid-1990s UK drum-and-bass subgenre integrating Jamaican ragga MC vocal samples and dancehall rhythmic vocabulary with chopped-Amen-break percussion and sub-bass production. Congo Natty (Rebel MC) inaugurated the canonical sound; Shy FX, M-Beat, General Levy, and the broader Suburban Base label roster defined the canonical 1994-1996 ragga jungle peak.",
+  "recipe": "classic British 1994-1996 ragga jungle, bass System, bass descendants branch, Jamaican bass system jamaican dancehall. vocal fry, rap, chest resonance low mid, punctuated. TR-808, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 472,
+  "score": 147.465,
+  "config": {
+    "traditions": [
+      "ragga_jungle",
+      "jamaican_dancehall",
+      "dub"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 4.397,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.4215,
+          "voice_microtone": 0.0765,
+          "voice_tradition": 3.3150000000000004,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 2.8600000000000003,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 3.185,
+          "voice_multitrack_stack": 5.07
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 9.815,
+          "drum_machine_808_context": 9.879999999999999,
+          "tr808_production_origin": 0.7200000000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 8.125,
+          "body_wood": 1.69,
+          "pickup_config": 0.213,
+          "string_type": 9.75,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.09,
+          "bass_technique": 1.571
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

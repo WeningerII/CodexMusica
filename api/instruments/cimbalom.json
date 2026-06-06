@@ -1,0 +1,160 @@
+{
+  "id": "cimbalom",
+  "name": "Cimbalom (Hungarian hammered dulcimer with pedal damper)",
+  "family": "percussion",
+  "class": "struck-strings",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "cimbalom",
+  "parts": [
+    {
+      "id": "cimbalom_size",
+      "name": "Size / variant",
+      "variants": [
+        {
+          "id": "cimbalom_concert_pedal",
+          "default": true,
+          "name": "Concert cimbalom (large, pedal-damper, Schunda 1874 design)",
+          "descriptors": [
+            "concert-pedal-cimbalom",
+            "large-frame",
+            "pedal-damper",
+            "sustained-and-staccato",
+            "hungarian-tradition"
+          ],
+          "match_tokens": [
+            "struck-strings",
+            "cimbalom-tradition",
+            "hungarian-tradition",
+            "taraf-tradition"
+          ]
+        },
+        {
+          "id": "cimbalom_small_taraf",
+          "name": "Small ţambal / lap-cimbalom (Romanian taraf style, no pedal)",
+          "descriptors": [
+            "portable-no-pedal",
+            "romanian-taraf-tradition",
+            "lap-played"
+          ],
+          "match_tokens": [
+            "struck-strings",
+            "taraf-tradition",
+            "romani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cimbalom_mallet",
+      "name": "Mallet type",
+      "variants": [
+        {
+          "id": "cimbalom_cotton_wound",
+          "default": true,
+          "name": "Cotton-wound wooden mallets (warm tone)",
+          "descriptors": [
+            "cotton-wound",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck-strings",
+            "cimbalom-tradition"
+          ]
+        },
+        {
+          "id": "cimbalom_hard_wood",
+          "name": "Hard wooden mallets (bright, percussive)",
+          "descriptors": [
+            "hard-wood",
+            "bright-percussive"
+          ],
+          "match_tokens": [
+            "struck-strings",
+            "cimbalom-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cimbalom_size",
+      "name": "Size / variant",
+      "variants": [
+        {
+          "id": "cimbalom_concert_pedal",
+          "default": true,
+          "name": "Concert cimbalom (large, pedal-damper, Schunda 1874 design)",
+          "descriptors": [
+            "concert-pedal-cimbalom",
+            "large-frame",
+            "pedal-damper",
+            "sustained-and-staccato",
+            "hungarian-tradition"
+          ],
+          "match_tokens": [
+            "struck-strings",
+            "cimbalom-tradition",
+            "hungarian-tradition",
+            "taraf-tradition"
+          ]
+        },
+        {
+          "id": "cimbalom_small_taraf",
+          "name": "Small ţambal / lap-cimbalom (Romanian taraf style, no pedal)",
+          "descriptors": [
+            "portable-no-pedal",
+            "romanian-taraf-tradition",
+            "lap-played"
+          ],
+          "match_tokens": [
+            "struck-strings",
+            "taraf-tradition",
+            "romani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cimbalom_mallet",
+      "name": "Mallet type",
+      "variants": [
+        {
+          "id": "cimbalom_cotton_wound",
+          "default": true,
+          "name": "Cotton-wound wooden mallets (warm tone)",
+          "descriptors": [
+            "cotton-wound",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck-strings",
+            "cimbalom-tradition"
+          ]
+        },
+        {
+          "id": "cimbalom_hard_wood",
+          "name": "Hard wooden mallets (bright, percussive)",
+          "descriptors": [
+            "hard-wood",
+            "bright-percussive"
+          ],
+          "match_tokens": [
+            "struck-strings",
+            "cimbalom-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "yangqin",
+  "name": "Yangqin (Chinese hammered dulcimer)",
+  "family": "percussion",
+  "class": "chordophone-struck",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "yangqin",
+  "parts": [
+    {
+      "id": "yangqin_courses",
+      "name": "String courses",
+      "variants": [
+        {
+          "id": "yangqin_402_modern",
+          "default": true,
+          "name": "402-string modern concert",
+          "descriptors": [
+            "polyphonic-rich",
+            "modern-concert",
+            "extended-range",
+            "metal-strung"
+          ],
+          "match_tokens": [
+            "struck-zither",
+            "chinese-traditional"
+          ]
+        },
+        {
+          "id": "yangqin_traditional_smaller",
+          "name": "Traditional smaller-frame",
+          "descriptors": [
+            "intimate",
+            "traditional",
+            "metal-strung"
+          ],
+          "match_tokens": [
+            "struck-zither",
+            "chinese-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yangqin_technique",
+      "name": "Mallet technique",
+      "variants": [
+        {
+          "id": "yangqin_bamboo_mallets",
+          "default": true,
+          "name": "Flexible bamboo mallets",
+          "descriptors": [
+            "traditional",
+            "soft-attack",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "struck-zither",
+            "chinese-traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "yangqin_courses",
+      "name": "String courses",
+      "variants": [
+        {
+          "id": "yangqin_402_modern",
+          "default": true,
+          "name": "402-string modern concert",
+          "descriptors": [
+            "polyphonic-rich",
+            "modern-concert",
+            "extended-range",
+            "metal-strung"
+          ],
+          "match_tokens": [
+            "struck-zither",
+            "chinese-traditional"
+          ]
+        },
+        {
+          "id": "yangqin_traditional_smaller",
+          "name": "Traditional smaller-frame",
+          "descriptors": [
+            "intimate",
+            "traditional",
+            "metal-strung"
+          ],
+          "match_tokens": [
+            "struck-zither",
+            "chinese-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yangqin_technique",
+      "name": "Mallet technique",
+      "variants": [
+        {
+          "id": "yangqin_bamboo_mallets",
+          "default": true,
+          "name": "Flexible bamboo mallets",
+          "descriptors": [
+            "traditional",
+            "soft-attack",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "struck-zither",
+            "chinese-traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

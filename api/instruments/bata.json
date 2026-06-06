@@ -1,0 +1,394 @@
+{
+  "id": "bata",
+  "name": "Batá drums (Yoruba/Cuban triple-set)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "batá",
+  "parts": [
+    {
+      "id": "bata_set",
+      "name": "Drum role",
+      "variants": [
+        {
+          "id": "iya",
+          "default": true,
+          "name": "Iyá (mother, largest)",
+          "descriptors": [
+            "lead",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "itotele",
+          "name": "Itótele (middle)",
+          "descriptors": [
+            "responsive",
+            "dialoguing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "okonkolo",
+          "name": "Okónkolo (smallest)",
+          "descriptors": [
+            "high-pitched",
+            "timekeeping",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bata_use",
+      "surface": false,
+      "name": "Context",
+      "variants": [
+        {
+          "id": "bata_lucumi",
+          "default": true,
+          "name": "Lukumi/Santería sacred",
+          "descriptors": [
+            "ceremonial",
+            "sacred",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_aña_consecrated",
+          "name": "Añá-consecrated (Cuban initiated)",
+          "descriptors": [
+            "initiated",
+            "consecrated",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_secular",
+          "name": "Aberinkula (unconsecrated, secular)",
+          "descriptors": [
+            "secular",
+            "performance",
+            "accessible"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bata_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "bata_cedar_canonical",
+          "default": true,
+          "name": "Cedar (canonical Yoruba / Lucumí)",
+          "descriptors": [
+            "cedar-canonical-yoruba-lucumi"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_mahogany",
+          "name": "Mahogany (Cuban alternative)",
+          "descriptors": [
+            "mahogany-cuban-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_iroko",
+          "name": "Iroko (West African premium)",
+          "descriptors": [
+            "iroko-west-african-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bata_head_material",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "bata_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin both heads with knife-stretched lacing (canonical)",
+          "descriptors": [
+            "goat-skin-knife-stretched-lacing-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_cowhide_modern",
+          "name": "Cowhide (modern alternative)",
+          "descriptors": [
+            "cowhide-modern-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_synthetic_modern",
+          "name": "Synthetic (aberinkula secular performance only)",
+          "descriptors": [
+            "synthetic-aberinkula-secular-only"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bata_set",
+      "name": "Drum role",
+      "variants": [
+        {
+          "id": "iya",
+          "default": true,
+          "name": "Iyá (mother, largest)",
+          "descriptors": [
+            "lead",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "itotele",
+          "name": "Itótele (middle)",
+          "descriptors": [
+            "responsive",
+            "dialoguing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "okonkolo",
+          "name": "Okónkolo (smallest)",
+          "descriptors": [
+            "high-pitched",
+            "timekeeping",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bata_use",
+      "surface": false,
+      "name": "Context",
+      "variants": [
+        {
+          "id": "bata_lucumi",
+          "default": true,
+          "name": "Lukumi/Santería sacred",
+          "descriptors": [
+            "ceremonial",
+            "sacred",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_aña_consecrated",
+          "name": "Añá-consecrated (Cuban initiated)",
+          "descriptors": [
+            "initiated",
+            "consecrated",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_secular",
+          "name": "Aberinkula (unconsecrated, secular)",
+          "descriptors": [
+            "secular",
+            "performance",
+            "accessible"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bata_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "bata_cedar_canonical",
+          "default": true,
+          "name": "Cedar (canonical Yoruba / Lucumí)",
+          "descriptors": [
+            "cedar-canonical-yoruba-lucumi"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_mahogany",
+          "name": "Mahogany (Cuban alternative)",
+          "descriptors": [
+            "mahogany-cuban-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_iroko",
+          "name": "Iroko (West African premium)",
+          "descriptors": [
+            "iroko-west-african-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bata_head_material",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "bata_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin both heads with knife-stretched lacing (canonical)",
+          "descriptors": [
+            "goat-skin-knife-stretched-lacing-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_cowhide_modern",
+          "name": "Cowhide (modern alternative)",
+          "descriptors": [
+            "cowhide-modern-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "bata_synthetic_modern",
+          "name": "Synthetic (aberinkula secular performance only)",
+          "descriptors": [
+            "synthetic-aberinkula-secular-only"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "percussive-attack",
+            "hands",
+            "ritual-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "id": "contemporary_rb_late_90s_2000s",
+  "name": "Contemporary R&B (late-90s–2000s)",
+  "family": "vernacular",
+  "lineage": "Late-1990s-and-2000s producer-team-era contemporary R&B aesthetic codified by the Darkchild, Jam-and-Lewis (later Flyte Tyme), Timbaland, She'kspere, and Rodney Jerkins production-lineage. Built on the breath-admixed close-miked intimate-vocal-aesthetic with stacked harmony backgrounds (typically 4-to-8 voice layered), neo-soul jazz-extended chord-vocabulary (minor-9, major-7-sharp-11, sus-2, sus-4 voicings), and programmed drum-machine kit (typically Roland TR-909, Akai MPC60-3000, or Korg M1) playing swung-and-shuffled hi-hat-and-snare-with-808-kick. The genre layered Atlanta-Memphis-NYC studio-clusters and bridged classic-Motown-and-Philly-soul lineage to 2010s-modern-R&B and trap-soul.",
+  "recipe": "classic contemporary r&b, functional Song, soul R&B branch, us hip hop east coast golden-age sample-collage hip-hop boom bap. thick, breath admixed, tasteful, narrative. roland tr 8s modern aira digital recreation TR-808, chopped sampler, roland jupiter lineage canonical jupiter 8 1981 osaka sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 574,
+  "score": 353.042,
+  "config": {
+    "traditions": [
+      "contemporary_rb_late_90s_2000s",
+      "golden_age_hip_hop_1986_1991",
+      "boom_bap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "breath_admixed_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 13.806999999999997,
+          "voice_quality": 12.11,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 12.845,
+          "voice_microtone": 2.2500000000000004,
+          "voice_tradition": 12.3925,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 11.544999999999998,
+          "voice_speech_song": 13.584999999999999,
+          "voice_ensemble_config": 12.869999999999997,
+          "voice_ornament_system": 0.8999999999999999,
+          "voice_pitch_organization": 0.8999999999999999,
+          "voice_processing_chain": 6.551500000000001,
+          "voice_multitrack_stack": 5.9955
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.697,
+          "drum_machine_808_context": 2.08,
+          "tr808_production_origin": 3.66
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 1.84,
+          "sampler_archetypes": 2.815,
+          "sampler_bit_depth": 1.3,
+          "sampler_workflow": 2.05,
+          "sampler_classic_context": 16.249999999999996
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 5.342,
+          "poly_archetypes": 1.3,
+          "poly_voices": 2.876,
+          "poly_maker_lineage": 2.535
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 11.149999999999999,
+          "amp_make": 15.242999999999999,
+          "body_wood": 0.819,
+          "pickup_config": 2.4965,
+          "string_type": 18.265,
+          "scale_length_b": 1.3,
+          "fretted_or_not": 0.2265,
+          "bass_technique": 11.15
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,414 @@
+{
+  "id": "mellotron",
+  "name": "Mellotron (tape sample keyboard)",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 1,
+    "dynamics": 0
+  },
+  "short": "mellotron",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        },
+        {
+          "id": "keyboard_arpeggio_sustain_rich",
+          "name": "Arpeggiated sustain-rich",
+          "applies_to": [
+            "grand_piano",
+            "rhodes_electric",
+            "mellotron",
+            "electric_piano_tine",
+            "tape_replay_keyboard",
+            "pipe_organ"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sustain-rich-overtones"
+          ],
+          "match_tokens": [
+            "arpeggio-decoration",
+            "sustained",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "shoegaze"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "mellotron_voice",
+      "surface": false,
+      "name": "Tape sample",
+      "variants": [
+        {
+          "id": "mellotron_strings",
+          "name": "Strings (M300)",
+          "descriptors": [
+            "haunted-romantic",
+            "prog-rock",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "mellotron_choir",
+          "name": "Choir",
+          "descriptors": [
+            "prog-rock",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "mellotron_flute",
+          "default": true,
+          "name": "Flute",
+          "descriptors": [
+            "distinctive"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "60s-pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mellotron_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "mellotron_psych",
+          "default": true,
+          "name": "Late-sixties psychedelic",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "mellotron_prog",
+          "name": "Progressive rock seventies",
+          "descriptors": [
+            "extended-tracks",
+            "symphonic",
+            "genre-defining"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "mellotron_indie",
+          "name": "Modern indie / dream-pop",
+          "descriptors": [
+            "twenty-first-century-revival",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "studio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mellotron_model",
+      "surface": false,
+      "name": "Mellotron model",
+      "variants": [
+        {
+          "id": "mellotron_m400_canonical",
+          "default": true,
+          "name": "Mellotron M400 (canonical 1970-1980 — prog-rock standard, simplified 35-key)",
+          "descriptors": [
+            "mellotron-m400-canonical-1970-1980-prog-rock-standard-35-key"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mellotron_mkii_streetly",
+          "name": "Mellotron Mark II Streetly (canonical 1964-1968 — Strawberry Fields-era canon)",
+          "descriptors": [
+            "mellotron-mkii-streetly-canonical-1964-1968-strawberry-fields-era"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mellotron_m300",
+          "name": "Mellotron M300 (1968 transitional — Moody Blues canon)",
+          "descriptors": [
+            "mellotron-m300-1968-transitional-moody-blues-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mellotron_m4000d_modern",
+          "name": "Mellotron M4000D (modern digital reissue post-2007)",
+          "descriptors": [
+            "mellotron-m4000d-modern-digital-reissue-post-2007"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mellotron_tape_material",
+      "surface": false,
+      "name": "Tape material",
+      "variants": [
+        {
+          "id": "mellotron_polyester_tape_canonical",
+          "default": true,
+          "name": "Polyester-base 1/4-inch tape with iron-oxide coating (canonical Mellotron)",
+          "descriptors": [
+            "polyester-base-quarter-inch-iron-oxide-canonical-mellotron"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mellotron_voice",
+      "surface": false,
+      "name": "Tape sample",
+      "variants": [
+        {
+          "id": "mellotron_strings",
+          "name": "Strings (M300)",
+          "descriptors": [
+            "haunted-romantic",
+            "prog-rock",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "mellotron_choir",
+          "name": "Choir",
+          "descriptors": [
+            "prog-rock",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "mellotron_flute",
+          "default": true,
+          "name": "Flute",
+          "descriptors": [
+            "distinctive"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "60s-pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mellotron_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "mellotron_psych",
+          "default": true,
+          "name": "Late-sixties psychedelic",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "mellotron_prog",
+          "name": "Progressive rock seventies",
+          "descriptors": [
+            "extended-tracks",
+            "symphonic",
+            "genre-defining"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "mellotron_indie",
+          "name": "Modern indie / dream-pop",
+          "descriptors": [
+            "twenty-first-century-revival",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "studio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mellotron_model",
+      "surface": false,
+      "name": "Mellotron model",
+      "variants": [
+        {
+          "id": "mellotron_m400_canonical",
+          "default": true,
+          "name": "Mellotron M400 (canonical 1970-1980 — prog-rock standard, simplified 35-key)",
+          "descriptors": [
+            "mellotron-m400-canonical-1970-1980-prog-rock-standard-35-key"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mellotron_mkii_streetly",
+          "name": "Mellotron Mark II Streetly (canonical 1964-1968 — Strawberry Fields-era canon)",
+          "descriptors": [
+            "mellotron-mkii-streetly-canonical-1964-1968-strawberry-fields-era"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mellotron_m300",
+          "name": "Mellotron M300 (1968 transitional — Moody Blues canon)",
+          "descriptors": [
+            "mellotron-m300-1968-transitional-moody-blues-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mellotron_m4000d_modern",
+          "name": "Mellotron M4000D (modern digital reissue post-2007)",
+          "descriptors": [
+            "mellotron-m4000d-modern-digital-reissue-post-2007"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mellotron_tape_material",
+      "surface": false,
+      "name": "Tape material",
+      "variants": [
+        {
+          "id": "mellotron_polyester_tape_canonical",
+          "default": true,
+          "name": "Polyester-base 1/4-inch tape with iron-oxide coating (canonical Mellotron)",
+          "descriptors": [
+            "polyester-base-quarter-inch-iron-oxide-canonical-mellotron"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        }
+      ]
+    }
+  ]
+}

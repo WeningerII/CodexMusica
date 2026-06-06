@@ -1,0 +1,49 @@
+{
+  "id": "shakuhachi_honkyoku",
+  "name": "Shakuhachi honkyoku",
+  "family": "classical",
+  "lineage": "Japanese Fuke-Zen shakuhachi five-hole bamboo-flute solo tradition with the 36-piece honkyoku canonical-repertoire codified by the Komuso mendicant-monk lineage of the Edo-period (1603-1868). Originated from Tang-dynasty Chinese chi imported via 8th-century Buddhist transmission, transformed through medieval Japanese ascetic-monastic practice into a meditative suizen blowing-as-zen contemplative discipline. Each honkyoku piece is ametrical-rhythmically-free (no fixed pulse), built around the wabi-sabi aesthetic of single-tone meri-kari microtonal bending, atari-and-mura-iki breath-attack and breath-noise as expressive elements, and silence as compositional structure. The Meiji-era 1871 suppression of the Fuke sect transitioned the repertoire from religious to concert context.",
+  "recipe": "classic early-1600s shakuhachi honkyoku, art Music, east Asian branch, wind pipe drone modal, buddhist ritual devotional shōmyō. madake bamboo phyllostachys canonical Japanese root section komuso fuke shu canonical pre meiji honkyoku zen breath tone airy low dynamic level shakuhachi. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 438,
+  "score": 46.235,
+  "config": {
+    "traditions": [
+      "shakuhachi_honkyoku",
+      "shomyo_japanese"
+    ],
+    "instruments": [
+      {
+        "id": "shakuhachi",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "shaku_length": "one_eight",
+          "shaku_technique": "mura_iki",
+          "shakuhachi_body_material": "shakuhachi_madake_canonical",
+          "shakuhachi_lineage": "shakuhachi_komuso_fuke"
+        },
+        "scores": {
+          "wind_articulation": 4.595,
+          "shaku_length": 10.499999999999998,
+          "shaku_technique": 4.55,
+          "shakuhachi_body_material": 6.774999999999999,
+          "shakuhachi_lineage": 14.545
+        }
+      }
+    ],
+    "room": "tatami_parlor_japanese",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_tube_german_v72",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "japanese_in_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

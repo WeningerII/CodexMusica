@@ -1,0 +1,228 @@
+{
+  "id": "tack_piano",
+  "name": "Tack piano (modified upright)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tack piano",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_stride_left_hand",
+          "name": "Stride / boogie left-hand",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "tack_piano"
+          ],
+          "descriptors": [
+            "stride"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "boogie",
+            "pre-war-jazz"
+          ]
+        },
+        {
+          "id": "keyboard_honky_tonk",
+          "name": "Honky-tonk",
+          "applies_to": [
+            "tack_piano",
+            "upright_piano"
+          ],
+          "descriptors": [
+            "barrelhouse"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "honky-tonk",
+            "country"
+          ]
+        },
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tack_density",
+      "name": "Tack density",
+      "variants": [
+        {
+          "id": "sparse_tacks",
+          "default": true,
+          "name": "Sparse tacks (some notes)",
+          "descriptors": [
+            "gritty",
+            "character-piano",
+            "partial-honky"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "full_tacks",
+          "name": "Full tacks (every hammer)",
+          "descriptors": [
+            "tinny",
+            "honky-tonk",
+            "percussive"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tack_piano_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tack_piano_saloon",
+          "default": true,
+          "name": "Saloon / honky-tonk",
+          "descriptors": [
+            "twentieth-century-American"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "tack_piano_studio",
+          "name": "Studio session",
+          "descriptors": [
+            "modern",
+            "character-piano",
+            "overdub-tone"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "tack_piano_film",
+          "name": "Soundtrack / film",
+          "descriptors": [
+            "cinematic",
+            "period-evocation",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tack_density",
+      "name": "Tack density",
+      "variants": [
+        {
+          "id": "sparse_tacks",
+          "default": true,
+          "name": "Sparse tacks (some notes)",
+          "descriptors": [
+            "gritty",
+            "character-piano",
+            "partial-honky"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "full_tacks",
+          "name": "Full tacks (every hammer)",
+          "descriptors": [
+            "tinny",
+            "honky-tonk",
+            "percussive"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tack_piano_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tack_piano_saloon",
+          "default": true,
+          "name": "Saloon / honky-tonk",
+          "descriptors": [
+            "twentieth-century-American"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "tack_piano_studio",
+          "name": "Studio session",
+          "descriptors": [
+            "modern",
+            "character-piano",
+            "overdub-tone"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "tack_piano_film",
+          "name": "Soundtrack / film",
+          "descriptors": [
+            "cinematic",
+            "period-evocation",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

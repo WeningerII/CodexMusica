@@ -1,0 +1,235 @@
+{
+  "id": "glockenspiel",
+  "name": "Glockenspiel (orchestral bells)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 2,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "glockenspiel",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_mallets_orchestral",
+          "default": true,
+          "name": "Mallets orchestral",
+          "applies_to": [
+            "marimba_orchestral",
+            "vibraphone",
+            "xylophone",
+            "glockenspiel",
+            "timpani"
+          ],
+          "descriptors": [
+            "mallets"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "glockenspiel_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "glockenspiel_orch_25",
+          "default": true,
+          "name": "Orchestral 2.5-octave",
+          "descriptors": [
+            "standard",
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "mallets"
+          ]
+        },
+        {
+          "id": "glockenspiel_orch_3",
+          "name": "Concert 3-octave",
+          "descriptors": [
+            "extended-range",
+            "professional",
+            "modern"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "mallets"
+          ]
+        },
+        {
+          "id": "glockenspiel_marching",
+          "name": "Marching mounted (lyre)",
+          "descriptors": [
+            "parade",
+            "mounted-vertical",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "glockenspiel_mallet",
+      "name": "Mallet material",
+      "variants": [
+        {
+          "id": "glockenspiel_brass",
+          "default": true,
+          "name": "Brass",
+          "descriptors": [
+            "cutting",
+            "projecting",
+            "brass"
+          ],
+          "match_tokens": [
+            "mallets"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "glockenspiel_plastic",
+          "name": "Plastic",
+          "descriptors": [
+            "mid-attack",
+            "general",
+            "plastic"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        },
+        {
+          "id": "glockenspiel_rubber",
+          "name": "Rubber",
+          "descriptors": [
+            "mellow",
+            "soft-attack",
+            "subtle",
+            "rubber"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "glockenspiel_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "glockenspiel_orch_25",
+          "default": true,
+          "name": "Orchestral 2.5-octave",
+          "descriptors": [
+            "standard",
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "mallets"
+          ]
+        },
+        {
+          "id": "glockenspiel_orch_3",
+          "name": "Concert 3-octave",
+          "descriptors": [
+            "extended-range",
+            "professional",
+            "modern"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "mallets"
+          ]
+        },
+        {
+          "id": "glockenspiel_marching",
+          "name": "Marching mounted (lyre)",
+          "descriptors": [
+            "parade",
+            "mounted-vertical",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "glockenspiel_mallet",
+      "name": "Mallet material",
+      "variants": [
+        {
+          "id": "glockenspiel_brass",
+          "default": true,
+          "name": "Brass",
+          "descriptors": [
+            "cutting",
+            "projecting",
+            "brass"
+          ],
+          "match_tokens": [
+            "mallets"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "glockenspiel_plastic",
+          "name": "Plastic",
+          "descriptors": [
+            "mid-attack",
+            "general",
+            "plastic"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        },
+        {
+          "id": "glockenspiel_rubber",
+          "name": "Rubber",
+          "descriptors": [
+            "mellow",
+            "soft-attack",
+            "subtle",
+            "rubber"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "id": "pagode",
+  "name": "Pagode",
+  "family": "global",
+  "lineage": "Rio de Janeiro 1980s-onward backyard urban-samba subgenre with small-roda informal performance setting — codified through Beth Carvalho discovering and promoting the Cacique de Ramos sambistas, Zeca Pagodinho’s rise from that scene to mainstream stardom (Pagode do Zeca 1986 onward), and Almir Guineto and Jovelina Pérola Negra — characterized by the tantã, banjo-cavaco, and repique-de-mão small-ensemble instrumentation",
+  "recipe": "classic North American mid-1980s pagode, groove Percussion, pagode branch, Brazilian song functional song bossa nova brega and tecnobrega. thick, intimate aspirated, chest resonance low mid, equal tempered. classical nylon-string guitar, samba foundation mahogany samba canon cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, Brazilian rosewood pre 1992 choro violao 7 cordas, snappy samba tradition metal construction reco reco. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 840,
+  "score": 246.563,
+  "config": {
+    "traditions": [
+      "pagode",
+      "bossa_nova",
+      "brega_tecnobrega"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 2.7950000000000013,
+          "voice_quality": 13.079999999999993,
+          "voice_vibrato": 0.78,
+          "voice_articulation": 0.39,
+          "voice_microtone": 2.8500000000000005,
+          "voice_tradition": 3.055,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 3.0550000000000006,
+          "voice_speech_song": 12.804999999999996,
+          "voice_ensemble_config": 11.309999999999997,
+          "voice_ornament_system": 0.8449999999999999,
+          "voice_pitch_organization": 0.7349999999999999,
+          "voice_processing_chain": 4.18875,
+          "voice_multitrack_stack": 4.4375
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "thumb_attack_cl"
+        },
+        "scores": {
+          "acoustic_technique": 1.6731249999999998,
+          "string_tuning": 0,
+          "top_wood_classical": 0.39,
+          "bracing_classical": 0.78,
+          "string_classical": 0.39,
+          "attack_technique_cl": 0.975
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_brazilian",
+          "cavaquinho_context": "cavaquinho_choro",
+          "cavaquinho_body_wood": "cavaquinho_mahogany",
+          "cavaquinho_strings": "cavaquinho_steel"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.7149999999999999,
+          "cavaquinho_origin": 8.709999999999997,
+          "cavaquinho_context": 14.299999999999997,
+          "cavaquinho_body_wood": 6.759999999999998,
+          "cavaquinho_strings": 0.945
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_capoeira",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "pandeiro_size": 6.759999999999998,
+          "pandeiro_context": 5.589999999999998,
+          "pandeiro_head": 2.8600000000000003,
+          "pandeiro_shell_wood": 2.8600000000000003,
+          "pandeiro_jingles": 2.8600000000000003
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_segunda",
+          "surdo_skin": "surdo_nylon",
+          "surdo_shell": "surdo_aluminum_canonical"
+        },
+        "scores": {
+          "surdo_size": 0.320625,
+          "surdo_skin": 2.8600000000000003,
+          "surdo_shell": 2.47
+        }
+      },
+      {
+        "id": "tamborim",
+        "slots": {
+          "tamborim_skin": "tamborim_nylon",
+          "tamborim_striker": "tamborim_cluster",
+          "tamborim_shell": "tamborim_aluminum_canonical"
+        },
+        "scores": {
+          "tamborim_skin": 0.39,
+          "tamborim_striker": 7.149999999999998,
+          "tamborim_shell": 2.47
+        }
+      },
+      {
+        "id": "violao_7_cordas",
+        "slots": {
+          "violao_7_string7": "violao_7_low_B",
+          "violao_7_strings": "violao_7_nylon",
+          "violao_7_body_wood": "violao_7_brazilian_rosewood",
+          "violao_7_top_wood": "violao_7_cedar_top",
+          "violao_7_role": "violao_7_bordao_counter"
+        },
+        "scores": {
+          "violao_7_string7": 0.78,
+          "violao_7_strings": 0.39,
+          "violao_7_body_wood": 2.7300000000000004,
+          "violao_7_top_wood": 0.7349999999999999,
+          "violao_7_role": 0.78
+        }
+      },
+      {
+        "id": "reco_reco",
+        "slots": {
+          "reco_source": "reco_metal_springs"
+        },
+        "scores": {
+          "reco_source": 7.149999999999998
+        }
+      }
+    ],
+    "room": "phonogram_brasil_studio",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "samba_2_4_telecoteco",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

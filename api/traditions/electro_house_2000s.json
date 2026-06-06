@@ -1,0 +1,63 @@
+{
+  "id": "electro_house_2000s",
+  "name": "Electro house (2000s)",
+  "family": "electronic",
+  "lineage": "Mid-to-late-2000s house subgenre characterized by aggressive distorted-synth-lead production, heavy compression, four-on-the-floor beat with prominent off-beat bass, and explicit big-room festival-targeting. Justice's Cross (2007), Daft Punk's Discovery-influenced production legacy, and the broader French house lineage anchored the canonical aesthetic. The genre spawned the broader EDM-festival era of 2008-2012.",
+  "recipe": "classic electro house, electronic Dance, house branch, thrash metal, industrial noise experimental electric djent. TR-808, plucked short envelope analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 353,
+  "score": 26.019,
+  "config": {
+    "traditions": [
+      "electro_house_2000s",
+      "djent",
+      "ebm_european_body"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 1.625,
+          "drum_machine_808_context": 3.3539999999999996,
+          "tr808_production_origin": 0.424
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 3.2,
+          "oscillator": 1.69,
+          "filter_topology": 3.38,
+          "envelope": 0.6749999999999999,
+          "modulation": 0.09
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

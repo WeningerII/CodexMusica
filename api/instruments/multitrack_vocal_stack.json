@@ -1,0 +1,521 @@
+{
+  "id": "multitrack_vocal_stack",
+  "surface": false,
+  "name": "Multi-track vocal stack (recorded-stack as constitutive instrument)",
+  "family": "voice",
+  "class": "vocal_stack",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "vocal stack",
+  "parts": [
+    {
+      "id": "multitrack_stack_density",
+      "name": "Stack density",
+      "variants": [
+        {
+          "id": "multitrack_density_unison_double",
+          "default": true,
+          "name": "Unison-double single-performer (recorded-take stack)",
+          "descriptors": [
+            "unison-double-single-performer-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "doubled"
+          ]
+        },
+        {
+          "id": "multitrack_density_octave_double",
+          "name": "Octave-double single-performer stack",
+          "descriptors": [
+            "octave-double-single-performer-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "doubled"
+          ]
+        },
+        {
+          "id": "multitrack_density_3_part_third_fifth",
+          "name": "Lead + 3-part third-fifth harmony stack",
+          "descriptors": [
+            "lead-plus-third-fifth-3-part-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "multitrack_density_5_part_cluster",
+          "name": "Lead + 5-part dense-cluster stack",
+          "descriptors": [
+            "lead-plus-dense-cluster-5-part-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "multitrack_density_polychordal_7_9_11",
+          "name": "Polychordal 7-9-11 voicing stack",
+          "descriptors": [
+            "polychordal-major-seven-nine-eleven-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "multitrack_density_octuple_plus",
+          "name": "Octuple-plus dense-stack (mid-1960s onward multi-track-as-instrument)",
+          "descriptors": [
+            "octuple-plus-dense-stack-multi-track-instrument"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "multitrack_stack_era_aesthetic",
+      "surface": false,
+      "name": "Recording-era aesthetic",
+      "variants": [
+        {
+          "id": "multitrack_era_mid_1960s_double_tracking",
+          "default": true,
+          "name": "Mid-1960s double-tracking era (2-track to 4-track)",
+          "descriptors": [
+            "mid-1960s-double-tracking-era-2-to-4-track"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1960s",
+            "vintage"
+          ]
+        },
+        {
+          "id": "multitrack_era_late_1970s_thirds_fifths",
+          "name": "Late-1970s thirds-fifths-octaves stack (16-24 track)",
+          "descriptors": [
+            "late-1970s-thirds-fifths-octaves-16-24-track"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1970s",
+            "vintage"
+          ]
+        },
+        {
+          "id": "multitrack_era_late_1980s_reverb_bus",
+          "name": "Late-1980s reverb-saturated-bus stack",
+          "descriptors": [
+            "late-1980s-reverb-saturated-bus-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1980s"
+          ]
+        },
+        {
+          "id": "multitrack_era_2000s_elastic_pitch",
+          "name": "2000s elastic-pitch-edited stack",
+          "descriptors": [
+            "2000s-elastic-pitch-edited-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "2000s",
+            "modern-pop"
+          ]
+        },
+        {
+          "id": "multitrack_era_2010s_melodyne",
+          "name": "2010s Melodyne-microtuned stack",
+          "descriptors": [
+            "2010s-melodyne-microtuned-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "2010s",
+            "modern-pop"
+          ]
+        },
+        {
+          "id": "multitrack_era_2020s_ai_harmonized",
+          "name": "2020s AI-trained-harmonizer stack",
+          "descriptors": [
+            "2020s-ai-trained-harmonizer-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "2020s",
+            "modern-pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "multitrack_stack_processing",
+      "surface": false,
+      "name": "Stack-specific processing",
+      "variants": [
+        {
+          "id": "multitrack_processing_natural",
+          "default": true,
+          "name": "Natural blend (light common-bus EQ)",
+          "descriptors": [
+            "natural-blend-light-common-bus-eq"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "multitrack_processing_formant_split_stereo",
+          "name": "Formant-shifted left-right split stereo-width",
+          "descriptors": [
+            "formant-shifted-left-right-stereo-width"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "multitrack_processing_tuned_perfect",
+          "name": "Hard-tuned perfect-pitch stack (Antares retune 0ms across all tracks)",
+          "descriptors": [
+            "hard-tuned-perfect-pitch-retune-0ms-all-tracks"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "modern-pop"
+          ]
+        },
+        {
+          "id": "multitrack_processing_compressed_glued",
+          "name": "Heavy bus-compression glue (post-2010 commercial)",
+          "descriptors": [
+            "heavy-bus-compression-glue-post-2010"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "modern-pop",
+            "commercial"
+          ]
+        },
+        {
+          "id": "multitrack_processing_chorus_thickened",
+          "name": "Chorus-detuned thickener across stack",
+          "descriptors": [
+            "chorus-detuned-thickener-across-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "multitrack_stack_density",
+      "name": "Stack density",
+      "variants": [
+        {
+          "id": "multitrack_density_unison_double",
+          "default": true,
+          "name": "Unison-double single-performer (recorded-take stack)",
+          "descriptors": [
+            "unison-double-single-performer-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "doubled"
+          ]
+        },
+        {
+          "id": "multitrack_density_octave_double",
+          "name": "Octave-double single-performer stack",
+          "descriptors": [
+            "octave-double-single-performer-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "doubled"
+          ]
+        },
+        {
+          "id": "multitrack_density_3_part_third_fifth",
+          "name": "Lead + 3-part third-fifth harmony stack",
+          "descriptors": [
+            "lead-plus-third-fifth-3-part-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "multitrack_density_5_part_cluster",
+          "name": "Lead + 5-part dense-cluster stack",
+          "descriptors": [
+            "lead-plus-dense-cluster-5-part-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "multitrack_density_polychordal_7_9_11",
+          "name": "Polychordal 7-9-11 voicing stack",
+          "descriptors": [
+            "polychordal-major-seven-nine-eleven-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "multitrack_density_octuple_plus",
+          "name": "Octuple-plus dense-stack (mid-1960s onward multi-track-as-instrument)",
+          "descriptors": [
+            "octuple-plus-dense-stack-multi-track-instrument"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "multitrack_stack_era_aesthetic",
+      "surface": false,
+      "name": "Recording-era aesthetic",
+      "variants": [
+        {
+          "id": "multitrack_era_mid_1960s_double_tracking",
+          "default": true,
+          "name": "Mid-1960s double-tracking era (2-track to 4-track)",
+          "descriptors": [
+            "mid-1960s-double-tracking-era-2-to-4-track"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1960s",
+            "vintage"
+          ]
+        },
+        {
+          "id": "multitrack_era_late_1970s_thirds_fifths",
+          "name": "Late-1970s thirds-fifths-octaves stack (16-24 track)",
+          "descriptors": [
+            "late-1970s-thirds-fifths-octaves-16-24-track"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1970s",
+            "vintage"
+          ]
+        },
+        {
+          "id": "multitrack_era_late_1980s_reverb_bus",
+          "name": "Late-1980s reverb-saturated-bus stack",
+          "descriptors": [
+            "late-1980s-reverb-saturated-bus-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1980s"
+          ]
+        },
+        {
+          "id": "multitrack_era_2000s_elastic_pitch",
+          "name": "2000s elastic-pitch-edited stack",
+          "descriptors": [
+            "2000s-elastic-pitch-edited-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "2000s",
+            "modern-pop"
+          ]
+        },
+        {
+          "id": "multitrack_era_2010s_melodyne",
+          "name": "2010s Melodyne-microtuned stack",
+          "descriptors": [
+            "2010s-melodyne-microtuned-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "2010s",
+            "modern-pop"
+          ]
+        },
+        {
+          "id": "multitrack_era_2020s_ai_harmonized",
+          "name": "2020s AI-trained-harmonizer stack",
+          "descriptors": [
+            "2020s-ai-trained-harmonizer-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "2020s",
+            "modern-pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "multitrack_stack_processing",
+      "surface": false,
+      "name": "Stack-specific processing",
+      "variants": [
+        {
+          "id": "multitrack_processing_natural",
+          "default": true,
+          "name": "Natural blend (light common-bus EQ)",
+          "descriptors": [
+            "natural-blend-light-common-bus-eq"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "multitrack_processing_formant_split_stereo",
+          "name": "Formant-shifted left-right split stereo-width",
+          "descriptors": [
+            "formant-shifted-left-right-stereo-width"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "multitrack_processing_tuned_perfect",
+          "name": "Hard-tuned perfect-pitch stack (Antares retune 0ms across all tracks)",
+          "descriptors": [
+            "hard-tuned-perfect-pitch-retune-0ms-all-tracks"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "modern-pop"
+          ]
+        },
+        {
+          "id": "multitrack_processing_compressed_glued",
+          "name": "Heavy bus-compression glue (post-2010 commercial)",
+          "descriptors": [
+            "heavy-bus-compression-glue-post-2010"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "modern-pop",
+            "commercial"
+          ]
+        },
+        {
+          "id": "multitrack_processing_chorus_thickened",
+          "name": "Chorus-detuned thickener across stack",
+          "descriptors": [
+            "chorus-detuned-thickener-across-stack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ]
+}

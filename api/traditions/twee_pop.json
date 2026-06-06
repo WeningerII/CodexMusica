@@ -1,0 +1,170 @@
+{
+  "id": "twee_pop",
+  "name": "Twee pop",
+  "family": "global",
+  "lineage": "1980s-onward fey indie-pop subgenre codified through C86 cassette (NME 1986) and the Sarah Records (Bristol 1987-1995) lineage — characterized by jangly minor-key guitar, soft male and female vocals, lo-fi production aesthetic, and twee-romantic lyrical subject matter; Belle and Sebastian, Tullycraft, Stars, and Camera Obscura extending the canon into the 2000s",
+  "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk freak folk. thick, incomplete closure resting, equal tempered, min yo. fingerpicked acoustic soft down tuning arpeggiated clean single coil electric guitar, mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 469,
+  "score": 415.444,
+  "config": {
+    "traditions": [
+      "twee_pop",
+      "indie_folk_2000s",
+      "freak_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 19.600249999999992,
+          "voice_quality": 0.7499999999999998,
+          "voice_vibrato": 0.48149999999999993,
+          "voice_articulation": 0,
+          "voice_microtone": 17.549999999999994,
+          "voice_tradition": 17.549999999999997,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.7149999999999997,
+          "voice_speech_song": 13.584999999999997,
+          "voice_ensemble_config": 10.269999999999998,
+          "voice_ornament_system": 0.7149999999999997,
+          "voice_pitch_organization": 0.9899999999999999,
+          "voice_processing_chain": 4.12125,
+          "voice_multitrack_stack": 5.850000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 13.970999999999997,
+          "string_tuning": 0,
+          "top_wood": 0.6236249999999999,
+          "back_sides": 0.5865,
+          "string_acoustic": 0.6495,
+          "acoustic_om_technique": 2.6949999999999994
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_3",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 13.900124999999997,
+          "amp_make": 2.4700000000000006,
+          "body_wood": 0.5865,
+          "neck_wood": 0.5865,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0.3,
+          "string_material": 0.0315,
+          "string_gauge": 0.48149999999999993,
+          "bridge": 0.265875,
+          "scale_length": 1.068,
+          "finish": 0,
+          "string_tuning": 3.6399999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 2.275,
+          "body_wood": 1.068,
+          "pickup_config": 1.3,
+          "string_type": 7.15,
+          "scale_length_b": 0.48149999999999993,
+          "fretted_or_not": 0.03712499999999999,
+          "bass_technique": 4.555000000000001
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 10.269999999999998,
+          "shell_wood": 0.191625,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 0.29737499999999994,
+          "drumhead": 13.478999999999997,
+          "snare_wires": 0.48149999999999993,
+          "cymbal_alloy": 18.049999999999997,
+          "cymbal_hammering": 18.255374999999997,
+          "cymbal_lathing": 18.431624999999997,
+          "cymbal_finish": 0.0315,
+          "drum_technique": 10.269999999999998
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_home_portastudio",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_vox_ac30_topboost",
+      "medium": "medium_cassette_4track_bedroom"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "bedroom_pop_aesthetic",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

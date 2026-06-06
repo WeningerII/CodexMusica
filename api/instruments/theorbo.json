@@ -1,0 +1,502 @@
+{
+  "id": "theorbo",
+  "name": "Theorbo (extended-bass baroque lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "theorbo",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "theorbo_config",
+      "name": "Course count",
+      "variants": [
+        {
+          "id": "theorbo_14_course",
+          "default": true,
+          "name": "14-course (Italian standard)",
+          "descriptors": [
+            "baroque-leaning"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "theorbo_13_course",
+          "name": "13-course (French)",
+          "descriptors": [
+            "regional",
+            "distinct-tuning",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "theorbo_19_course",
+          "name": "19-course (extended bass)",
+          "descriptors": [
+            "rare",
+            "archlute-related",
+            "specialty"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theorbo_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "theorbo_continuo",
+          "default": true,
+          "name": "Italian baroque continuo",
+          "descriptors": [
+            "foundation-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "theorbo_french_solo",
+          "name": "French solo repertoire",
+          "descriptors": [
+            "low-dynamic-level",
+            "lyrical",
+            "baroque-air"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "theorbo_early_music",
+          "name": "Modern early-music revival",
+          "descriptors": [
+            "concert",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "hip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theorbo_ribs",
+      "surface": false,
+      "name": "Body rib wood",
+      "variants": [
+        {
+          "id": "theorbo_yew_ribs",
+          "default": true,
+          "name": "Yew (Italian baroque canonical)",
+          "descriptors": [
+            "yew-ribs-italian-baroque"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "theorbo_ebony_ribs",
+          "name": "Ebony (premium, pre-1989 historical)",
+          "descriptors": [
+            "ebony-ribs-premium-pre-1989"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "theorbo_rosewood_ribs",
+          "name": "Rosewood (premium late-baroque)",
+          "descriptors": [
+            "rosewood-ribs-premium-late-baroque"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "theorbo_maple_ribs",
+          "name": "Maple (German alternative)",
+          "descriptors": [
+            "maple-ribs-german"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theorbo_soundboard",
+      "surface": false,
+      "name": "Soundboard wood",
+      "variants": [
+        {
+          "id": "theorbo_alpine_spruce",
+          "default": true,
+          "name": "Alpine spruce (Italian Brescian canonical)",
+          "descriptors": [
+            "alpine-spruce-italian-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theorbo_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "theorbo_pistoy_bass_gut",
+          "default": true,
+          "name": "Pistoy bass + plain gut treble (Pistoy = wound bass canonical baroque)",
+          "descriptors": [
+            "pistoy-bass-gut",
+            "plain-gut-treble",
+            "historical-canonical-baroque"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "theorbo_aquila_nylgut",
+          "name": "Aquila Nylgut (gut-emulating modern)",
+          "descriptors": [
+            "aquila-nylgut-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "theorbo_fluorocarbon",
+          "name": "Fluorocarbon (modern revival alternative)",
+          "descriptors": [
+            "fluorocarbon-revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "theorbo_config",
+      "name": "Course count",
+      "variants": [
+        {
+          "id": "theorbo_14_course",
+          "default": true,
+          "name": "14-course (Italian standard)",
+          "descriptors": [
+            "baroque-leaning"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "theorbo_13_course",
+          "name": "13-course (French)",
+          "descriptors": [
+            "regional",
+            "distinct-tuning",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "theorbo_19_course",
+          "name": "19-course (extended bass)",
+          "descriptors": [
+            "rare",
+            "archlute-related",
+            "specialty"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theorbo_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "theorbo_continuo",
+          "default": true,
+          "name": "Italian baroque continuo",
+          "descriptors": [
+            "foundation-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "theorbo_french_solo",
+          "name": "French solo repertoire",
+          "descriptors": [
+            "low-dynamic-level",
+            "lyrical",
+            "baroque-air"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "theorbo_early_music",
+          "name": "Modern early-music revival",
+          "descriptors": [
+            "concert",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "hip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theorbo_ribs",
+      "surface": false,
+      "name": "Body rib wood",
+      "variants": [
+        {
+          "id": "theorbo_yew_ribs",
+          "default": true,
+          "name": "Yew (Italian baroque canonical)",
+          "descriptors": [
+            "yew-ribs-italian-baroque"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "theorbo_ebony_ribs",
+          "name": "Ebony (premium, pre-1989 historical)",
+          "descriptors": [
+            "ebony-ribs-premium-pre-1989"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "theorbo_rosewood_ribs",
+          "name": "Rosewood (premium late-baroque)",
+          "descriptors": [
+            "rosewood-ribs-premium-late-baroque"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "theorbo_maple_ribs",
+          "name": "Maple (German alternative)",
+          "descriptors": [
+            "maple-ribs-german"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theorbo_soundboard",
+      "surface": false,
+      "name": "Soundboard wood",
+      "variants": [
+        {
+          "id": "theorbo_alpine_spruce",
+          "default": true,
+          "name": "Alpine spruce (Italian Brescian canonical)",
+          "descriptors": [
+            "alpine-spruce-italian-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theorbo_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "theorbo_pistoy_bass_gut",
+          "default": true,
+          "name": "Pistoy bass + plain gut treble (Pistoy = wound bass canonical baroque)",
+          "descriptors": [
+            "pistoy-bass-gut",
+            "plain-gut-treble",
+            "historical-canonical-baroque"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "theorbo_aquila_nylgut",
+          "name": "Aquila Nylgut (gut-emulating modern)",
+          "descriptors": [
+            "aquila-nylgut-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "theorbo_fluorocarbon",
+          "name": "Fluorocarbon (modern revival alternative)",
+          "descriptors": [
+            "fluorocarbon-revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    }
+  ]
+}

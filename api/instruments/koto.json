@@ -1,0 +1,490 @@
+{
+  "id": "koto",
+  "name": "Koto (Japanese 13-string zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "koto",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "koto_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "koto_13",
+          "default": true,
+          "name": "13-string traditional",
+          "descriptors": [
+            "sōkyoku",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_17",
+          "name": "17-string contemporary (Miyagi)",
+          "descriptors": [
+            "extended-bass",
+            "modern",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_25",
+          "name": "25-string contemporary",
+          "descriptors": [
+            "concert",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koto_picks",
+      "surface": false,
+      "name": "Picks (tsume)",
+      "variants": [
+        {
+          "id": "koto_yamada",
+          "default": true,
+          "name": "Round Yamada-style picks",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_ikuta",
+          "name": "Square Ikuta-style picks",
+          "descriptors": [
+            "articulate",
+            "treble-extended",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koto_body_wood",
+      "surface": false,
+      "name": "Body wood (kiri / paulownia grade)",
+      "variants": [
+        {
+          "id": "koto_aichi_paulownia",
+          "default": true,
+          "name": "Aichi-grade kiri paulownia (premium aged canon)",
+          "descriptors": [
+            "aichi-kiri",
+            "aged-paulownia",
+            "premium-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_aizu_paulownia",
+          "name": "Aizu paulownia (regional alternative)",
+          "descriptors": [
+            "aizu-paulownia",
+            "regional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_modern_paulownia",
+          "name": "Modern modern-grown paulownia (commercial)",
+          "descriptors": [
+            "modern-paulownia",
+            "commercial-grade"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koto_strings_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "koto_nylon_tetron",
+          "default": true,
+          "name": "Nylon-tetron (modern standard)",
+          "descriptors": [
+            "nylon-tetron",
+            "modern-standard",
+            "stable-tuning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_silk_historical",
+          "name": "Silk (pre-WWII historical canon)",
+          "descriptors": [
+            "silk",
+            "pre-wwii-canon",
+            "softer-warm-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koto_bridge_material",
+      "surface": false,
+      "name": "Movable bridges (ji)",
+      "variants": [
+        {
+          "id": "koto_ivory_bridges_historical",
+          "default": true,
+          "name": "Ivory bridges (pre-1989 historical canon)",
+          "descriptors": [
+            "ivory-bridges",
+            "pre-1989-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "koto_plastic_bridges_modern",
+          "name": "Plastic bridges (modern CITES-friendly)",
+          "descriptors": [
+            "plastic-bridges",
+            "modern-cites-friendly"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_synthetic_ivory_bridges",
+          "name": "Synthetic ivory (modern premium)",
+          "descriptors": [
+            "synthetic-ivory",
+            "modern-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "koto_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "koto_13",
+          "default": true,
+          "name": "13-string traditional",
+          "descriptors": [
+            "sōkyoku",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_17",
+          "name": "17-string contemporary (Miyagi)",
+          "descriptors": [
+            "extended-bass",
+            "modern",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_25",
+          "name": "25-string contemporary",
+          "descriptors": [
+            "concert",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koto_picks",
+      "surface": false,
+      "name": "Picks (tsume)",
+      "variants": [
+        {
+          "id": "koto_yamada",
+          "default": true,
+          "name": "Round Yamada-style picks",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_ikuta",
+          "name": "Square Ikuta-style picks",
+          "descriptors": [
+            "articulate",
+            "treble-extended",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koto_body_wood",
+      "surface": false,
+      "name": "Body wood (kiri / paulownia grade)",
+      "variants": [
+        {
+          "id": "koto_aichi_paulownia",
+          "default": true,
+          "name": "Aichi-grade kiri paulownia (premium aged canon)",
+          "descriptors": [
+            "aichi-kiri",
+            "aged-paulownia",
+            "premium-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_aizu_paulownia",
+          "name": "Aizu paulownia (regional alternative)",
+          "descriptors": [
+            "aizu-paulownia",
+            "regional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_modern_paulownia",
+          "name": "Modern modern-grown paulownia (commercial)",
+          "descriptors": [
+            "modern-paulownia",
+            "commercial-grade"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koto_strings_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "koto_nylon_tetron",
+          "default": true,
+          "name": "Nylon-tetron (modern standard)",
+          "descriptors": [
+            "nylon-tetron",
+            "modern-standard",
+            "stable-tuning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_silk_historical",
+          "name": "Silk (pre-WWII historical canon)",
+          "descriptors": [
+            "silk",
+            "pre-wwii-canon",
+            "softer-warm-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koto_bridge_material",
+      "surface": false,
+      "name": "Movable bridges (ji)",
+      "variants": [
+        {
+          "id": "koto_ivory_bridges_historical",
+          "default": true,
+          "name": "Ivory bridges (pre-1989 historical canon)",
+          "descriptors": [
+            "ivory-bridges",
+            "pre-1989-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "koto_plastic_bridges_modern",
+          "name": "Plastic bridges (modern CITES-friendly)",
+          "descriptors": [
+            "plastic-bridges",
+            "modern-cites-friendly"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "koto_synthetic_ivory_bridges",
+          "name": "Synthetic ivory (modern premium)",
+          "descriptors": [
+            "synthetic-ivory",
+            "modern-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

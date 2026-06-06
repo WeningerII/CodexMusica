@@ -1,0 +1,68 @@
+{
+  "id": "russian_zhnitvenye",
+  "name": "Russian zhnitvenye pesni (Russian harvest songs)",
+  "family": "global",
+  "lineage": "Russian harvest-song (жнитвенные песни zhnitvenye pesni) tradition continuous from medieval-Russian-agricultural village-labor practice through 19th-century Russian-folklorist documentation through Soviet-era Pyatnitsky and Voronezh-Russian-Folk-Choir canonical performance into modern Russian-folk-revival continuous practice; foundational repertoire integrates rye-and-wheat-harvest songs accompanying scything-and-binding labor",
+  "recipe": "classic modern russian zhnitvenye pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, Slavic bard ballad poetry sardinian wedding cantu and launeddas music chinese chayang-diao. thick, false fold engaged, tasteful, unrestrained. baltic outdoor village. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 412,
+  "score": 119.815,
+  "config": {
+    "traditions": [
+      "russian_zhnitvenye",
+      "sardinian_wedding_cantu_launeddas",
+      "chinese_chayang_diao"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 7.499999999999998,
+          "voice_quality": 1.75,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 6.25,
+          "voice_microtone": 0.045,
+          "voice_tradition": 17.549999999999997,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.39,
+          "voice_speech_song": 7.474999999999999,
+          "voice_ensemble_config": 5.329999999999999,
+          "voice_ornament_system": 0.9999999999999998,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 1.4949999999999999,
+          "voice_multitrack_stack": 0.39
+        }
+      }
+    ],
+    "room": "baltic_outdoor_village",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "russian_minor_estrada_chanson",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

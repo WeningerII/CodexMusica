@@ -1,0 +1,312 @@
+{
+  "id": "sabar",
+  "name": "Sabar (Senegalese hand-and-stick drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sabar",
+  "parts": [
+    {
+      "id": "sabar_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "sabar_mbalax",
+          "default": true,
+          "name": "Mbalax accompaniment",
+          "descriptors": [
+            "mbalax"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ],
+          "canonical_tags": [
+            "mbalax",
+            "senegalese"
+          ]
+        },
+        {
+          "id": "sabar_traditional_dance",
+          "name": "Traditional dance accompaniment",
+          "descriptors": [
+            "dance-driving",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "mbalax"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sabar_articulation",
+      "name": "Hand-and-stick articulation",
+      "variants": [
+        {
+          "id": "sabar_galin_pin",
+          "default": true,
+          "name": "Galin (stick) plus pin (hand)",
+          "descriptors": [
+            "galin"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ],
+          "canonical_tags": [
+            "mbalax"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sabar_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "sabar_dimba_canonical",
+          "default": true,
+          "name": "Dimba (canonical Senegalese — single hollowed trunk)",
+          "descriptors": [
+            "dimba-canonical-senegalese-single-hollowed-trunk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ]
+        },
+        {
+          "id": "sabar_lenge",
+          "name": "Lengé (alternative)",
+          "descriptors": [
+            "lenge-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sabar_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "sabar_goat_skin_pegged",
+          "default": true,
+          "name": "Goat-skin tensioned by wooden pegs (canonical Wolof)",
+          "descriptors": [
+            "goat-skin-wooden-pegs-canonical-wolof"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ]
+        },
+        {
+          "id": "sabar_synthetic_modern",
+          "name": "Synthetic (modern alternative)",
+          "descriptors": [
+            "synthetic-modern-alternative"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sabar_lineage",
+      "surface": false,
+      "name": "Lineage / griot family",
+      "variants": [
+        {
+          "id": "sabar_rose_family",
+          "default": true,
+          "name": "Rose family lineage (canonical Senegalese mbalax — Doudou Ndiaye Rose)",
+          "descriptors": [
+            "rose-family-canonical-senegalese-mbalax"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sabar_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "sabar_mbalax",
+          "default": true,
+          "name": "Mbalax accompaniment",
+          "descriptors": [
+            "mbalax"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ],
+          "canonical_tags": [
+            "mbalax",
+            "senegalese"
+          ]
+        },
+        {
+          "id": "sabar_traditional_dance",
+          "name": "Traditional dance accompaniment",
+          "descriptors": [
+            "dance-driving",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "mbalax"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sabar_articulation",
+      "name": "Hand-and-stick articulation",
+      "variants": [
+        {
+          "id": "sabar_galin_pin",
+          "default": true,
+          "name": "Galin (stick) plus pin (hand)",
+          "descriptors": [
+            "galin"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ],
+          "canonical_tags": [
+            "mbalax"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sabar_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "sabar_dimba_canonical",
+          "default": true,
+          "name": "Dimba (canonical Senegalese — single hollowed trunk)",
+          "descriptors": [
+            "dimba-canonical-senegalese-single-hollowed-trunk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ]
+        },
+        {
+          "id": "sabar_lenge",
+          "name": "Lengé (alternative)",
+          "descriptors": [
+            "lenge-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sabar_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "sabar_goat_skin_pegged",
+          "default": true,
+          "name": "Goat-skin tensioned by wooden pegs (canonical Wolof)",
+          "descriptors": [
+            "goat-skin-wooden-pegs-canonical-wolof"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ]
+        },
+        {
+          "id": "sabar_synthetic_modern",
+          "name": "Synthetic (modern alternative)",
+          "descriptors": [
+            "synthetic-modern-alternative"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sabar_lineage",
+      "surface": false,
+      "name": "Lineage / griot family",
+      "variants": [
+        {
+          "id": "sabar_rose_family",
+          "default": true,
+          "name": "Rose family lineage (canonical Senegalese mbalax — Doudou Ndiaye Rose)",
+          "descriptors": [
+            "rose-family-canonical-senegalese-mbalax"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "polyrhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

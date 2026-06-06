@@ -1,0 +1,106 @@
+{
+  "id": "concert_harp",
+  "name": "Concert pedal harp",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pedal harp",
+  "parts": [
+    {
+      "id": "harp_strings",
+      "name": "String set",
+      "variants": [
+        {
+          "id": "harp_47_string",
+          "default": true,
+          "name": "47-string concert grand",
+          "descriptors": [
+            "orchestral",
+            "full-range",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harp_pedals",
+      "name": "Pedal action",
+      "variants": [
+        {
+          "id": "harp_double_pedal",
+          "default": true,
+          "name": "Double-action pedals",
+          "descriptors": [
+            "chromatic",
+            "classical"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "harp_strings",
+      "name": "String set",
+      "variants": [
+        {
+          "id": "harp_47_string",
+          "default": true,
+          "name": "47-string concert grand",
+          "descriptors": [
+            "orchestral",
+            "full-range",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harp_pedals",
+      "name": "Pedal action",
+      "variants": [
+        {
+          "id": "harp_double_pedal",
+          "default": true,
+          "name": "Double-action pedals",
+          "descriptors": [
+            "chromatic",
+            "classical"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

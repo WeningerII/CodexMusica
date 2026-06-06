@@ -1,0 +1,113 @@
+{
+  "id": "freestyle_music",
+  "name": "Freestyle music",
+  "family": "global",
+  "lineage": "Mid-1980s onward Latino-and-Italian-American urban-dance genre developed in New York and Miami clubs, characterized by 808-drum-machine programming, electronic sub-bass, and emotional Latino-soul vocal lead — codified through Shannon (Let the Music Play 1983), Lisa Lisa and Cult Jam (I Wonder If I Take You Home 1984), Exposé, The Cover Girls, Stevie B, Sa-Fire",
+  "recipe": "classic 1984-1986 freestyle music, electronic Dance, eurodance branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, chest resonance low mid, narrative. low sub bass analog poly synth, TR-808, melodic pitched sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 381,
+  "score": 282.012,
+  "config": {
+    "traditions": [
+      "freestyle_music",
+      "conscious_hip_hop",
+      "gangsta_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 4.045,
+          "voice_quality": 3.625,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 4.154999999999999,
+          "voice_microtone": 1.2499999999999998,
+          "voice_tradition": 3.445,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 3.5100000000000002,
+          "voice_speech_song": 7.864999999999998,
+          "voice_ensemble_config": 7.02,
+          "voice_ornament_system": 2.4000000000000004,
+          "voice_pitch_organization": 1.5250000000000001,
+          "voice_processing_chain": 9.18,
+          "voice_multitrack_stack": 2.47
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 4.825,
+          "poly_archetypes": 0.5850000000000001,
+          "poly_voices": 0.345,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 4.34,
+          "drum_machine_808_context": 4.73,
+          "tr808_production_origin": 0.78
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 1.1349999999999998,
+          "sampler_archetypes": 1.8199999999999998,
+          "sampler_bit_depth": 1.14,
+          "sampler_workflow": 1.755,
+          "sampler_classic_context": 13.389999999999999
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

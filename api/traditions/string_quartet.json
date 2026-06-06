@@ -1,0 +1,110 @@
+{
+  "id": "string_quartet",
+  "name": "String quartet",
+  "family": "classical",
+  "lineage": "Western chamber music tradition for two violins, viola, and cello, codified by Haydn in his sixty-eight quartets (1762-1803) — the form's most consequential codifiers include Mozart (the six Haydn quartets), Beethoven (the sixteen quartets including the late opp. 127-135), Schubert (Death and the Maiden), Bartók (six quartets), Shostakovich (fifteen quartets), and continuing through contemporary composers",
+  "recipe": "classic early-1760s string quartet, art Music, western common practice branch, western early art music, western modern art music minimalist holy minimalism. sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral, tungsten wound larsen spirocore viola c canon Italian alpine spruce val di fiemme viola classical, synthetic Italian alpine spruce val di fiemme European maple sycamore maple cello. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 575,
+  "score": 285.928,
+  "config": {
+    "traditions": [
+      "string_quartet",
+      "minimalist",
+      "holy_minimalism"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 4.9,
+          "orch_strings": 0.9099999999999999,
+          "orch_top_wood": 5.676875,
+          "orch_back_wood": 8.32,
+          "orch_varnish": 7.25,
+          "orch_setup_period": 7.771875,
+          "orch_bow": 0.78,
+          "orch_bow_stick": 9.443125,
+          "orch_articulation": 0.9099999999999999,
+          "orch_rosin": 7.475
+        }
+      },
+      {
+        "id": "viola_classical",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "viola_size": "viola_15_inch",
+          "viola_strings": "viola_tungsten_wound_c",
+          "viola_top_wood": "viola_italian_alpine_spruce",
+          "viola_back_wood": "viola_european_maple_general",
+          "viola_varnish": "viola_oil_amber",
+          "viola_setup_period": "viola_modern_setup",
+          "viola_bow_stick": "viola_pernambuco",
+          "viola_rosin": "viola_larsen_rosin"
+        },
+        "scores": {
+          "bowed_technique": 4.9,
+          "viola_size": 1.6,
+          "viola_strings": 2.47,
+          "viola_top_wood": 5.676875,
+          "viola_back_wood": 8.085,
+          "viola_varnish": 7.25,
+          "viola_setup_period": 7.771875,
+          "viola_bow_stick": 9.443125,
+          "viola_rosin": 9.075
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "italian_alpine_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 4.9,
+          "cello_strings": 2.21,
+          "cello_top_wood": 5.676875,
+          "cello_back_wood": 8.085,
+          "cello_varnish": 7.25,
+          "cello_setup_period": 7.771875,
+          "cello_bow_grip": 2.47,
+          "cello_rosin": 8.85,
+          "cello_bow_stick": 9.443125
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

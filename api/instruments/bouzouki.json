@@ -1,0 +1,539 @@
+{
+  "id": "bouzouki",
+  "name": "Bouzouki (Greek long-neck lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bouzouki",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "plucked_tremolo",
+          "name": "Tremolo (mandolin-style)",
+          "applies_to": [
+            "baglamas",
+            "bouzouki",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "tiple",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "leona",
+            "vihuela_mexicana",
+            "domra"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "rapid-tremolo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "mandolin",
+            "mediterranean"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "bouzouki_courses",
+      "name": "Course configuration",
+      "variants": [
+        {
+          "id": "trichordo",
+          "name": "Trichordo (3 courses)",
+          "descriptors": [
+            "archaic",
+            "rebetiko-traditional",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "tetrachordo",
+          "default": true,
+          "name": "Tetrachordo (4 courses)",
+          "descriptors": [
+            "modern",
+            "versatile",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bouzouki_pick",
+      "surface": false,
+      "name": "Pick gauge",
+      "variants": [
+        {
+          "id": "bouzouki_thin",
+          "default": true,
+          "name": "Thin (0.6mm)",
+          "descriptors": [
+            "articulate",
+            "tremolo",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "bouzouki_medium",
+          "name": "Medium",
+          "descriptors": [
+            "balanced",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bouzouki_body_wood",
+      "surface": false,
+      "name": "Body / bowl wood",
+      "variants": [
+        {
+          "id": "bouzouki_walnut_bowl",
+          "default": true,
+          "name": "Walnut staves (canonical Greek)",
+          "descriptors": [
+            "walnut-staves-canonical-greek"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "bouzouki_rosewood_bowl",
+          "name": "Rosewood staves (premium)",
+          "descriptors": [
+            "rosewood-staves-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "bouzouki_mulberry_bowl",
+          "name": "Mulberry staves (eastern alternative)",
+          "descriptors": [
+            "mulberry-eastern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "bouzouki_maple_bowl",
+          "name": "Maple staves (modern brighter)",
+          "descriptors": [
+            "maple-modern-brighter"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bouzouki_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "bouzouki_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical, octave-unison pairs)",
+          "descriptors": [
+            "steel-canonical-octave-unison-pairs"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "bouzouki_gut_historical",
+          "name": "Gut (pre-1950s rebetiko historical)",
+          "descriptors": [
+            "gut-pre-1950s-rebetiko"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bouzouki_courses",
+      "name": "Course configuration",
+      "variants": [
+        {
+          "id": "trichordo",
+          "name": "Trichordo (3 courses)",
+          "descriptors": [
+            "archaic",
+            "rebetiko-traditional",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "tetrachordo",
+          "default": true,
+          "name": "Tetrachordo (4 courses)",
+          "descriptors": [
+            "modern",
+            "versatile",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bouzouki_pick",
+      "surface": false,
+      "name": "Pick gauge",
+      "variants": [
+        {
+          "id": "bouzouki_thin",
+          "default": true,
+          "name": "Thin (0.6mm)",
+          "descriptors": [
+            "articulate",
+            "tremolo",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "bouzouki_medium",
+          "name": "Medium",
+          "descriptors": [
+            "balanced",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bouzouki_body_wood",
+      "surface": false,
+      "name": "Body / bowl wood",
+      "variants": [
+        {
+          "id": "bouzouki_walnut_bowl",
+          "default": true,
+          "name": "Walnut staves (canonical Greek)",
+          "descriptors": [
+            "walnut-staves-canonical-greek"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "bouzouki_rosewood_bowl",
+          "name": "Rosewood staves (premium)",
+          "descriptors": [
+            "rosewood-staves-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "bouzouki_mulberry_bowl",
+          "name": "Mulberry staves (eastern alternative)",
+          "descriptors": [
+            "mulberry-eastern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "bouzouki_maple_bowl",
+          "name": "Maple staves (modern brighter)",
+          "descriptors": [
+            "maple-modern-brighter"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bouzouki_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "bouzouki_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical, octave-unison pairs)",
+          "descriptors": [
+            "steel-canonical-octave-unison-pairs"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "bouzouki_gut_historical",
+          "name": "Gut (pre-1950s rebetiko historical)",
+          "descriptors": [
+            "gut-pre-1950s-rebetiko"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

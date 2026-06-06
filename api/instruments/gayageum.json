@@ -1,0 +1,402 @@
+{
+  "id": "gayageum",
+  "name": "Gayageum (Korean 12-string zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gayageum",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gayageum_type",
+      "name": "Type",
+      "variants": [
+        {
+          "id": "jeongak_gayageum",
+          "default": true,
+          "name": "Jeongak (court)",
+          "descriptors": [
+            "classical",
+            "court"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sanjo_gayageum",
+          "name": "Sanjo (folk)",
+          "descriptors": [
+            "expressive",
+            "virtuoso",
+            "sanjo-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "modern_25_gayageum",
+          "name": "25-string contemporary",
+          "descriptors": [
+            "extended-range",
+            "modern",
+            "concert"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gayageum_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gayageum_bare",
+          "default": true,
+          "name": "Bare-finger (canonical)",
+          "descriptors": [
+            "traditional",
+            "soft-attack",
+            "expressive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "gayageum_plectrum",
+          "name": "Plectrum-augmented (modern)",
+          "descriptors": [
+            "sharper",
+            "concert-projection",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "gayageum_thumb_glide",
+          "name": "Thumb-glide (sanjo specialty)",
+          "descriptors": [
+            "ornamental",
+            "modulating",
+            "specialized"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gayageum_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "gayageum_paulownia_korean",
+          "default": true,
+          "name": "Korean paulownia (canonical)",
+          "descriptors": [
+            "paulownia-korean",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "gayageum_aged_paulownia",
+          "name": "Aged paulownia (premium)",
+          "descriptors": [
+            "aged-paulownia",
+            "premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gayageum_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gayageum_nylon_coated_modern",
+          "default": true,
+          "name": "Nylon-coated (modern standard)",
+          "descriptors": [
+            "nylon-coated",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "gayageum_silk_historical",
+          "name": "Silk (pre-modern historical canon)",
+          "descriptors": [
+            "silk-historical",
+            "pre-modern-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gayageum_type",
+      "name": "Type",
+      "variants": [
+        {
+          "id": "jeongak_gayageum",
+          "default": true,
+          "name": "Jeongak (court)",
+          "descriptors": [
+            "classical",
+            "court"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sanjo_gayageum",
+          "name": "Sanjo (folk)",
+          "descriptors": [
+            "expressive",
+            "virtuoso",
+            "sanjo-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "modern_25_gayageum",
+          "name": "25-string contemporary",
+          "descriptors": [
+            "extended-range",
+            "modern",
+            "concert"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gayageum_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gayageum_bare",
+          "default": true,
+          "name": "Bare-finger (canonical)",
+          "descriptors": [
+            "traditional",
+            "soft-attack",
+            "expressive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "gayageum_plectrum",
+          "name": "Plectrum-augmented (modern)",
+          "descriptors": [
+            "sharper",
+            "concert-projection",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "gayageum_thumb_glide",
+          "name": "Thumb-glide (sanjo specialty)",
+          "descriptors": [
+            "ornamental",
+            "modulating",
+            "specialized"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gayageum_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "gayageum_paulownia_korean",
+          "default": true,
+          "name": "Korean paulownia (canonical)",
+          "descriptors": [
+            "paulownia-korean",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "gayageum_aged_paulownia",
+          "name": "Aged paulownia (premium)",
+          "descriptors": [
+            "aged-paulownia",
+            "premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gayageum_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gayageum_nylon_coated_modern",
+          "default": true,
+          "name": "Nylon-coated (modern standard)",
+          "descriptors": [
+            "nylon-coated",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "gayageum_silk_historical",
+          "name": "Silk (pre-modern historical canon)",
+          "descriptors": [
+            "silk-historical",
+            "pre-modern-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ]
+}

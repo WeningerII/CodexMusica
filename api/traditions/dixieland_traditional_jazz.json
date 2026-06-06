@@ -1,0 +1,179 @@
+{
+  "id": "dixieland_traditional_jazz",
+  "name": "Dixieland (traditional/New Orleans-Chicago)",
+  "family": "jazz",
+  "lineage": "Earliest documented jazz style (c.1905-1928) emerging from New Orleans through cornet-led front-line (cornet/trumpet, clarinet, trombone) playing collective polyphonic improvisation over banjo/guitar-bass-drums rhythm section. Original Dixieland Jass Band's 1917 Livery Stable Blues was the first commercial jazz recording. Distinguished from later swing era by Dixieland's collective-improvisation (vs solo-feature) ensemble principle and 2/4 march-derived rhythmic pulse.",
+  "recipe": "classic mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 702,
+  "score": 453.235,
+  "config": {
+    "traditions": [
+      "dixieland_traditional_jazz",
+      "ragtime"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 15.144499999999997,
+          "brass_size": 0.0975,
+          "trumpet_mouthpiece": 20.1845,
+          "brass_mute": 0,
+          "trumpet_technique": 15.144499999999997,
+          "trumpet_bell_metal": 0.8347499999999999,
+          "trumpet_maker_school": 2.8600000000000003
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "contra_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 15.144499999999997,
+          "clarinet_body": 1.2,
+          "clarinet_size": 0.19874999999999998,
+          "clarinet_reed": 0.0975,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 15.144499999999997,
+          "trombone_type": 16.25,
+          "trombone_mouthpiece": 17.6365,
+          "trombone_mute": 0.045,
+          "trombone_technique": 3.0500000000000003,
+          "trombone_bell_metal": 0.8347499999999999,
+          "trombone_maker_school": 2.8600000000000003
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "upright_strings": 16.25,
+          "upright_play": 16.25
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "hand_lathed_pit_retaining",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_jazz"
+        },
+        "scores": {
+          "percussion_technique": 10.01,
+          "shell_wood": 0.383,
+          "shell_thickness": 0,
+          "bearing_edges": 0,
+          "drumhead": 20.1345,
+          "snare_wires": 0,
+          "cymbal_alloy": 19.4315,
+          "cymbal_hammering": 17.95275,
+          "cymbal_lathing": 17.335,
+          "cymbal_finish": 0.0975,
+          "drum_technique": 16.25
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "banjo_back": "resonator",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_maple_neck",
+          "banjo_strings": "banjo_gut_minstrel",
+          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.3150000000000004,
+          "banjo_back": 0.0975,
+          "tone_ring": 0.04875,
+          "banjo_head": 1.69,
+          "banjo_pot": 1.0975,
+          "banjo_play": 0,
+          "banjo_rim_wood": 0.24,
+          "banjo_neck_wood": 0.11,
+          "banjo_strings": 0.063,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 1.625
+        }
+      },
+      {
+        "id": "cornet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "cornet_pitch": "cornet_bb",
+          "cornet_context": "cornet_early_jazz",
+          "cornet_bell_metal": "cornet_yellow_brass",
+          "cornet_maker_school": "cornet_conn_vintage"
+        },
+        "scores": {
+          "wind_articulation": 15.144499999999997,
+          "cornet_pitch": 8.2335,
+          "cornet_context": 6.106249999999999,
+          "cornet_bell_metal": 1.69,
+          "cornet_maker_school": 10.4
+        }
+      }
+    ],
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_acoustic_horn_pre1925",
+    "inline_chain": {
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

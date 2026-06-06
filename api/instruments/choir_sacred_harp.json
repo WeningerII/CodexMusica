@@ -1,0 +1,176 @@
+{
+  "id": "choir_sacred_harp",
+  "name": "Sacred Harp / shape-note congregation",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "Sacred Harp",
+  "parts": [
+    {
+      "id": "parts",
+      "surface": false,
+      "name": "Voice parts (4-part open-fifth)",
+      "variants": [
+        {
+          "id": "sh_treble",
+          "name": "Treble (top)",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "sh_alto",
+          "name": "Alto",
+          "descriptors": [
+            "inner",
+            "chest-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "sh_tenor_lead",
+          "default": true,
+          "name": "Tenor (lead, melody)",
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "sh_bass",
+          "name": "Bass",
+          "descriptors": [
+            "open-fifths",
+            "grounding"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arrangement",
+      "surface": false,
+      "name": "Seating",
+      "variants": [
+        {
+          "id": "hollow_square",
+          "default": true,
+          "name": "Hollow square (4-sided)",
+          "descriptors": [
+            "traditional",
+            "congregational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "parts",
+      "surface": false,
+      "name": "Voice parts (4-part open-fifth)",
+      "variants": [
+        {
+          "id": "sh_treble",
+          "name": "Treble (top)",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "sh_alto",
+          "name": "Alto",
+          "descriptors": [
+            "inner",
+            "chest-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "sh_tenor_lead",
+          "default": true,
+          "name": "Tenor (lead, melody)",
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "sh_bass",
+          "name": "Bass",
+          "descriptors": [
+            "open-fifths",
+            "grounding"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arrangement",
+      "surface": false,
+      "name": "Seating",
+      "variants": [
+        {
+          "id": "hollow_square",
+          "default": true,
+          "name": "Hollow square (4-sided)",
+          "descriptors": [
+            "traditional",
+            "congregational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

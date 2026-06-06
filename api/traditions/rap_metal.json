@@ -1,0 +1,154 @@
+{
+  "id": "rap_metal",
+  "name": "Rap metal (early-1990s hip-hop-and-metal hybrid)",
+  "family": "rock_punk",
+  "lineage": "Early-1990s-and-onward American heavy-rock subgenre integrating hip-hop vocal-delivery and rhythmic-foundation with heavy-metal guitar-bass-drum aesthetic. Rage Against the Machine (Los Angeles, 1991-2000, 2007-onward) is the canonical type-specimen, with explicit revolutionary-political lyric content; the parallel Body Count (Ice-T project) and (later) the 2000s wave of Hed PE and Sevendust extended the genre.",
+  "recipe": "classic Los Angeles rap metal, distorted Rock, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, nervy, narrative. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, mahogany fiberskyn synthetic calf machine hammered symmetric pattern drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape digitech whammy.",
+  "recipe_chars": 630,
+  "score": 359.488,
+  "config": {
+    "traditions": [
+      "rap_metal",
+      "conscious_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 6.611750000000001,
+          "voice_quality": 12.25375,
+          "voice_vibrato": 1.38025,
+          "voice_articulation": 4.484999999999999,
+          "voice_microtone": 6.75,
+          "voice_tradition": 6.33625,
+          "voice_mechanism_compound": 14.607499999999998,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 11.483749999999999,
+          "voice_ensemble_config": 7.93,
+          "voice_ornament_system": 1.2302499999999998,
+          "voice_pitch_organization": 4.428749999999999,
+          "voice_processing_chain": 8.7,
+          "voice_multitrack_stack": 6.709
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 16.479,
+          "amp_make": 6.045,
+          "body_wood": 7.93,
+          "neck_wood": 1.38025,
+          "fretboard": 1.38025,
+          "pickup_magnet": 0.21,
+          "pickup_winding": 0.21,
+          "string_material": 1.38025,
+          "bridge": 0.174,
+          "scale_length": 9.62,
+          "string_gauge": 0.174,
+          "finish": 1.3,
+          "string_tuning": 13.259999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 1.945,
+          "amp_make": 5.265,
+          "body_wood": 0.348,
+          "pickup_config": 0.21,
+          "string_type": 9.099999999999998,
+          "scale_length_b": 0.345,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 6.994999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "fiberskyn_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 7.93,
+          "shell_wood": 3.3799999999999994,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 1.5902500000000002,
+          "drumhead": 1.38025,
+          "snare_wires": 0.174,
+          "cymbal_alloy": 20.330249999999996,
+          "cymbal_hammering": 8.577999999999998,
+          "cymbal_lathing": 6.9315,
+          "cymbal_finish": 1.38025,
+          "drum_technique": 7.93
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_mesa_dual_rectifier",
+      "medium": "tape_30ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_digitech_whammy"
+    ]
+  }
+}

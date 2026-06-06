@@ -1,0 +1,110 @@
+{
+  "id": "triangulo_forro",
+  "name": "Triângulo (Brazilian forró triangle)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "triângulo",
+  "parts": [
+    {
+      "id": "triangulo_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "triangulo_large_forro",
+          "default": true,
+          "name": "Large (forró pé-de-serra)",
+          "descriptors": [
+            "ringing",
+            "bell-like",
+            "forró-tradition",
+            "metallic-attack",
+            "iron"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "forró-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "triangulo_pattern",
+      "name": "Pattern",
+      "variants": [
+        {
+          "id": "triangulo_forro_pattern",
+          "default": true,
+          "name": "Forró ostinato (open-closed alternation)",
+          "descriptors": [
+            "propulsive",
+            "open-closed-alternation",
+            "forró-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "forró-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "triangulo_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "triangulo_large_forro",
+          "default": true,
+          "name": "Large (forró pé-de-serra)",
+          "descriptors": [
+            "ringing",
+            "bell-like",
+            "forró-tradition",
+            "metallic-attack",
+            "iron"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "forró-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "triangulo_pattern",
+      "name": "Pattern",
+      "variants": [
+        {
+          "id": "triangulo_forro_pattern",
+          "default": true,
+          "name": "Forró ostinato (open-closed alternation)",
+          "descriptors": [
+            "propulsive",
+            "open-closed-alternation",
+            "forró-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "forró-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

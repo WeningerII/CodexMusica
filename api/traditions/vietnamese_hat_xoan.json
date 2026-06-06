@@ -1,0 +1,90 @@
+{
+  "id": "vietnamese_hat_xoan",
+  "name": "Vietnamese hát xoan (UNESCO 2017)",
+  "family": "global",
+  "lineage": "Vietnamese hát xoan ancestral-spring-ritual song tradition of Phú Thọ province, the heartland of the Hùng-Kings legendary first-Vietnamese-dynasty mythos. Recognized as UNESCO Intangible Cultural Heritage in Need of Urgent Safeguarding 2011, transferred to the Representative List 2017 — a rare administrative case in UNESCO of an Urgent-Safeguarding entry graduating to ordinary inscription, signaling successful revitalization. Performance occurs at the Hùng-Kings temple (Đền Hùng) and adjacent communal-house đình precincts during the lunar new-year and Hùng-Kings death-anniversary festivals (lunar tenth day of third month). Three movement types: thờ (worship, slow ceremonial-cadence verse for ancestor-veneration), quả cách (formal-narrative cyclical sections, fourteen canonical pieces), and hội (festival, faster celebratory cadence with audience-participation call-and-response). Performance configuration: a male choir of phường xoan villagers from one of four canonical guild-villages (An Thái, Phù Đức, Kim Đới, Thét), accompanied by phách bamboo clapper and trống cơm small barrel-drum. Modal vocabulary draws on Vietnamese pentatonic with mode-specific cadential conventions. The tradition was nearly extinct by the 1990s; the UNESCO Urgent-Safeguarding inscription triggered systematic transmission revival across the four guild-villages. Distinguished from quan họ by xoan's ritual-ancestor-veneration (vs courtship-festival) functional framing; distinguished from ca trù by xoan's village-collective-male-choir (vs chamber-female-soloist) ensemble configuration.",
+  "recipe": "classic vietnamese hát xoan, ritual Devotional, indigenous branch, southeast Asian art music thai classical burmese mahagita. thick, declaimed, chest resonance low mid, narrative. bamboo clapper struck hardwood stick canonical Vietnamese ca tru singer held cadence canonical Vietnamese phach, small praise drum patron struck canonical Vietnamese ca tru patron response canonical Vietnamese trong chau. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 551,
+  "score": 226.615,
+  "config": {
+    "traditions": [
+      "vietnamese_hat_xoan",
+      "thai_classical",
+      "burmese_mahagita"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.02,
+          "voice_quality": 4.235,
+          "voice_vibrato": 3.299999999999999,
+          "voice_articulation": 1.4299999999999997,
+          "voice_microtone": 0.09,
+          "voice_tradition": 8.775,
+          "voice_mechanism_compound": 4.13,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 9.294999999999998,
+          "voice_ensemble_config": 10.14,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 12.799999999999997,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 2.5049999999999994
+        }
+      },
+      {
+        "id": "phach",
+        "slots": {
+          "phach_body": "phach_bamboo_clapper_struck_hardwood_stick_canonical",
+          "phach_tradition": "phach_ca_tru_canonical"
+        },
+        "scores": {
+          "phach_body": 11.569999999999999,
+          "phach_tradition": 12.869999999999997
+        }
+      },
+      {
+        "id": "trong_chau",
+        "slots": {
+          "trong_chau_body": "trong_chau_small_praise_drum_patron_struck_canonical",
+          "trong_chau_tradition": "trong_chau_ca_tru_patron_response_canonical"
+        },
+        "scores": {
+          "trong_chau_body": 11.569999999999999,
+          "trong_chau_tradition": 11.569999999999999
+        }
+      }
+    ],
+    "room": "wooden_pagoda_hall",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

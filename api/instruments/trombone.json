@@ -1,0 +1,980 @@
+{
+  "id": "trombone",
+  "name": "Trombone (tenor / bass / valve)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "trombone",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_honking_attack",
+          "name": "Honking attack",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone"
+          ],
+          "descriptors": [
+            "honking",
+            "attack"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "honking-attack",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "r&b",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "wind_punchy_ensemble",
+          "name": "Punchy ensemble",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone"
+          ],
+          "descriptors": [
+            "fast-attack-transient",
+            "ensemble",
+            "horn-section"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "punchy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "r&b",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "wind_bebop_runs",
+          "name": "Bebop fast runs",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "cornet"
+          ],
+          "descriptors": [
+            "angular"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bebop-derived",
+            "jazz-trained",
+            "bebop-runs",
+            "gospel-runs"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "wind_multiphonic_avant",
+          "name": "Multiphonic / avant-garde",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "oboe"
+          ],
+          "descriptors": [
+            "multiphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "avant-garde",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "avant",
+            "noise",
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "wind_split_tone_overblown",
+          "name": "Split-tone / overblown",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet"
+          ],
+          "descriptors": [
+            "split-tone",
+            "overblown"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_dixieland_lead",
+          "name": "Dixieland front-line",
+          "applies_to": [
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "cornet"
+          ],
+          "descriptors": [
+            "front-line"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "lead-melody",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "dixieland",
+            "new-orleans"
+          ]
+        },
+        {
+          "id": "wind_ska_skank_stab",
+          "name": "Ska skank stab",
+          "applies_to": [
+            "trumpet",
+            "trombone",
+            "saxophone"
+          ],
+          "descriptors": [
+            "short"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "ska",
+            "rocksteady"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "trombone_type",
+      "name": "Variant",
+      "variants": [
+        {
+          "id": "tenor_trombone",
+          "default": true,
+          "name": "Tenor",
+          "descriptors": [
+            "singing",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "bass_trombone",
+          "name": "Bass",
+          "descriptors": [
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "valve_trombone",
+          "name": "Valve trombone",
+          "descriptors": [
+            "agile",
+            "articulate",
+            "jazz-leaning"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trombone_mouthpiece",
+      "surface": false,
+      "name": "Mouthpiece (cup × rim × backbore)",
+      "variants": [
+        {
+          "id": "bach_trombone_mp_6half_al",
+          "default": true,
+          "name": "Bach 6½AL (tenor standard, 25.40mm, #420 backbore)",
+          "descriptors": [
+            "medium-cup",
+            "tenor-standard",
+            "standard-backbore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "bach_trombone_mp_5g",
+          "name": "Bach 5G (tenor large-cup)",
+          "descriptors": [
+            "large-cup",
+            "tenor-large"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trombone_mp_4g",
+          "name": "Bach 4G (tenor extra-large)",
+          "descriptors": [
+            "extra-large-cup",
+            "tenor-bottom-heavy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trombone_mp_3g",
+          "name": "Bach 3G (bass-leaning tenor)",
+          "descriptors": [
+            "large-cup",
+            "open-backbore",
+            "bass-leaning"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trombone_mp_1half_g",
+          "name": "Bach 1½G (bass trombone)",
+          "descriptors": [
+            "extra-large-cup",
+            "bass-trombone",
+            "deep-foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trombone_mp_12c",
+          "name": "Bach 12C (student / commercial, 24.50mm)",
+          "descriptors": [
+            "shallow-cup",
+            "narrower-rim",
+            "student-commercial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trombone_mute",
+      "surface": false,
+      "name": "Mute",
+      "variants": [
+        {
+          "id": "no_mute_trb",
+          "surface": false,
+          "name": "No mute",
+          "descriptors": [
+            "direct",
+            "undamped-resonance",
+            "full"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "plunger_trb",
+          "name": "Plunger (rubber bowl)",
+          "descriptors": [
+            "talking",
+            "growly",
+            "rubber"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cup_mute_trb",
+          "default": true,
+          "surface": false,
+          "name": "Cup mute",
+          "descriptors": [
+            "subdued",
+            "mellow"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "straight_mute_trb",
+          "surface": false,
+          "name": "Straight mute",
+          "descriptors": [
+            "shrill",
+            "piercing",
+            "classical"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trombone_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tailgate_slide",
+          "default": true,
+          "name": "Tailgate slides (Dixieland)",
+          "descriptors": [
+            "glissando-heavy",
+            "smearing",
+            "traditional"
+          ],
+          "match_tokens": [
+            "slide",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "classical_trb",
+          "name": "Classical legato",
+          "descriptors": [
+            "sustaining",
+            "controlled",
+            "noble"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "big_band_punch",
+          "name": "Jazz-orchestra punch",
+          "descriptors": [
+            "accented",
+            "rhythmic",
+            "section-locked"
+          ],
+          "match_tokens": [
+            "punchy",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trombone_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "trombone_yellow_brass",
+          "default": true,
+          "name": "Yellow brass (canonical 70:30 — Bach 42 standard)",
+          "descriptors": [
+            "yellow-brass-canonical-70-30-bach-42-standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trombone_red_brass",
+          "name": "Red brass (90:10 — darker orchestral)",
+          "descriptors": [
+            "red-brass-90-10-darker-orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trombone_sterling_silver",
+          "name": "Sterling silver (rare premium)",
+          "descriptors": [
+            "sterling-silver-rare-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trombone_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "trombone_bach_42",
+          "default": true,
+          "name": "Bach 42 (canonical American orchestral tenor)",
+          "descriptors": [
+            "bach-42-canonical-american-orchestral-tenor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trombone_conn_88h",
+          "name": "Conn 88H (American symphonic)",
+          "descriptors": [
+            "conn-88h-american-symphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trombone_edwards_griego",
+          "name": "Edwards / Shires modular (boutique modern)",
+          "descriptors": [
+            "edwards-shires-modular-boutique"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trombone_yamaha_xeno",
+          "name": "Yamaha Xeno (modern Japanese)",
+          "descriptors": [
+            "yamaha-xeno-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "trombone_type",
+      "name": "Variant",
+      "variants": [
+        {
+          "id": "tenor_trombone",
+          "default": true,
+          "name": "Tenor",
+          "descriptors": [
+            "singing",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "bass_trombone",
+          "name": "Bass",
+          "descriptors": [
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "valve_trombone",
+          "name": "Valve trombone",
+          "descriptors": [
+            "agile",
+            "articulate",
+            "jazz-leaning"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trombone_mouthpiece",
+      "surface": false,
+      "name": "Mouthpiece (cup × rim × backbore)",
+      "variants": [
+        {
+          "id": "bach_trombone_mp_6half_al",
+          "default": true,
+          "name": "Bach 6½AL (tenor standard, 25.40mm, #420 backbore)",
+          "descriptors": [
+            "medium-cup",
+            "tenor-standard",
+            "standard-backbore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "bach_trombone_mp_5g",
+          "name": "Bach 5G (tenor large-cup)",
+          "descriptors": [
+            "large-cup",
+            "tenor-large"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trombone_mp_4g",
+          "name": "Bach 4G (tenor extra-large)",
+          "descriptors": [
+            "extra-large-cup",
+            "tenor-bottom-heavy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trombone_mp_3g",
+          "name": "Bach 3G (bass-leaning tenor)",
+          "descriptors": [
+            "large-cup",
+            "open-backbore",
+            "bass-leaning"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trombone_mp_1half_g",
+          "name": "Bach 1½G (bass trombone)",
+          "descriptors": [
+            "extra-large-cup",
+            "bass-trombone",
+            "deep-foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trombone_mp_12c",
+          "name": "Bach 12C (student / commercial, 24.50mm)",
+          "descriptors": [
+            "shallow-cup",
+            "narrower-rim",
+            "student-commercial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trombone_mute",
+      "surface": false,
+      "name": "Mute",
+      "variants": [
+        {
+          "id": "no_mute_trb",
+          "surface": false,
+          "name": "No mute",
+          "descriptors": [
+            "direct",
+            "undamped-resonance",
+            "full"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "plunger_trb",
+          "name": "Plunger (rubber bowl)",
+          "descriptors": [
+            "talking",
+            "growly",
+            "rubber"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cup_mute_trb",
+          "default": true,
+          "surface": false,
+          "name": "Cup mute",
+          "descriptors": [
+            "subdued",
+            "mellow"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "straight_mute_trb",
+          "surface": false,
+          "name": "Straight mute",
+          "descriptors": [
+            "shrill",
+            "piercing",
+            "classical"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trombone_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tailgate_slide",
+          "default": true,
+          "name": "Tailgate slides (Dixieland)",
+          "descriptors": [
+            "glissando-heavy",
+            "smearing",
+            "traditional"
+          ],
+          "match_tokens": [
+            "slide",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "classical_trb",
+          "name": "Classical legato",
+          "descriptors": [
+            "sustaining",
+            "controlled",
+            "noble"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "big_band_punch",
+          "name": "Jazz-orchestra punch",
+          "descriptors": [
+            "accented",
+            "rhythmic",
+            "section-locked"
+          ],
+          "match_tokens": [
+            "punchy",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trombone_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "trombone_yellow_brass",
+          "default": true,
+          "name": "Yellow brass (canonical 70:30 — Bach 42 standard)",
+          "descriptors": [
+            "yellow-brass-canonical-70-30-bach-42-standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trombone_red_brass",
+          "name": "Red brass (90:10 — darker orchestral)",
+          "descriptors": [
+            "red-brass-90-10-darker-orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trombone_sterling_silver",
+          "name": "Sterling silver (rare premium)",
+          "descriptors": [
+            "sterling-silver-rare-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trombone_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "trombone_bach_42",
+          "default": true,
+          "name": "Bach 42 (canonical American orchestral tenor)",
+          "descriptors": [
+            "bach-42-canonical-american-orchestral-tenor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trombone_conn_88h",
+          "name": "Conn 88H (American symphonic)",
+          "descriptors": [
+            "conn-88h-american-symphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trombone_edwards_griego",
+          "name": "Edwards / Shires modular (boutique modern)",
+          "descriptors": [
+            "edwards-shires-modular-boutique"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trombone_yamaha_xeno",
+          "name": "Yamaha Xeno (modern Japanese)",
+          "descriptors": [
+            "yamaha-xeno-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "id": "bro_country",
+  "name": "Bro-country",
+  "family": "global",
+  "lineage": "2010s mainstream country-pop-rap hybrid codified through Florida Georgia Line \"Cruise\" (2012), Luke Bryan, Jason Aldean, and the Nashville radio-format that adopted hip-hop-derived production cues — characterized by 808-bass-and-drum-machine programming, party-celebrating lyrical subject matter, and pop-rock guitar work over country-vocal lead",
+  "recipe": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany la bella flats electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 654,
+  "score": 368.056,
+  "config": {
+    "traditions": [
+      "bro_country",
+      "plugg",
+      "pluggnb"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 22.349999999999994,
+          "voice_quality": 8.06,
+          "voice_vibrato": 13.23375,
+          "voice_articulation": 3.1950000000000003,
+          "voice_microtone": 8.799999999999997,
+          "voice_tradition": 6.825,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 14.697499999999998,
+          "voice_speech_song": 7.995,
+          "voice_ensemble_config": 4.55,
+          "voice_ornament_system": 0.15,
+          "voice_pitch_organization": 2.3437499999999996,
+          "voice_processing_chain": 5.495,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 13.095,
+          "amp_make": 12.794999999999998,
+          "body_wood": 3.6675,
+          "neck_wood": 1.32375,
+          "fretboard": 0.63375,
+          "pickup_magnet": 0.585,
+          "pickup_winding": 0.5399999999999999,
+          "string_material": 0.63375,
+          "bridge": 1.32375,
+          "scale_length": 3.3674999999999993,
+          "string_gauge": 1.7625000000000002,
+          "finish": 0,
+          "string_tuning": 3.6075
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "electric_technique": 0.2,
+          "amp_make": 12.794999999999998,
+          "body_wood": 2.6475,
+          "pickup_config": 1.3199999999999998,
+          "string_type": 3.445,
+          "scale_length_b": 1.32375,
+          "fretted_or_not": 0.24,
+          "bass_technique": 13.095
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 4.9399999999999995,
+          "shell_wood": 0.63375,
+          "shell_thickness": 0,
+          "bearing_edges": 1.51875,
+          "drumhead": 5.699999999999999,
+          "snare_wires": 1.32375,
+          "cymbal_alloy": 9,
+          "cymbal_hammering": 10.19,
+          "cymbal_lathing": 8.995,
+          "cymbal_finish": 0.63375,
+          "drum_technique": 4.9399999999999995
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "banjo_back": "resonator",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_fluorocarbon",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.55,
+          "banjo_back": 0.63375,
+          "tone_ring": 0.24,
+          "banjo_head": 4.68,
+          "banjo_pot": 0.63375,
+          "banjo_play": 0.39,
+          "banjo_rim_wood": 0,
+          "banjo_neck_wood": 1.12875,
+          "banjo_strings": 0.39,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 4.615
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 3.73,
+          "sampler_archetypes": 5.2,
+          "sampler_bit_depth": 1.6649999999999998,
+          "sampler_workflow": 3.9,
+          "sampler_classic_context": 8.58
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

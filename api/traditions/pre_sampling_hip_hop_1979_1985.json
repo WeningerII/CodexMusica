@@ -1,0 +1,184 @@
+{
+  "id": "pre_sampling_hip_hop_1979_1985",
+  "name": "Pre-sampling hip-hop (1979-1985)",
+  "family": "vernacular",
+  "lineage": "Founding commercial-recording era of hip-hop — pre-sampling-technology, when hip-hop tracks were built with live session-band recreations of the breakbeats that DJs had isolated and looped from existing records during the Bronx block-party era. Recordings include the Sugar Hill Gang Rappers Delight 1979 (the commercial breakthrough, built on a session-band recreation of Chics Good Times bassline), Grandmaster Flash and the Furious Five The Message 1982 (the socially-conscious hip-hop breakthrough), Afrika Bambaataa Planet Rock 1982 (the Kraftwerk-Trans-Europe-Express-derived electro-funk hip-hop fusion), Run-DMC self-titled debut 1984",
+  "recipe": "classic North American pre-sampling hip-hop, mc Rhythm, east coast branch, soul R&B functional song doo-wop contemporary r&b. thick, rap, nervy, narrative. sampled chopped turntable, pre muffled edge muffled hot rolled annealed machine hammered drum kit, mahogany la bella flats Detroit soul bass canon pocket fingerstyle electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, drum machine 606, cheap paired with 303 chicago foundational TR-707. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 744,
+  "score": 359.645,
+  "config": {
+    "traditions": [
+      "pre_sampling_hip_hop_1979_1985",
+      "doo_wop",
+      "contemporary_rb_late_90s_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 5.025000000000001,
+          "voice_quality": 12.899999999999999,
+          "voice_vibrato": 0.5249999999999999,
+          "voice_articulation": 11.895,
+          "voice_microtone": 2.250000000000001,
+          "voice_tradition": 13.2,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 1.8949999999999998,
+          "voice_speech_song": 14.29,
+          "voice_ensemble_config": 2.8600000000000003,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 1.26,
+          "voice_processing_chain": 10.899999999999999,
+          "voice_multitrack_stack": 2.414999999999999
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 10.194999999999999,
+          "turntable_technique": 12.495
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 10.194999999999999,
+          "shell_wood": 0.435,
+          "shell_thickness": 0,
+          "bearing_edges": 0.5249999999999999,
+          "drumhead": 2.59,
+          "snare_wires": 0.5249999999999999,
+          "cymbal_alloy": 2.885,
+          "cymbal_hammering": 2.9850000000000003,
+          "cymbal_lathing": 2.4450000000000003,
+          "cymbal_finish": 0.345,
+          "drum_technique": 10.389999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 4.2,
+          "amp_make": 2.0799999999999996,
+          "body_wood": 1.0500000000000003,
+          "pickup_config": 0,
+          "string_type": 3.3099999999999996,
+          "scale_length_b": 0.5249999999999999,
+          "fretted_or_not": 0.105,
+          "bass_technique": 4.2
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "pine",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 4.45,
+          "amp_make": 5.180000000000001,
+          "body_wood": 0.5249999999999999,
+          "neck_wood": 0.5249999999999999,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.345,
+          "string_material": 0.345,
+          "string_gauge": 0.5249999999999999,
+          "bridge": 0.105,
+          "scale_length": 1.0500000000000003,
+          "finish": 0,
+          "string_tuning": 1.3
+        }
+      },
+      {
+        "id": "drum_machine_606",
+        "slots": {
+          "drum_machine_606_voice": "drum_machine_606_cymbal",
+          "drum_machine_606_context": "drum_machine_606_electro"
+        },
+        "scores": {
+          "drum_machine_606_voice": 0.39,
+          "drum_machine_606_context": 0.345
+        }
+      },
+      {
+        "id": "drum_machine_707",
+        "slots": {
+          "tr707_voice": "tr707_snare",
+          "drum_machine_707_context": "drum_machine_707_chicago_house"
+        },
+        "scores": {
+          "tr707_voice": 0.54,
+          "drum_machine_707_context": 1.625
+        }
+      }
+    ],
+    "room": "nyc_bronx_hip_hop_block_party_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

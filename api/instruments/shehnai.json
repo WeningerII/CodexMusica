@@ -1,0 +1,278 @@
+{
+  "id": "shehnai",
+  "name": "Shehnai (North Indian double-reed oboe)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "shehnai",
+  "parts": [
+    {
+      "id": "shehnai_register",
+      "name": "Register",
+      "variants": [
+        {
+          "id": "shehnai_standard_c",
+          "default": true,
+          "name": "Standard C-pitch shehnai (Hindustani classical and wedding context)",
+          "descriptors": [
+            "double-reed",
+            "piercing-overtone-rich",
+            "auspicious-ceremonial",
+            "mid-20th-century-banaras-shehnai-virtuoso"
+          ],
+          "match_tokens": [
+            "wind",
+            "double-reed",
+            "hindustani-tradition",
+            "devotional-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shehnai_use",
+      "name": "Use",
+      "variants": [
+        {
+          "id": "shehnai_classical_solo",
+          "default": true,
+          "name": "Classical solo concert (Hindustani raga tradition)",
+          "descriptors": [
+            "classical-solo",
+            "raga-tradition",
+            "alap-jod-jhala-form"
+          ],
+          "match_tokens": [
+            "wind",
+            "hindustani-tradition"
+          ]
+        },
+        {
+          "id": "shehnai_naubat_ensemble",
+          "name": "Naubat ensemble (wedding / processional)",
+          "descriptors": [
+            "naubat-ensemble",
+            "wedding-context",
+            "processional"
+          ],
+          "match_tokens": [
+            "wind",
+            "wedding-tradition",
+            "devotional-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shehnai_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "shehnai_sheesham_canonical",
+          "default": true,
+          "name": "Sheesham / Indian rosewood (canonical Hindustani)",
+          "descriptors": [
+            "sheesham-indian-rosewood-canonical-hindustani"
+          ],
+          "match_tokens": [
+            "wind",
+            "hindustani-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "shehnai_teak",
+          "name": "Teak (alternative)",
+          "descriptors": [
+            "teak-alternative"
+          ],
+          "match_tokens": [
+            "wind",
+            "hindustani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shehnai_reed",
+      "surface": false,
+      "name": "Reed (double-reed cane)",
+      "variants": [
+        {
+          "id": "shehnai_arundo_quadruple",
+          "default": true,
+          "name": "Quadruple-folded Arundo donax (canonical Banaras shehnai)",
+          "descriptors": [
+            "arundo-donax-quadruple-folded-canonical-banaras"
+          ],
+          "match_tokens": [
+            "wind",
+            "hindustani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shehnai_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "shehnai_bismillah_khan_banaras",
+          "default": true,
+          "name": "Bismillah Khan Banaras lineage (canonical Hindustani)",
+          "descriptors": [
+            "bismillah-khan-banaras-lineage-canonical-hindustani"
+          ],
+          "match_tokens": [
+            "wind",
+            "hindustani-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shehnai_register",
+      "name": "Register",
+      "variants": [
+        {
+          "id": "shehnai_standard_c",
+          "default": true,
+          "name": "Standard C-pitch shehnai (Hindustani classical and wedding context)",
+          "descriptors": [
+            "double-reed",
+            "piercing-overtone-rich",
+            "auspicious-ceremonial",
+            "mid-20th-century-banaras-shehnai-virtuoso"
+          ],
+          "match_tokens": [
+            "wind",
+            "double-reed",
+            "hindustani-tradition",
+            "devotional-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shehnai_use",
+      "name": "Use",
+      "variants": [
+        {
+          "id": "shehnai_classical_solo",
+          "default": true,
+          "name": "Classical solo concert (Hindustani raga tradition)",
+          "descriptors": [
+            "classical-solo",
+            "raga-tradition",
+            "alap-jod-jhala-form"
+          ],
+          "match_tokens": [
+            "wind",
+            "hindustani-tradition"
+          ]
+        },
+        {
+          "id": "shehnai_naubat_ensemble",
+          "name": "Naubat ensemble (wedding / processional)",
+          "descriptors": [
+            "naubat-ensemble",
+            "wedding-context",
+            "processional"
+          ],
+          "match_tokens": [
+            "wind",
+            "wedding-tradition",
+            "devotional-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shehnai_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "shehnai_sheesham_canonical",
+          "default": true,
+          "name": "Sheesham / Indian rosewood (canonical Hindustani)",
+          "descriptors": [
+            "sheesham-indian-rosewood-canonical-hindustani"
+          ],
+          "match_tokens": [
+            "wind",
+            "hindustani-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "shehnai_teak",
+          "name": "Teak (alternative)",
+          "descriptors": [
+            "teak-alternative"
+          ],
+          "match_tokens": [
+            "wind",
+            "hindustani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shehnai_reed",
+      "surface": false,
+      "name": "Reed (double-reed cane)",
+      "variants": [
+        {
+          "id": "shehnai_arundo_quadruple",
+          "default": true,
+          "name": "Quadruple-folded Arundo donax (canonical Banaras shehnai)",
+          "descriptors": [
+            "arundo-donax-quadruple-folded-canonical-banaras"
+          ],
+          "match_tokens": [
+            "wind",
+            "hindustani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shehnai_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "shehnai_bismillah_khan_banaras",
+          "default": true,
+          "name": "Bismillah Khan Banaras lineage (canonical Hindustani)",
+          "descriptors": [
+            "bismillah-khan-banaras-lineage-canonical-hindustani"
+          ],
+          "match_tokens": [
+            "wind",
+            "hindustani-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

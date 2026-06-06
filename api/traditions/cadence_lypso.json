@@ -1,0 +1,187 @@
+{
+  "id": "cadence_lypso",
+  "name": "Cadence-lypso",
+  "family": "global",
+  "lineage": "Dominica creole-French Caribbean dance-band tradition fusing Haitian compas and Trinidadian calypso, codified through Exile One and Grammacks in the 1970s",
+  "recipe": "classic North American mid-1970s cadence-lypso, groove Percussion, Caribbean branch, Afro-diasporic electric groove percussion kompa afrobeat. Yoruba tonal vocal, m1 with m0 pulse borrowing, sprechgesang notated approximate pitch, four and more voice polyphony. single coil electric guitar, electric bass, pin lathed tonal groove brushes-and-sticks drum kit, saxophone, congas. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 578,
+  "score": 171.159,
+  "config": {
+    "traditions": [
+      "cadence_lypso",
+      "kompa",
+      "afrobeat"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 0.3667499999999999,
+          "voice_quality": 0.26812499999999995,
+          "voice_vibrato": 0.44999999999999996,
+          "voice_articulation": 0.39,
+          "voice_microtone": 0.39,
+          "voice_tradition": 2.7950000000000004,
+          "voice_mechanism_compound": 1.405125,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 4.484999999999999,
+          "voice_ensemble_config": 4.029999999999999,
+          "voice_ornament_system": 0.105,
+          "voice_pitch_organization": 0.49424999999999997,
+          "voice_processing_chain": 5.553250000000001,
+          "voice_multitrack_stack": 3.455
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 0,
+          "body_wood": 0.19274999999999998,
+          "neck_wood": 0.44999999999999996,
+          "fretboard": 0.44999999999999996,
+          "pickup_magnet": 0.44999999999999996,
+          "string_material": 0.44999999999999996,
+          "string_gauge": 0.52275,
+          "bridge": 0.063,
+          "scale_length": 0.38549999999999995,
+          "finish": 0,
+          "string_tuning": 0.682125
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 0,
+          "body_wood": 0.38549999999999995,
+          "pickup_config": 0.045,
+          "string_type": 0.39,
+          "scale_length_b": 0.22425,
+          "fretted_or_not": 0.063,
+          "bass_technique": -0.035
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 4.029999999999999,
+          "shell_wood": 0.48149999999999993,
+          "shell_thickness": 0,
+          "bearing_edges": 0.19274999999999998,
+          "drumhead": 0.44999999999999996,
+          "snare_wires": 0.19274999999999998,
+          "cymbal_alloy": 0.126,
+          "cymbal_hammering": -0.035,
+          "cymbal_lathing": 2.7300000000000004,
+          "cymbal_finish": 0.44999999999999996,
+          "drum_technique": 4.029999999999999
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "sax_size": 0.19274999999999998,
+          "sax_reed": 0.44999999999999996,
+          "sax_body_alloy": -0.035,
+          "sax_mouthpiece": 0.44999999999999996,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 1.9422499999999996,
+          "conga_set": 0.618,
+          "conga_skin": 0.30299999999999994,
+          "conga_shell_wood": 0.27149999999999996
+        }
+      }
+    ],
+    "room": "fania_la_tierra_studios_ny",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "son_clave_2_3",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "id": "rolmo",
+  "name": "Rolmo (Tibetan large paired cymbals)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "rolmo",
+  "parts": [
+    {
+      "id": "rolmo_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "rolmo_large_paired_cymbals_canonical",
+          "default": true,
+          "name": "Large paired bronze cymbals (canonical Tibetan monastic ensemble)",
+          "descriptors": [
+            "large-paired-bronze-cymbals-canonical-tibetan-monastic"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rolmo_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "rolmo_yang_chant_ensemble_canonical",
+          "default": true,
+          "name": "Yang-chant ensemble accompaniment (canonical Gelug monastic)",
+          "descriptors": [
+            "yang-chant-ensemble-canonical-gelug-monastic"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rolmo_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "rolmo_large_paired_cymbals_canonical",
+          "default": true,
+          "name": "Large paired bronze cymbals (canonical Tibetan monastic ensemble)",
+          "descriptors": [
+            "large-paired-bronze-cymbals-canonical-tibetan-monastic"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rolmo_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "rolmo_yang_chant_ensemble_canonical",
+          "default": true,
+          "name": "Yang-chant ensemble accompaniment (canonical Gelug monastic)",
+          "descriptors": [
+            "yang-chant-ensemble-canonical-gelug-monastic"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

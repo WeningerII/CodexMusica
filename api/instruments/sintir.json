@@ -1,0 +1,652 @@
+{
+  "id": "sintir",
+  "name": "Sintir / guembri (Moroccan Gnawa bass-lute)",
+  "family": "plucked_traditional",
+  "class": "bass",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sintir",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_call_and_response",
+          "name": "Call-and-response",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "akonting",
+            "banjo_5_string",
+            "sintir",
+            "xalam"
+          ],
+          "descriptors": [
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "call-response",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "griot",
+            "west-african"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sintir_skin",
+      "surface": false,
+      "name": "Soundboard skin",
+      "variants": [
+        {
+          "id": "sintir_camel",
+          "default": true,
+          "name": "Camel-skin (traditional)",
+          "descriptors": [
+            "traditional",
+            "thick",
+            "authentic",
+            "camelskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "sintir_goat",
+          "name": "Goat-skin",
+          "descriptors": [
+            "lighter",
+            "regional-alternative",
+            "common",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "sintir_synthetic",
+          "name": "Synthetic",
+          "descriptors": [
+            "modern",
+            "durable",
+            "commercial",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_sersara",
+      "name": "Sersara buzzer (non-optional)",
+      "variants": [
+        {
+          "id": "sintir_sersara_present",
+          "default": true,
+          "name": "Galvanized-metal sersara with hanging rings",
+          "descriptors": [
+            "buzz",
+            "sympathetic-overtones",
+            "metallic-overtones",
+            "sersara",
+            "iron"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing",
+            "integral-buzzer"
+          ]
+        },
+        {
+          "id": "sintir_sersara_absent",
+          "name": "Without sersara (atypical)",
+          "descriptors": [
+            "dry",
+            "untraditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "sintir_gut_strings",
+          "default": true,
+          "name": "Goat-gut strings, resin-treated",
+          "descriptors": [
+            "traditional",
+            "organic",
+            "authentic",
+            "gut",
+            "gut-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sintir_nylon_strings",
+          "name": "Heavy monofilament nylon (modern stable)",
+          "descriptors": [
+            "stable",
+            "modern",
+            "commercial",
+            "nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "sintir_fig_body",
+          "default": true,
+          "name": "Hollowed fig (traditional)",
+          "descriptors": [
+            "traditional",
+            "organic-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sintir_acacia_body",
+          "name": "Hollowed acacia",
+          "descriptors": [
+            "traditional",
+            "organic-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sintir_poplar_body",
+          "name": "Hollowed poplar (modern luthiery)",
+          "descriptors": [
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_neck_wood",
+      "name": "Neck wood",
+      "variants": [
+        {
+          "id": "sintir_neck_cedar",
+          "default": true,
+          "name": "Cedar stick (modern)",
+          "descriptors": [
+            "stable",
+            "wood",
+            "cedar"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "sintir_neck_hardwood",
+          "name": "Local hardwood (traditional)",
+          "descriptors": [
+            "traditional",
+            "wood",
+            "hardwood"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_technique",
+      "name": "Right-hand technique",
+      "variants": [
+        {
+          "id": "sintir_knuckle_skin_slap",
+          "default": true,
+          "name": "Knuckle pluck + skin slap (Gnawa traditional)",
+          "descriptors": [
+            "percussive-plucked-hybrid",
+            "rhythm-foundational",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "sintir_pick",
+          "name": "Plectrum (modern fusion)",
+          "descriptors": [
+            "articulate",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "sintir_lila",
+          "default": true,
+          "name": "Gnawa lila ceremony",
+          "descriptors": [
+            "all-night-trance",
+            "ritual"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "sintir_festival",
+          "name": "Festival Gnaoua / Essaouira",
+          "descriptors": [
+            "celebratory",
+            "showcase"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "sintir_fusion",
+          "name": "World-fusion / Axiom-school recording",
+          "descriptors": [
+            "session",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_fingerpicked"
+    },
+    {
+      "id": "sintir_skin",
+      "surface": false,
+      "name": "Soundboard skin",
+      "variants": [
+        {
+          "id": "sintir_camel",
+          "default": true,
+          "name": "Camel-skin (traditional)",
+          "descriptors": [
+            "traditional",
+            "thick",
+            "authentic",
+            "camelskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "sintir_goat",
+          "name": "Goat-skin",
+          "descriptors": [
+            "lighter",
+            "regional-alternative",
+            "common",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "sintir_synthetic",
+          "name": "Synthetic",
+          "descriptors": [
+            "modern",
+            "durable",
+            "commercial",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_sersara",
+      "name": "Sersara buzzer (non-optional)",
+      "variants": [
+        {
+          "id": "sintir_sersara_present",
+          "default": true,
+          "name": "Galvanized-metal sersara with hanging rings",
+          "descriptors": [
+            "buzz",
+            "sympathetic-overtones",
+            "metallic-overtones",
+            "sersara",
+            "iron"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing",
+            "integral-buzzer"
+          ]
+        },
+        {
+          "id": "sintir_sersara_absent",
+          "name": "Without sersara (atypical)",
+          "descriptors": [
+            "dry",
+            "untraditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "sintir_gut_strings",
+          "default": true,
+          "name": "Goat-gut strings, resin-treated",
+          "descriptors": [
+            "traditional",
+            "organic",
+            "authentic",
+            "gut",
+            "gut-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sintir_nylon_strings",
+          "name": "Heavy monofilament nylon (modern stable)",
+          "descriptors": [
+            "stable",
+            "modern",
+            "commercial",
+            "nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_body_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "sintir_fig_body",
+          "default": true,
+          "name": "Hollowed fig (traditional)",
+          "descriptors": [
+            "traditional",
+            "organic-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sintir_acacia_body",
+          "name": "Hollowed acacia",
+          "descriptors": [
+            "traditional",
+            "organic-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sintir_poplar_body",
+          "name": "Hollowed poplar (modern luthiery)",
+          "descriptors": [
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_neck_wood",
+      "name": "Neck wood",
+      "variants": [
+        {
+          "id": "sintir_neck_cedar",
+          "default": true,
+          "name": "Cedar stick (modern)",
+          "descriptors": [
+            "stable",
+            "wood",
+            "cedar"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "sintir_neck_hardwood",
+          "name": "Local hardwood (traditional)",
+          "descriptors": [
+            "traditional",
+            "wood",
+            "hardwood"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_technique",
+      "name": "Right-hand technique",
+      "variants": [
+        {
+          "id": "sintir_knuckle_skin_slap",
+          "default": true,
+          "name": "Knuckle pluck + skin slap (Gnawa traditional)",
+          "descriptors": [
+            "percussive-plucked-hybrid",
+            "rhythm-foundational",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "sintir_pick",
+          "name": "Plectrum (modern fusion)",
+          "descriptors": [
+            "articulate",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sintir_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "sintir_lila",
+          "default": true,
+          "name": "Gnawa lila ceremony",
+          "descriptors": [
+            "all-night-trance",
+            "ritual"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "sintir_festival",
+          "name": "Festival Gnaoua / Essaouira",
+          "descriptors": [
+            "celebratory",
+            "showcase"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "sintir_fusion",
+          "name": "World-fusion / Axiom-school recording",
+          "descriptors": [
+            "session",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "trance-inducing"
+          ]
+        }
+      ]
+    }
+  ]
+}

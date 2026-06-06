@@ -1,0 +1,129 @@
+{
+  "id": "kizomba",
+  "name": "Kizomba",
+  "family": "global",
+  "lineage": "Angolan-Lusophone slow-tempo partner-dance tradition codified circa 1980 — evolution from semba (its faster ancestor), characterized by 24/16 polyrhythmic foundation, Portuguese-Creole vocals, and intimate dance-hold close-position partner couples; Eduardo Paim and Bonga as the canonical early-80s codifiers, with the genre spreading across the Lusophone Atlantic",
+  "recipe": "classic early-1980s kizomba, groove Percussion, Afro-diasporic electric branch, tropical song functional song kizomba merengue urbano. rap, overtone rich sustained, punctuated, beatbox. basswood humbucker electric guitar, analog poly synth, TR-808. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 393,
+  "score": 103.052,
+  "config": {
+    "traditions": [
+      "kizomba",
+      "kizomba_song_form",
+      "merengue_urbano"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 1.345,
+          "voice_vibrato": 0.7,
+          "voice_articulation": 0.675,
+          "voice_microtone": 0.15,
+          "voice_tradition": 2.6650000000000005,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 5.199999999999999,
+          "voice_ornament_system": 0.26,
+          "voice_pitch_organization": 2.6,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 1.6899999999999997
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_soldano_slo100",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 1.0399999999999998,
+          "body_wood": 1.3,
+          "neck_wood": 0.435,
+          "fretboard": 0.435,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.495,
+          "string_material": 0.435,
+          "bridge": 1.045,
+          "scale_length": 1.3,
+          "string_gauge": 2.8150000000000004,
+          "finish": 0,
+          "string_tuning": 1.69
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "poly_archetypes": 0.645,
+          "poly_voices": 0.645,
+          "poly_maker_lineage": 0.3249999999999998
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 0.325,
+          "drum_machine_808_context": 4.415000000000001,
+          "tr808_production_origin": 0.99
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "colored",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

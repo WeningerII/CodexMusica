@@ -1,0 +1,420 @@
+{
+  "id": "daf",
+  "name": "Daf (Persian/Sufi frame drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "daf",
+  "parts": [
+    {
+      "id": "daf_rings",
+      "name": "Internal rings",
+      "variants": [
+        {
+          "id": "daf_with_rings",
+          "default": true,
+          "name": "With chain/ring jingles",
+          "descriptors": [
+            "ceremonial",
+            "sufi",
+            "rasping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        },
+        {
+          "id": "daf_no_rings",
+          "name": "Without rings (Kurdish)",
+          "descriptors": [
+            "clean",
+            "meditative",
+            "folk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daf_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "daf_sufi",
+          "default": true,
+          "name": "Sufi dhikr (canonical)",
+          "descriptors": [
+            "ceremonial",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        },
+        {
+          "id": "daf_classical",
+          "name": "Iranian classical",
+          "descriptors": [
+            "art-music",
+            "sophisticated",
+            "classical"
+          ],
+          "match_tokens": [
+            "classical-trained",
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "daf_kurdish",
+          "name": "Kurdish wedding",
+          "descriptors": [
+            "regional",
+            "celebratory",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daf_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "daf_walnut_canonical",
+          "default": true,
+          "name": "Walnut bent frame (canonical Persian)",
+          "descriptors": [
+            "walnut-bent-frame-canonical-persian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        },
+        {
+          "id": "daf_beech",
+          "name": "Beech (mid-tier alternative)",
+          "descriptors": [
+            "beech-mid-tier"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "daf_mulberry",
+          "name": "Mulberry (Kurdish regional)",
+          "descriptors": [
+            "mulberry-kurdish-regional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daf_head_material",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "daf_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin tacked (canonical)",
+          "descriptors": [
+            "goat-skin-tacked-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        },
+        {
+          "id": "daf_fish_skin",
+          "name": "Fish-skin (lighter Iraqi variant)",
+          "descriptors": [
+            "fish-skin-iraqi-variant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "daf_synthetic_modern",
+          "name": "Synthetic Remo (modern stable)",
+          "descriptors": [
+            "synthetic-remo-modern-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daf_jingle_metal",
+      "surface": false,
+      "name": "Jingle ring metal",
+      "variants": [
+        {
+          "id": "daf_brass_rings",
+          "default": true,
+          "name": "Brass rings (canonical Iranian)",
+          "descriptors": [
+            "brass-rings-canonical-iranian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "daf_steel_rings",
+          "name": "Steel rings (brighter modern)",
+          "descriptors": [
+            "steel-rings-brighter-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "daf_rings",
+      "name": "Internal rings",
+      "variants": [
+        {
+          "id": "daf_with_rings",
+          "default": true,
+          "name": "With chain/ring jingles",
+          "descriptors": [
+            "ceremonial",
+            "sufi",
+            "rasping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        },
+        {
+          "id": "daf_no_rings",
+          "name": "Without rings (Kurdish)",
+          "descriptors": [
+            "clean",
+            "meditative",
+            "folk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daf_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "daf_sufi",
+          "default": true,
+          "name": "Sufi dhikr (canonical)",
+          "descriptors": [
+            "ceremonial",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        },
+        {
+          "id": "daf_classical",
+          "name": "Iranian classical",
+          "descriptors": [
+            "art-music",
+            "sophisticated",
+            "classical"
+          ],
+          "match_tokens": [
+            "classical-trained",
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "daf_kurdish",
+          "name": "Kurdish wedding",
+          "descriptors": [
+            "regional",
+            "celebratory",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daf_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "daf_walnut_canonical",
+          "default": true,
+          "name": "Walnut bent frame (canonical Persian)",
+          "descriptors": [
+            "walnut-bent-frame-canonical-persian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        },
+        {
+          "id": "daf_beech",
+          "name": "Beech (mid-tier alternative)",
+          "descriptors": [
+            "beech-mid-tier"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "daf_mulberry",
+          "name": "Mulberry (Kurdish regional)",
+          "descriptors": [
+            "mulberry-kurdish-regional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daf_head_material",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "daf_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin tacked (canonical)",
+          "descriptors": [
+            "goat-skin-tacked-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck",
+            "devotional"
+          ]
+        },
+        {
+          "id": "daf_fish_skin",
+          "name": "Fish-skin (lighter Iraqi variant)",
+          "descriptors": [
+            "fish-skin-iraqi-variant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "daf_synthetic_modern",
+          "name": "Synthetic Remo (modern stable)",
+          "descriptors": [
+            "synthetic-remo-modern-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daf_jingle_metal",
+      "surface": false,
+      "name": "Jingle ring metal",
+      "variants": [
+        {
+          "id": "daf_brass_rings",
+          "default": true,
+          "name": "Brass rings (canonical Iranian)",
+          "descriptors": [
+            "brass-rings-canonical-iranian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "daf_steel_rings",
+          "name": "Steel rings (brighter modern)",
+          "descriptors": [
+            "steel-rings-brighter-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

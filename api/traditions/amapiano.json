@@ -1,0 +1,141 @@
+{
+  "id": "amapiano",
+  "name": "Amapiano",
+  "family": "global",
+  "lineage": "South African Pretoria-Johannesburg late-2010s house-jazz hybrid characterized by deep log-drum sub-bass figures, jazzy keys, and slowed 110-115 BPM tempo — codified through Kabza De Small, DJ Maphorisa, Mas Musiq, MFR Souls, and Vigro Deep from 2017 onward, exploding internationally 2020-2023",
+  "recipe": "classic 2020-2023 amapiano, electronic Dance, African dance branch, central east south African groove percussion ndombolo soukous. thick, low dynamic level, chest resonance low mid, equal tempered. log drum, rhodes electric, low sub bass digital subtractive, TR-808, sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 420,
+  "score": 160.988,
+  "config": {
+    "traditions": [
+      "amapiano",
+      "ndombolo",
+      "soukous"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.666500000000002,
+          "voice_quality": 0.8919999999999999,
+          "voice_vibrato": 0.9099999999999999,
+          "voice_articulation": 0.39862499999999995,
+          "voice_microtone": 3.750000000000001,
+          "voice_tradition": 13,
+          "voice_mechanism_compound": 1.584,
+          "voice_estill_quality": 0.39149999999999996,
+          "voice_speech_song": 4.874999999999999,
+          "voice_ensemble_config": 5.199999999999999,
+          "voice_ornament_system": 1.708,
+          "voice_pitch_organization": 1.53175,
+          "voice_processing_chain": 4.5945,
+          "voice_multitrack_stack": 4.7212499999999995
+        }
+      },
+      {
+        "id": "log_drum",
+        "slots": {
+          "log_drum_voice": "log_drum_sub",
+          "log_drum_context": "log_drum_amapiano"
+        },
+        "scores": {
+          "log_drum_voice": 2.08,
+          "log_drum_context": 11.83
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "rhodes_model": 5.268625,
+          "rhodes_use": 1.17,
+          "rhodes_tine_material": 0.39,
+          "rhodes_hammer_tip": -0.7,
+          "rhodes_pickup_position": 0.39
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 3.9650000000000007,
+          "va_archetypes": 0.4545,
+          "digital_subtractive_context": 4.939999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 4.0440000000000005,
+          "drum_machine_808_context": 4.16,
+          "tr808_production_origin": 0.18712499999999999
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 0.75,
+          "sampler_bit_depth": 0.6499999999999999,
+          "sampler_workflow": -0.035,
+          "sampler_classic_context": 14.494999999999997
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

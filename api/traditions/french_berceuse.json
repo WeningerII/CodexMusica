@@ -1,0 +1,68 @@
+{
+  "id": "french_berceuse",
+  "name": "French berceuse (cradle song)",
+  "family": "global",
+  "lineage": "French cradle-song tradition continuous from medieval and Renaissance courtly-and-rural berceuse through 19th-century Romantic art-song setting (Fauré, Berlioz, Saint-Saëns) and 20th-century chanson appropriation",
+  "recipe": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song schlager morna. thick, lament wail, melodic, continuous-phonation. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 349,
+  "score": 80.305,
+  "config": {
+    "traditions": [
+      "french_berceuse",
+      "schlager_german",
+      "morna"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.65,
+          "voice_quality": 3.185,
+          "voice_vibrato": 1.7399999999999998,
+          "voice_articulation": 1.585,
+          "voice_microtone": 0.9099999999999997,
+          "voice_tradition": 1.95,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 11.764999999999997,
+          "voice_ensemble_config": 5.719999999999999,
+          "voice_ornament_system": 0.525,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 0.675,
+          "voice_multitrack_stack": 2.04
+        }
+      }
+    ],
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

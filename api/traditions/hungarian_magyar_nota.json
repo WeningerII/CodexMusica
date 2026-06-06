@@ -1,0 +1,123 @@
+{
+  "id": "hungarian_magyar_nota",
+  "name": "Hungarian magyar nóta (urban Hungarian song)",
+  "family": "global",
+  "lineage": "Hungarian magyar nóta (\"Hungarian song\") urban-popular song-form developing in nineteenth-century Hungarian cities as composed-popular-song with Hungarian-Gypsy-scale modal characteristics, performed by Roma cigányzenekar bands at coffee-houses, restaurants, and private parties. Distinguished from authentic peasant népdal folk-song (which Bartók and Kodály championed against magyar nóta as ethnographic-cultural-purity) by magyar nóta's composed-individual-author (vs anonymous-collective-folk) compositional framework. Performance: solo singer with cigányzenekar ensemble of first-violin (prímás), second-violin and viola accompaniment, cimbalom, clarinet, and double-bass. The genre remained dominant in twentieth-century Hungarian urban popular culture and continues today as a sentimental cultural form.",
+  "recipe": "classic North American mid-1970s hungarian magyar nóta, functional Song, europop branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. thick, lament wail, melodic, punctuated. Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, clarinet. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 608,
+  "score": 222.586,
+  "config": {
+    "traditions": [
+      "hungarian_magyar_nota",
+      "cape_verdean_batuko",
+      "french_musette"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 6.0765,
+          "voice_quality": 3.185,
+          "voice_vibrato": 1.0065000000000002,
+          "voice_articulation": 0.7349999999999999,
+          "voice_microtone": 0.38999999999999996,
+          "voice_tradition": 11.7,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 18.394999999999996,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 0.885,
+          "voice_processing_chain": 4.9399999999999995,
+          "voice_multitrack_stack": 2.0580000000000003
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_chopped_old_time",
+          "orch_strings": "rectified_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "pizz_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.0499999999999998,
+          "orch_strings": 0.28500000000000003,
+          "orch_top_wood": -0.035,
+          "orch_back_wood": -0.035,
+          "orch_varnish": -0.035,
+          "orch_setup_period": 1.335,
+          "orch_bow": 1.5599999999999998,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.375,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "cimbalom",
+        "slots": {
+          "cimbalom_size": "cimbalom_concert_pedal",
+          "cimbalom_mallet": "cimbalom_hard_wood"
+        },
+        "scores": {
+          "cimbalom_size": 21.189999999999998,
+          "cimbalom_mallet": 0.345
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_split_tone_overblown",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "clarinet_body": -0.05,
+          "clarinet_size": 3.3649999999999993,
+          "clarinet_reed": 0.15,
+          "clarinet_articulation": 0
+        }
+      }
+    ],
+    "room": "prague_supraphon_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

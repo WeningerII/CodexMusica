@@ -1,0 +1,117 @@
+{
+  "id": "bal_folk_revival_french",
+  "name": "Bal-folk (French folk-dance revival)",
+  "family": "global",
+  "lineage": "French bal-folk folk-dance-revival movement emerging in 1970s post-1968 French counter-cultural folk-music revival, reconstructing the regional folk-dance repertoires (bourrée Auvergnate, mazurka, scottish, polka, valse Aveyronaise) for participatory ballroom-style social-dance contexts. Performance: small ensemble of hurdy-gurdy, cabrette or veuze bagpipe, vielle à roue, fiddle, accordion, acoustic guitar, plus voice for sung-dance pieces. Distinguished from earlier French bal-musette by bal-folk's regional-folk-revival (vs Parisian-urban-cabaret) functional context. The Bal-Folk association network and the annual Saint-Chartier (later renamed Le Son Continu) festival anchor institutional continuity.",
+  "recipe": "classic mid-1970s bal-folk, functional Song, europop branch, Celtic balladic ballad poetry child ballad revival swedish polska. thick, incomplete closure resting, Scottish Gaelic vocal, m1 with m0 pulse borrowing. melodic straight piano accordion, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, drone like fiddle. intimate paris small studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 543,
+  "score": 313.15,
+  "config": {
+    "traditions": [
+      "bal_folk_revival_french",
+      "child_ballad_revival",
+      "swedish_polska_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 27.29500000000001,
+          "voice_quality": 7.54,
+          "voice_vibrato": 0.4799999999999999,
+          "voice_articulation": 0.135,
+          "voice_microtone": 0.045,
+          "voice_tradition": 39.975000000000016,
+          "voice_mechanism_compound": 1.47,
+          "voice_estill_quality": 0.32999999999999996,
+          "voice_speech_song": 3.575,
+          "voice_ensemble_config": 4.33,
+          "voice_ornament_system": 2.1449999999999996,
+          "voice_pitch_organization": 0.3,
+          "voice_processing_chain": 3.24,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 28.04000000000001,
+          "pa_size": 13.095000000000004,
+          "pa_use": 13.095000000000004
+        }
+      },
+      {
+        "id": "hurdy_gurdy",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "hurdy_strings": "hurdy_6_string",
+          "hurdy_buzz": "chien_active",
+          "hurdy_wheel_rosin": "hurdy_petromax_rosin",
+          "hurdy_string_material": "hurdy_steel_modern",
+          "hurdy_tradition": "hurdy_french_bal_folk"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "hurdy_strings": 19.295000000000005,
+          "hurdy_buzz": 4.944999999999999,
+          "hurdy_wheel_rosin": 4.8999999999999995,
+          "hurdy_string_material": 19.775000000000006,
+          "hurdy_tradition": 24.195000000000004
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 27.85000000000001,
+          "fiddle_strings": 0.63,
+          "fiddle_bow": 0.045,
+          "fiddle_mute": 0.135,
+          "fiddle_articulation": 0.285
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "vintage_revival_purism",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

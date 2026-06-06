@@ -1,0 +1,68 @@
+{
+  "id": "hebridean_iorram",
+  "name": "Scottish Hebridean iorram (rowing song)",
+  "family": "global",
+  "lineage": "Scottish-Hebridean Gaelic rowing-song (iorram, pronounced \"ear-ram\") tradition continuous from medieval-Hebridean-Gaelic maritime practice through 18th-19th-century continuous performance on Scottish-Western-Isles fishing-boats and ferries into 20th-century Scottish-Gaelic revival; the iorram coordinates the synchronized-oar-stroke timing of multi-oar Hebridean fishing-boats",
+  "recipe": "classic modern scottish hebridean iorram, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, European lullaby, Celtic British praise song scottish gaelic tàladh welsh moliannu and cerdd dant. vocal fry, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 415,
+  "score": 120.29,
+  "config": {
+    "traditions": [
+      "hebridean_iorram",
+      "scottish_gaelic_taladh",
+      "welsh_moliannu_cerdd_dant"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 3.185,
+          "voice_vibrato": 1.125,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 1.2999999999999998,
+          "voice_tradition": 29.629999999999995,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.39,
+          "voice_speech_song": 6.305000000000001,
+          "voice_ensemble_config": 2.34,
+          "voice_ornament_system": 2.085,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.6499999999999999,
+          "voice_multitrack_stack": 1.17
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

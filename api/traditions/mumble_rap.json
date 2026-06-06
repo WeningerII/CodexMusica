@@ -1,0 +1,111 @@
+{
+  "id": "mumble_rap",
+  "name": "Mumble rap",
+  "family": "global",
+  "lineage": "Mid-2010s Atlanta-and-Florida hip-hop subgenre characterized by sing-song melodic vocal delivery, slurred-and-melodic flow, autotune-saturated treatment, and emotional lyrical content — codified through Future (Dirty Sprite 2 2015, FUTURE 2017), Young Thug (Barter 6 2015), Migos (Culture 2017), Lil Uzi Vert (Luv Is Rage 2 2017), Playboi Carti, with the form serving as the late-2010s mainstream rap evolution",
+  "recipe": "classic Southern American 2014-2016 mumble rap, mc Rhythm, experimental branch, us hip hop southern plugg pluggnb. vocal fry, rap, melodic, narrative. TR-808, pitched chopped sampler, sub bass digital subtractive. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 407,
+  "score": 227.805,
+  "config": {
+    "traditions": [
+      "mumble_rap",
+      "plugg",
+      "pluggnb"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.029999999999999,
+          "voice_quality": 17.185,
+          "voice_vibrato": 3.09,
+          "voice_articulation": 4.095,
+          "voice_microtone": 0.24,
+          "voice_tradition": 9.01,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 16.354999999999997,
+          "voice_ensemble_config": 6.499999999999999,
+          "voice_ornament_system": 0.5399999999999999,
+          "voice_pitch_organization": 2.0999999999999996,
+          "voice_processing_chain": 10.394999999999998,
+          "voice_multitrack_stack": 7.799999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 6.059999999999999,
+          "drum_machine_808_context": 1.4949999999999999,
+          "tr808_production_origin": 0.9299999999999999
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 4.824999999999999,
+          "sampler_archetypes": 6.109999999999999,
+          "sampler_bit_depth": 1.6649999999999998,
+          "sampler_workflow": 7.474999999999999,
+          "sampler_classic_context": 14.169999999999998
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 9.954999999999998,
+          "va_archetypes": 0.3,
+          "digital_subtractive_context": 6.629999999999998
+        }
+      }
+    ],
+    "room": "studio_atlanta_trap_commercial",
+    "archetype": "arch_atlanta_trap_2010s",
+    "inline_chain": {
+      "mic": "condenser_tube",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

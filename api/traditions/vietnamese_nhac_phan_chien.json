@@ -1,0 +1,87 @@
+{
+  "id": "vietnamese_nhac_phan_chien",
+  "name": "Vietnamese nhạc phản chiến (anti-war music)",
+  "family": "global",
+  "lineage": "Vietnamese nhạc phản chiến (\"anti-war music\") protest-song tradition continuous from 1960s-1975 Vietnam-War-era South-Vietnam political-songwriter scene continuous through post-1975 reunification-era continuous performance (though heavily restricted under unified-Vietnam government for songs critical of either side of the conflict); centered on Trịnh Công Sơn (1939-2001, the most-iconic Vietnamese songwriter)",
+  "recipe": "classic early-1930s vietnamese nhạc phản chiến, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, anglo singer song ballad poetry shidaiqu 1960s greenwich village confessional folk. thick, incomplete closure resting, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 476,
+  "score": 212.955,
+  "config": {
+    "traditions": [
+      "vietnamese_nhac_phan_chien",
+      "shidaiqu",
+      "greenwich_village_confessional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 2.4999999999999996,
+          "voice_quality": 0.8499999999999996,
+          "voice_vibrato": 0.585,
+          "voice_articulation": 4.289999999999999,
+          "voice_microtone": 2.3399999999999994,
+          "voice_tradition": 8.58,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.7149999999999997,
+          "voice_speech_song": 8.645,
+          "voice_ensemble_config": 2.21,
+          "voice_ornament_system": 4.2,
+          "voice_pitch_organization": 14.094999999999999,
+          "voice_processing_chain": 1.95,
+          "voice_multitrack_stack": 4.9399999999999995
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "dadgad",
+          "top_wood": "cedar_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 2.7949999999999995,
+          "string_tuning": 0,
+          "top_wood": 0.33,
+          "back_sides": 0.33,
+          "string_acoustic": 5.6099999999999985,
+          "acoustic_om_technique": 2.7949999999999995
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "id": "ecm_jazz_aesthetic",
+  "name": "ECM-school jazz aesthetic",
+  "family": "global",
+  "lineage": "Eicher-school audiophile-jazz recording-aesthetic codified through ECM Records (founded 1969 Munich by Manfred Eicher) — characterized by close-miked silence, near-zero compression, long natural decay, and the \"most beautiful sound next to silence\" mastering signature; Keith Jarrett (The Köln Concert 1975), Pat Metheny (Bright Size Life 1976), Arvo Pärt (Tabula Rasa 1984) as canonical exponents",
+  "recipe": "classic late-1960s ecm-school jazz aesthetic, improv On Frame, American jazz branch, western modern art music indeterminacy and aleatoric fluxus intermedia composition. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze hand hammered drum kit. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 619,
+  "score": 236.76,
+  "config": {
+    "traditions": [
+      "ecm_jazz_aesthetic",
+      "indeterminacy_aleatoric",
+      "fluxus_intermedia"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_blue_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 1.5,
+          "grand_piano_size": 0.9099999999999999,
+          "grand_piano_brand": 1.7100000000000002,
+          "piano_hammer": 4.55,
+          "piano_rim": 3.235,
+          "piano_soundboard": 2.5,
+          "piano_pinblock": 2.5,
+          "piano_plate": 3.6399999999999997,
+          "piano_pitch_standard": 3.19
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "baritone_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 2.25,
+          "sax_size": 0.39,
+          "sax_reed": 0.9099999999999999,
+          "sax_body_alloy": 12.25,
+          "sax_mouthpiece": 0.39,
+          "sax_technique": 9.5,
+          "sax_maker_school": 10.594999999999999
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": 1.5,
+          "upright_strings": 9.5,
+          "upright_play": 9.5
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "fiberskyn_drumhead",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 7.280000000000001,
+          "shell_wood": 0.9099999999999999,
+          "shell_thickness": 0.9099999999999999,
+          "bearing_edges": 1.3,
+          "drumhead": 11.25,
+          "snare_wires": 0.9099999999999999,
+          "cymbal_alloy": 11.084999999999997,
+          "cymbal_hammering": 10.749999999999998,
+          "cymbal_lathing": 15.254999999999997,
+          "cymbal_finish": 1.195,
+          "drum_technique": 9.5
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "audiophile_intimate",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

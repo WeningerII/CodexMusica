@@ -1,0 +1,351 @@
+{
+  "id": "quena",
+  "name": "Quena (Andean notched flute)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "quena",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "quena_material",
+      "surface": false,
+      "name": "Material",
+      "variants": [
+        {
+          "id": "quena_bamboo",
+          "default": true,
+          "name": "Bamboo (canonical)",
+          "descriptors": [
+            "traditional",
+            "natural-material-resonance",
+            "standard",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "quena_bone",
+          "name": "Bone (archaic)",
+          "descriptors": [
+            "historical",
+            "ceremonial",
+            "pre-Hispanic",
+            "bone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "quena_wood",
+          "name": "Wood (modern)",
+          "descriptors": [
+            "durable",
+            "concert",
+            "professional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "quena_pvc",
+          "name": "PVC (folk-revival)",
+          "descriptors": [
+            "affordable",
+            "mass-produced",
+            "modern",
+            "pvc"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quena_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "quena_g",
+          "default": true,
+          "name": "G (canonical)",
+          "descriptors": [
+            "standard",
+            "common"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "huayno"
+          ]
+        },
+        {
+          "id": "quena_f",
+          "name": "F (orchestral)",
+          "descriptors": [
+            "concert",
+            "professional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "quena_quenacho",
+          "name": "D (quenacho, low)",
+          "descriptors": [
+            "deep",
+            "paired",
+            "tenor-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "quena_material",
+      "surface": false,
+      "name": "Material",
+      "variants": [
+        {
+          "id": "quena_bamboo",
+          "default": true,
+          "name": "Bamboo (canonical)",
+          "descriptors": [
+            "traditional",
+            "natural-material-resonance",
+            "standard",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "quena_bone",
+          "name": "Bone (archaic)",
+          "descriptors": [
+            "historical",
+            "ceremonial",
+            "pre-Hispanic",
+            "bone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "quena_wood",
+          "name": "Wood (modern)",
+          "descriptors": [
+            "durable",
+            "concert",
+            "professional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "quena_pvc",
+          "name": "PVC (folk-revival)",
+          "descriptors": [
+            "affordable",
+            "mass-produced",
+            "modern",
+            "pvc"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quena_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "quena_g",
+          "default": true,
+          "name": "G (canonical)",
+          "descriptors": [
+            "standard",
+            "common"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "huayno"
+          ]
+        },
+        {
+          "id": "quena_f",
+          "name": "F (orchestral)",
+          "descriptors": [
+            "concert",
+            "professional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "quena_quenacho",
+          "name": "D (quenacho, low)",
+          "descriptors": [
+            "deep",
+            "paired",
+            "tenor-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

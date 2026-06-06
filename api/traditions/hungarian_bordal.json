@@ -1,0 +1,96 @@
+{
+  "id": "hungarian_bordal",
+  "name": "Hungarian bordal (wine song)",
+  "family": "global",
+  "lineage": "Hungarian bordal (wine-song) tradition continuous from medieval-Hungarian wine-and-tavern-song origins through 19th-century Hungarian-national-Romantic-era Liszt-and-Bartók-folk-collection continuous through 20th-century Hungarian continuous wine-cellar (pince) and tavern (csárda) practice; the Hungarian wine-region tradition (Tokaj, Eger, Villány) integrates extensive wine-celebration song-repertoire",
+  "recipe": "classic modern hungarian bordal, drinking Song, European branch, balkan drinking song, iberian functional song, European wedding sardinian wedding cantu and launeddas music georgian supra feast-singing. thick, false fold engaged, tasteful, continuous-phonation. synthetic drone like fiddle, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 532,
+  "score": 173.201,
+  "config": {
+    "traditions": [
+      "hungarian_bordal",
+      "sardinian_wedding_cantu_launeddas",
+      "georgian_supra_drinking"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.680000000000001,
+          "voice_quality": 3.185,
+          "voice_vibrato": 1.4381249999999999,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0,
+          "voice_tradition": 10.659999999999998,
+          "voice_mechanism_compound": 1.485,
+          "voice_estill_quality": 0.48374999999999996,
+          "voice_speech_song": 16.314999999999998,
+          "voice_ensemble_config": 6.109999999999999,
+          "voice_ornament_system": 1.9399999999999997,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 1.3649999999999998,
+          "voice_multitrack_stack": 1.246875
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "pizz"
+        },
+        "scores": {
+          "bowed_technique": 7.9325,
+          "fiddle_strings": 1.738125,
+          "fiddle_bow": 0.5287499999999999,
+          "fiddle_mute": 1.3900000000000001,
+          "fiddle_articulation": 0.5362499999999999
+        }
+      },
+      {
+        "id": "cimbalom",
+        "slots": {
+          "cimbalom_size": "cimbalom_concert_pedal",
+          "cimbalom_mallet": "cimbalom_cotton_wound"
+        },
+        "scores": {
+          "cimbalom_size": 21.710000000000004,
+          "cimbalom_mallet": 0
+        }
+      }
+    ],
+    "room": "irish_pub",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

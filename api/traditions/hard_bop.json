@@ -1,0 +1,163 @@
+{
+  "id": "hard_bop",
+  "name": "Hard bop",
+  "family": "jazz",
+  "lineage": "1953-1965 Blue Note / Prestige-canon African-American jazz movement extending bebop with extended blues, gospel-quoting melody, and elongated solo space — the defining post-bop vocabulary, with Lee Morgan, Wayne Shorter, Horace Silver, Art Blakey Jazz Messengers, Hank Mobley, Kenny Drew, Cannonball Adderley among the era practitioners",
+  "recipe": "classic North American mid-1950s hard bop, improv On Frame, hard bop branch, American jazz bop, American jazz soul jazz bebop. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, sterling silver rare premium bach 42 canonical American orchestral tenor ensemble student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, birch vintage ambassador asymmetric bronze bell bronze drum kit. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 854,
+  "score": 760.054,
+  "config": {
+    "traditions": [
+      "hard_bop",
+      "soul_jazz",
+      "bebop"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 6.999999999999999,
+          "sax_size": 8.434624999999999,
+          "sax_reed": 1.134625,
+          "sax_body_alloy": 26.300000000000008,
+          "sax_mouthpiece": 1.134625,
+          "sax_technique": 24.750000000000007,
+          "sax_maker_school": 28.19487500000001
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_sterling_silver_bell",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 6.999999999999999,
+          "brass_size": 1.134625,
+          "trumpet_mouthpiece": 29.449875000000006,
+          "brass_mute": 0.78,
+          "trumpet_technique": 6.999999999999999,
+          "trumpet_bell_metal": 1.6,
+          "trumpet_maker_school": 5.07
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_sterling_silver",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 6.999999999999999,
+          "trombone_type": 24.750000000000007,
+          "trombone_mouthpiece": 24.700000000000006,
+          "trombone_mute": 0.3,
+          "trombone_technique": 1.17,
+          "trombone_bell_metal": 1.6,
+          "trombone_maker_school": 5.46
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 9.15575,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 1.134625,
+          "piano_hammer": 6.045,
+          "piano_rim": 6.825,
+          "piano_soundboard": 1.5393749999999997,
+          "piano_pinblock": 0.7,
+          "piano_plate": 0.7,
+          "piano_pitch_standard": 0.975
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": 2.015,
+          "upright_strings": 24.750000000000007,
+          "upright_play": 24.750000000000007
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "fourteen_step_hammering",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_jazz"
+        },
+        "scores": {
+          "percussion_technique": 23.79,
+          "shell_wood": 1.490875,
+          "shell_thickness": 0.005625,
+          "bearing_edges": 0.39,
+          "drumhead": 30.981125000000006,
+          "snare_wires": 0.39,
+          "cymbal_alloy": 32.40000000000001,
+          "cymbal_hammering": 26.55550000000001,
+          "cymbal_lathing": 25.768000000000008,
+          "cymbal_finish": 1.134625,
+          "drum_technique": 24.750000000000007
+        }
+      }
+    ],
+    "room": "van_gelder_englewood_cliffs",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "bebop_complex_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,874 @@
+{
+  "id": "sampler_classic",
+  "name": "Sampler (vintage)",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "sampler",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_sample_chopped",
+          "name": "Sample chopped",
+          "applies_to": [
+            "sampler_classic",
+            "sampler_drum_machine",
+            "turntable"
+          ],
+          "descriptors": [
+            "chopped",
+            "sampled"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "plunderphonics"
+          ],
+          "default": true
+        },
+        {
+          "id": "electronic_glitch_textural",
+          "name": "Glitch / textural",
+          "applies_to": [
+            "granular_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "sampler_classic",
+            "wavetable_synth"
+          ],
+          "descriptors": [
+            "glitched",
+            "textural"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "idm",
+            "experimental"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sampler_archetypes",
+      "surface": false,
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "akai_mpc",
+          "default": true,
+          "name": "Akai MPC (60/3000)",
+          "descriptors": [
+            "swung",
+            "beat-suited"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "hip-hop"
+          ]
+        },
+        {
+          "id": "emu_sp1200",
+          "name": "E-mu SP-1200",
+          "descriptors": [
+            "gritty",
+            "hip-hop-vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "lo-fi"
+          ]
+        },
+        {
+          "id": "akai_s900",
+          "name": "Akai S900",
+          "descriptors": [
+            "vintage",
+            "grainy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "akai_s1000",
+          "name": "Akai S1000",
+          "descriptors": [],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "studio"
+          ]
+        },
+        {
+          "id": "fairlight_cmi",
+          "name": "Fairlight CMI",
+          "descriptors": [
+            "orchestra-hit",
+            "expensive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "emu_emax",
+          "name": "E-mu Emax",
+          "descriptors": [
+            "analog-drift-character",
+            "eighties-vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "roland_s750",
+          "name": "Roland S-750",
+          "descriptors": [
+            "narrow-q-precise",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "ensoniq_asr10",
+          "name": "Ensoniq ASR-10",
+          "descriptors": [
+            "gritty",
+            "hip-hop-vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "mpc_modern",
+          "name": "Akai MPC (Live II / X / One)",
+          "descriptors": [
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "maschine_modern",
+          "name": "Native Instruments Maschine",
+          "descriptors": [
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampler_bit_depth",
+      "surface": false,
+      "name": "Bit depth / sample rate",
+      "variants": [
+        {
+          "id": "sampler_twelve_bit",
+          "name": "12-bit @ ~26 kHz",
+          "descriptors": [
+            "gritty"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "boom-bap"
+          ]
+        },
+        {
+          "id": "sampler_eight_bit",
+          "name": "8-bit (early)",
+          "descriptors": [
+            "crunchy",
+            "aliased",
+            "archaic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "sampler_sixteen_bit",
+          "default": true,
+          "name": "16-bit @ 44.1 kHz",
+          "descriptors": [
+            "clean",
+            "low-distortion-low-coloration",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "sampler_sixteen_bit_lowfi",
+          "name": "16-bit at 22 kHz (downsampled)",
+          "descriptors": [
+            "analog-drift-character",
+            "mid-rolled-off"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "s900",
+            "lo-fi"
+          ]
+        },
+        {
+          "id": "sampler_twentyfour_bit",
+          "name": "24-bit @ 96 kHz+",
+          "descriptors": [
+            "pristine",
+            "modern-mastering",
+            "low-distortion-low-coloration",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampler_workflow",
+      "name": "Workflow",
+      "variants": [
+        {
+          "id": "sampler_chopped_breaks",
+          "name": "Chopped boom-bap breakbeats",
+          "descriptors": [
+            "chopped",
+            "sliced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "boom-bap",
+            "hip-hop",
+            "jungle"
+          ]
+        },
+        {
+          "id": "sampler_loop_layered",
+          "name": "Loop-layered phrase sampling",
+          "descriptors": [
+            "layered",
+            "looped"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "plunderphonics",
+            "edm"
+          ]
+        },
+        {
+          "id": "sampler_one_shot_pitched",
+          "name": "One-shot pitched playback",
+          "descriptors": [
+            "pitched",
+            "melodic",
+            "orchestral-imitation"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "hip-hop"
+          ]
+        },
+        {
+          "id": "sampler_microsampling_glitch",
+          "name": "Microsampling / glitch",
+          "descriptors": [
+            "micro",
+            "glitched"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "idm",
+            "experimental"
+          ]
+        },
+        {
+          "id": "sampler_field_recordings",
+          "name": "Field-recording manipulation",
+          "descriptors": [
+            "field",
+            "sound-design"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "documentary"
+          ]
+        },
+        {
+          "id": "sampler_orchestral_library",
+          "default": true,
+          "name": "Orchestral / virtual-instrument library",
+          "descriptors": [
+            "modern"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampler_classic_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "sampler_classic_hiphop",
+          "default": true,
+          "name": "Hip-hop production",
+          "descriptors": [
+            "breaks-and-loops",
+            "foundational"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "hip-hop"
+          ]
+        },
+        {
+          "id": "sampler_classic_edm",
+          "name": "Electronic dance music",
+          "descriptors": [
+            "nineteen-nineties-onward",
+            "rhythm-and-vocal",
+            "genre-defining"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "edm",
+            "house"
+          ]
+        },
+        {
+          "id": "sampler_classic_post",
+          "name": "Modern post-production",
+          "descriptors": [
+            "twenty-first-century",
+            "sound-design",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "sampler_classic_pop_production",
+          "name": "Pop production",
+          "descriptors": [
+            "orchestra-hits",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        },
+        {
+          "id": "sampler_classic_industrial",
+          "name": "Industrial / experimental",
+          "descriptors": [],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "industrial",
+            "noise",
+            "experimental"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electronic_technique",
+      "default_variant": "electronic_sample_chopped"
+    },
+    {
+      "id": "sampler_archetypes",
+      "surface": false,
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "akai_mpc",
+          "default": true,
+          "name": "Akai MPC (60/3000)",
+          "descriptors": [
+            "swung",
+            "beat-suited"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "hip-hop"
+          ]
+        },
+        {
+          "id": "emu_sp1200",
+          "name": "E-mu SP-1200",
+          "descriptors": [
+            "gritty",
+            "hip-hop-vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "lo-fi"
+          ]
+        },
+        {
+          "id": "akai_s900",
+          "name": "Akai S900",
+          "descriptors": [
+            "vintage",
+            "grainy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "akai_s1000",
+          "name": "Akai S1000",
+          "descriptors": [],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "studio"
+          ]
+        },
+        {
+          "id": "fairlight_cmi",
+          "name": "Fairlight CMI",
+          "descriptors": [
+            "orchestra-hit",
+            "expensive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "emu_emax",
+          "name": "E-mu Emax",
+          "descriptors": [
+            "analog-drift-character",
+            "eighties-vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "roland_s750",
+          "name": "Roland S-750",
+          "descriptors": [
+            "narrow-q-precise",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "ensoniq_asr10",
+          "name": "Ensoniq ASR-10",
+          "descriptors": [
+            "gritty",
+            "hip-hop-vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "mpc_modern",
+          "name": "Akai MPC (Live II / X / One)",
+          "descriptors": [
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "maschine_modern",
+          "name": "Native Instruments Maschine",
+          "descriptors": [
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampler_bit_depth",
+      "surface": false,
+      "name": "Bit depth / sample rate",
+      "variants": [
+        {
+          "id": "sampler_twelve_bit",
+          "name": "12-bit @ ~26 kHz",
+          "descriptors": [
+            "gritty"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "boom-bap"
+          ]
+        },
+        {
+          "id": "sampler_eight_bit",
+          "name": "8-bit (early)",
+          "descriptors": [
+            "crunchy",
+            "aliased",
+            "archaic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "sampler_sixteen_bit",
+          "default": true,
+          "name": "16-bit @ 44.1 kHz",
+          "descriptors": [
+            "clean",
+            "low-distortion-low-coloration",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "sampler_sixteen_bit_lowfi",
+          "name": "16-bit at 22 kHz (downsampled)",
+          "descriptors": [
+            "analog-drift-character",
+            "mid-rolled-off"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "s900",
+            "lo-fi"
+          ]
+        },
+        {
+          "id": "sampler_twentyfour_bit",
+          "name": "24-bit @ 96 kHz+",
+          "descriptors": [
+            "pristine",
+            "modern-mastering",
+            "low-distortion-low-coloration",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampler_workflow",
+      "name": "Workflow",
+      "variants": [
+        {
+          "id": "sampler_chopped_breaks",
+          "name": "Chopped boom-bap breakbeats",
+          "descriptors": [
+            "chopped",
+            "sliced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "boom-bap",
+            "hip-hop",
+            "jungle"
+          ]
+        },
+        {
+          "id": "sampler_loop_layered",
+          "name": "Loop-layered phrase sampling",
+          "descriptors": [
+            "layered",
+            "looped"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "plunderphonics",
+            "edm"
+          ]
+        },
+        {
+          "id": "sampler_one_shot_pitched",
+          "name": "One-shot pitched playback",
+          "descriptors": [
+            "pitched",
+            "melodic",
+            "orchestral-imitation"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "hip-hop"
+          ]
+        },
+        {
+          "id": "sampler_microsampling_glitch",
+          "name": "Microsampling / glitch",
+          "descriptors": [
+            "micro",
+            "glitched"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "idm",
+            "experimental"
+          ]
+        },
+        {
+          "id": "sampler_field_recordings",
+          "name": "Field-recording manipulation",
+          "descriptors": [
+            "field",
+            "sound-design"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "documentary"
+          ]
+        },
+        {
+          "id": "sampler_orchestral_library",
+          "default": true,
+          "name": "Orchestral / virtual-instrument library",
+          "descriptors": [
+            "modern"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampler_classic_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "sampler_classic_hiphop",
+          "default": true,
+          "name": "Hip-hop production",
+          "descriptors": [
+            "breaks-and-loops",
+            "foundational"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "hip-hop"
+          ]
+        },
+        {
+          "id": "sampler_classic_edm",
+          "name": "Electronic dance music",
+          "descriptors": [
+            "nineteen-nineties-onward",
+            "rhythm-and-vocal",
+            "genre-defining"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "edm",
+            "house"
+          ]
+        },
+        {
+          "id": "sampler_classic_post",
+          "name": "Modern post-production",
+          "descriptors": [
+            "twenty-first-century",
+            "sound-design",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "sampler_classic_pop_production",
+          "name": "Pop production",
+          "descriptors": [
+            "orchestra-hits",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        },
+        {
+          "id": "sampler_classic_industrial",
+          "name": "Industrial / experimental",
+          "descriptors": [],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "industrial",
+            "noise",
+            "experimental"
+          ]
+        }
+      ]
+    }
+  ]
+}

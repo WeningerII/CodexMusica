@@ -1,0 +1,910 @@
+{
+  "id": "accordion",
+  "name": "Diatonic / chromatic accordion",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "accordion",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_chordal_chugging",
+          "name": "Chordal chugging / vamp",
+          "applies_to": [
+            "melodeon_diatonic",
+            "accordion",
+            "piano_accordion"
+          ],
+          "descriptors": [
+            "chordal",
+            "rhythm"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "old-time",
+            "cajun",
+            "tejano"
+          ]
+        },
+        {
+          "id": "free_reed_bellows_articulated",
+          "name": "Bellows-articulated phrasing",
+          "applies_to": [
+            "bandoneon",
+            "accordion",
+            "piano_accordion",
+            "concertina_anglo",
+            "concertina_english"
+          ],
+          "descriptors": [
+            "bellows-articulated",
+            "phrased"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "tango",
+            "klezmer"
+          ]
+        },
+        {
+          "id": "free_reed_chromatic_jazz",
+          "name": "Chromatic jazz lead",
+          "applies_to": [
+            "accordion",
+            "piano_accordion",
+            "harmonica"
+          ],
+          "descriptors": [
+            "chromatic",
+            "lead"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "jazz-trained"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        },
+        {
+          "id": "free_reed_drone_under",
+          "name": "Drone-under-melody",
+          "applies_to": [
+            "concertina_anglo",
+            "concertina_english",
+            "melodeon_diatonic",
+            "accordion"
+          ],
+          "descriptors": [
+            "drone-like"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "cajun"
+          ]
+        },
+        {
+          "id": "free_reed_orchestral_ensemble",
+          "name": "Orchestral / ensemble",
+          "applies_to": [
+            "accordion",
+            "piano_accordion"
+          ],
+          "descriptors": [
+            "ensemble"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "accordion_reed_material",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "steel_reeds",
+          "default": true,
+          "name": "Steel reeds",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "loud",
+            "steel"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "brass_reeds",
+          "name": "Brass reeds (vintage)",
+          "descriptors": [
+            "low-overtone-rich",
+            "low-onset-attack",
+            "dark",
+            "brass"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "a_mano",
+          "name": "A mano (hand-made)",
+          "descriptors": [
+            "responsive",
+            "overtone-rich",
+            "premium"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "tipo_a_mano",
+          "name": "Tipo a mano (semi-hand)",
+          "descriptors": [
+            "articulate",
+            "mid-grade",
+            "articulate-low-distortion"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "machine_reeds",
+          "name": "Machine reeds",
+          "descriptors": [
+            "uniform",
+            "plain",
+            "durable"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "musette_offset",
+      "surface": false,
+      "name": "Musette tuning offset",
+      "variants": [
+        {
+          "id": "dry_tuning",
+          "surface": false,
+          "name": "Dry (no tremolo)",
+          "descriptors": [
+            "focused",
+            "clean",
+            "single-voiced"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "demi_swing",
+          "name": "Demi-swing (3–6 cents)",
+          "descriptors": [
+            "subtle",
+            "lively",
+            "gentle"
+          ],
+          "match_tokens": [
+            "subtle-swing",
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "american_swing",
+          "name": "American swing (~8 cents)",
+          "descriptors": [
+            "low-overtone-rich",
+            "gentle",
+            "jazzy"
+          ],
+          "match_tokens": [
+            "subtle-swing",
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "german_tuning",
+          "default": true,
+          "name": "German (~14 cents)",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "vibrato-y",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "italian_tuning",
+          "surface": false,
+          "name": "Italian (~18 cents)",
+          "descriptors": [
+            "florid",
+            "lyrical",
+            "dancing"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "french_musette",
+          "name": "French musette (~22 cents)",
+          "descriptors": [
+            "wet",
+            "beating"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "paris"
+          ]
+        },
+        {
+          "id": "scottish_musette",
+          "name": "Scottish musette (~25 cents)",
+          "descriptors": [
+            "treble-extended",
+            "ceilidh-loud",
+            "festival"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_config",
+      "surface": false,
+      "name": "Reed bank configuration",
+      "variants": [
+        {
+          "id": "lmm",
+          "default": true,
+          "name": "LMM (single bassoon, double clarinet)",
+          "descriptors": [
+            "versatile",
+            "classic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "lmmm",
+          "name": "LMMM (double + triple)",
+          "descriptors": [
+            "wet-capable",
+            "french-musette-ready",
+            "full"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "lmmh",
+          "name": "LMMH (with piccolo)",
+          "descriptors": [
+            "bright-topped",
+            "orchestral",
+            "full-spectrum"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "lm_only",
+          "name": "LM only",
+          "descriptors": [
+            "dry",
+            "focused",
+            "jazz-ready"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bellows",
+      "name": "Bellows construction",
+      "variants": [
+        {
+          "id": "cardboard_leather",
+          "default": true,
+          "name": "Cardboard frame, leather gussets",
+          "descriptors": [
+            "responsive",
+            "traditional",
+            "supple",
+            "leather"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "all_leather",
+          "name": "All-leather",
+          "descriptors": [
+            "airtight",
+            "premium",
+            "expressive",
+            "leather"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voicing_chamber",
+      "name": "Tone chamber",
+      "variants": [
+        {
+          "id": "cassotto",
+          "default": true,
+          "name": "Cassotto chamber",
+          "descriptors": [
+            "woody",
+            "mellowed",
+            "smoothed"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "no_cassotto",
+          "name": "No chamber",
+          "descriptors": [
+            "direct",
+            "treble-extended",
+            "immediate"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "accordion_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "accordion_hohner_gola",
+          "default": true,
+          "name": "Hohner Gola (canonical premium German concert)",
+          "descriptors": [
+            "hohner-gola-canonical-premium-german-concert"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "accordion_petosa_seattle",
+          "name": "Petosa (Seattle American premium)",
+          "descriptors": [
+            "petosa-seattle-american-premium"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "accordion_castagnari_italian",
+          "name": "Castagnari (Italian premium folk-music canonical)",
+          "descriptors": [
+            "castagnari-italian-premium-folk-music-canonical"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "accordion_pigini_italian",
+          "name": "Pigini (Italian premium concert)",
+          "descriptors": [
+            "pigini-italian-premium-concert"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "accordion_weltmeister",
+          "name": "Weltmeister (East German mid-tier vintage Volk)",
+          "descriptors": [
+            "weltmeister-east-german-mid-tier-vintage-volk"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "accordion_reed_material",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "steel_reeds",
+          "default": true,
+          "name": "Steel reeds",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "loud",
+            "steel"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "brass_reeds",
+          "name": "Brass reeds (vintage)",
+          "descriptors": [
+            "low-overtone-rich",
+            "low-onset-attack",
+            "dark",
+            "brass"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "a_mano",
+          "name": "A mano (hand-made)",
+          "descriptors": [
+            "responsive",
+            "overtone-rich",
+            "premium"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "tipo_a_mano",
+          "name": "Tipo a mano (semi-hand)",
+          "descriptors": [
+            "articulate",
+            "mid-grade",
+            "articulate-low-distortion"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "machine_reeds",
+          "name": "Machine reeds",
+          "descriptors": [
+            "uniform",
+            "plain",
+            "durable"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "musette_offset",
+      "surface": false,
+      "name": "Musette tuning offset",
+      "variants": [
+        {
+          "id": "dry_tuning",
+          "surface": false,
+          "name": "Dry (no tremolo)",
+          "descriptors": [
+            "focused",
+            "clean",
+            "single-voiced"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "demi_swing",
+          "name": "Demi-swing (3–6 cents)",
+          "descriptors": [
+            "subtle",
+            "lively",
+            "gentle"
+          ],
+          "match_tokens": [
+            "subtle-swing",
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "american_swing",
+          "name": "American swing (~8 cents)",
+          "descriptors": [
+            "low-overtone-rich",
+            "gentle",
+            "jazzy"
+          ],
+          "match_tokens": [
+            "subtle-swing",
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "german_tuning",
+          "default": true,
+          "name": "German (~14 cents)",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "vibrato-y",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "italian_tuning",
+          "surface": false,
+          "name": "Italian (~18 cents)",
+          "descriptors": [
+            "florid",
+            "lyrical",
+            "dancing"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "french_musette",
+          "name": "French musette (~22 cents)",
+          "descriptors": [
+            "wet",
+            "beating"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "paris"
+          ]
+        },
+        {
+          "id": "scottish_musette",
+          "name": "Scottish musette (~25 cents)",
+          "descriptors": [
+            "treble-extended",
+            "ceilidh-loud",
+            "festival"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reed_config",
+      "surface": false,
+      "name": "Reed bank configuration",
+      "variants": [
+        {
+          "id": "lmm",
+          "default": true,
+          "name": "LMM (single bassoon, double clarinet)",
+          "descriptors": [
+            "versatile",
+            "classic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "lmmm",
+          "name": "LMMM (double + triple)",
+          "descriptors": [
+            "wet-capable",
+            "french-musette-ready",
+            "full"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "lmmh",
+          "name": "LMMH (with piccolo)",
+          "descriptors": [
+            "bright-topped",
+            "orchestral",
+            "full-spectrum"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "lm_only",
+          "name": "LM only",
+          "descriptors": [
+            "dry",
+            "focused",
+            "jazz-ready"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bellows",
+      "name": "Bellows construction",
+      "variants": [
+        {
+          "id": "cardboard_leather",
+          "default": true,
+          "name": "Cardboard frame, leather gussets",
+          "descriptors": [
+            "responsive",
+            "traditional",
+            "supple",
+            "leather"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "all_leather",
+          "name": "All-leather",
+          "descriptors": [
+            "airtight",
+            "premium",
+            "expressive",
+            "leather"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voicing_chamber",
+      "name": "Tone chamber",
+      "variants": [
+        {
+          "id": "cassotto",
+          "default": true,
+          "name": "Cassotto chamber",
+          "descriptors": [
+            "woody",
+            "mellowed",
+            "smoothed"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "no_cassotto",
+          "name": "No chamber",
+          "descriptors": [
+            "direct",
+            "treble-extended",
+            "immediate"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "accordion_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "accordion_hohner_gola",
+          "default": true,
+          "name": "Hohner Gola (canonical premium German concert)",
+          "descriptors": [
+            "hohner-gola-canonical-premium-german-concert"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "accordion_petosa_seattle",
+          "name": "Petosa (Seattle American premium)",
+          "descriptors": [
+            "petosa-seattle-american-premium"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "accordion_castagnari_italian",
+          "name": "Castagnari (Italian premium folk-music canonical)",
+          "descriptors": [
+            "castagnari-italian-premium-folk-music-canonical"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "accordion_pigini_italian",
+          "name": "Pigini (Italian premium concert)",
+          "descriptors": [
+            "pigini-italian-premium-concert"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "accordion_weltmeister",
+          "name": "Weltmeister (East German mid-tier vintage Volk)",
+          "descriptors": [
+            "weltmeister-east-german-mid-tier-vintage-volk"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

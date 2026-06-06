@@ -1,0 +1,118 @@
+{
+  "id": "antifolk_nyc",
+  "name": "Anti-folk (NYC)",
+  "family": "global",
+  "lineage": "Late-1980s onward New York underground folk-revival movement positioning itself against the mainstream-Greenwich-Village folk tradition through deliberate amateurism, ironic-and-deadpan vocal delivery, and DIY anti-commercial cultural posture — codified through Lach (the AntiHoot open-mic series at the Sidewalk Café), Kimya Dawson and The Moldy Peaches, Beck (Mellow Gold 1994, an early commercial breakthrough), Adam Green, Jeffrey Lewis",
+  "recipe": "classic 1987-1989 anti-folk, ballad Poetry, anti folk branch, lofi experimental electric bedroom pop hypnagogic pop. thick, incomplete closure resting, Mediterranean demotic vocal, m1 with m0 pulse borrowing. steel silk fingerpicked acoustic mellow alnico single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 392,
+  "score": 172.076,
+  "config": {
+    "traditions": [
+      "antifolk_nyc",
+      "bedroom_pop",
+      "hypnagogic_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 13.052499999999997,
+          "voice_quality": 4.445,
+          "voice_vibrato": 0.375,
+          "voice_articulation": 0.3,
+          "voice_microtone": 0.2025,
+          "voice_tradition": 16.92775,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 8.124999999999998,
+          "voice_ensemble_config": 6.109999999999999,
+          "voice_ornament_system": 1.5431249999999999,
+          "voice_pitch_organization": 1.245,
+          "voice_processing_chain": 5.92125,
+          "voice_multitrack_stack": 1.95
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_e",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "silk_steel_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 20.143875,
+          "string_tuning": 1.2474999999999998,
+          "top_wood": 0.285,
+          "back_sides": 0.38999999999999996,
+          "string_acoustic": 1.045,
+          "acoustic_om_technique": 20.143875
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_3",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "nitro",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 1.15,
+          "amp_make": 0.7799999999999998,
+          "body_wood": 0.24,
+          "neck_wood": 0.24,
+          "fretboard": 0.056999999999999995,
+          "pickup_magnet": 1.015,
+          "string_material": 0.65,
+          "string_gauge": 0.24,
+          "bridge": 0.15,
+          "scale_length": 0.48,
+          "finish": 0,
+          "string_tuning": 1.69
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

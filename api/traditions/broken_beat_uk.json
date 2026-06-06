@@ -1,0 +1,121 @@
+{
+  "id": "broken_beat_uk",
+  "name": "Broken beat (UK 2000s)",
+  "family": "electronic",
+  "lineage": "Early-2000s UK electronic subgenre developed in West London through producers IG Culture, Bugz in the Attic, and 4hero. Characterized by complex broken-rhythm percussion (often 6/4 or 9/8 polymetric framework), jazz-and-soul-vocal integration, deep-house-and-techno harmonic vocabulary, and the canonical 4-and-7-Records label. Distinguished from drum-and-bass by broken beat's slower tempo and explicit jazz-house-fusion orientation.",
+  "recipe": "classic British broken beat, bass System, bass descendants branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, blues-shouter, nervy, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 566,
+  "score": 340.46,
+  "config": {
+    "traditions": [
+      "broken_beat_uk",
+      "acid_jazz_uk_90s",
+      "nu_jazz_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 11.126499999999997,
+          "voice_quality": 2.650000000000002,
+          "voice_vibrato": 0.6765000000000001,
+          "voice_articulation": 3.1000000000000005,
+          "voice_microtone": 8.104999999999997,
+          "voice_tradition": 10.725,
+          "voice_mechanism_compound": 1.4767500000000002,
+          "voice_estill_quality": 3.638750000000001,
+          "voice_speech_song": 11.765,
+          "voice_ensemble_config": 11.7,
+          "voice_ornament_system": 1.95,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 6.949999999999999,
+          "voice_multitrack_stack": 6.39825
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 5.525,
+          "drum_machine_808_context": 5.59,
+          "tr808_production_origin": 1.6
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 5.3950000000000005,
+          "oscillator": 5.59,
+          "filter_topology": 5.59,
+          "envelope": 1.04175,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": 3.1500000000000004,
+          "amp_make": 13.129999999999997,
+          "body_wood": 0.663,
+          "pickup_config": 0.3,
+          "string_type": 10.725,
+          "scale_length_b": 0.408,
+          "fretted_or_not": 0,
+          "bass_technique": 8.25
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

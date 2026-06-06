@@ -1,0 +1,80 @@
+{
+  "id": "festival_trap",
+  "name": "Festival trap (early-2010s EDM-trap big-room hybrid)",
+  "family": "electronic",
+  "lineage": "Early-2010s electronic subgenre integrating Atlanta-trap production-aesthetic with EDM-festival big-room structural framework. Baauer's \"Harlem Shake\" (2012, viral 2013) inaugurated the broader commercial visibility; Diplo, RL Grime, UZ, Flosstradamus, and the broader Mad Decent label roster defined the canonical EDM-trap roster. Distinguished from Atlanta trap proper by festival trap's explicit instrumental-EDM-functional emphasis over rap-vocal-feature.",
+  "recipe": "classic festival trap, mc Rhythm, southern branch, house electronic dance latin house. TR-808, sub bass analog synth, layered sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 328,
+  "score": 115.286,
+  "config": {
+    "traditions": [
+      "festival_trap",
+      "latin_house_percussion",
+      "electro_house_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.925,
+          "drum_machine_808_context": 3.38,
+          "tr808_production_origin": 0.375
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 21.744999999999997,
+          "oscillator": 1.7643749999999996,
+          "filter_topology": 2.2931249999999994,
+          "envelope": 0.42937499999999995,
+          "modulation": 0.105
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.35,
+          "sampler_archetypes": 3.15,
+          "sampler_bit_depth": 0.30937499999999996,
+          "sampler_workflow": 12.44,
+          "sampler_classic_context": 23.53
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

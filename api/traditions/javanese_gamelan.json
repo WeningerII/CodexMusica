@@ -1,0 +1,179 @@
+{
+  "id": "javanese_gamelan",
+  "name": "Javanese gamelan",
+  "family": "classical",
+  "lineage": "Javanese bronze-percussion court-and-village tradition tuned in slendro five-tone-and-pelog seven-tone systems, with two parallel lineages: the kraton-court refined-style of Yogyakarta and Surakarta (16th-century onward, Mataram successor sultanates) and the village kemasan rural-ensemble style. The full court gamelan comprises 30-to-40 instruments organized into balungan core-melody bonang-saron, panerusan elaborating-melody gender-rebab-suling, and gong-kempul colotomic-structural-time-markers, performed cyclically through gendhing pieces of nested 8-16-32-64-128 beat irama tempo-density levels. The wayang shadow-puppet performance is the canonical embedding context, where gamelan accompanies dalang puppeteer-narration through pathet modal sections aligned to night-narrative time.",
+  "recipe": "classic modern javanese gamelan, art Music, southeast Asian branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. gamelan foundational carved hardwood canonical javanese goat skin canonical javanese silk pre modern gamelan legato rebab, bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling, bonang, gender, pentatonic slendro tuning saron gamelan, foundational low fundamental tuning slendro tuning slenthem, colotomic marker slendro tuning kenong, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian, gamelan javanese full. javanese pendopo pavilion. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 840,
+  "score": 349.376,
+  "config": {
+    "traditions": [
+      "javanese_gamelan",
+      "beijing_opera",
+      "tibetan_ache_lhamo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 2.08,
+          "voice_articulation": 1.0399999999999998,
+          "voice_microtone": 0.43499999999999994,
+          "voice_tradition": 11.180000000000001,
+          "voice_mechanism_compound": 3.9000000000000004,
+          "voice_estill_quality": 8.060000000000002,
+          "voice_speech_song": 9.554999999999998,
+          "voice_ensemble_config": 12.399999999999999,
+          "voice_ornament_system": 4.095000000000001,
+          "voice_pitch_organization": 15.222812499999996,
+          "voice_processing_chain": 1.17,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "rebab",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "rebab_region": "rebab_javanese",
+          "rebab_context": "rebab_solo",
+          "rebab_body": "rebab_wood_carved",
+          "rebab_skin": "rebab_goat_skin",
+          "rebab_strings": "rebab_silk_historical"
+        },
+        "scores": {
+          "bowed_technique": 4.0928125,
+          "rebab_region": 8.982187499999998,
+          "rebab_context": 4.55,
+          "rebab_body": 5.849999999999999,
+          "rebab_skin": 5.849999999999999,
+          "rebab_strings": 5.039999999999999
+        }
+      },
+      {
+        "id": "suling",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "suling_use": "suling_gamelan",
+          "suling_tuning": "suling_pelog",
+          "suling_body_material": "suling_bamboo_canonical"
+        },
+        "scores": {
+          "wind_articulation": 4.2228125,
+          "suling_use": 2.08,
+          "suling_tuning": 8.45,
+          "suling_body_material": 6.239999999999998
+        }
+      },
+      {
+        "id": "bonang",
+        "slots": {
+          "bonang_tuning": "bonang_full_set",
+          "bonang_register": "bonang_panerus"
+        },
+        "scores": {
+          "bonang_tuning": 9,
+          "bonang_register": 0.15
+        }
+      },
+      {
+        "id": "gender",
+        "slots": {
+          "gender_use": "gender_javanese",
+          "gender_tuning": "gender_pelog"
+        },
+        "scores": {
+          "gender_use": 3.035,
+          "gender_tuning": 3.23
+        }
+      },
+      {
+        "id": "saron_gamelan",
+        "slots": {
+          "saron_size": "saron_barung",
+          "saron_tuning_system": "saron_slendro"
+        },
+        "scores": {
+          "saron_size": 2.24,
+          "saron_tuning_system": 2.035
+        }
+      },
+      {
+        "id": "slenthem",
+        "slots": {
+          "slenthem_tuning": "slenthem_slendro"
+        },
+        "scores": {
+          "slenthem_tuning": 2.035
+        }
+      },
+      {
+        "id": "kenong",
+        "slots": {
+          "kenong_tuning": "kenong_slendro"
+        },
+        "scores": {
+          "kenong_tuning": 3.245
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_javanese",
+          "kendang_shell_wood": "kendang_teak",
+          "kendang_head": "kendang_buffalo_hide_canonical"
+        },
+        "scores": {
+          "kendang_size": 4.829999999999999,
+          "kendang_context": 8.479999999999999,
+          "kendang_shell_wood": 8.2821875,
+          "kendang_head": 5.849999999999999
+        }
+      },
+      {
+        "id": "gamelan_javanese_full",
+        "slots": {
+          "sections": "gj_rebab_voice",
+          "tuning": "gj_pelog"
+        },
+        "scores": {
+          "sections": 2.08,
+          "tuning": 2.08
+        }
+      }
+    ],
+    "room": "javanese_pendopo_pavilion",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "gamelan_slendro",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

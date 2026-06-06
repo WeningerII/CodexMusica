@@ -1,0 +1,89 @@
+{
+  "id": "german_trinklied",
+  "name": "German Trinklieder (drinking songs)",
+  "family": "global",
+  "lineage": "German Trinklieder (drinking-song) tradition continuous from medieval Vagantenlieder (the Carmina Burana 13th-century goliardic-Latin-drinking-song manuscript), 16th-century Reformation-era Tischlieder (table-songs), and 19th-century Studentenlieder fraternity-and-Burschenschaft drinking-song tradition into modern Bavarian Oktoberfest and broader German Bierstube practice; foundational repertoire includes \"Ein Prosit,\" \"Trink, trink, Brüderlein, trink,\" \"Die ganze Woche fröhlich sein\"",
+  "recipe": "classic modern german trinklieder, drinking Song, European branch, americas drinking song, americana country, chanson fado ballad poetry gothic americana cape verdean batuko of santiago island. thick, low dynamic level, melodic, continuous-phonation. hohner gola canonical premium German concert accordion. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 447,
+  "score": 169.649,
+  "config": {
+    "traditions": [
+      "german_trinklied",
+      "gothic_americana",
+      "cape_verdean_batuko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 1.5274999999999994,
+          "voice_quality": 4.875,
+          "voice_vibrato": 2.1249999999999996,
+          "voice_articulation": 1.69,
+          "voice_microtone": 0.435,
+          "voice_tradition": 4.3549999999999995,
+          "voice_mechanism_compound": 1.62375,
+          "voice_estill_quality": 2.1449999999999996,
+          "voice_speech_song": 15.404999999999998,
+          "voice_ensemble_config": 6.109999999999999,
+          "voice_ornament_system": 0.375,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 0.9749999999999996,
+          "voice_multitrack_stack": 0.9450000000000001
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "italian_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_hohner_gola"
+        },
+        "scores": {
+          "free_reed_technique": 1.8299999999999998,
+          "accordion_reed_material": 0.375,
+          "musette_offset": 0.24,
+          "reed_config": 0.48000000000000004,
+          "bellows": 0.195,
+          "voicing_chamber": 0.9099999999999999,
+          "accordion_maker_school": 6.037499999999998
+        }
+      }
+    ],
+    "room": "irish_pub",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

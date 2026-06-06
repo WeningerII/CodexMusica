@@ -1,0 +1,100 @@
+{
+  "id": "saltarello_italian_central",
+  "name": "Saltarello (central Italian leaping dance)",
+  "family": "global",
+  "lineage": "Saltarello central-and-southern Italian folk-dance-and-music tradition of Lazio, Abruzzo, Marche, and Molise regions, characterized by fast triple-meter or 6/8 leaping-dance with characteristic accelerating tempo. Origin documented in fourteenth-century Italian musical manuscripts (the Saltarello primo and secondo in the Add MS 29987 British Library manuscript) and preserved in continuous folk-tradition through the medieval-Renaissance-modern transition. Performance: tambourine-led ensemble with accordion, fiddle, organetto button-accordion, and chorus. Distinguished from tarantella by saltarello's central-Italian regional base and characteristic standing-leap (vs spinning) choreographic register. The post-1970s Italian-folk-revival reactivated the genre in the original regional contexts.",
+  "recipe": "classic mid-1970s saltarello, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. thick, declaimed, overtone rich sustained, continuous-phonation. tambourine orch, castagnari Italian premium folk music straight accordion. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 535,
+  "score": 256.13,
+  "config": {
+    "traditions": [
+      "saltarello_italian_central",
+      "inuit_katajjaq_games",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 11.25,
+          "voice_quality": 3.4450000000000003,
+          "voice_vibrato": 1.495,
+          "voice_articulation": 1.495,
+          "voice_microtone": 2.1350000000000002,
+          "voice_tradition": 20.734999999999996,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 18.729999999999997,
+          "voice_speech_song": 11.765,
+          "voice_ensemble_config": 11.7,
+          "voice_ornament_system": 15.399999999999999,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 4.45,
+          "voice_multitrack_stack": 4.859999999999999
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0,
+          "tambourine_orch_context": 0
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 11.014999999999999,
+          "accordion_reed_material": 0.66,
+          "musette_offset": 1.4699999999999998,
+          "reed_config": 0.195,
+          "bellows": 0.22499999999999998,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 12.989999999999998
+        }
+      }
+    ],
+    "room": "naples_canzone_napoletana_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

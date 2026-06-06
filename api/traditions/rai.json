@@ -1,0 +1,119 @@
+{
+  "id": "rai",
+  "name": "Raï",
+  "family": "global",
+  "lineage": "Algerian popular-music genre that emerged in Oran in the 1970s as modernization of older raï bedoui (rural bedouin praise-poetry) — codified through the Cheb generation of the 1980s: Cheb Khaled (the king of raï, his 1992 Didi the international breakthrough), Cheb Mami, Cheb Hasni (assassinated 1994 during the Algerian civil war), Chaba Fadela, Cheb Hamid",
+  "recipe": "classic North American mid-1970s raï, functional Song, mid east n African pop branch, med east poetic ballad poetry ethiopian azmari minstrel-poet pontic greek music. extended whistle, declaimed, chest resonance low mid, equal tempered. weltmeister east German mid tier vintage volk accordion, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka, singing lead analog poly synth. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 586,
+  "score": 164.246,
+  "config": {
+    "traditions": [
+      "rai",
+      "azmari_ethiopian",
+      "pontic_greek"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 9.099999999999998,
+          "voice_quality": 3.1200000000000014,
+          "voice_vibrato": 2.73,
+          "voice_articulation": 0.063,
+          "voice_microtone": 6.890000000000001,
+          "voice_tradition": 8.97,
+          "voice_mechanism_compound": 1.4315,
+          "voice_estill_quality": 2.2099999999999995,
+          "voice_speech_song": 6.174999999999999,
+          "voice_ensemble_config": 4.159999999999999,
+          "voice_ornament_system": 2.4684999999999997,
+          "voice_pitch_organization": 3.4450000000000003,
+          "voice_processing_chain": 8.1,
+          "voice_multitrack_stack": 3.1715
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 1.8449999999999998,
+          "accordion_reed_material": 1.8465,
+          "musette_offset": 0.69,
+          "reed_config": 0.3,
+          "bellows": 0.3,
+          "voicing_chamber": 0.585,
+          "accordion_maker_school": 4.8100000000000005
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": 0.6499999999999999,
+          "darbuka_material": 1.173,
+          "darbuka_skin": 0.39,
+          "darbuka_regional_style": 4.8100000000000005
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 6.7,
+          "poly_archetypes": 0.495,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.225
+        }
+      }
+    ],
+    "room": "dakar_mbalax_oran_rai_studio",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

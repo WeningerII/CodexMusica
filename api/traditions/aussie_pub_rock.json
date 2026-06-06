@@ -1,0 +1,153 @@
+{
+  "id": "aussie_pub_rock",
+  "name": "Aussie pub rock (70s-80s)",
+  "family": "rock_punk",
+  "lineage": "1970s-and-1980s Australian rock subgenre developed through the working-class pub-circuit performance economy of Sydney, Melbourne, Adelaide, and Perth. Cold Chisel, the Angels, Rose Tattoo, Midnight Oil, and AC/DC (Sydney-formed) constitute the canonical roster; the Australian-Crawl and (later) INXS extended the genre into international circulation. Distinguished by tight-rhythm-section-and-melodic-vocal pub-band aesthetic and Australian-cultural-identity lyrical content.",
+  "recipe": "classic Los Angeles mid-1970s aussie pub rock, distorted Rock, regional branch, classic distorted rock merseybeat. thick, melodic, equal tempered, beatbox. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch oil filled machine hammered symmetric pattern organized rows drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 611,
+  "score": 368.797,
+  "config": {
+    "traditions": [
+      "aussie_pub_rock",
+      "merseybeat",
+      "mod_60s_british"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 10.944999999999993,
+          "voice_quality": 0,
+          "voice_vibrato": 1.5215,
+          "voice_articulation": 0,
+          "voice_microtone": 11.104999999999997,
+          "voice_tradition": 1.625,
+          "voice_mechanism_compound": 2.665000000000001,
+          "voice_estill_quality": 0.22499999999999998,
+          "voice_speech_song": 10.075,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 1.285,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 10.985,
+          "voice_multitrack_stack": 4.18
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 5.330000000000001,
+          "amp_make": 6.890000000000001,
+          "body_wood": 1.69,
+          "neck_wood": 1.435,
+          "fretboard": 1.435,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.9099999999999999,
+          "string_material": 1.435,
+          "bridge": 0.885,
+          "scale_length": 5.07,
+          "string_gauge": 0.885,
+          "finish": 0.435,
+          "string_tuning": 9.23
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 2.0665,
+          "amp_make": 5.785,
+          "body_wood": 1.7700000000000002,
+          "pickup_config": 0.045,
+          "string_type": 14.625,
+          "scale_length_b": 0.885,
+          "fretted_or_not": 0,
+          "bass_technique": 11.366499999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "hydraulic",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 10.009999999999998,
+          "shell_wood": 1.435,
+          "shell_thickness": 0,
+          "bearing_edges": 1.435,
+          "drumhead": 2.445,
+          "snare_wires": 0.885,
+          "cymbal_alloy": 12.584999999999999,
+          "cymbal_hammering": 11.299999999999999,
+          "cymbal_lathing": 11.239999999999998,
+          "cymbal_finish": 1.435,
+          "drum_technique": 11.34
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_marshall_plexi_1959",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

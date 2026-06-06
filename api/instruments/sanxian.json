@@ -1,0 +1,440 @@
+{
+  "id": "sanxian",
+  "name": "Sanxian (Chinese three-string)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sanxian",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sanxian_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "sanxian_da",
+          "default": true,
+          "name": "Da sanxian (large, northern)",
+          "descriptors": [
+            "deep",
+            "narrative"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "sanxian_xiao",
+          "name": "Xiao sanxian (compact, southern)",
+          "descriptors": [
+            "treble-extended",
+            "accompaniment",
+            "jingju"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanxian_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "sanxian_jingju",
+          "default": true,
+          "name": "Beijing opera",
+          "descriptors": [
+            "jingju-foundational",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "sanxian_shuochang",
+          "name": "Folk narrative (shuochang)",
+          "descriptors": [
+            "storytelling",
+            "regional",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "sanxian_composed",
+          "name": "Modern composition",
+          "descriptors": [
+            "concert",
+            "twenty-first-century",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanxian_head",
+      "surface": false,
+      "name": "Head membrane",
+      "variants": [
+        {
+          "id": "sanxian_python_skin",
+          "default": true,
+          "name": "Python skin (canonical)",
+          "descriptors": [
+            "python-skin",
+            "canonical",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "sanxian_synthetic_python",
+          "name": "Synthetic python (CITES-friendly)",
+          "descriptors": [
+            "synthetic-python",
+            "cites-friendly"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanxian_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "sanxian_silk_traditional",
+          "default": true,
+          "name": "Silk (canonical traditional)",
+          "descriptors": [
+            "silk-canonical-traditional"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "sanxian_nylon_modern",
+          "name": "Nylon (modern)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanxian_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "sanxian_red_sandalwood",
+          "default": true,
+          "name": "Red sandalwood / zitan (premium)",
+          "descriptors": [
+            "red-sandalwood-zitan",
+            "premium"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "sanxian_rosewood",
+          "name": "Rosewood",
+          "descriptors": [
+            "rosewood"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "sanxian_padauk",
+          "name": "Padauk (mid-tier)",
+          "descriptors": [
+            "padauk",
+            "mid-tier"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sanxian_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "sanxian_da",
+          "default": true,
+          "name": "Da sanxian (large, northern)",
+          "descriptors": [
+            "deep",
+            "narrative"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "sanxian_xiao",
+          "name": "Xiao sanxian (compact, southern)",
+          "descriptors": [
+            "treble-extended",
+            "accompaniment",
+            "jingju"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanxian_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "sanxian_jingju",
+          "default": true,
+          "name": "Beijing opera",
+          "descriptors": [
+            "jingju-foundational",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "sanxian_shuochang",
+          "name": "Folk narrative (shuochang)",
+          "descriptors": [
+            "storytelling",
+            "regional",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "sanxian_composed",
+          "name": "Modern composition",
+          "descriptors": [
+            "concert",
+            "twenty-first-century",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanxian_head",
+      "surface": false,
+      "name": "Head membrane",
+      "variants": [
+        {
+          "id": "sanxian_python_skin",
+          "default": true,
+          "name": "Python skin (canonical)",
+          "descriptors": [
+            "python-skin",
+            "canonical",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "sanxian_synthetic_python",
+          "name": "Synthetic python (CITES-friendly)",
+          "descriptors": [
+            "synthetic-python",
+            "cites-friendly"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanxian_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "sanxian_silk_traditional",
+          "default": true,
+          "name": "Silk (canonical traditional)",
+          "descriptors": [
+            "silk-canonical-traditional"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "sanxian_nylon_modern",
+          "name": "Nylon (modern)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanxian_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "sanxian_red_sandalwood",
+          "default": true,
+          "name": "Red sandalwood / zitan (premium)",
+          "descriptors": [
+            "red-sandalwood-zitan",
+            "premium"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "sanxian_rosewood",
+          "name": "Rosewood",
+          "descriptors": [
+            "rosewood"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "sanxian_padauk",
+          "name": "Padauk (mid-tier)",
+          "descriptors": [
+            "padauk",
+            "mid-tier"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

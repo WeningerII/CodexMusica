@@ -1,0 +1,68 @@
+{
+  "id": "german_wiegenlied",
+  "name": "German Wiegenlied (cradle song)",
+  "family": "global",
+  "lineage": "German cradle-song tradition documented from medieval Marian-cradle hymns through Romantic-era Volkslied collection by Brentano-and-Arnim (Des Knaben Wunderhorn 1805-1808) and through Brahms' 1868 art-song setting that became globally iconic",
+  "recipe": "classic 1805-1808 german wiegenlied, lullaby, European branch, western common practice art music, chanson fado ballad poetry, europop functional song morna cape verdean batuko of santiago island. vocal fry, lament wail, chest resonance low mid, blues inflected. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 399,
+  "score": 109.875,
+  "config": {
+    "traditions": [
+      "german_wiegenlied",
+      "morna",
+      "cape_verdean_batuko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 1.2999999999999998,
+          "voice_quality": 1.7499999999999998,
+          "voice_vibrato": 0.6749999999999999,
+          "voice_articulation": 0.24,
+          "voice_microtone": 0.5199999999999998,
+          "voice_tradition": 4.680000000000001,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 8.905,
+          "voice_ensemble_config": 2.8600000000000003,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 1.605,
+          "voice_processing_chain": 2.08,
+          "voice_multitrack_stack": 0.6
+        }
+      }
+    ],
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

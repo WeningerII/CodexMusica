@@ -1,0 +1,114 @@
+{
+  "id": "west_coast_hip_hop_classic",
+  "name": "West Coast hip-hop (classic LA)",
+  "family": "hip_hop",
+  "lineage": "Los Angeles classic hip-hop tradition emerging in late-1980s through Ice-T, N.W.A, and the broader Compton-and-South-Central LA gangsta-rap movement. Characterized by funk-and-P-funk-derived synthesizer-heavy production (especially in 1990s G-funk era), confrontational street-life narrative content, and slower mid-tempo grooves than East Coast. Dr. Dre's The Chronic (1992) and Snoop Doggy Dogg's Doggystyle (1993) consolidated the canonical G-funk sound.",
+  "recipe": "classic Los Angeles 1987-1989 west coast hip-hop, mc Rhythm, west coast branch, us hip hop gangsta. thick, rap, chest resonance low mid, narrative. chopped sampler, TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 373,
+  "score": 223.747,
+  "config": {
+    "traditions": [
+      "west_coast_hip_hop_classic",
+      "gangsta_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 0.8302499999999996,
+          "voice_quality": 13.8635,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 8.36875,
+          "voice_microtone": 0.1365,
+          "voice_tradition": 7.1325,
+          "voice_mechanism_compound": 0.5429999999999999,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 13.329749999999999,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0.02625,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 16.374,
+          "voice_multitrack_stack": 3.1237500000000002
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 6.7,
+          "sampler_archetypes": 11.7,
+          "sampler_bit_depth": 1.56,
+          "sampler_workflow": 6.918,
+          "sampler_classic_context": 16.2995
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 6.90375,
+          "drum_machine_808_context": 3.60175,
+          "tr808_production_origin": 0.1365
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "square_pulse",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 6.83525,
+          "oscillator": 2.38625,
+          "filter_topology": 4.202999999999999,
+          "envelope": 0.105,
+          "modulation": 0.0375
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,720 @@
+{
+  "id": "tonewheel_organ",
+  "name": "Drawbar tonewheel organ (with rotating-speaker cabinet)",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "tonewheel organ",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_gospel_chord_runs",
+          "name": "Gospel chord-runs",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "tonewheel_organ",
+            "electric_piano_tine"
+          ],
+          "descriptors": [
+            "gospel-runs"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "chordal",
+            "block-chord",
+            "bebop-runs"
+          ],
+          "canonical_tags": [
+            "gospel",
+            "soul"
+          ]
+        },
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        },
+        {
+          "id": "keyboard_ostinato_groove",
+          "name": "Ostinato groove",
+          "applies_to": [
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "electric_piano_tine",
+            "clavinet",
+            "tonewheel_organ"
+          ],
+          "descriptors": [
+            "ostinato",
+            "pocket"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "soul",
+            "funk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "drawbar_setting",
+      "name": "Drawbar registration",
+      "variants": [
+        {
+          "id": "jazz_drawbars",
+          "name": "Jazz / mellow",
+          "descriptors": [
+            "hammer-low-mid-emphasis"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "gospel_drawbars",
+          "default": true,
+          "name": "Gospel / full",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "full-spectrum"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "gospel"
+          ]
+        },
+        {
+          "id": "rock_drawbars",
+          "name": "Rock / scream",
+          "descriptors": [
+            "biting",
+            "high-gain-saturation"
+          ],
+          "match_tokens": [
+            "rock-context",
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "rock"
+          ]
+        },
+        {
+          "id": "wide_drawbars",
+          "name": "Wide / pad",
+          "descriptors": [
+            "hollow",
+            "flutey",
+            "undamped-resonance",
+            "wide-drawbars",
+            "pad"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "afrobeat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rotary_speed",
+      "name": "Rotary speaker speed",
+      "variants": [
+        {
+          "id": "slow_chorale",
+          "name": "Slow (chorale)",
+          "descriptors": [
+            "gentle",
+            "rocking",
+            "reverent",
+            "slow-chorale"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "fast_tremolo",
+          "default": true,
+          "name": "Fast (tremolo)",
+          "descriptors": [
+            "swirling",
+            "urgent",
+            "climbing",
+            "fast-tremolo"
+          ],
+          "match_tokens": [
+            "fast-attack-transient",
+            "tremolo",
+            "rapid-tremolo"
+          ],
+          "canonical_tags": [
+            "rock",
+            "gospel"
+          ]
+        },
+        {
+          "id": "stopped_rotor",
+          "name": "Stopped",
+          "descriptors": [
+            "static",
+            "organ-pure",
+            "classical-leaning"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "percussion_setting",
+      "name": "Percussion setting",
+      "variants": [
+        {
+          "id": "percussion_off",
+          "default": true,
+          "name": "Off",
+          "descriptors": [
+            "no-attack-transient"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "percussion_on_short",
+          "name": "Short / 2nd harmonic",
+          "descriptors": [
+            "poppy",
+            "attack-rich"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "percussion_on_long",
+          "name": "Long / 3rd harmonic",
+          "descriptors": [
+            "lingering",
+            "rock-context"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tonewheel_model",
+      "surface": false,
+      "name": "Tonewheel model",
+      "variants": [
+        {
+          "id": "tonewheel_hammond_b3",
+          "default": true,
+          "name": "Hammond B3 (canonical 1955-1975 — jazz/gospel/rock standard)",
+          "descriptors": [
+            "hammond-b3-canonical-1955-1975-jazz-gospel-rock-standard"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "jazz",
+            "gospel"
+          ]
+        },
+        {
+          "id": "tonewheel_hammond_c3",
+          "name": "Hammond C3 (church-cabinet B3 sibling)",
+          "descriptors": [
+            "hammond-c3-church-cabinet-b3-sibling"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "tonewheel_hammond_a100",
+          "name": "Hammond A-100 (built-in Leslie, home spinet)",
+          "descriptors": [
+            "hammond-a-100-built-in-leslie-home-spinet"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "tonewheel_hammond_m3",
+          "name": "Hammond M3 (smaller spinet — 1955-1964)",
+          "descriptors": [
+            "hammond-m3-smaller-spinet-1955-1964"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "tonewheel_hammond_l100",
+          "name": "Hammond L-100 (compact spinet — 1961-1972)",
+          "descriptors": [
+            "hammond-l-100-compact-spinet-1961-1972"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leslie_cabinet_model",
+      "surface": false,
+      "name": "Leslie cabinet model",
+      "variants": [
+        {
+          "id": "leslie_122_canonical",
+          "default": true,
+          "name": "Leslie 122 (canonical 6L6-tube 40W rotary — Hammond-matched)",
+          "descriptors": [
+            "leslie-122-canonical-6l6-tube-40w-rotary-hammond-matched"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "leslie_147_alt",
+          "name": "Leslie 147 (6L6-tube 40W universal connection)",
+          "descriptors": [
+            "leslie-147-6l6-tube-40w-universal-connection"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "leslie_145_smaller",
+          "name": "Leslie 145 (smaller 25W tube — home/club)",
+          "descriptors": [
+            "leslie-145-smaller-25w-tube-home-club"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "leslie_760_solid_state",
+          "name": "Leslie 760 (solid-state 90W — 1970s alternative)",
+          "descriptors": [
+            "leslie-760-solid-state-90w-1970s-alternative"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "drawbar_setting",
+      "name": "Drawbar registration",
+      "variants": [
+        {
+          "id": "jazz_drawbars",
+          "name": "Jazz / mellow",
+          "descriptors": [
+            "hammer-low-mid-emphasis"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "gospel_drawbars",
+          "default": true,
+          "name": "Gospel / full",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "full-spectrum"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "gospel"
+          ]
+        },
+        {
+          "id": "rock_drawbars",
+          "name": "Rock / scream",
+          "descriptors": [
+            "biting",
+            "high-gain-saturation"
+          ],
+          "match_tokens": [
+            "rock-context",
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "rock"
+          ]
+        },
+        {
+          "id": "wide_drawbars",
+          "name": "Wide / pad",
+          "descriptors": [
+            "hollow",
+            "flutey",
+            "undamped-resonance",
+            "wide-drawbars",
+            "pad"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "afrobeat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rotary_speed",
+      "name": "Rotary speaker speed",
+      "variants": [
+        {
+          "id": "slow_chorale",
+          "name": "Slow (chorale)",
+          "descriptors": [
+            "gentle",
+            "rocking",
+            "reverent",
+            "slow-chorale"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "fast_tremolo",
+          "default": true,
+          "name": "Fast (tremolo)",
+          "descriptors": [
+            "swirling",
+            "urgent",
+            "climbing",
+            "fast-tremolo"
+          ],
+          "match_tokens": [
+            "fast-attack-transient",
+            "tremolo",
+            "rapid-tremolo"
+          ],
+          "canonical_tags": [
+            "rock",
+            "gospel"
+          ]
+        },
+        {
+          "id": "stopped_rotor",
+          "name": "Stopped",
+          "descriptors": [
+            "static",
+            "organ-pure",
+            "classical-leaning"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "percussion_setting",
+      "name": "Percussion setting",
+      "variants": [
+        {
+          "id": "percussion_off",
+          "default": true,
+          "name": "Off",
+          "descriptors": [
+            "no-attack-transient"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "percussion_on_short",
+          "name": "Short / 2nd harmonic",
+          "descriptors": [
+            "poppy",
+            "attack-rich"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "percussion_on_long",
+          "name": "Long / 3rd harmonic",
+          "descriptors": [
+            "lingering",
+            "rock-context"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tonewheel_model",
+      "surface": false,
+      "name": "Tonewheel model",
+      "variants": [
+        {
+          "id": "tonewheel_hammond_b3",
+          "default": true,
+          "name": "Hammond B3 (canonical 1955-1975 — jazz/gospel/rock standard)",
+          "descriptors": [
+            "hammond-b3-canonical-1955-1975-jazz-gospel-rock-standard"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "jazz",
+            "gospel"
+          ]
+        },
+        {
+          "id": "tonewheel_hammond_c3",
+          "name": "Hammond C3 (church-cabinet B3 sibling)",
+          "descriptors": [
+            "hammond-c3-church-cabinet-b3-sibling"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "tonewheel_hammond_a100",
+          "name": "Hammond A-100 (built-in Leslie, home spinet)",
+          "descriptors": [
+            "hammond-a-100-built-in-leslie-home-spinet"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "tonewheel_hammond_m3",
+          "name": "Hammond M3 (smaller spinet — 1955-1964)",
+          "descriptors": [
+            "hammond-m3-smaller-spinet-1955-1964"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "tonewheel_hammond_l100",
+          "name": "Hammond L-100 (compact spinet — 1961-1972)",
+          "descriptors": [
+            "hammond-l-100-compact-spinet-1961-1972"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leslie_cabinet_model",
+      "surface": false,
+      "name": "Leslie cabinet model",
+      "variants": [
+        {
+          "id": "leslie_122_canonical",
+          "default": true,
+          "name": "Leslie 122 (canonical 6L6-tube 40W rotary — Hammond-matched)",
+          "descriptors": [
+            "leslie-122-canonical-6l6-tube-40w-rotary-hammond-matched"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "leslie_147_alt",
+          "name": "Leslie 147 (6L6-tube 40W universal connection)",
+          "descriptors": [
+            "leslie-147-6l6-tube-40w-universal-connection"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "leslie_145_smaller",
+          "name": "Leslie 145 (smaller 25W tube — home/club)",
+          "descriptors": [
+            "leslie-145-smaller-25w-tube-home-club"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "leslie_760_solid_state",
+          "name": "Leslie 760 (solid-state 90W — 1970s alternative)",
+          "descriptors": [
+            "leslie-760-solid-state-90w-1970s-alternative"
+          ],
+          "match_tokens": [
+            "electric",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

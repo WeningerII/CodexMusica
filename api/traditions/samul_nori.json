@@ -1,0 +1,83 @@
+{
+  "id": "samul_nori",
+  "name": "Samul nori",
+  "family": "classical",
+  "lineage": "1978-onward Korean four-instrument concert-percussion ensemble codified by the Kim Duk-soo founding troupe, derived from rural pungmul village-ritual-and-harvest-procession percussion of the late-Joseon era. The four instruments — kkwaenggwari small-gong-leader, jing large-gong-pulse, janggu hourglass-drum, buk barrel-drum — interlock through five canonical jangdan rhythmic-pattern movements (Bibari, Samdo-Sori, Yeongnam, Honam-udo, Jwadodulgi) that compress regional pungmul styles into a 60-90 minute staged concert form. The genre catalyzed the 1980s-onward Korean traditional-music revival and is widely taught in Korean elementary curricula.",
+  "recipe": "classic North American modern samul nori, groove Percussion, samul nori branch, east Asian art music korean sinawi tibetan ache lhamo opera. lead kkwaenggwari, jing paulownia canonical Korean cowhide canonical Korean buk korean, composite material paulownia canonical Korean horse dog asymmetric canonical Korean samul nori kim duk soo 1978 founding janggu. korean gugak hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 508,
+  "score": 127.24,
+  "config": {
+    "traditions": [
+      "samul_nori",
+      "korean_sinawi",
+      "tibetan_ache_lhamo"
+    ],
+    "instruments": [
+      {
+        "id": "kkwaenggwari",
+        "slots": {
+          "kkwaenggwari_role": "kkwaenggwari_lead"
+        },
+        "scores": {
+          "kkwaenggwari_role": 15.044999999999995
+        }
+      },
+      {
+        "id": "jing_korean",
+        "slots": {
+          "jing_role": "jing_phrase_marker"
+        },
+        "scores": {
+          "jing_role": 14.789999999999994
+        }
+      },
+      {
+        "id": "janggu",
+        "slots": {
+          "janggu_use": "janggu_samul_nori",
+          "janggu_construction": "janggu_composite",
+          "janggu_shell_wood": "janggu_paulownia_canonical",
+          "janggu_head": "janggu_horse_dog_asymmetric",
+          "janggu_lineage": "janggu_samul_lineage"
+        },
+        "scores": {
+          "janggu_use": 3.6400000000000006,
+          "janggu_construction": 1.8850000000000002,
+          "janggu_shell_wood": 6.759999999999999,
+          "janggu_head": 6.759999999999999,
+          "janggu_lineage": 16.299999999999997
+        }
+      },
+      {
+        "id": "buk_korean",
+        "slots": {
+          "buk_korean_context": "buk_korean_samul_nori",
+          "buk_korean_construction": "buk_korean_bowl",
+          "buk_korean_shell_wood": "buk_korean_paulownia",
+          "buk_korean_head": "buk_korean_cowhide_canonical"
+        },
+        "scores": {
+          "buk_korean_context": 10.744999999999997,
+          "buk_korean_construction": 1.8850000000000002,
+          "buk_korean_shell_wood": 6.759999999999999,
+          "buk_korean_head": 6.759999999999999
+        }
+      }
+    ],
+    "room": "korean_gugak_hall",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_console_inline_strip",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "korean_minsogak_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": "sawt_bahraini_kuwaiti",
+  "name": "Sawt (Bahraini-Kuwaiti chamber song)",
+  "family": "classical",
+  "lineage": "Sawt classical Arabian-Gulf urban-chamber song tradition of Bahrain and Kuwait, developed in eighteenth-nineteenth centuries through cultural and trade connections between Gulf merchant-class urban centers and Yemen (with Yemeni-Sanaani musical influence) and East Africa (Zanzibari merchant-class exchange). Performance configuration: male solo singer accompanying himself on oud, with mirwas small drum and hand-clapping from a small audience. Repertoire organizes around sawt arabi (longer, complex modal cycle) and sawt shami (shorter, lighter modal cycle).",
+  "recipe": "classic modern sawt, art Music, middle eastern classical branch, med east poetic ballad poetry ethiopian azmari minstrel-poet pontic greek music. vocal fry, chest resonance low mid, maqam neutral step, Mediterranean demotic vocal. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east open slap hand drum darbuka. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 594,
+  "score": 189.301,
+  "config": {
+    "traditions": [
+      "sawt_bahraini_kuwaiti",
+      "azmari_ethiopian",
+      "pontic_greek"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.38,
+          "voice_quality": 0.160875,
+          "voice_vibrato": 4.9399999999999995,
+          "voice_articulation": 0,
+          "voice_microtone": 2.7300000000000004,
+          "voice_tradition": 18.589999999999996,
+          "voice_mechanism_compound": 11.869,
+          "voice_estill_quality": 12.120749999999997,
+          "voice_speech_song": 14.754999999999997,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 13.489625,
+          "voice_pitch_organization": 13.489625,
+          "voice_processing_chain": 2.541625,
+          "voice_multitrack_stack": 1.77
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_horn",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.5,
+          "oud_school": 1.38,
+          "oud_strings": 4.9399999999999995,
+          "oud_pick": 0.715,
+          "oud_body_wood": 1.2138749999999998,
+          "oud_soundboard_wood": 1.95,
+          "oud_string_material": 1.5864999999999998
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": 3.2500000000000004,
+          "darbuka_material": 1.4738749999999996,
+          "darbuka_skin": 1.4738749999999996,
+          "darbuka_regional_style": 3.068
+        }
+      }
+    ],
+    "room": "qat_chew_majlis_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "coptic_liturgical",
+  "name": "Coptic liturgical chant",
+  "family": "global",
+  "lineage": "Coptic Orthodox liturgical chant tradition of Egypt, preserved continuously since the early Christian centuries with characteristic features including Coptic-language liturgical text, antiphonal-choral-and-deacon-leader vocal exchange, and characteristic melismatic ornamental melodic style — claimed by tradition to preserve features of pre-Christian Egyptian temple-music practice, with the canonical repertoire codified across the Holy Week and Eucharistic-liturgy cycles",
+  "recipe": "classic modern coptic liturgical chant, ritual Devotional, coptic branch, middle eastern classical art music andalusī nūba azerbaijani mugham. thick, declaimed, chest resonance low mid, ornamental. polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 474,
+  "score": 211.858,
+  "config": {
+    "traditions": [
+      "coptic_liturgical",
+      "andalusi_nuba",
+      "azerbaijani_mugham"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.250000000000001,
+          "voice_quality": 8.885,
+          "voice_vibrato": 2.33,
+          "voice_articulation": 4.9,
+          "voice_microtone": 8.450000000000001,
+          "voice_tradition": 9.294999999999998,
+          "voice_mechanism_compound": 3.769999999999999,
+          "voice_estill_quality": 3.9850000000000008,
+          "voice_speech_song": 8.124999999999998,
+          "voice_ensemble_config": 7.669999999999998,
+          "voice_ornament_system": 5.55,
+          "voice_pitch_organization": 4.615,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 4.1000000000000005
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "chamber_choir",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 2.08,
+          "choir_polyphonic_configuration": 2.9899999999999998,
+          "choir_regional_canonical_configuration": 1.3,
+          "choir_ensemble_repertoire": 6.084999999999999
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "schranz_hard_techno",
+  "name": "Schranz (hard German techno)",
+  "family": "electronic",
+  "lineage": "Late-1990s and 2000s German hard-techno subgenre characterized by extreme-tempo (140-160 BPM), distorted-industrial-percussion, harsh-aggressive synth textures, and rigid four-on-the-floor beat with minimal melodic content. Chris Liebing, Sven Wittekind, Boris S., and the broader Cologne-Frankfurt-Berlin hard-techno scene defined the canonical aesthetic.",
+  "recipe": "classic 1997-1999 schranz, electronic Dance, techno branch, thrash metal. TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 275,
+  "score": 3.053,
+  "config": {
+    "traditions": [
+      "schranz_hard_techno"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_cowbell",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 0.195,
+          "drum_machine_808_context": 0.6360000000000001,
+          "tr808_production_origin": 0.34650000000000003
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

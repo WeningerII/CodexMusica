@@ -1,0 +1,226 @@
+{
+  "id": "banda_sinaloense",
+  "name": "Banda sinaloense (Mexican wind-percussion band)",
+  "family": "ensemble",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "banda sinaloense",
+  "parts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "banda_trumpets",
+          "default": true,
+          "name": "Trumpets (2-3)",
+          "descriptors": [
+            "lead",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_trombones",
+          "name": "Trombones (3)",
+          "descriptors": [
+            "inner"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_clarinets",
+          "name": "Clarinets (3-4)",
+          "descriptors": [
+            "high-melody",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_tuba",
+          "name": "Tuba (walking bass)",
+          "descriptors": [
+            "walking-bass",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_tambora",
+          "name": "Tambora and tarola",
+          "descriptors": [
+            "driving"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banda_sinaloense_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "banda_sinaloense_quinceanera",
+          "default": true,
+          "name": "Wedding / quinceañera",
+          "descriptors": [],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_sinaloense_concert",
+          "name": "Banda concert",
+          "descriptors": [
+            "stage",
+            "orchestrated",
+            "modern"
+          ],
+          "match_tokens": [
+            "concert",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_sinaloense_norteno",
+          "name": "Norteño-fusion",
+          "descriptors": [
+            "cross-genre",
+            "urban",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "banda_trumpets",
+          "default": true,
+          "name": "Trumpets (2-3)",
+          "descriptors": [
+            "lead",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_trombones",
+          "name": "Trombones (3)",
+          "descriptors": [
+            "inner"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_clarinets",
+          "name": "Clarinets (3-4)",
+          "descriptors": [
+            "high-melody",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_tuba",
+          "name": "Tuba (walking bass)",
+          "descriptors": [
+            "walking-bass",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_tambora",
+          "name": "Tambora and tarola",
+          "descriptors": [
+            "driving"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banda_sinaloense_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "banda_sinaloense_quinceanera",
+          "default": true,
+          "name": "Wedding / quinceañera",
+          "descriptors": [],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_sinaloense_concert",
+          "name": "Banda concert",
+          "descriptors": [
+            "stage",
+            "orchestrated",
+            "modern"
+          ],
+          "match_tokens": [
+            "concert",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "banda_sinaloense_norteno",
+          "name": "Norteño-fusion",
+          "descriptors": [
+            "cross-genre",
+            "urban",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

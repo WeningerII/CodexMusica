@@ -1,0 +1,525 @@
+{
+  "id": "uilleann_pipes",
+  "name": "Uilleann pipes (Irish bellows-blown)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "uilleann pipes",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        },
+        {
+          "id": "wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "uilleann_pipes",
+            "biniou",
+            "highland_bagpipes",
+            "bombarde",
+            "recorder",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "shawm",
+            "zurna",
+            "mizmar",
+            "ghaita",
+            "ciaramella",
+            "duduk",
+            "mey"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ],
+          "default": true
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "uilleann_set",
+      "name": "Set type",
+      "variants": [
+        {
+          "id": "practice_set",
+          "name": "Practice set (chanter only)",
+          "descriptors": [
+            "accessible",
+            "beginner",
+            "training"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "half_set",
+          "default": true,
+          "name": "Half set (chanter + drones)",
+          "descriptors": [
+            "traditional",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "full_set",
+          "name": "Full set (with regulators)",
+          "descriptors": [
+            "virtuoso",
+            "full-band",
+            "irish-classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_pipes_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "uilleann_pipes_d",
+          "default": true,
+          "name": "D (concert)",
+          "descriptors": [
+            "standard",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "uilleann_pipes_flat",
+          "name": "C / B♭ (flat sets)",
+          "descriptors": [
+            "traditional",
+            "pre-modern-pitch",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "uilleann_pipes_csharp",
+          "name": "C# (rare specialty)",
+          "descriptors": [
+            "unusual",
+            "historical",
+            "specific-pipers"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "uilleann_african_blackwood",
+          "default": true,
+          "name": "African blackwood (canonical Irish modern)",
+          "descriptors": [
+            "african-blackwood-canonical-irish-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "uilleann_boxwood_pre_1900",
+          "name": "Boxwood (pre-1900 historical Irish)",
+          "descriptors": [
+            "boxwood-pre-1900-historical-irish"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "uilleann_cocuswood",
+          "name": "Cocuswood (premium pre-1950 historical)",
+          "descriptors": [
+            "cocuswood-premium-pre-1950-historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "uilleann_cane_canonical",
+          "default": true,
+          "name": "Cane double-reed Arundo donax (canonical Irish)",
+          "descriptors": [
+            "cane-arundo-donax-canonical-irish"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "uilleann_leather_canonical",
+          "default": true,
+          "name": "Leather (canonical Irish bellows-fed)",
+          "descriptors": [
+            "leather-canonical-irish-bellows-fed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_lineage",
+      "surface": false,
+      "name": "Pipemaker lineage",
+      "variants": [
+        {
+          "id": "uilleann_taylor_egan",
+          "default": true,
+          "name": "Taylor-Egan Philadelphia tradition (canonical wide-bore Irish-American)",
+          "descriptors": [
+            "taylor-egan-philadelphia-canonical-wide-bore-irish-american"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "uilleann_rowsome",
+          "name": "Rowsome Dublin tradition (Leo Rowsome / Liam O'Flynn lineage)",
+          "descriptors": [
+            "rowsome-dublin-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wind_articulation",
+      "default_variant": "wind_ornament_heavy"
+    },
+    {
+      "id": "uilleann_set",
+      "name": "Set type",
+      "variants": [
+        {
+          "id": "practice_set",
+          "name": "Practice set (chanter only)",
+          "descriptors": [
+            "accessible",
+            "beginner",
+            "training"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "half_set",
+          "default": true,
+          "name": "Half set (chanter + drones)",
+          "descriptors": [
+            "traditional",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "full_set",
+          "name": "Full set (with regulators)",
+          "descriptors": [
+            "virtuoso",
+            "full-band",
+            "irish-classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_pipes_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "uilleann_pipes_d",
+          "default": true,
+          "name": "D (concert)",
+          "descriptors": [
+            "standard",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "uilleann_pipes_flat",
+          "name": "C / B♭ (flat sets)",
+          "descriptors": [
+            "traditional",
+            "pre-modern-pitch",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "uilleann_pipes_csharp",
+          "name": "C# (rare specialty)",
+          "descriptors": [
+            "unusual",
+            "historical",
+            "specific-pipers"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "uilleann_african_blackwood",
+          "default": true,
+          "name": "African blackwood (canonical Irish modern)",
+          "descriptors": [
+            "african-blackwood-canonical-irish-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "uilleann_boxwood_pre_1900",
+          "name": "Boxwood (pre-1900 historical Irish)",
+          "descriptors": [
+            "boxwood-pre-1900-historical-irish"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "uilleann_cocuswood",
+          "name": "Cocuswood (premium pre-1950 historical)",
+          "descriptors": [
+            "cocuswood-premium-pre-1950-historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "uilleann_cane_canonical",
+          "default": true,
+          "name": "Cane double-reed Arundo donax (canonical Irish)",
+          "descriptors": [
+            "cane-arundo-donax-canonical-irish"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "uilleann_leather_canonical",
+          "default": true,
+          "name": "Leather (canonical Irish bellows-fed)",
+          "descriptors": [
+            "leather-canonical-irish-bellows-fed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_lineage",
+      "surface": false,
+      "name": "Pipemaker lineage",
+      "variants": [
+        {
+          "id": "uilleann_taylor_egan",
+          "default": true,
+          "name": "Taylor-Egan Philadelphia tradition (canonical wide-bore Irish-American)",
+          "descriptors": [
+            "taylor-egan-philadelphia-canonical-wide-bore-irish-american"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "uilleann_rowsome",
+          "name": "Rowsome Dublin tradition (Leo Rowsome / Liam O'Flynn lineage)",
+          "descriptors": [
+            "rowsome-dublin-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

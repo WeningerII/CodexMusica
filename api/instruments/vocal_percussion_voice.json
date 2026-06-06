@@ -1,0 +1,753 @@
+{
+  "id": "vocal_percussion_voice",
+  "surface": false,
+  "name": "Vocal percussion voice (beatbox / syllabic-drum / click-articulated)",
+  "family": "voice",
+  "class": "vocal_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "vocal percussion",
+  "parts": [
+    {
+      "id": "vocal_percussion_airstream_mechanism",
+      "name": "Airstream mechanism",
+      "variants": [
+        {
+          "id": "vocal_percussion_pulmonic_egressive",
+          "default": true,
+          "name": "Pulmonic egressive (lungs out)",
+          "descriptors": [
+            "pulmonic-egressive-percussive"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_pulmonic_ingressive",
+          "name": "Pulmonic ingressive (lungs in)",
+          "descriptors": [
+            "pulmonic-ingressive-percussive"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_glottalic_ejective",
+          "name": "Glottalic egressive ejective",
+          "descriptors": [
+            "glottalic-egressive-ejective-source"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_glottalic_implosive",
+          "name": "Glottalic ingressive implosive",
+          "descriptors": [
+            "glottalic-ingressive-implosive-source"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_velaric_click",
+          "name": "Velaric ingressive click",
+          "descriptors": [
+            "velaric-ingressive-click-source"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocal_percussion_beatbox_articulation",
+      "surface": false,
+      "name": "Beatbox articulation (Paroni/Henrich JASA 149[1] 2021)",
+      "variants": [
+        {
+          "id": "beatbox_kick_bilabial_ejective",
+          "default": true,
+          "name": "Kick — bilabial ejective stop [p']",
+          "descriptors": [
+            "bilabial-ejective-kick-drum-source"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_punchy_kick_pf_affricate",
+          "name": "Punchy kick — affricated bilabial ejective [pf']",
+          "descriptors": [
+            "affricated-bilabial-ejective-punchy-kick"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_snare_kx_affricate",
+          "name": "Snare — pulmonic-egressive velar affricate [kx:]",
+          "descriptors": [
+            "pulmonic-egressive-velar-affricate-snare"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_snare_q_click_alt",
+          "name": "Alt snare — palatal-uvular click [q‼]",
+          "descriptors": [
+            "palatal-uvular-click-snare-alternate"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_hihat_alveolar_ejective",
+          "name": "Closed hi-hat — alveolar ejective",
+          "descriptors": [
+            "alveolar-ejective-closed-hi-hat"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_hihat_velar_dental_kiss",
+          "name": "Hi-hat kiss — velar-dental click [k|]",
+          "descriptors": [
+            "velar-dental-click-closed-hi-hat-kiss"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_open_hihat_ks_fricative",
+          "name": "Open hi-hat — dorsal-stop coronal-fricative [ks:]",
+          "descriptors": [
+            "dorsal-stop-coronal-fricative-open-hi-hat"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_rim_shot_lateral_click",
+          "name": "Rim-shot — lateral click",
+          "descriptors": [
+            "lateral-click-rim-shot"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_cymbal_ingressive_airstream",
+          "name": "Cymbal — ingressive airstream",
+          "descriptors": [
+            "ingressive-cymbal-airstream"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_humming_melody_dissociated",
+          "name": "Humming melody + simultaneous percussion (dissociated airflow)",
+          "descriptors": [
+            "humming-melody-simultaneous-percussion-dissociated-airflow"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_inhaled_power_snare",
+          "name": "Inhaled power-snare (ingressive distortion)",
+          "descriptors": [
+            "inhaled-power-snare-ingressive-distortion"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocal_percussion_syllabic_drum_system",
+      "surface": false,
+      "name": "Syllabic-drum-vocable system",
+      "variants": [
+        {
+          "id": "syllabic_system_none",
+          "default": true,
+          "name": "No specific syllabic-drum system",
+          "descriptors": [],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "syllabic_solkattu_carnatic",
+          "name": "Solkattu Carnatic mridangam syllables (ta/dhi/tom/na/kita/tarikita inventory, jathi-mapped chathusram-tisram-khanda-misra-sankirna)",
+          "descriptors": [
+            "solkattu-carnatic-mridangam-jathi-mapped"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "syllabic_bol_hindustani",
+          "name": "Bol Hindustani tabla syllables (dha/dhin/tin/ta/na/ti/tirakita inventory)",
+          "descriptors": [
+            "bol-hindustani-tabla-syllables"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "hindustani"
+          ]
+        },
+        {
+          "id": "syllabic_gamelan_vocable",
+          "name": "Gamelan vocable imitation",
+          "descriptors": [
+            "gamelan-vocable-imitation"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "gamelan",
+            "indonesian"
+          ]
+        },
+        {
+          "id": "syllabic_bata_yoruba_bell",
+          "name": "Bàtá Yoruba bell-syllables",
+          "descriptors": [
+            "bata-yoruba-bell-syllables"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "sub-saharan-tradition",
+            "yoruba"
+          ]
+        },
+        {
+          "id": "syllabic_samba_vocable",
+          "name": "Brazilian bateria vocable cuíca-tamborim imitation",
+          "descriptors": [
+            "cuica-tamborim-imitation-vocable-mouth-percussion"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "brazilian"
+          ]
+        },
+        {
+          "id": "syllabic_tibetan_bija",
+          "name": "Tibetan ritual bija-syllable vocables",
+          "descriptors": [
+            "tibetan-ritual-bija-vocables"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "ritual"
+          ]
+        },
+        {
+          "id": "syllabic_khoisan_click_song",
+          "name": "Khoisan click-articulated song syllables",
+          "descriptors": [
+            "khoisan-click-articulated-song-syllables"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "sub-saharan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocal_percussion_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "vocal_percussion_context_solo",
+          "default": true,
+          "name": "Solo vocal-percussion lead",
+          "descriptors": [
+            "vocal-percussion-solo-lead"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_context_ensemble",
+          "name": "Ensemble vocal-percussion layer",
+          "descriptors": [
+            "vocal-percussion-ensemble-layer"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "vocal_percussion_context_lead_melody_pair",
+          "name": "Paired with lead-melody (vocal-percussion + melismatic-singing dissociated airflow)",
+          "descriptors": [
+            "vocal-percussion-melody-paired-dissociated-airflow"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_context_didactic",
+          "name": "Didactic / pedagogical recital (drum-syllable teaching, e.g., solkattu/bol-recitation)",
+          "descriptors": [
+            "vocal-percussion-didactic-pedagogical-recital"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vocal_percussion_airstream_mechanism",
+      "name": "Airstream mechanism",
+      "variants": [
+        {
+          "id": "vocal_percussion_pulmonic_egressive",
+          "default": true,
+          "name": "Pulmonic egressive (lungs out)",
+          "descriptors": [
+            "pulmonic-egressive-percussive"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_pulmonic_ingressive",
+          "name": "Pulmonic ingressive (lungs in)",
+          "descriptors": [
+            "pulmonic-ingressive-percussive"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_glottalic_ejective",
+          "name": "Glottalic egressive ejective",
+          "descriptors": [
+            "glottalic-egressive-ejective-source"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_glottalic_implosive",
+          "name": "Glottalic ingressive implosive",
+          "descriptors": [
+            "glottalic-ingressive-implosive-source"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_velaric_click",
+          "name": "Velaric ingressive click",
+          "descriptors": [
+            "velaric-ingressive-click-source"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocal_percussion_beatbox_articulation",
+      "surface": false,
+      "name": "Beatbox articulation (Paroni/Henrich JASA 149[1] 2021)",
+      "variants": [
+        {
+          "id": "beatbox_kick_bilabial_ejective",
+          "default": true,
+          "name": "Kick — bilabial ejective stop [p']",
+          "descriptors": [
+            "bilabial-ejective-kick-drum-source"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_punchy_kick_pf_affricate",
+          "name": "Punchy kick — affricated bilabial ejective [pf']",
+          "descriptors": [
+            "affricated-bilabial-ejective-punchy-kick"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_snare_kx_affricate",
+          "name": "Snare — pulmonic-egressive velar affricate [kx:]",
+          "descriptors": [
+            "pulmonic-egressive-velar-affricate-snare"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_snare_q_click_alt",
+          "name": "Alt snare — palatal-uvular click [q‼]",
+          "descriptors": [
+            "palatal-uvular-click-snare-alternate"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_hihat_alveolar_ejective",
+          "name": "Closed hi-hat — alveolar ejective",
+          "descriptors": [
+            "alveolar-ejective-closed-hi-hat"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_hihat_velar_dental_kiss",
+          "name": "Hi-hat kiss — velar-dental click [k|]",
+          "descriptors": [
+            "velar-dental-click-closed-hi-hat-kiss"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_open_hihat_ks_fricative",
+          "name": "Open hi-hat — dorsal-stop coronal-fricative [ks:]",
+          "descriptors": [
+            "dorsal-stop-coronal-fricative-open-hi-hat"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_rim_shot_lateral_click",
+          "name": "Rim-shot — lateral click",
+          "descriptors": [
+            "lateral-click-rim-shot"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_cymbal_ingressive_airstream",
+          "name": "Cymbal — ingressive airstream",
+          "descriptors": [
+            "ingressive-cymbal-airstream"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_humming_melody_dissociated",
+          "name": "Humming melody + simultaneous percussion (dissociated airflow)",
+          "descriptors": [
+            "humming-melody-simultaneous-percussion-dissociated-airflow"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "beatbox_inhaled_power_snare",
+          "name": "Inhaled power-snare (ingressive distortion)",
+          "descriptors": [
+            "inhaled-power-snare-ingressive-distortion"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocal_percussion_syllabic_drum_system",
+      "surface": false,
+      "name": "Syllabic-drum-vocable system",
+      "variants": [
+        {
+          "id": "syllabic_system_none",
+          "default": true,
+          "name": "No specific syllabic-drum system",
+          "descriptors": [],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "syllabic_solkattu_carnatic",
+          "name": "Solkattu Carnatic mridangam syllables (ta/dhi/tom/na/kita/tarikita inventory, jathi-mapped chathusram-tisram-khanda-misra-sankirna)",
+          "descriptors": [
+            "solkattu-carnatic-mridangam-jathi-mapped"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "syllabic_bol_hindustani",
+          "name": "Bol Hindustani tabla syllables (dha/dhin/tin/ta/na/ti/tirakita inventory)",
+          "descriptors": [
+            "bol-hindustani-tabla-syllables"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "hindustani"
+          ]
+        },
+        {
+          "id": "syllabic_gamelan_vocable",
+          "name": "Gamelan vocable imitation",
+          "descriptors": [
+            "gamelan-vocable-imitation"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "gamelan",
+            "indonesian"
+          ]
+        },
+        {
+          "id": "syllabic_bata_yoruba_bell",
+          "name": "Bàtá Yoruba bell-syllables",
+          "descriptors": [
+            "bata-yoruba-bell-syllables"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "sub-saharan-tradition",
+            "yoruba"
+          ]
+        },
+        {
+          "id": "syllabic_samba_vocable",
+          "name": "Brazilian bateria vocable cuíca-tamborim imitation",
+          "descriptors": [
+            "cuica-tamborim-imitation-vocable-mouth-percussion"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "brazilian"
+          ]
+        },
+        {
+          "id": "syllabic_tibetan_bija",
+          "name": "Tibetan ritual bija-syllable vocables",
+          "descriptors": [
+            "tibetan-ritual-bija-vocables"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "ritual"
+          ]
+        },
+        {
+          "id": "syllabic_khoisan_click_song",
+          "name": "Khoisan click-articulated song syllables",
+          "descriptors": [
+            "khoisan-click-articulated-song-syllables"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "sub-saharan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocal_percussion_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "vocal_percussion_context_solo",
+          "default": true,
+          "name": "Solo vocal-percussion lead",
+          "descriptors": [
+            "vocal-percussion-solo-lead"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_context_ensemble",
+          "name": "Ensemble vocal-percussion layer",
+          "descriptors": [
+            "vocal-percussion-ensemble-layer"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "vocal_percussion_context_lead_melody_pair",
+          "name": "Paired with lead-melody (vocal-percussion + melismatic-singing dissociated airflow)",
+          "descriptors": [
+            "vocal-percussion-melody-paired-dissociated-airflow"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "vocal_percussion_context_didactic",
+          "name": "Didactic / pedagogical recital (drum-syllable teaching, e.g., solkattu/bol-recitation)",
+          "descriptors": [
+            "vocal-percussion-didactic-pedagogical-recital"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ]
+}

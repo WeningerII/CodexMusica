@@ -1,0 +1,110 @@
+{
+  "id": "psytrance",
+  "name": "Psytrance",
+  "family": "global",
+  "lineage": "Goa-derived psychedelic trance subgenre, codified through 1990s Goa-coast Indian beach-party scene (Goa-trance as immediate predecessor) and the move toward digital-DAW production through Astrix, Infected Mushroom, Vibrasphere, and the broader Israeli-and-European psytrance label ecosystem",
+  "recipe": "classic mid-1990s psytrance, electronic Dance, trance branch, idm glitch experimental electric breakcore chiptune / 8-bit. analog mono synth, digital subtractive, roland tr 8s modern aira digital recreation TR-909, glitched textural sampler, evolving modular eurorack modular. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter phaser flanger analog bucket-brigade delay.",
+  "recipe_chars": 465,
+  "score": 81.023,
+  "config": {
+    "traditions": [
+      "psytrance",
+      "breakcore",
+      "chiptune_8bit"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 0.7,
+          "mono_oscillator": 0.18525,
+          "mono_filter": 0.7398750000000001,
+          "mono_archetypes": 0.62775,
+          "mono_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "va_archetypes": 4.9399999999999995,
+          "digital_subtractive_context": 4.68
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 1.02,
+          "tr909_production_origin": 1.3
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_emax",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.6949999999999994,
+          "sampler_archetypes": 0.18525,
+          "sampler_bit_depth": 0.005625,
+          "sampler_workflow": 3.4999999999999996,
+          "sampler_classic_context": 4.615
+        }
+      },
+      {
+        "id": "eurorack_modular",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "eurorack_focus": "eurorack_west_coast",
+          "eurorack_modular_context": "eurorack_modular_studio"
+        },
+        "scores": {
+          "electronic_technique": 3.8,
+          "eurorack_focus": 2.21,
+          "eurorack_modular_context": 0.9099999999999999
+        }
+      }
+    ],
+    "room": "festival_stage",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "phaser_pedal",
+      "flanger_pedal",
+      "analog_delay"
+    ]
+  }
+}

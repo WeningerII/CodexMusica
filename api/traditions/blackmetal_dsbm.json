@@ -1,0 +1,153 @@
+{
+  "id": "blackmetal_dsbm",
+  "name": "DSBM (depressive suicidal black metal)",
+  "family": "rock_punk",
+  "lineage": "Mid-1990s and onward black-metal subgenre emphasizing slow-tempo melancholic-and-suicidal-depressive thematic content. Bethlehem (Germany 1991-onward) inaugurated the canonical aesthetic; Shining (Sweden), Silencer, Xasthur (USA), Wigrid (Germany), and the broader European-and-American DSBM scene anchor the canonical roster. Distinguished from broader black metal by DSBM's slower-tempo emphasis and explicit depression-suicide thematic register.",
+  "recipe": "classic modern dsbm, distorted Rock, death branch, christian gospel ritual devotional black gospel sacred steel. thick, declaimed, chest resonance low mid, ornamental. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany stainless steel roundwound electric bass, steel pre muffled edge muffled machine hammered symmetric pattern drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 622,
+  "score": 405.405,
+  "config": {
+    "traditions": [
+      "blackmetal_dsbm",
+      "black_gospel_choir",
+      "sacred_steel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 5.245000000000002,
+          "voice_quality": 5.410000000000001,
+          "voice_vibrato": 1.645,
+          "voice_articulation": 1.8999999999999997,
+          "voice_microtone": 3.650000000000001,
+          "voice_tradition": 2.2099999999999995,
+          "voice_mechanism_compound": 14.149999999999999,
+          "voice_estill_quality": 1.5499999999999996,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 3.0049999999999994,
+          "voice_processing_chain": 2.6,
+          "voice_multitrack_stack": 3.25
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_c"
+        },
+        "scores": {
+          "electric_technique": 16.5,
+          "amp_make": 8.125,
+          "body_wood": 9.93,
+          "neck_wood": 1.345,
+          "fretboard": 1.295,
+          "pickup_magnet": 0.735,
+          "pickup_winding": 0.735,
+          "string_material": 2.504999999999999,
+          "bridge": 1.345,
+          "scale_length": 8.674999999999999,
+          "string_gauge": 2.645,
+          "finish": 0,
+          "string_tuning": 9.395
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_s",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 2.2,
+          "amp_make": 1.885,
+          "body_wood": 1.3900000000000001,
+          "pickup_config": 0.9600000000000001,
+          "string_type": 3.75,
+          "scale_length_b": 1.345,
+          "fretted_or_not": 0.8699999999999999,
+          "bass_technique": 3.7
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 8.319999999999999,
+          "shell_wood": 1.4249999999999994,
+          "shell_thickness": 0.24,
+          "bearing_edges": 1.345,
+          "drumhead": 1.345,
+          "snare_wires": 1.345,
+          "cymbal_alloy": 16.794999999999998,
+          "cymbal_hammering": 3.6950000000000003,
+          "cymbal_lathing": 4.16,
+          "cymbal_finish": 0.345,
+          "drum_technique": 8.319999999999999
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_marshall_jcm800",
+      "medium": "digital_high"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

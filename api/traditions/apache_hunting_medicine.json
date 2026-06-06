@@ -1,0 +1,79 @@
+{
+  "id": "apache_hunting_medicine",
+  "name": "Apache hunting-medicine song (Native American)",
+  "family": "global",
+  "lineage": "Apache-and-broader-Native-American hunting-medicine song tradition continuous from premodern Indigenous-North-American hunting-and-ritual practice through colonial-era continuous performance into modern Native-American continuous practice",
+  "recipe": "classic modern apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, continuous-phonation. powwow drum circle. plains northern powwow drum circle outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 492,
+  "score": 200.515,
+  "config": {
+    "traditions": [
+      "apache_hunting_medicine",
+      "inuit_katajjaq_games",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.494999999999999,
+          "voice_quality": 2.1449999999999996,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0.38999999999999996,
+          "voice_tradition": 15.314999999999998,
+          "voice_mechanism_compound": 12.295,
+          "voice_estill_quality": 0.63,
+          "voice_speech_song": 11.634999999999998,
+          "voice_ensemble_config": 4.809999999999999,
+          "voice_ornament_system": 3.055,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 4.2749999999999995
+        }
+      },
+      {
+        "id": "powwow_drum_circle",
+        "slots": {
+          "members": "pw_women_above",
+          "style": "pw_northern"
+        },
+        "scores": {
+          "members": 0.9299999999999999,
+          "style": 0.7350000000000001
+        }
+      }
+    ],
+    "room": "plains_northern_powwow_drum_circle_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_pentatonic_long_song",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

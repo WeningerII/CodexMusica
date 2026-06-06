@@ -1,0 +1,310 @@
+{
+  "id": "pakhawaj",
+  "name": "Pakhawaj (Hindustani barrel drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pakhawaj",
+  "parts": [
+    {
+      "id": "pakhawaj_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "pakhawaj_dhrupad",
+          "default": true,
+          "name": "Dhrupad accompaniment",
+          "descriptors": [
+            "meditative-tempo"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pakhawaj_kathak",
+          "name": "Kathak dance",
+          "descriptors": [
+            "rhythmic-virtuosic",
+            "tihai-emphatic",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pakhawaj_qawwali",
+          "name": "Sufi qawwali (rare)",
+          "descriptors": [
+            "regional",
+            "syncretic",
+            "unusual"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pakhawaj_construction",
+      "name": "Construction school",
+      "variants": [
+        {
+          "id": "pakhawaj_jackwood",
+          "default": true,
+          "name": "Jackwood barrel (canonical)",
+          "descriptors": [
+            "traditional",
+            "deep",
+            "authentic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pakhawaj_teak",
+          "name": "Modern teak / sheesham",
+          "descriptors": [
+            "alternative",
+            "durable",
+            "commercial",
+            "teak",
+            "sheesham",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pakhawaj_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "pakhawaj_goat_skin",
+          "default": true,
+          "name": "Goat-skin both heads with syahi tuning paste on treble (canonical)",
+          "descriptors": [
+            "goat-skin-syahi-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pakhawaj_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "pakhawaj_dagar_dhrupad",
+          "default": true,
+          "name": "Dagar dhrupad lineage (canonical)",
+          "descriptors": [
+            "dagar-dhrupad-lineage-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pakhawaj_kudau_singh",
+          "name": "Kudau Singh lineage",
+          "descriptors": [
+            "kudau-singh-lineage"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pakhawaj_nathdwara",
+          "name": "Nathdwara temple tradition",
+          "descriptors": [
+            "nathdwara-temple-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pakhawaj_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "pakhawaj_dhrupad",
+          "default": true,
+          "name": "Dhrupad accompaniment",
+          "descriptors": [
+            "meditative-tempo"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pakhawaj_kathak",
+          "name": "Kathak dance",
+          "descriptors": [
+            "rhythmic-virtuosic",
+            "tihai-emphatic",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pakhawaj_qawwali",
+          "name": "Sufi qawwali (rare)",
+          "descriptors": [
+            "regional",
+            "syncretic",
+            "unusual"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pakhawaj_construction",
+      "name": "Construction school",
+      "variants": [
+        {
+          "id": "pakhawaj_jackwood",
+          "default": true,
+          "name": "Jackwood barrel (canonical)",
+          "descriptors": [
+            "traditional",
+            "deep",
+            "authentic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pakhawaj_teak",
+          "name": "Modern teak / sheesham",
+          "descriptors": [
+            "alternative",
+            "durable",
+            "commercial",
+            "teak",
+            "sheesham",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pakhawaj_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "pakhawaj_goat_skin",
+          "default": true,
+          "name": "Goat-skin both heads with syahi tuning paste on treble (canonical)",
+          "descriptors": [
+            "goat-skin-syahi-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pakhawaj_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "pakhawaj_dagar_dhrupad",
+          "default": true,
+          "name": "Dagar dhrupad lineage (canonical)",
+          "descriptors": [
+            "dagar-dhrupad-lineage-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pakhawaj_kudau_singh",
+          "name": "Kudau Singh lineage",
+          "descriptors": [
+            "kudau-singh-lineage"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pakhawaj_nathdwara",
+          "name": "Nathdwara temple tradition",
+          "descriptors": [
+            "nathdwara-temple-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

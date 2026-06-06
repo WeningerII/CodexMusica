@@ -1,0 +1,123 @@
+{
+  "id": "bolero_mexicano",
+  "name": "Bolero mexicano",
+  "family": "pop",
+  "lineage": "Mexican adaptation of the broader Latin-American bolero, developed in mid-twentieth-century Mexico City through Agustín Lara (1897-1970) and the 1940s-1950s Mexican-cinema golden-age. Solo voice with piano-or-trio accompaniment, slow 2/4 meter with the canonical bolero rhythmic figure, intensely romantic-melancholic register. Distinguished from Cuban bolero by Mexican-Spanish lyrical register and elaborate harmonic-vocabulary.",
+  "recipe": "classic tropical early-1890s bolero mexicano, functional Song, Mexican branch, Latin am troubadour ballad poetry filin milonga. thick, full chest belt, chest resonance low mid, rhythmic. cedar phosphor bronze bronze parlor acoustic guitar, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, upright bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 531,
+  "score": 139.732,
+  "config": {
+    "traditions": [
+      "bolero_mexicano",
+      "filin_cubano",
+      "milonga"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 3.1325000000000003,
+          "voice_quality": 11.599999999999994,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.63,
+          "voice_microtone": 2.250000000000001,
+          "voice_tradition": 1.3649999999999998,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 5.265,
+          "voice_ensemble_config": 6.759999999999999,
+          "voice_ornament_system": 1.56,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 3.3150000000000004,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 2.69375,
+          "string_tuning": 0,
+          "top_wood_parlor": 1.69,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 1.69
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 2.69375,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 3.38,
+          "piano_hammer": 3.3150000000000004,
+          "piano_rim": 3.185,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "upright_strings": 0.24375000000000002,
+          "upright_play": 1.63
+        }
+      }
+    ],
+    "room": "mexico_bolero_xochimilco_studio",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_ela_m_251_telefunken",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

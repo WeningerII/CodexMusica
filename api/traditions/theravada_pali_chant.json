@@ -1,0 +1,68 @@
+{
+  "id": "theravada_pali_chant",
+  "name": "Theravada Pali chant",
+  "family": "global",
+  "lineage": "Sri Lankan / Burmese / Thai / Cambodian / Lao Theravada Buddhist scriptural-recitation tradition — the liturgical practice of reciting the Tipitaka (the Pali-language scripture-corpus codified at the First Buddhist Council c. 480 BCE) in slow modal melismatic chant; performed by monks in temple wat / vihara contexts at morning and evening services, festival celebrations (Vesak, Kathina), and ceremonial-meditational practice",
+  "recipe": "classic modern theravada pali chant, ritual Devotional, buddhist branch, southeast Asian art music vietnamese quan họ bắc ninh thai classical. declaimed, chest resonance low mid, callresponse articulation, Chinese classical vocal. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 455,
+  "score": 136.34,
+  "config": {
+    "traditions": [
+      "theravada_pali_chant",
+      "vietnamese_quan_ho",
+      "thai_classical"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "call_response_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 5.535,
+          "voice_vibrato": 3.299999999999999,
+          "voice_articulation": 0.63,
+          "voice_microtone": 0.325,
+          "voice_tradition": 5.005000000000001,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 1.3,
+          "voice_speech_song": 3.7049999999999996,
+          "voice_ensemble_config": 4.4399999999999995,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 5.07,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 1.575
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

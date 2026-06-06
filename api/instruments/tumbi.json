@@ -1,0 +1,381 @@
+{
+  "id": "tumbi",
+  "name": "Tumbi (Punjabi single-string)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tumbi",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tumbi_construction",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "tumbi_gourd",
+          "default": true,
+          "name": "Gourd-and-wood (canonical)",
+          "descriptors": [
+            "traditional",
+            "authentic",
+            "natural-material-resonance",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tumbi_synthetic",
+          "name": "Synthetic shell",
+          "descriptors": [
+            "durable",
+            "modern",
+            "commercial",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumbi_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tumbi_bhangra",
+          "default": true,
+          "name": "Bhangra (canonical)",
+          "descriptors": [
+            "standard",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tumbi_film",
+          "name": "Bollywood / film",
+          "descriptors": [
+            "modern",
+            "commercial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "session"
+          ]
+        },
+        {
+          "id": "tumbi_fusion",
+          "name": "Punjabi fusion / pop",
+          "descriptors": [
+            "cross-genre",
+            "contemporary",
+            "club-leaning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumbi_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tumbi_steel_modern",
+          "default": true,
+          "name": "Steel single string (modern canonical Punjabi)",
+          "descriptors": [
+            "steel-single-string-canonical-punjabi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tumbi_gut_historical",
+          "name": "Gut (pre-modern Punjabi historical)",
+          "descriptors": [
+            "gut-pre-modern-punjabi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tumbi_construction",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "tumbi_gourd",
+          "default": true,
+          "name": "Gourd-and-wood (canonical)",
+          "descriptors": [
+            "traditional",
+            "authentic",
+            "natural-material-resonance",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tumbi_synthetic",
+          "name": "Synthetic shell",
+          "descriptors": [
+            "durable",
+            "modern",
+            "commercial",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumbi_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tumbi_bhangra",
+          "default": true,
+          "name": "Bhangra (canonical)",
+          "descriptors": [
+            "standard",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tumbi_film",
+          "name": "Bollywood / film",
+          "descriptors": [
+            "modern",
+            "commercial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "session"
+          ]
+        },
+        {
+          "id": "tumbi_fusion",
+          "name": "Punjabi fusion / pop",
+          "descriptors": [
+            "cross-genre",
+            "contemporary",
+            "club-leaning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumbi_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tumbi_steel_modern",
+          "default": true,
+          "name": "Steel single string (modern canonical Punjabi)",
+          "descriptors": [
+            "steel-single-string-canonical-punjabi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tumbi_gut_historical",
+          "name": "Gut (pre-modern Punjabi historical)",
+          "descriptors": [
+            "gut-pre-modern-punjabi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

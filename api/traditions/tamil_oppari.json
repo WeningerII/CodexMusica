@@ -1,0 +1,68 @@
+{
+  "id": "tamil_oppari",
+  "name": "Tamil oppāri (ஒப்பாரி, women's lament)",
+  "family": "global",
+  "lineage": "Tamil women's mourning-song tradition continuous from medieval-Tamil-Nadu rural practice through 20th-century ethnographic documentation (M. D. Muthukumaraswamy and others) into modern continuous-tradition performance by working-class and Dalit-Tamil professional women keeners",
+  "recipe": "classic modern tamil oppāri, funeral Lament, south Asian branch, vocal drone modal, indian classical improv improv on frame, indian bard ballad poetry dhrupad cambodian chapei dang veng. vocal fry, declaimed, chest resonance low mid, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 394,
+  "score": 147.91,
+  "config": {
+    "traditions": [
+      "tamil_oppari",
+      "dhrupad",
+      "cambodian_chapei_dang_veng"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 3.6949999999999994,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.5149999999999997,
+          "voice_microtone": 0.24,
+          "voice_tradition": 10.334999999999999,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 4.29,
+          "voice_speech_song": 8.579999999999998,
+          "voice_ensemble_config": 5.589999999999998,
+          "voice_ornament_system": 5.5,
+          "voice_pitch_organization": 5.785,
+          "voice_processing_chain": 2.08,
+          "voice_multitrack_stack": 1.7850000000000001
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

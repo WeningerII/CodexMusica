@@ -1,0 +1,68 @@
+{
+  "id": "mississippi_delta_field_holler",
+  "name": "Mississippi Delta field holler",
+  "family": "global",
+  "lineage": "Mississippi-Delta-and-broader-American-South field-holler tradition continuous from antebellum-slavery-era African-American field-labor work-song practice through Reconstruction-era and Jim-Crow-era sharecropping-and-tenant-farming-labor continuous practice; the field-holler is documented as the foundational pre-blues vocal-tradition where solo field-laborers communicated across cotton-fields by stylized melismatic-shouting",
+  "recipe": "classic modern mississippi delta field holler, field Work, American south branch, sub saharan African field work, African diasporic funeral lament, anglo American protest song west-african rice-planting song mande-wolof west-african harvest-and-field song. thick, blues-shouter, tasteful, unrestrained. us dustbowl outdoor woody guthrie. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 467,
+  "score": 192.255,
+  "config": {
+    "traditions": [
+      "mississippi_delta_field_holler",
+      "west_african_rice_planting",
+      "mande_wolof_harvest"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_sob",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.5450000000000017,
+          "voice_quality": 19.12562499999999,
+          "voice_vibrato": 0.7237500000000001,
+          "voice_articulation": 24.000000000000007,
+          "voice_microtone": 1.6,
+          "voice_tradition": 17.224999999999994,
+          "voice_mechanism_compound": 0.5825,
+          "voice_estill_quality": 0.531875,
+          "voice_speech_song": 8.774999999999999,
+          "voice_ensemble_config": 6.109999999999999,
+          "voice_ornament_system": 4.271875,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 2.7387500000000005,
+          "voice_multitrack_stack": 2.97375
+        }
+      }
+    ],
+    "room": "us_dustbowl_outdoor_woody_guthrie",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

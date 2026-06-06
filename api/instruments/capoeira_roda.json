@@ -1,0 +1,248 @@
+{
+  "id": "capoeira_roda",
+  "name": "Capoeira roda",
+  "family": "ensemble",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "capoeira roda",
+  "parts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "cap_three_berimbaus",
+          "default": true,
+          "name": "Three berimbaus (gunga, médio, viola)",
+          "descriptors": [
+            "game-leading"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_pandeiros",
+          "name": "Two pandeiros",
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_atabaque",
+          "name": "Atabaque",
+          "descriptors": [
+            "ceremonial",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_agogo",
+          "name": "Agogô",
+          "descriptors": [
+            "timekeeping",
+            "traditional"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_reco_reco",
+          "name": "Reco-reco (scraper)",
+          "descriptors": [
+            "traditional",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_chorus",
+          "name": "Lead and chorus voices",
+          "descriptors": [
+            "call-response",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school",
+      "surface": false,
+      "name": "School",
+      "variants": [
+        {
+          "id": "cap_angola",
+          "default": true,
+          "name": "Capoeira Angola (slow, ritualistic)",
+          "descriptors": [
+            "traditional",
+            "ceremonial",
+            "contemplative"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_regional",
+          "surface": false,
+          "name": "Capoeira Regional (faster, athletic)",
+          "descriptors": [
+            "athletic",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "cap_three_berimbaus",
+          "default": true,
+          "name": "Three berimbaus (gunga, médio, viola)",
+          "descriptors": [
+            "game-leading"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_pandeiros",
+          "name": "Two pandeiros",
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_atabaque",
+          "name": "Atabaque",
+          "descriptors": [
+            "ceremonial",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_agogo",
+          "name": "Agogô",
+          "descriptors": [
+            "timekeeping",
+            "traditional"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_reco_reco",
+          "name": "Reco-reco (scraper)",
+          "descriptors": [
+            "traditional",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_chorus",
+          "name": "Lead and chorus voices",
+          "descriptors": [
+            "call-response",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school",
+      "surface": false,
+      "name": "School",
+      "variants": [
+        {
+          "id": "cap_angola",
+          "default": true,
+          "name": "Capoeira Angola (slow, ritualistic)",
+          "descriptors": [
+            "traditional",
+            "ceremonial",
+            "contemplative"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "cap_regional",
+          "surface": false,
+          "name": "Capoeira Regional (faster, athletic)",
+          "descriptors": [
+            "athletic",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "ritual-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

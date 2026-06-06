@@ -1,0 +1,595 @@
+{
+  "id": "combo_organ",
+  "name": "Combo organ (transistor-divider)",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": -1
+  },
+  "short": "combo organ",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "combo_organ_model",
+      "surface": false,
+      "name": "Model",
+      "variants": [
+        {
+          "id": "vox_continental_combo",
+          "name": "Vox Continental (1962-onward)",
+          "descriptors": [
+            "reedy",
+            "square-wave-derived"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "vox_jaguar_combo",
+          "name": "Vox Jaguar (1965-1969)",
+          "descriptors": [
+            "preset-organ",
+            "budget-British"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ]
+        },
+        {
+          "id": "farfisa_compact",
+          "name": "Farfisa Compact (1964-onward)",
+          "descriptors": [
+            "italian",
+            "brighter-than-Vox"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        },
+        {
+          "id": "farfisa_combo_compact_deluxe",
+          "default": true,
+          "name": "Farfisa Compact Deluxe",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "late-60s"
+          ]
+        },
+        {
+          "id": "gem_imperial_combo",
+          "name": "Gem Imperial / Generalmusic",
+          "descriptors": [
+            "Italian-secondary",
+            "cheaper-Farfisa-alternative",
+            "budget-Italian"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "combo_organ_voicing",
+      "surface": false,
+      "name": "Voicing / drawbar registration",
+      "variants": [
+        {
+          "id": "combo_organ_8_4_flute",
+          "default": true,
+          "name": "8' + 4' flute (mellow)",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        },
+        {
+          "id": "combo_organ_all_stops_reedy",
+          "name": "All-stops-out reedy",
+          "descriptors": [
+            "piercing"
+          ],
+          "match_tokens": [
+            "reedy",
+            "electric"
+          ],
+          "canonical_tags": [
+            "lead",
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "combo_organ_16_pedal",
+          "name": "16' pedal-tone",
+          "descriptors": [
+            "fundamental-doubling",
+            "low-end",
+            "dance-band"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ]
+        },
+        {
+          "id": "combo_organ_vibrato_on",
+          "name": "Vibrato switch on",
+          "descriptors": [
+            "warbling",
+            "mid-60s-period"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "combo_organ_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "combo_organ_british_invasion",
+          "default": true,
+          "name": "British Invasion / British R&B",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "lead-line"
+          ]
+        },
+        {
+          "id": "combo_organ_garage_rock",
+          "name": "60s American garage rock",
+          "descriptors": [
+            "square-wave-foregrounded"
+          ],
+          "match_tokens": [
+            "rock-context",
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "amateur"
+          ]
+        },
+        {
+          "id": "combo_organ_early_ska",
+          "name": "Early ska / rocksteady (Skatalites era)",
+          "descriptors": [
+            "Jamaican-1960s",
+            "horn-section-paired"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ]
+        },
+        {
+          "id": "combo_organ_doors_psych",
+          "name": "Late-60s psychedelic / The Doors archetype",
+          "descriptors": [
+            "psychedelic-foregrounded",
+            "lead-instrument-elevated",
+            "organ-driven-rock"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amp_make",
+      "surface": false,
+      "name": "Amplifier archetype",
+      "variants": [
+        {
+          "id": "amp_unspecified",
+          "default": true,
+          "name": "Unspecified",
+          "descriptors": [],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "amp_british_60s_selmer",
+          "name": "Selmer (Twin Selectortone, Truvoice — British 60s)",
+          "descriptors": [
+            "selmer-amp",
+            "british-60s-amp",
+            "midrange-honk",
+            "push-button-tone-select"
+          ],
+          "match_tokens": [
+            "electric",
+            "midrange-forward",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "beat-boom"
+          ]
+        },
+        {
+          "id": "amp_british_60s_vox_ac",
+          "name": "Vox AC15 / AC30 / Top Boost (British 60s chime)",
+          "descriptors": [
+            "vox-ac-amp",
+            "british-60s-amp",
+            "top-boost-chime",
+            "blue-alnico-speaker"
+          ],
+          "match_tokens": [
+            "electric",
+            "chimey",
+            "top-end-extension",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "beat-boom",
+            "jangle-pop"
+          ]
+        },
+        {
+          "id": "amp_leslie_rotary",
+          "name": "Leslie rotating-speaker cabinet",
+          "descriptors": [
+            "leslie-rotary",
+            "doppler-swirl"
+          ],
+          "match_tokens": [
+            "electric",
+            "modulated-by-rotation"
+          ],
+          "canonical_tags": [
+            "gospel",
+            "soul",
+            "jazz-organ",
+            "progressive-rock"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "combo_organ_model",
+      "surface": false,
+      "name": "Model",
+      "variants": [
+        {
+          "id": "vox_continental_combo",
+          "name": "Vox Continental (1962-onward)",
+          "descriptors": [
+            "reedy",
+            "square-wave-derived"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "vox_jaguar_combo",
+          "name": "Vox Jaguar (1965-1969)",
+          "descriptors": [
+            "preset-organ",
+            "budget-British"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ]
+        },
+        {
+          "id": "farfisa_compact",
+          "name": "Farfisa Compact (1964-onward)",
+          "descriptors": [
+            "italian",
+            "brighter-than-Vox"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        },
+        {
+          "id": "farfisa_combo_compact_deluxe",
+          "default": true,
+          "name": "Farfisa Compact Deluxe",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "late-60s"
+          ]
+        },
+        {
+          "id": "gem_imperial_combo",
+          "name": "Gem Imperial / Generalmusic",
+          "descriptors": [
+            "Italian-secondary",
+            "cheaper-Farfisa-alternative",
+            "budget-Italian"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "combo_organ_voicing",
+      "surface": false,
+      "name": "Voicing / drawbar registration",
+      "variants": [
+        {
+          "id": "combo_organ_8_4_flute",
+          "default": true,
+          "name": "8' + 4' flute (mellow)",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        },
+        {
+          "id": "combo_organ_all_stops_reedy",
+          "name": "All-stops-out reedy",
+          "descriptors": [
+            "piercing"
+          ],
+          "match_tokens": [
+            "reedy",
+            "electric"
+          ],
+          "canonical_tags": [
+            "lead",
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "combo_organ_16_pedal",
+          "name": "16' pedal-tone",
+          "descriptors": [
+            "fundamental-doubling",
+            "low-end",
+            "dance-band"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ]
+        },
+        {
+          "id": "combo_organ_vibrato_on",
+          "name": "Vibrato switch on",
+          "descriptors": [
+            "warbling",
+            "mid-60s-period"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "combo_organ_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "combo_organ_british_invasion",
+          "default": true,
+          "name": "British Invasion / British R&B",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "lead-line"
+          ]
+        },
+        {
+          "id": "combo_organ_garage_rock",
+          "name": "60s American garage rock",
+          "descriptors": [
+            "square-wave-foregrounded"
+          ],
+          "match_tokens": [
+            "rock-context",
+            "electric",
+            "reedy"
+          ],
+          "canonical_tags": [
+            "amateur"
+          ]
+        },
+        {
+          "id": "combo_organ_early_ska",
+          "name": "Early ska / rocksteady (Skatalites era)",
+          "descriptors": [
+            "Jamaican-1960s",
+            "horn-section-paired"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ]
+        },
+        {
+          "id": "combo_organ_doors_psych",
+          "name": "Late-60s psychedelic / The Doors archetype",
+          "descriptors": [
+            "psychedelic-foregrounded",
+            "lead-instrument-elevated",
+            "organ-driven-rock"
+          ],
+          "match_tokens": [
+            "electric",
+            "reedy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amp_make",
+      "surface": false,
+      "name": "Amplifier archetype",
+      "variants": [
+        {
+          "id": "amp_unspecified",
+          "default": true,
+          "name": "Unspecified",
+          "descriptors": [],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "amp_british_60s_selmer",
+          "name": "Selmer (Twin Selectortone, Truvoice — British 60s)",
+          "descriptors": [
+            "selmer-amp",
+            "british-60s-amp",
+            "midrange-honk",
+            "push-button-tone-select"
+          ],
+          "match_tokens": [
+            "electric",
+            "midrange-forward",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "beat-boom"
+          ]
+        },
+        {
+          "id": "amp_british_60s_vox_ac",
+          "name": "Vox AC15 / AC30 / Top Boost (British 60s chime)",
+          "descriptors": [
+            "vox-ac-amp",
+            "british-60s-amp",
+            "top-boost-chime",
+            "blue-alnico-speaker"
+          ],
+          "match_tokens": [
+            "electric",
+            "chimey",
+            "top-end-extension",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "beat-boom",
+            "jangle-pop"
+          ]
+        },
+        {
+          "id": "amp_leslie_rotary",
+          "name": "Leslie rotating-speaker cabinet",
+          "descriptors": [
+            "leslie-rotary",
+            "doppler-swirl"
+          ],
+          "match_tokens": [
+            "electric",
+            "modulated-by-rotation"
+          ],
+          "canonical_tags": [
+            "gospel",
+            "soul",
+            "jazz-organ",
+            "progressive-rock"
+          ]
+        }
+      ]
+    }
+  ]
+}

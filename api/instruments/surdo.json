@@ -1,0 +1,278 @@
+{
+  "id": "surdo",
+  "name": "Surdo (Brazilian samba bass)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "surdo",
+  "parts": [
+    {
+      "id": "surdo_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "surdo_primeira",
+          "default": true,
+          "name": "Surdo de primeira (largest, downbeat)",
+          "descriptors": [
+            "foundational",
+            "grounding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_segunda",
+          "name": "Surdo de segunda (mid)",
+          "descriptors": [
+            "off-beat",
+            "responsive",
+            "complementary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_terceira",
+          "name": "Surdo de terceira (smallest)",
+          "descriptors": [
+            "fills",
+            "virtuoso",
+            "responsive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surdo_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "surdo_nylon",
+          "default": true,
+          "name": "Nylon (modern canonical Rio carnival)",
+          "descriptors": [
+            "nylon-canonical-rio-carnival"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_hide",
+          "name": "Animal hide (pre-modern traditional)",
+          "descriptors": [
+            "hide-pre-modern-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_composite",
+          "name": "Synthetic composite (professional)",
+          "descriptors": [
+            "synthetic-composite-professional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surdo_shell",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "surdo_aluminum_canonical",
+          "default": true,
+          "name": "Aluminum (canonical modern Rio escola)",
+          "descriptors": [
+            "aluminum-canonical-modern-rio-escola"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_wood_staved",
+          "name": "Wood staved (pre-modern traditional)",
+          "descriptors": [
+            "wood-staved-pre-modern-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_steel",
+          "name": "Steel (mass-produced)",
+          "descriptors": [
+            "steel-mass-produced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "surdo_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "surdo_primeira",
+          "default": true,
+          "name": "Surdo de primeira (largest, downbeat)",
+          "descriptors": [
+            "foundational",
+            "grounding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_segunda",
+          "name": "Surdo de segunda (mid)",
+          "descriptors": [
+            "off-beat",
+            "responsive",
+            "complementary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_terceira",
+          "name": "Surdo de terceira (smallest)",
+          "descriptors": [
+            "fills",
+            "virtuoso",
+            "responsive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surdo_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "surdo_nylon",
+          "default": true,
+          "name": "Nylon (modern canonical Rio carnival)",
+          "descriptors": [
+            "nylon-canonical-rio-carnival"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_hide",
+          "name": "Animal hide (pre-modern traditional)",
+          "descriptors": [
+            "hide-pre-modern-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_composite",
+          "name": "Synthetic composite (professional)",
+          "descriptors": [
+            "synthetic-composite-professional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surdo_shell",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "surdo_aluminum_canonical",
+          "default": true,
+          "name": "Aluminum (canonical modern Rio escola)",
+          "descriptors": [
+            "aluminum-canonical-modern-rio-escola"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_wood_staved",
+          "name": "Wood staved (pre-modern traditional)",
+          "descriptors": [
+            "wood-staved-pre-modern-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "surdo_steel",
+          "name": "Steel (mass-produced)",
+          "descriptors": [
+            "steel-mass-produced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

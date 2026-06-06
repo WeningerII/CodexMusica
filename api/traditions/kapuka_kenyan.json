@@ -1,0 +1,121 @@
+{
+  "id": "kapuka_kenyan",
+  "name": "Kapuka (Kenyan urban pop)",
+  "family": "global",
+  "lineage": "Kapuka Kenyan urban-pop genre emerging in early-2000s Nairobi from the Ogopa DJs and Calif Records production camps. Characterized by mid-tempo beat with Swahili-Sheng (Nairobi street-slang) and English lyrical content over R&B-influenced synthesizer-and-drum-machine production. Distinguished from parallel genge by kapuka's slower-tempo R&B-leaning (vs genge's faster-hardcore-hip-hop-leaning) aesthetic targeting middle-class urban-Nairobi commercial-radio. Producer Lucas Bikedo at Ogopa DJs formed the production-hub anchor.",
+  "recipe": "classic 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm uk grime french rap. extended whistle, rap, chest resonance low mid, narrative. TR-808, sub bass analog synth, mahogany pyramid pure nickel bass British mid 60s era electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 439,
+  "score": 183.206,
+  "config": {
+    "traditions": [
+      "kapuka_kenyan",
+      "uk_grime_classic",
+      "french_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 11.689499999999999,
+          "voice_quality": 4.745,
+          "voice_vibrato": 1.66675,
+          "voice_articulation": 2.895,
+          "voice_microtone": 9.603249999999996,
+          "voice_tradition": 13.974999999999998,
+          "voice_mechanism_compound": 3.1500000000000004,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 6.954999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 0.1815,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 4.095000000000001,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 3.7657499999999997,
+          "drum_machine_808_context": 6.746499999999999,
+          "tr808_production_origin": 0.9674999999999999
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 9.666749999999999,
+          "oscillator": 0.7657499999999998,
+          "filter_topology": 1.69,
+          "envelope": 0.18525,
+          "modulation": 0.105
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 1.4299999999999997,
+          "body_wood": 1.69,
+          "pickup_config": 0.18525,
+          "string_type": 1.66675,
+          "scale_length_b": 1.66675,
+          "fretted_or_not": 0.0315,
+          "bass_technique": -0.035
+        }
+      }
+    ],
+    "room": "dar_es_salaam_zanzibar_taarab_culture_club",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

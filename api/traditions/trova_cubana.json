@@ -1,0 +1,85 @@
+{
+  "id": "trova_cubana",
+  "name": "Trova cubana",
+  "family": "global",
+  "lineage": "Cuban troubadour-song tradition emerging in late-nineteenth-century Santiago de Cuba and Havana from synthesis of Spanish romance ballad with Cuban son and bolero. Solo voice or duo with one or two acoustic guitars, intimate-confessional register. Trova tradicional (1890s-1920s, Sindo Garay, Manuel Corona) crystallized the genre; nueva trova (post-1968, Silvio Rodríguez, Pablo Milanés) integrated revolutionary-political content.",
+  "recipe": "classic mid-1890s trova cubana, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. vocal fry, lament wail, melodic, punctuated. fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 436,
+  "score": 122.638,
+  "config": {
+    "traditions": [
+      "trova_cubana",
+      "cape_verdean_batuko",
+      "french_musette"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.605,
+          "voice_quality": 3.095,
+          "voice_vibrato": 1.16025,
+          "voice_articulation": 0.7837500000000001,
+          "voice_microtone": 0.38999999999999996,
+          "voice_tradition": 1.56,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 5.069999999999999,
+          "voice_ornament_system": 1.56,
+          "voice_pitch_organization": 1.16775,
+          "voice_processing_chain": 2.9175,
+          "voice_multitrack_stack": 2.0437499999999997
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
+        },
+        "scores": {
+          "acoustic_technique": 6.445,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.7252500000000001,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.7949999999999999
+        }
+      }
+    ],
+    "room": "estudios_areito_havana",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "son_clave_3_2",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

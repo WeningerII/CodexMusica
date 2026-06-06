@@ -1,0 +1,133 @@
+{
+  "id": "cretan_lyra",
+  "name": "Cretan lyra (Cretan pear-shaped fiddle)",
+  "family": "global",
+  "lineage": "Cretan lyra solo-and-ensemble music tradition of Crete (Greece), centered on the pear-shaped three-string upright-played fiddle of unique Cretan construction (with the fingers stopping the strings from the side rather than pressing down, allowing characteristic Cretan-style pitch-glide ornament). Performance configuration: lyra leading with laouto long-neck-lute rhythmic-and-harmonic accompaniment, plus voice for sung repertoire. Repertoire spans the canonical Cretan dance-forms (pentozali fast-warrior-dance, syrtos slow-circle-dance, sousta), mantinada improvised-couplet form, and the rizitika hilltop-mountain-village ritual-song tradition. The post-twentieth-century Anogeia village and the Psarantonis-Xylouris family lineage anchor the canonical contemporary tradition. Distinguished from broader Greek nisiotika by Cretan-specific lyra-instrument signature.",
+  "recipe": "classic modern cretan lyra, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, chest resonance low mid, punctuated. walnut ribs canonical mid tier spruce face pyramid nylon oud, hard rock maple acer saccharum Baroque setup short neck shorter fingerboard violin orchestral, mulberry canonical cretan gut pre modern cretan cretan lyra. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 604,
+  "score": 175.204,
+  "config": {
+    "traditions": [
+      "cretan_lyra",
+      "indonesian_jaipongan",
+      "fuji"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.6102499999999997,
+          "voice_quality": 1.56,
+          "voice_vibrato": 0.8250000000000001,
+          "voice_articulation": 1.69,
+          "voice_microtone": 1.25,
+          "voice_tradition": 15.484249999999998,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 10.075,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 2.9450000000000003,
+          "voice_pitch_organization": 3.3702499999999995,
+          "voice_processing_chain": 3.0155000000000003,
+          "voice_multitrack_stack": 1.92525
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_thirteen",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "oud_school": 2.00025,
+          "oud_strings": 1.26,
+          "oud_pick": 1.645,
+          "oud_body_wood": 3.3702499999999995,
+          "oud_soundboard_wood": 2.98025,
+          "oud_string_material": 2.98025
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 5.55,
+          "orch_strings": 0.8700000000000001,
+          "orch_top_wood": -0.035,
+          "orch_back_wood": 1.445,
+          "orch_varnish": -0.035,
+          "orch_setup_period": 1.56,
+          "orch_bow": 5.069999999999999,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.51,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "cretan_lyra",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "lyra_strings": "lyra_3",
+          "lyra_use": "lyra_dance",
+          "lyra_body_wood": "lyra_mulberry",
+          "lyra_string_material": "lyra_gut_historical"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "lyra_strings": 0.38025,
+          "lyra_use": 0.9405000000000001,
+          "lyra_body_wood": 11.48025,
+          "lyra_string_material": 8.795
+        }
+      }
+    ],
+    "room": "athens_minos_studios_60s_70s",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

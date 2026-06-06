@@ -1,0 +1,68 @@
+{
+  "id": "romanian_cantece_de_tors",
+  "name": "Romanian cântece de tors (spinning songs)",
+  "family": "global",
+  "lineage": "Romanian spinning-song (cântece de tors) tradition continuous from premodern Romanian-rural domestic-textile-labor practice through 19th-century Romanian-folklorist documentation through 20th-century Béla Bartók Romanian-folk-collection canonical into modern Romanian-folk-revival continuous practice",
+  "recipe": "classic modern romanian cântece de tors, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, Slavic balkan field work, European lullaby irish spinning song sardinian boci de tela. thick, false fold engaged, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 398,
+  "score": 109.139,
+  "config": {
+    "traditions": [
+      "romanian_cantece_de_tors",
+      "irish_spinning_song",
+      "sardinian_boci_de_tela"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 6.885,
+          "voice_quality": 3.185,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0,
+          "voice_tradition": 16.639999999999997,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.39,
+          "voice_speech_song": 2.8600000000000003,
+          "voice_ensemble_config": 1.4299999999999997,
+          "voice_ornament_system": 2.5237499999999997,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 1.4949999999999999,
+          "voice_multitrack_stack": 0.39
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

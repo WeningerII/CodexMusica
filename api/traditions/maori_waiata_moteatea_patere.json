@@ -1,0 +1,68 @@
+{
+  "id": "maori_waiata_moteatea_patere",
+  "name": "Māori waiata mōteatea / patere (Maori praise-chant)",
+  "family": "global",
+  "lineage": "Māori praise-chant tradition continuous from pre-contact Māori ritual-practice through 19th-20th century continuous performance at marae context into modern Māori-cultural-revival; patere (women's rapid-recitation praise-and-genealogy-chant) and pao (impromptu praise-song) are the canonical Māori praise-chant forms",
+  "recipe": "classic modern māori waiata mōteatea / patere, praise Song, oceania pacific branch, sub saharan African praise song, indigenous ritual devotional, oceania pacific funeral lament zulu izibongo yoruba oríkì. extended whistle, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 405,
+  "score": 190.894,
+  "config": {
+    "traditions": [
+      "maori_waiata_moteatea_patere",
+      "zulu_izibongo",
+      "yoruba_oriki"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 25.495625,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.38999999999999996,
+          "voice_tradition": 16.705000000000002,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 1.018125,
+          "voice_speech_song": 9.034999999999998,
+          "voice_ensemble_config": 4.029999999999999,
+          "voice_ornament_system": 7.085,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 1.4949999999999999,
+          "voice_multitrack_stack": 1.17
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_pentatonic_long_song",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "id": "linndrum",
+  "name": "LinnDrum (LM-2)",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "short": "LinnDrum",
+  "parts": [
+    {
+      "id": "linndrum_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "linndrum_kick",
+          "default": true,
+          "name": "Kick (sampled, sharp)",
+          "descriptors": [
+            "fast-decay-focused-low"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "linndrum_snare",
+          "name": "Snare (gated, processed)",
+          "descriptors": [
+            "characteristic",
+            "eighties"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "reverb"
+          ]
+        },
+        {
+          "id": "linndrum_hat_perc",
+          "name": "Hi-hat / percussion",
+          "descriptors": [
+            "programmable",
+            "patch-bay"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "1980s"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linndrum_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "linndrum_pop_80s",
+          "default": true,
+          "name": "80s pop production",
+          "descriptors": [
+            "standard",
+            "session"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "linndrum_rb",
+          "name": "R&B / synth-funk",
+          "descriptors": [
+            "Minneapolis-school",
+            "eighties-soul",
+            "programmed"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "linndrum_hiphop_sample",
+          "name": "Hip-hop sampling source",
+          "descriptors": [
+            "classic-source",
+            "breakable",
+            "reissued-in-software"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linndrum_production_origin",
+      "surface": false,
+      "name": "Production origin",
+      "variants": [
+        {
+          "id": "linndrum_lm_2_canonical",
+          "default": true,
+          "name": "Linn Electronics LM-2 / LinnDrum (canonical 1982-1984 — Roger Linn lineage, 8-bit sample ROM)",
+          "descriptors": [
+            "linn-electronics-lm-2-linndrum-canonical-1982-1984-roger-linn-lineage-8-bit-sample-rom"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "linndrum_lm_1_earlier",
+          "name": "Linn LM-1 (1980-1982 — earliest sample-based drum machine, $5000 production-only)",
+          "descriptors": [
+            "linn-lm-1-1980-1982-earliest-sample-based-drum-machine-5000-production-only"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "linndrum_9000_late",
+          "name": "Linn 9000 (1984-1986 — MIDI-equipped successor)",
+          "descriptors": [
+            "linn-9000-1984-1986-midi-equipped-successor"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "linndrum_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "linndrum_kick",
+          "default": true,
+          "name": "Kick (sampled, sharp)",
+          "descriptors": [
+            "fast-decay-focused-low"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "linndrum_snare",
+          "name": "Snare (gated, processed)",
+          "descriptors": [
+            "characteristic",
+            "eighties"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "reverb"
+          ]
+        },
+        {
+          "id": "linndrum_hat_perc",
+          "name": "Hi-hat / percussion",
+          "descriptors": [
+            "programmable",
+            "patch-bay"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "1980s"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linndrum_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "linndrum_pop_80s",
+          "default": true,
+          "name": "80s pop production",
+          "descriptors": [
+            "standard",
+            "session"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "linndrum_rb",
+          "name": "R&B / synth-funk",
+          "descriptors": [
+            "Minneapolis-school",
+            "eighties-soul",
+            "programmed"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "linndrum_hiphop_sample",
+          "name": "Hip-hop sampling source",
+          "descriptors": [
+            "classic-source",
+            "breakable",
+            "reissued-in-software"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linndrum_production_origin",
+      "surface": false,
+      "name": "Production origin",
+      "variants": [
+        {
+          "id": "linndrum_lm_2_canonical",
+          "default": true,
+          "name": "Linn Electronics LM-2 / LinnDrum (canonical 1982-1984 — Roger Linn lineage, 8-bit sample ROM)",
+          "descriptors": [
+            "linn-electronics-lm-2-linndrum-canonical-1982-1984-roger-linn-lineage-8-bit-sample-rom"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "linndrum_lm_1_earlier",
+          "name": "Linn LM-1 (1980-1982 — earliest sample-based drum machine, $5000 production-only)",
+          "descriptors": [
+            "linn-lm-1-1980-1982-earliest-sample-based-drum-machine-5000-production-only"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "linndrum_9000_late",
+          "name": "Linn 9000 (1984-1986 — MIDI-equipped successor)",
+          "descriptors": [
+            "linn-9000-1984-1986-midi-equipped-successor"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ]
+}

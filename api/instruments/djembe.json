@@ -1,0 +1,302 @@
+{
+  "id": "djembe",
+  "name": "Djembe (West African goblet drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "djembe",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_hands_layered",
+          "default": true,
+          "name": "Hand percussion layered",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "pandeiro",
+            "tar_frame_drum",
+            "timbales",
+            "darbuka",
+            "cuica"
+          ],
+          "descriptors": [
+            "hands",
+            "layered"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        },
+        {
+          "id": "percussion_open_slap",
+          "name": "Open / slap (hand-drum)",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "darbuka",
+            "timbales"
+          ],
+          "descriptors": [
+            "open-slap",
+            "hand-drum"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "slappy",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "djembe_wood",
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "djembe_lenke",
+          "default": true,
+          "name": "Lenke (traditional Mali)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "authentic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "djembe_mahogany",
+          "name": "Mahogany",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "overtone-rich-sustained",
+            "accessible",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "djembe_iroko",
+          "name": "Iroko",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "djembe_skin",
+      "surface": false,
+      "name": "Skin",
+      "variants": [
+        {
+          "id": "djembe_goat_skin",
+          "surface": false,
+          "name": "Goat skin (traditional)",
+          "descriptors": [
+            "authentic",
+            "natural-material-resonance",
+            "crisp",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "djembe_synthetic",
+          "default": true,
+          "name": "Synthetic head",
+          "descriptors": [
+            "stable",
+            "consistent",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "djembe_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "djembe_traditional_3",
+          "default": true,
+          "name": "Three-tone Malian (slap, tone, bass)",
+          "descriptors": [
+            "virtuoso",
+            "traditional"
+          ],
+          "match_tokens": [
+            "folk-tradition",
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "djembe_wood",
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "djembe_lenke",
+          "default": true,
+          "name": "Lenke (traditional Mali)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "authentic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "djembe_mahogany",
+          "name": "Mahogany",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "overtone-rich-sustained",
+            "accessible",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "djembe_iroko",
+          "name": "Iroko",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "djembe_skin",
+      "surface": false,
+      "name": "Skin",
+      "variants": [
+        {
+          "id": "djembe_goat_skin",
+          "surface": false,
+          "name": "Goat skin (traditional)",
+          "descriptors": [
+            "authentic",
+            "natural-material-resonance",
+            "crisp",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "djembe_synthetic",
+          "default": true,
+          "name": "Synthetic head",
+          "descriptors": [
+            "stable",
+            "consistent",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "djembe_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "djembe_traditional_3",
+          "default": true,
+          "name": "Three-tone Malian (slap, tone, bass)",
+          "descriptors": [
+            "virtuoso",
+            "traditional"
+          ],
+          "match_tokens": [
+            "folk-tradition",
+            "percussive-attack",
+            "hands",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

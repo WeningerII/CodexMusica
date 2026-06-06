@@ -1,0 +1,322 @@
+{
+  "id": "upright_bass",
+  "name": "Upright (double) bass",
+  "family": "acoustic_strings",
+  "class": "bass",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "upright bass",
+  "parts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_flatpicked",
+          "name": "Flatpicked single-note",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mandolin",
+            "mandola",
+            "cittern",
+            "acoustic_guitar_parlor",
+            "upright_bass"
+          ],
+          "descriptors": [
+            "flatpicked",
+            "articulated"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "bluegrass",
+            "old-time"
+          ],
+          "default": true
+        },
+        {
+          "id": "acoustic_chord_melody",
+          "name": "Chord-melody",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "mandolin",
+            "upright_bass"
+          ],
+          "descriptors": [
+            "chord-melody"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "chordal",
+            "block-chord",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "upright_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "gut_upright",
+          "default": true,
+          "name": "Gut",
+          "descriptors": [
+            "thumpy",
+            "vintage",
+            "gut"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "gut_wound_upright",
+          "name": "Gut-core wound",
+          "descriptors": [
+            "growly",
+            "gut"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "steel_upright",
+          "name": "Steel",
+          "descriptors": [
+            "treble-extended",
+            "sustaining",
+            "soloistic",
+            "steel"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "synthetic_upright",
+          "name": "Synthetic core",
+          "descriptors": [
+            "balanced",
+            "modern",
+            "versatile",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "acoustic-only",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "upright_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "pizz_upright",
+          "default": true,
+          "name": "Pizzicato (plucked)",
+          "descriptors": [
+            "thumpy",
+            "round"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "arco_upright",
+          "name": "Arco (bowed)",
+          "descriptors": [
+            "singing",
+            "sustaining",
+            "classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "slap_upright",
+          "name": "Slap technique",
+          "descriptors": [
+            "percussive",
+            "rhythmic",
+            "rockabilly"
+          ],
+          "match_tokens": [
+            "slappy",
+            "percussive-attack",
+            "acoustic-only"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "acoustic_technique",
+      "default_variant": "acoustic_flatpicked"
+    },
+    {
+      "id": "upright_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "gut_upright",
+          "default": true,
+          "name": "Gut",
+          "descriptors": [
+            "thumpy",
+            "vintage",
+            "gut"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "gut_wound_upright",
+          "name": "Gut-core wound",
+          "descriptors": [
+            "growly",
+            "gut"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "steel_upright",
+          "name": "Steel",
+          "descriptors": [
+            "treble-extended",
+            "sustaining",
+            "soloistic",
+            "steel"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "synthetic_upright",
+          "name": "Synthetic core",
+          "descriptors": [
+            "balanced",
+            "modern",
+            "versatile",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "acoustic-only",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "upright_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "pizz_upright",
+          "default": true,
+          "name": "Pizzicato (plucked)",
+          "descriptors": [
+            "thumpy",
+            "round"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "arco_upright",
+          "name": "Arco (bowed)",
+          "descriptors": [
+            "singing",
+            "sustaining",
+            "classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "slap_upright",
+          "name": "Slap technique",
+          "descriptors": [
+            "percussive",
+            "rhythmic",
+            "rockabilly"
+          ],
+          "match_tokens": [
+            "slappy",
+            "percussive-attack",
+            "acoustic-only"
+          ]
+        }
+      ]
+    }
+  ]
+}

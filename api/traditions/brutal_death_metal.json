@@ -1,0 +1,153 @@
+{
+  "id": "brutal_death_metal",
+  "name": "Brutal death metal",
+  "family": "global",
+  "lineage": "Extreme-aggressive death-metal sub-style codified through Suffocation (Effigy of the Forgotten 1991), Cannibal Corpse (Tomb of the Mutilated 1992), Cryptopsy (None So Vile 1996), Disgorge — characterized by guttural-pig-squeal vocals, sub-200-BPM blast-beat drums, and downtuned-baritone-guitar low-end",
+  "recipe": "classic early-1990s brutal death metal, distorted Rock, death branch, thrash metal groove metal djent. thick, low dynamic level, chest resonance low mid, punctuated. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 569,
+  "score": 378.437,
+  "config": {
+    "traditions": [
+      "brutal_death_metal",
+      "groove_metal",
+      "djent"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 5.389625000000002,
+          "voice_quality": 1.9236250000000006,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 0.78,
+          "voice_microtone": 5.355000000000002,
+          "voice_tradition": 1.625,
+          "voice_mechanism_compound": 16.18725,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 2.4050000000000002,
+          "voice_ensemble_config": 2.34,
+          "voice_ornament_system": 2.3236250000000003,
+          "voice_pitch_organization": 2.5051249999999996,
+          "voice_processing_chain": 1.56,
+          "voice_multitrack_stack": 0.664125
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 16.955375,
+          "amp_make": 5.655000000000001,
+          "body_wood": 7.15,
+          "neck_wood": 1.3,
+          "fretboard": 1.3,
+          "pickup_magnet": 0.80025,
+          "pickup_winding": 1.126,
+          "string_material": 0.39449999999999996,
+          "bridge": 1.3,
+          "scale_length": 8.45,
+          "string_gauge": 1.3,
+          "finish": 0.3,
+          "string_tuning": 11.309999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 2.7950000000000004,
+          "body_wood": 1.98975,
+          "pickup_config": 0.55875,
+          "string_type": 7.15,
+          "scale_length_b": 2.4619999999999997,
+          "fretted_or_not": 0.2265,
+          "bass_technique": 5.5760000000000005
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "double_coated",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 2.34,
+          "shell_wood": 2.6,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 1.3,
+          "drumhead": 1.625,
+          "snare_wires": 1.3,
+          "cymbal_alloy": 17.0945,
+          "cymbal_hammering": 5.595000000000001,
+          "cymbal_lathing": 5.431500000000001,
+          "cymbal_finish": 0.39449999999999996,
+          "drum_technique": 5.5
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_mesa_dual_rectifier",
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

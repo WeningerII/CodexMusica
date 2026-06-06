@@ -1,0 +1,92 @@
+{
+  "id": "vaporwave",
+  "name": "Vaporwave",
+  "family": "global",
+  "lineage": "2010s online-distributed electronic micro-genre nostalgically recontextualizing 1980s-1990s corporate-mall-and-soft-rock background music through pitch-shifting, chopping, and ironic-commentary visual presentation — codified through Macintosh Plus (Floral Shoppe 2011, the founding vaporwave album), Vektroid, Saint Pepsi, Blank Banshee, and continuing through the broader online-aesthetic vaporwave subscene",
+  "recipe": "classic mid-2010s vaporwave, experimental Elec, lofi branch, retro aesthetic experimental electric synthwave. sampler drum string machine, tape replay keyboard, analog synth. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 292,
+  "score": 24.829,
+  "config": {
+    "traditions": [
+      "vaporwave",
+      "synthwave"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "sample_bitdepth": 0.8451249999999999,
+          "sample_swing": 4,
+          "sample_processing": 0.8049999999999999
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "choir_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "tape_voice": 0,
+          "tape_state": 0.042749999999999996
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_off",
+          "sm_voicing": "sm_cellos"
+        },
+        "scores": {
+          "electronic_technique": 0.8244999999999999,
+          "sm_voice_count": 1.4300000000000002,
+          "sm_chorus": 0.3,
+          "sm_voicing": 0.0315
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "triangle_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 0.8244999999999999,
+          "oscillator": 0.3,
+          "filter_topology": 0.22937499999999997,
+          "envelope": 0.39,
+          "modulation": 0.18525
+        }
+      }
+    ],
+    "room": "tape_echo_chamber",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "vaporwave_aesthetic",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

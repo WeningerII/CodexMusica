@@ -1,0 +1,108 @@
+{
+  "id": "greenwich_village_confessional",
+  "name": "1960s Greenwich Village confessional folk",
+  "family": "global",
+  "lineage": "Early-1960s Greenwich Village (Cafe Wha, Gerdes Folk City, the Bitter End) folk-revival singer-songwriter circuit — Bob Dylan, Phil Ochs, Dave Van Ronk, Joan Baez early years, Tom Paxton, Eric Andersen",
+  "recipe": "classic North American 1960s greenwich village confessional folk, ballad Poetry, 60s confessional, anglo singer song laurel canyon, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, Scottish Gaelic vocal, m1 with m0 pulse borrowing. verse-lament through-composed narrative, through composed, static dynamic envelope, vocal ornamentation as intensification. fingerpicked acoustic guitar, pearwood marine band tradition brass traditional straight harmonica. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 685,
+  "score": 278.805,
+  "config": {
+    "traditions": [
+      "greenwich_village_confessional",
+      "britfolk_revival",
+      "laurel_canyon_70s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 14.149999999999995,
+          "voice_quality": 14.385000000000002,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.13000000000000003,
+          "voice_microtone": 0.49999999999999983,
+          "voice_tradition": 15.286624999999997,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 5.6137500000000005,
+          "voice_speech_song": 6.045,
+          "voice_ensemble_config": 1.8199999999999998,
+          "voice_ornament_system": 5.488125,
+          "voice_pitch_organization": 2.2775,
+          "voice_processing_chain": 1.56,
+          "voice_multitrack_stack": 3.3150000000000004
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "dadgad",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 30.360875,
+          "string_tuning": 1.9449999999999996,
+          "top_wood": 0.0525,
+          "back_sides": 0.0525,
+          "string_acoustic": 0.39,
+          "acoustic_om_technique": 30.360875
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonica_type": "tremolo_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_folk_first_position",
+          "harmonica_maker_school": "harmonica_hering_brazilian",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 16.104999999999997,
+          "harmonica_type": 0.6975,
+          "harmonica_comb": 1.6899999999999997,
+          "harmonica_reed": 1.4499999999999997,
+          "harmonica_technique": 16.104999999999997,
+          "harmonica_maker_school": 0.3,
+          "harmonica_tuning": 0.39
+        }
+      }
+    ],
+    "room": "a_and_r_recording_nyc",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "folk_fingerstyle_alternating_bass",
+    "aesthetic": null,
+    "arrangement": "verse_lament_through_composed",
+    "fx_extras": []
+  }
+}

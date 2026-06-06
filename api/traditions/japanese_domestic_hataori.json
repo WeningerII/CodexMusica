@@ -1,0 +1,68 @@
+{
+  "id": "japanese_domestic_hataori",
+  "name": "Japanese domestic weaving-song (機織り唄, hata-ori uta)",
+  "family": "global",
+  "lineage": "Japanese domestic weaving-song (hata-ori uta, 機織り唄) tradition continuous from premodern Japanese-rural domestic-textile-labor practice (the canonical Japanese silk-and-cotton weaving was performed predominantly by women at the home-loom, with extensive song-coordination of the throw-the-shuttle-and-pull-the-beater rhythmic-labor) through Edo-period continuous performance into modern Japanese-rural-and-revival continuous practice",
+  "recipe": "classic modern japanese domestic weaving-song, domestic Rhythm, east Asian arctic branch, Celtic hebridean domestic rhythm, east Asian lullaby, east Asian field work japanese taue-uta japanese komoriuta. incomplete closure resting, tasteful, continuous-phonation, min yo. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 425,
+  "score": 150.619,
+  "config": {
+    "traditions": [
+      "japanese_domestic_hataori",
+      "japanese_taue_uta",
+      "japanese_komoriuta"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 1.2449999999999999,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0,
+          "voice_tradition": 34.408125,
+          "voice_mechanism_compound": 3.6500000000000004,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 11.244999999999997,
+          "voice_ensemble_config": 5.329999999999999,
+          "voice_ornament_system": 4.345000000000001,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 2.08,
+          "voice_multitrack_stack": 2.08
+        }
+      }
+    ],
+    "room": "tatami_parlor_japanese",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "japanese_yo_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

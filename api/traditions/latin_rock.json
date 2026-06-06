@@ -1,0 +1,196 @@
+{
+  "id": "latin_rock",
+  "name": "Latin rock (late-1960s Afro-Cuban-percussion rock)",
+  "family": "rock_punk",
+  "lineage": "Late-1960s-and-onward rock subgenre integrating Afro-Cuban percussion (congas, timbales, bongos) and Latin-American rhythmic-harmonic-vocabulary with rock guitar-bass-drum aesthetic. Santana (San Francisco, 1966-onward) inaugurated the canonical Latin rock sound through the 1969 Woodstock performance and the first three Santana albums (1969-1971); Malo, El Chicano, War, and (later) Café Tacuba and Maná in Spanish-language Latin-rock extended the genre.",
+  "recipe": "classic North American latin rock, distorted Rock, regional branch, son salsa Cuban salsa dura salsa colombiana. thick, rap, nervy, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 822,
+  "score": 448.506,
+  "config": {
+    "traditions": [
+      "latin_rock",
+      "salsa_dura",
+      "salsa_colombiana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 21.444999999999997,
+          "voice_quality": 1.56,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.69,
+          "voice_microtone": 21.605,
+          "voice_tradition": 3.835,
+          "voice_mechanism_compound": 1.755,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 1.55,
+          "voice_multitrack_stack": 4.5264999999999995
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 3.9250000000000003,
+          "amp_make": 9.888999999999998,
+          "body_wood": 0.38999999999999996,
+          "neck_wood": 1.69,
+          "fretboard": 1.69,
+          "pickup_magnet": 0.0765,
+          "pickup_winding": 0.22349999999999998,
+          "string_material": 1.69,
+          "bridge": 0.38999999999999996,
+          "scale_length": 1.4300000000000002,
+          "string_gauge": 0.38999999999999996,
+          "finish": 0,
+          "string_tuning": 13.712750000000003
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 1.9765000000000001,
+          "amp_make": 11.9555,
+          "body_wood": 0.7799999999999999,
+          "pickup_config": 0.195,
+          "string_type": 23.289,
+          "scale_length_b": 0.38999999999999996,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 21.7765
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_clear",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 8.319999999999999,
+          "shell_wood": 1.69,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 0.38999999999999996,
+          "drumhead": 1.69,
+          "snare_wires": 0.38999999999999996,
+          "cymbal_alloy": 23.38875,
+          "cymbal_hammering": 21.65,
+          "cymbal_lathing": 21.6815,
+          "cymbal_finish": 1.69,
+          "drum_technique": 21.75
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "percussion_technique": 19.689999999999998,
+          "timbales_shell": 0.495,
+          "timbales_context": 0.24
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 19.689999999999998,
+          "conga_set": 0.21300000000000002,
+          "conga_skin": 5.59,
+          "conga_shell_wood": 5.59
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_son",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 19.689999999999998,
+          "bongos_skin": 7.865,
+          "bongos_context": 0.0765,
+          "bongos_shell_wood": 5.59
+        }
+      }
+    ],
+    "room": "wally_heider_studios_sf",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "rumba_clave_3_2",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

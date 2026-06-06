@@ -1,0 +1,2191 @@
+{
+  "id": "electric_guitar_humbucker",
+  "name": "Solid-body electric guitar with humbucking pickups",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "humbucker solid-body electric guitar",
+  "parts": [
+    {
+      "id": "electric_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "electric_clean_strummed",
+          "default": true,
+          "name": "Clean strummed",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "twelve_string_electric",
+            "archtop_jazz",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "clean",
+            "strummed"
+          ],
+          "match_tokens": [
+            "electric",
+            "open-chord-ringing-overtones",
+            "picked"
+          ],
+          "canonical_tags": [
+            "pop",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "electric_chicken_scratch",
+          "name": "Chicken-scratch (muted comp)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker"
+          ],
+          "descriptors": [
+            "chicken-scratch",
+            "midrange-forward",
+            "clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "picked"
+          ],
+          "canonical_tags": [
+            "funk",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "electric_overdriven_lead",
+          "name": "Overdriven single-note lead",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker"
+          ],
+          "descriptors": [
+            "overdriven",
+            "singing"
+          ],
+          "match_tokens": [
+            "electric",
+            "lead",
+            "lead-melody",
+            "picked"
+          ],
+          "canonical_tags": [
+            "rock-canonical",
+            "blues-rock"
+          ]
+        },
+        {
+          "id": "electric_palm_muted_chug",
+          "name": "Palm-muted chug",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "palm-muted",
+            "percussive"
+          ],
+          "match_tokens": [
+            "electric",
+            "muted",
+            "chugging-rhythm",
+            "picked"
+          ],
+          "canonical_tags": [
+            "metal",
+            "punk"
+          ]
+        },
+        {
+          "id": "electric_power_chord",
+          "name": "Power-chord rhythm",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker"
+          ],
+          "descriptors": [
+            "power-chord",
+            "distorted"
+          ],
+          "match_tokens": [
+            "electric",
+            "chordal",
+            "block-chord",
+            "picked"
+          ],
+          "canonical_tags": [
+            "rock-canonical",
+            "metal"
+          ]
+        },
+        {
+          "id": "electric_fuzz_riff",
+          "name": "Fuzz-driven riff",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "semi_hollow_bass"
+          ],
+          "descriptors": [
+            "fuzzed",
+            "riff-driven"
+          ],
+          "match_tokens": [
+            "electric",
+            "fuzzy-saturation",
+            "picked"
+          ],
+          "canonical_tags": [
+            "psychedelic",
+            "doom"
+          ]
+        },
+        {
+          "id": "electric_jazz_comping",
+          "name": "Jazz comping",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "archtop_jazz",
+            "semi_hollow"
+          ],
+          "descriptors": [
+            "comped",
+            "clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "jazz-trained",
+            "comping"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "electric_arpeggiated_clean",
+          "name": "Arpeggiated clean",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "twelve_string_electric",
+            "archtop_jazz",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "arpeggio-decoration",
+            "picked"
+          ],
+          "canonical_tags": [
+            "shoegaze",
+            "post-punk",
+            "indie"
+          ]
+        },
+        {
+          "id": "electric_wah_funk",
+          "name": "Wah-pedal funk",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker"
+          ],
+          "descriptors": [
+            "wah-modulated"
+          ],
+          "match_tokens": [
+            "electric",
+            "funky",
+            "picked"
+          ],
+          "canonical_tags": [
+            "funk"
+          ]
+        },
+        {
+          "id": "electric_tremolo_picking",
+          "name": "Tremolo picking",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "electric",
+            "rapid-tremolo",
+            "picked"
+          ],
+          "canonical_tags": [
+            "surf",
+            "shoegaze"
+          ]
+        },
+        {
+          "id": "electric_feedback_drone",
+          "name": "Feedback drone",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker"
+          ],
+          "descriptors": [
+            "feedback",
+            "sustained"
+          ],
+          "match_tokens": [
+            "electric",
+            "drone-like",
+            "drone-foundation",
+            "picked"
+          ],
+          "canonical_tags": [
+            "noise",
+            "shoegaze"
+          ]
+        },
+        {
+          "id": "electric_slide_blues",
+          "name": "Slide / bottleneck blues",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "pedal_steel"
+          ],
+          "descriptors": [
+            "slide",
+            "bluesy"
+          ],
+          "match_tokens": [
+            "electric",
+            "blues-derived",
+            "blues-inflected",
+            "picked"
+          ],
+          "canonical_tags": [
+            "blues-canonical"
+          ]
+        },
+        {
+          "id": "electric_fingerstyle_country",
+          "name": "Fingerstyle country/folk",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "narrative"
+          ],
+          "match_tokens": [
+            "electric",
+            "picked"
+          ],
+          "canonical_tags": [
+            "country"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "amp_make",
+      "name": "Amplifier archetype",
+      "variants": [
+        {
+          "id": "amp_unspecified",
+          "default": true,
+          "name": "Unspecified",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass",
+            "pedal_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "amp_british_60s_selmer",
+          "name": "Selmer (Twin Selectortone, Truvoice — British 60s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "selmer-amp",
+            "british-60s-amp",
+            "midrange-honk",
+            "push-button-tone-select"
+          ],
+          "match_tokens": [
+            "electric",
+            "midrange-forward",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "british-beat-boom-canonical"
+          ]
+        },
+        {
+          "id": "amp_british_60s_vox_ac",
+          "name": "Vox AC15 / AC30 / Top Boost (British 60s chime)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric"
+          ],
+          "descriptors": [
+            "vox-ac-amp",
+            "british-60s-amp",
+            "top-boost-chime",
+            "blue-alnico-speaker"
+          ],
+          "match_tokens": [
+            "electric",
+            "chimey",
+            "top-end-extension",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "british-beat-boom-canonical",
+            "jangle-pop"
+          ]
+        },
+        {
+          "id": "amp_british_late_60s_marshall_plexi",
+          "name": "Marshall Plexi / JTM (British late-60s rock)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "marshall-plexi-amp",
+            "british-rock-amp",
+            "crunch-breakup",
+            "cranked-tube"
+          ],
+          "match_tokens": [
+            "electric",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-blues-rock",
+            "arena-rock"
+          ]
+        },
+        {
+          "id": "amp_american_fender_tweed",
+          "name": "Fender Tweed (Bassman / Deluxe — American 50s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "fender-tweed-amp",
+            "american-50s-amp",
+            "tweed-breakup",
+            "thick-midrange"
+          ],
+          "match_tokens": [
+            "electric",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "blues-canonical",
+            "rockabilly",
+            "country",
+            "early-rock-and-roll"
+          ]
+        },
+        {
+          "id": "amp_american_fender_blackface",
+          "name": "Fender Blackface (Twin / Deluxe Reverb — American 60s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "pedal_steel"
+          ],
+          "descriptors": [
+            "fender-blackface-amp",
+            "american-60s-amp",
+            "spring-reverb-bright",
+            "scooped-clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-with-reverb",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "surf",
+            "country",
+            "soul",
+            "funk",
+            "rhythm-and-blues"
+          ]
+        },
+        {
+          "id": "amp_modern_modeling",
+          "name": "Modeling amplifier (Kemper / Fractal / Katana)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "modeled-amp",
+            "digital-amplification",
+            "profile-based",
+            "modern-rig"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "djent",
+            "modern-metal"
+          ]
+        },
+        {
+          "id": "amp_british_marshall_jcm800",
+          "name": "Marshall JCM800 master-volume (British 80s metal/punk stack)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "marshall-jcm800-amp",
+            "british-80s-rock-amp",
+            "master-volume-overdrive",
+            "el34-stack-saturation"
+          ],
+          "match_tokens": [
+            "electric",
+            "high-gain",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "thrash-metal",
+            "hair-metal",
+            "punk",
+            "hardcore-punk"
+          ]
+        },
+        {
+          "id": "amp_british_hiwatt",
+          "name": "Hiwatt DR103 (British clean-headroom 100W)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "electric_bass"
+          ],
+          "descriptors": [
+            "hiwatt-amp",
+            "british-clean-amp",
+            "high-wattage-headroom",
+            "partridge-iron-transformers"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-headroom",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "progressive-rock",
+            "arena-rock",
+            "hard-rock"
+          ]
+        },
+        {
+          "id": "amp_british_orange",
+          "name": "Orange OR120 / Rockerverb (British heavy crunch)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "baritone_electric",
+            "electric_bass"
+          ],
+          "descriptors": [
+            "orange-amp",
+            "british-heavy-crunch",
+            "thick-mid-low",
+            "sludgy-character"
+          ],
+          "match_tokens": [
+            "electric",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "stoner-metal",
+            "sludge",
+            "doom",
+            "noise-rock"
+          ]
+        },
+        {
+          "id": "amp_roland_jc120",
+          "name": "Roland JC-120 Jazz Chorus (Japanese solid-state stereo, 1975)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric"
+          ],
+          "descriptors": [
+            "roland-jc120-amp",
+            "solid-state-stereo-chorus",
+            "pristine-clean",
+            "transistor-clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-chorused",
+            "solid-state-amplification"
+          ],
+          "canonical_tags": [
+            "post-punk",
+            "dream-pop",
+            "jazz-fusion",
+            "new-wave"
+          ]
+        },
+        {
+          "id": "amp_mesa_dual_rectifier",
+          "name": "Mesa/Boogie Dual Rectifier (modern California high-gain)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "mesa-dual-rectifier-amp",
+            "california-modern-saturation",
+            "scooped-mid-modern-metal",
+            "multi-mode-rectifier"
+          ],
+          "match_tokens": [
+            "electric",
+            "high-gain",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "nu-metal",
+            "modern-metal",
+            "djent"
+          ]
+        },
+        {
+          "id": "amp_soldano_slo100",
+          "name": "Soldano SLO-100 (boutique high-gain, 1987)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker"
+          ],
+          "descriptors": [
+            "soldano-slo-amp",
+            "boutique-high-gain",
+            "cascading-preamp-saturation",
+            "modified-marshall-derived"
+          ],
+          "match_tokens": [
+            "electric",
+            "high-gain",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "hair-metal",
+            "modern-rock",
+            "modern-metal"
+          ]
+        },
+        {
+          "id": "amp_american_fender_champ",
+          "name": "Fender Champ / Princeton (low-watt American tweed/blackface)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz"
+          ],
+          "descriptors": [
+            "fender-champ-amp",
+            "low-wattage-studio-grit",
+            "easily-cranked",
+            "natural-power-tube-breakup"
+          ],
+          "match_tokens": [
+            "electric",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "blues-canonical",
+            "studio-grit",
+            "rockabilly"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "mahogany_h",
+          "name": "Mahogany",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "woody",
+            "midrange-thick",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "default": true,
+          "name": "Mahogany with maple cap",
+          "descriptors": [
+            "low-mid-thick",
+            "articulate",
+            "singing",
+            "mahogany",
+            "maple"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "alder_h",
+          "name": "Alder",
+          "descriptors": [
+            "balanced",
+            "full-bodied",
+            "low-coloration-balanced",
+            "alder"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "korina",
+          "name": "Korina (limba)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "bell-clear-sustain"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "basswood_h",
+          "name": "Basswood",
+          "descriptors": [
+            "low-mid-scooped",
+            "soft-attack-transient",
+            "modern-metal-canonical",
+            "basswood"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neck_wood",
+      "surface": false,
+      "name": "Neck wood",
+      "variants": [
+        {
+          "id": "mahogany_neck_h",
+          "default": true,
+          "name": "Mahogany",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "woody",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "maple_neck_h",
+          "name": "Maple",
+          "descriptors": [
+            "glassy",
+            "snappy",
+            "treble-extended",
+            "maple"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretboard",
+      "surface": false,
+      "name": "Fretboard",
+      "variants": [
+        {
+          "id": "maple_fb_h",
+          "name": "Maple",
+          "descriptors": [
+            "snappy",
+            "glassy",
+            "attack-forward",
+            "maple"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "rosewood_fb_h",
+          "default": true,
+          "name": "Rosewood",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "oily-pore-damping",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "ebony_fb_h",
+          "name": "Ebony",
+          "descriptors": [
+            "fast-decay-low-resonance",
+            "percussive",
+            "ebony"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "pau_ferro_fb_h",
+          "name": "Pau ferro",
+          "descriptors": [
+            "treble-extended",
+            "balanced",
+            "pau-ferro"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickup_magnet",
+      "surface": false,
+      "name": "Humbucker magnet",
+      "variants": [
+        {
+          "id": "alnico_2_h",
+          "default": true,
+          "name": "Alnico II",
+          "descriptors": [
+            "bloomy",
+            "vintage",
+            "alnico"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "alnico_4_h",
+          "name": "Alnico IV",
+          "descriptors": [
+            "balanced",
+            "even",
+            "woody",
+            "alnico"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "alnico_5_h",
+          "name": "Alnico V",
+          "descriptors": [
+            "high-gain-saturation",
+            "scooped",
+            "focused-narrow-output",
+            "alnico"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "alnico_8_h",
+          "name": "Alnico VIII",
+          "descriptors": [
+            "fast-attack-transient",
+            "hot",
+            "modern",
+            "alnico"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "ceramic_h",
+          "name": "Ceramic",
+          "descriptors": [
+            "cutting",
+            "focused-narrow-output",
+            "sterile",
+            "ceramic"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickup_winding",
+      "surface": false,
+      "name": "Winding output",
+      "variants": [
+        {
+          "id": "low_wind",
+          "name": "Low-wind (~7.5–8.5k)",
+          "descriptors": [
+            "vintage",
+            "low-output-no-compression",
+            "dynamic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "mid_wind",
+          "default": true,
+          "name": "Mid-wind (~8.5–10k)",
+          "descriptors": [
+            "balanced",
+            "classic",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "high_wind",
+          "name": "High-output (10k+)",
+          "descriptors": [
+            "hot",
+            "compressed",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "nickel_plated_h",
+          "name": "Nickel-plated steel",
+          "descriptors": [
+            "balanced",
+            "treble-extended",
+            "versatile",
+            "nickel-plated-steel",
+            "nickel",
+            "nickel-plated",
+            "steel"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "pure_nickel_h",
+          "default": true,
+          "name": "Pure nickel",
+          "descriptors": [
+            "vintage",
+            "treble-rolled-off",
+            "mellow",
+            "nickel"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "stainless_h",
+          "name": "Stainless steel",
+          "descriptors": [
+            "zingy",
+            "treble-extended",
+            "durable",
+            "stainless-steel",
+            "steel"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bridge",
+      "surface": false,
+      "name": "Bridge",
+      "variants": [
+        {
+          "id": "stoptail",
+          "name": "Stoptail with separate bridge",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "sustaining",
+            "woody"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "string_thru",
+          "name": "String-through-body",
+          "descriptors": [
+            "fast-decay-focused-low",
+            "present",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "vibrato_arm",
+          "default": true,
+          "name": "Vibrato tailpiece (lever)",
+          "descriptors": [
+            "subtle",
+            "woody",
+            "vintage"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "electric"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scale_length",
+      "surface": false,
+      "name": "Scale length",
+      "variants": [
+        {
+          "id": "scale_gibson_h",
+          "default": true,
+          "name": "24.75\"",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "slinky",
+            "low-mid-thick"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "scale_fender_h",
+          "name": "25.5\"",
+          "descriptors": [
+            "snappy",
+            "taut",
+            "articulate"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "scale_baritone_h",
+          "name": "27\"–28\" baritone",
+          "descriptors": [
+            "extended-low-tension",
+            "tight-low-end-articulation",
+            "modern-metal-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_gauge",
+      "surface": false,
+      "name": "String gauge",
+      "variants": [
+        {
+          "id": "g_9_hum",
+          "name": "9s (light)",
+          "descriptors": [
+            "flexible",
+            "balanced",
+            "articulate"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "g_10_hum",
+          "default": true,
+          "name": "10s (regular)",
+          "descriptors": [
+            "full",
+            "present",
+            "balanced"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "g_11_hum",
+          "name": "11s (medium)",
+          "descriptors": [
+            "low-mid-thick",
+            "stiff"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "g_12_hum",
+          "name": "12s+ (heavy)",
+          "descriptors": [
+            "low-mid-thick",
+            "slow-attack-decay"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "surface": false,
+      "name": "Finish",
+      "variants": [
+        {
+          "id": "nitro_hum",
+          "default": true,
+          "name": "Nitrocellulose",
+          "descriptors": [
+            "thin",
+            "woody",
+            "breathing",
+            "nitrocellulose"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "poly_hum",
+          "name": "Polyurethane",
+          "descriptors": [
+            "glossy",
+            "sealed",
+            "stable",
+            "polyurethane"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "oil_satin_hum",
+          "name": "Oil / satin",
+          "descriptors": [
+            "undamped-body-resonance",
+            "woody",
+            "raw"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_tuning",
+      "surface": false,
+      "name": "String tuning",
+      "variants": [
+        {
+          "id": "standard_tuning",
+          "default": true,
+          "name": "Standard E",
+          "descriptors": [
+            "conventional-tuning",
+            "standard-pitch"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "drop_d",
+          "name": "Drop D",
+          "descriptors": [
+            "low-end-extended-power-chord",
+            "rock-metal-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "d_standard",
+          "name": "D standard (whole-step down)",
+          "descriptors": [
+            "lower-tension-down-tuning",
+            "doom-sludge-stoner-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "eb_standard",
+          "name": "Eb standard (half-step down)",
+          "descriptors": [
+            "classic-rock-hard-rock-canonical",
+            "soft-down-tuning"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "c_standard",
+          "name": "C standard (two-step down)",
+          "descriptors": [
+            "extended-low-tension",
+            "doom-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "drop_c",
+          "name": "Drop C",
+          "descriptors": [
+            "low-end-extended-aggressive",
+            "modern-metal-metalcore-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "drop_b",
+          "name": "Drop B",
+          "descriptors": [
+            "extreme-down-tuning",
+            "deathcore-djent-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "open_g",
+          "name": "Open G",
+          "descriptors": [
+            "open-string-slide-resonance",
+            "blues-slide-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "open_d",
+          "name": "Open D",
+          "descriptors": [
+            "open-string-resonance",
+            "slide-blues-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "open_e",
+          "name": "Open E",
+          "descriptors": [
+            "open-string-resonance",
+            "slide-blues-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "dadgad",
+          "name": "DADGAD",
+          "descriptors": [
+            "modal-open-tuning",
+            "celtic-modal-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "mahogany_h",
+          "name": "Mahogany",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "woody",
+            "midrange-thick",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "mahogany_maple_cap",
+          "default": true,
+          "name": "Mahogany with maple cap",
+          "descriptors": [
+            "low-mid-thick",
+            "articulate",
+            "singing",
+            "mahogany",
+            "maple"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "alder_h",
+          "name": "Alder",
+          "descriptors": [
+            "balanced",
+            "full-bodied",
+            "low-coloration-balanced",
+            "alder"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "korina",
+          "name": "Korina (limba)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "bell-clear-sustain"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "basswood_h",
+          "name": "Basswood",
+          "descriptors": [
+            "low-mid-scooped",
+            "soft-attack-transient",
+            "modern-metal-canonical",
+            "basswood"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neck_wood",
+      "surface": false,
+      "name": "Neck wood",
+      "variants": [
+        {
+          "id": "mahogany_neck_h",
+          "default": true,
+          "name": "Mahogany",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "woody",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "maple_neck_h",
+          "name": "Maple",
+          "descriptors": [
+            "glassy",
+            "snappy",
+            "treble-extended",
+            "maple"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretboard",
+      "surface": false,
+      "name": "Fretboard",
+      "variants": [
+        {
+          "id": "maple_fb_h",
+          "name": "Maple",
+          "descriptors": [
+            "snappy",
+            "glassy",
+            "attack-forward",
+            "maple"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "rosewood_fb_h",
+          "default": true,
+          "name": "Rosewood",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "oily-pore-damping",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "ebony_fb_h",
+          "name": "Ebony",
+          "descriptors": [
+            "fast-decay-low-resonance",
+            "percussive",
+            "ebony"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "pau_ferro_fb_h",
+          "name": "Pau ferro",
+          "descriptors": [
+            "treble-extended",
+            "balanced",
+            "pau-ferro"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickup_magnet",
+      "surface": false,
+      "name": "Humbucker magnet",
+      "variants": [
+        {
+          "id": "alnico_2_h",
+          "default": true,
+          "name": "Alnico II",
+          "descriptors": [
+            "bloomy",
+            "vintage",
+            "alnico"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "alnico_4_h",
+          "name": "Alnico IV",
+          "descriptors": [
+            "balanced",
+            "even",
+            "woody",
+            "alnico"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "alnico_5_h",
+          "name": "Alnico V",
+          "descriptors": [
+            "high-gain-saturation",
+            "scooped",
+            "focused-narrow-output",
+            "alnico"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "alnico_8_h",
+          "name": "Alnico VIII",
+          "descriptors": [
+            "fast-attack-transient",
+            "hot",
+            "modern",
+            "alnico"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "ceramic_h",
+          "name": "Ceramic",
+          "descriptors": [
+            "cutting",
+            "focused-narrow-output",
+            "sterile",
+            "ceramic"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickup_winding",
+      "surface": false,
+      "name": "Winding output",
+      "variants": [
+        {
+          "id": "low_wind",
+          "name": "Low-wind (~7.5–8.5k)",
+          "descriptors": [
+            "vintage",
+            "low-output-no-compression",
+            "dynamic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "mid_wind",
+          "default": true,
+          "name": "Mid-wind (~8.5–10k)",
+          "descriptors": [
+            "balanced",
+            "classic",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "high_wind",
+          "name": "High-output (10k+)",
+          "descriptors": [
+            "hot",
+            "compressed",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "nickel_plated_h",
+          "name": "Nickel-plated steel",
+          "descriptors": [
+            "balanced",
+            "treble-extended",
+            "versatile",
+            "nickel-plated-steel",
+            "nickel",
+            "nickel-plated",
+            "steel"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "pure_nickel_h",
+          "default": true,
+          "name": "Pure nickel",
+          "descriptors": [
+            "vintage",
+            "treble-rolled-off",
+            "mellow",
+            "nickel"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "stainless_h",
+          "name": "Stainless steel",
+          "descriptors": [
+            "zingy",
+            "treble-extended",
+            "durable",
+            "stainless-steel",
+            "steel"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bridge",
+      "surface": false,
+      "name": "Bridge",
+      "variants": [
+        {
+          "id": "stoptail",
+          "name": "Stoptail with separate bridge",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "sustaining",
+            "woody"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "string_thru",
+          "name": "String-through-body",
+          "descriptors": [
+            "fast-decay-focused-low",
+            "present",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "vibrato_arm",
+          "default": true,
+          "name": "Vibrato tailpiece (lever)",
+          "descriptors": [
+            "subtle",
+            "woody",
+            "vintage"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "electric"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scale_length",
+      "surface": false,
+      "name": "Scale length",
+      "variants": [
+        {
+          "id": "scale_gibson_h",
+          "default": true,
+          "name": "24.75\"",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "slinky",
+            "low-mid-thick"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "scale_fender_h",
+          "name": "25.5\"",
+          "descriptors": [
+            "snappy",
+            "taut",
+            "articulate"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "scale_baritone_h",
+          "name": "27\"–28\" baritone",
+          "descriptors": [
+            "extended-low-tension",
+            "tight-low-end-articulation",
+            "modern-metal-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_gauge",
+      "surface": false,
+      "name": "String gauge",
+      "variants": [
+        {
+          "id": "g_9_hum",
+          "name": "9s (light)",
+          "descriptors": [
+            "flexible",
+            "balanced",
+            "articulate"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "g_10_hum",
+          "default": true,
+          "name": "10s (regular)",
+          "descriptors": [
+            "full",
+            "present",
+            "balanced"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "g_11_hum",
+          "name": "11s (medium)",
+          "descriptors": [
+            "low-mid-thick",
+            "stiff"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "g_12_hum",
+          "name": "12s+ (heavy)",
+          "descriptors": [
+            "low-mid-thick",
+            "slow-attack-decay"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "surface": false,
+      "name": "Finish",
+      "variants": [
+        {
+          "id": "nitro_hum",
+          "default": true,
+          "name": "Nitrocellulose",
+          "descriptors": [
+            "thin",
+            "woody",
+            "breathing",
+            "nitrocellulose"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "poly_hum",
+          "name": "Polyurethane",
+          "descriptors": [
+            "glossy",
+            "sealed",
+            "stable",
+            "polyurethane"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "oil_satin_hum",
+          "name": "Oil / satin",
+          "descriptors": [
+            "undamped-body-resonance",
+            "woody",
+            "raw"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_tuning",
+      "surface": false,
+      "name": "String tuning",
+      "variants": [
+        {
+          "id": "standard_tuning",
+          "default": true,
+          "name": "Standard E",
+          "descriptors": [
+            "conventional-tuning",
+            "standard-pitch"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "drop_d",
+          "name": "Drop D",
+          "descriptors": [
+            "low-end-extended-power-chord",
+            "rock-metal-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "d_standard",
+          "name": "D standard (whole-step down)",
+          "descriptors": [
+            "lower-tension-down-tuning",
+            "doom-sludge-stoner-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "eb_standard",
+          "name": "Eb standard (half-step down)",
+          "descriptors": [
+            "classic-rock-hard-rock-canonical",
+            "soft-down-tuning"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "c_standard",
+          "name": "C standard (two-step down)",
+          "descriptors": [
+            "extended-low-tension",
+            "doom-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "drop_c",
+          "name": "Drop C",
+          "descriptors": [
+            "low-end-extended-aggressive",
+            "modern-metal-metalcore-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "drop_b",
+          "name": "Drop B",
+          "descriptors": [
+            "extreme-down-tuning",
+            "deathcore-djent-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "open_g",
+          "name": "Open G",
+          "descriptors": [
+            "open-string-slide-resonance",
+            "blues-slide-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "open_d",
+          "name": "Open D",
+          "descriptors": [
+            "open-string-resonance",
+            "slide-blues-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "open_e",
+          "name": "Open E",
+          "descriptors": [
+            "open-string-resonance",
+            "slide-blues-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        },
+        {
+          "id": "dadgad",
+          "name": "DADGAD",
+          "descriptors": [
+            "modal-open-tuning",
+            "celtic-modal-canonical"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "sustained"
+          ]
+        }
+      ]
+    }
+  ]
+}

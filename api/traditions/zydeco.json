@@ -1,0 +1,100 @@
+{
+  "id": "zydeco",
+  "name": "Zydeco",
+  "family": "global",
+  "lineage": "Black Creole French Louisiana dance-music tradition codified through Clifton Chenier (the King of Zydeco, the Houston-based bandleader from the 1950s through his death in 1987), Boozoo Chavis (the originator of the genre name with his 1954 Paper in My Shoe), Buckwheat Zydeco, Rockin Dopsie, Beau Jocque, Geno Delafose; characterized by piano accordion (the larger more harmonically capable cousin of the Cajun single-row accordion) plus frottoir rubboard (the metal washboard-derived percussion worn over the shoulders, the Cleveland and Willis Prudhomme innovation from the late 1940s), distinct from Cajun (which is white Acadian French Louisiana with single-row diatonic accordion)",
+  "recipe": "classic North American 1947-1949 zydeco, groove Percussion, Caribbean branch, blues electric functional song chicago blues jump blues. thick, forward-resonance, punctuated, blues inflected. petosa seattle American premium chordal accordion, frottoir. lafayette louisiana zydeco dance hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 421,
+  "score": 128.242,
+  "config": {
+    "traditions": [
+      "zydeco",
+      "chicago_blues",
+      "jump_blues"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "twang_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 5.544500000000002,
+          "voice_quality": 12.526499999999995,
+          "voice_vibrato": 0.2815,
+          "voice_articulation": 0.599625,
+          "voice_microtone": 2.08,
+          "voice_tradition": 5.460000000000001,
+          "voice_mechanism_compound": 3.769999999999999,
+          "voice_estill_quality": 8.754999999999997,
+          "voice_speech_song": 6.044999999999999,
+          "voice_ensemble_config": 7.149999999999999,
+          "voice_ornament_system": 0.26,
+          "voice_pitch_organization": 0.48149999999999993,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 2.7364999999999995
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmmm",
+          "bellows": "all_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_petosa_seattle"
+        },
+        "scores": {
+          "free_reed_technique": 9.063624999999996,
+          "accordion_reed_material": 0.1815,
+          "musette_offset": 2.3,
+          "reed_config": 3.9416249999999997,
+          "bellows": 0.03712499999999999,
+          "voicing_chamber": 0.105,
+          "accordion_maker_school": 2.08
+        }
+      },
+      {
+        "id": "frottoir",
+        "slots": {
+          "frottoir_construction": "frottoir_vest",
+          "frottoir_striker": "frottoir_thimbles"
+        },
+        "scores": {
+          "frottoir_construction": 8.839999999999996,
+          "frottoir_striker": 0.37424999999999997
+        }
+      }
+    ],
+    "room": "lafayette_louisiana_zydeco_dance_hall",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "americana_train_beat_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

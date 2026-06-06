@@ -1,0 +1,98 @@
+{
+  "id": "happy_hardcore",
+  "name": "Happy hardcore (UK 90s)",
+  "family": "electronic",
+  "lineage": "Mid-1990s UK electronic subgenre developed from hardcore breakbeat through faster-tempo (160-180 BPM) characterized by uplifting-and-bright synth-melodic-lead designs, sped-up female-vocal-sample hooks, and explicit rave-functional dance-floor-targeting. Slipmatt, Hixxy, Sharkey, Force & Styles, and the broader Bonkers compilation series anchor the canonical roster.",
+  "recipe": "classic British 1994-1996 happy hardcore, electronic Dance, hardstyle branch, eurodance electronic dance freestyle music. extended whistle, chest mix belt, chest resonance low mid, modern pop training. TR-808, analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 442,
+  "score": 108.129,
+  "config": {
+    "traditions": [
+      "happy_hardcore",
+      "freestyle_music",
+      "eurodance_90s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 2.7479999999999998,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.14625,
+          "voice_microtone": 0.045,
+          "voice_tradition": 1.625,
+          "voice_mechanism_compound": 6.062499999999999,
+          "voice_estill_quality": 1.24,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 8.330499999999999,
+          "voice_ornament_system": 0.31875,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 11.743749999999999,
+          "voice_multitrack_stack": 5.07
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 0.04875,
+          "drum_machine_808_context": 1.683,
+          "tr808_production_origin": 0.17925
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 1.56,
+          "oscillator": 1.70175,
+          "filter_topology": 1.69,
+          "envelope": 0.1785,
+          "modulation": 0.192
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

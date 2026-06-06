@@ -1,0 +1,422 @@
+{
+  "id": "ngoni",
+  "name": "Ngoni (West African plucked spike-lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ngoni",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_call_and_response",
+          "name": "Call-and-response",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "akonting",
+            "banjo_5_string",
+            "sintir",
+            "xalam"
+          ],
+          "descriptors": [
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "call-response",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "griot",
+            "west-african"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ngoni_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "ngoni_4",
+          "default": true,
+          "name": "Four-string Bambara",
+          "descriptors": [
+            "traditional",
+            "griot",
+            "rural"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "ngoni_7",
+          "name": "Seven-string extended",
+          "descriptors": [
+            "modern",
+            "virtuoso",
+            "versatile"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngoni_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "ngoni_griot",
+          "name": "Griot accompaniment",
+          "descriptors": [
+            "narrative",
+            "historical",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "ngoni_modern",
+          "default": true,
+          "name": "Modern world-music",
+          "descriptors": [
+            "ensemble",
+            "contemporary",
+            "crossover"
+          ],
+          "match_tokens": [
+            "modern",
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngoni_resonator",
+      "surface": false,
+      "name": "Resonator body",
+      "variants": [
+        {
+          "id": "ngoni_calabash_canonical",
+          "default": true,
+          "name": "Calabash gourd (canonical Bambara)",
+          "descriptors": [
+            "calabash-gourd",
+            "canonical-bambara"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "ngoni_carved_wood",
+          "name": "Carved wood body (modern luthier)",
+          "descriptors": [
+            "carved-wood",
+            "modern-luthier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngoni_skin",
+      "surface": false,
+      "name": "Top skin",
+      "variants": [
+        {
+          "id": "ngoni_cowhide",
+          "default": true,
+          "name": "Cowhide (canonical)",
+          "descriptors": [
+            "cowhide-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "ngoni_goat_skin",
+          "name": "Goat-skin (lighter alternative)",
+          "descriptors": [
+            "goat-skin"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngoni_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ngoni_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "ngoni_gut_historical",
+          "name": "Gut (pre-modern historical)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_fingerpicked"
+    },
+    {
+      "id": "ngoni_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "ngoni_4",
+          "default": true,
+          "name": "Four-string Bambara",
+          "descriptors": [
+            "traditional",
+            "griot",
+            "rural"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "ngoni_7",
+          "name": "Seven-string extended",
+          "descriptors": [
+            "modern",
+            "virtuoso",
+            "versatile"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngoni_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "ngoni_griot",
+          "name": "Griot accompaniment",
+          "descriptors": [
+            "narrative",
+            "historical",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "ngoni_modern",
+          "default": true,
+          "name": "Modern world-music",
+          "descriptors": [
+            "ensemble",
+            "contemporary",
+            "crossover"
+          ],
+          "match_tokens": [
+            "modern",
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngoni_resonator",
+      "surface": false,
+      "name": "Resonator body",
+      "variants": [
+        {
+          "id": "ngoni_calabash_canonical",
+          "default": true,
+          "name": "Calabash gourd (canonical Bambara)",
+          "descriptors": [
+            "calabash-gourd",
+            "canonical-bambara"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "ngoni_carved_wood",
+          "name": "Carved wood body (modern luthier)",
+          "descriptors": [
+            "carved-wood",
+            "modern-luthier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngoni_skin",
+      "surface": false,
+      "name": "Top skin",
+      "variants": [
+        {
+          "id": "ngoni_cowhide",
+          "default": true,
+          "name": "Cowhide (canonical)",
+          "descriptors": [
+            "cowhide-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "ngoni_goat_skin",
+          "name": "Goat-skin (lighter alternative)",
+          "descriptors": [
+            "goat-skin"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngoni_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ngoni_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "ngoni_gut_historical",
+          "name": "Gut (pre-modern historical)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

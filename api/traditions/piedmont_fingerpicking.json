@@ -1,0 +1,124 @@
+{
+  "id": "piedmont_fingerpicking",
+  "name": "Piedmont fingerpicking blues",
+  "family": "global",
+  "lineage": "Eastern-seaboard fingerpicked country blues tradition that flourished in the Piedmont region (Virginia, the Carolinas, Georgia) from the early 20th century — distinguished from the Mississippi Delta blues tradition (which is harder-edged and rhythmically heavier) by its lighter ragtime-derived right-hand fingerpicking, brighter harmonic vocabulary, and parlor-music influence; codified through Blind Boy Fuller (the Piedmont voice, recorded 1935-40), Blind Blake, the Reverend Gary Davis, Brownie McGhee, Sonny Terry, Etta Baker, Elizabeth Cotten (Freight Train, Shake Sugaree)",
+  "recipe": "classic mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song piedmont blues. thick, worn fold, melodic, narrative. open g tuning fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 485,
+  "score": 318.875,
+  "config": {
+    "traditions": [
+      "piedmont_fingerpicking",
+      "piedmont_blues"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 22.047499999999996,
+          "voice_quality": 19.149999999999995,
+          "voice_vibrato": 3.665,
+          "voice_articulation": 3.2743750000000005,
+          "voice_microtone": 7.614999999999999,
+          "voice_tradition": 7.615499999999999,
+          "voice_mechanism_compound": 1.75825,
+          "voice_estill_quality": 4.5531250000000005,
+          "voice_speech_song": 6.406374999999999,
+          "voice_ensemble_config": 6.416249999999999,
+          "voice_ornament_system": 1.4495,
+          "voice_pitch_organization": 1.645,
+          "voice_processing_chain": 2.814,
+          "voice_multitrack_stack": 1.3495000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "eighty_twenty_om",
+          "acoustic_om_technique": "om_bottleneck_slide"
+        },
+        "scores": {
+          "acoustic_technique": 8.119875,
+          "string_tuning": 12.25,
+          "top_wood": 0.0045,
+          "back_sides": 0.0045,
+          "string_acoustic": 0.345,
+          "acoustic_om_technique": 22.249999999999996
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonica_type": "octave_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 4.365,
+          "harmonica_type": 0.05749999999999999,
+          "harmonica_comb": 19.932999999999996,
+          "harmonica_reed": 16.7135,
+          "harmonica_technique": 20.0135,
+          "harmonica_maker_school": 15.614999999999997,
+          "harmonica_tuning": 7.614999999999999
+        }
+      },
+      {
+        "id": "mountain_dulcimer",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "dulcimer_strings": "dulcimer_4",
+          "dulcimer_tuning": "ionian_tuning",
+          "dulcimer_body_wood": "dulcimer_walnut_canonical",
+          "dulcimer_string_material": "dulcimer_phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 8.119875,
+          "dulcimer_strings": 0.39,
+          "dulcimer_tuning": 0.39,
+          "dulcimer_body_wood": 0.6044999999999999,
+          "dulcimer_string_material": 0
+        }
+      }
+    ],
+    "room": "us_dustbowl_outdoor_woody_guthrie",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

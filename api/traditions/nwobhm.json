@@ -1,0 +1,153 @@
+{
+  "id": "nwobhm",
+  "name": "NWOBHM (New Wave of British Heavy Metal)",
+  "family": "global",
+  "lineage": "Late-1970s through mid-1980s UK metal revival movement that emerged in response to the punk-and-disco displacement of mid-1970s hard rock — codified through Iron Maiden (the NWOBHM founding band, Iron Maiden 1980, The Number of the Beast 1982, Powerslave 1984), Judas Priest (the older band that became NWOBHM-adjacent through British Steel 1980 and Screaming for Vengeance 1982), Saxon, Diamond Head (whose Lightning to the Nations 1980 directly influenced Metallica), Def Leppard (early album On Through the Night 1980 before their pop-metal commercial turn), Motörhead",
+  "recipe": "classic North American 1977-1979 nwobhm, distorted Rock, nwobhm branch, classic distorted rock britpop. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, mahogany pre muffled edge muffled machine hammered symmetric pattern drum kit. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 664,
+  "score": 446.264,
+  "config": {
+    "traditions": [
+      "nwobhm",
+      "britpop",
+      "mod_60s_british"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 11.032499999999994,
+          "voice_quality": 2.405,
+          "voice_vibrato": 2.6,
+          "voice_articulation": 0.31124999999999997,
+          "voice_microtone": 11.049999999999997,
+          "voice_tradition": 2.535,
+          "voice_mechanism_compound": 21.532499999999995,
+          "voice_estill_quality": 2.33,
+          "voice_speech_song": 5.6549999999999985,
+          "voice_ensemble_config": 5.589999999999998,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 13.600000000000001,
+          "voice_multitrack_stack": 8.275
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 22.411249999999995,
+          "amp_make": 12.219999999999999,
+          "body_wood": 9.229999999999997,
+          "neck_wood": 2.6,
+          "fretboard": 2.535,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.9099999999999999,
+          "string_material": 1.135,
+          "bridge": 2.6,
+          "scale_length": 6.629999999999998,
+          "string_gauge": 2.6,
+          "finish": 0.435,
+          "string_tuning": 13.519999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 2.93375,
+          "amp_make": 8.775,
+          "body_wood": 2.6,
+          "pickup_config": 0,
+          "string_type": 11.375,
+          "scale_length_b": 2.9899999999999998,
+          "fretted_or_not": 0,
+          "bass_technique": 11.73375
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 5.589999999999998,
+          "shell_wood": 1.69,
+          "shell_thickness": 0,
+          "bearing_edges": 2.6,
+          "drumhead": 2.6,
+          "snare_wires": 2.6,
+          "cymbal_alloy": 27.884999999999998,
+          "cymbal_hammering": 11.65,
+          "cymbal_lathing": 11.29,
+          "cymbal_finish": 0.195,
+          "drum_technique": 8.84
+        }
+      }
+    ],
+    "room": "uk_70s_hard_rock_arena_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_marshall_plexi_1959",
+      "medium": "tape_15ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "id": "cape_verdean_cavaquinho",
+  "name": "Cape Verdean cavaquinho",
+  "family": "acoustic_strings",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "cv-cavaquinho",
+  "parts": [
+    {
+      "id": "cv_cavaquinho_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "cv_cavaquinho_traditional",
+          "default": true,
+          "name": "Traditional 16-fret",
+          "descriptors": [
+            "bright",
+            "mid-strong",
+            "small-body-resonance",
+            "steel-strung"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body",
+            "creole-atlantic"
+          ]
+        },
+        {
+          "id": "cv_cavaquinho_modern",
+          "name": "Modern 19-fret extended",
+          "descriptors": [
+            "bright",
+            "extended-range",
+            "modern",
+            "steel-strung"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cv_cavaquinho_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "cv_cavaquinho_steel_reentrant",
+          "default": true,
+          "name": "Plain steel, reentrant D-G-B-D",
+          "descriptors": [
+            "piercing",
+            "bright",
+            "reentrant-tuning",
+            "steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cv_cavaquinho_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cv_cavaquinho_rosewood",
+          "default": true,
+          "name": "Rosewood back/sides, spruce top",
+          "descriptors": [
+            "traditional",
+            "overtone-rich",
+            "rosewood",
+            "spruce"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "cv_cavaquinho_mahogany",
+          "name": "Mahogany back/sides, cedar top",
+          "descriptors": [
+            "warmer",
+            "low-mid-rich-spectrum",
+            "mahogany",
+            "cedar"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cv_cavaquinho_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "cv_cavaquinho_strummed_arpeggio",
+          "default": true,
+          "name": "Strummed + thumb-arpeggio hybrid",
+          "descriptors": [
+            "percussive",
+            "rhythmic-pulse",
+            "morna-suited",
+            "coladeira-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "creole-atlantic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cv_cavaquinho_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "cv_cavaquinho_traditional",
+          "default": true,
+          "name": "Traditional 16-fret",
+          "descriptors": [
+            "bright",
+            "mid-strong",
+            "small-body-resonance",
+            "steel-strung"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body",
+            "creole-atlantic"
+          ]
+        },
+        {
+          "id": "cv_cavaquinho_modern",
+          "name": "Modern 19-fret extended",
+          "descriptors": [
+            "bright",
+            "extended-range",
+            "modern",
+            "steel-strung"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cv_cavaquinho_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "cv_cavaquinho_steel_reentrant",
+          "default": true,
+          "name": "Plain steel, reentrant D-G-B-D",
+          "descriptors": [
+            "piercing",
+            "bright",
+            "reentrant-tuning",
+            "steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cv_cavaquinho_wood",
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cv_cavaquinho_rosewood",
+          "default": true,
+          "name": "Rosewood back/sides, spruce top",
+          "descriptors": [
+            "traditional",
+            "overtone-rich",
+            "rosewood",
+            "spruce"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "cv_cavaquinho_mahogany",
+          "name": "Mahogany back/sides, cedar top",
+          "descriptors": [
+            "warmer",
+            "low-mid-rich-spectrum",
+            "mahogany",
+            "cedar"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cv_cavaquinho_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "cv_cavaquinho_strummed_arpeggio",
+          "default": true,
+          "name": "Strummed + thumb-arpeggio hybrid",
+          "descriptors": [
+            "percussive",
+            "rhythmic-pulse",
+            "morna-suited",
+            "coladeira-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "creole-atlantic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "id": "samba_bateria",
+  "name": "Samba escola batería",
+  "family": "ensemble",
+  "class": "drum_kit",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "samba bateria",
+  "parts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "sb_surdos",
+          "default": true,
+          "name": "Surdos (1st, 2nd, 3rd)",
+          "descriptors": [
+            "grounding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_caixas",
+          "name": "Caixas (snare drums)",
+          "descriptors": [
+            "driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_repiniques",
+          "name": "Repiniques (lead-call)",
+          "descriptors": [
+            "lead",
+            "calling"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_tamborins",
+          "name": "Tamborins (battery)",
+          "descriptors": [],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_chocalhos",
+          "name": "Chocalhos (shakers)",
+          "descriptors": [
+            "driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_cuicas",
+          "name": "Cuícas (friction drums)",
+          "descriptors": [
+            "vocal-imitating",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_agogos",
+          "name": "Agogôs (bells)",
+          "descriptors": [
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "surface": false,
+      "name": "Context",
+      "variants": [
+        {
+          "id": "sb_carnaval",
+          "default": true,
+          "name": "Carnaval procession",
+          "descriptors": [
+            "climactic",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_quadra",
+          "name": "Quadra rehearsal",
+          "descriptors": [
+            "training",
+            "foundational",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "sb_surdos",
+          "default": true,
+          "name": "Surdos (1st, 2nd, 3rd)",
+          "descriptors": [
+            "grounding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_caixas",
+          "name": "Caixas (snare drums)",
+          "descriptors": [
+            "driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_repiniques",
+          "name": "Repiniques (lead-call)",
+          "descriptors": [
+            "lead",
+            "calling"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_tamborins",
+          "name": "Tamborins (battery)",
+          "descriptors": [],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_chocalhos",
+          "name": "Chocalhos (shakers)",
+          "descriptors": [
+            "driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_cuicas",
+          "name": "Cuícas (friction drums)",
+          "descriptors": [
+            "vocal-imitating",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_agogos",
+          "name": "Agogôs (bells)",
+          "descriptors": [
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "surface": false,
+      "name": "Context",
+      "variants": [
+        {
+          "id": "sb_carnaval",
+          "default": true,
+          "name": "Carnaval procession",
+          "descriptors": [
+            "climactic",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "sb_quadra",
+          "name": "Quadra rehearsal",
+          "descriptors": [
+            "training",
+            "foundational",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "dance-driving"
+          ]
+        }
+      ]
+    }
+  ]
+}

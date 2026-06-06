@@ -1,0 +1,108 @@
+{
+  "id": "wenrenyue",
+  "name": "Wenrenyue",
+  "family": "classical",
+  "lineage": "Chinese scholar-amateur literati chamber music tradition with guqin (seven-string zither) and xiao (vertical bamboo flute) at its core — codified through the Tang dynasty (618-907 CE) scholar-official aesthetic, continued through Song-Yuan-Ming-Qing dynasties, formalized in the seven major guqin schools (Wu, Yu, Shu, Jiu Yi, Mei An, Zha’an, and Guangling), and preserved through the 20th-century rescue work of Zha Fuxi and the Beiping Guqin Research Society",
+  "recipe": "classic North American mid-1970s wenrenyue, art Music, east Asian branch, string drone modal, western early art music medieval latin chant and notre dame organum ars antiqua and organum. silk tongmu aged tang song canon guqin, purple bamboo phyllostachys canonical literati premium xiao, bawu, hulusi, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou dizi. chinese traditional teahouse. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 546,
+  "score": 97.6,
+  "config": {
+    "traditions": [
+      "wenrenyue",
+      "medieval_latin_chant_organum",
+      "ars_antiqua_organum"
+    ],
+    "instruments": [
+      {
+        "id": "guqin",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "guqin_strings": "guqin_silk",
+          "guqin_context": "guqin_qin_xiao",
+          "guqin_body_wood": "guqin_tongmu_aged",
+          "guqin_lacquer": "guqin_lacquer_changran"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.59,
+          "guqin_strings": 3.1,
+          "guqin_context": 6.569999999999999,
+          "guqin_body_wood": 4.29,
+          "guqin_lacquer": 0.28500000000000003
+        }
+      },
+      {
+        "id": "xiao",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "xiao_pitch": "xiao_f",
+          "xiao_context": "xiao_chamber",
+          "xiao_body_material": "xiao_purple_bamboo"
+        },
+        "scores": {
+          "wind_articulation": 2.6300000000000003,
+          "xiao_pitch": 1.585,
+          "xiao_context": 8.45,
+          "xiao_body_material": 2.9
+        }
+      },
+      {
+        "id": "bawu",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "bawu_pitch": "bawu_f",
+          "bawu_context": "bawu_yi"
+        },
+        "scores": {
+          "free_reed_technique": 0,
+          "bawu_pitch": 0.135,
+          "bawu_context": 5.329999999999999
+        }
+      },
+      {
+        "id": "hulusi",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "hulusi_config": "hulusi_three_pipe",
+          "hulusi_context": "hulusi_yunnan"
+        },
+        "scores": {
+          "free_reed_technique": 0,
+          "hulusi_config": 0.8099999999999999,
+          "hulusi_context": 5.329999999999999
+        }
+      },
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "dizi_membrane": "dizi_without",
+          "dizi_pitch": "dizi_ga",
+          "dizi_body_material": "dizi_bitter_bamboo",
+          "dizi_regional_style": "dizi_qudi_southern"
+        },
+        "scores": {
+          "wind_articulation": 2.6300000000000003,
+          "dizi_membrane": 2.84,
+          "dizi_pitch": 1.3900000000000001,
+          "dizi_body_material": 1.3,
+          "dizi_regional_style": 0.75
+        }
+      }
+    ],
+    "room": "chinese_traditional_teahouse",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

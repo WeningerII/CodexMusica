@@ -1,0 +1,68 @@
+{
+  "id": "tamil_thalattu",
+  "name": "Tamil thālāttu (தாலாட்டு, cradle song)",
+  "family": "global",
+  "lineage": "Tamil cradle-song tradition continuous from medieval Tamil-Nadu domestic-vocal practice through Sangam-era literary-cradle tradition into modern Tamil-language domestic singing across India, Sri Lanka, Malaysia, Singapore Tamil communities",
+  "recipe": "classic modern tamil thālāttu, lullaby, south Asian branch, indian classical improv improv on frame, south Asian art music, south Asian pop functional song dhrupad hindustani classical. vocal fry, chest resonance low mid, continuous-phonation, equal tempered. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 407,
+  "score": 167.52,
+  "config": {
+    "traditions": [
+      "tamil_thalattu",
+      "dhrupad",
+      "hindustani"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.394999999999999,
+          "voice_quality": 0.295,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.345,
+          "voice_microtone": 2.5999999999999996,
+          "voice_tradition": 15.534999999999998,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 3.5100000000000002,
+          "voice_speech_song": 7.41,
+          "voice_ensemble_config": 1.56,
+          "voice_ornament_system": 10.42,
+          "voice_pitch_organization": 10.299999999999999,
+          "voice_processing_chain": 1.7449999999999999,
+          "voice_multitrack_stack": 2.08
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

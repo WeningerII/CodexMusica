@@ -1,0 +1,109 @@
+{
+  "id": "hausa_court_music",
+  "name": "Hausa court music (rok\\u0327on Sarkin Kano)",
+  "family": "global",
+  "lineage": "Sahelian-Hausa royal-court ceremonial tradition centered on the emirates of northern Nigeria and southern Niger (Kano, Katsina, Sokoto, Zaria, Daura) — characterized by kakaki long-trumpet fanfares, talking-drum (kalangu) praise-singing, ganga and tambari drum ensembles announcing emir presence; ritual functions tied to the masu sarauta court-titled-officials system",
+  "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion were music acehnese saman. vocal fry, declaimed, rhythmic, Yoruba tonal vocal. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African talking drum, griot voice. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 516,
+  "score": 171.1,
+  "config": {
+    "traditions": [
+      "hausa_court_music",
+      "were_music_yoruba",
+      "acehnese_saman"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.14,
+          "voice_quality": 9.395,
+          "voice_vibrato": 0.48,
+          "voice_articulation": 0.66,
+          "voice_microtone": 0.285,
+          "voice_tradition": 18.46,
+          "voice_mechanism_compound": 1.425,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 4.094999999999999,
+          "voice_ensemble_config": 4.029999999999999,
+          "voice_ornament_system": 3.7700000000000005,
+          "voice_pitch_organization": 0.84,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 1.74
+        }
+      },
+      {
+        "id": "kakaki",
+        "slots": {
+          "wind_articulation": "wind_call_blowing",
+          "kakaki_length": "kakaki_standard",
+          "kakaki_context": "kakaki_court",
+          "kakaki_bell_metal": "kakaki_brass_canonical"
+        },
+        "scores": {
+          "wind_articulation": 9.295000000000002,
+          "kakaki_length": 6.25,
+          "kakaki_context": 2.5999999999999996,
+          "kakaki_bell_metal": 3.5299999999999994
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 2.35,
+          "talking_drum_context": 1.8449999999999998,
+          "talking_drum_shell_wood": 5.720000000000001,
+          "talking_drum_head": 0.495
+        }
+      },
+      {
+        "id": "griot_voice",
+        "slots": {
+          "griot_origin": "griot_wolof",
+          "griot_voice_context": "griot_voice_praise"
+        },
+        "scores": {
+          "griot_origin": 2.9899999999999998,
+          "griot_voice_context": 2.35
+        }
+      }
+    ],
+    "room": "adobe_room",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

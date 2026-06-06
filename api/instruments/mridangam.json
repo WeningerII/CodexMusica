@@ -1,0 +1,296 @@
+{
+  "id": "mridangam",
+  "name": "Mridangam (Carnatic double-headed)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mridangam",
+  "parts": [
+    {
+      "id": "mridangam_heads",
+      "surface": false,
+      "name": "Head configuration",
+      "variants": [
+        {
+          "id": "mridangam_standard",
+          "default": true,
+          "name": "Standard (right syahi, left dough)",
+          "descriptors": [
+            "virtuoso",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mridangam_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "mridangam_carnatic",
+          "default": true,
+          "name": "Carnatic kacheri",
+          "descriptors": [
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mridangam_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "mridangam_jackwood_canonical",
+          "default": true,
+          "name": "Jackwood barrel (canonical Carnatic)",
+          "descriptors": [
+            "jackwood-barrel-canonical-carnatic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "mridangam_redwood_modern",
+          "name": "Redwood (modern alternative)",
+          "descriptors": [
+            "redwood-modern-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mridangam_heads_material",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "mridangam_goat_buffalo",
+          "default": true,
+          "name": "Goat (treble) + buffalo (bass) with rice-paste karanai loading (canonical)",
+          "descriptors": [
+            "goat-buffalo-rice-paste-karanai-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mridangam_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "mridangam_palghat",
+          "default": true,
+          "name": "Palghat lineage (canonical Carnatic)",
+          "descriptors": [
+            "palghat-lineage-canonical-carnatic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "mridangam_thanjavur",
+          "name": "Thanjavur lineage",
+          "descriptors": [
+            "thanjavur-lineage"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "mridangam_umayalpuram",
+          "name": "Umayalpuram lineage",
+          "descriptors": [
+            "umayalpuram-lineage"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mridangam_heads",
+      "surface": false,
+      "name": "Head configuration",
+      "variants": [
+        {
+          "id": "mridangam_standard",
+          "default": true,
+          "name": "Standard (right syahi, left dough)",
+          "descriptors": [
+            "virtuoso",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mridangam_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "mridangam_carnatic",
+          "default": true,
+          "name": "Carnatic kacheri",
+          "descriptors": [
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mridangam_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "mridangam_jackwood_canonical",
+          "default": true,
+          "name": "Jackwood barrel (canonical Carnatic)",
+          "descriptors": [
+            "jackwood-barrel-canonical-carnatic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "mridangam_redwood_modern",
+          "name": "Redwood (modern alternative)",
+          "descriptors": [
+            "redwood-modern-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mridangam_heads_material",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "mridangam_goat_buffalo",
+          "default": true,
+          "name": "Goat (treble) + buffalo (bass) with rice-paste karanai loading (canonical)",
+          "descriptors": [
+            "goat-buffalo-rice-paste-karanai-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mridangam_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "mridangam_palghat",
+          "default": true,
+          "name": "Palghat lineage (canonical Carnatic)",
+          "descriptors": [
+            "palghat-lineage-canonical-carnatic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "mridangam_thanjavur",
+          "name": "Thanjavur lineage",
+          "descriptors": [
+            "thanjavur-lineage"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "mridangam_umayalpuram",
+          "name": "Umayalpuram lineage",
+          "descriptors": [
+            "umayalpuram-lineage"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": "third_stream",
+  "name": "Third stream (jazz-classical fusion)",
+  "family": "jazz",
+  "lineage": "Mid-twentieth-century compositional movement (term coined 1957 by Gunther Schuller) explicitly synthesizing classical-art-music compositional procedures with jazz-improvisational practice. Schuller's own compositions, John Lewis's Modern Jazz Quartet recordings (especially with Gunther Schuller orchestrations), and the broader 1957-1972 Lenox School of Jazz workshop activity constitute the canonical core.",
+  "recipe": "classic North American mid-1960s third stream, improv On Frame, fusion branch, western modern art music neoclassicism. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato shallow cup trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, growly gut upright bass, silver wound lamb gut core sitka spruce European maple sycamore maple violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 765,
+  "score": 434.614,
+  "config": {
+    "traditions": [
+      "third_stream",
+      "neoclassicism_interwar",
+      "les_six_french"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 7.699999999999999,
+          "brass_size": 0.71125,
+          "trumpet_mouthpiece": 18.89,
+          "brass_mute": 5.75,
+          "trumpet_technique": 5.945,
+          "trumpet_bell_metal": 1.69,
+          "trumpet_maker_school": 3.6399999999999997
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "baritone_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 7.699999999999999,
+          "sax_size": 1.69,
+          "sax_reed": 1.1112499999999998,
+          "sax_body_alloy": 23.5,
+          "sax_mouthpiece": 0.71125,
+          "sax_technique": 18.5,
+          "sax_maker_school": 20.025
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 5.75,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 13.379375,
+          "piano_rim": 11.185,
+          "piano_soundboard": 10.91875,
+          "piano_pinblock": 10.75,
+          "piano_plate": 11.621875000000001,
+          "piano_pitch_standard": 11.14
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": 1.9500000000000002,
+          "upright_strings": 18.5,
+          "upright_play": 18.5
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 5.9,
+          "orch_strings": 1.625,
+          "orch_top_wood": 6.291875,
+          "orch_back_wood": 11.14,
+          "orch_varnish": 10.75,
+          "orch_setup_period": 11.621875000000001,
+          "orch_bow": 0.869375,
+          "orch_bow_stick": 12.281249999999998,
+          "orch_articulation": 1.103125,
+          "orch_rosin": 11.849375
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "bebop_complex_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

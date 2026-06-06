@@ -1,0 +1,146 @@
+{
+  "id": "hiplife",
+  "name": "Hiplife",
+  "family": "global",
+  "lineage": "Ghanaian hip-hop-highlife fusion codified through Reggie Rockstone Asante (the New York-Ghana cross-Atlantic founder, 1994 album Makaa Maka), Obrafour, VIP, Tic Tac, Sarkodie (the modern hiplife-into-Afrobeats crossover bridge), then extended into the contemporary Ghanaian hiplife / azonto / Afrobeats hybrid",
+  "recipe": "classic mid-1990s hiplife, groove Percussion, west African branch, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, rap, nervy, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, pitched chopped sampler, basswood maple pau ferro alnico nickel plated steel humbucker electric guitar, cowhide mid tier siam oak mid tier modern congas. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 583,
+  "score": 181.469,
+  "config": {
+    "traditions": [
+      "hiplife",
+      "kwaito",
+      "south_african_kwaito"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.17,
+          "voice_quality": 7.028749999999999,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 4.049999999999999,
+          "voice_microtone": 0.0315,
+          "voice_tradition": 11.634999999999998,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 6.641249999999999,
+          "voice_ensemble_config": 2.99,
+          "voice_ornament_system": 1.1049999999999998,
+          "voice_pitch_organization": 0.6045,
+          "voice_processing_chain": 4.1,
+          "voice_multitrack_stack": 1.95
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 5.206499999999999,
+          "drum_machine_808_context": 1.69,
+          "tr808_production_origin": 1.1365
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 4.1499999999999995,
+          "sampler_archetypes": 5.989999999999999,
+          "sampler_bit_depth": 1.3,
+          "sampler_workflow": 5.150249999999999,
+          "sampler_classic_context": 8.58
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_c"
+        },
+        "scores": {
+          "electric_technique": 1.6999999999999997,
+          "amp_make": 1.28775,
+          "body_wood": 1.3,
+          "neck_wood": 1.3,
+          "fretboard": 1.3,
+          "pickup_magnet": 1.0315,
+          "pickup_winding": 1.0315,
+          "string_material": 1.3,
+          "bridge": 0.7657499999999999,
+          "scale_length": 2.6,
+          "string_gauge": 0.69225,
+          "finish": 0.0735,
+          "string_tuning": 2.6
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 2.5999999999999996,
+          "conga_set": 0.2625,
+          "conga_skin": 1.0315,
+          "conga_shell_wood": 1.3
+        }
+      }
+    ],
+    "room": "lagos_decca_west_african_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

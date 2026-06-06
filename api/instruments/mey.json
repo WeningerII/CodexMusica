@@ -1,0 +1,425 @@
+{
+  "id": "mey",
+  "name": "Mey (Turkish double reed)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "mey",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "uilleann_pipes",
+            "biniou",
+            "highland_bagpipes",
+            "bombarde",
+            "recorder",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "shawm",
+            "zurna",
+            "mizmar",
+            "ghaita",
+            "ciaramella",
+            "duduk",
+            "mey"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "wind_circular_breathing_drone",
+          "name": "Circular-breathing drone",
+          "applies_to": [
+            "didgeridoo",
+            "didgeridoo",
+            "duduk",
+            "mey",
+            "launeddas"
+          ],
+          "descriptors": [
+            "drone-like",
+            "circular-breathing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "didgeridoo"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "mey_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "cura_mey",
+          "name": "Cura mey (smallest)",
+          "descriptors": [
+            "high-pitched",
+            "folk",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "orta_mey",
+          "default": true,
+          "name": "Orta mey (medium)",
+          "descriptors": [
+            "standard",
+            "vocal-imitating",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "ana_mey",
+          "name": "Ana mey (large)",
+          "descriptors": [
+            "deep",
+            "meditative",
+            "melancholic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mey_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "mey_folk",
+          "default": true,
+          "name": "Anatolian folk",
+          "descriptors": [
+            "pastoral"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "mey_art",
+          "name": "Turkish art-music",
+          "descriptors": [
+            "classical",
+            "taksim-context",
+            "sophisticated"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "mey_sufi",
+          "name": "Dervish / Sufi",
+          "descriptors": [
+            "ritual",
+            "meditative",
+            "specialized"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mey_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "mey_plum_canonical",
+          "default": true,
+          "name": "Plum wood (canonical Anatolian)",
+          "descriptors": [
+            "plum-canonical-anatolian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "mey_apricot",
+          "name": "Apricot wood (alternative)",
+          "descriptors": [
+            "apricot-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mey_reed",
+      "surface": false,
+      "name": "Reed (large double-reed)",
+      "variants": [
+        {
+          "id": "mey_arundo_large_canonical",
+          "default": true,
+          "name": "Large Arundo donax double-reed (canonical Anatolian)",
+          "descriptors": [
+            "arundo-donax-large-canonical-anatolian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mey_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "cura_mey",
+          "name": "Cura mey (smallest)",
+          "descriptors": [
+            "high-pitched",
+            "folk",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "orta_mey",
+          "default": true,
+          "name": "Orta mey (medium)",
+          "descriptors": [
+            "standard",
+            "vocal-imitating",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "ana_mey",
+          "name": "Ana mey (large)",
+          "descriptors": [
+            "deep",
+            "meditative",
+            "melancholic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mey_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "mey_folk",
+          "default": true,
+          "name": "Anatolian folk",
+          "descriptors": [
+            "pastoral"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "mey_art",
+          "name": "Turkish art-music",
+          "descriptors": [
+            "classical",
+            "taksim-context",
+            "sophisticated"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "mey_sufi",
+          "name": "Dervish / Sufi",
+          "descriptors": [
+            "ritual",
+            "meditative",
+            "specialized"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mey_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "mey_plum_canonical",
+          "default": true,
+          "name": "Plum wood (canonical Anatolian)",
+          "descriptors": [
+            "plum-canonical-anatolian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "mey_apricot",
+          "name": "Apricot wood (alternative)",
+          "descriptors": [
+            "apricot-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mey_reed",
+      "surface": false,
+      "name": "Reed (large double-reed)",
+      "variants": [
+        {
+          "id": "mey_arundo_large_canonical",
+          "default": true,
+          "name": "Large Arundo donax double-reed (canonical Anatolian)",
+          "descriptors": [
+            "arundo-donax-large-canonical-anatolian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

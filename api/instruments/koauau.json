@@ -1,0 +1,124 @@
+{
+  "id": "koauau",
+  "name": "Kōauau (Maori notched flute)",
+  "family": "wind",
+  "class": "flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "koauau",
+  "parts": [
+    {
+      "id": "koauau_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "koauau_albatross_bone_canonical",
+          "default": true,
+          "name": "Albatross-wing-bone tube, three holes (canonical pre-contact Maori)",
+          "descriptors": [
+            "albatross-wing-bone-three-hole-canonical-pre-contact-maori"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ]
+        },
+        {
+          "id": "koauau_wood_alternative",
+          "name": "Carved hardwood alternative",
+          "descriptors": [
+            "carved-hardwood-alternative-tara-iti-totara"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koauau_tradition",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "koauau_waiata_accompaniment",
+          "default": true,
+          "name": "Waiata accompaniment / lament / lullaby",
+          "descriptors": [
+            "waiata-accompaniment-lament-lullaby-charm"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "koauau_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "koauau_albatross_bone_canonical",
+          "default": true,
+          "name": "Albatross-wing-bone tube, three holes (canonical pre-contact Maori)",
+          "descriptors": [
+            "albatross-wing-bone-three-hole-canonical-pre-contact-maori"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ]
+        },
+        {
+          "id": "koauau_wood_alternative",
+          "name": "Carved hardwood alternative",
+          "descriptors": [
+            "carved-hardwood-alternative-tara-iti-totara"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koauau_tradition",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "koauau_waiata_accompaniment",
+          "default": true,
+          "name": "Waiata accompaniment / lament / lullaby",
+          "descriptors": [
+            "waiata-accompaniment-lament-lullaby-charm"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

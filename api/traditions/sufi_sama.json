@@ -1,0 +1,143 @@
+{
+  "id": "sufi_sama",
+  "name": "Sufi sama (Indian-subcontinental Sufi devotional ceremony)",
+  "family": "global",
+  "lineage": "Chishti-order Sufi devotional ceremony tradition centered on sama (Arabic for listening), the practice of group listening to qawwali-style devotional poetry-singing as a path toward divine union; performed at dargah (Sufi shrine) settings across the Indian subcontinent, with the Nizamuddin Auliya shrine in Delhi and the Khwaja Moinuddin Chishti shrine in Ajmer as the principal pilgrimage sites",
+  "recipe": "classic North American mid-1970s sufi sama, ritual Devotional, Sufi branch, Persian arab improv improv on frame, indian classical improv improv on frame iraqi maqam tarab. vocal fry, declaimed, chest resonance low mid, maqam neutral step. pitched indian rosewood rosewood tabla, vocal female harmonium indian, sarangi, qawwal voice, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. fez andalusi palace riad. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 567,
+  "score": 235.188,
+  "config": {
+    "traditions": [
+      "sufi_sama",
+      "iraqi_maqam",
+      "tarab_egyptian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.6978928571428566,
+          "voice_quality": 15.95267857142857,
+          "voice_vibrato": 0.9099999999999999,
+          "voice_articulation": 0.234,
+          "voice_microtone": 3.0125,
+          "voice_tradition": 25.152964285714283,
+          "voice_mechanism_compound": 3.6612499999999994,
+          "voice_estill_quality": 3.835,
+          "voice_speech_song": 2.1449999999999996,
+          "voice_ensemble_config": 1.56,
+          "voice_ornament_system": 13.7,
+          "voice_pitch_organization": 6.37,
+          "voice_processing_chain": 2.4699999999999998,
+          "voice_multitrack_stack": 3.1361071428571425
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 4.355,
+          "tabla_bayan": 0.9099999999999999,
+          "tabla_syahi": 2.6
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_overblow_modern",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_female",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 0,
+          "harmonium_action": 3.2786071428571426,
+          "harmonium_voicing": 2.8928928571428565,
+          "harmonium_use": 5.0205
+        }
+      },
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_40_strings",
+          "sarangi_bow": "horse_hair_tensioned",
+          "sarangi_main_strings": "sarangi_gut_main",
+          "sarangi_body_wood": "sarangi_tun_body"
+        },
+        "scores": {
+          "bowed_technique": 2.4450000000000003,
+          "sarangi_belly": 2.7878928571428565,
+          "sarangi_taraf": 0.045,
+          "sarangi_bow": 0.24,
+          "sarangi_main_strings": -0.035,
+          "sarangi_body_wood": 0.16249999999999998
+        }
+      },
+      {
+        "id": "qawwal_voice",
+        "slots": {
+          "qawwal_role": "qawwali_lead",
+          "qawwal_voice_context": "qawwal_voice_shrine"
+        },
+        "scores": {
+          "qawwal_role": 32.04767857142857,
+          "qawwal_voice_context": 5.0205
+        }
+      },
+      {
+        "id": "tar_frame_drum",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "tar_size": "tar_large",
+          "tar_frame_drum_context": "tar_frame_drum_sufi",
+          "tar_frame_shell_wood": "tar_frame_walnut",
+          "tar_frame_head": "tar_frame_goat_skin"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "tar_size": 6.560499999999999,
+          "tar_frame_drum_context": 1.9304999999999999,
+          "tar_frame_shell_wood": 1.8199999999999998,
+          "tar_frame_head": 6.723
+        }
+      }
+    ],
+    "room": "fez_andalusi_palace_riad",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "shruti_22",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

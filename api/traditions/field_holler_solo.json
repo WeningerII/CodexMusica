@@ -1,0 +1,68 @@
+{
+  "id": "field_holler_solo",
+  "name": "Field holler",
+  "family": "global",
+  "lineage": "Solo unaccompanied African-American agricultural-labor vocal-call tradition predating recorded blues — codified through the 1933-1940s John and Alan Lomax Library of Congress field recordings at Parchman Farm penitentiary in Mississippi, with the unmetered melismatic-bent-pitch vocal aesthetic that became foundational to delta blues, work songs, and arwhoolies",
+  "recipe": "classic North American mid-1940s field holler, ballad Poetry, field holler branch, vocal drone modal skolt sámi leuʹdd northern sámi luohti yoik. thick, blues-shouter, melodic, unrestrained. open air. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 332,
+  "score": 174.12,
+  "config": {
+    "traditions": [
+      "field_holler_solo",
+      "sami_skolt_leudd",
+      "sami_northern_luohti"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "sami_joik_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 10.639999999999995,
+          "voice_quality": 17.049999999999997,
+          "voice_vibrato": 0.675,
+          "voice_articulation": 11,
+          "voice_microtone": 4.34,
+          "voice_tradition": 12.934999999999999,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 6.564999999999999,
+          "voice_ensemble_config": 7.930000000000001,
+          "voice_ornament_system": 3.575000000000001,
+          "voice_pitch_organization": 1.7349999999999999,
+          "voice_processing_chain": 4.55,
+          "voice_multitrack_stack": 5.069999999999999
+        }
+      }
+    ],
+    "room": "open_prairie",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

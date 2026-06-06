@@ -1,0 +1,374 @@
+{
+  "id": "bongos",
+  "name": "Bongos (Cuban paired drums)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bongos",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_hands_layered",
+          "default": true,
+          "name": "Hand percussion layered",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "pandeiro",
+            "tar_frame_drum",
+            "timbales",
+            "darbuka",
+            "cuica"
+          ],
+          "descriptors": [
+            "hands",
+            "layered"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        },
+        {
+          "id": "percussion_open_slap",
+          "name": "Open / slap (hand-drum)",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "darbuka",
+            "timbales"
+          ],
+          "descriptors": [
+            "open-slap",
+            "hand-drum"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "slappy",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "bongos_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "bongos_mule_hide",
+          "default": true,
+          "name": "Mule-hide (canonical Cuban son premium)",
+          "descriptors": [
+            "mule-hide-canonical-cuban-son-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "son"
+          ]
+        },
+        {
+          "id": "bongos_rawhide",
+          "name": "Rawhide tensioned (traditional)",
+          "descriptors": [
+            "rawhide-traditional",
+            "deep"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "son"
+          ]
+        },
+        {
+          "id": "bongos_goatskin",
+          "name": "Goatskin (lighter alternative)",
+          "descriptors": [
+            "goatskin-lighter-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "bongos_synth",
+          "name": "Synthetic head (modern durable)",
+          "descriptors": [
+            "synthetic-modern-durable"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bongos_context",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "bongos_son",
+          "default": true,
+          "name": "Son montuno",
+          "descriptors": [
+            "martillo-pattern",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "bongos_charanga",
+          "name": "Charanga / danzón",
+          "descriptors": [
+            "orchestral",
+            "salon",
+            "polite"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "bongos_descarga",
+          "name": "Latin jazz / descarga",
+          "descriptors": [
+            "virtuosic",
+            "soloistic",
+            "jam-context"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bongos_shell_wood",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "bongos_oak_staved",
+          "default": true,
+          "name": "Oak staved (canonical Cuban LP/Matador)",
+          "descriptors": [
+            "oak-staved-canonical-cuban"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "bongos_mahogany",
+          "name": "Mahogany (warmer alternative)",
+          "descriptors": [
+            "mahogany-warmer"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "bongos_fiberglass",
+          "name": "Fiberglass (modern durable)",
+          "descriptors": [
+            "fiberglass-modern-durable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bongos_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "bongos_mule_hide",
+          "default": true,
+          "name": "Mule-hide (canonical Cuban son premium)",
+          "descriptors": [
+            "mule-hide-canonical-cuban-son-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "son"
+          ]
+        },
+        {
+          "id": "bongos_rawhide",
+          "name": "Rawhide tensioned (traditional)",
+          "descriptors": [
+            "rawhide-traditional",
+            "deep"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "son"
+          ]
+        },
+        {
+          "id": "bongos_goatskin",
+          "name": "Goatskin (lighter alternative)",
+          "descriptors": [
+            "goatskin-lighter-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "bongos_synth",
+          "name": "Synthetic head (modern durable)",
+          "descriptors": [
+            "synthetic-modern-durable"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bongos_context",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "bongos_son",
+          "default": true,
+          "name": "Son montuno",
+          "descriptors": [
+            "martillo-pattern",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "bongos_charanga",
+          "name": "Charanga / danzón",
+          "descriptors": [
+            "orchestral",
+            "salon",
+            "polite"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "bongos_descarga",
+          "name": "Latin jazz / descarga",
+          "descriptors": [
+            "virtuosic",
+            "soloistic",
+            "jam-context"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bongos_shell_wood",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "bongos_oak_staved",
+          "default": true,
+          "name": "Oak staved (canonical Cuban LP/Matador)",
+          "descriptors": [
+            "oak-staved-canonical-cuban"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "bongos_mahogany",
+          "name": "Mahogany (warmer alternative)",
+          "descriptors": [
+            "mahogany-warmer"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "bongos_fiberglass",
+          "name": "Fiberglass (modern durable)",
+          "descriptors": [
+            "fiberglass-modern-durable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

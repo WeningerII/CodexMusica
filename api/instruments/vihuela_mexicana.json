@@ -1,0 +1,433 @@
+{
+  "id": "vihuela_mexicana",
+  "name": "Vihuela (Mexican mariachi)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "vihuela",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_tremolo",
+          "name": "Tremolo (mandolin-style)",
+          "applies_to": [
+            "baglamas",
+            "bouzouki",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "tiple",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "leona",
+            "vihuela_mexicana",
+            "domra"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "rapid-tremolo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "mandolin",
+            "mediterranean"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "vihuela_mexicana_back",
+      "name": "Back shape",
+      "variants": [
+        {
+          "id": "vihuela_mexicana_arched",
+          "default": true,
+          "name": "Arched back (traditional)",
+          "descriptors": [
+            "projecting",
+            "mariachi-standard"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "vihuela_mexicana_flat",
+          "name": "Flat back (variant)",
+          "descriptors": [
+            "modern",
+            "simpler-construction",
+            "alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vihuela_mexicana_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "vihuela_mexicana_mariachi",
+          "default": true,
+          "name": "Mariachi rhythm (canonical)",
+          "descriptors": [
+            "standard",
+            "rasgueado-foundation",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "vihuela_mexicana_huasteca",
+          "name": "Huasteca / regional son",
+          "descriptors": [
+            "traditional",
+            "older-style",
+            "distinct"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "vihuela_mexicana_modern",
+          "name": "Modern arrangement",
+          "descriptors": [
+            "contemporary",
+            "cross-genre",
+            "flexible"
+          ],
+          "match_tokens": [
+            "modern",
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vihuela_mexicana_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "vihuela_mexicana_mahogany",
+          "default": true,
+          "name": "Mahogany (canonical mariachi)",
+          "descriptors": [
+            "mahogany-canonical-mariachi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "vihuela_mexicana_cedar",
+          "name": "Cedar (warmer alternative)",
+          "descriptors": [
+            "cedar"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vihuela_mexicana_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "vihuela_mexicana_nylon",
+          "default": true,
+          "name": "Nylon with octave-doubled middle courses (canonical)",
+          "descriptors": [
+            "nylon-octave-doubled",
+            "canonical-mariachi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "vihuela_mexicana_gut_historical",
+          "name": "Gut (pre-modern historical)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "vihuela_mexicana_back",
+      "name": "Back shape",
+      "variants": [
+        {
+          "id": "vihuela_mexicana_arched",
+          "default": true,
+          "name": "Arched back (traditional)",
+          "descriptors": [
+            "projecting",
+            "mariachi-standard"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "vihuela_mexicana_flat",
+          "name": "Flat back (variant)",
+          "descriptors": [
+            "modern",
+            "simpler-construction",
+            "alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vihuela_mexicana_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "vihuela_mexicana_mariachi",
+          "default": true,
+          "name": "Mariachi rhythm (canonical)",
+          "descriptors": [
+            "standard",
+            "rasgueado-foundation",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "vihuela_mexicana_huasteca",
+          "name": "Huasteca / regional son",
+          "descriptors": [
+            "traditional",
+            "older-style",
+            "distinct"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "vihuela_mexicana_modern",
+          "name": "Modern arrangement",
+          "descriptors": [
+            "contemporary",
+            "cross-genre",
+            "flexible"
+          ],
+          "match_tokens": [
+            "modern",
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vihuela_mexicana_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "vihuela_mexicana_mahogany",
+          "default": true,
+          "name": "Mahogany (canonical mariachi)",
+          "descriptors": [
+            "mahogany-canonical-mariachi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "vihuela_mexicana_cedar",
+          "name": "Cedar (warmer alternative)",
+          "descriptors": [
+            "cedar"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vihuela_mexicana_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "vihuela_mexicana_nylon",
+          "default": true,
+          "name": "Nylon with octave-doubled middle courses (canonical)",
+          "descriptors": [
+            "nylon-octave-doubled",
+            "canonical-mariachi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "vihuela_mexicana_gut_historical",
+          "name": "Gut (pre-modern historical)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

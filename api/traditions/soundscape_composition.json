@@ -1,0 +1,50 @@
+{
+  "id": "soundscape_composition",
+  "name": "Soundscape composition (Vancouver-school environmental)",
+  "family": "classical",
+  "lineage": "Canadian-and-international compositional approach emerging in 1970s through R. Murray Schafer's World Soundscape Project at Simon Fraser University. Compositions integrate field-recorded environmental and ecological sounds with electroacoustic transformation, addressing acoustic-ecology and the listener's sonic-environmental awareness. Hildegard Westerkamp's Kits Beach Soundwalk (1989) and Schafer's Vancouver Soundscape (1973) constitute the canonical type-specimens.",
+  "recipe": "classic North American mid-1970s soundscape composition, experimental Elec, musique concrete branch, ambient experimental electric dark ambient hauntology. field textural sampler. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 333,
+  "score": 49.242,
+  "config": {
+    "traditions": [
+      "soundscape_composition",
+      "dark_ambient_industrial",
+      "hauntology_uk_2010s"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_eight_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 5.690000000000001,
+          "sampler_archetypes": 0.5849999999999999,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 7.839375000000001,
+          "sampler_classic_context": 6.694999999999999
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

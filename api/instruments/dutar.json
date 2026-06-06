@@ -1,0 +1,220 @@
+{
+  "id": "dutar",
+  "name": "Dutār (Central Asian two-string long-necked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dutar",
+  "parts": [
+    {
+      "id": "dutar_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "dutar_mulberry_canonical_bukhara",
+          "default": true,
+          "name": "Mulberry-wood pear body (canonical Bukharan shashmaqam)",
+          "descriptors": [
+            "mulberry-pear-body-canonical-bukharan-shashmaqam"
+          ],
+          "match_tokens": [
+            "plucked",
+            "shashmaqam-tradition",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "dutar_apricot_khorezm",
+          "name": "Apricot-wood Khorezm variant",
+          "descriptors": [
+            "apricot-wood-khorezm-variant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "dutar_turkmen_long",
+          "name": "Turkmen long-necked variant",
+          "descriptors": [
+            "turkmen-long-necked-bagshy-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "central-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dutar_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dutar_silk_traditional",
+          "default": true,
+          "name": "Silk strings (canonical pre-modern)",
+          "descriptors": [
+            "silk-canonical-pre-modern-shashmaqam"
+          ],
+          "match_tokens": [
+            "plucked",
+            "shashmaqam-tradition"
+          ]
+        },
+        {
+          "id": "dutar_nylon_modern",
+          "name": "Nylon modern",
+          "descriptors": [
+            "nylon-modern-post-1950"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dutar_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "dutar_shashmaqam_bukharan",
+          "default": true,
+          "name": "Bukharan shashmaqam (canonical Uzbek-Tajik classical)",
+          "descriptors": [
+            "bukharan-shashmaqam-canonical-uzbek-tajik-classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "shashmaqam-tradition"
+          ]
+        },
+        {
+          "id": "dutar_fergana_tashkent_maqom",
+          "name": "Fergana-Tashkent maqom tradition",
+          "descriptors": [
+            "fergana-tashkent-maqom-tradition-distinct-from-bukharan"
+          ],
+          "match_tokens": [
+            "plucked",
+            "shashmaqam-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dutar_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "dutar_mulberry_canonical_bukhara",
+          "default": true,
+          "name": "Mulberry-wood pear body (canonical Bukharan shashmaqam)",
+          "descriptors": [
+            "mulberry-pear-body-canonical-bukharan-shashmaqam"
+          ],
+          "match_tokens": [
+            "plucked",
+            "shashmaqam-tradition",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "dutar_apricot_khorezm",
+          "name": "Apricot-wood Khorezm variant",
+          "descriptors": [
+            "apricot-wood-khorezm-variant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "dutar_turkmen_long",
+          "name": "Turkmen long-necked variant",
+          "descriptors": [
+            "turkmen-long-necked-bagshy-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "central-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dutar_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dutar_silk_traditional",
+          "default": true,
+          "name": "Silk strings (canonical pre-modern)",
+          "descriptors": [
+            "silk-canonical-pre-modern-shashmaqam"
+          ],
+          "match_tokens": [
+            "plucked",
+            "shashmaqam-tradition"
+          ]
+        },
+        {
+          "id": "dutar_nylon_modern",
+          "name": "Nylon modern",
+          "descriptors": [
+            "nylon-modern-post-1950"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dutar_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "dutar_shashmaqam_bukharan",
+          "default": true,
+          "name": "Bukharan shashmaqam (canonical Uzbek-Tajik classical)",
+          "descriptors": [
+            "bukharan-shashmaqam-canonical-uzbek-tajik-classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "shashmaqam-tradition"
+          ]
+        },
+        {
+          "id": "dutar_fergana_tashkent_maqom",
+          "name": "Fergana-Tashkent maqom tradition",
+          "descriptors": [
+            "fergana-tashkent-maqom-tradition-distinct-from-bukharan"
+          ],
+          "match_tokens": [
+            "plucked",
+            "shashmaqam-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

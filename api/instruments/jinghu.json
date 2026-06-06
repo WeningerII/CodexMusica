@@ -1,0 +1,316 @@
+{
+  "id": "jinghu",
+  "name": "Jīnghú (Beijing-opera bamboo fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "jinghu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_microtonal_inflected",
+          "name": "Microtonal-inflected",
+          "applies_to": [
+            "kamancheh",
+            "rebab",
+            "sarangi",
+            "esraj",
+            "violin_carnatic",
+            "morin_khuur",
+            "erhu",
+            "jinghu",
+            "haegeum"
+          ],
+          "descriptors": [
+            "microtonal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "microtonal-bend",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "maqam",
+            "arabic",
+            "hindustani"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "jinghu_mode",
+      "name": "Operatic mode",
+      "variants": [
+        {
+          "id": "jinghu_xipi",
+          "default": true,
+          "name": "Xīpí (high-pitched lyrical mode)",
+          "descriptors": [
+            "piercing"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "jingju"
+          ]
+        },
+        {
+          "id": "jinghu_erhuang",
+          "name": "Èrhuáng (somber narrative mode)",
+          "descriptors": [
+            "erhuang",
+            "plaintive",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "jingju"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jinghu_articulation",
+      "name": "Bow articulation",
+      "variants": [
+        {
+          "id": "jinghu_legato_bow",
+          "default": true,
+          "name": "Legato vocal-mirroring bow",
+          "descriptors": [
+            "legato",
+            "vocal-imitating",
+            "sustained"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "bowed",
+            "piercing"
+          ]
+        },
+        {
+          "id": "jinghu_staccato_punctuation",
+          "name": "Staccato role-mode punctuation",
+          "descriptors": [
+            "staccato",
+            "percussive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jinghu_body_wood",
+      "surface": false,
+      "name": "Body / soundbox material",
+      "variants": [
+        {
+          "id": "jinghu_bamboo_body",
+          "default": true,
+          "name": "Bamboo body (canonical Beijing opera)",
+          "descriptors": [
+            "bamboo-body-canonical",
+            "beijing-opera"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jinghu_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "jinghu_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        },
+        {
+          "id": "jinghu_silk_historical",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk-pre-modern-historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "jinghu_mode",
+      "name": "Operatic mode",
+      "variants": [
+        {
+          "id": "jinghu_xipi",
+          "default": true,
+          "name": "Xīpí (high-pitched lyrical mode)",
+          "descriptors": [
+            "piercing"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "jingju"
+          ]
+        },
+        {
+          "id": "jinghu_erhuang",
+          "name": "Èrhuáng (somber narrative mode)",
+          "descriptors": [
+            "erhuang",
+            "plaintive",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "jingju"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jinghu_articulation",
+      "name": "Bow articulation",
+      "variants": [
+        {
+          "id": "jinghu_legato_bow",
+          "default": true,
+          "name": "Legato vocal-mirroring bow",
+          "descriptors": [
+            "legato",
+            "vocal-imitating",
+            "sustained"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "bowed",
+            "piercing"
+          ]
+        },
+        {
+          "id": "jinghu_staccato_punctuation",
+          "name": "Staccato role-mode punctuation",
+          "descriptors": [
+            "staccato",
+            "percussive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jinghu_body_wood",
+      "surface": false,
+      "name": "Body / soundbox material",
+      "variants": [
+        {
+          "id": "jinghu_bamboo_body",
+          "default": true,
+          "name": "Bamboo body (canonical Beijing opera)",
+          "descriptors": [
+            "bamboo-body-canonical",
+            "beijing-opera"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jinghu_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "jinghu_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        },
+        {
+          "id": "jinghu_silk_historical",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk-pre-modern-historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ]
+}

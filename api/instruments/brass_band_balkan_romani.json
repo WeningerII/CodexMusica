@@ -1,0 +1,184 @@
+{
+  "id": "brass_band_balkan_romani",
+  "name": "Balkan Romani brass band",
+  "family": "ensemble",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "Balkan brass",
+  "parts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "balkan_trumpets",
+          "default": true,
+          "name": "Trumpets (3-5, lead and harmony)",
+          "descriptors": [
+            "virtuoso",
+            "melismatic",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "balkan_horns",
+          "name": "Saxhorns / tenor horns",
+          "descriptors": [
+            "inner"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "balkan_tubas",
+          "name": "Tubas (1-2 graduated)",
+          "descriptors": [
+            "walking-pattern",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "balkan_drum",
+          "name": "Tapan / bass drum",
+          "descriptors": [
+            "driving"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "origin",
+      "name": "Origin",
+      "variants": [
+        {
+          "id": "serbian_balkan",
+          "default": true,
+          "name": "Serbian (Guča festival lineage)",
+          "descriptors": [
+            "virtuoso",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "romani_diaspora",
+          "name": "Romani diaspora generic",
+          "descriptors": [
+            "virtuoso",
+            "melismatic",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "balkan_trumpets",
+          "default": true,
+          "name": "Trumpets (3-5, lead and harmony)",
+          "descriptors": [
+            "virtuoso",
+            "melismatic",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "balkan_horns",
+          "name": "Saxhorns / tenor horns",
+          "descriptors": [
+            "inner"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "balkan_tubas",
+          "name": "Tubas (1-2 graduated)",
+          "descriptors": [
+            "walking-pattern",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "balkan_drum",
+          "name": "Tapan / bass drum",
+          "descriptors": [
+            "driving"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "origin",
+      "name": "Origin",
+      "variants": [
+        {
+          "id": "serbian_balkan",
+          "default": true,
+          "name": "Serbian (Guča festival lineage)",
+          "descriptors": [
+            "virtuoso",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "romani_diaspora",
+          "name": "Romani diaspora generic",
+          "descriptors": [
+            "virtuoso",
+            "melismatic",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

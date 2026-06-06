@@ -1,0 +1,96 @@
+{
+  "id": "qanbus",
+  "name": "Qanbus (Yemeni short-neck skin-bellied lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "qanbus",
+  "parts": [
+    {
+      "id": "qanbus_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "qanbus_short_neck_skin_bellied_canonical",
+          "default": true,
+          "name": "Short-neck skin-bellied lute body (canonical Sanaani)",
+          "descriptors": [
+            "short-neck-skin-bellied-canonical-sanaani"
+          ],
+          "match_tokens": [
+            "plucked",
+            "yemeni-sanaani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanbus_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "qanbus_al_ghina_al_sanaani_canonical",
+          "default": true,
+          "name": "Al-ghinā al-Ṣanʻānī classical song lead instrument (canonical)",
+          "descriptors": [
+            "al-ghina-al-sanaani-classical-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "yemeni-sanaani-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "qanbus_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "qanbus_short_neck_skin_bellied_canonical",
+          "default": true,
+          "name": "Short-neck skin-bellied lute body (canonical Sanaani)",
+          "descriptors": [
+            "short-neck-skin-bellied-canonical-sanaani"
+          ],
+          "match_tokens": [
+            "plucked",
+            "yemeni-sanaani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanbus_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "qanbus_al_ghina_al_sanaani_canonical",
+          "default": true,
+          "name": "Al-ghinā al-Ṣanʻānī classical song lead instrument (canonical)",
+          "descriptors": [
+            "al-ghina-al-sanaani-classical-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "yemeni-sanaani-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,625 @@
+{
+  "id": "pansori_voice",
+  "surface": false,
+  "name": "Pansori voice (rough-pressed seongeum mechanism, Korean narrative-song tradition)",
+  "family": "voice",
+  "class": "vocal_lead",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "pansori voice",
+  "parts": [
+    {
+      "id": "pansori_phonation_mechanism",
+      "name": "Phonation mechanism",
+      "variants": [
+        {
+          "id": "pansori_seongeum_rough_pressed",
+          "default": true,
+          "name": "Seongeum rough-pressed chaotic-source (canonical aesthetic — gradual spectral-envelope downslope, source-chaos per Moon JASA 2000)",
+          "descriptors": [
+            "seongeum-rough-pressed-chaotic-source",
+            "gradual-spectral-envelope-downslope"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_cheonsa_clear_modal",
+          "name": "Cheonsa-style clear modal (younger / less-aged voice, no chaotic source)",
+          "descriptors": [
+            "cheonsa-clear-modal-non-rough"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_aniri_speech_quality",
+          "name": "Aniri (interleaved spoken-narrative quality between sung sections)",
+          "descriptors": [
+            "aniri-spoken-narrative-quality-interleaved"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pansori_sigimsae_ornament",
+      "surface": false,
+      "name": "Sigimsae ornament-system",
+      "variants": [
+        {
+          "id": "pansori_sigimsae_yoseong",
+          "default": true,
+          "name": "Yoseong (pitch-oscillation ornament)",
+          "descriptors": [
+            "yoseong-pitch-oscillation-ornament"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "pansori_sigimsae_toeseong",
+          "name": "Toeseong (descending off-glide)",
+          "descriptors": [
+            "toeseong-descending-off-glide"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "pansori_sigimsae_chuseong",
+          "name": "Chuseong (ascending into-slide)",
+          "descriptors": [
+            "chuseong-ascending-into-slide"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "pansori_sigimsae_jeonseong",
+          "name": "Jeonseong (grace-note attack)",
+          "descriptors": [
+            "jeonseong-grace-note-attack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "pansori_sigimsae_nonghyeon",
+          "name": "Nonghyeon (microtonal bend)",
+          "descriptors": [
+            "nonghyeon-microtonal-bend"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pansori_jangdan_cycle",
+      "surface": false,
+      "name": "Jangdan rhythm cycle (drummer-paired)",
+      "variants": [
+        {
+          "id": "pansori_jangdan_jinyangjo",
+          "default": true,
+          "name": "Jinyangjo (slowest, 18/8 — extended lament)",
+          "descriptors": [
+            "jinyangjo-slowest-18-8-extended-lament"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_jangdan_jungmori",
+          "name": "Jungmori (medium tempo, 12/4 — narrative)",
+          "descriptors": [
+            "jungmori-medium-12-4-narrative"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_jangdan_jungjungmori",
+          "name": "Jungjungmori (medium-fast, 12/8 — heightened narrative)",
+          "descriptors": [
+            "jungjungmori-medium-fast-12-8-heightened-narrative"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_jangdan_jajinmori",
+          "name": "Jajinmori (fast, 12/8 — action/excitement)",
+          "descriptors": [
+            "jajinmori-fast-12-8-action-excitement"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_jangdan_hwimori",
+          "name": "Hwimori (fastest, 4/4 — climax)",
+          "descriptors": [
+            "hwimori-fastest-4-4-climax"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_jangdan_eotmori",
+          "name": "Eotmori (asymmetric 10-beat — supernatural/mystical scenes)",
+          "descriptors": [
+            "eotmori-asymmetric-10-beat-supernatural"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pansori_chuimsae_response",
+      "surface": false,
+      "name": "Chuimsae (drummer interjected response shouts)",
+      "variants": [
+        {
+          "id": "pansori_chuimsae_eolssu",
+          "default": true,
+          "name": "Eolssu (most common affirmation shout)",
+          "descriptors": [
+            "eolssu-affirmation-shout-drummer-response"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "call-response"
+          ]
+        },
+        {
+          "id": "pansori_chuimsae_jotta",
+          "name": "Joh-ta (approving response shout)",
+          "descriptors": [
+            "jotta-approving-response-shout"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "call-response"
+          ]
+        },
+        {
+          "id": "pansori_chuimsae_none",
+          "name": "No interjected chuimsae (solo or non-traditional context)",
+          "descriptors": [
+            "no-interjected-chuimsae-solo"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pansori_voice_repertoire",
+      "surface": false,
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "pansori_voice_canonical_five",
+          "default": true,
+          "name": "The Five Madang (canonical surviving narrative-songs)",
+          "descriptors": [
+            "canonical-five-madang-narrative-repertoire"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_voice_modern_composed",
+          "name": "Modern composed pansori (twenty-first-century)",
+          "descriptors": [
+            "modern-composed-twenty-first-century-pansori"
+          ],
+          "match_tokens": [
+            "modern",
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_voice_fusion_concert",
+          "name": "Cross-tradition fusion / concert",
+          "descriptors": [
+            "cross-tradition-fusion-concert-context"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_voice_dongpyeonje_school",
+          "name": "Dongpyeonje (Eastern school — masculine, strict-tradition)",
+          "descriptors": [
+            "dongpyeonje-eastern-school-masculine-strict"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_voice_seopyeonje_school",
+          "name": "Seopyeonje (Western school — emotive, ornamented)",
+          "descriptors": [
+            "seopyeonje-western-school-emotive-ornamented"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pansori_phonation_mechanism",
+      "name": "Phonation mechanism",
+      "variants": [
+        {
+          "id": "pansori_seongeum_rough_pressed",
+          "default": true,
+          "name": "Seongeum rough-pressed chaotic-source (canonical aesthetic — gradual spectral-envelope downslope, source-chaos per Moon JASA 2000)",
+          "descriptors": [
+            "seongeum-rough-pressed-chaotic-source",
+            "gradual-spectral-envelope-downslope"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_cheonsa_clear_modal",
+          "name": "Cheonsa-style clear modal (younger / less-aged voice, no chaotic source)",
+          "descriptors": [
+            "cheonsa-clear-modal-non-rough"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_aniri_speech_quality",
+          "name": "Aniri (interleaved spoken-narrative quality between sung sections)",
+          "descriptors": [
+            "aniri-spoken-narrative-quality-interleaved"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pansori_sigimsae_ornament",
+      "surface": false,
+      "name": "Sigimsae ornament-system",
+      "variants": [
+        {
+          "id": "pansori_sigimsae_yoseong",
+          "default": true,
+          "name": "Yoseong (pitch-oscillation ornament)",
+          "descriptors": [
+            "yoseong-pitch-oscillation-ornament"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "pansori_sigimsae_toeseong",
+          "name": "Toeseong (descending off-glide)",
+          "descriptors": [
+            "toeseong-descending-off-glide"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "pansori_sigimsae_chuseong",
+          "name": "Chuseong (ascending into-slide)",
+          "descriptors": [
+            "chuseong-ascending-into-slide"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "pansori_sigimsae_jeonseong",
+          "name": "Jeonseong (grace-note attack)",
+          "descriptors": [
+            "jeonseong-grace-note-attack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "pansori_sigimsae_nonghyeon",
+          "name": "Nonghyeon (microtonal bend)",
+          "descriptors": [
+            "nonghyeon-microtonal-bend"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pansori_jangdan_cycle",
+      "surface": false,
+      "name": "Jangdan rhythm cycle (drummer-paired)",
+      "variants": [
+        {
+          "id": "pansori_jangdan_jinyangjo",
+          "default": true,
+          "name": "Jinyangjo (slowest, 18/8 — extended lament)",
+          "descriptors": [
+            "jinyangjo-slowest-18-8-extended-lament"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_jangdan_jungmori",
+          "name": "Jungmori (medium tempo, 12/4 — narrative)",
+          "descriptors": [
+            "jungmori-medium-12-4-narrative"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_jangdan_jungjungmori",
+          "name": "Jungjungmori (medium-fast, 12/8 — heightened narrative)",
+          "descriptors": [
+            "jungjungmori-medium-fast-12-8-heightened-narrative"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_jangdan_jajinmori",
+          "name": "Jajinmori (fast, 12/8 — action/excitement)",
+          "descriptors": [
+            "jajinmori-fast-12-8-action-excitement"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_jangdan_hwimori",
+          "name": "Hwimori (fastest, 4/4 — climax)",
+          "descriptors": [
+            "hwimori-fastest-4-4-climax"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_jangdan_eotmori",
+          "name": "Eotmori (asymmetric 10-beat — supernatural/mystical scenes)",
+          "descriptors": [
+            "eotmori-asymmetric-10-beat-supernatural"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pansori_chuimsae_response",
+      "surface": false,
+      "name": "Chuimsae (drummer interjected response shouts)",
+      "variants": [
+        {
+          "id": "pansori_chuimsae_eolssu",
+          "default": true,
+          "name": "Eolssu (most common affirmation shout)",
+          "descriptors": [
+            "eolssu-affirmation-shout-drummer-response"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "call-response"
+          ]
+        },
+        {
+          "id": "pansori_chuimsae_jotta",
+          "name": "Joh-ta (approving response shout)",
+          "descriptors": [
+            "jotta-approving-response-shout"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "call-response"
+          ]
+        },
+        {
+          "id": "pansori_chuimsae_none",
+          "name": "No interjected chuimsae (solo or non-traditional context)",
+          "descriptors": [
+            "no-interjected-chuimsae-solo"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pansori_voice_repertoire",
+      "surface": false,
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "pansori_voice_canonical_five",
+          "default": true,
+          "name": "The Five Madang (canonical surviving narrative-songs)",
+          "descriptors": [
+            "canonical-five-madang-narrative-repertoire"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_voice_modern_composed",
+          "name": "Modern composed pansori (twenty-first-century)",
+          "descriptors": [
+            "modern-composed-twenty-first-century-pansori"
+          ],
+          "match_tokens": [
+            "modern",
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_voice_fusion_concert",
+          "name": "Cross-tradition fusion / concert",
+          "descriptors": [
+            "cross-tradition-fusion-concert-context"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_voice_dongpyeonje_school",
+          "name": "Dongpyeonje (Eastern school — masculine, strict-tradition)",
+          "descriptors": [
+            "dongpyeonje-eastern-school-masculine-strict"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing"
+          ]
+        },
+        {
+          "id": "pansori_voice_seopyeonje_school",
+          "name": "Seopyeonje (Western school — emotive, ornamented)",
+          "descriptors": [
+            "seopyeonje-western-school-emotive-ornamented"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "rough-tone",
+            "breathing",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ]
+}

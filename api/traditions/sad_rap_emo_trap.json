@@ -1,0 +1,131 @@
+{
+  "id": "sad_rap_emo_trap",
+  "name": "Sad rap / emo trap",
+  "family": "hip_hop",
+  "lineage": "Late-2010s hip-hop subgenre integrating emo-rock melancholic-emotional register with trap production. Characterized by Auto-Tune sung-rapping, depression-and-relationship-loss lyrical content, electric-guitar samples integrated with 808 drums, and high-emotional-intensity vocal performance. Lil Peep (1996-2017) and Juice WRLD (1998-2019) — both deceased of overdoses — constitute the canonical type-specimens; XXXTentacion (1998-2018), Trippie Redd, and Iann Dior anchor the broader roster.",
+  "recipe": "classic mid-2000s sad rap / emo trap, mc Rhythm, southern branch, emo distorted rock post-hardcore emo revival. thick, rap, pure, narrative. TR-808, sub bass analog synth, basswood alnico power chord humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 420,
+  "score": 175.494,
+  "config": {
+    "traditions": [
+      "sad_rap_emo_trap",
+      "post_hardcore_90s",
+      "emo_revival_2010s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.8900000000000015,
+          "voice_quality": 9.907,
+          "voice_vibrato": 0.813,
+          "voice_articulation": 4.291499999999999,
+          "voice_microtone": 4.750000000000001,
+          "voice_tradition": 7.885999999999999,
+          "voice_mechanism_compound": 3.026,
+          "voice_estill_quality": 2.8760000000000003,
+          "voice_speech_song": 9.687499999999998,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 0.27149999999999996,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 6.6815,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 4.798499999999999,
+          "drum_machine_808_context": 1.69,
+          "tr808_production_origin": 0.696
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 10.498499999999998,
+          "oscillator": 0.8235000000000001,
+          "filter_topology": 1.695,
+          "envelope": 0.39,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 3.9250000000000003,
+          "amp_make": 2.4699999999999998,
+          "body_wood": 1.69,
+          "neck_wood": 0.813,
+          "fretboard": 0.24,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 0.6179999999999999,
+          "string_material": 0.24,
+          "bridge": 0.813,
+          "scale_length": 1.69,
+          "string_gauge": 0.9495,
+          "finish": 0,
+          "string_tuning": 4.29
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "id": "atabaque",
+  "name": "Atabaque (Brazilian conical drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "atabaque",
+  "parts": [
+    {
+      "id": "atabaque_role",
+      "surface": false,
+      "name": "Drum role (in trio)",
+      "variants": [
+        {
+          "id": "atabaque_rum",
+          "default": true,
+          "name": "Rum (largest, lead)",
+          "descriptors": [
+            "deepest",
+            "commanding",
+            "lead"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "atabaque_rumpi",
+          "name": "Rum-pi (middle, response)",
+          "descriptors": [
+            "supporting",
+            "answering"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "atabaque_le",
+          "name": "Lê (smallest, fast ornament)",
+          "descriptors": [
+            "highest",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atabaque_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "atabaque_cowhide",
+          "default": true,
+          "name": "Cowhide tensioned (canonical Candomblé)",
+          "descriptors": [
+            "cowhide-canonical-candomble",
+            "deep",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "atabaque_goatskin",
+          "name": "Goatskin (lighter regional variant)",
+          "descriptors": [
+            "lighter",
+            "sharper",
+            "regional",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "atabaque_synth",
+          "name": "Synthetic head (modern durable)",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atabaque_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "atabaque_jacaranda",
+          "default": true,
+          "name": "Jacarandá (canonical Bahian Candomblé)",
+          "descriptors": [
+            "jacaranda-canonical-bahian-candomble"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "atabaque_cedrillo",
+          "name": "Cedrillo (mid-tier alternative)",
+          "descriptors": [
+            "cedrillo-mid-tier"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "atabaque_oak_staved",
+          "name": "Oak staved (modern construction)",
+          "descriptors": [
+            "oak-staved-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "atabaque_role",
+      "surface": false,
+      "name": "Drum role (in trio)",
+      "variants": [
+        {
+          "id": "atabaque_rum",
+          "default": true,
+          "name": "Rum (largest, lead)",
+          "descriptors": [
+            "deepest",
+            "commanding",
+            "lead"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "atabaque_rumpi",
+          "name": "Rum-pi (middle, response)",
+          "descriptors": [
+            "supporting",
+            "answering"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "atabaque_le",
+          "name": "Lê (smallest, fast ornament)",
+          "descriptors": [
+            "highest",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atabaque_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "atabaque_cowhide",
+          "default": true,
+          "name": "Cowhide tensioned (canonical Candomblé)",
+          "descriptors": [
+            "cowhide-canonical-candomble",
+            "deep",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "atabaque_goatskin",
+          "name": "Goatskin (lighter regional variant)",
+          "descriptors": [
+            "lighter",
+            "sharper",
+            "regional",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "atabaque_synth",
+          "name": "Synthetic head (modern durable)",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atabaque_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "atabaque_jacaranda",
+          "default": true,
+          "name": "Jacarandá (canonical Bahian Candomblé)",
+          "descriptors": [
+            "jacaranda-canonical-bahian-candomble"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "atabaque_cedrillo",
+          "name": "Cedrillo (mid-tier alternative)",
+          "descriptors": [
+            "cedrillo-mid-tier"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "atabaque_oak_staved",
+          "name": "Oak staved (modern construction)",
+          "descriptors": [
+            "oak-staved-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

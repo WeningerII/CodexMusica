@@ -1,0 +1,128 @@
+{
+  "id": "bulgarian_diaphonic_womens",
+  "name": "Bulgarian womens diaphonic three-voice polyphony",
+  "family": "global",
+  "lineage": "Bulgarian womens unaccompanied three-voice diaphonic polyphony with open-throated high-pressure phonation, deliberate parallel-second-seventh-ninth cluster harmony, minimal vibrato, and Filip Kutev Choir state-ensemble canonical preservation — the Le Mystère des Voix Bulgares international canon (Marcel Cellier ethnomusicology-recording lineage 1975-onward) brought the tradition into the global-recording marketplace, with regional sub-traditions Shopski (West Bulgarian Sofia-Pirin region, the canonical paired-second-seventh-cluster), Rodopski (Rhodope mountains drone-with-ornament tradition), Pirin (Macedonian-Bulgarian border tradition), Thracian; the Plovdiv Academy of Music and Dance Arts and the Sofia State Folk Choir infrastructure preserve the academic-conservatoire lineage",
+  "recipe": "classic modern bulgarian womens diaphonic three-voice polyphony, drone Modal, vocal branch, Slavic bard ballad poetry, Mediterranean ballad ballad poetry italian southern folk cante jondo siguiriya. thick, declaimed, continuous-phonation, Mediterranean demotic vocal. choir bulgarian womens, a cappella small 3 to 8 one per part three voice polyphonic regional bulgarian women three voice diaphonic cluster global traditional polyphonic choir ensemble, rhodope plum canonical rhodope cane arundo donax single reed canonical bulgarian whole goatskin fleece outside canonical rhodope melodic gaida bulgarian, plum canonical bulgarian melodic kaval. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 791,
+  "score": 249.69,
+  "config": {
+    "traditions": [
+      "bulgarian_diaphonic_womens",
+      "italian_southern_folk",
+      "cante_jondo_siguiriya"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.835,
+          "voice_quality": 3.3500000000000014,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 1.69,
+          "voice_microtone": 0.39,
+          "voice_tradition": 22.490000000000002,
+          "voice_mechanism_compound": 7.409999999999999,
+          "voice_estill_quality": 7.405,
+          "voice_speech_song": 6.564999999999999,
+          "voice_ensemble_config": 20.154999999999994,
+          "voice_ornament_system": 4.029999999999999,
+          "voice_pitch_organization": 3.769999999999999,
+          "voice_processing_chain": 4.159999999999999,
+          "voice_multitrack_stack": 3.289999999999999
+        }
+      },
+      {
+        "id": "choir_bulgarian_womens",
+        "slots": {
+          "technique": "bulgarian_open_throat",
+          "arrangement": "bulgarian_diaphonic"
+        },
+        "scores": {
+          "technique": 0.15,
+          "arrangement": 1.3
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_bulgarian_diaphonic",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 4.039999999999999,
+          "choir_polyphonic_configuration": 12.504999999999999,
+          "choir_regional_canonical_configuration": 27.119999999999994,
+          "choir_ensemble_repertoire": 6.759999999999999
+        }
+      },
+      {
+        "id": "gaida_bulgarian",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "gaida_origin": "gaida_kaba",
+          "gaida_bulgarian_context": "gaida_bulgarian_revival",
+          "gaida_chanter_wood": "gaida_plum_canonical",
+          "gaida_reed": "gaida_cane_canonical",
+          "gaida_bag": "gaida_goatskin_canonical"
+        },
+        "scores": {
+          "wind_articulation": 3.035,
+          "gaida_origin": 2.9899999999999998,
+          "gaida_bulgarian_context": 1.3,
+          "gaida_chanter_wood": 4.935,
+          "gaida_reed": 9.134999999999998,
+          "gaida_bag": 4.935
+        }
+      },
+      {
+        "id": "kaval",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "kaval_region": "kaval_bulgarian",
+          "kaval_context": "kaval_village",
+          "kaval_body_wood": "kaval_plum_canonical"
+        },
+        "scores": {
+          "wind_articulation": 3.035,
+          "kaval_region": 0.9099999999999999,
+          "kaval_context": 0.63,
+          "kaval_body_wood": 9.134999999999998
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

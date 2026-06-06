@@ -1,0 +1,376 @@
+{
+  "id": "qarqaba",
+  "name": "Qarqaba / karkabou (Moroccan iron castanets)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "qarqaba",
+  "parts": [
+    {
+      "id": "qarqaba_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "qarqaba_iron",
+          "default": true,
+          "name": "Iron-cast traditional",
+          "descriptors": [
+            "Gnawa-traditional",
+            "iron"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_stainless",
+          "name": "Stainless steel modern",
+          "descriptors": [
+            "lighter",
+            "consistent",
+            "contemporary",
+            "stainless-steel",
+            "steel"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_brass",
+          "name": "Brass",
+          "descriptors": [
+            "warmer",
+            "rounder",
+            "alternative",
+            "brass"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qarqaba_playing_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "qarqaba_gnawa_closed_clang",
+          "default": true,
+          "name": "Gnawa closed-clang (cymbals held shut between hits)",
+          "descriptors": [
+            "metallic-clang-dominant",
+            "percussive-attack",
+            "Gnawa-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_tunisian_open_ring",
+          "name": "Tunisian open-ring (pulled back quickly for sustain)",
+          "descriptors": [
+            "metallic-ring-dominant",
+            "sustained-shimmer",
+            "regional-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qarqaba_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "qarqaba_large",
+          "default": true,
+          "name": "Large (~28-29cm, ritual)",
+          "descriptors": [
+            "deep-clang",
+            "ritual",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_medium",
+          "name": "Medium (~20cm)",
+          "descriptors": [
+            "mid-strong",
+            "standard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        },
+        {
+          "id": "qarqaba_small",
+          "name": "Small (~10cm)",
+          "descriptors": [
+            "high-pitched",
+            "crisp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qarqaba_context",
+      "surface": false,
+      "name": "Pattern context",
+      "variants": [
+        {
+          "id": "qarqaba_lila",
+          "default": true,
+          "name": "Gnawa lila (trance ceremony)",
+          "descriptors": [
+            "ceremonial",
+            "all-night",
+            "syncopated-driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_festival",
+          "name": "Festival Gnaoua / Essaouira",
+          "descriptors": [
+            "festive",
+            "showcase"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_fusion",
+          "name": "World-fusion / Axiom-school recording",
+          "descriptors": [
+            "session"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "qarqaba_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "qarqaba_iron",
+          "default": true,
+          "name": "Iron-cast traditional",
+          "descriptors": [
+            "Gnawa-traditional",
+            "iron"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_stainless",
+          "name": "Stainless steel modern",
+          "descriptors": [
+            "lighter",
+            "consistent",
+            "contemporary",
+            "stainless-steel",
+            "steel"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_brass",
+          "name": "Brass",
+          "descriptors": [
+            "warmer",
+            "rounder",
+            "alternative",
+            "brass"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qarqaba_playing_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "qarqaba_gnawa_closed_clang",
+          "default": true,
+          "name": "Gnawa closed-clang (cymbals held shut between hits)",
+          "descriptors": [
+            "metallic-clang-dominant",
+            "percussive-attack",
+            "Gnawa-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_tunisian_open_ring",
+          "name": "Tunisian open-ring (pulled back quickly for sustain)",
+          "descriptors": [
+            "metallic-ring-dominant",
+            "sustained-shimmer",
+            "regional-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qarqaba_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "qarqaba_large",
+          "default": true,
+          "name": "Large (~28-29cm, ritual)",
+          "descriptors": [
+            "deep-clang",
+            "ritual",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_medium",
+          "name": "Medium (~20cm)",
+          "descriptors": [
+            "mid-strong",
+            "standard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        },
+        {
+          "id": "qarqaba_small",
+          "name": "Small (~10cm)",
+          "descriptors": [
+            "high-pitched",
+            "crisp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qarqaba_context",
+      "surface": false,
+      "name": "Pattern context",
+      "variants": [
+        {
+          "id": "qarqaba_lila",
+          "default": true,
+          "name": "Gnawa lila (trance ceremony)",
+          "descriptors": [
+            "ceremonial",
+            "all-night",
+            "syncopated-driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_festival",
+          "name": "Festival Gnaoua / Essaouira",
+          "descriptors": [
+            "festive",
+            "showcase"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "qarqaba_fusion",
+          "name": "World-fusion / Axiom-school recording",
+          "descriptors": [
+            "session"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "trance-inducing"
+          ]
+        }
+      ]
+    }
+  ]
+}

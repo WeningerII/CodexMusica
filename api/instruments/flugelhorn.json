@@ -1,0 +1,401 @@
+{
+  "id": "flugelhorn",
+  "name": "Flugelhorn",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "flugelhorn",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_cool_lyrical",
+          "name": "Cool lyrical",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "cornet",
+            "flugelhorn"
+          ],
+          "descriptors": [
+            "cool",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "cool-lyrical",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "wind_breath_quiet",
+          "name": "Breath-tone, low dynamic",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "clarinet",
+            "cornet",
+            "flugelhorn",
+            "shakuhachi",
+            "ney"
+          ],
+          "descriptors": [
+            "breath-tone-airy",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "breathing",
+            "quiet"
+          ],
+          "canonical_tags": [
+            "lounge",
+            "cool-jazz"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "flugel_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "flugel_jazz",
+          "default": true,
+          "name": "Jazz lyrical",
+          "descriptors": [
+            "low-overtone-rich-spectrum",
+            "mellow",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flugel_brass_band",
+          "name": "Brass band",
+          "descriptors": [
+            "low-overtone-rich-spectrum",
+            "round",
+            "ensemble",
+            "brass"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flugelhorn_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "flugelhorn_bb",
+          "default": true,
+          "name": "B♭ (canonical)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flugelhorn_c",
+          "name": "C (rare concert)",
+          "descriptors": [
+            "specialty",
+            "modern-classical",
+            "unusual"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flugelhorn_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "flugelhorn_yellow_brass",
+          "default": true,
+          "name": "Yellow brass (canonical)",
+          "descriptors": [
+            "yellow-brass-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flugelhorn_rose_brass",
+          "name": "Rose brass (warmer, canonical Couesnon)",
+          "descriptors": [
+            "rose-brass-warmer-canonical-couesnon"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flugelhorn_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "flugelhorn_couesnon_vintage",
+          "default": true,
+          "name": "Couesnon vintage (canonical pre-1970 — Chuck Mangione / Clark Terry canon)",
+          "descriptors": [
+            "couesnon-vintage-canonical-pre-1970"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "jazz"
+          ]
+        },
+        {
+          "id": "flugelhorn_yamaha",
+          "name": "Yamaha (modern Japanese)",
+          "descriptors": [
+            "yamaha-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flugelhorn_kanstul",
+          "name": "Kanstul (American boutique)",
+          "descriptors": [
+            "kanstul-american-boutique"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "flugel_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "flugel_jazz",
+          "default": true,
+          "name": "Jazz lyrical",
+          "descriptors": [
+            "low-overtone-rich-spectrum",
+            "mellow",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flugel_brass_band",
+          "name": "Brass band",
+          "descriptors": [
+            "low-overtone-rich-spectrum",
+            "round",
+            "ensemble",
+            "brass"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flugelhorn_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "flugelhorn_bb",
+          "default": true,
+          "name": "B♭ (canonical)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flugelhorn_c",
+          "name": "C (rare concert)",
+          "descriptors": [
+            "specialty",
+            "modern-classical",
+            "unusual"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flugelhorn_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "flugelhorn_yellow_brass",
+          "default": true,
+          "name": "Yellow brass (canonical)",
+          "descriptors": [
+            "yellow-brass-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flugelhorn_rose_brass",
+          "name": "Rose brass (warmer, canonical Couesnon)",
+          "descriptors": [
+            "rose-brass-warmer-canonical-couesnon"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flugelhorn_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "flugelhorn_couesnon_vintage",
+          "default": true,
+          "name": "Couesnon vintage (canonical pre-1970 — Chuck Mangione / Clark Terry canon)",
+          "descriptors": [
+            "couesnon-vintage-canonical-pre-1970"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "jazz"
+          ]
+        },
+        {
+          "id": "flugelhorn_yamaha",
+          "name": "Yamaha (modern Japanese)",
+          "descriptors": [
+            "yamaha-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flugelhorn_kanstul",
+          "name": "Kanstul (American boutique)",
+          "descriptors": [
+            "kanstul-american-boutique"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

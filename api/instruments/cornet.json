@@ -1,0 +1,477 @@
+{
+  "id": "cornet",
+  "name": "Cornet",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "cornet",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_bebop_runs",
+          "name": "Bebop fast runs",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "cornet"
+          ],
+          "descriptors": [
+            "angular"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bebop-derived",
+            "jazz-trained",
+            "bebop-runs",
+            "gospel-runs"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "wind_cool_lyrical",
+          "name": "Cool lyrical",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "cornet",
+            "flugelhorn"
+          ],
+          "descriptors": [
+            "cool",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "cool-lyrical",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "wind_breath_quiet",
+          "name": "Breath-tone, low dynamic",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "clarinet",
+            "cornet",
+            "flugelhorn",
+            "shakuhachi",
+            "ney"
+          ],
+          "descriptors": [
+            "breath-tone-airy",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "breathing",
+            "quiet"
+          ],
+          "canonical_tags": [
+            "lounge",
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "wind_dixieland_lead",
+          "name": "Dixieland front-line",
+          "applies_to": [
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "cornet"
+          ],
+          "descriptors": [
+            "front-line"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "lead-melody",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "dixieland",
+            "new-orleans"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "cornet_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "cornet_bb",
+          "default": true,
+          "name": "B♭ standard",
+          "descriptors": [
+            "low-overtone-rich-spectrum",
+            "brass-band",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "early-jazz",
+            "classic-blues",
+            "new-orleans"
+          ]
+        },
+        {
+          "id": "cornet_eb_high",
+          "name": "E♭ soprano cornet",
+          "descriptors": [
+            "high-register",
+            "brass-band"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornet_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "cornet_brass_band",
+          "default": true,
+          "name": "British brass band",
+          "descriptors": [
+            "tradition-deep",
+            "brass"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cornet_early_jazz",
+          "name": "Early jazz",
+          "descriptors": [
+            "pre-trumpet-dominant",
+            "historical"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "new-orleans"
+          ]
+        },
+        {
+          "id": "cornet_solo",
+          "name": "Concert solo",
+          "descriptors": [
+            "composed-tradition",
+            "lyrical",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornet_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "cornet_yellow_brass",
+          "default": true,
+          "name": "Yellow brass (canonical brass-band)",
+          "descriptors": [
+            "yellow-brass-canonical-brass-band"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cornet_gold_brass",
+          "name": "Gold brass (warmer)",
+          "descriptors": [
+            "gold-brass-warmer"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornet_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "cornet_besson_british",
+          "default": true,
+          "name": "Besson Sovereign (canonical British brass-band)",
+          "descriptors": [
+            "besson-sovereign-canonical-british-brass-band"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cornet_yamaha",
+          "name": "Yamaha (modern Japanese)",
+          "descriptors": [
+            "yamaha-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cornet_conn_vintage",
+          "name": "Conn vintage (early jazz canon)",
+          "descriptors": [
+            "conn-vintage-early-jazz-canon"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cornet_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "cornet_bb",
+          "default": true,
+          "name": "B♭ standard",
+          "descriptors": [
+            "low-overtone-rich-spectrum",
+            "brass-band",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "early-jazz",
+            "classic-blues",
+            "new-orleans"
+          ]
+        },
+        {
+          "id": "cornet_eb_high",
+          "name": "E♭ soprano cornet",
+          "descriptors": [
+            "high-register",
+            "brass-band"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornet_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "cornet_brass_band",
+          "default": true,
+          "name": "British brass band",
+          "descriptors": [
+            "tradition-deep",
+            "brass"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cornet_early_jazz",
+          "name": "Early jazz",
+          "descriptors": [
+            "pre-trumpet-dominant",
+            "historical"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "new-orleans"
+          ]
+        },
+        {
+          "id": "cornet_solo",
+          "name": "Concert solo",
+          "descriptors": [
+            "composed-tradition",
+            "lyrical",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornet_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "cornet_yellow_brass",
+          "default": true,
+          "name": "Yellow brass (canonical brass-band)",
+          "descriptors": [
+            "yellow-brass-canonical-brass-band"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cornet_gold_brass",
+          "name": "Gold brass (warmer)",
+          "descriptors": [
+            "gold-brass-warmer"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornet_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "cornet_besson_british",
+          "default": true,
+          "name": "Besson Sovereign (canonical British brass-band)",
+          "descriptors": [
+            "besson-sovereign-canonical-british-brass-band"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cornet_yamaha",
+          "name": "Yamaha (modern Japanese)",
+          "descriptors": [
+            "yamaha-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cornet_conn_vintage",
+          "name": "Conn vintage (early jazz canon)",
+          "descriptors": [
+            "conn-vintage-early-jazz-canon"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

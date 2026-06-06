@@ -1,0 +1,522 @@
+{
+  "id": "cavaquinho",
+  "name": "Cavaquinho (Portuguese / Brazilian)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "cavaquinho",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_tremolo",
+          "name": "Tremolo (mandolin-style)",
+          "applies_to": [
+            "baglamas",
+            "bouzouki",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "tiple",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "leona",
+            "vihuela_mexicana",
+            "domra"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "rapid-tremolo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "mandolin",
+            "mediterranean"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "cavaquinho_origin",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "cavaquinho_portuguese",
+          "name": "Portuguese (Braga / Madeira)",
+          "descriptors": [
+            "traditional",
+            "folk",
+            "rural"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cavaquinho_brazilian",
+          "default": true,
+          "name": "Brazilian (samba/choro)",
+          "descriptors": [
+            "rhythmic",
+            "samba-foundation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cavaquinho_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "cavaquinho_choro",
+          "name": "Choro group",
+          "descriptors": [
+            "brazilian",
+            "rhythm-and-melody",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cavaquinho_samba",
+          "name": "Samba batería",
+          "descriptors": [
+            "carnival-rhythm",
+            "compact-strum",
+            "driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cavaquinho_fado",
+          "default": true,
+          "name": "Fado / Portuguese folk",
+          "descriptors": [
+            "regional-traditional",
+            "song-accompaniment",
+            "European"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cavaquinho_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cavaquinho_jacaranda",
+          "default": true,
+          "name": "Jacarandá / Brazilian rosewood (canonical Portuguese)",
+          "descriptors": [
+            "jacaranda-rosewood",
+            "canonical-portuguese"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "cavaquinho_indian_rosewood",
+          "name": "Indian rosewood (modern Brazilian / Portuguese)",
+          "descriptors": [
+            "indian-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "cavaquinho_mahogany",
+          "name": "Mahogany (Brazilian samba canon)",
+          "descriptors": [
+            "mahogany-samba-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cavaquinho_imbuia",
+          "name": "Imbuia (premium Brazilian)",
+          "descriptors": [
+            "imbuia-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cavaquinho_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cavaquinho_steel",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cavaquinho_gut_historical",
+          "name": "Gut (pre-modern Portuguese)",
+          "descriptors": [
+            "gut-pre-modern-portuguese"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "cavaquinho_origin",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "cavaquinho_portuguese",
+          "name": "Portuguese (Braga / Madeira)",
+          "descriptors": [
+            "traditional",
+            "folk",
+            "rural"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cavaquinho_brazilian",
+          "default": true,
+          "name": "Brazilian (samba/choro)",
+          "descriptors": [
+            "rhythmic",
+            "samba-foundation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cavaquinho_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "cavaquinho_choro",
+          "name": "Choro group",
+          "descriptors": [
+            "brazilian",
+            "rhythm-and-melody",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cavaquinho_samba",
+          "name": "Samba batería",
+          "descriptors": [
+            "carnival-rhythm",
+            "compact-strum",
+            "driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cavaquinho_fado",
+          "default": true,
+          "name": "Fado / Portuguese folk",
+          "descriptors": [
+            "regional-traditional",
+            "song-accompaniment",
+            "European"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cavaquinho_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cavaquinho_jacaranda",
+          "default": true,
+          "name": "Jacarandá / Brazilian rosewood (canonical Portuguese)",
+          "descriptors": [
+            "jacaranda-rosewood",
+            "canonical-portuguese"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "cavaquinho_indian_rosewood",
+          "name": "Indian rosewood (modern Brazilian / Portuguese)",
+          "descriptors": [
+            "indian-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "cavaquinho_mahogany",
+          "name": "Mahogany (Brazilian samba canon)",
+          "descriptors": [
+            "mahogany-samba-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cavaquinho_imbuia",
+          "name": "Imbuia (premium Brazilian)",
+          "descriptors": [
+            "imbuia-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cavaquinho_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cavaquinho_steel",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cavaquinho_gut_historical",
+          "name": "Gut (pre-modern Portuguese)",
+          "descriptors": [
+            "gut-pre-modern-portuguese"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

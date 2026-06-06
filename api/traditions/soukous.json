@@ -1,0 +1,166 @@
+{
+  "id": "soukous",
+  "name": "Soukous",
+  "family": "global",
+  "lineage": "Congolese fast-tempo dance derivation of Congolese rumba, codified through Tabu Ley Rochereau, Sam Mangwana, Papa Wemba (Viva la Musica band), Pepe Kalle, Kanda Bongo Man (the mid-1980s Paris-recorded breakthrough), Diblo Dibala — characterized by the structural chanson-then-sebene form with sebene section accelerated to 130-180 BPM and the mi-solo / mi-composé interlocking-guitar foreground",
+  "recipe": "classic West African 1984-1986 soukous, groove Percussion, central east south African branch, African pop functional song congolese rumba isicathamiya. thick, declaimed, chest resonance low mid, rhythmic. mahogany rosewood single coil electric guitar, alder thomastik infeld low tension jazz warm electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, mule hide canonical Cuban premium congas. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 657,
+  "score": 242.197,
+  "config": {
+    "traditions": [
+      "soukous",
+      "congolese_rumba",
+      "isicathamiya"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 2.2099999999999995,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 1.675,
+          "voice_articulation": 0.78,
+          "voice_microtone": 2.8850000000000002,
+          "voice_tradition": 11.569999999999999,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 5.265,
+          "voice_ensemble_config": 4.29,
+          "voice_ornament_system": 0.585,
+          "voice_pitch_organization": 2.29,
+          "voice_processing_chain": 4.8100000000000005,
+          "voice_multitrack_stack": 3.04
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_c"
+        },
+        "scores": {
+          "electric_technique": 1.7449999999999997,
+          "amp_make": 1.4299999999999997,
+          "body_wood": 1.675,
+          "neck_wood": 1.675,
+          "fretboard": 1.69,
+          "pickup_magnet": 0.39,
+          "string_material": 0.15,
+          "string_gauge": 1.675,
+          "bridge": 1.54,
+          "scale_length": 1.69,
+          "finish": 0,
+          "string_tuning": 1.14
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 1.4299999999999997,
+          "body_wood": 2.135,
+          "pickup_config": 1,
+          "string_type": 1.675,
+          "scale_length_b": 1.675,
+          "fretted_or_not": 0.195,
+          "bass_technique": 0.75
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 4.68,
+          "shell_wood": 0.78,
+          "shell_thickness": 0,
+          "bearing_edges": 1.69,
+          "drumhead": 1.8799999999999997,
+          "snare_wires": 1.675,
+          "cymbal_alloy": 1.9399999999999997,
+          "cymbal_hammering": 1.6949999999999996,
+          "cymbal_lathing": 3.3699999999999997,
+          "cymbal_finish": 0.195,
+          "drum_technique": 4.68
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "conga_set": 0.39,
+          "conga_skin": 1.135,
+          "conga_shell_wood": 0.9149999999999998
+        }
+      }
+    ],
+    "room": "paris_pathe_marconi_african_diaspora",
+    "archetype": "arch_emi_lagos_african_70s",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "soukous_rumba_seben_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

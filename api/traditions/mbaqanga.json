@@ -1,0 +1,200 @@
+{
+  "id": "mbaqanga",
+  "name": "Mbaqanga (South African township jive, 1960s-1980s)",
+  "family": "global",
+  "lineage": "South African mbaqanga township-jive tradition emerging in early 1960s Johannesburg township studios (Soweto and Alexandra). Roots in 1920s-1930s marabi shebeen piano-and-banjo and 1950s kwela pennywhistle jive. Studios: Mavuthela (the Black-music division of Gallo Record Company, established 1964) under producer Rupert Bopape. Sound: electric instrumentation over township 8/8 beat, with Zulu vocal harmonies in five-part configuration (not Western four-part). \"Groaning\" basso-profundo male vocal — canonical bass-register growl with hyper-low fundamental — paired against female-trio harmonies (Mahotella Queens, Dark City Sisters). Backing-band canonical lineup of Makgona Tsohle Band: Marks Mankwane lead electric guitar, Joseph Makwela electric bass, West Nkosi tenor saxophone (later producer in his own right), Vivian Ngubane rhythm guitar, Lucky Monama drums. Mgqashiyo dance variant emerged late 1960s. The word \"mbaqanga\" is Zulu for cornmeal porridge / steamed bread. The 1986 Graceland sessions brought international revival. Distinguished from kwela by electric-instrumentation and 8/8 township-beat configuration; distinguished from isicathamiya by groaning-bass + female-trio configuration vs male-only close-harmony; distinguished from marabi by electric vs acoustic shebeen-piano-banjo instrumentation",
+  "recipe": "classic North American mbaqanga, functional Song, African pop branch, African pop isicathamiya. extended whistle, declaimed, chest resonance low mid, equal tempered. mahogany rosewood alnico flatwound clean single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, low onset attack dark ebonite saxophone, wood walnut mid tier scruggs stelling bluegrass setup banjo 5 string. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 712,
+  "score": 281.119,
+  "config": {
+    "traditions": [
+      "mbaqanga",
+      "isicathamiya"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_sob",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 7.085,
+          "voice_quality": 1.41175,
+          "voice_vibrato": 1.56175,
+          "voice_articulation": 0.34950000000000003,
+          "voice_microtone": 6.823000000000001,
+          "voice_tradition": 23.854999999999997,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 5.145,
+          "voice_speech_song": 9.555,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0.21300000000000002,
+          "voice_pitch_organization": 4.085249999999999,
+          "voice_processing_chain": 10.3365,
+          "voice_multitrack_stack": 7.592749999999999
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_champ",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 8.75,
+          "amp_make": 1.3944999999999999,
+          "body_wood": 1.56175,
+          "neck_wood": 1.56175,
+          "fretboard": 1.5117500000000001,
+          "pickup_magnet": 1.345,
+          "string_material": 1,
+          "string_gauge": 1.56175,
+          "bridge": 1.345,
+          "scale_length": 1.69,
+          "finish": 0,
+          "string_tuning": 3.9449999999999994
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 5.345,
+          "body_wood": 1.69,
+          "pickup_config": 1.3,
+          "string_type": 4.35125,
+          "scale_length_b": 1.56175,
+          "fretted_or_not": 0.1365,
+          "bass_technique": -0.035
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 6.629999999999999,
+          "shell_wood": 3.792,
+          "shell_thickness": 0,
+          "bearing_edges": 2.90675,
+          "drumhead": 5.571500000000001,
+          "snare_wires": 1.56175,
+          "cymbal_alloy": 5.618,
+          "cymbal_hammering": 5.585250000000001,
+          "cymbal_lathing": 5.536500000000001,
+          "cymbal_finish": 1.045,
+          "drum_technique": 6.629999999999999
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "sax_size": "baritone_sax",
+          "sax_reed": "hard_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 1.2449999999999999,
+          "sax_size": 1.56175,
+          "sax_reed": 1,
+          "sax_body_alloy": -0.05,
+          "sax_mouthpiece": 2.3449999999999998,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.6499999999999995
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.23,
+          "banjo_back": 1.3900000000000001,
+          "tone_ring": 1.345,
+          "banjo_head": 6.759999999999999,
+          "banjo_pot": 0.0765,
+          "banjo_play": 0.1365,
+          "banjo_rim_wood": 0.0315,
+          "banjo_neck_wood": 1.04,
+          "banjo_strings": 0.15,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 6.694999999999999
+        }
+      }
+    ],
+    "room": "johannesburg_gallo_african_studios",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

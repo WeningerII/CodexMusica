@@ -1,0 +1,156 @@
+{
+  "id": "gaita_colombiana",
+  "name": "Gaita colombiana (Caribbean Colombian flute)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gaita",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gaita_colombiana_pair",
+      "name": "Pair role",
+      "variants": [
+        {
+          "id": "gaita_hembra",
+          "default": true,
+          "name": "Gaita hembra (female, melody)",
+          "descriptors": [
+            "gaita",
+            "hembra"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "colombian",
+            "cumbia"
+          ]
+        },
+        {
+          "id": "gaita_macho",
+          "name": "Gaita macho (male, drone-and-rhythm)",
+          "descriptors": [
+            "gaita",
+            "macho",
+            "rhythmic-drone"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "colombian",
+            "cumbia"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gaita_colombiana_pair",
+      "name": "Pair role",
+      "variants": [
+        {
+          "id": "gaita_hembra",
+          "default": true,
+          "name": "Gaita hembra (female, melody)",
+          "descriptors": [
+            "gaita",
+            "hembra"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "colombian",
+            "cumbia"
+          ]
+        },
+        {
+          "id": "gaita_macho",
+          "name": "Gaita macho (male, drone-and-rhythm)",
+          "descriptors": [
+            "gaita",
+            "macho",
+            "rhythmic-drone"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "colombian",
+            "cumbia"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,423 @@
+{
+  "id": "gaida_bulgarian",
+  "name": "Gaida bulgarian (Balkan pipes)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gaida",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        },
+        {
+          "id": "wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "uilleann_pipes",
+            "biniou",
+            "highland_bagpipes",
+            "bombarde",
+            "recorder",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "shawm",
+            "zurna",
+            "mizmar",
+            "ghaita",
+            "ciaramella",
+            "duduk",
+            "mey"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ],
+          "default": true
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gaida_origin",
+      "surface": false,
+      "name": "Origin",
+      "variants": [
+        {
+          "id": "gaida_kaba",
+          "default": true,
+          "name": "Kaba gaida (deep, Rhodope)",
+          "descriptors": [
+            "rhodope",
+            "meditative",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaida_djura",
+          "name": "Djura gaida (high)",
+          "descriptors": [
+            "treble-extended",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaida_bulgarian_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "gaida_bulgarian_wedding",
+          "default": true,
+          "name": "Wedding / festival",
+          "descriptors": [
+            "communal",
+            "driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaida_bulgarian_revival",
+          "name": "Concert / revival",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist",
+            "art-music"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaida_bulgarian_shepherd",
+          "name": "Pastoral / shepherd",
+          "descriptors": [
+            "traditional",
+            "solo",
+            "rural"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaida_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "gaida_plum_canonical",
+          "default": true,
+          "name": "Plum wood (canonical Rhodope)",
+          "descriptors": [
+            "plum-canonical-rhodope"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaida_walnut",
+          "name": "Walnut (alternative)",
+          "descriptors": [
+            "walnut-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaida_apricot",
+          "name": "Apricot (alternative)",
+          "descriptors": [
+            "apricot-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaida_reed",
+      "surface": false,
+      "name": "Reed material (single-reed)",
+      "variants": [
+        {
+          "id": "gaida_cane_canonical",
+          "default": true,
+          "name": "Cane single-reed Arundo donax (canonical Bulgarian)",
+          "descriptors": [
+            "cane-arundo-donax-single-reed-canonical-bulgarian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaida_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "gaida_goatskin_canonical",
+          "default": true,
+          "name": "Whole goatskin with fleece outside (canonical Rhodope kaba gaida)",
+          "descriptors": [
+            "whole-goatskin-fleece-outside-canonical-rhodope"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wind_articulation",
+      "default_variant": "wind_ornament_heavy"
+    },
+    {
+      "id": "gaida_origin",
+      "surface": false,
+      "name": "Origin",
+      "variants": [
+        {
+          "id": "gaida_kaba",
+          "default": true,
+          "name": "Kaba gaida (deep, Rhodope)",
+          "descriptors": [
+            "rhodope",
+            "meditative",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaida_djura",
+          "name": "Djura gaida (high)",
+          "descriptors": [
+            "treble-extended",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaida_bulgarian_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "gaida_bulgarian_wedding",
+          "default": true,
+          "name": "Wedding / festival",
+          "descriptors": [
+            "communal",
+            "driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaida_bulgarian_revival",
+          "name": "Concert / revival",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist",
+            "art-music"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaida_bulgarian_shepherd",
+          "name": "Pastoral / shepherd",
+          "descriptors": [
+            "traditional",
+            "solo",
+            "rural"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaida_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "gaida_plum_canonical",
+          "default": true,
+          "name": "Plum wood (canonical Rhodope)",
+          "descriptors": [
+            "plum-canonical-rhodope"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaida_walnut",
+          "name": "Walnut (alternative)",
+          "descriptors": [
+            "walnut-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaida_apricot",
+          "name": "Apricot (alternative)",
+          "descriptors": [
+            "apricot-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaida_reed",
+      "surface": false,
+      "name": "Reed material (single-reed)",
+      "variants": [
+        {
+          "id": "gaida_cane_canonical",
+          "default": true,
+          "name": "Cane single-reed Arundo donax (canonical Bulgarian)",
+          "descriptors": [
+            "cane-arundo-donax-single-reed-canonical-bulgarian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaida_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "gaida_goatskin_canonical",
+          "default": true,
+          "name": "Whole goatskin with fleece outside (canonical Rhodope kaba gaida)",
+          "descriptors": [
+            "whole-goatskin-fleece-outside-canonical-rhodope"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "id": "melodica",
+  "name": "Melodica",
+  "family": "keyboard",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "melodica",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "melodica_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "melodica_dub",
+          "default": true,
+          "name": "Dub roots",
+          "descriptors": [
+            "breathy",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "dub"
+          ]
+        },
+        {
+          "id": "melodica_pedagogical",
+          "name": "Educational / folk",
+          "descriptors": [
+            "accessible",
+            "hammer-low-mid-emphasis",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melodica_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "melodica_soprano",
+          "default": true,
+          "name": "Soprano (high, common)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodica_alto",
+          "name": "Alto (mid)",
+          "descriptors": [
+            "bridge-register",
+            "less-common",
+            "arrangement"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodica_bass",
+          "name": "Bass (low, rare)",
+          "descriptors": [
+            "unusual",
+            "specialty",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melodica_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "melodica_hohner_canonical",
+          "default": true,
+          "name": "Hohner Melodica (canonical 1959 patent — dub roots tradition)",
+          "descriptors": [
+            "hohner-melodica-canonical-1959-dub-roots-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "dub"
+          ]
+        },
+        {
+          "id": "melodica_suzuki_japanese",
+          "name": "Suzuki (Japanese pedagogical premium)",
+          "descriptors": [
+            "suzuki-japanese-pedagogical-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodica_yamaha_p37d",
+          "name": "Yamaha P-37D Pianica (Japanese alternative)",
+          "descriptors": [
+            "yamaha-p37d-pianica-japanese-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "melodica_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "melodica_dub",
+          "default": true,
+          "name": "Dub roots",
+          "descriptors": [
+            "breathy",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "dub"
+          ]
+        },
+        {
+          "id": "melodica_pedagogical",
+          "name": "Educational / folk",
+          "descriptors": [
+            "accessible",
+            "hammer-low-mid-emphasis",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melodica_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "melodica_soprano",
+          "default": true,
+          "name": "Soprano (high, common)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodica_alto",
+          "name": "Alto (mid)",
+          "descriptors": [
+            "bridge-register",
+            "less-common",
+            "arrangement"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodica_bass",
+          "name": "Bass (low, rare)",
+          "descriptors": [
+            "unusual",
+            "specialty",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melodica_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "melodica_hohner_canonical",
+          "default": true,
+          "name": "Hohner Melodica (canonical 1959 patent — dub roots tradition)",
+          "descriptors": [
+            "hohner-melodica-canonical-1959-dub-roots-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "dub"
+          ]
+        },
+        {
+          "id": "melodica_suzuki_japanese",
+          "name": "Suzuki (Japanese pedagogical premium)",
+          "descriptors": [
+            "suzuki-japanese-pedagogical-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodica_yamaha_p37d",
+          "name": "Yamaha P-37D Pianica (Japanese alternative)",
+          "descriptors": [
+            "yamaha-p37d-pianica-japanese-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

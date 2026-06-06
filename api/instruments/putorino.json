@@ -1,0 +1,100 @@
+{
+  "id": "putorino",
+  "name": "Pūtōrino (Maori bugle-flute)",
+  "family": "wind",
+  "class": "flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "putorino",
+  "parts": [
+    {
+      "id": "putorino_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "putorino_split_hollowed_hardwood_case_moth_canonical",
+          "default": true,
+          "name": "Split-and-hollowed hardwood torpedo, case-moth-cocoon profile, gum-sealed, vine-bound (canonical Maori — unique to Aotearoa)",
+          "descriptors": [
+            "split-hollowed-hardwood-torpedo-case-moth-profile-canonical-maori-unique-aotearoa"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "putorino_voice",
+      "surface": false,
+      "name": "Voicing mode",
+      "variants": [
+        {
+          "id": "putorino_dual_flute_and_bugle",
+          "default": true,
+          "name": "Dual flute / bugle voicing (the female and male voices of Hine Raukatauri)",
+          "descriptors": [
+            "dual-flute-bugle-voicing-female-male-hine-raukatauri"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "putorino_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "putorino_split_hollowed_hardwood_case_moth_canonical",
+          "default": true,
+          "name": "Split-and-hollowed hardwood torpedo, case-moth-cocoon profile, gum-sealed, vine-bound (canonical Maori — unique to Aotearoa)",
+          "descriptors": [
+            "split-hollowed-hardwood-torpedo-case-moth-profile-canonical-maori-unique-aotearoa"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "putorino_voice",
+      "surface": false,
+      "name": "Voicing mode",
+      "variants": [
+        {
+          "id": "putorino_dual_flute_and_bugle",
+          "default": true,
+          "name": "Dual flute / bugle voicing (the female and male voices of Hine Raukatauri)",
+          "descriptors": [
+            "dual-flute-bugle-voicing-female-male-hine-raukatauri"
+          ],
+          "match_tokens": [
+            "wind",
+            "taonga-puoro",
+            "maori-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

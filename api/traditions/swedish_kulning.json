@@ -1,0 +1,68 @@
+{
+  "id": "swedish_kulning",
+  "name": "Swedish kulning herding-call",
+  "family": "global",
+  "lineage": "Swedish kulning (and the cognate Norwegian kuløkk and laling) high-volume female herding-call tradition of the mountain-pasture fäbod summer-grazing settlements of central and northern Sweden (Dalarna, Hälsingland, Härjedalen, and Jämtland provinces) and adjacent western Norway. Performed by women (the milkmaids who managed cattle and goats at the summer pastures) as a long-distance projecting call to bring grazing animals home at evening milking-time, kulning developed as a specialized vocal-projection technique using a tightly-focused upper-chest-and-head register that can carry several kilometers across mountain valleys. The technique employs characteristic ornamentation: a rapid initial pitch-glide upward to the calling-pitch, characteristic falling-fourth and falling-fifth interval ornaments, and a distinctive crystalline high-register timbre produced by tight glottal-and-supralaryngeal compression. Repertoire spans the practical herding-calls (lockrop) used to summon specific animals, calling-songs (lockläte) sung to entertain or comfort the cattle, and the broader corpus of fäbod-related work-song. The Svenskt visarkiv (Swedish Folk Music Archive) field-recordings beginning in the 1940s, and Susanne Rosenberg's twenty-first-century scholarship and performance, anchor the documentation. The mid-twentieth-century industrialization of Swedish dairy-farming eliminated the fäbod system as functional infrastructure; kulning persists as a heritage-art practice with active transmission through folk-music schools and concert-revival performers including Jonna Jinton in the post-2010 social-media revival. Distinguished from Norwegian kuløkk by Swedish-dialect-specific vocabulary and Dalarna-Härjedalen regional fäbod context; distinguished from Sámi yoik by kulning's pastoral-call functional context (vs yoik's personal-and-ancestor-evocation function) and tight-focused projection technique (vs yoik's nasal-resonance and narrow-range vocabulary).",
+  "recipe": "classic mid-1940s swedish kulning herding-call, ballad Poetry, work song branch, blues narrative field holler, vocal drone modal silbo gomero whistled language northern sámi luohti yoik. thick, declaimed, chest resonance low mid, unrestrained. mountain valley fabod. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 396,
+  "score": 240.268,
+  "config": {
+    "traditions": [
+      "swedish_kulning",
+      "silbo_gomero",
+      "sami_northern_luohti"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 10.14,
+          "voice_quality": 6.604000000000001,
+          "voice_vibrato": 3.9495,
+          "voice_articulation": 4.25,
+          "voice_microtone": 3.009,
+          "voice_tradition": 23.009999999999994,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 5.785,
+          "voice_speech_song": 33.475,
+          "voice_ensemble_config": 26.78000000000001,
+          "voice_ornament_system": 3.7245,
+          "voice_pitch_organization": 4.739,
+          "voice_processing_chain": 5.9799999999999995,
+          "voice_multitrack_stack": 4.29
+        }
+      }
+    ],
+    "room": "mountain_valley_fabod",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

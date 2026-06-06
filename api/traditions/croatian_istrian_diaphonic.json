@@ -1,0 +1,79 @@
+{
+  "id": "croatian_istrian_diaphonic",
+  "name": "Croatian Istrian two-part-in-Istrian-scale (UNESCO 2009)",
+  "family": "global",
+  "lineage": "Croatian Istrian two-part-in-Istrian-scale (dvoglasno pjevanje na tijesno) tradition of the Istrian peninsula (northwestern Croatian Adriatic coast, with related material in adjacent Slovenian Istria), recognized as UNESCO Intangible Cultural Heritage 2009. The form is a two-voice male diaphonic vocal practice in which the two voices move in characteristic parallel-second-and-minor-third intervals, ending each phrase strictly in unison-or-octave cadence, all within the non-tempered six-tone Istrian scale codified in the 1920s by composer-theorist Ivan Matetić Ronjgov (1880-1960). The Istrian scale is a regional folk-tonal system with paired-second intervallic structure and characteristic non-tempered intonation that no Western equal-tempered transcription captures faithfully. Performance involves the lead voice (kantadur) and the answering voice (kontradur), with the two singers standing close together and projecting outward in unison facing the audience or open landscape. Parallel instrumental form exists in the sopele (paired large-and-small conical-bore double-reed shawms playing the same intervallic vocabulary as the two voices) and the šurla (similar paired shawms in the southern Istrian dialect). Performance contexts include outdoor village squares, processions, and the contemporary folk-festival circuit. Distinguished from broader Croatian klapa by Istrian's two-voice diaphonic (vs four-voice close-harmony) architecture and non-tempered Istrian-scale (vs twelve-tet tonal-chordal) vocabulary; distinguished from Slovenian-folk-singing by Istrian-specific Croatian regional dialect.",
+  "recipe": "classic croatian istrian two-part-in-istrian-scale, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian cantu a tenore and launeddas. kargyraa, false fold engaged, pure, hocket articulation. paired large small conical bore canonical istrian scale istrian diaphonic two part canonical croatian sopele. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 515,
+  "score": 289.01,
+  "config": {
+    "traditions": [
+      "croatian_istrian_diaphonic",
+      "croatian_klapa_dalmatian",
+      "sardinian_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 8.095,
+          "voice_quality": 2.6,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.2349999999999999,
+          "voice_microtone": 6.045000000000001,
+          "voice_tradition": 21.58,
+          "voice_mechanism_compound": 6.24,
+          "voice_estill_quality": 5.3950000000000005,
+          "voice_speech_song": 11.505000000000003,
+          "voice_ensemble_config": 20.41,
+          "voice_ornament_system": 8.24,
+          "voice_pitch_organization": 5.495,
+          "voice_processing_chain": 6.89,
+          "voice_multitrack_stack": 7.67
+        }
+      },
+      {
+        "id": "sopele",
+        "slots": {
+          "sopele_body": "sopele_paired_large_small_canonical",
+          "sopele_tradition": "sopele_istrian_diaphonic_canonical"
+        },
+        "scores": {
+          "sopele_body": 27.380000000000003,
+          "sopele_tradition": 32.370000000000005
+        }
+      }
+    ],
+    "room": "outdoor_dalmatian_square",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "istrian_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

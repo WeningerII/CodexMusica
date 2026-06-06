@@ -1,0 +1,1106 @@
+{
+  "id": "mandolin",
+  "name": "Mandolin",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "mandolin",
+  "parts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_flatpicked",
+          "name": "Flatpicked single-note",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mandolin",
+            "mandola",
+            "cittern",
+            "acoustic_guitar_parlor",
+            "upright_bass"
+          ],
+          "descriptors": [
+            "flatpicked",
+            "articulated"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "bluegrass",
+            "old-time"
+          ]
+        },
+        {
+          "id": "acoustic_strummed_ringing",
+          "default": true,
+          "name": "Open-chord strumming (ringing)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "mandolin",
+            "mandola",
+            "autoharp",
+            "celtic_harp",
+            "cittern"
+          ],
+          "descriptors": [
+            "strummed",
+            "open-chord-ringing-overtones"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "folk-revival",
+            "pop"
+          ]
+        },
+        {
+          "id": "acoustic_drone_modal",
+          "name": "Drop-tuned drone",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mandolin",
+            "mandola",
+            "mountain_dulcimer",
+            "cittern",
+            "autoharp"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "britfolk"
+          ]
+        },
+        {
+          "id": "acoustic_chord_melody",
+          "name": "Chord-melody",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "mandolin",
+            "upright_bass"
+          ],
+          "descriptors": [
+            "chord-melody"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "chordal",
+            "block-chord",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "mandolin_shape",
+      "name": "Body style",
+      "variants": [
+        {
+          "id": "f_style",
+          "surface": false,
+          "name": "F-style (carved, scrolled — Gibson F-5 Lloyd Loar canon, 1923-1924)",
+          "descriptors": [
+            "cutting",
+            "projecting",
+            "gibson-f-5-loar",
+            "scrolled-carved"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "a_style",
+          "surface": false,
+          "name": "A-style (teardrop)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "simpler",
+            "teardrop"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "flat_back",
+          "default": true,
+          "name": "Flat-back / bowl-back",
+          "descriptors": [
+            "traditional",
+            "mellow",
+            "european-folk",
+            "bowl-back-italian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_top",
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "adirondack_m",
+          "default": true,
+          "name": "Adirondack red spruce (Loar F-5 canon)",
+          "descriptors": [
+            "adirondack",
+            "red-spruce",
+            "loar-canon",
+            "projecting-high-headroom"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "sitka_m",
+          "name": "Sitka spruce",
+          "descriptors": [
+            "sitka",
+            "modern-standard",
+            "balanced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "german_spruce_m",
+          "name": "German spruce (classical mandolin orchestra)",
+          "descriptors": [
+            "german-spruce",
+            "european-alpine",
+            "classical-leaning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "carpathian_spruce_m",
+          "name": "Carpathian spruce (boutique modern)",
+          "descriptors": [
+            "carpathian-spruce",
+            "boutique-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "italian_alpine_spruce_m",
+          "name": "Italian alpine spruce (Brescian / Calace lineage)",
+          "descriptors": [
+            "italian-alpine-spruce",
+            "brescian-calace",
+            "bowl-back-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "redwood_m",
+          "name": "Redwood (modern alternative)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "bell-clear-sustain",
+            "soft-attack-onset",
+            "redwood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_back",
+      "surface": false,
+      "name": "Back wood",
+      "variants": [
+        {
+          "id": "european_maple_loar",
+          "default": true,
+          "name": "European maple (Loar F-5 canon)",
+          "descriptors": [
+            "european-maple",
+            "flamed",
+            "loar-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "big_leaf_maple",
+          "name": "Big-leaf maple (modern American)",
+          "descriptors": [
+            "big-leaf-maple",
+            "modern-american"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "hard_rock_maple_mandolin",
+          "name": "Hard rock maple",
+          "descriptors": [
+            "hard-rock-maple",
+            "projecting-bright"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "koa_mandolin",
+          "name": "Koa (Hawaiian / boutique)",
+          "descriptors": [
+            "koa",
+            "warm-figured"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "mahogany_mandolin",
+          "name": "Mahogany (entry-tier / vintage Gibson)",
+          "descriptors": [
+            "mahogany",
+            "woody-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_bracing",
+      "surface": false,
+      "name": "Top bracing / graduation",
+      "variants": [
+        {
+          "id": "mandolin_parallel_tone_bars_loar",
+          "default": true,
+          "name": "Parallel tone bars (Loar F-5 graduation)",
+          "descriptors": [
+            "parallel-tone-bars",
+            "loar-graduation",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "mandolin_x_brace",
+          "name": "X-bracing (modern)",
+          "descriptors": [
+            "x-brace",
+            "modern-mandolin",
+            "flexible-spectrum"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "mandolin_gilchrist_graduation",
+          "name": "Gilchrist graduation (modern luthier canon)",
+          "descriptors": [
+            "gilchrist-graduation",
+            "modern-luthier-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "phosphor_m",
+          "default": true,
+          "name": "Phosphor bronze (medium)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "full",
+            "balanced",
+            "phosphor-bronze",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "eighty_twenty_m",
+          "name": "80/20 bronze (brighter)",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "fresh",
+            "80-20-cu-zn"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "thomastik_jazz_mandolin_flat",
+          "name": "Thomastik flatwound jazz (mandolin jazz canon)",
+          "descriptors": [
+            "thomastik",
+            "flatwound",
+            "jazz-mandolin"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "daddario_ej_mandolin",
+          "name": "D'Addario EJ phosphor bronze",
+          "descriptors": [
+            "daddario-ej",
+            "standard-medium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "martin_m_mandolin",
+          "name": "Martin M-series mandolin",
+          "descriptors": [
+            "martin-m-series",
+            "medium-tension"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "ghs_mandolin_silk_steel",
+          "name": "GHS silk and steel (vintage / parlor mandolin)",
+          "descriptors": [
+            "ghs-silk-steel",
+            "low-tension",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_fingerboard",
+      "surface": false,
+      "name": "Fingerboard",
+      "variants": [
+        {
+          "id": "mandolin_ebony_fb",
+          "default": true,
+          "name": "Ebony",
+          "descriptors": [
+            "ebony",
+            "percussive",
+            "fast-decay-low-resonance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "mandolin_indian_rosewood_fb",
+          "name": "Indian rosewood",
+          "descriptors": [
+            "indian-rosewood",
+            "low-mid-rich-spectrum"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "mandolin_brazilian_rosewood_fb",
+          "name": "Brazilian rosewood (pre-1992 vintage, restricted)",
+          "descriptors": [
+            "brazilian-rosewood",
+            "pre-1992-vintage",
+            "restricted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_pickup",
+      "surface": false,
+      "name": "Pickup (acoustic-electric)",
+      "variants": [
+        {
+          "id": "mandolin_no_pickup",
+          "default": true,
+          "name": "No pickup (pure acoustic)",
+          "descriptors": [
+            "acoustic-only",
+            "no-pickup"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "mandolin_k_k_twin_internal",
+          "name": "K&K Twin internal (modern acoustic-electric canon)",
+          "descriptors": [
+            "k-and-k-twin",
+            "internal-mounted",
+            "acoustic-faithful"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandolin_fishman_undersaddle",
+          "name": "Fishman undersaddle piezo",
+          "descriptors": [
+            "fishman",
+            "undersaddle-piezo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandolin_magnetic_soundhole",
+          "name": "Magnetic soundhole (Sunrise / McIntyre)",
+          "descriptors": [
+            "magnetic-soundhole",
+            "sunrise",
+            "mcintyre"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mandolin_shape",
+      "name": "Body style",
+      "variants": [
+        {
+          "id": "f_style",
+          "surface": false,
+          "name": "F-style (carved, scrolled — Gibson F-5 Lloyd Loar canon, 1923-1924)",
+          "descriptors": [
+            "cutting",
+            "projecting",
+            "gibson-f-5-loar",
+            "scrolled-carved"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "a_style",
+          "surface": false,
+          "name": "A-style (teardrop)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "simpler",
+            "teardrop"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "flat_back",
+          "default": true,
+          "name": "Flat-back / bowl-back",
+          "descriptors": [
+            "traditional",
+            "mellow",
+            "european-folk",
+            "bowl-back-italian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_top",
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "adirondack_m",
+          "default": true,
+          "name": "Adirondack red spruce (Loar F-5 canon)",
+          "descriptors": [
+            "adirondack",
+            "red-spruce",
+            "loar-canon",
+            "projecting-high-headroom"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "sitka_m",
+          "name": "Sitka spruce",
+          "descriptors": [
+            "sitka",
+            "modern-standard",
+            "balanced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "german_spruce_m",
+          "name": "German spruce (classical mandolin orchestra)",
+          "descriptors": [
+            "german-spruce",
+            "european-alpine",
+            "classical-leaning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "carpathian_spruce_m",
+          "name": "Carpathian spruce (boutique modern)",
+          "descriptors": [
+            "carpathian-spruce",
+            "boutique-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "italian_alpine_spruce_m",
+          "name": "Italian alpine spruce (Brescian / Calace lineage)",
+          "descriptors": [
+            "italian-alpine-spruce",
+            "brescian-calace",
+            "bowl-back-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "redwood_m",
+          "name": "Redwood (modern alternative)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "bell-clear-sustain",
+            "soft-attack-onset",
+            "redwood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_back",
+      "surface": false,
+      "name": "Back wood",
+      "variants": [
+        {
+          "id": "european_maple_loar",
+          "default": true,
+          "name": "European maple (Loar F-5 canon)",
+          "descriptors": [
+            "european-maple",
+            "flamed",
+            "loar-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "big_leaf_maple",
+          "name": "Big-leaf maple (modern American)",
+          "descriptors": [
+            "big-leaf-maple",
+            "modern-american"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "hard_rock_maple_mandolin",
+          "name": "Hard rock maple",
+          "descriptors": [
+            "hard-rock-maple",
+            "projecting-bright"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "koa_mandolin",
+          "name": "Koa (Hawaiian / boutique)",
+          "descriptors": [
+            "koa",
+            "warm-figured"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "mahogany_mandolin",
+          "name": "Mahogany (entry-tier / vintage Gibson)",
+          "descriptors": [
+            "mahogany",
+            "woody-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_bracing",
+      "surface": false,
+      "name": "Top bracing / graduation",
+      "variants": [
+        {
+          "id": "mandolin_parallel_tone_bars_loar",
+          "default": true,
+          "name": "Parallel tone bars (Loar F-5 graduation)",
+          "descriptors": [
+            "parallel-tone-bars",
+            "loar-graduation",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "mandolin_x_brace",
+          "name": "X-bracing (modern)",
+          "descriptors": [
+            "x-brace",
+            "modern-mandolin",
+            "flexible-spectrum"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "mandolin_gilchrist_graduation",
+          "name": "Gilchrist graduation (modern luthier canon)",
+          "descriptors": [
+            "gilchrist-graduation",
+            "modern-luthier-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "phosphor_m",
+          "default": true,
+          "name": "Phosphor bronze (medium)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "full",
+            "balanced",
+            "phosphor-bronze",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "eighty_twenty_m",
+          "name": "80/20 bronze (brighter)",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "fresh",
+            "80-20-cu-zn"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "thomastik_jazz_mandolin_flat",
+          "name": "Thomastik flatwound jazz (mandolin jazz canon)",
+          "descriptors": [
+            "thomastik",
+            "flatwound",
+            "jazz-mandolin"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "daddario_ej_mandolin",
+          "name": "D'Addario EJ phosphor bronze",
+          "descriptors": [
+            "daddario-ej",
+            "standard-medium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "martin_m_mandolin",
+          "name": "Martin M-series mandolin",
+          "descriptors": [
+            "martin-m-series",
+            "medium-tension"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "ghs_mandolin_silk_steel",
+          "name": "GHS silk and steel (vintage / parlor mandolin)",
+          "descriptors": [
+            "ghs-silk-steel",
+            "low-tension",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_fingerboard",
+      "surface": false,
+      "name": "Fingerboard",
+      "variants": [
+        {
+          "id": "mandolin_ebony_fb",
+          "default": true,
+          "name": "Ebony",
+          "descriptors": [
+            "ebony",
+            "percussive",
+            "fast-decay-low-resonance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "mandolin_indian_rosewood_fb",
+          "name": "Indian rosewood",
+          "descriptors": [
+            "indian-rosewood",
+            "low-mid-rich-spectrum"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "mandolin_brazilian_rosewood_fb",
+          "name": "Brazilian rosewood (pre-1992 vintage, restricted)",
+          "descriptors": [
+            "brazilian-rosewood",
+            "pre-1992-vintage",
+            "restricted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandolin_pickup",
+      "surface": false,
+      "name": "Pickup (acoustic-electric)",
+      "variants": [
+        {
+          "id": "mandolin_no_pickup",
+          "default": true,
+          "name": "No pickup (pure acoustic)",
+          "descriptors": [
+            "acoustic-only",
+            "no-pickup"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "mandolin_k_k_twin_internal",
+          "name": "K&K Twin internal (modern acoustic-electric canon)",
+          "descriptors": [
+            "k-and-k-twin",
+            "internal-mounted",
+            "acoustic-faithful"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandolin_fishman_undersaddle",
+          "name": "Fishman undersaddle piezo",
+          "descriptors": [
+            "fishman",
+            "undersaddle-piezo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandolin_magnetic_soundhole",
+          "name": "Magnetic soundhole (Sunrise / McIntyre)",
+          "descriptors": [
+            "magnetic-soundhole",
+            "sunrise",
+            "mcintyre"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ]
+}

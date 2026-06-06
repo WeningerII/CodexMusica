@@ -1,0 +1,68 @@
+{
+  "id": "ifugao_hudhud_chants",
+  "name": "Hudhud chants of the Ifugao (UNESCO 2008)",
+  "family": "global",
+  "lineage": "Ifugao hudhud chant tradition of the Cordillera mountain region of northern Luzon, Philippines, recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2001 and inscribed on the Representative List 2008. The hudhud is a sung narrative-recital cycle performed by an elder female cantor (mumbaki) with chorus response, during agricultural work in the rice terraces (rice-transplanting and rice-harvesting), at wakes for the dead, and during the bogwa exhumation-and-reburial ceremony. Individual hudhud recitations can extend to days, and the canonical hudhud cycles narrate the deeds of culture-heroes Aliguyon, Bugan, and other Ifugao mytho-historical figures across hundreds of episodes. Performance involves the cantor's solo recitative-melodic line answered by the choral group in unison-or-octave response, with characteristic terminal pitch-drop closing each verse and a narrow-range melodic vocabulary built around three-to-five pitches. The Ifugao language is a Northern Philippine Cordilleran language; the hudhud repertoire preserves archaic Ifugao narrative-poetic conventions. Father Francis Lambrecht (Belgian CICM missionary, 1950s-1960s Kiangan-region fieldwork) produced the foundational documentation; the Kiangan municipality cantor lineage continues active transmission. The 1995 UNESCO Cultural Landscape inscription of the Ifugao Rice Terraces, and the 2001 ICH proclamation, anchor the heritage-framing. Distinguished from neighboring Cordilleran traditions (Kalinga, Bontoc, Kankanaey, Tinguian) by Ifugao's narrow-range narrative-recital cycle and rice-terrace-work functional context; distinguished from lowland Philippine vocal traditions by Cordilleran-mountain-region pre-colonial continuity.",
+  "recipe": "classic hudhud chants of the ifugao, ritual Devotional, indigenous branch, Slavic bard ballad poetry karelian rune-singing russian byliny. vocal fry, declaimed, melodic, narrative. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 327,
+  "score": 136.261,
+  "config": {
+    "traditions": [
+      "ifugao_hudhud_chants",
+      "karelian_rune_singing",
+      "russian_byliny"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.4850000000000003,
+          "voice_quality": 3.9143750000000006,
+          "voice_vibrato": 2.925,
+          "voice_articulation": 4.030000000000001,
+          "voice_microtone": 0.95,
+          "voice_tradition": 9.295,
+          "voice_mechanism_compound": 3.65,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 16.575000000000003,
+          "voice_ensemble_config": 15.210000000000004,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 2.545,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 4.29
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "id": "salsa_dura",
+  "name": "Salsa dura (hard 70s NY salsa)",
+  "family": "global",
+  "lineage": "Aggressive virtuoso style of New York salsa developed in 1970s through Fania All-Stars and broader Fania Records roster. Intense rhythmic-and-instrumental projection, virtuoso solo improvisations, extended compositional structures, politically-conscious socially-realist lyric content addressing immigration, poverty, Latin-American social-justice. Fania Records (1964, Johnny Pacheco, Jerry Masucci) constitutes the institutional anchor.",
+  "recipe": "classic tropical mid-1970s salsa dura, groove Percussion, son salsa branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, rap, nervy, punctuated. cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano, low mid rich spectrum low-mid-thick mahogany electric bass, bach stradivarius 180 canonical American orchestral trumpet, bach 42 canonical American orchestral tenor trombone, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 823,
+  "score": 140.39,
+  "config": {
+    "traditions": [
+      "salsa_dura",
+      "south_african_kwaito",
+      "kwaito"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.56,
+          "voice_quality": 2.4699999999999998,
+          "voice_vibrato": 1.4365,
+          "voice_articulation": 1.62175,
+          "voice_microtone": 0,
+          "voice_tradition": 2.7630000000000003,
+          "voice_mechanism_compound": 0.9112500000000001,
+          "voice_estill_quality": 1.1815,
+          "voice_speech_song": 3.3149999999999995,
+          "voice_ensemble_config": 3.3260000000000005,
+          "voice_ornament_system": 1.2865,
+          "voice_pitch_organization": 0.807,
+          "voice_processing_chain": 3.5205,
+          "voice_multitrack_stack": 3.9867500000000002
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.5129999999999999,
+          "grand_piano_brand": 1.4365,
+          "piano_hammer": 1.625,
+          "piano_rim": 1.625,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 1.4299999999999997,
+          "body_wood": 1.026,
+          "pickup_config": 0.18525,
+          "string_type": 0.5129999999999999,
+          "scale_length_b": 0.5129999999999999,
+          "fretted_or_not": 0,
+          "bass_technique": -0.035
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "brass_size": 1.4365,
+          "trumpet_mouthpiece": -0.035,
+          "brass_mute": 0,
+          "trumpet_technique": -0.035,
+          "trumpet_bell_metal": 0.9045000000000001,
+          "trumpet_maker_school": 1.69
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "trombone_type": "valve_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_3g",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "trombone_type": 0.273,
+          "trombone_mouthpiece": -0.035,
+          "trombone_mute": 0,
+          "trombone_technique": 1.69,
+          "trombone_bell_metal": 0.9045000000000001,
+          "trombone_maker_school": 1.69
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "percussion_technique": 5.318,
+          "timbales_shell": 4.29,
+          "timbales_context": 0.168
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "conga_proper",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 5.318,
+          "conga_set": 0.1365,
+          "conga_skin": 1.95,
+          "conga_shell_wood": 1.95
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_son",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 5.318,
+          "bongos_skin": 6.825,
+          "bongos_context": 0.0315,
+          "bongos_shell_wood": 1.95
+        }
+      }
+    ],
+    "room": "fania_la_tierra_studios_ny",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_api_550",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_30ips"
+    },
+    "tuning": "son_clave_3_2",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

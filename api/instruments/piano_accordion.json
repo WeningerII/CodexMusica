@@ -1,0 +1,308 @@
+{
+  "id": "piano_accordion",
+  "name": "Piano accordion",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "piano accordion",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_chordal_chugging",
+          "name": "Chordal chugging / vamp",
+          "applies_to": [
+            "melodeon_diatonic",
+            "accordion",
+            "piano_accordion"
+          ],
+          "descriptors": [
+            "chordal",
+            "rhythm"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "old-time",
+            "cajun",
+            "tejano"
+          ]
+        },
+        {
+          "id": "free_reed_bellows_articulated",
+          "name": "Bellows-articulated phrasing",
+          "applies_to": [
+            "bandoneon",
+            "accordion",
+            "piano_accordion",
+            "concertina_anglo",
+            "concertina_english"
+          ],
+          "descriptors": [
+            "bellows-articulated",
+            "phrased"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "tango",
+            "klezmer"
+          ]
+        },
+        {
+          "id": "free_reed_chromatic_jazz",
+          "name": "Chromatic jazz lead",
+          "applies_to": [
+            "accordion",
+            "piano_accordion",
+            "harmonica"
+          ],
+          "descriptors": [
+            "chromatic",
+            "lead"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "jazz-trained"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        },
+        {
+          "id": "free_reed_orchestral_ensemble",
+          "name": "Orchestral / ensemble",
+          "applies_to": [
+            "accordion",
+            "piano_accordion"
+          ],
+          "descriptors": [
+            "ensemble"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pa_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "pa_120_bass",
+          "default": true,
+          "name": "120-bass full",
+          "descriptors": [
+            "virtuoso",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "pa_72_bass",
+          "name": "72-bass medium",
+          "descriptors": [
+            "portable",
+            "folk",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pa_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "pa_zydeco",
+          "default": true,
+          "name": "Zydeco",
+          "descriptors": [
+            "louisiana"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "soul"
+          ]
+        },
+        {
+          "id": "pa_french_chanson",
+          "name": "French musette",
+          "descriptors": [
+            "parisian",
+            "romantic",
+            "tremolo"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "pa_polka",
+          "name": "Polka",
+          "descriptors": [
+            "foundational",
+            "folk"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pa_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "pa_120_bass",
+          "default": true,
+          "name": "120-bass full",
+          "descriptors": [
+            "virtuoso",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "pa_72_bass",
+          "name": "72-bass medium",
+          "descriptors": [
+            "portable",
+            "folk",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pa_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "pa_zydeco",
+          "default": true,
+          "name": "Zydeco",
+          "descriptors": [
+            "louisiana"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "soul"
+          ]
+        },
+        {
+          "id": "pa_french_chanson",
+          "name": "French musette",
+          "descriptors": [
+            "parisian",
+            "romantic",
+            "tremolo"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "pa_polka",
+          "name": "Polka",
+          "descriptors": [
+            "foundational",
+            "folk"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

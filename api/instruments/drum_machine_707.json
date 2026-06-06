@@ -1,0 +1,208 @@
+{
+  "id": "drum_machine_707",
+  "name": "Roland TR-707 drum machine",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "short": "TR-707",
+  "parts": [
+    {
+      "id": "tr707_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "tr707_kick",
+          "default": true,
+          "name": "Kick (PCM short)",
+          "descriptors": [],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "1980s"
+          ]
+        },
+        {
+          "id": "tr707_snare",
+          "name": "Snare (sample-based)",
+          "descriptors": [
+            "sharp",
+            "shorter-than-808",
+            "eighties-distinct"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "tr707_hat",
+          "name": "Hi-hat (sample-based)",
+          "descriptors": [
+            "short"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "1980s-pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drum_machine_707_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "drum_machine_707_chicago_house",
+          "name": "Chicago house",
+          "descriptors": [
+            "cheap-paired-with-303",
+            "Chicago-foundational"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "acid"
+          ]
+        },
+        {
+          "id": "drum_machine_707_eighties_pop",
+          "default": true,
+          "name": "1980s pop",
+          "descriptors": [],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "radio"
+          ]
+        },
+        {
+          "id": "drum_machine_707_indie_electronic",
+          "name": "Indie electronic",
+          "descriptors": [
+            "retro-aesthetic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tr707_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "tr707_kick",
+          "default": true,
+          "name": "Kick (PCM short)",
+          "descriptors": [],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "1980s"
+          ]
+        },
+        {
+          "id": "tr707_snare",
+          "name": "Snare (sample-based)",
+          "descriptors": [
+            "sharp",
+            "shorter-than-808",
+            "eighties-distinct"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "tr707_hat",
+          "name": "Hi-hat (sample-based)",
+          "descriptors": [
+            "short"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "1980s-pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drum_machine_707_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "drum_machine_707_chicago_house",
+          "name": "Chicago house",
+          "descriptors": [
+            "cheap-paired-with-303",
+            "Chicago-foundational"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "acid"
+          ]
+        },
+        {
+          "id": "drum_machine_707_eighties_pop",
+          "default": true,
+          "name": "1980s pop",
+          "descriptors": [],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "radio"
+          ]
+        },
+        {
+          "id": "drum_machine_707_indie_electronic",
+          "name": "Indie electronic",
+          "descriptors": [
+            "retro-aesthetic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    }
+  ]
+}

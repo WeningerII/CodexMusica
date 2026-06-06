@@ -1,0 +1,113 @@
+{
+  "id": "indian_holi_diwali_processional",
+  "name": "Indian Holi-and-Diwali festival processional",
+  "family": "global",
+  "lineage": "Indian Holi (festival of colors) and Diwali (festival of lights) processional tradition continuous from premodern Indian festival celebration practice through 19th-20th century continuous performance into modern Indian-and-Indian-diaspora continuous festival-practice; Holi processional integrates extensive dholak-and-shehnai-and-vocal participation alongside color-throwing, Diwali integrates devotional kirtan-and-bhajan with lamp-procession",
+  "recipe": "classic modern indian holi-and-diwali festival processional, carnival Processional, south Asian branch, indian subcontinent praise song, south Asian wedding, hindu ritual devotional hindu stuti and bhajan indian sangeet. thick, declaimed, tasteful, continuous-phonation. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, indian rosewood rosewood copper tabla. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 660,
+  "score": 213.003,
+  "config": {
+    "traditions": [
+      "indian_holi_diwali_processional",
+      "hindu_stuti_bhajan",
+      "indian_sangeet"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.08,
+          "voice_quality": 7.731250000000001,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0.46124999999999994,
+          "voice_tradition": 16.055,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 13.715000000000003,
+          "voice_ensemble_config": 12.740000000000004,
+          "voice_ornament_system": 4.9,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 1.95,
+          "voice_multitrack_stack": 2.08
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_wedding",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_synthetic_head",
+          "dholak_tensioning": "dholak_bolt_tuned"
+        },
+        "scores": {
+          "dholak_use": 0.69,
+          "dholak_construction": 1.69,
+          "dholak_head": 1.69,
+          "dholak_tensioning": 1.69
+        }
+      },
+      {
+        "id": "shehnai",
+        "slots": {
+          "shehnai_register": "shehnai_standard_c",
+          "shehnai_use": "shehnai_naubat_ensemble",
+          "shehnai_body_wood": "shehnai_sheesham_canonical",
+          "shehnai_reed": "shehnai_arundo_quadruple",
+          "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+        },
+        "scores": {
+          "shehnai_register": 5.46,
+          "shehnai_use": 7.93,
+          "shehnai_body_wood": 9.684999999999999,
+          "shehnai_reed": 0.39,
+          "shehnai_lineage": 0.78
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 8.905,
+          "tabla_bayan": 1.28625,
+          "tabla_syahi": 1.4062500000000002
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

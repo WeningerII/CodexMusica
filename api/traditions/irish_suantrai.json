@@ -1,0 +1,68 @@
+{
+  "id": "irish_suantrai",
+  "name": "Irish suantraí (Irish-Gaelic lullaby)",
+  "family": "global",
+  "lineage": "Irish-Gaelic cradle-song tradition continuous from medieval Gaeltacht oral practice through 19th-century folksong collection and 20th-century sean-nós-revival vocal singing; suantraí is one of the three classical Irish music-genre categories (with goltraí for lament and geantraí for the joyful)",
+  "recipe": "classic modern irish suantraí, lullaby, European branch, vocal drone modal, Celtic balladic ballad poetry, Celtic traditional improv on frame sean-nós solo singing sámi yoik. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 392,
+  "score": 114.645,
+  "config": {
+    "traditions": [
+      "irish_suantrai",
+      "sean_nos_solo",
+      "sami_yoik"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_solo_over_choral_drone",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.9899999999999998,
+          "voice_quality": 3.185,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.69,
+          "voice_microtone": 0.24,
+          "voice_tradition": 16.965,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 4.16,
+          "voice_speech_song": 5.395,
+          "voice_ensemble_config": 5.55,
+          "voice_ornament_system": 6.959999999999999,
+          "voice_pitch_organization": 3.5850000000000004,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 3.3799999999999994
+        }
+      }
+    ],
+    "room": "irish_pub",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

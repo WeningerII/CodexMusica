@@ -1,0 +1,98 @@
+{
+  "id": "juke_chicago",
+  "name": "Juke (Chicago juke / footwork precursor)",
+  "family": "electronic",
+  "lineage": "Mid-1990s Chicago electronic subgenre developed as faster-tempo evolution of Chicago ghetto house, characterized by extreme-tempo (155-165 BPM), syncopated drum-machine programming, chopped-vocal sampling, and explicit footwork-dance-battle functional context. Distinguished from later footwork by juke's simpler structural framework. DJ Deeon, DJ Funk, and the Dance Mania Records label (founded 1985) anchored the canonical juke transition into footwork.",
+  "recipe": "classic 1994-1996 juke, electronic Dance, footwork branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, chest resonance low mid, narrative. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, analog synth. mid manhattan 1975-1985 mid-major late70s nyc commercial. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 429,
+  "score": 197.155,
+  "config": {
+    "traditions": [
+      "juke_chicago",
+      "conscious_hip_hop",
+      "gangsta_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 2.2099999999999995,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.1699999999999997,
+          "voice_microtone": 0.37499999999999994,
+          "voice_tradition": 3.0549999999999997,
+          "voice_mechanism_compound": 1.5599999999999996,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 3.835,
+          "voice_ensemble_config": 3.25,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 11.019999999999998,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 1.3649999999999998,
+          "drum_machine_808_context": 1.545,
+          "tr808_production_origin": 1.625
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 1.2349999999999997,
+          "oscillator": 0.69,
+          "filter_topology": 1.69,
+          "envelope": 0.5399999999999999,
+          "modulation": 0.105
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

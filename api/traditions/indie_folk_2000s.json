@@ -1,0 +1,191 @@
+{
+  "id": "indie_folk_2000s",
+  "name": "Indie folk (2000s)",
+  "family": "global",
+  "lineage": "2000s American indie-folk subgenre characterized by acoustic-guitar-led intimate arrangement, literate-introspective lyrical content, and indie-rock-derived production aesthetic — codified through Iron and Wine (The Creek Drank the Cradle 2002), Sufjan Stevens (Illinois 2005), Bon Iver (For Emma Forever Ago 2007), Fleet Foxes (Fleet Foxes 2008), and the broader Sub Pop and Saddle Creek roster of the period",
+  "recipe": "classic indie folk, ballad Poetry, indie folk branch, pop rock functional song folk rock new wave. thick, incomplete closure resting, melodic, equal tempered. fingerpicked acoustic guitar, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick strummed banjo 5 string, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, bowl back Italian redwood hard rock maple k and k twin internal mounted mandolin. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 655,
+  "score": 723.254,
+  "config": {
+    "traditions": [
+      "indie_folk_2000s",
+      "folk_rock",
+      "new_wave"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 27.179999999999993,
+          "voice_quality": 1.9349999999999996,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 0.45,
+          "voice_microtone": 12.049999999999997,
+          "voice_tradition": 18.264999999999997,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 11.114999999999997,
+          "voice_ensemble_config": 8.579999999999998,
+          "voice_ornament_system": 1.785,
+          "voice_pitch_organization": 1.18,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 7.751249999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "drop_d",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 17.699999999999996,
+          "string_tuning": 0,
+          "top_wood": 0.81,
+          "back_sides": 0.765,
+          "string_acoustic": 0.9,
+          "acoustic_om_technique": 17.699999999999996
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "banjo_back": "resonator",
+          "tone_ring": "tubaphone",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 14.737499999999997,
+          "banjo_back": 0.135,
+          "tone_ring": 0.275625,
+          "banjo_head": 8.319999999999999,
+          "banjo_pot": 0.135,
+          "banjo_play": 0.24,
+          "banjo_rim_wood": 0.18,
+          "banjo_neck_wood": 0.765,
+          "banjo_strings": 0.70875,
+          "banjo_bridge": 0.045,
+          "banjo_setup_period": 8.254999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 3.7049999999999996,
+          "body_wood": 1.5300000000000002,
+          "pickup_config": 0.6187499999999999,
+          "string_type": 9.424999999999999,
+          "scale_length_b": 0.765,
+          "fretted_or_not": 0.045,
+          "bass_technique": 7.289999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 8.189999999999998,
+          "shell_wood": 0.8312499999999999,
+          "shell_thickness": 0.045,
+          "bearing_edges": 0.765,
+          "drumhead": 5.04,
+          "snare_wires": 0.765,
+          "cymbal_alloy": 12.385,
+          "cymbal_hammering": 12.993125,
+          "cymbal_lathing": 12.520624999999999,
+          "cymbal_finish": 0.375,
+          "drum_technique": 8.189999999999998
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "redwood_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_x_brace",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 5.875625,
+          "mandolin_shape": 6.889999999999999,
+          "mandolin_top": 1.05,
+          "mandolin_back": 3.769999999999999,
+          "mandolin_bracing": 0.9524999999999999,
+          "mandolin_strings": 0.9,
+          "mandolin_fingerboard": 0.045,
+          "mandolin_pickup": 10.009999999999998
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_american_blackface",
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

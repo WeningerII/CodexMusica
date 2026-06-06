@@ -1,0 +1,85 @@
+{
+  "id": "filipino_harana",
+  "name": "Filipino harana (serenade)",
+  "family": "global",
+  "lineage": "Filipino harana (\"serenade\") nineteenth-and-twentieth-century romantic-courtship vocal tradition of the Tagalog and broader lowland-Christian Philippine communities, in which young men serenaded young women at their windows accompanied by acoustic guitar. The form derives from Spanish-colonial seventeenth-eighteenth century romance song-tradition adapted with Tagalog-Visayan language and Philippine-tropical sensibility. Performance: small-group of male singers (often with the principal suitor) with acoustic-guitar accompaniment, performing standard repertoire of harana-classics or improvising. The form survived as a vestigial-cultural practice through the twentieth century and entered post-2000s urban-revival contexts through documentary projects and folk-music ensembles.",
+  "recipe": "classic mid-2000s filipino harana, ballad Poetry, Latin am troubadour branch, iberian functional song galician kantautor and folk-pop canzone napoletana. thick, low dynamic level, chest resonance low mid, Mediterranean demotic vocal. fingerpicked parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 427,
+  "score": 136.344,
+  "config": {
+    "traditions": [
+      "filipino_harana",
+      "galician_kantautor",
+      "canzone_napoletana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 2.961500000000001,
+          "voice_quality": 4.875,
+          "voice_vibrato": 0.955875,
+          "voice_articulation": 0.108,
+          "voice_microtone": 0.0315,
+          "voice_tradition": 10.855,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 10.985,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 1.9399999999999997,
+          "voice_pitch_organization": 1.4549999999999998,
+          "voice_processing_chain": 2.78,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "drop_d",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 7.426500000000001,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.550875,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.760875
+        }
+      }
+    ],
+    "room": "mexico_bolero_xochimilco_studio",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

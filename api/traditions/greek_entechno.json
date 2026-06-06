@@ -1,0 +1,169 @@
+{
+  "id": "greek_entechno",
+  "name": "Greek éntechno",
+  "family": "global",
+  "lineage": "Greek literary art-song composer tradition emerging in the late 1950s, codified by Mikis Theodorakis (Epitaphios song-cycle setting Yannis Ritsos poetry 1960, Zorba the Greek 1964 Oscar-winning film score), Manos Hadjidakis (Never on Sunday 1960 Oscar-winning score, Reflections song-cycle), Stavros Xarchakos, Nikos Mamangakis — setting modern Greek poetry (Ritsos, Elytis, Seferis, Kavafis) to compositions that fuse Greek traditional modal vocabulary with Western classical orchestration",
+  "recipe": "classic North American 1957-1959 greek éntechno, ballad Poetry, Greek entechno branch, middle eastern classical art music maghrebi andalusi nuba libyan maluf. thick, lament wail, chest resonance low mid, maqam neutral step. walnut staves canonical Greek steel canonical octave unison pairs bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sustained legato string quartet inst, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 786,
+  "score": 650.732,
+  "config": {
+    "traditions": [
+      "greek_entechno",
+      "maghrebi_andalusi_nuba",
+      "libyan_maluf"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "arabic_maqam_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 4.699999999999999,
+          "voice_quality": 3.99,
+          "voice_vibrato": 2.21,
+          "voice_articulation": 0.39,
+          "voice_microtone": 3.6499999999999995,
+          "voice_tradition": 35.25,
+          "voice_mechanism_compound": 5.6850000000000005,
+          "voice_estill_quality": 7.085,
+          "voice_speech_song": 11.115,
+          "voice_ensemble_config": 3.77,
+          "voice_ornament_system": 6.825,
+          "voice_pitch_organization": 6.825,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 1.4
+        }
+      },
+      {
+        "id": "bouzouki",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "bouzouki_courses": "trichordo",
+          "bouzouki_pick": "bouzouki_thin",
+          "bouzouki_body_wood": "bouzouki_walnut_bowl",
+          "bouzouki_strings": "bouzouki_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.73,
+          "bouzouki_courses": 4.55,
+          "bouzouki_pick": 1.345,
+          "bouzouki_body_wood": 10.354999999999999,
+          "bouzouki_strings": 2.0999999999999996
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 4.35,
+          "string_tuning": 0,
+          "top_wood_classical": 1.3,
+          "bracing_classical": 2.21,
+          "string_classical": 1.95,
+          "attack_technique_cl": 4.25
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 4.25,
+          "grand_piano_size": 0.15,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 9.75,
+          "piano_rim": 11.83,
+          "piano_soundboard": 8.13,
+          "piano_pinblock": 8.28,
+          "piano_plate": 7.5,
+          "piano_pitch_standard": 9.75
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_modern",
+          "string_quartet_inst_era": "string_quartet_inst_contemporary"
+        },
+        "scores": {
+          "bowed_technique": 4.25,
+          "quartet_school": 0.39,
+          "string_quartet_inst_era": 3.63
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 4.680000000000001,
+          "orch_strings": 0.39,
+          "orch_top_wood": 6.825,
+          "orch_back_wood": 7.695,
+          "orch_varnish": 8.19,
+          "orch_setup_period": 6.885,
+          "orch_bow": 0.39,
+          "orch_bow_stick": 9.685,
+          "orch_articulation": 0.735,
+          "orch_rosin": 7.695
+        }
+      }
+    ],
+    "room": "athens_minos_studios_60s_70s",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

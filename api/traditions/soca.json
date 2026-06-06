@@ -1,0 +1,129 @@
+{
+  "id": "soca",
+  "name": "Soca",
+  "family": "global",
+  "lineage": "Trinidadian dance-music genre codified by Lord Shorty (Garfield Blackman) in 1973 as soul-of-calypso — a faster-tempo party-anthem derivation of calypso that became the dominant Carnival-season dance-floor format; extended through Machel Montano (the modern soca voice), Superblue (Austin Lyons), Bunji Garlin, Kes the Band, and the broader Caribbean Carnival circuit",
+  "recipe": "classic early-1970s soca, groove Percussion, Caribbean branch, Jamaican bass system, Caribbean carnival processional trinidad calypso-soca road march reggae roots. thick, blues-shouter, tasteful, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, analog poly synth. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 554,
+  "score": 126.858,
+  "config": {
+    "traditions": [
+      "soca",
+      "trinidad_road_march",
+      "reggae_roots"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 4.586500000000001,
+          "voice_quality": 2.849500000000002,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.2365000000000004,
+          "voice_microtone": 1.25,
+          "voice_tradition": 3.6695,
+          "voice_mechanism_compound": 0.9165,
+          "voice_estill_quality": 3.1400000000000006,
+          "voice_speech_song": 5.134999999999999,
+          "voice_ensemble_config": 6.369999999999999,
+          "voice_ornament_system": 1.3,
+          "voice_pitch_organization": 1.0380000000000003,
+          "voice_processing_chain": 3.803,
+          "voice_multitrack_stack": 1.6899999999999997
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 1.2349999999999999,
+          "drum_machine_808_context": 3.835,
+          "tr808_production_origin": 2.6
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_c"
+        },
+        "scores": {
+          "electric_technique": 3.3765000000000005,
+          "amp_make": 3.8795000000000006,
+          "body_wood": 1.3,
+          "neck_wood": 1,
+          "fretboard": 1,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 1.3,
+          "string_material": 1.27,
+          "bridge": 0.39,
+          "scale_length": 2.6,
+          "string_gauge": 0.345,
+          "finish": 0,
+          "string_tuning": 2.6
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 1.1049999999999998,
+          "poly_archetypes": 0.78,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -1.015
+        }
+      }
+    ],
+    "room": "trinidad_calypso_panyard_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "trinidad_calypso_soca_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

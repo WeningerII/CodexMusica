@@ -1,0 +1,166 @@
+{
+  "id": "ethio_pop_modern",
+  "name": "Ethio-pop modern",
+  "family": "global",
+  "lineage": "Modern Amharic-language popular tradition descended from the 1960s-70s Ethio-jazz canon (Mulatu Astatke, Mahmoud Ahmed) — codified through Aster Aweke, Ejigayehu Shibabaw / Gigi, Teddy Afro, and Mahmoud Ahmed\\u2019s continued career; characterized by Amharic vocals over kignit-modal-melodic frameworks with Western pop production",
+  "recipe": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion acid jazz. thick, rap, tasteful, narrative. clean strummed single coil electric guitar, thomastik infeld low tension jazz warm walking fingerstyle electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 505,
+  "score": 508.221,
+  "config": {
+    "traditions": [
+      "ethio_pop_modern",
+      "acid_jazz_uk_90s",
+      "fusion"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 14.594999999999994,
+          "voice_quality": 0.7735,
+          "voice_vibrato": 2.7995,
+          "voice_articulation": 0.9929999999999999,
+          "voice_microtone": 16.2095,
+          "voice_tradition": 17.284,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 1.495,
+          "voice_speech_song": 3.575,
+          "voice_ensemble_config": 1.56,
+          "voice_ornament_system": 0.0315,
+          "voice_pitch_organization": 1.45,
+          "voice_processing_chain": 5.202999999999999,
+          "voice_multitrack_stack": 3.8815
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "pine",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 8.7,
+          "amp_make": 2.8600000000000003,
+          "body_wood": 0.7735,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 0.7735,
+          "bridge": 2.936,
+          "scale_length": 0.726,
+          "finish": 0,
+          "string_tuning": 2.8545
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 2.8600000000000003,
+          "body_wood": 0.726,
+          "pickup_config": 2.7995,
+          "string_type": 7.475,
+          "scale_length_b": 2.9899999999999998,
+          "fretted_or_not": 0.063,
+          "bass_technique": 5.9
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "unlathed_bell",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 6.89,
+          "shell_wood": 0.9099999999999999,
+          "shell_thickness": 0,
+          "bearing_edges": 2.9899999999999998,
+          "drumhead": 14.5315,
+          "snare_wires": 0.363,
+          "cymbal_alloy": 8.731499999999999,
+          "cymbal_hammering": 14.45,
+          "cymbal_lathing": 14.45,
+          "cymbal_finish": 0.39,
+          "drum_technique": 6.89
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 8.8995,
+          "poly_archetypes": 1.638,
+          "poly_voices": 0.21,
+          "poly_maker_lineage": -1.225
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

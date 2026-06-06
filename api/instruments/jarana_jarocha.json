@@ -1,0 +1,479 @@
+{
+  "id": "jarana_jarocha",
+  "name": "Jarana jarocha (Veracruz)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "jarana",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_tremolo",
+          "name": "Tremolo (mandolin-style)",
+          "applies_to": [
+            "baglamas",
+            "bouzouki",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "tiple",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "leona",
+            "vihuela_mexicana",
+            "domra"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "rapid-tremolo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "mandolin",
+            "mediterranean"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "jarana_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "jarana_chaquiste",
+          "name": "Chaquiste (smallest)",
+          "descriptors": [
+            "treble-extended",
+            "treble",
+            "accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_segunda",
+          "default": true,
+          "name": "Segunda (medium)",
+          "descriptors": [
+            "son-jarocho"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_tercera",
+          "name": "Tercera (large)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "foundational",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jarana_jarocha_context",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "jarana_jarocha_fandango",
+          "default": true,
+          "name": "Son jarocho fandango",
+          "descriptors": [
+            "Veracruz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_jarocha_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "twentieth-first-century",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_jarocha_fusion",
+          "name": "Pan-Latin fusion",
+          "descriptors": [
+            "cross-genre",
+            "contemporary",
+            "hybrid"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jarana_jarocha_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "jarana_cedrillo",
+          "default": true,
+          "name": "Cedrillo (canonical Veracruz)",
+          "descriptors": [
+            "cedrillo-canonical-veracruz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_caoba_mahogany",
+          "name": "Caoba / mahogany (premium)",
+          "descriptors": [
+            "caoba-mahogany-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_palo_escrito",
+          "name": "Palo escrito (Mexican rosewood, premium)",
+          "descriptors": [
+            "palo-escrito-mexican-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jarana_jarocha_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "jarana_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_gut_historical",
+          "name": "Gut (pre-1950s historical son jarocho)",
+          "descriptors": [
+            "gut-pre-1950s-son-jarocho"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "jarana_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "jarana_chaquiste",
+          "name": "Chaquiste (smallest)",
+          "descriptors": [
+            "treble-extended",
+            "treble",
+            "accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_segunda",
+          "default": true,
+          "name": "Segunda (medium)",
+          "descriptors": [
+            "son-jarocho"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_tercera",
+          "name": "Tercera (large)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "foundational",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jarana_jarocha_context",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "jarana_jarocha_fandango",
+          "default": true,
+          "name": "Son jarocho fandango",
+          "descriptors": [
+            "Veracruz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_jarocha_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "twentieth-first-century",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_jarocha_fusion",
+          "name": "Pan-Latin fusion",
+          "descriptors": [
+            "cross-genre",
+            "contemporary",
+            "hybrid"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jarana_jarocha_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "jarana_cedrillo",
+          "default": true,
+          "name": "Cedrillo (canonical Veracruz)",
+          "descriptors": [
+            "cedrillo-canonical-veracruz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_caoba_mahogany",
+          "name": "Caoba / mahogany (premium)",
+          "descriptors": [
+            "caoba-mahogany-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_palo_escrito",
+          "name": "Palo escrito (Mexican rosewood, premium)",
+          "descriptors": [
+            "palo-escrito-mexican-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jarana_jarocha_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "jarana_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "jarana_gut_historical",
+          "name": "Gut (pre-1950s historical son jarocho)",
+          "descriptors": [
+            "gut-pre-1950s-son-jarocho"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

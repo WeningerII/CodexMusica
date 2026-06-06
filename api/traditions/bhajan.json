@@ -1,0 +1,111 @@
+{
+  "id": "bhajan",
+  "name": "Bhajan",
+  "family": "global",
+  "lineage": "Pan-Indian Hindu devotional song tradition setting Sanskrit, Hindi, Braj Bhasha, Marathi, Bengali, Tamil and other Indian-language devotional poetry by Surdas, Mirabai, Tulsidas, Tukaram, Kabir, the Alvar saints — performed in temple-and-domestic-shrine contexts across regional Hindu sub-traditions; modern voices Anup Jalota, Jagjit Singh (the late ghazal-bhajan crossover canon), and the Pushti Marg haveli sangeet tradition",
+  "recipe": "classic North American mid-1970s bhajan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song hindu stuti and bhajan sikh shabad kirtan. vocal fry, declaimed, continuous-phonation, Yoruba tonal vocal. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla, synthetic remo modern stable bolt tuned modern concert stable dholak. vrindavan braj mandir bhajan. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 549,
+  "score": 154.997,
+  "config": {
+    "traditions": [
+      "bhajan",
+      "hindu_stuti_bhajan",
+      "sikh_shabad_kirtan"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.3,
+          "voice_quality": 14.094999999999997,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.615,
+          "voice_microtone": 0.39,
+          "voice_tradition": 7.085,
+          "voice_mechanism_compound": 1.3050000000000002,
+          "voice_estill_quality": 1.2349999999999997,
+          "voice_speech_song": 11.374999999999995,
+          "voice_ensemble_config": 7.669999999999998,
+          "voice_ornament_system": 10.899999999999999,
+          "voice_pitch_organization": 1.7349999999999999,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 1.3
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_overblow_modern",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_kirtan"
+        },
+        "scores": {
+          "free_reed_technique": 0.195,
+          "harmonium_action": 1.69,
+          "harmonium_voicing": 1.3,
+          "harmonium_use": 4.609999999999999
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 3.1900000000000004,
+          "tabla_bayan": 1.0950000000000002,
+          "tabla_syahi": 2.08
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_synthetic_head",
+          "dholak_tensioning": "dholak_bolt_tuned"
+        },
+        "scores": {
+          "dholak_use": 0.135,
+          "dholak_construction": 0.39,
+          "dholak_head": 1.2149999999999996,
+          "dholak_tensioning": 1.2149999999999996
+        }
+      }
+    ],
+    "room": "vrindavan_braj_mandir_bhajan",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

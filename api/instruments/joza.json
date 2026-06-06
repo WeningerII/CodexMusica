@@ -1,0 +1,121 @@
+{
+  "id": "joza",
+  "name": "Joza (Iraqi four-string spike-fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "joza",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "joza_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "joza_coconut_shell_canonical",
+          "default": true,
+          "name": "Coconut-shell resonator with skin face (canonical Baghdadi chalghi)",
+          "descriptors": [
+            "coconut-shell-resonator-skin-face-canonical-baghdadi"
+          ],
+          "match_tokens": [
+            "bowed",
+            "iraqi-maqam-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "joza_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "joza_chalghi_canonical",
+          "default": true,
+          "name": "Chalghi ensemble lead instrument (canonical)",
+          "descriptors": [
+            "chalghi-ensemble-lead-canonical-iraqi-maqam"
+          ],
+          "match_tokens": [
+            "bowed",
+            "iraqi-maqam-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "joza_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "joza_coconut_shell_canonical",
+          "default": true,
+          "name": "Coconut-shell resonator with skin face (canonical Baghdadi chalghi)",
+          "descriptors": [
+            "coconut-shell-resonator-skin-face-canonical-baghdadi"
+          ],
+          "match_tokens": [
+            "bowed",
+            "iraqi-maqam-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "joza_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "joza_chalghi_canonical",
+          "default": true,
+          "name": "Chalghi ensemble lead instrument (canonical)",
+          "descriptors": [
+            "chalghi-ensemble-lead-canonical-iraqi-maqam"
+          ],
+          "match_tokens": [
+            "bowed",
+            "iraqi-maqam-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

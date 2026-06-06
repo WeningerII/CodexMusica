@@ -1,0 +1,1543 @@
+{
+  "id": "cello",
+  "name": "Cello (orchestral bass-baritone)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "cello",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_pizzicato",
+          "name": "Pizzicato (plucked)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "plucked",
+            "pizzicato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "bowed_spiccato_articulated",
+          "name": "Spiccato (bouncing)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "spiccato",
+            "articulated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "staccato"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_sul_ponticello",
+          "name": "Sul ponticello (near bridge)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "glassy",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "avant"
+          ]
+        },
+        {
+          "id": "bowed_sul_tasto",
+          "name": "Sul tasto (over fingerboard)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "airy",
+            "distant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "cello_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "cello_gut",
+          "name": "Gut (baroque)",
+          "descriptors": [
+            "period",
+            "gut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_cello",
+          "name": "Plain sheep gut (unsplit)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "pre-1700-period",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_cello",
+          "name": "Plain lamb gut (Aquila HU)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "organic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "rectified_gut_cello",
+          "name": "Rectified gut",
+          "descriptors": [
+            "rectified",
+            "cylindrically-true",
+            "machine-polished"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "half_rectified_gut_cello",
+          "name": "Half-rectified gut (Aquila HU semi-polished)",
+          "descriptors": [
+            "half-rectified",
+            "partial-polish",
+            "fiber-preserved"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "silver_wound_lamb_gut_cello",
+          "name": "Silver-wound on lamb gut",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "late-baroque",
+            "modern-gut-revival",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "aluminum_wound_gut_cello",
+          "name": "Aluminum-wound on gut",
+          "descriptors": [
+            "aluminum-wound",
+            "bright-clear"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "venice_catlin_cello",
+          "name": "Venice catlin (high-twist bass)",
+          "descriptors": [
+            "venice-catlin",
+            "high-twist",
+            "multi-strand",
+            "renaissance-bass"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "low-register",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "pistoy_gut_cello",
+          "name": "Pistoy / Pistoia (red loaded bass)",
+          "descriptors": [
+            "pistoy",
+            "cinnabar-loaded",
+            "red-dyed",
+            "high-tension",
+            "deep-dark-red"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "low-register",
+            "late-baroque",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "loaded_gut_c_type_cello",
+          "name": "Loaded gut (Aquila C-type)",
+          "descriptors": [
+            "loaded",
+            "metal-salt-loaded",
+            "reduced-diameter",
+            "high-density"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "period-performance",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "gimped_gut_cello",
+          "name": "Gimped gut (metal-strip-wound, c.1660-80)",
+          "descriptors": [
+            "gimped",
+            "metal-strip-wound",
+            "transitional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "mid-baroque-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "cello_synthetic",
+          "default": true,
+          "name": "Synthetic core",
+          "descriptors": [
+            "stable",
+            "full",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "cello_steel",
+          "name": "Steel core",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "soloistic",
+            "steel"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "body-resonance-low-mid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_top_wood",
+      "surface": false,
+      "name": "Top wood (table / belly)",
+      "variants": [
+        {
+          "id": "norway_spruce_alpine_cello",
+          "default": true,
+          "name": "Norway spruce / European alpine (Picea abies)",
+          "descriptors": [
+            "norway-spruce",
+            "european-alpine",
+            "low-altitude-growth",
+            "quartersawn",
+            "fine-grain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "italian_alpine_spruce_cello",
+          "name": "Italian alpine spruce (Val di Fiemme)",
+          "descriptors": [
+            "italian-alpine-spruce",
+            "val-di-fiemme",
+            "low-altitude-growth",
+            "quartersawn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "engelmann_spruce_cello",
+          "name": "Engelmann spruce",
+          "descriptors": [
+            "engelmann-spruce",
+            "softer-grain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "carpathian_spruce_cello",
+          "name": "Carpathian spruce",
+          "descriptors": [
+            "carpathian-spruce",
+            "eastern-european-source",
+            "fine-grain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_back_wood",
+      "surface": false,
+      "name": "Back / rib / neck wood",
+      "variants": [
+        {
+          "id": "bosnian_flamed_maple_cello",
+          "default": true,
+          "name": "Bosnian/Yugoslavian flamed European maple",
+          "descriptors": [
+            "european-maple",
+            "acer-pseudoplatanus",
+            "bosnian-source",
+            "flamed-figure"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "european_maple_cello_back",
+          "name": "European maple (general source)",
+          "descriptors": [
+            "european-maple",
+            "sycamore-maple",
+            "standard-flamed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "hard_rock_maple_cello_back",
+          "name": "Hard rock maple",
+          "descriptors": [
+            "hard-rock-maple",
+            "acer-saccharum"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_varnish",
+      "surface": false,
+      "name": "Varnish system",
+      "variants": [
+        {
+          "id": "cremonese_pre_1750_varnish_cello",
+          "name": "Cremonese pre-1750 four-layer ground+varnish",
+          "descriptors": [
+            "cremonese-pre-1750",
+            "ground-impregnation",
+            "pickling-pore-filling",
+            "oil-base-coat",
+            "lake-color-coat",
+            "mineral-pigment-lake",
+            "salmon-uv-fluorescence",
+            "four-layer-system"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "cremonese_post_1740_varnish_cello",
+          "name": "Cremonese post-1740 (degraded recipe)",
+          "descriptors": [
+            "cremonese-post-1740",
+            "transitional",
+            "softer-varnish"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "oil_amber_varnish_cello",
+          "default": true,
+          "name": "Oil-based amber varnish",
+          "descriptors": [
+            "oil-varnish",
+            "amber-tinted",
+            "linseed-base"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "spirit_varnish_cello",
+          "name": "Spirit varnish",
+          "descriptors": [
+            "spirit-varnish",
+            "shellac-alcohol",
+            "thinner-coat"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "modern_synthetic_varnish_cello",
+          "name": "Modern synthetic",
+          "descriptors": [
+            "synthetic-varnish",
+            "mass-production"
+          ],
+          "match_tokens": [
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_setup_period",
+      "surface": false,
+      "name": "Setup period (baroque vs modern)",
+      "variants": [
+        {
+          "id": "modern_setup_cello",
+          "default": true,
+          "name": "Modern (post-1850 convention)",
+          "descriptors": [
+            "modern-setup",
+            "longer-neck",
+            "longer-fingerboard",
+            "heavier-bass-bar",
+            "endpin-fitted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "baroque_setup_cello",
+          "name": "Baroque (pre-1850 setup)",
+          "descriptors": [
+            "baroque-setup",
+            "short-neck",
+            "shorter-fingerboard",
+            "lighter-bass-bar",
+            "lower-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_bow_grip",
+      "name": "Bow grip school",
+      "variants": [
+        {
+          "id": "french_bow_grip",
+          "default": true,
+          "name": "French (overhand)",
+          "descriptors": [
+            "classical",
+            "singing",
+            "standard"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "german_bow_grip",
+          "name": "German (underhand)",
+          "descriptors": [
+            "robust",
+            "baroque-leaning",
+            "contrabass-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "body-resonance-low-mid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_rosin",
+      "surface": false,
+      "name": "Rosin",
+      "variants": [
+        {
+          "id": "pirastro_cellisto_rosin",
+          "default": true,
+          "name": "Pirastro Cellisto (cello-specific modern)",
+          "descriptors": [
+            "pirastro-cellisto",
+            "cello-specific",
+            "balanced-grip"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "galeazzi_1791_baroque_rosin_cello",
+          "name": "Galeazzi 1791 Italian-recipe (baroque reconstruction)",
+          "descriptors": [
+            "galeazzi-1791",
+            "baroque-recipe",
+            "period-rosin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "bernardel_rosin_cello",
+          "name": "Bernardel cello",
+          "descriptors": [
+            "bernardel",
+            "french-traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "liebenzeller_metal_rosin_cello",
+          "name": "Liebenzeller (metal-infused)",
+          "descriptors": [
+            "liebenzeller",
+            "metal-infused",
+            "specialty-grip"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_bow_stick",
+      "surface": false,
+      "name": "Bow stick wood / material",
+      "variants": [
+        {
+          "id": "pernambuco_stick_cello",
+          "default": true,
+          "name": "Pernambuco (traditional canon)",
+          "descriptors": [
+            "pernambuco",
+            "paubrasilia-echinata",
+            "classical-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "snakewood_stick_cello",
+          "name": "Snakewood (baroque-era canon)",
+          "descriptors": [
+            "snakewood",
+            "brosimum-guianense",
+            "dense-dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "brazilwood_stick_cello",
+          "name": "Brazilwood (student)",
+          "descriptors": [
+            "brazilwood",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "carbon_fiber_stick_cello",
+          "name": "Carbon-fiber composite",
+          "descriptors": [
+            "carbon-fiber",
+            "composite",
+            "humidity-stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cello_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "cello_gut",
+          "name": "Gut (baroque)",
+          "descriptors": [
+            "period",
+            "gut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_cello",
+          "name": "Plain sheep gut (unsplit)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "pre-1700-period",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_cello",
+          "name": "Plain lamb gut (Aquila HU)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "organic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "rectified_gut_cello",
+          "name": "Rectified gut",
+          "descriptors": [
+            "rectified",
+            "cylindrically-true",
+            "machine-polished"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "half_rectified_gut_cello",
+          "name": "Half-rectified gut (Aquila HU semi-polished)",
+          "descriptors": [
+            "half-rectified",
+            "partial-polish",
+            "fiber-preserved"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "silver_wound_lamb_gut_cello",
+          "name": "Silver-wound on lamb gut",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "late-baroque",
+            "modern-gut-revival",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "aluminum_wound_gut_cello",
+          "name": "Aluminum-wound on gut",
+          "descriptors": [
+            "aluminum-wound",
+            "bright-clear"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "venice_catlin_cello",
+          "name": "Venice catlin (high-twist bass)",
+          "descriptors": [
+            "venice-catlin",
+            "high-twist",
+            "multi-strand",
+            "renaissance-bass"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "low-register",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "pistoy_gut_cello",
+          "name": "Pistoy / Pistoia (red loaded bass)",
+          "descriptors": [
+            "pistoy",
+            "cinnabar-loaded",
+            "red-dyed",
+            "high-tension",
+            "deep-dark-red"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "low-register",
+            "late-baroque",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "loaded_gut_c_type_cello",
+          "name": "Loaded gut (Aquila C-type)",
+          "descriptors": [
+            "loaded",
+            "metal-salt-loaded",
+            "reduced-diameter",
+            "high-density"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bass-register",
+            "period-performance",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "gimped_gut_cello",
+          "name": "Gimped gut (metal-strip-wound, c.1660-80)",
+          "descriptors": [
+            "gimped",
+            "metal-strip-wound",
+            "transitional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register",
+            "mid-baroque-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "cello_synthetic",
+          "default": true,
+          "name": "Synthetic core",
+          "descriptors": [
+            "stable",
+            "full",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "cello_steel",
+          "name": "Steel core",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "soloistic",
+            "steel"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "body-resonance-low-mid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_top_wood",
+      "surface": false,
+      "name": "Top wood (table / belly)",
+      "variants": [
+        {
+          "id": "norway_spruce_alpine_cello",
+          "default": true,
+          "name": "Norway spruce / European alpine (Picea abies)",
+          "descriptors": [
+            "norway-spruce",
+            "european-alpine",
+            "low-altitude-growth",
+            "quartersawn",
+            "fine-grain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance",
+            "body-resonance-low-mid"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "italian_alpine_spruce_cello",
+          "name": "Italian alpine spruce (Val di Fiemme)",
+          "descriptors": [
+            "italian-alpine-spruce",
+            "val-di-fiemme",
+            "low-altitude-growth",
+            "quartersawn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "engelmann_spruce_cello",
+          "name": "Engelmann spruce",
+          "descriptors": [
+            "engelmann-spruce",
+            "softer-grain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "carpathian_spruce_cello",
+          "name": "Carpathian spruce",
+          "descriptors": [
+            "carpathian-spruce",
+            "eastern-european-source",
+            "fine-grain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_back_wood",
+      "surface": false,
+      "name": "Back / rib / neck wood",
+      "variants": [
+        {
+          "id": "bosnian_flamed_maple_cello",
+          "default": true,
+          "name": "Bosnian/Yugoslavian flamed European maple",
+          "descriptors": [
+            "european-maple",
+            "acer-pseudoplatanus",
+            "bosnian-source",
+            "flamed-figure"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "european_maple_cello_back",
+          "name": "European maple (general source)",
+          "descriptors": [
+            "european-maple",
+            "sycamore-maple",
+            "standard-flamed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "hard_rock_maple_cello_back",
+          "name": "Hard rock maple",
+          "descriptors": [
+            "hard-rock-maple",
+            "acer-saccharum"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_varnish",
+      "surface": false,
+      "name": "Varnish system",
+      "variants": [
+        {
+          "id": "cremonese_pre_1750_varnish_cello",
+          "name": "Cremonese pre-1750 four-layer ground+varnish",
+          "descriptors": [
+            "cremonese-pre-1750",
+            "ground-impregnation",
+            "pickling-pore-filling",
+            "oil-base-coat",
+            "lake-color-coat",
+            "mineral-pigment-lake",
+            "salmon-uv-fluorescence",
+            "four-layer-system"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "cremonese_post_1740_varnish_cello",
+          "name": "Cremonese post-1740 (degraded recipe)",
+          "descriptors": [
+            "cremonese-post-1740",
+            "transitional",
+            "softer-varnish"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "oil_amber_varnish_cello",
+          "default": true,
+          "name": "Oil-based amber varnish",
+          "descriptors": [
+            "oil-varnish",
+            "amber-tinted",
+            "linseed-base"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "spirit_varnish_cello",
+          "name": "Spirit varnish",
+          "descriptors": [
+            "spirit-varnish",
+            "shellac-alcohol",
+            "thinner-coat"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "modern_synthetic_varnish_cello",
+          "name": "Modern synthetic",
+          "descriptors": [
+            "synthetic-varnish",
+            "mass-production"
+          ],
+          "match_tokens": [
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_setup_period",
+      "surface": false,
+      "name": "Setup period (baroque vs modern)",
+      "variants": [
+        {
+          "id": "modern_setup_cello",
+          "default": true,
+          "name": "Modern (post-1850 convention)",
+          "descriptors": [
+            "modern-setup",
+            "longer-neck",
+            "longer-fingerboard",
+            "heavier-bass-bar",
+            "endpin-fitted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "baroque_setup_cello",
+          "name": "Baroque (pre-1850 setup)",
+          "descriptors": [
+            "baroque-setup",
+            "short-neck",
+            "shorter-fingerboard",
+            "lighter-bass-bar",
+            "lower-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_bow_grip",
+      "name": "Bow grip school",
+      "variants": [
+        {
+          "id": "french_bow_grip",
+          "default": true,
+          "name": "French (overhand)",
+          "descriptors": [
+            "classical",
+            "singing",
+            "standard"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "body-resonance-low-mid"
+          ]
+        },
+        {
+          "id": "german_bow_grip",
+          "name": "German (underhand)",
+          "descriptors": [
+            "robust",
+            "baroque-leaning",
+            "contrabass-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "body-resonance-low-mid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_rosin",
+      "surface": false,
+      "name": "Rosin",
+      "variants": [
+        {
+          "id": "pirastro_cellisto_rosin",
+          "default": true,
+          "name": "Pirastro Cellisto (cello-specific modern)",
+          "descriptors": [
+            "pirastro-cellisto",
+            "cello-specific",
+            "balanced-grip"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "galeazzi_1791_baroque_rosin_cello",
+          "name": "Galeazzi 1791 Italian-recipe (baroque reconstruction)",
+          "descriptors": [
+            "galeazzi-1791",
+            "baroque-recipe",
+            "period-rosin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "bernardel_rosin_cello",
+          "name": "Bernardel cello",
+          "descriptors": [
+            "bernardel",
+            "french-traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "liebenzeller_metal_rosin_cello",
+          "name": "Liebenzeller (metal-infused)",
+          "descriptors": [
+            "liebenzeller",
+            "metal-infused",
+            "specialty-grip"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cello_bow_stick",
+      "surface": false,
+      "name": "Bow stick wood / material",
+      "variants": [
+        {
+          "id": "pernambuco_stick_cello",
+          "default": true,
+          "name": "Pernambuco (traditional canon)",
+          "descriptors": [
+            "pernambuco",
+            "paubrasilia-echinata",
+            "classical-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "snakewood_stick_cello",
+          "name": "Snakewood (baroque-era canon)",
+          "descriptors": [
+            "snakewood",
+            "brosimum-guianense",
+            "dense-dark"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "brazilwood_stick_cello",
+          "name": "Brazilwood (student)",
+          "descriptors": [
+            "brazilwood",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "carbon_fiber_stick_cello",
+          "name": "Carbon-fiber composite",
+          "descriptors": [
+            "carbon-fiber",
+            "composite",
+            "humidity-stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

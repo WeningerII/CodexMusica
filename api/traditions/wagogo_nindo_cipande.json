@@ -1,0 +1,92 @@
+{
+  "id": "wagogo_nindo_cipande",
+  "name": "Wagogo nindo and cipande polyphony (Tanzania)",
+  "family": "global",
+  "lineage": "Wagogo polyphonic singing tradition of central Tanzania (Dodoma region), one of sub-Saharan Africa's most structurally distinctive choral traditions. Multi-part harmony built on overlapping ostinato pattern-cycles with characteristic diaphonic-and-triadic intervals — nindo work-songs and msunyunho ritual songs sit alongside the cipande circumcision-initiation repertoire. Polo Vallejo's 1995-2002 fieldwork in Nzali village (published as Mbudi Mbudi na Mhanga, Madrid 2004) and David Fanshawe's 1969-1975 East African field recordings (Saydisc CMIL 98 Fabulous Gogo Music) constitute the canonical documentation. Performance involves women's choral antiphonal patterns over zeze board-zither and kebero drum accompaniment, with characteristic call-and-response between soloist and group across staggered melodic entries. Modal vocabulary draws on pentatonic-and-hexatonic frameworks with characteristic equiheptatonic-leaning inflections distinct from neighboring Bantu traditions. Distinguished from Burundi inanga-chuchotée by Wagogo's open-voiced choral-with-instruments configuration; distinguished from Aka and Baka pygmy polyphony by Wagogo's ostinato-cycle (vs hocketed yodel) architecture; distinguished from Maasai and Sukuma neighbors by Wagogo-Dodoma dialect-specific cadential conventions.",
+  "recipe": "classic mid-1990s wagogo nindo and cipande polyphony, drone Modal, heterophonic branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. sygyt, false fold engaged, melodic, unrestrained. board zither multiple strings canonical wagogo tanzanian wagogo non ritual canonical central tanzania zeze, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 625,
+  "score": 253.991,
+  "config": {
+    "traditions": [
+      "wagogo_nindo_cipande",
+      "shipibo_icaros",
+      "inuit_katajjaq_games"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.16125,
+          "voice_quality": 1.7549999999999994,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 3.64,
+          "voice_microtone": 1.69,
+          "voice_tradition": 9.165000000000001,
+          "voice_mechanism_compound": 10.009999999999998,
+          "voice_estill_quality": 7.475,
+          "voice_speech_song": 17.355000000000008,
+          "voice_ensemble_config": 20.215000000000003,
+          "voice_ornament_system": 8.248750000000001,
+          "voice_pitch_organization": 2.4400000000000004,
+          "voice_processing_chain": 3.9,
+          "voice_multitrack_stack": 4.1362499999999995
+        }
+      },
+      {
+        "id": "zeze",
+        "slots": {
+          "zeze_body": "zeze_board_zither_multiple_strings_canonical",
+          "zeze_tradition": "zeze_wagogo_non_ritual_canonical"
+        },
+        "scores": {
+          "zeze_body": 10.178749999999999,
+          "zeze_tradition": 15.86
+        }
+      },
+      {
+        "id": "kebero",
+        "slots": {
+          "kebero_skin": "kebero_calfskin",
+          "kebero_shell_wood": "kebero_olive_canonical",
+          "kebero_tradition": "kebero_orthodox_tewahedo"
+        },
+        "scores": {
+          "kebero_skin": 1.69,
+          "kebero_shell_wood": 1.69,
+          "kebero_tradition": 1.69
+        }
+      }
+    ],
+    "room": "tanzanian_outdoor_village_clearing",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

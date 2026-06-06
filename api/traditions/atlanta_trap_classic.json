@@ -1,0 +1,97 @@
+{
+  "id": "atlanta_trap_classic",
+  "name": "Atlanta trap (classic 2000s)",
+  "family": "hip_hop",
+  "lineage": "Atlanta hip-hop subgenre crystallizing in mid-2000s through T.I.'s 2003 Trap Muzik album, characterized by hi-hat-rapid-roll percussion, Roland 808 bass emphasis, dark-keyboard-orchestral production, and explicit drug-dealing trap-house narrative content. Young Jeezy, Gucci Mane, Shawty Lo, and Rick Ross constitute the canonical 2000s trap roster; the genre subsequently spread to become the dominant 2010s American hip-hop production aesthetic.",
+  "recipe": "classic Southern American atlanta trap, mc Rhythm, southern branch, us hip hop gangsta. thick, rap, chest resonance low mid, narrative. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 435,
+  "score": 172.469,
+  "config": {
+    "traditions": [
+      "atlanta_trap_classic",
+      "gangsta_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.1257500000000003,
+          "voice_quality": 12.155,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 8.875,
+          "voice_microtone": 0.168,
+          "voice_tradition": 9.958,
+          "voice_mechanism_compound": 1.514,
+          "voice_estill_quality": 1.4554999999999998,
+          "voice_speech_song": 11.606249999999998,
+          "voice_ensemble_config": 3.25,
+          "voice_ornament_system": 0.12249999999999998,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 7.1765,
+          "voice_multitrack_stack": 8.87375
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 9.3705,
+          "drum_machine_808_context": 3.3799999999999994,
+          "tr808_production_origin": 1.69
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 21.707,
+          "oscillator": 1.69,
+          "filter_topology": 4.03,
+          "envelope": 0.2415,
+          "modulation": 0
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_atlanta_trap_2010s",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

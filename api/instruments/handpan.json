@@ -1,0 +1,240 @@
+{
+  "id": "handpan",
+  "name": "Handpan (steel tongue drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "handpan",
+  "parts": [
+    {
+      "id": "handpan_scale",
+      "surface": false,
+      "name": "Tuning scale",
+      "variants": [
+        {
+          "id": "handpan_d_kurd",
+          "default": true,
+          "name": "D Kurd (canonical)",
+          "descriptors": [
+            "Hang-derived",
+            "meditative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "handpan_f_integral",
+          "name": "F Integral",
+          "descriptors": [
+            "major-modal",
+            "jazz-leaning",
+            "major-mode-pitches"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "handpan_a_hijaz",
+          "name": "A Hijaz",
+          "descriptors": [
+            "Middle-Eastern",
+            "augmented-second"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "handpan_c_pygmy",
+          "name": "C Pygmy",
+          "descriptors": [
+            "African-derived",
+            "pentatonic",
+            "global-fusion"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "handpan_maker",
+      "name": "Maker class",
+      "variants": [
+        {
+          "id": "handpan_hang",
+          "name": "Hang Bern original",
+          "descriptors": [
+            "limited-production",
+            "historical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "handpan_western",
+          "default": true,
+          "name": "Western makers (Halo, Saraz, Ayasa)",
+          "descriptors": [
+            "modern-standard",
+            "craft-built"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "handpan_asian_import",
+          "name": "Asian-import production",
+          "descriptors": [
+            "affordable",
+            "mass-market",
+            "variable-quality"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "handpan_scale",
+      "surface": false,
+      "name": "Tuning scale",
+      "variants": [
+        {
+          "id": "handpan_d_kurd",
+          "default": true,
+          "name": "D Kurd (canonical)",
+          "descriptors": [
+            "Hang-derived",
+            "meditative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "handpan_f_integral",
+          "name": "F Integral",
+          "descriptors": [
+            "major-modal",
+            "jazz-leaning",
+            "major-mode-pitches"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "handpan_a_hijaz",
+          "name": "A Hijaz",
+          "descriptors": [
+            "Middle-Eastern",
+            "augmented-second"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "handpan_c_pygmy",
+          "name": "C Pygmy",
+          "descriptors": [
+            "African-derived",
+            "pentatonic",
+            "global-fusion"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "handpan_maker",
+      "name": "Maker class",
+      "variants": [
+        {
+          "id": "handpan_hang",
+          "name": "Hang Bern original",
+          "descriptors": [
+            "limited-production",
+            "historical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "handpan_western",
+          "default": true,
+          "name": "Western makers (Halo, Saraz, Ayasa)",
+          "descriptors": [
+            "modern-standard",
+            "craft-built"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "handpan_asian_import",
+          "name": "Asian-import production",
+          "descriptors": [
+            "affordable",
+            "mass-market",
+            "variable-quality"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

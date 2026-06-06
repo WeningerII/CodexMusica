@@ -1,0 +1,153 @@
+{
+  "id": "merseybeat",
+  "name": "Merseybeat (Liverpool beat 1962-65)",
+  "family": "rock_punk",
+  "lineage": "Early-1960s Liverpool-and-Merseyside beat-music style emerging from the convergence of skiffle, American R&B, and rock-and-roll into the canonical guitar-bass-drums-and-vocal-harmony four-piece beat-group format. The Beatles, Gerry and the Pacemakers, the Searchers, the Merseybeats, and Cilla Black constituted the canonical roster; the Cavern Club Liverpool and the Star-Club Hamburg anchored the institutional performance circuit. Distinguished from broader British Invasion by Merseybeat's Liverpool-specific geographic-cultural identity.",
+  "recipe": "classic British merseybeat, distorted Rock, classic branch, regional distorted rock aussie pub rock greek rock. thick, nervy, equal tempered, Mediterranean demotic vocal. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
+  "recipe_chars": 610,
+  "score": 390.343,
+  "config": {
+    "traditions": [
+      "merseybeat",
+      "aussie_pub_rock",
+      "greek_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 8.249999999999993,
+          "voice_quality": 0.105,
+          "voice_vibrato": 0.50175,
+          "voice_articulation": 0.24,
+          "voice_microtone": 8.844999999999997,
+          "voice_tradition": 3.3150000000000004,
+          "voice_mechanism_compound": 2.665000000000001,
+          "voice_estill_quality": 1.1815,
+          "voice_speech_song": 11.765,
+          "voice_ensemble_config": 13.39,
+          "voice_ornament_system": 1.345,
+          "voice_pitch_organization": 4.548749999999999,
+          "voice_processing_chain": 3.5100000000000002,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 7.865,
+          "amp_make": 6.11,
+          "body_wood": 0.2415,
+          "neck_wood": 0.50175,
+          "fretboard": 0.50175,
+          "pickup_magnet": 0.50175,
+          "string_material": 0.50175,
+          "string_gauge": 0.2415,
+          "bridge": 0,
+          "scale_length": 0.48300000000000004,
+          "finish": 0.168,
+          "string_tuning": 9.879999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 3.8949999999999996,
+          "amp_make": 6.175,
+          "body_wood": 0.48300000000000004,
+          "pickup_config": 0,
+          "string_type": 11.375,
+          "scale_length_b": 0.2415,
+          "fretted_or_not": 0.195,
+          "bass_technique": 8.745
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "hydraulic",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 11.7,
+          "shell_wood": 0.50175,
+          "shell_thickness": 0.09,
+          "bearing_edges": 0.2415,
+          "drumhead": 0.50175,
+          "snare_wires": 0.2415,
+          "cymbal_alloy": 9.151749999999998,
+          "cymbal_hammering": 8.844999999999999,
+          "cymbal_lathing": 8.739999999999998,
+          "cymbal_finish": 0.50175,
+          "drum_technique": 11.7
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_uk_small_commercial_early",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_emi_redd",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_vox_ac30_topboost",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_spring_reverb"
+    ]
+  }
+}

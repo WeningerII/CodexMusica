@@ -1,0 +1,112 @@
+{
+  "id": "tyrolean_schuhplattler",
+  "name": "Tyrolean Schuhplattler (slap-dance with music)",
+  "family": "global",
+  "lineage": "Tyrolean Schuhplattler folk-dance-and-music tradition of the Austrian Tyrol, South Tyrol (Italy), and Bavarian Alps, in which male dancers perform synchronized choreography involving rhythmic slapping of thighs, knees, and shoe-soles in characteristic accelerating patterns, accompanied by Stubenmusik chamber-ensemble of zither, hammered dulcimer (Hackbrett), accordion, double-bass, and voice. The tradition crystallized in seventeenth-eighteenth century Alpine villages from earlier courtship-display dance-forms. Performance contexts span the Heimatabend folkloric-evening tourist-demonstrations, village-festival celebrations, and the canonical Schuhplattlerverein dance-association competitions. Distinguished from broader German Alpine music by Schuhplattler's specific male-percussive-choreographic register.",
+  "recipe": "classic modern tyrolean schuhplattler, functional Song, europop branch, American marching groove percussion american drumline. thick, rap, punctuated, Scottish Gaelic vocal. melodic straight piano accordion, steel modern concert fingerpicked kantele, walnut spruce canonical appalachian steel bronze modern hammered dulcimer. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 472,
+  "score": 82.486,
+  "config": {
+    "traditions": [
+      "tyrolean_schuhplattler",
+      "american_drumline"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.7815000000000007,
+          "voice_quality": 1.56,
+          "voice_vibrato": 0.3465,
+          "voice_articulation": 2.7815000000000003,
+          "voice_microtone": 0.1365,
+          "voice_tradition": 7.54,
+          "voice_mechanism_compound": 1.51,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 10.334999999999999,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 2.6045,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 3.3810000000000002,
+          "pa_size": 1.69,
+          "pa_use": 1.69
+        }
+      },
+      {
+        "id": "kantele",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "kantele_strings": "kantele_36",
+          "kantele_context": "kantele_ballad",
+          "kantele_body_wood": "kantele_spruce_top",
+          "kantele_string_material": "kantele_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.46,
+          "kantele_strings": 0.3465,
+          "kantele_context": 1.95,
+          "kantele_body_wood": 0.483,
+          "kantele_string_material": 1.69
+        }
+      },
+      {
+        "id": "hammered_dulcimer",
+        "slots": {
+          "hammer_dulcimer_courses": "hd_15_15",
+          "hammer_material": "wood_bare",
+          "hammered_dulcimer_body_wood": "hd_walnut_canonical",
+          "hammered_dulcimer_strings": "hd_steel_bronze_modern"
+        },
+        "scores": {
+          "hammer_dulcimer_courses": 1.69,
+          "hammer_material": 1.69,
+          "hammered_dulcimer_body_wood": 1.69,
+          "hammered_dulcimer_strings": 1.69
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

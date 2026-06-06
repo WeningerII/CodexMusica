@@ -1,0 +1,270 @@
+{
+  "id": "british_invasion_rb",
+  "name": "British R&B and British Invasion (1962–1968)",
+  "family": "vernacular",
+  "lineage": "Mid-1960s British R&B and blues-rock interpretation of American sources — codified through The Rolling Stones (The Rolling Stones 1964, their early Chess-blues covers), The Animals (\"The House of the Rising Sun\" 1964, \"I’m Crying\" 1964), The Yardbirds (Five Live Yardbirds 1964), and Them (Van Morrison’s early band) — characterized by white English musicians performing African-American blues and R&B repertoire with electric-rock-band instrumentation through Marshall amplifiers and the British studio sound",
+  "recipe": "classic British british r&b and british invasion, distorted Rock, classic branch, blues electric functional song chicago blues jump blues. thick, blues-shouter, chest resonance low mid, equal tempered. slow-build minor-key ballad in 6 8, descending bass walk, slow build dynamic envelope, mid song instrumental break.",
+  "recipe_chars": 317,
+  "score": 675.453,
+  "config": {
+    "traditions": [
+      "british_invasion_rb",
+      "chicago_blues",
+      "jump_blues"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 24.481499999999993,
+          "voice_quality": 6.3050000000000015,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.09,
+          "voice_microtone": 11.499999999999996,
+          "voice_tradition": 6.629999999999999,
+          "voice_mechanism_compound": 1.755,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 10.464999999999996,
+          "voice_ensemble_config": 9.099999999999998,
+          "voice_ornament_system": 0.1365,
+          "voice_pitch_organization": 2.6,
+          "voice_processing_chain": 5.915000000000001,
+          "voice_multitrack_stack": 5.654999999999999
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_overdriven_lead",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 6.999999999999999,
+          "amp_make": 23.66,
+          "body_wood": 1.69,
+          "neck_wood": 1.69,
+          "fretboard": 1.625,
+          "pickup_magnet": 0.160875,
+          "string_material": 0.160875,
+          "string_gauge": 1.69,
+          "bridge": 0,
+          "scale_length": 1.69,
+          "finish": 0.32887500000000003,
+          "string_tuning": 12.869999999999997
+        }
+      },
+      {
+        "id": "archtop_jazz",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_60s_vox_ac",
+          "archtop_body": "archtop_full_hollow",
+          "archtop_pickup": "archtop_dearmond_rhythm_chief",
+          "archtop_top_wood": "archtop_carved_spruce",
+          "archtop_strings": "thomastik_jazz_flat",
+          "archtop_technique": "archtop_walking_chords"
+        },
+        "scores": {
+          "electric_technique": 1,
+          "amp_make": 9.913499999999997,
+          "archtop_body": 1.625,
+          "archtop_pickup": 1.69,
+          "archtop_top_wood": 1.69,
+          "archtop_strings": 0.4023749999999999,
+          "archtop_technique": 0.325
+        }
+      },
+      {
+        "id": "semi_hollow",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "semi_archetypes": "semi_rickenbacker_330_360",
+          "semi_hollow_pickup": "semi_dual_p90",
+          "semi_hollow_strings": "semi_flatwound_jazz",
+          "semi_hollow_context": "semi_hollow_british_invasion"
+        },
+        "scores": {
+          "electric_technique": 1,
+          "amp_make": 23.66,
+          "semi_archetypes": 9.259999999999998,
+          "semi_hollow_pickup": 9.165,
+          "semi_hollow_strings": 0.192375,
+          "semi_hollow_context": 10.709999999999999
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "vox_jaguar_combo",
+          "combo_organ_voicing": "combo_organ_16_pedal",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_vox_ac"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "combo_organ_model": 6.800499999999999,
+          "combo_organ_voicing": 2.792,
+          "combo_organ_context": 6.499999999999999,
+          "amp_make": 9.913499999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_walking",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 23.66,
+          "body_wood": 1.69,
+          "pickup_config": 0,
+          "string_type": 15.274999999999999,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.09,
+          "bass_technique": 11.794499999999998
+        }
+      },
+      {
+        "id": "short_scale_bass",
+        "slots": {
+          "electric_technique": "electric_bass_walking",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "short_scale_bass_model": "short_scale_bass_hofner",
+          "short_scale_bass_context": "short_scale_bass_motown",
+          "short_scale_bass_pickup": "short_scale_bass_dual_blade_hofner",
+          "short_scale_bass_strings": "short_scale_bass_flat_la_bella"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 23.66,
+          "short_scale_bass_model": 7.791499999999999,
+          "short_scale_bass_context": 0.3,
+          "short_scale_bass_pickup": 3.3529999999999998,
+          "short_scale_bass_strings": 1.885
+        }
+      },
+      {
+        "id": "semi_hollow_bass",
+        "slots": {
+          "electric_technique": "electric_bass_walking",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "semi_hollow_bass_model": "semi_hollow_bass_eb2_rivoli",
+          "semi_hollow_bass_pickup": "semi_hollow_bass_mini_humbucker",
+          "semi_hollow_bass_strings": "semi_hollow_bass_pyramid_pure_nickel",
+          "semi_hollow_bass_context": "semi_hollow_bass_british_invasion"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 23.66,
+          "semi_hollow_bass_model": 5.47875,
+          "semi_hollow_bass_pickup": 3.6399999999999997,
+          "semi_hollow_bass_strings": 1.885,
+          "semi_hollow_bass_context": 10.709999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 9.099999999999998,
+          "shell_wood": 0.342375,
+          "shell_thickness": 0.09,
+          "bearing_edges": 1.69,
+          "drumhead": 1.69,
+          "snare_wires": 1.69,
+          "cymbal_alloy": 15.599999999999998,
+          "cymbal_hammering": 11.844999999999997,
+          "cymbal_lathing": 12.071499999999995,
+          "cymbal_finish": 0.6315,
+          "drum_technique": 11.820499999999997
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "free_reed_technique": "free_reed_blues_cross",
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 0,
+          "harmonica_type": 0.345,
+          "harmonica_comb": 16.251999999999995,
+          "harmonica_reed": 14.802999999999997,
+          "harmonica_technique": 13.039999999999997,
+          "harmonica_maker_school": 16.807999999999996,
+          "harmonica_tuning": 6.759999999999999
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_uk_small_commercial",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_emi_redd",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_vox_ac30_topboost",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": "slow_build_minor_ballad_6_8",
+    "fx_extras": [
+      "fx_fuzz_face_germanium",
+      "fx_spring_reverb"
+    ]
+  }
+}

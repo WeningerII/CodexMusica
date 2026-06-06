@@ -1,0 +1,116 @@
+{
+  "id": "red_dirt",
+  "name": "Red Dirt",
+  "family": "country",
+  "lineage": "Oklahoma-Texas roots-country movement that emerged in 1970s-80s Stillwater Oklahoma as a regional alternative to the Nashville Music Row commercial-country machine — codified through the figures Bob Childers (the Red Dirt poet who became the genres elder statesman), the Red Dirt Rangers, Cross Canadian Ragweed, Stoney LaRue, Jason Boland and the Stragglers, Turnpike Troubadours, and the broader 21st-century Texas Country / Red Dirt circuit (Robert Earl Keen, Ray Wylie Hubbard, Hayes Carll) that maintains a parallel infrastructure to Nashville commercial country",
+  "recipe": "classic mid-1970s red dirt, functional Song, neo trad branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, incomplete closure resting, melodic, narrative. travis picked parlor acoustic Fender blackface amp American 60s amp spring reverb bright single coil electric guitar. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 532,
+  "score": 275.55,
+  "config": {
+    "traditions": [
+      "red_dirt",
+      "texas_country_folk_storyteller",
+      "freak_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 19.549999999999994,
+          "voice_quality": 1.1049999999999998,
+          "voice_vibrato": 18.785,
+          "voice_articulation": 0.75,
+          "voice_microtone": 0.6049999999999999,
+          "voice_tradition": 2.8600000000000003,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 21.564999999999998,
+          "voice_speech_song": 9.684999999999999,
+          "voice_ensemble_config": 6.759999999999998,
+          "voice_ornament_system": 0.735,
+          "voice_pitch_organization": 0.78,
+          "voice_processing_chain": 7.094999999999999,
+          "voice_multitrack_stack": 1.125
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 18.585,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.39,
+          "back_sides_parlor": 0.045,
+          "string_acoustic_parlor": 0.39
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 19.055,
+          "amp_make": 19.65,
+          "body_wood": 0.285,
+          "neck_wood": 0.43499999999999994,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.285,
+          "string_material": 0.39,
+          "string_gauge": 0.285,
+          "bridge": 0.09,
+          "scale_length": 0.5700000000000001,
+          "finish": 0,
+          "string_tuning": 1.3649999999999998
+        }
+      }
+    ],
+    "room": "nashville_rca_studio_b_quonset_hut",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "country_nashville_three_chord_train_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

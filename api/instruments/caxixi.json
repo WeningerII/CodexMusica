@@ -1,0 +1,198 @@
+{
+  "id": "caxixi",
+  "name": "Caxixi (Brazilian basket shaker)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "caxixi",
+  "parts": [
+    {
+      "id": "caxixi_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "caxixi_small",
+          "name": "Small (high, fast)",
+          "descriptors": [
+            "sharp",
+            "high-frequency",
+            "one-hand"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caxixi_medium",
+          "default": true,
+          "name": "Medium (canonical)",
+          "descriptors": [
+            "standard",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "capoeira"
+          ]
+        },
+        {
+          "id": "caxixi_paired",
+          "name": "Paired set (interlocking)",
+          "descriptors": [
+            "two-pitched",
+            "capoeira-foundation",
+            "interplay"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caxixi_filling",
+      "name": "Filling material",
+      "variants": [
+        {
+          "id": "caxixi_seeds",
+          "default": true,
+          "name": "Dried seeds",
+          "descriptors": [
+            "natural-material-resonance",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caxixi_pebbles",
+          "name": "Small pebbles",
+          "descriptors": [
+            "sharper",
+            "crisper",
+            "alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caxixi_beads",
+          "name": "Beads",
+          "descriptors": [
+            "modern",
+            "consistent",
+            "mass-produced"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "caxixi_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "caxixi_small",
+          "name": "Small (high, fast)",
+          "descriptors": [
+            "sharp",
+            "high-frequency",
+            "one-hand"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caxixi_medium",
+          "default": true,
+          "name": "Medium (canonical)",
+          "descriptors": [
+            "standard",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "capoeira"
+          ]
+        },
+        {
+          "id": "caxixi_paired",
+          "name": "Paired set (interlocking)",
+          "descriptors": [
+            "two-pitched",
+            "capoeira-foundation",
+            "interplay"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caxixi_filling",
+      "name": "Filling material",
+      "variants": [
+        {
+          "id": "caxixi_seeds",
+          "default": true,
+          "name": "Dried seeds",
+          "descriptors": [
+            "natural-material-resonance",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caxixi_pebbles",
+          "name": "Small pebbles",
+          "descriptors": [
+            "sharper",
+            "crisper",
+            "alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caxixi_beads",
+          "name": "Beads",
+          "descriptors": [
+            "modern",
+            "consistent",
+            "mass-produced"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

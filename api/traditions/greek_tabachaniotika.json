@@ -1,0 +1,106 @@
+{
+  "id": "greek_tabachaniotika",
+  "name": "Greek Cretan tabachaniotika (Cretan urban sea-faring song)",
+  "family": "global",
+  "lineage": "Greek-Cretan tabachaniotika (urban-Cretan sea-faring-and-port-side song) tradition continuous from late-19th-and-early-20th century Cretan-urban-port (Heraklion, Chania, Rethymno) song-and-tavern tradition through Cretan-Greek-Turkish population-exchange 1923-aftermath integration with Asia-Minor refugees into modern Cretan-folk-revival continuous practice; the tabachaniotika is the canonical Cretan-port-side-and-sea-faring repertoire",
+  "recipe": "classic early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, low dynamic level, tasteful, continuous-phonation. mulberry canonical cretan gut pre modern cretan cretan lyra, mahogany modern alternative Lebanese cedar eastern Mediterranean brass wound bass oud. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 557,
+  "score": 194.958,
+  "config": {
+    "traditions": [
+      "greek_tabachaniotika",
+      "sevdalinka",
+      "georgian_supra_drinking"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.750000000000001,
+          "voice_quality": 1.75,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 3.8950000000000005,
+          "voice_tradition": 29.309999999999995,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 5.994999999999999,
+          "voice_speech_song": 14.754999999999997,
+          "voice_ensemble_config": 8.579999999999998,
+          "voice_ornament_system": 0.345,
+          "voice_pitch_organization": 3.995,
+          "voice_processing_chain": 1.285,
+          "voice_multitrack_stack": 0.78
+        }
+      },
+      {
+        "id": "cretan_lyra",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "lyra_strings": "lyra_3",
+          "lyra_use": "lyra_dance",
+          "lyra_body_wood": "lyra_mulberry",
+          "lyra_string_material": "lyra_gut_historical"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "lyra_strings": 1.69,
+          "lyra_use": 1.69,
+          "lyra_body_wood": 12.135000000000007,
+          "lyra_string_material": 12.820000000000006
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_thirteen",
+          "oud_pick": "risha_horn",
+          "oud_body_wood": "oud_mahogany_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_brass_wound_bass"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.26,
+          "oud_school": 0.39,
+          "oud_strings": 1.69,
+          "oud_pick": 0.39,
+          "oud_body_wood": 1.69,
+          "oud_soundboard_wood": 3.25,
+          "oud_string_material": 2.035
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

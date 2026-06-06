@@ -1,0 +1,204 @@
+{
+  "id": "shekere",
+  "name": "Shekere (West African beaded gourd)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "shekere",
+  "parts": [
+    {
+      "id": "shekere_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "shekere_small",
+          "name": "Small (hand-held)",
+          "descriptors": [
+            "sharp",
+            "one-hand"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "shekere_medium",
+          "default": true,
+          "name": "Medium (canonical)",
+          "descriptors": [
+            "standard",
+            "two-hand",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "shekere_large",
+          "name": "Large (calabash bass)",
+          "descriptors": [
+            "deep",
+            "foundational",
+            "bass-rhythm",
+            "calabash",
+            "gourd"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shekere_beads",
+      "name": "Bead material",
+      "variants": [
+        {
+          "id": "shekere_cowrie",
+          "name": "Cowrie shells",
+          "descriptors": [
+            "traditional",
+            "sacred"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "shekere_glass",
+          "default": true,
+          "name": "Glass beads",
+          "descriptors": [
+            "modern",
+            "standard",
+            "consistent",
+            "glass"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "shekere_seed",
+          "name": "Seed beads",
+          "descriptors": [
+            "natural-material-resonance",
+            "traditional-alternative",
+            "African-craft"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shekere_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "shekere_small",
+          "name": "Small (hand-held)",
+          "descriptors": [
+            "sharp",
+            "one-hand"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "shekere_medium",
+          "default": true,
+          "name": "Medium (canonical)",
+          "descriptors": [
+            "standard",
+            "two-hand",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "shekere_large",
+          "name": "Large (calabash bass)",
+          "descriptors": [
+            "deep",
+            "foundational",
+            "bass-rhythm",
+            "calabash",
+            "gourd"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shekere_beads",
+      "name": "Bead material",
+      "variants": [
+        {
+          "id": "shekere_cowrie",
+          "name": "Cowrie shells",
+          "descriptors": [
+            "traditional",
+            "sacred"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "shekere_glass",
+          "default": true,
+          "name": "Glass beads",
+          "descriptors": [
+            "modern",
+            "standard",
+            "consistent",
+            "glass"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "shekere_seed",
+          "name": "Seed beads",
+          "descriptors": [
+            "natural-material-resonance",
+            "traditional-alternative",
+            "African-craft"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

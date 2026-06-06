@@ -1,0 +1,68 @@
+{
+  "id": "papua_new_guinean_polyphony",
+  "name": "Papua New Guinean panpipe and polyphonic singing",
+  "family": "global",
+  "lineage": "Papua New Guinean polyphonic vocal-and-panpipe traditions across the New Guinea Highlands (Eastern Highlands, Western Highlands, Chimbu, Enga regions), with each linguistic-cultural group preserving distinct multi-part vocal-or-instrumental polyphonic conventions. The Huli yodel-and-cyclic-clap, the Hagen courtship-chants, the Enga sandalu and tee public-ceremony chants, and the Chimbu collective-flute ensembles each represent distinct contributions to the broader New Guinea polyphonic-music register. Performance contexts span bridewealth-negotiation ceremonies, mourning-rituals, harvest-festivals, and (post-1975 independence) the National Cultural Commission and University of Papua New Guinea ethnomusicology archive preservation work. Distinguished from neighboring Melanesian musical traditions by New Guinea Highlands-specific polyphonic-density and dialect-specific intonation vocabularies.",
+  "recipe": "classic mid-1970s papua new guinean panpipe and polyphonic singing, drone Modal, heterophonic branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, punctuated. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 482,
+  "score": 189.056,
+  "config": {
+    "traditions": [
+      "papua_new_guinean_polyphony",
+      "inuit_katajjaq_games",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.3799999999999994,
+          "voice_quality": 3.4450000000000003,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.9993750000000001,
+          "voice_microtone": 1.2999999999999998,
+          "voice_tradition": 5.135,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 1.95,
+          "voice_speech_song": 13.065000000000005,
+          "voice_ensemble_config": 13.000000000000004,
+          "voice_ornament_system": 3.3799999999999994,
+          "voice_pitch_organization": 1.755,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 3.3799999999999994
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,2531 @@
+{
+  "count": 421,
+  "items": [
+    {
+      "id": "choir_ensemble",
+      "name": "Choir / vocal ensemble",
+      "family": "voice",
+      "href": "instruments/choir_ensemble.json"
+    },
+    {
+      "id": "griot_voice",
+      "name": "Griot / jeli voice",
+      "family": "voice",
+      "href": "instruments/griot_voice.json"
+    },
+    {
+      "id": "pansori_voice",
+      "name": "Pansori voice (rough-pressed seongeum mechanism, Korean narrative-song tradition)",
+      "family": "voice",
+      "href": "instruments/pansori_voice.json"
+    },
+    {
+      "id": "qawwal_voice",
+      "name": "Qawwal lead voice",
+      "family": "voice",
+      "href": "instruments/qawwal_voice.json"
+    },
+    {
+      "id": "shape_note_voice",
+      "name": "Shape-note voice",
+      "family": "voice",
+      "href": "instruments/shape_note_voice.json"
+    },
+    {
+      "id": "throat_singing_voice",
+      "name": "Throat-singing voice (compound-mechanism phonation)",
+      "family": "voice",
+      "href": "instruments/throat_singing_voice.json"
+    },
+    {
+      "id": "voice",
+      "name": "Voice",
+      "family": "voice",
+      "href": "instruments/voice.json"
+    },
+    {
+      "id": "vocal_percussion_voice",
+      "name": "Vocal percussion voice (beatbox / syllabic-drum / click-articulated)",
+      "family": "voice",
+      "href": "instruments/vocal_percussion_voice.json"
+    },
+    {
+      "id": "multitrack_vocal_stack",
+      "name": "Multi-track vocal stack (recorded-stack as constitutive instrument)",
+      "family": "voice",
+      "href": "instruments/multitrack_vocal_stack.json"
+    },
+    {
+      "id": "whistled_voice",
+      "name": "Whistled voice (lip/tongue turbulent source, no vocal-fold vibration)",
+      "family": "voice",
+      "href": "instruments/whistled_voice.json"
+    },
+    {
+      "id": "twelve_string_electric",
+      "name": "Twelve-string electric guitar",
+      "family": "electric_strings",
+      "href": "instruments/twelve_string_electric.json"
+    },
+    {
+      "id": "archtop_jazz",
+      "name": "Archtop jazz guitar",
+      "family": "electric_strings",
+      "href": "instruments/archtop_jazz.json"
+    },
+    {
+      "id": "baritone_electric",
+      "name": "Baritone electric guitar",
+      "family": "electric_strings",
+      "href": "instruments/baritone_electric.json"
+    },
+    {
+      "id": "electric_bass",
+      "name": "Solid-body electric bass",
+      "family": "electric_strings",
+      "href": "instruments/electric_bass.json"
+    },
+    {
+      "id": "fretless_bass",
+      "name": "Fretless electric bass",
+      "family": "electric_strings",
+      "href": "instruments/fretless_bass.json"
+    },
+    {
+      "id": "electric_guitar_humbucker",
+      "name": "Solid-body electric guitar with humbucking pickups",
+      "family": "electric_strings",
+      "href": "instruments/electric_guitar_humbucker.json"
+    },
+    {
+      "id": "pedal_steel",
+      "name": "Pedal steel guitar",
+      "family": "electric_strings",
+      "href": "instruments/pedal_steel.json"
+    },
+    {
+      "id": "semi_hollow",
+      "name": "Semi-hollow electric guitar",
+      "family": "electric_strings",
+      "href": "instruments/semi_hollow.json"
+    },
+    {
+      "id": "short_scale_bass",
+      "name": "Short-scale electric bass",
+      "family": "electric_strings",
+      "href": "instruments/short_scale_bass.json"
+    },
+    {
+      "id": "semi_hollow_bass",
+      "name": "Semi-hollow / hollow-body electric bass",
+      "family": "electric_strings",
+      "href": "instruments/semi_hollow_bass.json"
+    },
+    {
+      "id": "electric_guitar_single_coil",
+      "name": "Solid-body electric guitar with single-coil pickups",
+      "family": "electric_strings",
+      "href": "instruments/electric_guitar_single_coil.json"
+    },
+    {
+      "id": "autoharp",
+      "name": "Autoharp (chorded zither)",
+      "family": "acoustic_strings",
+      "href": "instruments/autoharp.json"
+    },
+    {
+      "id": "celtic_harp",
+      "name": "Celtic / lever harp (clàrsach)",
+      "family": "acoustic_strings",
+      "href": "instruments/celtic_harp.json"
+    },
+    {
+      "id": "cittern",
+      "name": "Cittern (Renaissance / British folk)",
+      "family": "acoustic_strings",
+      "href": "instruments/cittern.json"
+    },
+    {
+      "id": "acoustic_guitar_dread",
+      "name": "Dreadnought acoustic guitar",
+      "family": "acoustic_strings",
+      "href": "instruments/acoustic_guitar_dread.json"
+    },
+    {
+      "id": "mandola",
+      "name": "Mandola (alto mandolin)",
+      "family": "acoustic_strings",
+      "href": "instruments/mandola.json"
+    },
+    {
+      "id": "mandolin",
+      "name": "Mandolin",
+      "family": "acoustic_strings",
+      "href": "instruments/mandolin.json"
+    },
+    {
+      "id": "mountain_dulcimer",
+      "name": "Appalachian (mountain) dulcimer",
+      "family": "acoustic_strings",
+      "href": "instruments/mountain_dulcimer.json"
+    },
+    {
+      "id": "acoustic_guitar_om",
+      "name": "Orchestra-model acoustic guitar",
+      "family": "acoustic_strings",
+      "href": "instruments/acoustic_guitar_om.json"
+    },
+    {
+      "id": "acoustic_guitar_parlor",
+      "name": "Parlor / compact-body acoustic guitar",
+      "family": "acoustic_strings",
+      "href": "instruments/acoustic_guitar_parlor.json"
+    },
+    {
+      "id": "classical_nylon_string_guitar",
+      "name": "Classical / nylon-string guitar",
+      "family": "acoustic_strings",
+      "href": "instruments/classical_nylon_string_guitar.json"
+    },
+    {
+      "id": "concert_harp",
+      "name": "Concert pedal harp",
+      "family": "acoustic_strings",
+      "href": "instruments/concert_harp.json"
+    },
+    {
+      "id": "acoustic_resonator_steel",
+      "name": "Steel-body single-cone resonator guitar",
+      "family": "acoustic_strings",
+      "href": "instruments/acoustic_resonator_steel.json"
+    },
+    {
+      "id": "upright_bass",
+      "name": "Upright (double) bass",
+      "family": "acoustic_strings",
+      "href": "instruments/upright_bass.json"
+    },
+    {
+      "id": "akonting",
+      "name": "Akonting (Senegambian banjo ancestor)",
+      "family": "plucked_traditional",
+      "href": "instruments/akonting.json"
+    },
+    {
+      "id": "baglamas",
+      "name": "Baglamás (Greek miniature bouzouki)",
+      "family": "plucked_traditional",
+      "href": "instruments/baglamas.json"
+    },
+    {
+      "id": "bajo_sexto",
+      "name": "Bajo sexto",
+      "family": "plucked_traditional",
+      "href": "instruments/bajo_sexto.json"
+    },
+    {
+      "id": "balalaika",
+      "name": "Balalaika (Russian triangular)",
+      "family": "plucked_traditional",
+      "href": "instruments/balalaika.json"
+    },
+    {
+      "id": "biwa_lute",
+      "name": "Biwa (Japanese plucked lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/biwa_lute.json"
+    },
+    {
+      "id": "bouzouki",
+      "name": "Bouzouki (Greek long-neck lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/bouzouki.json"
+    },
+    {
+      "id": "cavaquinho",
+      "name": "Cavaquinho (Portuguese / Brazilian)",
+      "family": "plucked_traditional",
+      "href": "instruments/cavaquinho.json"
+    },
+    {
+      "id": "charango",
+      "name": "Charango (Andean compact lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/charango.json"
+    },
+    {
+      "id": "cuatro_pr",
+      "name": "Cuatro (Puerto Rican)",
+      "family": "plucked_traditional",
+      "href": "instruments/cuatro_pr.json"
+    },
+    {
+      "id": "cuatro_venezolano",
+      "name": "Cuatro venezolano",
+      "family": "plucked_traditional",
+      "href": "instruments/cuatro_venezolano.json"
+    },
+    {
+      "id": "cumbus",
+      "name": "Çümbüş (Turkish banjo-bodied lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/cumbus.json"
+    },
+    {
+      "id": "dan_bau",
+      "name": "Đàn bầu (Vietnamese monochord)",
+      "family": "plucked_traditional",
+      "href": "instruments/dan_bau.json"
+    },
+    {
+      "id": "dan_tranh",
+      "name": "Đàn tranh (Vietnamese 16-string zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/dan_tranh.json"
+    },
+    {
+      "id": "domra",
+      "name": "Domra (Russian round-body lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/domra.json"
+    },
+    {
+      "id": "dotara",
+      "name": "Dotara (Bengali plucked lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/dotara.json"
+    },
+    {
+      "id": "banjo_5_string",
+      "name": "Five-string banjo",
+      "family": "plucked_traditional",
+      "href": "instruments/banjo_5_string.json"
+    },
+    {
+      "id": "gayageum",
+      "name": "Gayageum (Korean 12-string zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/gayageum.json"
+    },
+    {
+      "id": "geomungo",
+      "name": "Geomungo (Korean six-string fretted zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/geomungo.json"
+    },
+    {
+      "id": "guqin",
+      "name": "Gǔqín (Chinese 7-string zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/guqin.json"
+    },
+    {
+      "id": "gusli",
+      "name": "Gusli (Slavic psaltery)",
+      "family": "plucked_traditional",
+      "href": "instruments/gusli.json"
+    },
+    {
+      "id": "guzheng",
+      "name": "Guzheng (Chinese long zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/guzheng.json"
+    },
+    {
+      "id": "jarana_jarocha",
+      "name": "Jarana jarocha (Veracruz)",
+      "family": "plucked_traditional",
+      "href": "instruments/jarana_jarocha.json"
+    },
+    {
+      "id": "kantele",
+      "name": "Kantele (Finnish/Karelian zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/kantele.json"
+    },
+    {
+      "id": "kora",
+      "name": "Kora (Mande 21-string harp-lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/kora.json"
+    },
+    {
+      "id": "koto",
+      "name": "Koto (Japanese 13-string zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/koto.json"
+    },
+    {
+      "id": "leona",
+      "name": "Leona (son jarocho bass)",
+      "family": "plucked_traditional",
+      "href": "instruments/leona.json"
+    },
+    {
+      "id": "lute_renaissance",
+      "name": "Renaissance lute",
+      "family": "plucked_traditional",
+      "href": "instruments/lute_renaissance.json"
+    },
+    {
+      "id": "mbira",
+      "name": "Mbira (lamellophone)",
+      "family": "plucked_traditional",
+      "href": "instruments/mbira.json"
+    },
+    {
+      "id": "ngoni",
+      "name": "Ngoni (West African plucked spike-lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/ngoni.json"
+    },
+    {
+      "id": "kamele_ngoni",
+      "name": "Kamele ngoni (Wassoulou youth's harp-lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/kamele_ngoni.json"
+    },
+    {
+      "id": "donso_ngoni",
+      "name": "Donso ngoni (Mande hunters' harp-lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/donso_ngoni.json"
+    },
+    {
+      "id": "ektara",
+      "name": "Ektara (Indian/Bengali one-string drone)",
+      "family": "plucked_traditional",
+      "href": "instruments/ektara.json"
+    },
+    {
+      "id": "khamak",
+      "name": "Khamak (Bengali plucked-drone tension lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/khamak.json"
+    },
+    {
+      "id": "tambura_balkan",
+      "name": "Tambura (Balkan long-neck lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/tambura_balkan.json"
+    },
+    {
+      "id": "kanun",
+      "name": "Kanun / qānūn (Middle Eastern plucked zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/kanun.json"
+    },
+    {
+      "id": "bandola_andina",
+      "name": "Bandola andina (Colombian Andean 12-string lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/bandola_andina.json"
+    },
+    {
+      "id": "oud",
+      "name": "ʿŪd (Arab/Mediterranean fretless lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/oud.json"
+    },
+    {
+      "id": "pipa",
+      "name": "Pipa (Chinese pear-shaped lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/pipa.json"
+    },
+    {
+      "id": "qanun",
+      "name": "Qānūn (Arab/Turkish trapezoidal zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/qanun.json"
+    },
+    {
+      "id": "requinto_jarocho",
+      "name": "Requinto jarocho (Veracruz lead)",
+      "family": "plucked_traditional",
+      "href": "instruments/requinto_jarocho.json"
+    },
+    {
+      "id": "ronroco",
+      "name": "Ronroco (large charango)",
+      "family": "plucked_traditional",
+      "href": "instruments/ronroco.json"
+    },
+    {
+      "id": "ruan",
+      "name": "Ruan (Chinese moon-bodied lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/ruan.json"
+    },
+    {
+      "id": "rudra_veena",
+      "name": "Rudra vīṇā (dhrupad bin)",
+      "family": "plucked_traditional",
+      "href": "instruments/rudra_veena.json"
+    },
+    {
+      "id": "santoor",
+      "name": "Santoor (Hindustani hammered dulcimer)",
+      "family": "plucked_traditional",
+      "href": "instruments/santoor.json"
+    },
+    {
+      "id": "santur",
+      "name": "Santūr (Persian hammered dulcimer)",
+      "family": "plucked_traditional",
+      "href": "instruments/santur.json"
+    },
+    {
+      "id": "sanxian",
+      "name": "Sanxian (Chinese three-string)",
+      "family": "plucked_traditional",
+      "href": "instruments/sanxian.json"
+    },
+    {
+      "id": "sarod",
+      "name": "Sarod (Hindustani fretless lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/sarod.json"
+    },
+    {
+      "id": "saz_baglama",
+      "name": "Saz / bağlama (Turkish long-neck lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/saz_baglama.json"
+    },
+    {
+      "id": "setar_persian",
+      "name": "Setār (Persian long-neck lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/setar_persian.json"
+    },
+    {
+      "id": "shamisen",
+      "name": "Shamisen (Japanese three-string)",
+      "family": "plucked_traditional",
+      "href": "instruments/shamisen.json"
+    },
+    {
+      "id": "sintir",
+      "name": "Sintir / guembri (Moroccan Gnawa bass-lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/sintir.json"
+    },
+    {
+      "id": "sitar",
+      "name": "Sitar",
+      "family": "plucked_traditional",
+      "href": "instruments/sitar.json"
+    },
+    {
+      "id": "tanbur_persian",
+      "name": "Tanbur (Persian/Kurdish long-neck lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/tanbur_persian.json"
+    },
+    {
+      "id": "tanpura",
+      "name": "Tanpura (Indian drone lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/tanpura.json"
+    },
+    {
+      "id": "tar_persian",
+      "name": "Tār (Persian double-bowl lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/tar_persian.json"
+    },
+    {
+      "id": "theorbo",
+      "name": "Theorbo (extended-bass baroque lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/theorbo.json"
+    },
+    {
+      "id": "tiple",
+      "name": "Tiple (Andean 12-string)",
+      "family": "plucked_traditional",
+      "href": "instruments/tiple.json"
+    },
+    {
+      "id": "tres_cubano",
+      "name": "Tres (Cuban three-course)",
+      "family": "plucked_traditional",
+      "href": "instruments/tres_cubano.json"
+    },
+    {
+      "id": "tumbi",
+      "name": "Tumbi (Punjabi single-string)",
+      "family": "plucked_traditional",
+      "href": "instruments/tumbi.json"
+    },
+    {
+      "id": "veena",
+      "name": "Saraswati vīṇā (South Indian fretted lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/veena.json"
+    },
+    {
+      "id": "vihuela_mexicana",
+      "name": "Vihuela (Mexican mariachi)",
+      "family": "plucked_traditional",
+      "href": "instruments/vihuela_mexicana.json"
+    },
+    {
+      "id": "viola_caipira",
+      "name": "Viola caipira (Brazilian 10-string)",
+      "family": "plucked_traditional",
+      "href": "instruments/viola_caipira.json"
+    },
+    {
+      "id": "xalam",
+      "name": "Xalam / tehardent (Sahelian lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/xalam.json"
+    },
+    {
+      "id": "yueqin",
+      "name": "Yueqin (Chinese moon lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/yueqin.json"
+    },
+    {
+      "id": "violin_carnatic",
+      "name": "Violin (Carnatic tuning)",
+      "family": "bowed",
+      "href": "instruments/violin_carnatic.json"
+    },
+    {
+      "id": "cello",
+      "name": "Cello (orchestral bass-baritone)",
+      "family": "bowed",
+      "href": "instruments/cello.json"
+    },
+    {
+      "id": "dilruba",
+      "name": "Dilruba (Punjabi bowed lute)",
+      "family": "bowed",
+      "href": "instruments/dilruba.json"
+    },
+    {
+      "id": "double_bass",
+      "name": "Double bass (orchestral / jazz upright)",
+      "family": "bowed",
+      "href": "instruments/double_bass.json"
+    },
+    {
+      "id": "erhu",
+      "name": "Erhu (Chinese two-string fiddle)",
+      "family": "bowed",
+      "href": "instruments/erhu.json"
+    },
+    {
+      "id": "jinghu",
+      "name": "Jīnghú (Beijing-opera bamboo fiddle)",
+      "family": "bowed",
+      "href": "instruments/jinghu.json"
+    },
+    {
+      "id": "esraj",
+      "name": "Esraj (bowed Indian lute)",
+      "family": "bowed",
+      "href": "instruments/esraj.json"
+    },
+    {
+      "id": "fiddle",
+      "name": "Fiddle",
+      "family": "bowed",
+      "href": "instruments/fiddle.json"
+    },
+    {
+      "id": "gusle",
+      "name": "Gusle (Balkan single-string)",
+      "family": "bowed",
+      "href": "instruments/gusle.json"
+    },
+    {
+      "id": "haegeum",
+      "name": "Haegeum (Korean two-string fiddle)",
+      "family": "bowed",
+      "href": "instruments/haegeum.json"
+    },
+    {
+      "id": "hardanger_fiddle_inst",
+      "name": "Hardingfele (Hardanger fiddle)",
+      "family": "bowed",
+      "href": "instruments/hardanger_fiddle_inst.json"
+    },
+    {
+      "id": "hurdy_gurdy",
+      "name": "Hurdy-gurdy (vielle à roue)",
+      "family": "bowed",
+      "href": "instruments/hurdy_gurdy.json"
+    },
+    {
+      "id": "kamancheh",
+      "name": "Kamāncheh (Persian spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/kamancheh.json"
+    },
+    {
+      "id": "kemence",
+      "name": "Kemençe (Black Sea / Constantinople bowed)",
+      "family": "bowed",
+      "href": "instruments/kemence.json"
+    },
+    {
+      "id": "cretan_lyra",
+      "name": "Cretan lyra",
+      "family": "bowed",
+      "href": "instruments/cretan_lyra.json"
+    },
+    {
+      "id": "morin_khuur",
+      "name": "Morin khuur (Mongolian horse-head fiddle)",
+      "family": "bowed",
+      "href": "instruments/morin_khuur.json"
+    },
+    {
+      "id": "nyckelharpa",
+      "name": "Nyckelharpa (Swedish keyed fiddle)",
+      "family": "bowed",
+      "href": "instruments/nyckelharpa.json"
+    },
+    {
+      "id": "violin_orchestral",
+      "name": "Orchestral violin / viola / cello",
+      "family": "bowed",
+      "href": "instruments/violin_orchestral.json"
+    },
+    {
+      "id": "rebab",
+      "name": "Rebab (Indonesian/Malay spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/rebab.json"
+    },
+    {
+      "id": "sarangi",
+      "name": "Sārangī (bowed Indian lute with sympathetic strings)",
+      "family": "bowed",
+      "href": "instruments/sarangi.json"
+    },
+    {
+      "id": "string_quartet_inst",
+      "name": "String quartet (ensemble)",
+      "family": "bowed",
+      "href": "instruments/string_quartet_inst.json"
+    },
+    {
+      "id": "viola_classical",
+      "name": "Viola (orchestral alto)",
+      "family": "bowed",
+      "href": "instruments/viola_classical.json"
+    },
+    {
+      "id": "viola_da_gamba",
+      "name": "Viola da gamba",
+      "family": "bowed",
+      "href": "instruments/viola_da_gamba.json"
+    },
+    {
+      "id": "agogo",
+      "name": "Agogô (Brazilian double bell)",
+      "family": "percussion",
+      "href": "instruments/agogo.json"
+    },
+    {
+      "id": "atabaque",
+      "name": "Atabaque (Brazilian conical drum)",
+      "family": "percussion",
+      "href": "instruments/atabaque.json"
+    },
+    {
+      "id": "balafon",
+      "name": "Balafon (West African pentatonic marimba)",
+      "family": "percussion",
+      "href": "instruments/balafon.json"
+    },
+    {
+      "id": "bata",
+      "name": "Batá drums (Yoruba/Cuban triple-set)",
+      "family": "percussion",
+      "href": "instruments/bata.json"
+    },
+    {
+      "id": "bendir",
+      "name": "Bendir (Maghrebi frame drum)",
+      "family": "percussion",
+      "href": "instruments/bendir.json"
+    },
+    {
+      "id": "berimbau",
+      "name": "Berimbau (Brazilian musical bow)",
+      "family": "percussion",
+      "href": "instruments/berimbau.json"
+    },
+    {
+      "id": "bodhran",
+      "name": "Bodhrán (Irish frame drum)",
+      "family": "percussion",
+      "href": "instruments/bodhran.json"
+    },
+    {
+      "id": "bombo_andino",
+      "name": "Bombo (Andean bass drum)",
+      "family": "percussion",
+      "href": "instruments/bombo_andino.json"
+    },
+    {
+      "id": "bonang",
+      "name": "Bonang (gamelan kettle gong row)",
+      "family": "percussion",
+      "href": "instruments/bonang.json"
+    },
+    {
+      "id": "bongos",
+      "name": "Bongos (Cuban paired drums)",
+      "family": "percussion",
+      "href": "instruments/bongos.json"
+    },
+    {
+      "id": "buk_korean",
+      "name": "Buk (Korean barrel drum)",
+      "family": "percussion",
+      "href": "instruments/buk_korean.json"
+    },
+    {
+      "id": "sabar",
+      "name": "Sabar (Senegalese hand-and-stick drum)",
+      "family": "percussion",
+      "href": "instruments/sabar.json"
+    },
+    {
+      "id": "castanets",
+      "name": "Castanets",
+      "family": "percussion",
+      "href": "instruments/castanets.json"
+    },
+    {
+      "id": "caxixi",
+      "name": "Caxixi (Brazilian basket shaker)",
+      "family": "percussion",
+      "href": "instruments/caxixi.json"
+    },
+    {
+      "id": "claves",
+      "name": "Claves (Cuban hardwood sticks)",
+      "family": "percussion",
+      "href": "instruments/claves.json"
+    },
+    {
+      "id": "congas",
+      "name": "Congas / tumbadoras (Cuban)",
+      "family": "percussion",
+      "href": "instruments/congas.json"
+    },
+    {
+      "id": "cuica",
+      "name": "Cuíca (Brazilian friction drum)",
+      "family": "percussion",
+      "href": "instruments/cuica.json"
+    },
+    {
+      "id": "daf",
+      "name": "Daf (Persian/Sufi frame drum)",
+      "family": "percussion",
+      "href": "instruments/daf.json"
+    },
+    {
+      "id": "darbuka",
+      "name": "Darbuka / doumbek (Middle Eastern goblet drum)",
+      "family": "percussion",
+      "href": "instruments/darbuka.json"
+    },
+    {
+      "id": "dholak",
+      "name": "Dholak (North Indian double-headed)",
+      "family": "percussion",
+      "href": "instruments/dholak.json"
+    },
+    {
+      "id": "djembe",
+      "name": "Djembe (West African goblet drum)",
+      "family": "percussion",
+      "href": "instruments/djembe.json"
+    },
+    {
+      "id": "drum_kit",
+      "name": "Drum kit (Western)",
+      "family": "percussion",
+      "href": "instruments/drum_kit.json"
+    },
+    {
+      "id": "dunun",
+      "name": "Dunun family (West African bass drums)",
+      "family": "percussion",
+      "href": "instruments/dunun.json"
+    },
+    {
+      "id": "frottoir",
+      "name": "Frottoir / washboard (zydeco rubboard)",
+      "family": "percussion",
+      "href": "instruments/frottoir.json"
+    },
+    {
+      "id": "jug_inst",
+      "name": "Jug (blown ceramic / glass jug, bass instrument)",
+      "family": "wind",
+      "href": "instruments/jug_inst.json"
+    },
+    {
+      "id": "tea_chest_bass",
+      "name": "Tea-chest bass (UK skiffle homemade bass)",
+      "family": "acoustic_strings",
+      "href": "instruments/tea_chest_bass.json"
+    },
+    {
+      "id": "kazoo",
+      "name": "Kazoo (membranophone hummed-through pipe)",
+      "family": "wind",
+      "href": "instruments/kazoo.json"
+    },
+    {
+      "id": "turntable",
+      "name": "Turntable (DJ vinyl deck)",
+      "family": "electronic",
+      "href": "instruments/turntable.json"
+    },
+    {
+      "id": "ranat_ek",
+      "name": "Ranat ek (Thai lead xylophone, 21 wooden bars)",
+      "family": "percussion",
+      "href": "instruments/ranat_ek.json"
+    },
+    {
+      "id": "khong_wong_yai",
+      "name": "Khong wong yai (Thai large gong circle, 16 tuned gongs)",
+      "family": "percussion",
+      "href": "instruments/khong_wong_yai.json"
+    },
+    {
+      "id": "pi_nai",
+      "name": "Pi nai (Thai quadruple-reed oboe)",
+      "family": "wind",
+      "href": "instruments/pi_nai.json"
+    },
+    {
+      "id": "taphon",
+      "name": "Taphon (Thai two-headed barrel drum)",
+      "family": "percussion",
+      "href": "instruments/taphon.json"
+    },
+    {
+      "id": "gender",
+      "name": "Gender (gamelan multi-octave metallophone)",
+      "family": "percussion",
+      "href": "instruments/gender.json"
+    },
+    {
+      "id": "ghatam",
+      "name": "Ghatam (clay pot)",
+      "family": "percussion",
+      "href": "instruments/ghatam.json"
+    },
+    {
+      "id": "glockenspiel",
+      "name": "Glockenspiel (orchestral bells)",
+      "family": "percussion",
+      "href": "instruments/glockenspiel.json"
+    },
+    {
+      "id": "guiro",
+      "name": "Güiro (scraper)",
+      "family": "percussion",
+      "href": "instruments/guiro.json"
+    },
+    {
+      "id": "hammered_dulcimer",
+      "name": "Hammered dulcimer",
+      "family": "percussion",
+      "href": "instruments/hammered_dulcimer.json"
+    },
+    {
+      "id": "handpan",
+      "name": "Handpan (steel tongue drum)",
+      "family": "percussion",
+      "href": "instruments/handpan.json"
+    },
+    {
+      "id": "janggu",
+      "name": "Janggu / changgo (Korean hourglass drum)",
+      "family": "percussion",
+      "href": "instruments/janggu.json"
+    },
+    {
+      "id": "kkwaenggwari",
+      "name": "Kkwaenggwari (Korean small flat brass gong)",
+      "family": "percussion",
+      "href": "instruments/kkwaenggwari.json"
+    },
+    {
+      "id": "jing_korean",
+      "name": "Jing (Korean large hanging brass gong)",
+      "family": "percussion",
+      "href": "instruments/jing_korean.json"
+    },
+    {
+      "id": "luogu",
+      "name": "Luogu (Chinese gong-and-drum percussion ensemble)",
+      "family": "ensemble",
+      "href": "instruments/luogu.json"
+    },
+    {
+      "id": "kanjira",
+      "name": "Kanjira (South Indian frame drum)",
+      "family": "percussion",
+      "href": "instruments/kanjira.json"
+    },
+    {
+      "id": "kulintang_set",
+      "name": "Kulintang gong row (Mindanao)",
+      "family": "percussion",
+      "href": "instruments/kulintang_set.json"
+    },
+    {
+      "id": "maracas",
+      "name": "Maracas",
+      "family": "percussion",
+      "href": "instruments/maracas.json"
+    },
+    {
+      "id": "marimba_orchestral",
+      "name": "Marimba (orchestral)",
+      "family": "percussion",
+      "href": "instruments/marimba_orchestral.json"
+    },
+    {
+      "id": "mridangam",
+      "name": "Mridangam (Carnatic double-headed)",
+      "family": "percussion",
+      "href": "instruments/mridangam.json"
+    },
+    {
+      "id": "pakhawaj",
+      "name": "Pakhawaj (Hindustani barrel drum)",
+      "family": "percussion",
+      "href": "instruments/pakhawaj.json"
+    },
+    {
+      "id": "pandeiro",
+      "name": "Pandeiro (Brazilian frame drum)",
+      "family": "percussion",
+      "href": "instruments/pandeiro.json"
+    },
+    {
+      "id": "qarqaba",
+      "name": "Qarqaba / karkabou (Moroccan iron castanets)",
+      "family": "percussion",
+      "href": "instruments/qarqaba.json"
+    },
+    {
+      "id": "riq",
+      "name": "Riq (Egyptian frame drum with jingles)",
+      "family": "percussion",
+      "href": "instruments/riq.json"
+    },
+    {
+      "id": "shekere",
+      "name": "Shekere (West African beaded gourd)",
+      "family": "percussion",
+      "href": "instruments/shekere.json"
+    },
+    {
+      "id": "steelpan",
+      "name": "Steelpan (Trinidadian)",
+      "family": "percussion",
+      "href": "instruments/steelpan.json"
+    },
+    {
+      "id": "surdo",
+      "name": "Surdo (Brazilian samba bass)",
+      "family": "percussion",
+      "href": "instruments/surdo.json"
+    },
+    {
+      "id": "tabla",
+      "name": "Tabla (pair: dayan and bayan)",
+      "family": "percussion",
+      "href": "instruments/tabla.json"
+    },
+    {
+      "id": "taiko_drums",
+      "name": "Taiko (Japanese ensemble drums)",
+      "family": "percussion",
+      "href": "instruments/taiko_drums.json"
+    },
+    {
+      "id": "talking_drum",
+      "name": "Talking drum (West African pressure drum)",
+      "family": "percussion",
+      "href": "instruments/talking_drum.json"
+    },
+    {
+      "id": "tamborim",
+      "name": "Tamborim (compact frame, Brazilian)",
+      "family": "percussion",
+      "href": "instruments/tamborim.json"
+    },
+    {
+      "id": "tambourine_orch",
+      "name": "Tambourine (orchestral)",
+      "family": "percussion",
+      "href": "instruments/tambourine_orch.json"
+    },
+    {
+      "id": "tar_frame_drum",
+      "name": "Tār (Middle Eastern frame drum)",
+      "family": "percussion",
+      "href": "instruments/tar_frame_drum.json"
+    },
+    {
+      "id": "thavil",
+      "name": "Thavil (South Indian double-headed)",
+      "family": "percussion",
+      "href": "instruments/thavil.json"
+    },
+    {
+      "id": "timbales",
+      "name": "Timbales (Cuban metal-shell)",
+      "family": "percussion",
+      "href": "instruments/timbales.json"
+    },
+    {
+      "id": "timpani",
+      "name": "Timpani (orchestral kettle drums)",
+      "family": "percussion",
+      "href": "instruments/timpani.json"
+    },
+    {
+      "id": "tombak",
+      "name": "Tombak / zarb (Persian goblet drum)",
+      "family": "percussion",
+      "href": "instruments/tombak.json"
+    },
+    {
+      "id": "vibraphone",
+      "name": "Vibraphone",
+      "family": "percussion",
+      "href": "instruments/vibraphone.json"
+    },
+    {
+      "id": "xylophone",
+      "name": "Xylophone (orchestral)",
+      "family": "percussion",
+      "href": "instruments/xylophone.json"
+    },
+    {
+      "id": "accordion",
+      "name": "Diatonic / chromatic accordion",
+      "family": "free_reed",
+      "href": "instruments/accordion.json"
+    },
+    {
+      "id": "concertina_anglo",
+      "name": "Anglo concertina",
+      "family": "free_reed",
+      "href": "instruments/concertina_anglo.json"
+    },
+    {
+      "id": "bandoneon",
+      "name": "Bandoneón (Argentine tango concertina)",
+      "family": "free_reed",
+      "href": "instruments/bandoneon.json"
+    },
+    {
+      "id": "bawu",
+      "name": "Bawu (Chinese free-reed flute)",
+      "family": "free_reed",
+      "href": "instruments/bawu.json"
+    },
+    {
+      "id": "concertina_english",
+      "name": "English concertina",
+      "family": "free_reed",
+      "href": "instruments/concertina_english.json"
+    },
+    {
+      "id": "concertina",
+      "name": "Concertina (English / Anglo / Irish)",
+      "family": "free_reed",
+      "href": "instruments/concertina.json"
+    },
+    {
+      "id": "harmonica",
+      "name": "Harmonica",
+      "family": "free_reed",
+      "href": "instruments/harmonica.json"
+    },
+    {
+      "id": "harmonium_indian",
+      "name": "Harmonium (Indian / South Asian)",
+      "family": "free_reed",
+      "href": "instruments/harmonium_indian.json"
+    },
+    {
+      "id": "hulusi",
+      "name": "Hulusi (Chinese gourd reed pipe)",
+      "family": "free_reed",
+      "href": "instruments/hulusi.json"
+    },
+    {
+      "id": "khaen",
+      "name": "Khaen (Lao mouth organ)",
+      "family": "free_reed",
+      "href": "instruments/khaen.json"
+    },
+    {
+      "id": "melodeon_diatonic",
+      "name": "Melodeon (diatonic button accordion)",
+      "family": "free_reed",
+      "href": "instruments/melodeon_diatonic.json"
+    },
+    {
+      "id": "piano_accordion",
+      "name": "Piano accordion",
+      "family": "free_reed",
+      "href": "instruments/piano_accordion.json"
+    },
+    {
+      "id": "sheng",
+      "name": "Sheng (Chinese mouth organ)",
+      "family": "free_reed",
+      "href": "instruments/sheng.json"
+    },
+    {
+      "id": "sho_mouth_organ",
+      "name": "Shō (gagaku mouth organ)",
+      "family": "free_reed",
+      "href": "instruments/sho_mouth_organ.json"
+    },
+    {
+      "id": "alto_flute",
+      "name": "Alto flute (in G)",
+      "family": "wind",
+      "href": "instruments/alto_flute.json"
+    },
+    {
+      "id": "bansuri",
+      "name": "Bansuri (Indian transverse bamboo flute)",
+      "family": "wind",
+      "href": "instruments/bansuri.json"
+    },
+    {
+      "id": "bass_flute",
+      "name": "Bass flute (in C, octave below concert)",
+      "family": "wind",
+      "href": "instruments/bass_flute.json"
+    },
+    {
+      "id": "bassoon",
+      "name": "Bassoon",
+      "family": "wind",
+      "href": "instruments/bassoon.json"
+    },
+    {
+      "id": "biniou",
+      "name": "Biniou (Breton pipes)",
+      "family": "wind",
+      "href": "instruments/biniou.json"
+    },
+    {
+      "id": "clarinet",
+      "name": "Clarinet (B♭ / bass / contrabass)",
+      "family": "wind",
+      "href": "instruments/clarinet.json"
+    },
+    {
+      "id": "conch_shell_horn",
+      "name": "Conch shell trumpet",
+      "family": "wind",
+      "href": "instruments/conch_shell_horn.json"
+    },
+    {
+      "id": "contrabassoon",
+      "name": "Contrabassoon",
+      "family": "wind",
+      "href": "instruments/contrabassoon.json"
+    },
+    {
+      "id": "cornet",
+      "name": "Cornet",
+      "family": "wind",
+      "href": "instruments/cornet.json"
+    },
+    {
+      "id": "didgeridoo",
+      "name": "Didgeridoo",
+      "family": "wind",
+      "href": "instruments/didgeridoo.json"
+    },
+    {
+      "id": "dizi",
+      "name": "Dizi (Chinese transverse bamboo)",
+      "family": "wind",
+      "href": "instruments/dizi.json"
+    },
+    {
+      "id": "duduk",
+      "name": "Duduk (Armenian apricot-wood reed)",
+      "family": "wind",
+      "href": "instruments/duduk.json"
+    },
+    {
+      "id": "english_horn",
+      "name": "English horn / cor anglais",
+      "family": "wind",
+      "href": "instruments/english_horn.json"
+    },
+    {
+      "id": "euphonium",
+      "name": "Euphonium (tenor tuba)",
+      "family": "wind",
+      "href": "instruments/euphonium.json"
+    },
+    {
+      "id": "flugelhorn",
+      "name": "Flugelhorn",
+      "family": "wind",
+      "href": "instruments/flugelhorn.json"
+    },
+    {
+      "id": "flute",
+      "name": "Flute (concert / alto / bass / piccolo)",
+      "family": "wind",
+      "href": "instruments/flute.json"
+    },
+    {
+      "id": "french_horn",
+      "name": "French horn (orchestral)",
+      "family": "wind",
+      "href": "instruments/french_horn.json"
+    },
+    {
+      "id": "gaida_bulgarian",
+      "name": "Gaida bulgarian (Balkan pipes)",
+      "family": "wind",
+      "href": "instruments/gaida_bulgarian.json"
+    },
+    {
+      "id": "ghaita",
+      "name": "Ghaita (Maghrebi shawm)",
+      "family": "wind",
+      "href": "instruments/ghaita.json"
+    },
+    {
+      "id": "hichiriki_double_reed",
+      "name": "Hichiriki (double-reed bamboo aerophone)",
+      "family": "wind",
+      "href": "instruments/hichiriki_double_reed.json"
+    },
+    {
+      "id": "highland_bagpipes",
+      "name": "Great Highland bagpipes",
+      "family": "wind",
+      "href": "instruments/highland_bagpipes.json"
+    },
+    {
+      "id": "gaita_galega",
+      "name": "Gaita galega (Galician bagpipes)",
+      "family": "wind",
+      "href": "instruments/gaita_galega.json"
+    },
+    {
+      "id": "bombarde",
+      "name": "Bombarde (Breton oboe-shawm)",
+      "family": "wind",
+      "href": "instruments/bombarde.json"
+    },
+    {
+      "id": "ciaramella",
+      "name": "Ciaramella (Italian shawm partner to zampogna)",
+      "family": "wind",
+      "href": "instruments/ciaramella.json"
+    },
+    {
+      "id": "gaita_colombiana",
+      "name": "Gaita colombiana (Caribbean Colombian flute)",
+      "family": "wind",
+      "href": "instruments/gaita_colombiana.json"
+    },
+    {
+      "id": "kakaki",
+      "name": "Kakaki (West African long trumpet)",
+      "family": "wind",
+      "href": "instruments/kakaki.json"
+    },
+    {
+      "id": "kaval",
+      "name": "Kaval (Bulgarian/Turkish end-blown flute)",
+      "family": "wind",
+      "href": "instruments/kaval.json"
+    },
+    {
+      "id": "launeddas",
+      "name": "Launeddas (Sardinian triple pipe)",
+      "family": "wind",
+      "href": "instruments/launeddas.json"
+    },
+    {
+      "id": "tin_whistle_low",
+      "name": "Low whistle (Irish)",
+      "family": "wind",
+      "href": "instruments/tin_whistle_low.json"
+    },
+    {
+      "id": "mey",
+      "name": "Mey (Turkish double reed)",
+      "family": "wind",
+      "href": "instruments/mey.json"
+    },
+    {
+      "id": "mizmar",
+      "name": "Mizmar / Egyptian shawm",
+      "family": "wind",
+      "href": "instruments/mizmar.json"
+    },
+    {
+      "id": "ney",
+      "name": "Nāy / nay (Persian/Arab end-blown reed flute)",
+      "family": "wind",
+      "href": "instruments/ney.json"
+    },
+    {
+      "id": "oboe",
+      "name": "Oboe",
+      "family": "wind",
+      "href": "instruments/oboe.json"
+    },
+    {
+      "id": "ocarina",
+      "name": "Ocarina",
+      "family": "wind",
+      "href": "instruments/ocarina.json"
+    },
+    {
+      "id": "piccolo",
+      "name": "Piccolo",
+      "family": "wind",
+      "href": "instruments/piccolo.json"
+    },
+    {
+      "id": "quena",
+      "name": "Quena (Andean notched flute)",
+      "family": "wind",
+      "href": "instruments/quena.json"
+    },
+    {
+      "id": "recorder",
+      "name": "Recorder (renaissance / baroque)",
+      "family": "wind",
+      "href": "instruments/recorder.json"
+    },
+    {
+      "id": "saxophone",
+      "name": "Saxophone (soprano / alto / tenor / baritone)",
+      "family": "wind",
+      "href": "instruments/saxophone.json"
+    },
+    {
+      "id": "shakuhachi",
+      "name": "Shakuhachi (Japanese end-blown bamboo flute)",
+      "family": "wind",
+      "href": "instruments/shakuhachi.json"
+    },
+    {
+      "id": "shawm",
+      "name": "Shawm (renaissance double reed)",
+      "family": "wind",
+      "href": "instruments/shawm.json"
+    },
+    {
+      "id": "shofar",
+      "name": "Shofar (ram's horn)",
+      "family": "wind",
+      "href": "instruments/shofar.json"
+    },
+    {
+      "id": "suling",
+      "name": "Suling (Indonesian end-blown flute)",
+      "family": "wind",
+      "href": "instruments/suling.json"
+    },
+    {
+      "id": "tin_whistle",
+      "name": "Tin whistle / penny whistle",
+      "family": "wind",
+      "href": "instruments/tin_whistle.json"
+    },
+    {
+      "id": "trombone",
+      "name": "Trombone (tenor / bass / valve)",
+      "family": "wind",
+      "href": "instruments/trombone.json"
+    },
+    {
+      "id": "trumpet",
+      "name": "Trumpet / cornet / flugelhorn",
+      "family": "wind",
+      "href": "instruments/trumpet.json"
+    },
+    {
+      "id": "tuba",
+      "name": "Tuba (orchestral / brass band)",
+      "family": "wind",
+      "href": "instruments/tuba.json"
+    },
+    {
+      "id": "uilleann_pipes",
+      "name": "Uilleann pipes (Irish bellows-blown)",
+      "family": "wind",
+      "href": "instruments/uilleann_pipes.json"
+    },
+    {
+      "id": "xiao",
+      "name": "Xiao (Chinese end-blown bamboo flute)",
+      "family": "wind",
+      "href": "instruments/xiao.json"
+    },
+    {
+      "id": "zampogna",
+      "name": "Zampogna (Italian pipes)",
+      "family": "wind",
+      "href": "instruments/zampogna.json"
+    },
+    {
+      "id": "zurna",
+      "name": "Zurna / surnay (Anatolian/Caucasian)",
+      "family": "wind",
+      "href": "instruments/zurna.json"
+    },
+    {
+      "id": "celesta",
+      "name": "Celesta",
+      "family": "keyboard",
+      "href": "instruments/celesta.json"
+    },
+    {
+      "id": "clavinet",
+      "name": "Clavinet (Hohner D6)",
+      "family": "keyboard",
+      "href": "instruments/clavinet.json"
+    },
+    {
+      "id": "grand_piano",
+      "name": "Grand piano (acoustic)",
+      "family": "keyboard",
+      "href": "instruments/grand_piano.json"
+    },
+    {
+      "id": "harpsichord",
+      "name": "Harpsichord",
+      "family": "keyboard",
+      "href": "instruments/harpsichord.json"
+    },
+    {
+      "id": "mellotron",
+      "name": "Mellotron (tape sample keyboard)",
+      "family": "keyboard",
+      "href": "instruments/mellotron.json"
+    },
+    {
+      "id": "melodica",
+      "name": "Melodica",
+      "family": "keyboard",
+      "href": "instruments/melodica.json"
+    },
+    {
+      "id": "pipe_organ",
+      "name": "Pipe organ",
+      "family": "keyboard",
+      "href": "instruments/pipe_organ.json"
+    },
+    {
+      "id": "rhodes_electric",
+      "name": "Rhodes electric piano",
+      "family": "keyboard",
+      "href": "instruments/rhodes_electric.json"
+    },
+    {
+      "id": "tack_piano",
+      "name": "Tack piano (modified upright)",
+      "family": "keyboard",
+      "href": "instruments/tack_piano.json"
+    },
+    {
+      "id": "tape_replay_keyboard",
+      "name": "Tape-replay polyphonic keyboard",
+      "family": "keyboard",
+      "href": "instruments/tape_replay_keyboard.json"
+    },
+    {
+      "id": "electric_piano_tine",
+      "name": "Tine-and-tonebar electric piano",
+      "family": "keyboard",
+      "href": "instruments/electric_piano_tine.json"
+    },
+    {
+      "id": "tonewheel_organ",
+      "name": "Drawbar tonewheel organ (with rotating-speaker cabinet)",
+      "family": "keyboard",
+      "href": "instruments/tonewheel_organ.json"
+    },
+    {
+      "id": "combo_organ",
+      "name": "Combo organ (transistor-divider)",
+      "family": "keyboard",
+      "href": "instruments/combo_organ.json"
+    },
+    {
+      "id": "upright_piano",
+      "name": "Upright piano",
+      "family": "keyboard",
+      "href": "instruments/upright_piano.json"
+    },
+    {
+      "id": "wurlitzer_ep",
+      "name": "Wurlitzer 200/200A electric piano",
+      "family": "keyboard",
+      "href": "instruments/wurlitzer_ep.json"
+    },
+    {
+      "id": "drum_machine_analog",
+      "name": "Analog drum machine (synthesized voices)",
+      "family": "electronic",
+      "href": "instruments/drum_machine_analog.json"
+    },
+    {
+      "id": "analog_mono_synth",
+      "name": "Analog monophonic synthesizer",
+      "family": "electronic",
+      "href": "instruments/analog_mono_synth.json"
+    },
+    {
+      "id": "analog_poly_synth",
+      "name": "Analog polyphonic synthesizer",
+      "family": "electronic",
+      "href": "instruments/analog_poly_synth.json"
+    },
+    {
+      "id": "analog_synth",
+      "name": "Analog synthesizer (subtractive)",
+      "family": "electronic",
+      "href": "instruments/analog_synth.json"
+    },
+    {
+      "id": "digital_subtractive",
+      "name": "Digital subtractive synthesizer (VA)",
+      "family": "electronic",
+      "href": "instruments/digital_subtractive.json"
+    },
+    {
+      "id": "eurorack_modular",
+      "name": "Eurorack modular synthesizer",
+      "family": "electronic",
+      "href": "instruments/eurorack_modular.json"
+    },
+    {
+      "id": "fm_synth",
+      "name": "FM synthesizer (operator-based)",
+      "family": "electronic",
+      "href": "instruments/fm_synth.json"
+    },
+    {
+      "id": "granular_synth",
+      "name": "Granular synthesizer",
+      "family": "electronic",
+      "href": "instruments/granular_synth.json"
+    },
+    {
+      "id": "linndrum",
+      "name": "LinnDrum (LM-2)",
+      "family": "electronic",
+      "href": "instruments/linndrum.json"
+    },
+    {
+      "id": "log_drum",
+      "name": "Log drum (amapiano)",
+      "family": "electronic",
+      "href": "instruments/log_drum.json"
+    },
+    {
+      "id": "modular_synth",
+      "name": "Modular synthesizer (patch-based)",
+      "family": "electronic",
+      "href": "instruments/modular_synth.json"
+    },
+    {
+      "id": "monosynth_acid_bass",
+      "name": "Monophonic transistor-bass synthesizer",
+      "family": "electronic",
+      "href": "instruments/monosynth_acid_bass.json"
+    },
+    {
+      "id": "ondes_martenot",
+      "name": "Ondes Martenot",
+      "family": "electronic",
+      "href": "instruments/ondes_martenot.json"
+    },
+    {
+      "id": "sampler_classic",
+      "name": "Sampler (vintage)",
+      "family": "electronic",
+      "href": "instruments/sampler_classic.json"
+    },
+    {
+      "id": "sampler_drum_machine",
+      "name": "Sample-based drum machine / sampler",
+      "family": "electronic",
+      "href": "instruments/sampler_drum_machine.json"
+    },
+    {
+      "id": "string_machine",
+      "name": "Analog string machine",
+      "family": "electronic",
+      "href": "instruments/string_machine.json"
+    },
+    {
+      "id": "talkbox",
+      "name": "Talkbox",
+      "family": "electronic",
+      "href": "instruments/talkbox.json"
+    },
+    {
+      "id": "theremin",
+      "name": "Theremin",
+      "family": "electronic",
+      "href": "instruments/theremin.json"
+    },
+    {
+      "id": "drum_machine_606",
+      "name": "Roland TR-606 drum machine",
+      "family": "electronic",
+      "href": "instruments/drum_machine_606.json"
+    },
+    {
+      "id": "drum_machine_808",
+      "name": "Roland TR-808 drum machine",
+      "family": "electronic",
+      "href": "instruments/drum_machine_808.json"
+    },
+    {
+      "id": "drum_machine_909",
+      "name": "Roland TR-909 drum machine",
+      "family": "electronic",
+      "href": "instruments/drum_machine_909.json"
+    },
+    {
+      "id": "drum_machine_707",
+      "name": "Roland TR-707 drum machine",
+      "family": "electronic",
+      "href": "instruments/drum_machine_707.json"
+    },
+    {
+      "id": "pump_organ_harmonium",
+      "name": "Pump organ / American reed organ",
+      "family": "keyboard",
+      "href": "instruments/pump_organ_harmonium.json"
+    },
+    {
+      "id": "vocoder",
+      "name": "Vocoder (analysis / synthesis)",
+      "family": "electronic",
+      "href": "instruments/vocoder.json"
+    },
+    {
+      "id": "wavetable_synth",
+      "name": "Wavetable synthesizer",
+      "family": "electronic",
+      "href": "instruments/wavetable_synth.json"
+    },
+    {
+      "id": "a_tenores_quartet",
+      "name": "A tenores (Sardinian male polyphonic quartet)",
+      "family": "ensemble",
+      "href": "instruments/a_tenores_quartet.json"
+    },
+    {
+      "id": "brass_band_balkan_romani",
+      "name": "Balkan Romani brass band",
+      "family": "ensemble",
+      "href": "instruments/brass_band_balkan_romani.json"
+    },
+    {
+      "id": "banda_sinaloense",
+      "name": "Banda sinaloense (Mexican wind-percussion band)",
+      "family": "ensemble",
+      "href": "instruments/banda_sinaloense.json"
+    },
+    {
+      "id": "choir_barbershop_quartet",
+      "name": "Barbershop quartet",
+      "family": "ensemble",
+      "href": "instruments/choir_barbershop_quartet.json"
+    },
+    {
+      "id": "jazz_big_band",
+      "name": "Jazz orchestra (full ensemble)",
+      "family": "ensemble",
+      "href": "instruments/jazz_big_band.json"
+    },
+    {
+      "id": "brass_band_british",
+      "name": "British brass band (full)",
+      "family": "ensemble",
+      "href": "instruments/brass_band_british.json"
+    },
+    {
+      "id": "choir_brother_duet",
+      "name": "Close-harmony brother / sibling duet",
+      "family": "ensemble",
+      "href": "instruments/choir_brother_duet.json"
+    },
+    {
+      "id": "choir_bulgarian_womens",
+      "name": "Bulgarian women's choir",
+      "family": "ensemble",
+      "href": "instruments/choir_bulgarian_womens.json"
+    },
+    {
+      "id": "capoeira_roda",
+      "name": "Capoeira roda",
+      "family": "ensemble",
+      "href": "instruments/capoeira_roda.json"
+    },
+    {
+      "id": "choir_cathedral_satb",
+      "name": "Cathedral / classical SATB choir",
+      "family": "ensemble",
+      "href": "instruments/choir_cathedral_satb.json"
+    },
+    {
+      "id": "choro_group",
+      "name": "Choro group (regional Brazilian)",
+      "family": "ensemble",
+      "href": "instruments/choro_group.json"
+    },
+    {
+      "id": "choir_pentecostal_cogic",
+      "name": "Pentecostal / COGIC gospel choir",
+      "family": "ensemble",
+      "href": "instruments/choir_pentecostal_cogic.json"
+    },
+    {
+      "id": "choir_doo_wop_group",
+      "name": "Doo-wop vocal group",
+      "family": "ensemble",
+      "href": "instruments/choir_doo_wop_group.json"
+    },
+    {
+      "id": "drumline_dci",
+      "name": "Drum corps (DCI / drum-and-bugle)",
+      "family": "ensemble",
+      "href": "instruments/drumline_dci.json"
+    },
+    {
+      "id": "gamelan_balinese_full",
+      "name": "Full Balinese gamelan ensemble",
+      "family": "ensemble",
+      "href": "instruments/gamelan_balinese_full.json"
+    },
+    {
+      "id": "gamelan_javanese_full",
+      "name": "Full Javanese gamelan ensemble",
+      "family": "ensemble",
+      "href": "instruments/gamelan_javanese_full.json"
+    },
+    {
+      "id": "gypsy_jazz_quintet",
+      "name": "Gypsy jazz quintet",
+      "family": "ensemble",
+      "href": "instruments/gypsy_jazz_quintet.json"
+    },
+    {
+      "id": "drumline_hbcu",
+      "name": "HBCU show-style drumline",
+      "family": "ensemble",
+      "href": "instruments/drumline_hbcu.json"
+    },
+    {
+      "id": "klezmer_ensemble",
+      "name": "Klezmer ensemble",
+      "family": "ensemble",
+      "href": "instruments/klezmer_ensemble.json"
+    },
+    {
+      "id": "marching_band_full",
+      "name": "Marching band (full)",
+      "family": "ensemble",
+      "href": "instruments/marching_band_full.json"
+    },
+    {
+      "id": "mariachi_full",
+      "name": "Full mariachi ensemble",
+      "family": "ensemble",
+      "href": "instruments/mariachi_full.json"
+    },
+    {
+      "id": "brass_band_new_orleans",
+      "name": "New Orleans brass band",
+      "family": "ensemble",
+      "href": "instruments/brass_band_new_orleans.json"
+    },
+    {
+      "id": "jazz_trio_piano",
+      "name": "Piano trio (jazz)",
+      "family": "ensemble",
+      "href": "instruments/jazz_trio_piano.json"
+    },
+    {
+      "id": "powwow_drum_circle",
+      "name": "Powwow drum circle",
+      "family": "ensemble",
+      "href": "instruments/powwow_drum_circle.json"
+    },
+    {
+      "id": "choir_russian_orthodox",
+      "name": "Russian Orthodox choir",
+      "family": "ensemble",
+      "href": "instruments/choir_russian_orthodox.json"
+    },
+    {
+      "id": "choir_sacred_harp",
+      "name": "Sacred Harp / shape-note congregation",
+      "family": "ensemble",
+      "href": "instruments/choir_sacred_harp.json"
+    },
+    {
+      "id": "samba_bateria",
+      "name": "Samba escola batería",
+      "family": "ensemble",
+      "href": "instruments/samba_bateria.json"
+    },
+    {
+      "id": "drumline_school_marching",
+      "name": "School marching drumline",
+      "family": "ensemble",
+      "href": "instruments/drumline_school_marching.json"
+    },
+    {
+      "id": "choir_southern_black_gospel",
+      "name": "Southern Black gospel choir",
+      "family": "ensemble",
+      "href": "instruments/choir_southern_black_gospel.json"
+    },
+    {
+      "id": "takht_arab",
+      "name": "Takht (Arab classical chamber ensemble)",
+      "family": "ensemble",
+      "href": "instruments/takht_arab.json"
+    },
+    {
+      "id": "choir_welsh_male",
+      "name": "Welsh male voice choir",
+      "family": "ensemble",
+      "href": "instruments/choir_welsh_male.json"
+    },
+    {
+      "id": "inverted_calabash",
+      "name": "Inverted half-calabash (Saharan ground percussion)",
+      "family": "percussion",
+      "href": "instruments/inverted_calabash.json"
+    },
+    {
+      "id": "imzad",
+      "name": "Imzad (Tuareg single-string bowed fiddle)",
+      "family": "bowed",
+      "href": "instruments/imzad.json"
+    },
+    {
+      "id": "krar",
+      "name": "Krar (Ethiopian bowl lyre)",
+      "family": "plucked_traditional",
+      "href": "instruments/krar.json"
+    },
+    {
+      "id": "masenqo",
+      "name": "Masenqo (Ethiopian spike fiddle)",
+      "family": "bowed",
+      "href": "instruments/masenqo.json"
+    },
+    {
+      "id": "washint",
+      "name": "Washint (Ethiopian bamboo flute)",
+      "family": "wind",
+      "href": "instruments/washint.json"
+    },
+    {
+      "id": "kebero",
+      "name": "Kebero (Ethiopian double-headed conical drum)",
+      "family": "percussion",
+      "href": "instruments/kebero.json"
+    },
+    {
+      "id": "tbel",
+      "name": "Tbel (Gnawa processional double-headed drum)",
+      "family": "percussion",
+      "href": "instruments/tbel.json"
+    },
+    {
+      "id": "trinidadian_iron",
+      "name": "Trinidadian iron (engine-room percussion)",
+      "family": "percussion",
+      "href": "instruments/trinidadian_iron.json"
+    },
+    {
+      "id": "tassa_drum",
+      "name": "Tassa drum (Indo-Trinidadian)",
+      "family": "percussion",
+      "href": "instruments/tassa_drum.json"
+    },
+    {
+      "id": "cape_verdean_cavaquinho",
+      "name": "Cape Verdean cavaquinho",
+      "family": "acoustic_strings",
+      "href": "instruments/cape_verdean_cavaquinho.json"
+    },
+    {
+      "id": "bandolim",
+      "name": "Bandolim (Brazilian mandolin)",
+      "family": "acoustic_strings",
+      "href": "instruments/bandolim.json"
+    },
+    {
+      "id": "violao_7_cordas",
+      "name": "Violão de 7 cordas (Brazilian 7-string guitar)",
+      "family": "acoustic_strings",
+      "href": "instruments/violao_7_cordas.json"
+    },
+    {
+      "id": "alfaia",
+      "name": "Alfaia (Pernambuco maracatu bass drum)",
+      "family": "percussion",
+      "href": "instruments/alfaia.json"
+    },
+    {
+      "id": "zabumba",
+      "name": "Zabumba (Northeast Brazilian bass drum)",
+      "family": "percussion",
+      "href": "instruments/zabumba.json"
+    },
+    {
+      "id": "triangulo_forro",
+      "name": "Triângulo (Brazilian forró triangle)",
+      "family": "percussion",
+      "href": "instruments/triangulo_forro.json"
+    },
+    {
+      "id": "reco_reco",
+      "name": "Reco-reco (Brazilian scraper)",
+      "family": "percussion",
+      "href": "instruments/reco_reco.json"
+    },
+    {
+      "id": "ganza",
+      "name": "Ganzá (Brazilian tube shaker)",
+      "family": "percussion",
+      "href": "instruments/ganza.json"
+    },
+    {
+      "id": "afoxe",
+      "name": "Afoxé (Afro-Brazilian net-bead shaker)",
+      "family": "percussion",
+      "href": "instruments/afoxe.json"
+    },
+    {
+      "id": "repinique",
+      "name": "Repinique (samba lead drum)",
+      "family": "percussion",
+      "href": "instruments/repinique.json"
+    },
+    {
+      "id": "daegeum",
+      "name": "Daegeum (Korean large bamboo transverse flute)",
+      "family": "wind",
+      "href": "instruments/daegeum.json"
+    },
+    {
+      "id": "piri",
+      "name": "Piri (Korean cylindrical double-reed)",
+      "family": "wind",
+      "href": "instruments/piri.json"
+    },
+    {
+      "id": "ajaeng",
+      "name": "Ajaeng (Korean bowed zither)",
+      "family": "bowed",
+      "href": "instruments/ajaeng.json"
+    },
+    {
+      "id": "taiko_drum",
+      "name": "Taiko (Japanese ensemble drum)",
+      "family": "percussion",
+      "href": "instruments/taiko_drum.json"
+    },
+    {
+      "id": "yangqin",
+      "name": "Yangqin (Chinese hammered dulcimer)",
+      "family": "percussion",
+      "href": "instruments/yangqin.json"
+    },
+    {
+      "id": "kendang_indonesian",
+      "name": "Kendang (Indonesian gamelan hand drum)",
+      "family": "percussion",
+      "href": "instruments/kendang_indonesian.json"
+    },
+    {
+      "id": "saron_gamelan",
+      "name": "Saron (gamelan metallophone)",
+      "family": "percussion",
+      "href": "instruments/saron_gamelan.json"
+    },
+    {
+      "id": "slenthem",
+      "name": "Slenthem (gamelan low-octave metallophone)",
+      "family": "percussion",
+      "href": "instruments/slenthem.json"
+    },
+    {
+      "id": "kenong",
+      "name": "Kenong (gamelan large-pot gong)",
+      "family": "percussion",
+      "href": "instruments/kenong.json"
+    },
+    {
+      "id": "tibetan_dungchen",
+      "name": "Dungchen (Tibetan long horn)",
+      "family": "wind",
+      "href": "instruments/tibetan_dungchen.json"
+    },
+    {
+      "id": "tibetan_gyaling",
+      "name": "Gyaling (Tibetan double-reed oboe)",
+      "family": "wind",
+      "href": "instruments/tibetan_gyaling.json"
+    },
+    {
+      "id": "tovshuur",
+      "name": "Tovshuur (Mongolian / Tuvan plucked lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/tovshuur.json"
+    },
+    {
+      "id": "igil",
+      "name": "Igil (Tuvan two-string bowed horsehead fiddle)",
+      "family": "bowed",
+      "href": "instruments/igil.json"
+    },
+    {
+      "id": "bata_drums",
+      "name": "Batá drums (Afro-Cuban liturgical three-drum set)",
+      "family": "percussion",
+      "href": "instruments/bata_drums.json"
+    },
+    {
+      "id": "guitarron_mexicano",
+      "name": "Guitarrón (Mexican mariachi bass guitar)",
+      "family": "acoustic_strings",
+      "href": "instruments/guitarron_mexicano.json"
+    },
+    {
+      "id": "arpa_jarocha",
+      "name": "Arpa jarocha (Veracruz diatonic harp)",
+      "family": "acoustic_strings",
+      "href": "instruments/arpa_jarocha.json"
+    },
+    {
+      "id": "arpa_llanera",
+      "name": "Arpa llanera (Venezuelan/Colombian plains harp)",
+      "family": "acoustic_strings",
+      "href": "instruments/arpa_llanera.json"
+    },
+    {
+      "id": "caja_vallenata",
+      "name": "Caja vallenata (Colombian single-headed drum)",
+      "family": "percussion",
+      "href": "instruments/caja_vallenata.json"
+    },
+    {
+      "id": "acordeon_vallenato",
+      "name": "Acordeón vallenato (Hohner button accordion)",
+      "family": "wind",
+      "href": "instruments/acordeon_vallenato.json"
+    },
+    {
+      "id": "guacharaca",
+      "name": "Guacharaca (Colombian scraper)",
+      "family": "percussion",
+      "href": "instruments/guacharaca.json"
+    },
+    {
+      "id": "siku_panpipes",
+      "name": "Siku panpipes (Andean Aymara)",
+      "family": "wind",
+      "href": "instruments/siku_panpipes.json"
+    },
+    {
+      "id": "cajon_peruano",
+      "name": "Cajón peruano (Peruvian box drum)",
+      "family": "percussion",
+      "href": "instruments/cajon_peruano.json"
+    },
+    {
+      "id": "tambora_dominicana",
+      "name": "Tambora dominicana (Dominican double-headed barrel drum)",
+      "family": "percussion",
+      "href": "instruments/tambora_dominicana.json"
+    },
+    {
+      "id": "acoustic_guitar_12_string",
+      "name": "Twelve-string acoustic guitar (steel-string)",
+      "family": "acoustic_strings",
+      "href": "instruments/acoustic_guitar_12_string.json"
+    },
+    {
+      "id": "resonator_guitar",
+      "name": "Resonator guitar (National / Dobro)",
+      "family": "acoustic_strings",
+      "href": "instruments/resonator_guitar.json"
+    },
+    {
+      "id": "flamenco_guitar",
+      "name": "Flamenco guitar (cypress-body Spanish)",
+      "family": "acoustic_strings",
+      "href": "instruments/flamenco_guitar.json"
+    },
+    {
+      "id": "guitarra_portuguesa",
+      "name": "Guitarra portuguesa (Portuguese pear-shaped 12-string)",
+      "family": "acoustic_strings",
+      "href": "instruments/guitarra_portuguesa.json"
+    },
+    {
+      "id": "scottish_smallpipes",
+      "name": "Scottish smallpipes (bellows-blown indoor pipe)",
+      "family": "wind",
+      "href": "instruments/scottish_smallpipes.json"
+    },
+    {
+      "id": "cajun_accordion",
+      "name": "Cajun single-row diatonic accordion",
+      "family": "wind",
+      "href": "instruments/cajun_accordion.json"
+    },
+    {
+      "id": "cimbalom",
+      "name": "Cimbalom (Hungarian hammered dulcimer with pedal damper)",
+      "family": "percussion",
+      "href": "instruments/cimbalom.json"
+    },
+    {
+      "id": "shehnai",
+      "name": "Shehnai (North Indian double-reed oboe)",
+      "family": "wind",
+      "href": "instruments/shehnai.json"
+    },
+    {
+      "id": "nadaswaram",
+      "name": "Nadaswaram (South Indian temple double-reed)",
+      "family": "wind",
+      "href": "instruments/nadaswaram.json"
+    },
+    {
+      "id": "kamancha",
+      "name": "Kamancha (Caucasian / Persian spiked fiddle)",
+      "family": "bowed",
+      "href": "instruments/kamancha.json"
+    },
+    {
+      "id": "dutar",
+      "name": "Dutār (Central Asian two-string long-necked lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/dutar.json"
+    },
+    {
+      "id": "sato",
+      "name": "Sato (bowed tanbur, Central Asian)",
+      "family": "bowed",
+      "href": "instruments/sato.json"
+    },
+    {
+      "id": "komuz",
+      "name": "Komuz (Kyrgyz three-string fretless lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/komuz.json"
+    },
+    {
+      "id": "roneat_ek",
+      "name": "Roneat ek (Khmer high-pitched bamboo xylophone)",
+      "family": "percussion",
+      "href": "instruments/roneat_ek.json"
+    },
+    {
+      "id": "roneat_thung",
+      "name": "Roneat thung (Khmer low-pitched bamboo xylophone)",
+      "family": "percussion",
+      "href": "instruments/roneat_thung.json"
+    },
+    {
+      "id": "sralai",
+      "name": "Sralai (Khmer quadruple-reed conical oboe)",
+      "family": "wind",
+      "href": "instruments/sralai.json"
+    },
+    {
+      "id": "sampho",
+      "name": "Sampho (Khmer barrel timekeeper drum)",
+      "family": "percussion",
+      "href": "instruments/sampho.json"
+    },
+    {
+      "id": "skor_thom",
+      "name": "Skor thom (Khmer large barrel drum pair)",
+      "family": "percussion",
+      "href": "instruments/skor_thom.json"
+    },
+    {
+      "id": "kong_vong_thom",
+      "name": "Kong vong thom (Khmer large gong circle)",
+      "family": "percussion",
+      "href": "instruments/kong_vong_thom.json"
+    },
+    {
+      "id": "koauau",
+      "name": "Kōauau (Maori notched flute)",
+      "family": "wind",
+      "href": "instruments/koauau.json"
+    },
+    {
+      "id": "putorino",
+      "name": "Pūtōrino (Maori bugle-flute)",
+      "family": "wind",
+      "href": "instruments/putorino.json"
+    },
+    {
+      "id": "pahu",
+      "name": "Pahu (Hawaiian sharkskin log drum)",
+      "family": "percussion",
+      "href": "instruments/pahu.json"
+    },
+    {
+      "id": "ipu_heke",
+      "name": "Ipu heke (Hawaiian double-gourd percussion)",
+      "family": "percussion",
+      "href": "instruments/ipu_heke.json"
+    },
+    {
+      "id": "kamaicha",
+      "name": "Kamaicha (Rajasthani bowed lute)",
+      "family": "bowed",
+      "href": "instruments/kamaicha.json"
+    },
+    {
+      "id": "kultrun",
+      "name": "Kultrún (Mapuche shamanic frame-drum)",
+      "family": "percussion",
+      "href": "instruments/kultrun.json"
+    },
+    {
+      "id": "dung_chen",
+      "name": "Dung chen (Tibetan long metal trumpet)",
+      "family": "wind",
+      "href": "instruments/dung_chen.json"
+    },
+    {
+      "id": "gaval",
+      "name": "Gaval (Azerbaijani frame-drum)",
+      "family": "percussion",
+      "href": "instruments/gaval.json"
+    },
+    {
+      "id": "joza",
+      "name": "Joza (Iraqi four-string spike-fiddle)",
+      "family": "bowed",
+      "href": "instruments/joza.json"
+    },
+    {
+      "id": "dan_day",
+      "name": "Đàn đáy (Vietnamese ca trù lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/dan_day.json"
+    },
+    {
+      "id": "chapei_lute",
+      "name": "Chapei dang veng (Cambodian two-string lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/chapei_lute.json"
+    },
+    {
+      "id": "qanbus",
+      "name": "Qanbus (Yemeni short-neck skin-bellied lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/qanbus.json"
+    },
+    {
+      "id": "viola_machete",
+      "name": "Viola machete (Brazilian small five-string lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/viola_machete.json"
+    },
+    {
+      "id": "begena",
+      "name": "Begena (Ethiopian ten-string box-lyre)",
+      "family": "plucked_traditional",
+      "href": "instruments/begena.json"
+    },
+    {
+      "id": "uhadi",
+      "name": "Uhadi (Xhosa gourd-resonator mouth-bow)",
+      "family": "plucked_traditional",
+      "href": "instruments/uhadi.json"
+    },
+    {
+      "id": "tende_drum",
+      "name": "Tendé (Tuareg mortar-drum)",
+      "family": "percussion",
+      "href": "instruments/tende_drum.json"
+    },
+    {
+      "id": "naqqarat",
+      "name": "Naqqarāt (Iraqi small kettle-drum pair)",
+      "family": "percussion",
+      "href": "instruments/naqqarat.json"
+    },
+    {
+      "id": "nafa",
+      "name": "Nafa (Tongan wooden slit-drum)",
+      "family": "percussion",
+      "href": "instruments/nafa.json"
+    },
+    {
+      "id": "dumbek",
+      "name": "Dumbek / darbuka (Middle Eastern goblet drum)",
+      "family": "percussion",
+      "href": "instruments/dumbek.json"
+    },
+    {
+      "id": "riqq",
+      "name": "Riqq (Middle Eastern small tambourine)",
+      "family": "percussion",
+      "href": "instruments/riqq.json"
+    },
+    {
+      "id": "damaru",
+      "name": "Damaru (Tibetan double-headed hand-drum)",
+      "family": "percussion",
+      "href": "instruments/damaru.json"
+    },
+    {
+      "id": "tsenatsil",
+      "name": "Tsenatsil (Ethiopian sistrum)",
+      "family": "percussion",
+      "href": "instruments/tsenatsil.json"
+    },
+    {
+      "id": "sanj",
+      "name": "Sanj (Coptic small hand-cymbals)",
+      "family": "percussion",
+      "href": "instruments/sanj.json"
+    },
+    {
+      "id": "muthallath",
+      "name": "Muthallath (Coptic metal triangle)",
+      "family": "percussion",
+      "href": "instruments/muthallath.json"
+    },
+    {
+      "id": "sisera",
+      "name": "Sisera (Garifuna gourd-shaker)",
+      "family": "percussion",
+      "href": "instruments/sisera.json"
+    },
+    {
+      "id": "pulili",
+      "name": "Pūʻili (Hawaiian bamboo split-rattle)",
+      "family": "percussion",
+      "href": "instruments/pulili.json"
+    },
+    {
+      "id": "shacapa",
+      "name": "Shacapa (Shipibo leaf-bundle rattle)",
+      "family": "percussion",
+      "href": "instruments/shacapa.json"
+    },
+    {
+      "id": "khartal",
+      "name": "Khartāl (Rajasthani wooden castanet pair)",
+      "family": "percussion",
+      "href": "instruments/khartal.json"
+    },
+    {
+      "id": "zeze",
+      "name": "Zeze (Wagogo board zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/zeze.json"
+    },
+    {
+      "id": "rolmo",
+      "name": "Rolmo (Tibetan large paired cymbals)",
+      "family": "percussion",
+      "href": "instruments/rolmo.json"
+    },
+    {
+      "id": "rgya_gling",
+      "name": "Rgya gling (Tibetan double-reed oboe)",
+      "family": "wind",
+      "href": "instruments/rgya_gling.json"
+    },
+    {
+      "id": "sopele",
+      "name": "Sopele (Croatian Istrian paired double-reed shawms)",
+      "family": "wind",
+      "href": "instruments/sopele.json"
+    },
+    {
+      "id": "gajda",
+      "name": "Gajda (Balkan bagpipe)",
+      "family": "wind",
+      "href": "instruments/gajda.json"
+    },
+    {
+      "id": "putatara",
+      "name": "Pūtātara (Māori conch-shell trumpet)",
+      "family": "wind",
+      "href": "instruments/putatara.json"
+    },
+    {
+      "id": "kankles",
+      "name": "Kanklės (Lithuanian board zither)",
+      "family": "plucked_traditional",
+      "href": "instruments/kankles.json"
+    },
+    {
+      "id": "skuduciai",
+      "name": "Skudučiai (Lithuanian pan-pipes)",
+      "family": "wind",
+      "href": "instruments/skuduciai.json"
+    },
+    {
+      "id": "phach",
+      "name": "Phách (Vietnamese bamboo clapper)",
+      "family": "percussion",
+      "href": "instruments/phach.json"
+    },
+    {
+      "id": "trong_chau",
+      "name": "Trống chầu (Vietnamese ca trù praise-drum)",
+      "family": "percussion",
+      "href": "instruments/trong_chau.json"
+    }
+  ]
+}

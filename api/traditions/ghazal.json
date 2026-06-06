@@ -1,0 +1,115 @@
+{
+  "id": "ghazal",
+  "name": "Ghazal",
+  "family": "global",
+  "lineage": "Persian-Urdu (and Pashto, Bengali, Hindi) classical lyric-poetry vocal song-form built on the rhyming-couplet ghazal poetic structure originated in 7th-century Arabic poetry, refined in 13th-century Persian poetry (Rumi, Hafez), and developed into a vocal-musical canon through the Mughal-era courts; Indian subcontinental ghazal singers: Begum Akhtar, Mehdi Hassan, Ghulam Ali, Jagjit Singh, Farida Khanum",
+  "recipe": "classic North American mid-1970s ghazal, ballad Poetry, med east poetic branch, vocal drone modal pansori armenian duduk-accompanied chant. vocal fry, declaimed, chest resonance low mid, narrative. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla, gut 3 main playing strings tun cedar legato sarangi. tehran classical dastgah context. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 502,
+  "score": 312.177,
+  "config": {
+    "traditions": [
+      "ghazal",
+      "pansori",
+      "armenian_duduk_chant"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.29,
+          "voice_quality": 3.185,
+          "voice_vibrato": 3.175,
+          "voice_articulation": 0.615,
+          "voice_microtone": 2.3950000000000005,
+          "voice_tradition": 16.189999999999998,
+          "voice_mechanism_compound": 12.834999999999999,
+          "voice_estill_quality": 7.995,
+          "voice_speech_song": 7.344999999999998,
+          "voice_ensemble_config": 6.24,
+          "voice_ornament_system": 12.805,
+          "voice_pitch_organization": 13.09,
+          "voice_processing_chain": 4.16,
+          "voice_multitrack_stack": 4.29
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 0.195,
+          "harmonium_action": 4.68,
+          "harmonium_voicing": 4.29,
+          "harmonium_use": 7.54
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 3.6900000000000004,
+          "tabla_bayan": 3.25,
+          "tabla_syahi": 3.769999999999999
+        }
+      },
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_40_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "sarangi_gut_main",
+          "sarangi_body_wood": "sarangi_tun_body"
+        },
+        "scores": {
+          "bowed_technique": 6.625,
+          "sarangi_belly": 4.29,
+          "sarangi_taraf": 0.51,
+          "sarangi_bow": 0.54,
+          "sarangi_main_strings": 4.225,
+          "sarangi_body_wood": 1.2149999999999996
+        }
+      }
+    ],
+    "room": "tehran_classical_dastgah_context",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "shruti_22",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "id": "sampho",
+  "name": "Sampho (Khmer barrel timekeeper drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sampho",
+  "parts": [
+    {
+      "id": "sampho_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "sampho_double_headed_barrel",
+          "default": true,
+          "name": "Double-headed barrel with tunable heads (canonical pinpeat timekeeper)",
+          "descriptors": [
+            "double-headed-barrel-tunable-canonical-pinpeat-timekeeper"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampho_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "sampho_leader_timekeeper",
+          "default": true,
+          "name": "Pinpeat leader (sets tempo, signals cadences)",
+          "descriptors": [
+            "pinpeat-leader-tempo-cadence-signal"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sampho_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "sampho_double_headed_barrel",
+          "default": true,
+          "name": "Double-headed barrel with tunable heads (canonical pinpeat timekeeper)",
+          "descriptors": [
+            "double-headed-barrel-tunable-canonical-pinpeat-timekeeper"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sampho_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "sampho_leader_timekeeper",
+          "default": true,
+          "name": "Pinpeat leader (sets tempo, signals cadences)",
+          "descriptors": [
+            "pinpeat-leader-tempo-cadence-signal"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

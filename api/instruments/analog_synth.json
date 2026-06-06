@@ -1,0 +1,753 @@
+{
+  "id": "analog_synth",
+  "name": "Analog synthesizer (subtractive)",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "analog synth",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_pad_drone",
+          "default": true,
+          "name": "Pad / drone",
+          "applies_to": [
+            "analog_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "string_machine",
+            "granular_synth",
+            "ondes_martenot",
+            "modular_synth",
+            "eurorack_modular"
+          ],
+          "descriptors": [
+            "sustained",
+            "pad"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-and-pad",
+            "drone-like",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "shoegaze"
+          ]
+        },
+        {
+          "id": "electronic_arpeggiated",
+          "name": "Arpeggiated sequence",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "monosynth_acid_bass"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "arpeggio-decoration"
+          ],
+          "canonical_tags": [
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_lead_line",
+          "name": "Lead synth line",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth",
+            "ondes_martenot",
+            "theremin"
+          ],
+          "descriptors": [
+            "lead",
+            "singing"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "pop",
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_bass_sub",
+          "name": "Sub-bass",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "monosynth_acid_bass",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "digital_subtractive"
+          ],
+          "descriptors": [
+            "sub-bass",
+            "low"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "trap",
+            "dubstep"
+          ]
+        },
+        {
+          "id": "electronic_pluck_short",
+          "name": "Pluck / short envelope",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth"
+          ],
+          "descriptors": [
+            "plucked",
+            "short-envelope"
+          ],
+          "match_tokens": [
+            "electronic",
+            "string-attack"
+          ],
+          "canonical_tags": [
+            "pop",
+            "edm"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "oscillator",
+      "surface": false,
+      "name": "Oscillator type",
+      "variants": [
+        {
+          "id": "saw_single",
+          "name": "Single saw",
+          "descriptors": [
+            "treble-extended",
+            "overtone-rich",
+            "lead"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "saw_super",
+          "name": "Detuned saw stack (supersaw)",
+          "descriptors": [
+            "wide",
+            "overtone-rich-sustained"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "trance"
+          ]
+        },
+        {
+          "id": "square_pulse",
+          "default": true,
+          "name": "Square / rectangular wave",
+          "descriptors": [
+            "hollow",
+            "reedy",
+            "classic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "triangle_osc",
+          "name": "Triangle",
+          "descriptors": [
+            "odd-harmonic-rolloff",
+            "flutey"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "sine_osc",
+          "name": "Sine",
+          "descriptors": [
+            "pure",
+            "clean",
+            "sub-bass"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "noise_osc",
+          "name": "Noise",
+          "descriptors": [
+            "hissy",
+            "percussive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "filter_topology",
+      "surface": false,
+      "name": "Filter topology",
+      "variants": [
+        {
+          "id": "transistor_ladder",
+          "default": true,
+          "name": "Transistor-ladder LP (4-pole)",
+          "descriptors": [
+            "analog-drift-character",
+            "low-mid-thick",
+            "classic-bass"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "svf",
+          "name": "State-variable filter",
+          "descriptors": [
+            "low-resonance-default",
+            "hybrid"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "diode_cascade",
+          "name": "Diode-cascade LP",
+          "descriptors": [
+            "high-gain-saturation",
+            "edgy",
+            "syrupy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "resonant_acid",
+          "name": "Bridged-T resonator (acid-style)",
+          "descriptors": [
+            "squelchy",
+            "resonant",
+            "singing"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "analog"
+          ]
+        },
+        {
+          "id": "comb_filter",
+          "name": "Comb filter",
+          "descriptors": [
+            "metallic",
+            "ringing",
+            "pitched"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "envelope",
+      "name": "Envelope shape",
+      "variants": [
+        {
+          "id": "pluck_env",
+          "default": true,
+          "name": "Snappy attack / short decay",
+          "descriptors": [
+            "percussive",
+            "plucky",
+            "fast-decay-focused-low"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "electronic"
+          ]
+        },
+        {
+          "id": "pad_env",
+          "name": "Slow attack / long release",
+          "descriptors": [
+            "pad-like",
+            "swelling",
+            "ambient"
+          ],
+          "match_tokens": [
+            "pad",
+            "lead-and-pad",
+            "electronic"
+          ]
+        },
+        {
+          "id": "sustain_env",
+          "name": "Held / sustained",
+          "descriptors": [
+            "organ-like",
+            "present",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "sustained",
+            "electronic",
+            "analog"
+          ]
+        },
+        {
+          "id": "gated_env",
+          "name": "Gated / chopped",
+          "descriptors": [
+            "rhythmic",
+            "punctuated",
+            "staccato"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "modulation",
+      "surface": false,
+      "name": "Modulation",
+      "variants": [
+        {
+          "id": "lfo_pitch",
+          "default": true,
+          "name": "LFO sine on pitch (vibrato)",
+          "descriptors": [
+            "vibrato-y",
+            "gentle",
+            "expressive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "lfo_filter",
+          "name": "LFO triangle on filter",
+          "descriptors": [
+            "wobbly",
+            "sweeping"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "sample_hold",
+          "name": "Sample-and-hold",
+          "descriptors": [
+            "glitchy",
+            "random",
+            "chaotic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "no_mod",
+          "name": "None",
+          "descriptors": [
+            "static",
+            "pure",
+            "controlled"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "oscillator",
+      "surface": false,
+      "name": "Oscillator type",
+      "variants": [
+        {
+          "id": "saw_single",
+          "name": "Single saw",
+          "descriptors": [
+            "treble-extended",
+            "overtone-rich",
+            "lead"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "saw_super",
+          "name": "Detuned saw stack (supersaw)",
+          "descriptors": [
+            "wide",
+            "overtone-rich-sustained"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "trance"
+          ]
+        },
+        {
+          "id": "square_pulse",
+          "default": true,
+          "name": "Square / rectangular wave",
+          "descriptors": [
+            "hollow",
+            "reedy",
+            "classic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "triangle_osc",
+          "name": "Triangle",
+          "descriptors": [
+            "odd-harmonic-rolloff",
+            "flutey"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "sine_osc",
+          "name": "Sine",
+          "descriptors": [
+            "pure",
+            "clean",
+            "sub-bass"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "noise_osc",
+          "name": "Noise",
+          "descriptors": [
+            "hissy",
+            "percussive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "filter_topology",
+      "surface": false,
+      "name": "Filter topology",
+      "variants": [
+        {
+          "id": "transistor_ladder",
+          "default": true,
+          "name": "Transistor-ladder LP (4-pole)",
+          "descriptors": [
+            "analog-drift-character",
+            "low-mid-thick",
+            "classic-bass"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "svf",
+          "name": "State-variable filter",
+          "descriptors": [
+            "low-resonance-default",
+            "hybrid"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "diode_cascade",
+          "name": "Diode-cascade LP",
+          "descriptors": [
+            "high-gain-saturation",
+            "edgy",
+            "syrupy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "resonant_acid",
+          "name": "Bridged-T resonator (acid-style)",
+          "descriptors": [
+            "squelchy",
+            "resonant",
+            "singing"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "analog"
+          ]
+        },
+        {
+          "id": "comb_filter",
+          "name": "Comb filter",
+          "descriptors": [
+            "metallic",
+            "ringing",
+            "pitched"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "envelope",
+      "name": "Envelope shape",
+      "variants": [
+        {
+          "id": "pluck_env",
+          "default": true,
+          "name": "Snappy attack / short decay",
+          "descriptors": [
+            "percussive",
+            "plucky",
+            "fast-decay-focused-low"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "electronic"
+          ]
+        },
+        {
+          "id": "pad_env",
+          "name": "Slow attack / long release",
+          "descriptors": [
+            "pad-like",
+            "swelling",
+            "ambient"
+          ],
+          "match_tokens": [
+            "pad",
+            "lead-and-pad",
+            "electronic"
+          ]
+        },
+        {
+          "id": "sustain_env",
+          "name": "Held / sustained",
+          "descriptors": [
+            "organ-like",
+            "present",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "sustained",
+            "electronic",
+            "analog"
+          ]
+        },
+        {
+          "id": "gated_env",
+          "name": "Gated / chopped",
+          "descriptors": [
+            "rhythmic",
+            "punctuated",
+            "staccato"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "modulation",
+      "surface": false,
+      "name": "Modulation",
+      "variants": [
+        {
+          "id": "lfo_pitch",
+          "default": true,
+          "name": "LFO sine on pitch (vibrato)",
+          "descriptors": [
+            "vibrato-y",
+            "gentle",
+            "expressive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "lfo_filter",
+          "name": "LFO triangle on filter",
+          "descriptors": [
+            "wobbly",
+            "sweeping"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "sample_hold",
+          "name": "Sample-and-hold",
+          "descriptors": [
+            "glitchy",
+            "random",
+            "chaotic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "no_mod",
+          "name": "None",
+          "descriptors": [
+            "static",
+            "pure",
+            "controlled"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    }
+  ]
+}

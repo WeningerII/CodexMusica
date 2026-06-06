@@ -1,0 +1,115 @@
+{
+  "id": "korean_hip_hop",
+  "name": "Korean hip-hop",
+  "family": "hip_hop",
+  "lineage": "Korean-language hip-hop tradition emerging through 1990s Seo Taiji and Boys, the Movement crew, and the broader Seoul-based scene. The 2010s commercial peak through the Show Me the Money TV competition (2012-onward) elevated Korean hip-hop into K-pop-adjacent commercial-dominance; the contemporary canonical roster includes Tablo, Jay Park, Beenzino, Zico, and the AOMG/H1GHR Music label crews. The Illionaire Records lineage (Dok2, The Quiett, Beenzino) defined much of the canonical 2010s sound.",
+  "recipe": "classic modern korean hip-hop, mc Rhythm, intl hip hop branch, us hip hop east coast east coast hip-hop brooklyn drill. thick, rap, narrative, equal tempered. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 499,
+  "score": 296.897,
+  "config": {
+    "traditions": [
+      "korean_hip_hop",
+      "east_coast_hip_hop_classic",
+      "brooklyn_drill"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.8675,
+          "voice_quality": 14.105,
+          "voice_vibrato": 0.3,
+          "voice_articulation": 8.809,
+          "voice_microtone": 3.000000000000001,
+          "voice_tradition": 9.952999999999998,
+          "voice_mechanism_compound": 0.7244999999999999,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 13.137999999999998,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 8.95,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 10.118,
+          "voice_multitrack_stack": 8.6755
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 8.739999999999998,
+          "sampler_archetypes": 15.08,
+          "sampler_bit_depth": 0.6,
+          "sampler_workflow": 8.94,
+          "sampler_classic_context": 16.379999999999995
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 9.282,
+          "drum_machine_808_context": 3.3799999999999994,
+          "tr808_production_origin": 2.4049999999999994
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "square_pulse",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 9.376999999999997,
+          "oscillator": 0.582,
+          "filter_topology": 1.3445,
+          "envelope": 0.3,
+          "modulation": 0.0735
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

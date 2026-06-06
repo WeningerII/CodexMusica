@@ -1,0 +1,263 @@
+{
+  "id": "celesta",
+  "name": "Celesta",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "celesta",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "harpsichord",
+            "pipe_organ",
+            "pump_organ_harmonium",
+            "celesta"
+          ],
+          "descriptors": [
+            "legato",
+            "pedal-resonant"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "sustained-tone",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "keyboard_minimalist_repeated",
+          "name": "Minimalist / repeated cells",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "electric_piano_tine",
+            "celesta",
+            "rhodes_electric"
+          ],
+          "descriptors": [
+            "repeated",
+            "cellular"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "minimalist"
+          ]
+        },
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "celesta_model",
+      "surface": false,
+      "name": "Maker",
+      "variants": [
+        {
+          "id": "celesta_mustel",
+          "default": true,
+          "name": "Mustel (canonical)",
+          "descriptors": [
+            "Parisian"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        },
+        {
+          "id": "celesta_yamaha",
+          "name": "Yamaha (modern standard)",
+          "descriptors": [
+            "professional",
+            "contemporary",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        },
+        {
+          "id": "celesta_schiedmayer",
+          "name": "Schiedmayer",
+          "descriptors": [
+            "German-traditional",
+            "orchestral",
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "celesta_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "celesta_orch",
+          "default": true,
+          "name": "Orchestral solo",
+          "descriptors": [
+            "late-Romantic-onward"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "mallets"
+          ]
+        },
+        {
+          "id": "celesta_chamber",
+          "name": "Chamber music",
+          "descriptors": [
+            "delicate",
+            "expressive",
+            "rare-context"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "mallets"
+          ]
+        },
+        {
+          "id": "celesta_film",
+          "name": "Film score",
+          "descriptors": [
+            "magical-cinematic",
+            "modern",
+            "iconic-color"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "celesta_model",
+      "surface": false,
+      "name": "Maker",
+      "variants": [
+        {
+          "id": "celesta_mustel",
+          "default": true,
+          "name": "Mustel (canonical)",
+          "descriptors": [
+            "Parisian"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        },
+        {
+          "id": "celesta_yamaha",
+          "name": "Yamaha (modern standard)",
+          "descriptors": [
+            "professional",
+            "contemporary",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        },
+        {
+          "id": "celesta_schiedmayer",
+          "name": "Schiedmayer",
+          "descriptors": [
+            "German-traditional",
+            "orchestral",
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "celesta_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "celesta_orch",
+          "default": true,
+          "name": "Orchestral solo",
+          "descriptors": [
+            "late-Romantic-onward"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "mallets"
+          ]
+        },
+        {
+          "id": "celesta_chamber",
+          "name": "Chamber music",
+          "descriptors": [
+            "delicate",
+            "expressive",
+            "rare-context"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "mallets"
+          ]
+        },
+        {
+          "id": "celesta_film",
+          "name": "Film score",
+          "descriptors": [
+            "magical-cinematic",
+            "modern",
+            "iconic-color"
+          ],
+          "match_tokens": [
+            "mallets"
+          ]
+        }
+      ]
+    }
+  ]
+}

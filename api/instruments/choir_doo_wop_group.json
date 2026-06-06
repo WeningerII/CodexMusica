@@ -1,0 +1,216 @@
+{
+  "id": "choir_doo_wop_group",
+  "name": "Doo-wop vocal group",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "doo-wop group",
+  "parts": [
+    {
+      "id": "voices",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "doo_wop_lead",
+          "default": true,
+          "name": "Lead vocal",
+          "descriptors": [
+            "melodic",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "doo_wop_falsetto",
+          "name": "Falsetto / first tenor",
+          "descriptors": [
+            "high",
+            "soaring",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "high-falsetto",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "doo_wop_baritone",
+          "name": "Baritone",
+          "descriptors": [
+            "inner",
+            "chest-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "doo_wop_bass",
+          "name": "Bass (with vocalized bass-line)",
+          "descriptors": [
+            "grounding",
+            "vocalized-bass"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arrangement",
+      "surface": false,
+      "name": "Backing",
+      "variants": [
+        {
+          "id": "doo_wop_a_cappella",
+          "name": "A cappella unaccompanied",
+          "descriptors": [
+            "traditional",
+            "low-dynamic-level",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "doo_wop_with_band",
+          "default": true,
+          "name": "With backing combo",
+          "descriptors": [
+            "foundational",
+            "golden-age"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "voices",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "doo_wop_lead",
+          "default": true,
+          "name": "Lead vocal",
+          "descriptors": [
+            "melodic",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "doo_wop_falsetto",
+          "name": "Falsetto / first tenor",
+          "descriptors": [
+            "high",
+            "soaring",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "high-falsetto",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "doo_wop_baritone",
+          "name": "Baritone",
+          "descriptors": [
+            "inner",
+            "chest-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "doo_wop_bass",
+          "name": "Bass (with vocalized bass-line)",
+          "descriptors": [
+            "grounding",
+            "vocalized-bass"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arrangement",
+      "surface": false,
+      "name": "Backing",
+      "variants": [
+        {
+          "id": "doo_wop_a_cappella",
+          "name": "A cappella unaccompanied",
+          "descriptors": [
+            "traditional",
+            "low-dynamic-level",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "doo_wop_with_band",
+          "default": true,
+          "name": "With backing combo",
+          "descriptors": [
+            "foundational",
+            "golden-age"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

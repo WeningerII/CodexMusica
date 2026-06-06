@@ -1,0 +1,235 @@
+{
+  "id": "shape_note_voice",
+  "surface": false,
+  "name": "Shape-note voice",
+  "family": "voice",
+  "class": "vocal_lead",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "shape-note voice",
+  "parts": [
+    {
+      "id": "shape_note_part",
+      "surface": false,
+      "name": "Part role",
+      "variants": [
+        {
+          "id": "shape_treble",
+          "default": true,
+          "name": "Treble (top)",
+          "descriptors": [],
+          "match_tokens": [
+            "speech-derived",
+            "sacred-traditional",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "shape_alto",
+          "name": "Alto",
+          "descriptors": [
+            "inner",
+            "chest-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "sacred-traditional",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "shape_tenor_lead",
+          "name": "Tenor (lead, melody)",
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "speech-derived",
+            "sacred-traditional",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "shape_bass",
+          "name": "Bass",
+          "descriptors": [
+            "grounding",
+            "open-fifths"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "sacred-traditional",
+            "choir-blendable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shape_note_voice_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "shape_note_voice_sacred_harp",
+          "default": true,
+          "name": "Sacred Harp singing (canonical)",
+          "descriptors": [
+            "traditional",
+            "communal"
+          ],
+          "match_tokens": [
+            "sacred-traditional",
+            "speech-derived"
+          ]
+        },
+        {
+          "id": "shape_note_voice_regional",
+          "surface": false,
+          "name": "Christian Harmony / regional",
+          "descriptors": [
+            "regional-variant",
+            "community-specific",
+            "historical"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "shape_note_voice_revival",
+          "surface": false,
+          "name": "Modern revival / academic",
+          "descriptors": [
+            "twenty-first-century",
+            "preservationist",
+            "reconstruction"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "sacred-traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shape_note_part",
+      "surface": false,
+      "name": "Part role",
+      "variants": [
+        {
+          "id": "shape_treble",
+          "default": true,
+          "name": "Treble (top)",
+          "descriptors": [],
+          "match_tokens": [
+            "speech-derived",
+            "sacred-traditional",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "shape_alto",
+          "name": "Alto",
+          "descriptors": [
+            "inner",
+            "chest-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "sacred-traditional",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "shape_tenor_lead",
+          "name": "Tenor (lead, melody)",
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "speech-derived",
+            "sacred-traditional",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "shape_bass",
+          "name": "Bass",
+          "descriptors": [
+            "grounding",
+            "open-fifths"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "sacred-traditional",
+            "choir-blendable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shape_note_voice_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "shape_note_voice_sacred_harp",
+          "default": true,
+          "name": "Sacred Harp singing (canonical)",
+          "descriptors": [
+            "traditional",
+            "communal"
+          ],
+          "match_tokens": [
+            "sacred-traditional",
+            "speech-derived"
+          ]
+        },
+        {
+          "id": "shape_note_voice_regional",
+          "surface": false,
+          "name": "Christian Harmony / regional",
+          "descriptors": [
+            "regional-variant",
+            "community-specific",
+            "historical"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "shape_note_voice_revival",
+          "surface": false,
+          "name": "Modern revival / academic",
+          "descriptors": [
+            "twenty-first-century",
+            "preservationist",
+            "reconstruction"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "sacred-traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

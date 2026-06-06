@@ -1,0 +1,96 @@
+{
+  "id": "uhadi",
+  "name": "Uhadi (Xhosa gourd-resonator mouth-bow)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "uhadi",
+  "parts": [
+    {
+      "id": "uhadi_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "uhadi_gourd_resonator_single_string_struck_canonical",
+          "default": true,
+          "name": "Gourd-resonator single-string mouth-bow, struck with thin stick (canonical)",
+          "descriptors": [
+            "gourd-resonator-single-string-struck-mouth-overtone-canonical-xhosa"
+          ],
+          "match_tokens": [
+            "plucked",
+            "xhosa-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uhadi_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "uhadi_umngqokolo_canonical",
+          "default": true,
+          "name": "Umngqokolo overtone-singing accompaniment (canonical Eastern Cape)",
+          "descriptors": [
+            "umngqokolo-overtone-singing-canonical-eastern-cape"
+          ],
+          "match_tokens": [
+            "plucked",
+            "xhosa-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "uhadi_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "uhadi_gourd_resonator_single_string_struck_canonical",
+          "default": true,
+          "name": "Gourd-resonator single-string mouth-bow, struck with thin stick (canonical)",
+          "descriptors": [
+            "gourd-resonator-single-string-struck-mouth-overtone-canonical-xhosa"
+          ],
+          "match_tokens": [
+            "plucked",
+            "xhosa-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uhadi_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "uhadi_umngqokolo_canonical",
+          "default": true,
+          "name": "Umngqokolo overtone-singing accompaniment (canonical Eastern Cape)",
+          "descriptors": [
+            "umngqokolo-overtone-singing-canonical-eastern-cape"
+          ],
+          "match_tokens": [
+            "plucked",
+            "xhosa-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

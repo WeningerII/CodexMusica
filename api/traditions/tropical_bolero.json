@@ -1,0 +1,167 @@
+{
+  "id": "tropical_bolero",
+  "name": "Bolero (tropical romantic)",
+  "family": "global",
+  "lineage": "Pan-Latin-American romantic ballad tradition that emerged in late-19th-century Santiago de Cuba (the first bolero Tristezas by José Pepe Sánchez 1883) and codified pan-continentally from the 1930s through Mexican composers Agustín Lara (Solamente Una Vez 1941, Granada 1932), Consuelo Velázquez (Bésame Mucho 1940 — the most-recorded bolero), Armando Manzanero, María Grever, and the trio canon (Trio Los Panchos 1944-onward, Trio Matamoros, Trio Calaveras), with the post-WWII voices Pedro Infante, Lucho Gatica, Lola Beltrán, Olga Guillot, and the late-1940s Cuban filin small-combo intimate-jazz extension",
+  "recipe": "classic tropical modern bolero, functional Song, tropical song branch, Latin am troubadour ballad poetry milonga filipino harana. thick, full chest belt, chest resonance low mid, equal tempered. jazz warm flatwound thomastik acoustic guitar, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, mahogany thomastik infeld low tension jazz warm walking electric bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cedrillo canonical veracruz requinto jarocho. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 732,
+  "score": 157.472,
+  "config": {
+    "traditions": [
+      "tropical_bolero",
+      "milonga",
+      "filipino_harana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 3.190000000000001,
+          "voice_quality": 6.8500000000000005,
+          "voice_vibrato": 0.8250000000000002,
+          "voice_articulation": 0.32999999999999996,
+          "voice_microtone": 3.0500000000000007,
+          "voice_tradition": 3.25,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 7.735,
+          "voice_ensemble_config": 3.7700000000000005,
+          "voice_ornament_system": 0.28500000000000003,
+          "voice_pitch_organization": 1.65,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 2.0949999999999998
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "thomastik_flat_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 1,
+          "string_tuning": 0,
+          "top_wood": 0.63,
+          "back_sides": 0.63,
+          "string_acoustic": 1.045,
+          "acoustic_om_technique": 0.8949999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 0.9999999999999998,
+          "grand_piano_size": 0.48000000000000004,
+          "grand_piano_brand": 2.9899999999999998,
+          "piano_hammer": 1.625,
+          "piano_rim": 2.925,
+          "piano_soundboard": 1.2349999999999999,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": 1.2349999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 1.4299999999999997,
+          "body_wood": 1.11,
+          "pickup_config": 0.345,
+          "string_type": 2.545,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.435,
+          "bass_technique": 2.5
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_son",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 6.134999999999999,
+          "bongos_skin": 1.625,
+          "bongos_context": 0.735,
+          "bongos_shell_wood": 1.69
+        }
+      },
+      {
+        "id": "requinto_jarocho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "requinto_jarocho_pluck": "requinto_jarocho_finger",
+          "requinto_jarocho_tuning": "requinto_jarocho_high",
+          "requinto_jarocho_body_wood": "requinto_cedrillo",
+          "requinto_jarocho_strings": "requinto_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "requinto_jarocho_pluck": 1.23,
+          "requinto_jarocho_tuning": 1.6050000000000002,
+          "requinto_jarocho_body_wood": 1.3649999999999998,
+          "requinto_jarocho_strings": -0.035
+        }
+      }
+    ],
+    "room": "mexico_bolero_xochimilco_studio",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_15ips"
+    },
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,509 @@
+{
+  "id": "baglamas",
+  "name": "Baglamás (Greek miniature bouzouki)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "baglamás",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "plucked_tremolo",
+          "name": "Tremolo (mandolin-style)",
+          "applies_to": [
+            "baglamas",
+            "bouzouki",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "tiple",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "leona",
+            "vihuela_mexicana",
+            "domra"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "rapid-tremolo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "mandolin",
+            "mediterranean"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "baglamas_config",
+      "name": "Course configuration",
+      "variants": [
+        {
+          "id": "baglamas_three_double",
+          "default": true,
+          "name": "Three doubled courses (canonical)",
+          "descriptors": [
+            "high-pitched",
+            "traditional"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglamas_four_double",
+          "name": "Four doubled courses (rare)",
+          "descriptors": [
+            "modern-variant",
+            "extended",
+            "unusual"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baglamas_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "baglamas_rebetiko",
+          "default": true,
+          "name": "Rebetiko ensemble",
+          "descriptors": [
+            "urban-Greek"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglamas_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "preservationist",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglamas_fusion",
+          "name": "Greek fusion / pop",
+          "descriptors": [
+            "cross-genre",
+            "modernized",
+            "commercial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baglamas_body_wood",
+      "surface": false,
+      "name": "Body / bowl wood",
+      "variants": [
+        {
+          "id": "baglamas_walnut",
+          "default": true,
+          "name": "Walnut staves (canonical Greek miniature)",
+          "descriptors": [
+            "walnut-staves-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglamas_mulberry",
+          "name": "Mulberry staves (eastern alternative)",
+          "descriptors": [
+            "mulberry-eastern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baglamas_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "baglamas_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglamas_gut_historical",
+          "name": "Gut (pre-1950s rebetiko)",
+          "descriptors": [
+            "gut-pre-1950s-rebetiko"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "baglamas_config",
+      "name": "Course configuration",
+      "variants": [
+        {
+          "id": "baglamas_three_double",
+          "default": true,
+          "name": "Three doubled courses (canonical)",
+          "descriptors": [
+            "high-pitched",
+            "traditional"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglamas_four_double",
+          "name": "Four doubled courses (rare)",
+          "descriptors": [
+            "modern-variant",
+            "extended",
+            "unusual"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baglamas_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "baglamas_rebetiko",
+          "default": true,
+          "name": "Rebetiko ensemble",
+          "descriptors": [
+            "urban-Greek"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglamas_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "preservationist",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglamas_fusion",
+          "name": "Greek fusion / pop",
+          "descriptors": [
+            "cross-genre",
+            "modernized",
+            "commercial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baglamas_body_wood",
+      "surface": false,
+      "name": "Body / bowl wood",
+      "variants": [
+        {
+          "id": "baglamas_walnut",
+          "default": true,
+          "name": "Walnut staves (canonical Greek miniature)",
+          "descriptors": [
+            "walnut-staves-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglamas_mulberry",
+          "name": "Mulberry staves (eastern alternative)",
+          "descriptors": [
+            "mulberry-eastern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baglamas_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "baglamas_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglamas_gut_historical",
+          "name": "Gut (pre-1950s rebetiko)",
+          "descriptors": [
+            "gut-pre-1950s-rebetiko"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

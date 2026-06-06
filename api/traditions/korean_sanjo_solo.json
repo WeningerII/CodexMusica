@@ -1,0 +1,179 @@
+{
+  "id": "korean_sanjo_solo",
+  "name": "Korean sanjo (solo virtuoso instrumental)",
+  "family": "classical",
+  "lineage": "Korean sanjo (\"scattered melody\") solo virtuoso instrumental tradition emerging in late-nineteenth-century southwestern Korea (Jeolla provinces) and crystallizing into the canonical concert form through Kim Chang-jo (1865-1919) for the gayageum zither and subsequent adaptations for geomungo, daegeum, ajaeng, and haegeum. Performance is a continuous suite of progressively accelerating sections (jinyangjo, jungmori, jungjungmori, jajinmori, hwimori, danmori), with janggu hourglass-drum accompaniment marking the rhythmic-cycle changgu. The sanjo grew from sinawi shaman-ensemble heterophony into a self-standing virtuoso art-music form parallel to but distinct from pansori vocal narrative.",
+  "recipe": "classic North American early-1860s korean sanjo, art Music, east Asian branch, indian classical improv improv on frame hindustani classical carnatic instrumental. vocal fry, low dynamic level, chest resonance low mid, punctuated. composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu, aniri spoken narrative quality interleaved chuseong ascending into slide jungjungmori medium fast 12 8 heightened narrative no interjected chuimsae solo cross tradition fusion concert context pansori voice, court paulownia Korean gayageum, silk court paulownia canonical Korean geomungo, steel paulownia canonical Korean legato haegeum, daegeum, forsythia canonical Korean paulownia canonical Korean silk canonical Korean court legato ajaeng. korean gugak hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 928,
+  "score": 361.23,
+  "config": {
+    "traditions": [
+      "korean_sanjo_solo",
+      "hindustani_sarod",
+      "carnatic_instrumental"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 1.56,
+          "voice_vibrato": 2.78,
+          "voice_articulation": 1.69,
+          "voice_microtone": 1.2149999999999999,
+          "voice_tradition": 13.455,
+          "voice_mechanism_compound": 4.1499999999999995,
+          "voice_estill_quality": 6.815,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 9.36,
+          "voice_ornament_system": 9.299999999999999,
+          "voice_pitch_organization": 5.35,
+          "voice_processing_chain": 2.2199999999999998,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "janggu",
+        "slots": {
+          "janggu_use": "janggu_pansori",
+          "janggu_construction": "janggu_composite",
+          "janggu_shell_wood": "janggu_paulownia_canonical",
+          "janggu_head": "janggu_horse_dog_asymmetric",
+          "janggu_lineage": "janggu_pansori_godo"
+        },
+        "scores": {
+          "janggu_use": 6.89,
+          "janggu_construction": 1.69,
+          "janggu_shell_wood": 3.5999999999999996,
+          "janggu_head": 3.5999999999999996,
+          "janggu_lineage": 2.6
+        }
+      },
+      {
+        "id": "pansori_voice",
+        "slots": {
+          "pansori_phonation_mechanism": "pansori_aniri_speech_quality",
+          "pansori_sigimsae_ornament": "pansori_sigimsae_chuseong",
+          "pansori_jangdan_cycle": "pansori_jangdan_jungjungmori",
+          "pansori_chuimsae_response": "pansori_chuimsae_none",
+          "pansori_voice_repertoire": "pansori_voice_fusion_concert"
+        },
+        "scores": {
+          "pansori_phonation_mechanism": 1.3,
+          "pansori_sigimsae_ornament": 2.84,
+          "pansori_jangdan_cycle": 3.38,
+          "pansori_chuimsae_response": 2.3,
+          "pansori_voice_repertoire": 3.38
+        }
+      },
+      {
+        "id": "gayageum",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "gayageum_type": "jeongak_gayageum",
+          "gayageum_technique": "gayageum_plectrum",
+          "gayageum_top_wood": "gayageum_paulownia_korean",
+          "gayageum_strings": "gayageum_nylon_coated_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.445,
+          "gayageum_type": 7.244999999999999,
+          "gayageum_technique": 3.38,
+          "gayageum_top_wood": 3.5999999999999996,
+          "gayageum_strings": -1.155
+        }
+      },
+      {
+        "id": "geomungo",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "geomungo_use": "geomungo_sanjo",
+          "geomungo_technique": "geomungo_hybrid",
+          "geomungo_strings": "geomungo_silk_canonical",
+          "geomungo_top_wood": "geomungo_paulownia"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.445,
+          "geomungo_use": 3.7949999999999995,
+          "geomungo_technique": 5.329999999999999,
+          "geomungo_strings": 1.69,
+          "geomungo_top_wood": 3.5999999999999996
+        }
+      },
+      {
+        "id": "haegeum",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "haegeum_use": "haegeum_court",
+          "haegeum_strings": "haegeum_steel",
+          "haegeum_body_wood": "haegeum_paulownia_body"
+        },
+        "scores": {
+          "bowed_technique": 4.445,
+          "haegeum_use": 2.21,
+          "haegeum_strings": 4.0649999999999995,
+          "haegeum_body_wood": 3.5999999999999996
+        }
+      },
+      {
+        "id": "daegeum",
+        "slots": {
+          "daegeum_body": "daegeum_bamboo_cheongong",
+          "daegeum_context": "daegeum_jeongak"
+        },
+        "scores": {
+          "daegeum_body": 0,
+          "daegeum_context": 0.735
+        }
+      },
+      {
+        "id": "ajaeng",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "ajaeng_strings": "ajaeng_eight_nine_folk",
+          "ajaeng_bow": "ajaeng_rosined_forsythia",
+          "ajaeng_body_wood": "ajaeng_paulownia",
+          "ajaeng_string_material": "ajaeng_silk_canonical"
+        },
+        "scores": {
+          "bowed_technique": 4.445,
+          "ajaeng_strings": 0.38999999999999996,
+          "ajaeng_bow": 3.5999999999999996,
+          "ajaeng_body_wood": 3.5999999999999996,
+          "ajaeng_string_material": 4.0649999999999995
+        }
+      }
+    ],
+    "room": "korean_gugak_hall",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "korean_minsogak_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

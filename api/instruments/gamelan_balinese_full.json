@@ -1,0 +1,176 @@
+{
+  "id": "gamelan_balinese_full",
+  "name": "Full Balinese gamelan ensemble",
+  "family": "ensemble",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "gamelan (Balinese)",
+  "parts": [
+    {
+      "id": "type",
+      "name": "Ensemble type",
+      "variants": [
+        {
+          "id": "gb_gong_kebyar",
+          "default": true,
+          "name": "Gong kebyar (modern, bright)",
+          "descriptors": [
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gb_semar_pegulingan",
+          "name": "Semar pegulingan (court, refined)",
+          "descriptors": [
+            "refined",
+            "classical",
+            "meditative"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gb_gender_wayang",
+          "name": "Gender wayang (puppet-theater quartet)",
+          "descriptors": [
+            "quartet",
+            "meditative",
+            "wayang-puppet"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gb_angklung",
+          "name": "Gamelan angklung (4-tone, processional)",
+          "descriptors": [
+            "archaic",
+            "ceremonial",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "characteristic",
+      "name": "Characteristic technique",
+      "variants": [
+        {
+          "id": "gb_kotekan",
+          "default": true,
+          "name": "Kotekan interlocking parts",
+          "descriptors": [
+            "virtuoso",
+            "foundational"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "type",
+      "name": "Ensemble type",
+      "variants": [
+        {
+          "id": "gb_gong_kebyar",
+          "default": true,
+          "name": "Gong kebyar (modern, bright)",
+          "descriptors": [
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gb_semar_pegulingan",
+          "name": "Semar pegulingan (court, refined)",
+          "descriptors": [
+            "refined",
+            "classical",
+            "meditative"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gb_gender_wayang",
+          "name": "Gender wayang (puppet-theater quartet)",
+          "descriptors": [
+            "quartet",
+            "meditative",
+            "wayang-puppet"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gb_angklung",
+          "name": "Gamelan angklung (4-tone, processional)",
+          "descriptors": [
+            "archaic",
+            "ceremonial",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "characteristic",
+      "name": "Characteristic technique",
+      "variants": [
+        {
+          "id": "gb_kotekan",
+          "default": true,
+          "name": "Kotekan interlocking parts",
+          "descriptors": [
+            "virtuoso",
+            "foundational"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        }
+      ]
+    }
+  ]
+}

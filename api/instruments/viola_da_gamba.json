@@ -1,0 +1,577 @@
+{
+  "id": "viola_da_gamba",
+  "name": "Viola da gamba",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "viola da gamba",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gamba_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "gamba_treble",
+          "default": true,
+          "name": "Treble viol",
+          "descriptors": [
+            "consort",
+            "ornate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "gamba_tenor",
+          "name": "Tenor viol",
+          "descriptors": [
+            "consort"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "gamba_bass",
+          "name": "Bass viol",
+          "descriptors": [
+            "continuo",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_da_gamba_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "viola_da_gamba_renaissance",
+          "default": true,
+          "name": "Renaissance consort",
+          "descriptors": [
+            "historical",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "bowed"
+          ]
+        },
+        {
+          "id": "viola_da_gamba_basse",
+          "name": "Baroque solo (basse de viole)",
+          "descriptors": [
+            "featured",
+            "art-music",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "viola_da_gamba_hip",
+          "name": "Modern early-music revival",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "hip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gamba_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gamba_plain_lamb_gut",
+          "default": true,
+          "name": "Plain lamb gut (canonical period-performance)",
+          "descriptors": [
+            "plain-lamb-gut",
+            "canonical-period-performance",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "gamba_pistoy_silver_wound",
+          "name": "Pistoy silver-wound bass + gut treble (canonical bass viol)",
+          "descriptors": [
+            "pistoy-silver-wound",
+            "gut-treble",
+            "canonical-bass-viol"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "gamba_aquila_nylgut",
+          "name": "Aquila Nylgut (gut-emulating modern)",
+          "descriptors": [
+            "aquila-nylgut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gamba_frets",
+      "surface": false,
+      "name": "Fret system (gut-tied)",
+      "variants": [
+        {
+          "id": "gamba_gut_tied_frets",
+          "default": true,
+          "name": "Gut-tied frets (canonical, movable)",
+          "descriptors": [
+            "gut-tied-frets",
+            "movable",
+            "canonical-viol"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gamba_bow_stick",
+      "surface": false,
+      "name": "Bow stick wood",
+      "variants": [
+        {
+          "id": "gamba_snakewood_underhand",
+          "default": true,
+          "name": "Snakewood underhand bow (canonical baroque viol)",
+          "descriptors": [
+            "snakewood",
+            "underhand-grip",
+            "canonical-baroque-viol"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "gamba_ironwood_modern_replica",
+          "name": "Ironwood (modern replica bow)",
+          "descriptors": [
+            "ironwood-modern-replica"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gamba_lineage",
+      "surface": false,
+      "name": "Compositional lineage",
+      "variants": [
+        {
+          "id": "gamba_marais_french_baroque",
+          "default": true,
+          "name": "Marais / French baroque (basse de viole canonical)",
+          "descriptors": [
+            "marais-lineage",
+            "french-baroque-basse-de-viole"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "gamba_sainte_colombe",
+          "name": "Sainte-Colombe (French baroque master)",
+          "descriptors": [
+            "sainte-colombe-lineage"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "gamba_william_lawes",
+          "name": "William Lawes (English consort)",
+          "descriptors": [
+            "william-lawes-lineage",
+            "english-consort"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "gamba_jordi_savall_modern_revival",
+          "name": "Modern revival (Jordi Savall / Hespèrion XX lineage)",
+          "descriptors": [
+            "modern-revival",
+            "savall-hesperion-lineage"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gamba_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "gamba_treble",
+          "default": true,
+          "name": "Treble viol",
+          "descriptors": [
+            "consort",
+            "ornate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "gamba_tenor",
+          "name": "Tenor viol",
+          "descriptors": [
+            "consort"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "gamba_bass",
+          "name": "Bass viol",
+          "descriptors": [
+            "continuo",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_da_gamba_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "viola_da_gamba_renaissance",
+          "default": true,
+          "name": "Renaissance consort",
+          "descriptors": [
+            "historical",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "bowed"
+          ]
+        },
+        {
+          "id": "viola_da_gamba_basse",
+          "name": "Baroque solo (basse de viole)",
+          "descriptors": [
+            "featured",
+            "art-music",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "viola_da_gamba_hip",
+          "name": "Modern early-music revival",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "hip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gamba_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gamba_plain_lamb_gut",
+          "default": true,
+          "name": "Plain lamb gut (canonical period-performance)",
+          "descriptors": [
+            "plain-lamb-gut",
+            "canonical-period-performance",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "gamba_pistoy_silver_wound",
+          "name": "Pistoy silver-wound bass + gut treble (canonical bass viol)",
+          "descriptors": [
+            "pistoy-silver-wound",
+            "gut-treble",
+            "canonical-bass-viol"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "gamba_aquila_nylgut",
+          "name": "Aquila Nylgut (gut-emulating modern)",
+          "descriptors": [
+            "aquila-nylgut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gamba_frets",
+      "surface": false,
+      "name": "Fret system (gut-tied)",
+      "variants": [
+        {
+          "id": "gamba_gut_tied_frets",
+          "default": true,
+          "name": "Gut-tied frets (canonical, movable)",
+          "descriptors": [
+            "gut-tied-frets",
+            "movable",
+            "canonical-viol"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gamba_bow_stick",
+      "surface": false,
+      "name": "Bow stick wood",
+      "variants": [
+        {
+          "id": "gamba_snakewood_underhand",
+          "default": true,
+          "name": "Snakewood underhand bow (canonical baroque viol)",
+          "descriptors": [
+            "snakewood",
+            "underhand-grip",
+            "canonical-baroque-viol"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "gamba_ironwood_modern_replica",
+          "name": "Ironwood (modern replica bow)",
+          "descriptors": [
+            "ironwood-modern-replica"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gamba_lineage",
+      "surface": false,
+      "name": "Compositional lineage",
+      "variants": [
+        {
+          "id": "gamba_marais_french_baroque",
+          "default": true,
+          "name": "Marais / French baroque (basse de viole canonical)",
+          "descriptors": [
+            "marais-lineage",
+            "french-baroque-basse-de-viole"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "gamba_sainte_colombe",
+          "name": "Sainte-Colombe (French baroque master)",
+          "descriptors": [
+            "sainte-colombe-lineage"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "gamba_william_lawes",
+          "name": "William Lawes (English consort)",
+          "descriptors": [
+            "william-lawes-lineage",
+            "english-consort"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "gamba_jordi_savall_modern_revival",
+          "name": "Modern revival (Jordi Savall / Hespèrion XX lineage)",
+          "descriptors": [
+            "modern-revival",
+            "savall-hesperion-lineage"
+          ],
+          "match_tokens": [
+            "bowed",
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ]
+}

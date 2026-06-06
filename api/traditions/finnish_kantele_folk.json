@@ -1,0 +1,85 @@
+{
+  "id": "finnish_kantele_folk",
+  "name": "Finnish kantele folk and Kalevala-recitation",
+  "family": "global",
+  "lineage": "Karelian-Finnish epic-recitation tradition documented by Elias Lönnrot in compiling the Kalevala national epic (1835 first edition, 1849 expanded), paired with the lap-zither kantele (Finlands national instrument) — performed in Karelian, Ingrian, Estonian, and other Baltic-Finnic language traditions in pre-Christian rune-singing and folk-tale-singing contexts",
+  "recipe": "classic mid-1830s finnish kantele folk and kalevala-recitation, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry karelian rune-singing russian byliny. thick, Scottish Gaelic vocal, m1 with m0 pulse borrowing, opera quality low larynx anchored. birch alder karelian gut pre modern five string fingerpicked kantele. sapmi outdoor tundra yoik. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 486,
+  "score": 108.925,
+  "config": {
+    "traditions": [
+      "finnish_kantele_folk",
+      "karelian_rune_singing",
+      "russian_byliny"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 7.25,
+          "voice_quality": 0.345,
+          "voice_vibrato": 0.325,
+          "voice_articulation": 0.435,
+          "voice_microtone": 0.39,
+          "voice_tradition": 16.314999999999998,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 3.6500000000000004,
+          "voice_pitch_organization": 0.9749999999999996,
+          "voice_processing_chain": 2.47,
+          "voice_multitrack_stack": 0.825
+        }
+      },
+      {
+        "id": "kantele",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "kantele_strings": "kantele_36",
+          "kantele_context": "kantele_art",
+          "kantele_body_wood": "kantele_birch_alder",
+          "kantele_string_material": "kantele_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 7.249999999999999,
+          "kantele_strings": 0.39,
+          "kantele_context": 1.9949999999999999,
+          "kantele_body_wood": 2.5999999999999996,
+          "kantele_string_material": 2.195
+        }
+      }
+    ],
+    "room": "sapmi_outdoor_tundra_yoik",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "id": "gnawa",
+  "name": "Gnawa",
+  "family": "global",
+  "lineage": "Moroccan Sufi-trance ceremonial tradition with West-African Bambara-Soussi-Hausa-Songhai lineage tracing to sub-Saharan enslaved peoples brought to Morocco — codified through the lila ceremony with master-musician maâlem leading sintir-bass-lute and qarqaba-iron-castanets ensemble; canonical lineage through Mahmoud Guinia (Marrakech), Mustapha Baqbou, and the Essaouira Gnaoua festival (founded 1998) as the genre’s international showcase",
+  "recipe": "classic North American late-1990s gnawa, drone Modal, string branch, Afro-diasporic ritual devotional, Sufi ritual devotional lukumí ceremonial qawwali. declaimed, punctuated, maqam neutral step, Yoruba tonal vocal. sersara gut gut string call-and-response sintir, gnawa traditional iron metallic clang dominant ritual qarqaba, tbel, gut juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, castanets, apricot canonical Maghrebi arundo donax canonical Maghrebi ghaita. stone plaster medina room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 652,
+  "score": 211.025,
+  "config": {
+    "traditions": [
+      "gnawa",
+      "santeria_lucumi",
+      "qawwali"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 4.095,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 1.0499999999999998,
+          "voice_microtone": 0.5999999999999999,
+          "voice_tradition": 16.705000000000002,
+          "voice_mechanism_compound": 6.844999999999999,
+          "voice_estill_quality": 5.134999999999999,
+          "voice_speech_song": 6.8249999999999975,
+          "voice_ensemble_config": 6.369999999999998,
+          "voice_ornament_system": 7.465000000000001,
+          "voice_pitch_organization": 2.1000000000000005,
+          "voice_processing_chain": 2.73,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "sintir",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "sintir_skin": "sintir_goat",
+          "sintir_sersara": "sintir_sersara_present",
+          "sintir_strings": "sintir_gut_strings",
+          "sintir_body_wood": "sintir_fig_body",
+          "sintir_neck_wood": "sintir_neck_cedar",
+          "sintir_technique": "sintir_knuckle_skin_slap",
+          "sintir_context": "sintir_lila"
+        },
+        "scores": {
+          "plucked_traditional_technique": 10.724999999999998,
+          "sintir_skin": 0.195,
+          "sintir_sersara": 1.645,
+          "sintir_strings": 2.145,
+          "sintir_body_wood": 0.15,
+          "sintir_neck_wood": 0.15,
+          "sintir_technique": 0.44999999999999996,
+          "sintir_context": 7.02
+        }
+      },
+      {
+        "id": "qarqaba",
+        "slots": {
+          "qarqaba_construction": "qarqaba_iron",
+          "qarqaba_playing_style": "qarqaba_gnawa_closed_clang",
+          "qarqaba_size": "qarqaba_large",
+          "qarqaba_context": "qarqaba_lila"
+        },
+        "scores": {
+          "qarqaba_construction": 3.8449999999999998,
+          "qarqaba_playing_style": 2.8,
+          "qarqaba_size": 2.6,
+          "qarqaba_context": 2.8600000000000003
+        }
+      },
+      {
+        "id": "tbel",
+        "slots": {
+          "tbel_skin": "tbel_goatskin",
+          "tbel_technique": "tbel_curved_sticks"
+        },
+        "scores": {
+          "tbel_skin": 0,
+          "tbel_technique": 0.6
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_with_snares",
+          "bendir_context": "bendir_sufi",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_goat_skin_canonical"
+        },
+        "scores": {
+          "bendir_snares": 2.08,
+          "bendir_context": 1.69,
+          "bendir_shell_wood": 1.69,
+          "bendir_head": 4.8
+        }
+      },
+      {
+        "id": "castanets",
+        "slots": {
+          "castanets_material": "castanets_boxwood",
+          "castanets_mounting": "castanets_machine"
+        },
+        "scores": {
+          "castanets_material": 0.345,
+          "castanets_mounting": 0
+        }
+      },
+      {
+        "id": "ghaita",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "ghaita_region": "ghaita_moroccan",
+          "ghaita_context": "ghaita_sufi",
+          "ghaita_body_wood": "ghaita_apricot_canonical",
+          "ghaita_reed": "ghaita_arundo_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.15000000000000002,
+          "ghaita_region": 2.8600000000000003,
+          "ghaita_context": 2.21,
+          "ghaita_body_wood": 1.6,
+          "ghaita_reed": 1.6
+        }
+      }
+    ],
+    "room": "stone_plaster_medina_room",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_field_recorder_portable",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "sintir_three_string_ddg",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,379 @@
+{
+  "id": "tar_frame_drum",
+  "name": "Tār (Middle Eastern frame drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tār (frame)",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_hands_layered",
+          "default": true,
+          "name": "Hand percussion layered",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "pandeiro",
+            "tar_frame_drum",
+            "timbales",
+            "darbuka",
+            "cuica"
+          ],
+          "descriptors": [
+            "hands",
+            "layered"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tar_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "tar_large",
+          "default": true,
+          "name": "Large frame (16-18\")",
+          "descriptors": [
+            "ceremonial",
+            "deep",
+            "sufi"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_small",
+          "name": "Compact frame (10-12\")",
+          "descriptors": [
+            "portable",
+            "folk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_frame_drum_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tar_frame_drum_sufi",
+          "default": true,
+          "name": "Sufi ceremony",
+          "descriptors": [
+            "meditative",
+            "ritual"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_drum_wedding",
+          "name": "Folk wedding",
+          "descriptors": [
+            "celebratory",
+            "communal",
+            "regional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_drum_art",
+          "name": "Art-music ensemble",
+          "descriptors": [
+            "classical",
+            "sophisticated",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_frame_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "tar_frame_walnut",
+          "default": true,
+          "name": "Walnut bent frame (canonical Iranian)",
+          "descriptors": [
+            "walnut-bent-frame-canonical-iranian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_mulberry",
+          "name": "Mulberry (Kurdish regional)",
+          "descriptors": [
+            "mulberry-kurdish-regional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_beech",
+          "name": "Beech (mass-produced)",
+          "descriptors": [
+            "beech-mass-produced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_frame_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "tar_frame_goat_skin",
+          "default": true,
+          "name": "Goat-skin (canonical Sufi)",
+          "descriptors": [
+            "goat-skin-canonical-sufi"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_calfskin",
+          "name": "Calfskin (deeper alternative)",
+          "descriptors": [
+            "calfskin-deeper-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_synthetic",
+          "name": "Synthetic Remo (modern)",
+          "descriptors": [
+            "synthetic-remo-modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tar_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "tar_large",
+          "default": true,
+          "name": "Large frame (16-18\")",
+          "descriptors": [
+            "ceremonial",
+            "deep",
+            "sufi"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_small",
+          "name": "Compact frame (10-12\")",
+          "descriptors": [
+            "portable",
+            "folk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_frame_drum_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tar_frame_drum_sufi",
+          "default": true,
+          "name": "Sufi ceremony",
+          "descriptors": [
+            "meditative",
+            "ritual"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_drum_wedding",
+          "name": "Folk wedding",
+          "descriptors": [
+            "celebratory",
+            "communal",
+            "regional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_drum_art",
+          "name": "Art-music ensemble",
+          "descriptors": [
+            "classical",
+            "sophisticated",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_frame_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "tar_frame_walnut",
+          "default": true,
+          "name": "Walnut bent frame (canonical Iranian)",
+          "descriptors": [
+            "walnut-bent-frame-canonical-iranian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_mulberry",
+          "name": "Mulberry (Kurdish regional)",
+          "descriptors": [
+            "mulberry-kurdish-regional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_beech",
+          "name": "Beech (mass-produced)",
+          "descriptors": [
+            "beech-mass-produced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_frame_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "tar_frame_goat_skin",
+          "default": true,
+          "name": "Goat-skin (canonical Sufi)",
+          "descriptors": [
+            "goat-skin-canonical-sufi"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_calfskin",
+          "name": "Calfskin (deeper alternative)",
+          "descriptors": [
+            "calfskin-deeper-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tar_frame_synthetic",
+          "name": "Synthetic Remo (modern)",
+          "descriptors": [
+            "synthetic-remo-modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}
