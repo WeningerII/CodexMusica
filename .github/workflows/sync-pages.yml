@@ -26,6 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history so we can diff this push for changed paths
 
       - uses: actions/setup-node@v4
         with:
@@ -36,13 +38,43 @@ jobs:
         run: npm ci
 
       - name: Build site artifacts from source
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
         run: |
+          set -e
           # Everything is staged in _dist/ so the later `git checkout main`
           # never collides with tracked working-tree files.
           CODEX_OUT_DIR="$PWD/_dist" node scripts/build_html.js --check
           test -f _dist/codex.html
-          # Static, server-free JSON API + agent-discovery layer (~6 min compile).
-          node scripts/build_static_api.js --out=_dist/api
+
+          # The static API compile is ~6 min, so only do it when it could have
+          # changed: when references/ or the generator changed in this push.
+          # Otherwise reuse the API already published on main (always the freshest
+          # build, so no drift). Default to rebuild when we can't tell.
+          NEED_API_REBUILD=1
+          if [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ] \
+             && git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+            if git diff --quiet "$BEFORE" "$AFTER" -- references scripts/build_static_api.js; then
+              NEED_API_REBUILD=0
+            fi
+          fi
+
+          rm -rf _dist/api
+          if [ "$NEED_API_REBUILD" = "1" ]; then
+            echo "Static API: rebuilding (references/ or generator changed, or undetermined)."
+            node scripts/build_static_api.js --out=_dist/api
+          else
+            echo "Static API: references unchanged — reusing api/ already on main."
+            git fetch origin main --depth=1 || true
+            if git archive origin/main api 2>/dev/null | tar -x -C _dist 2>/dev/null && [ -f _dist/api/index.json ]; then
+              echo "Reused api/ from origin/main."
+            else
+              echo "Could not reuse from main — rebuilding instead."
+              node scripts/build_static_api.js --out=_dist/api
+            fi
+          fi
+
           node scripts/build_discovery.js --api=_dist/api --out=_dist
           cp AGENTS.md index.html _dist/
 
