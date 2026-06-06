@@ -1,0 +1,76 @@
+{
+  "id": "minimal_tech_house",
+  "name": "Minimal tech-house",
+  "family": "global",
+  "lineage": "Minimalist tech-house subgenre codified through Romanian producers (Rhadoo, Petre Inspirescu, Raresh) and the !K7 / Sunday Music label ecosystem — characterized by restrained production palette, long-form 8-12-minute tracks, glitchy-percussion accents, and deep-listening dancefloor aesthetic",
+  "recipe": "classic modern minimal tech-house, electronic Dance, tech house branch, idm glitch experimental electric idm and experimental electronic chiptune / 8-bit. digital subtractive, TR-909, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 356,
+  "score": 94.836,
+  "config": {
+    "traditions": [
+      "minimal_tech_house",
+      "idm",
+      "chiptune_8bit"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 0.19500000000000003,
+          "va_archetypes": 0.17449999999999996,
+          "digital_subtractive_context": 2.9899999999999998
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 13.685,
+          "drum_machine_909_context": 1.0695,
+          "tr909_production_origin": 0.3575
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.6949999999999994,
+          "sampler_archetypes": 0.042749999999999996,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 3.5074999999999994,
+          "sampler_classic_context": 20.15
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "cologne_techno_aesthetic",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

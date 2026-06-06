@@ -1,0 +1,69 @@
+{
+  "id": "australian_didgeridoo_yidaki_extended",
+  "name": "Aboriginal didgeridoo solo songlines (extended)",
+  "family": "global",
+  "lineage": "Aboriginal Australian songlines tradition embedding the didgeridoo (Yolngu yiḏaki) as both instrument and oral-historical-mnemonic system mapping landscape across Arnhem Land (Northern Territory) and the broader Top End. The yiḏaki is a hollowed eucalyptus-trunk natural-trumpet played with constant-airflow circular-breathing technique. Performance contexts span the manikay public ceremonial-song tradition (which is sung-vocal with clapsticks plus yiḏaki accompaniment) and the more specialized initiation-ceremony repertoire restricted to initiated men. Each manikay cycle maps a specific songline-route across the country, encoding geographic and ancestral knowledge. Distinguished from the broader generic didgeridoo-solo by manikay's ceremonial-functional context and Yolngu-specific yiḏaki performance lineage.",
+  "recipe": "classic modern aboriginal didgeridoo solo songlines, ritual Devotional, indigenous branch, wind pipe drone modal yidaki solo gaita galega solo. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo, heavy one piece matched to monette horn trumpet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 511,
+  "score": 66.739,
+  "config": {
+    "traditions": [
+      "australian_didgeridoo_yidaki_extended",
+      "didgeridoo_yidaki_solo",
+      "galician_pipe_solo"
+    ],
+    "instruments": [
+      {
+        "id": "didgeridoo",
+        "slots": {
+          "wind_articulation": "wind_circular_breathing_drone",
+          "didj_material": "eucalyptus_tetrodonta_yidaki",
+          "didj_mouthpiece": "sugarbag_beeswax_mouthpiece",
+          "didj_technique": "circular_breathing"
+        },
+        "scores": {
+          "wind_articulation": 14.556,
+          "didj_material": 9.44,
+          "didj_mouthpiece": 6.939,
+          "didj_technique": 3.3799999999999994
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "bucket_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.4264999999999999,
+          "brass_size": 1.15,
+          "trumpet_mouthpiece": 1.625,
+          "brass_mute": 0.1785,
+          "trumpet_technique": -0.035,
+          "trumpet_bell_metal": 0.1365,
+          "trumpet_maker_school": 0.378
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,556 @@
+{
+  "id": "lute_renaissance",
+  "name": "Renaissance lute",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "lute",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "lute_courses",
+      "name": "Course count",
+      "variants": [
+        {
+          "id": "lute_6_courses",
+          "default": true,
+          "name": "6-course (early renaissance)",
+          "descriptors": [
+            "archaic",
+            "low-dynamic-level",
+            "renaissance-soloistic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_7_courses",
+          "name": "7-course (mid renaissance, English / Spanish)",
+          "descriptors": [
+            "mid-renaissance",
+            "english-spanish"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_8_courses",
+          "name": "8-course (late 16c)",
+          "descriptors": [
+            "late-16c"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_10_courses",
+          "name": "10-course (late renaissance, English)",
+          "descriptors": [
+            "extended-bass",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lute_renaissance_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "lute_renaissance_solo",
+          "default": true,
+          "name": "Solo polyphony",
+          "descriptors": [
+            "art-music"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "soloistic",
+            "plucked"
+          ]
+        },
+        {
+          "id": "lute_renaissance_song",
+          "name": "Song accompaniment (Dowland ayre, German lieder)",
+          "descriptors": [
+            "ayre-and-lieder",
+            "consort-context",
+            "standard"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "plucked"
+          ]
+        },
+        {
+          "id": "lute_renaissance_consort",
+          "name": "Consort / chamber",
+          "descriptors": [
+            "ensemble",
+            "sacred-secular",
+            "court"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lute_renaissance_ribs",
+      "surface": false,
+      "name": "Body rib wood",
+      "variants": [
+        {
+          "id": "lute_yew_ribs",
+          "default": true,
+          "name": "Yew (Italian Brescian canonical)",
+          "descriptors": [
+            "yew-ribs",
+            "italian-brescian-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_ebony_ivory_alternating",
+          "name": "Alternating ebony / ivory (Venetian premium, pre-1989)",
+          "descriptors": [
+            "alternating-ebony-ivory",
+            "venetian-premium",
+            "pre-1989"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "lute_maple_ribs",
+          "name": "Maple (German / Bohemian)",
+          "descriptors": [
+            "maple-german-bohemian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_rosewood_ribs",
+          "name": "Rosewood (premium late-renaissance)",
+          "descriptors": [
+            "rosewood-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lute_renaissance_soundboard",
+      "surface": false,
+      "name": "Soundboard wood",
+      "variants": [
+        {
+          "id": "lute_alpine_spruce",
+          "default": true,
+          "name": "Alpine spruce (Italian canonical)",
+          "descriptors": [
+            "alpine-spruce-italian-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_carpathian_spruce",
+          "name": "Carpathian spruce (German alternative)",
+          "descriptors": [
+            "carpathian-spruce-german"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lute_renaissance_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "lute_pistoy_bass_gut",
+          "default": true,
+          "name": "Pistoy bass + plain gut treble (Pistoy = wound bass canonical)",
+          "descriptors": [
+            "pistoy-bass-gut",
+            "plain-gut-treble",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "lute_aquila_nylgut",
+          "name": "Aquila Nylgut (gut-emulating modern)",
+          "descriptors": [
+            "aquila-nylgut"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_fluorocarbon",
+          "name": "Fluorocarbon (modern revival alternative)",
+          "descriptors": [
+            "fluorocarbon-modern-revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lute_courses",
+      "name": "Course count",
+      "variants": [
+        {
+          "id": "lute_6_courses",
+          "default": true,
+          "name": "6-course (early renaissance)",
+          "descriptors": [
+            "archaic",
+            "low-dynamic-level",
+            "renaissance-soloistic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_7_courses",
+          "name": "7-course (mid renaissance, English / Spanish)",
+          "descriptors": [
+            "mid-renaissance",
+            "english-spanish"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_8_courses",
+          "name": "8-course (late 16c)",
+          "descriptors": [
+            "late-16c"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_10_courses",
+          "name": "10-course (late renaissance, English)",
+          "descriptors": [
+            "extended-bass",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lute_renaissance_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "lute_renaissance_solo",
+          "default": true,
+          "name": "Solo polyphony",
+          "descriptors": [
+            "art-music"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "soloistic",
+            "plucked"
+          ]
+        },
+        {
+          "id": "lute_renaissance_song",
+          "name": "Song accompaniment (Dowland ayre, German lieder)",
+          "descriptors": [
+            "ayre-and-lieder",
+            "consort-context",
+            "standard"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "plucked"
+          ]
+        },
+        {
+          "id": "lute_renaissance_consort",
+          "name": "Consort / chamber",
+          "descriptors": [
+            "ensemble",
+            "sacred-secular",
+            "court"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lute_renaissance_ribs",
+      "surface": false,
+      "name": "Body rib wood",
+      "variants": [
+        {
+          "id": "lute_yew_ribs",
+          "default": true,
+          "name": "Yew (Italian Brescian canonical)",
+          "descriptors": [
+            "yew-ribs",
+            "italian-brescian-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_ebony_ivory_alternating",
+          "name": "Alternating ebony / ivory (Venetian premium, pre-1989)",
+          "descriptors": [
+            "alternating-ebony-ivory",
+            "venetian-premium",
+            "pre-1989"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "lute_maple_ribs",
+          "name": "Maple (German / Bohemian)",
+          "descriptors": [
+            "maple-german-bohemian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_rosewood_ribs",
+          "name": "Rosewood (premium late-renaissance)",
+          "descriptors": [
+            "rosewood-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lute_renaissance_soundboard",
+      "surface": false,
+      "name": "Soundboard wood",
+      "variants": [
+        {
+          "id": "lute_alpine_spruce",
+          "default": true,
+          "name": "Alpine spruce (Italian canonical)",
+          "descriptors": [
+            "alpine-spruce-italian-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_carpathian_spruce",
+          "name": "Carpathian spruce (German alternative)",
+          "descriptors": [
+            "carpathian-spruce-german"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lute_renaissance_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "lute_pistoy_bass_gut",
+          "default": true,
+          "name": "Pistoy bass + plain gut treble (Pistoy = wound bass canonical)",
+          "descriptors": [
+            "pistoy-bass-gut",
+            "plain-gut-treble",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "lute_aquila_nylgut",
+          "name": "Aquila Nylgut (gut-emulating modern)",
+          "descriptors": [
+            "aquila-nylgut"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "lute_fluorocarbon",
+          "name": "Fluorocarbon (modern revival alternative)",
+          "descriptors": [
+            "fluorocarbon-modern-revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ]
+}

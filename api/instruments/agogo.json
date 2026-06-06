@@ -1,0 +1,216 @@
+{
+  "id": "agogo",
+  "name": "Agogô (Brazilian double bell)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "agogô",
+  "parts": [
+    {
+      "id": "agogo_bell",
+      "name": "Bell configuration",
+      "variants": [
+        {
+          "id": "agogo_single",
+          "name": "Single bell (mounted, fixed-pitch)",
+          "descriptors": [
+            "cowbell-derived",
+            "urban-pop",
+            "simplified"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "agogo_double",
+          "default": true,
+          "name": "Double bell (canonical)",
+          "descriptors": [
+            "two-tone",
+            "samba-foundational",
+            "pitch-pair"
+          ],
+          "match_tokens": [
+            "doubled",
+            "percussive-attack",
+            "metallic"
+          ]
+        },
+        {
+          "id": "agogo_triple",
+          "name": "Triple bell (samba-reggae, expanded)",
+          "descriptors": [
+            "Bahian-modern",
+            "extended-range",
+            "1980s-revival"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agogo_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "agogo_bateria",
+          "name": "Samba batería",
+          "descriptors": [
+            "carnival",
+            "rhythm-driver"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "agogo_candomble",
+          "default": true,
+          "name": "Candomblé / capoeira",
+          "descriptors": [
+            "ritual",
+            "call-response",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "agogo_samba_reggae",
+          "name": "Samba-reggae (1980s Bahian)",
+          "descriptors": [
+            "Bahian-modern",
+            "urban"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "agogo_bell",
+      "name": "Bell configuration",
+      "variants": [
+        {
+          "id": "agogo_single",
+          "name": "Single bell (mounted, fixed-pitch)",
+          "descriptors": [
+            "cowbell-derived",
+            "urban-pop",
+            "simplified"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "agogo_double",
+          "default": true,
+          "name": "Double bell (canonical)",
+          "descriptors": [
+            "two-tone",
+            "samba-foundational",
+            "pitch-pair"
+          ],
+          "match_tokens": [
+            "doubled",
+            "percussive-attack",
+            "metallic"
+          ]
+        },
+        {
+          "id": "agogo_triple",
+          "name": "Triple bell (samba-reggae, expanded)",
+          "descriptors": [
+            "Bahian-modern",
+            "extended-range",
+            "1980s-revival"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agogo_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "agogo_bateria",
+          "name": "Samba batería",
+          "descriptors": [
+            "carnival",
+            "rhythm-driver"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "agogo_candomble",
+          "default": true,
+          "name": "Candomblé / capoeira",
+          "descriptors": [
+            "ritual",
+            "call-response",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "agogo_samba_reggae",
+          "name": "Samba-reggae (1980s Bahian)",
+          "descriptors": [
+            "Bahian-modern",
+            "urban"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

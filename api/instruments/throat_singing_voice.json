@@ -1,0 +1,433 @@
+{
+  "id": "throat_singing_voice",
+  "surface": false,
+  "name": "Throat-singing voice (compound-mechanism phonation)",
+  "family": "voice",
+  "class": "vocal_lead",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "throat-singing voice",
+  "parts": [
+    {
+      "id": "throat_mechanism_root",
+      "name": "Mechanism root",
+      "variants": [
+        {
+          "id": "throat_mechanism_overtone_isolation_F2",
+          "default": true,
+          "name": "Overtone formant-isolation (F2 reinforcement, 2-3 kHz whistle melody over low fundamental — sygyt mechanism)",
+          "descriptors": [
+            "F2-overtone-isolation",
+            "tongue-narrowed-formant-tuning",
+            "lip-aperture-overtone-shaping",
+            "2-to-3-kHz-whistle-harmonic"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "throat_mechanism_ventricular_subharmonic_70_100Hz",
+          "name": "Ventricular co-oscillation subharmonic — F0 70-100 Hz per Lindestad 2001 (kargyraa/Sardinian-bassu/Tibetan-deep mechanism)",
+          "descriptors": [
+            "ventricular-co-oscillation-subharmonic",
+            "false-fold-half-rate-coupling",
+            "F0-70-to-100-hz-pitched-octave-down"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "throat_mechanism_aryepiglottic_steppe_undertone",
+          "name": "Aryepiglottic pseudoglottis steppe-undertone (raspier high subharmonic with AES engagement above the constriction per Grawunder)",
+          "descriptors": [
+            "aryepiglottic-pseudoglottis-steppe-undertone",
+            "raspier-higher-subharmonic-AES-engaged"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "throat_mechanism_ingressive_egressive_paired",
+          "name": "Ingressive-egressive paired-breath alternation (interlocked supraglottic+aryepiglottic both breath phases — katajjaq mechanism)",
+          "descriptors": [
+            "ingressive-egressive-paired-breath-alternation",
+            "interlocked-supraglottic-both-phases"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "inuit",
+            "arctic"
+          ]
+        },
+        {
+          "id": "throat_mechanism_M1_compound_with_overtones",
+          "name": "M1-modal compound with sustained-overtone tuning (khoomei foundational mechanism — M1 with tongue/lip overtone selection over drone)",
+          "descriptors": [
+            "M1-modal-compound-with-overtone-tuning",
+            "khoomei-foundational-mechanism"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "throat_overtone_target_region",
+      "surface": false,
+      "name": "Overtone target region (when overtone-isolation active)",
+      "variants": [
+        {
+          "id": "throat_overtone_target_none",
+          "default": true,
+          "name": "No specific overtone target (subharmonic or paired modes)",
+          "descriptors": [],
+          "match_tokens": [
+            "throat-singing",
+            "breathing"
+          ]
+        },
+        {
+          "id": "throat_overtone_8th_to_12th_partial",
+          "name": "8th-to-12th partial overtone range (mid sygyt territory)",
+          "descriptors": [
+            "8th-to-12th-partial-overtone-range"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "throat_overtone_6th_to_10th_partial",
+          "name": "6th-to-10th partial overtone range (lower whistle, more body)",
+          "descriptors": [
+            "6th-to-10th-partial-overtone-range"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "throat_overtone_10th_to_16th_partial",
+          "name": "10th-to-16th partial overtone range (high piercing sygyt)",
+          "descriptors": [
+            "10th-to-16th-partial-overtone-range"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "throat_singing_voice_region",
+      "surface": false,
+      "name": "Regional tradition context",
+      "variants": [
+        {
+          "id": "throat_singing_voice_central_asian_steppe",
+          "default": true,
+          "name": "Central Asian steppe (canonical Roubeau/Lindestad mechanism-research site)",
+          "descriptors": [
+            "central-asian-steppe-canonical-research-site"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing"
+          ]
+        },
+        {
+          "id": "throat_singing_voice_arctic_paired",
+          "surface": false,
+          "name": "Arctic paired-game tradition (interlocked-breath sub-type)",
+          "descriptors": [
+            "arctic-paired-game-tradition-interlocked-breath"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "inuit",
+            "arctic"
+          ]
+        },
+        {
+          "id": "throat_singing_voice_himalayan_ritual",
+          "surface": false,
+          "name": "Himalayan ritual chant context (subharmonic mechanism in monastic liturgy)",
+          "descriptors": [
+            "himalayan-ritual-chant-subharmonic-monastic"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "breathing",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "ritual"
+          ]
+        },
+        {
+          "id": "throat_singing_voice_mediterranean_pastoral",
+          "surface": false,
+          "name": "Mediterranean pastoral polyphonic context (subharmonic bassu mechanism in unaccompanied vocal polyphony)",
+          "descriptors": [
+            "mediterranean-pastoral-polyphonic-subharmonic-bassu"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "sardinian"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "throat_mechanism_root",
+      "name": "Mechanism root",
+      "variants": [
+        {
+          "id": "throat_mechanism_overtone_isolation_F2",
+          "default": true,
+          "name": "Overtone formant-isolation (F2 reinforcement, 2-3 kHz whistle melody over low fundamental — sygyt mechanism)",
+          "descriptors": [
+            "F2-overtone-isolation",
+            "tongue-narrowed-formant-tuning",
+            "lip-aperture-overtone-shaping",
+            "2-to-3-kHz-whistle-harmonic"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "throat_mechanism_ventricular_subharmonic_70_100Hz",
+          "name": "Ventricular co-oscillation subharmonic — F0 70-100 Hz per Lindestad 2001 (kargyraa/Sardinian-bassu/Tibetan-deep mechanism)",
+          "descriptors": [
+            "ventricular-co-oscillation-subharmonic",
+            "false-fold-half-rate-coupling",
+            "F0-70-to-100-hz-pitched-octave-down"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "throat_mechanism_aryepiglottic_steppe_undertone",
+          "name": "Aryepiglottic pseudoglottis steppe-undertone (raspier high subharmonic with AES engagement above the constriction per Grawunder)",
+          "descriptors": [
+            "aryepiglottic-pseudoglottis-steppe-undertone",
+            "raspier-higher-subharmonic-AES-engaged"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "throat_mechanism_ingressive_egressive_paired",
+          "name": "Ingressive-egressive paired-breath alternation (interlocked supraglottic+aryepiglottic both breath phases — katajjaq mechanism)",
+          "descriptors": [
+            "ingressive-egressive-paired-breath-alternation",
+            "interlocked-supraglottic-both-phases"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "inuit",
+            "arctic"
+          ]
+        },
+        {
+          "id": "throat_mechanism_M1_compound_with_overtones",
+          "name": "M1-modal compound with sustained-overtone tuning (khoomei foundational mechanism — M1 with tongue/lip overtone selection over drone)",
+          "descriptors": [
+            "M1-modal-compound-with-overtone-tuning",
+            "khoomei-foundational-mechanism"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "throat_overtone_target_region",
+      "surface": false,
+      "name": "Overtone target region (when overtone-isolation active)",
+      "variants": [
+        {
+          "id": "throat_overtone_target_none",
+          "default": true,
+          "name": "No specific overtone target (subharmonic or paired modes)",
+          "descriptors": [],
+          "match_tokens": [
+            "throat-singing",
+            "breathing"
+          ]
+        },
+        {
+          "id": "throat_overtone_8th_to_12th_partial",
+          "name": "8th-to-12th partial overtone range (mid sygyt territory)",
+          "descriptors": [
+            "8th-to-12th-partial-overtone-range"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "throat_overtone_6th_to_10th_partial",
+          "name": "6th-to-10th partial overtone range (lower whistle, more body)",
+          "descriptors": [
+            "6th-to-10th-partial-overtone-range"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "throat_overtone_10th_to_16th_partial",
+          "name": "10th-to-16th partial overtone range (high piercing sygyt)",
+          "descriptors": [
+            "10th-to-16th-partial-overtone-range"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing",
+            "breathing",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "throat_singing_voice_region",
+      "surface": false,
+      "name": "Regional tradition context",
+      "variants": [
+        {
+          "id": "throat_singing_voice_central_asian_steppe",
+          "default": true,
+          "name": "Central Asian steppe (canonical Roubeau/Lindestad mechanism-research site)",
+          "descriptors": [
+            "central-asian-steppe-canonical-research-site"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "overtone-singing"
+          ]
+        },
+        {
+          "id": "throat_singing_voice_arctic_paired",
+          "surface": false,
+          "name": "Arctic paired-game tradition (interlocked-breath sub-type)",
+          "descriptors": [
+            "arctic-paired-game-tradition-interlocked-breath"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "inuit",
+            "arctic"
+          ]
+        },
+        {
+          "id": "throat_singing_voice_himalayan_ritual",
+          "surface": false,
+          "name": "Himalayan ritual chant context (subharmonic mechanism in monastic liturgy)",
+          "descriptors": [
+            "himalayan-ritual-chant-subharmonic-monastic"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "breathing",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "ritual"
+          ]
+        },
+        {
+          "id": "throat_singing_voice_mediterranean_pastoral",
+          "surface": false,
+          "name": "Mediterranean pastoral polyphonic context (subharmonic bassu mechanism in unaccompanied vocal polyphony)",
+          "descriptors": [
+            "mediterranean-pastoral-polyphonic-subharmonic-bassu"
+          ],
+          "match_tokens": [
+            "throat-singing",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "sardinian"
+          ]
+        }
+      ]
+    }
+  ]
+}

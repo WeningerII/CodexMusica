@@ -1,0 +1,98 @@
+{
+  "id": "houston_chopped_screwed",
+  "name": "Houston chopped and screwed",
+  "family": "hip_hop",
+  "lineage": "Houston Texas hip-hop production-style invented by DJ Screw (1971-2000) in early 1990s, in which existing hip-hop tracks are slowed dramatically (typically to 60-70% of original tempo) and chopped (rearranged in cut-and-paste sequence with repeats and skips). DJ Screw's Screwed Up Click crew (including Lil' Keke, Big Moe, Z-Ro, Lil' Flip) defined the canonical roster. Distinguished by the chopped-and-screwed technique's production-method-as-genre identity.",
+  "recipe": "classic Los Angeles early-1970s houston chopped and screwed, mc Rhythm, southern branch, bass descendants bass system, ambient experimental electric witch house broken beat. thick, rap, chest resonance low mid, narrative. chopped sampler, TR-808. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 424,
+  "score": 194.96,
+  "config": {
+    "traditions": [
+      "houston_chopped_screwed",
+      "witch_house_2010s",
+      "broken_beat_uk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.11,
+          "voice_quality": 8.62,
+          "voice_vibrato": 0.9299999999999999,
+          "voice_articulation": 5.999999999999999,
+          "voice_microtone": 0.045,
+          "voice_tradition": 7.994999999999999,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 8.375,
+          "voice_ensemble_config": 7.93,
+          "voice_ornament_system": 0.9099999999999999,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 6.05,
+          "voice_multitrack_stack": 4.68
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 10.03,
+          "sampler_archetypes": 7.699999999999999,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 9.979999999999999,
+          "sampler_classic_context": 16.054999999999996
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 9.814999999999998,
+          "drum_machine_808_context": 3.3799999999999994,
+          "tr808_production_origin": 0.7150000000000001
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

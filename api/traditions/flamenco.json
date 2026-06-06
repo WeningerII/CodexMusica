@@ -1,0 +1,92 @@
+{
+  "id": "flamenco",
+  "name": "Flamenco",
+  "family": "global",
+  "lineage": "Andalusian gitano-and-payo song-dance-guitar tradition codified across the southern Spanish provinces (Seville, Cádiz, Granada, Córdoba, Jerez de la Frontera, Málaga) with origins in the 18th-century Romaní migration through Andalusia, formalized as concert-stage repertoire from the 1840s Café de Chinitas era through the mid-20th-century commercial recording canon and into the modern Camarón de la Isla / Paco de Lucía / Tomatito flamenco-nuevo era",
+  "recipe": "classic North American mid-1840s flamenco, drone Modal, vocal branch, Persian arab improv improv on frame, Mediterranean ballad ballad poetry rebetiko greek nisiotika. thick, nasal, chest resonance low mid, punctuated. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, open back Afro peruvian tradition festejo tradition cajon peruano. andalusian tablao seville madrid. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 559,
+  "score": 163.947,
+  "config": {
+    "traditions": [
+      "flamenco",
+      "rebetiko",
+      "greek_nisiotika"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "nasal_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.73,
+          "voice_quality": 8.749999999999996,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.8999999999999999,
+          "voice_microtone": 8.749999999999996,
+          "voice_tradition": 13.334499999999997,
+          "voice_mechanism_compound": 4.42,
+          "voice_estill_quality": 12.408499999999997,
+          "voice_speech_song": 9.164999999999997,
+          "voice_ensemble_config": 6.369999999999998,
+          "voice_ornament_system": 8.699999999999996,
+          "voice_pitch_organization": 3.1849999999999996,
+          "voice_processing_chain": 3.8000000000000003,
+          "voice_multitrack_stack": 3.5100000000000002
+        }
+      },
+      {
+        "id": "flamenco_guitar",
+        "slots": {
+          "flamenco_body": "flamenco_blanca_cypress",
+          "flamenco_features": "flamenco_low_action_golpe_plate",
+          "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
+        },
+        "scores": {
+          "flamenco_body": 7.019999999999998,
+          "flamenco_features": 0.6,
+          "flamenco_technique": 4.494499999999999
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_open_back",
+          "cajon_peruano_role": "cajon_peruano_festejo"
+        },
+        "scores": {
+          "cajon_peruano_construction": 1.69,
+          "cajon_peruano_role": 2.08
+        }
+      }
+    ],
+    "room": "andalusian_tablao_seville_madrid",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "flamenco_compas_12_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

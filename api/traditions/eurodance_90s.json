@@ -1,0 +1,142 @@
+{
+  "id": "eurodance_90s",
+  "name": "90s eurodance",
+  "family": "global",
+  "lineage": "1990s pan-European mainstream dance-pop genre fusing house's four-on-the-floor with rap verses and pop choruses on a 120-130 bpm template — codified through Snap! (The Power 1990), 2 Unlimited (No Limit 1993), Ace of Base (The Sign 1993), Haddaway (What Is Love 1993), Real McCoy, Culture Beat, La Bouche, Captain Hollywood Project",
+  "recipe": "classic mid-1990s 90s eurodance, electronic Dance, eurodance branch, continental electronic dance disco. thick, chest mix belt, chest resonance low mid, equal tempered. singing lead digital subtractive, singing lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, sampler. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 464,
+  "score": 154.28,
+  "config": {
+    "traditions": [
+      "eurodance_90s",
+      "disco"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 7.205749999999999,
+          "voice_quality": 7.755624999999999,
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 0.045,
+          "voice_microtone": 5.500000000000001,
+          "voice_tradition": 7.5177499999999995,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 5.914999999999998,
+          "voice_ensemble_config": 7.149999999999999,
+          "voice_ornament_system": 1,
+          "voice_pitch_organization": 1.045,
+          "voice_processing_chain": 6.11725,
+          "voice_multitrack_stack": 2.08
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 7.214124999999999,
+          "va_archetypes": 0.676125,
+          "digital_subtractive_context": 6.369999999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 7.214124999999999,
+          "poly_archetypes": 0.09099999999999998,
+          "poly_voices": 0.03712499999999999,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 3.25,
+          "drum_machine_909_context": 1.2349999999999999,
+          "tr909_production_origin": 0.08924999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 0.995,
+          "sampler_bit_depth": 0.26,
+          "sampler_workflow": 0.7149999999999999,
+          "sampler_classic_context": 12.219999999999999
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 7.214124999999999,
+          "fm_algorithm": 0.35512499999999997,
+          "fm_modulator_ratio": 0.04274999999999999,
+          "fm_polyphony": 0.78,
+          "fm_model_lineage": 3.3149999999999995
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

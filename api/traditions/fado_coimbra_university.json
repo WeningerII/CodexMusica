@@ -1,0 +1,127 @@
+{
+  "id": "fado_coimbra_university",
+  "name": "Fado de Coimbra",
+  "family": "global",
+  "lineage": "Academic male-student fado tradition centered on the University of Coimbra (Portugals oldest university, founded 1290) — distinct from fado de Lisboa in vocal register (male tenor/baritone), repertoire (poetry-set songs, student songs, serenata), and performance context (outdoor stone-paved quadrangle and Sé Velha cathedral steps rather than intimate tavern); performers wear the traditional black student capa-e-batina cape",
+  "recipe": "classic North American early-1290s fado de coimbra, ballad Poetry, fado coimbra branch, chanson fado fado lisboa, chanson fado classic chanson chanson classique. vocal fry, lament wail, unrestrained, Scottish Gaelic vocal. bowl back Italian k and k twin internal mounted acoustic faithful mandolin, cedar fingerpicked classical nylon-string guitar, lower tuned fado coimbra tradition jacaranda Portuguese rosewood spruce canonical fado steel canonical Portuguese guitarra portuguesa. coimbra university outdoor quad. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 648,
+  "score": 195.421,
+  "config": {
+    "traditions": [
+      "fado_coimbra_university",
+      "fado",
+      "chanson_classique"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.4487500000000004,
+          "voice_quality": 25.050000000000008,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.95,
+          "voice_microtone": 0.005625,
+          "voice_tradition": 5.785000000000001,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 1.2349999999999997,
+          "voice_speech_song": 6.044999999999998,
+          "voice_ensemble_config": 5.979999999999999,
+          "voice_ornament_system": 0.7999999999999999,
+          "voice_pitch_organization": 0.695,
+          "voice_processing_chain": 3.2500000000000004,
+          "voice_multitrack_stack": 2.7487500000000002
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "german_spruce_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "mandolin_shape": 1.808125,
+          "mandolin_top": 0.9,
+          "mandolin_back": 0.029625000000000002,
+          "mandolin_bracing": -0.035,
+          "mandolin_strings": 0.583875,
+          "mandolin_fingerboard": 0,
+          "mandolin_pickup": 6.109999999999998
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 5.011875,
+          "string_tuning": 0,
+          "top_wood_classical": 2.08,
+          "bracing_classical": 1.51125,
+          "string_classical": 0.050624999999999996,
+          "attack_technique_cl": 0.75
+        }
+      },
+      {
+        "id": "guitarra_portuguesa",
+        "slots": {
+          "guitarra_tuning_school": "guitarra_coimbra_lower_tuned",
+          "guitarra_body_wood": "guitarra_jacaranda_body",
+          "guitarra_top_wood": "guitarra_spruce_top",
+          "guitarra_strings": "guitarra_steel_canonical",
+          "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
+        },
+        "scores": {
+          "guitarra_tuning_school": 20.120125,
+          "guitarra_body_wood": 1.1049999999999998,
+          "guitarra_top_wood": 11.308125000000004,
+          "guitarra_strings": 1.17,
+          "guitarra_technique": 11.131875000000004
+        }
+      }
+    ],
+    "room": "coimbra_university_outdoor_quad",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

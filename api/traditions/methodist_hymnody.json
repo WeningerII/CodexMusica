@@ -1,0 +1,104 @@
+{
+  "id": "methodist_hymnody",
+  "name": "Methodist hymnody (18th-century English Protestant)",
+  "family": "classical",
+  "lineage": "English Protestant hymn tradition codified through the 6,500+ hymn texts of Charles Wesley (1707-1788) and the canonical Methodist hymn-book A Collection of Hymns for the use of the People called Methodists (1780, John Wesley editor). The Methodist tradition emphasizes intensely personal-devotional content (the \"warmed heart\" theme), strong congregational singing as central liturgical practice, and the use of vernacular-popular-tune adaptations alongside specifically-composed Methodist hymn-tunes. Major influence on the broader English-speaking-world Protestant hymnody.",
+  "recipe": "classic North American early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music anglican cathedral-choral recording tradition classical period. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ. cathedral. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 816,
+  "score": 178.122,
+  "config": {
+    "traditions": [
+      "methodist_hymnody",
+      "anglican_choral_cathedral",
+      "classical_period_18c"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_polychordal_stack"
+        },
+        "scores": {
+          "voice_register": 4.3500000000000005,
+          "voice_quality": 10.444999999999999,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.75,
+          "voice_microtone": 1.9499999999999993,
+          "voice_tradition": 6.5,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 3.5500000000000007,
+          "voice_speech_song": 3.3149999999999995,
+          "voice_ensemble_config": 3.6950000000000003,
+          "voice_ornament_system": 6.899999999999999,
+          "voice_pitch_organization": 2.4000000000000004,
+          "voice_processing_chain": 1.86,
+          "voice_multitrack_stack": 1.3
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 2.6,
+          "choir_polyphonic_configuration": 1.69,
+          "choir_regional_canonical_configuration": 1.625,
+          "choir_ensemble_repertoire": 1.69
+        }
+      },
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
+          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
+          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
+          "pipe_organ_action": "pipe_organ_pneumatic"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "pipe_organ_class": 0.435,
+          "pipe_organ_context": 6.89,
+          "pipe_organ_voicing_school": 5.9799999999999995,
+          "pipe_organ_pipe_alloy": 2.9899999999999998,
+          "pipe_organ_temperament": 1.69,
+          "pipe_organ_action": 2.9899999999999998
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

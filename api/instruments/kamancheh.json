@@ -1,0 +1,349 @@
+{
+  "id": "kamancheh",
+  "name": "Kamāncheh (Persian spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kamāncheh",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_rough_drone",
+          "name": "Rough drone",
+          "applies_to": [
+            "fiddle",
+            "gusle",
+            "kamancheh",
+            "rebab",
+            "morin_khuur"
+          ],
+          "descriptors": [
+            "drone-like",
+            "raspy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "folk",
+            "medieval"
+          ]
+        },
+        {
+          "id": "bowed_microtonal_inflected",
+          "name": "Microtonal-inflected",
+          "applies_to": [
+            "kamancheh",
+            "rebab",
+            "sarangi",
+            "esraj",
+            "violin_carnatic",
+            "morin_khuur",
+            "erhu",
+            "jinghu",
+            "haegeum"
+          ],
+          "descriptors": [
+            "microtonal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "microtonal-bend",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "maqam",
+            "arabic",
+            "hindustani"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kamancheh_belly",
+      "name": "Belly skin",
+      "variants": [
+        {
+          "id": "sturgeon_kamancheh",
+          "name": "Sturgeon skin (traditional)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "authentic",
+            "rare",
+            "sturgeon-skin",
+            "fish-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "lamb_kamancheh",
+          "default": true,
+          "name": "Lamb skin",
+          "descriptors": [
+            "standard",
+            "low-mid-rich-spectrum",
+            "classical",
+            "lambskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamancheh_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "kamancheh_dastgah",
+          "default": true,
+          "name": "Persian dastgāh (Kayhan Kalhor canon)",
+          "descriptors": [
+            "radif-suited",
+            "vocal-imitating",
+            "classical",
+            "kayhan-kalhor-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamancheh_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kamancheh_walnut_body",
+          "default": true,
+          "name": "Walnut (canonical Persian)",
+          "descriptors": [
+            "walnut-canonical-persian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "kamancheh_mulberry_body",
+          "name": "Mulberry (alternative)",
+          "descriptors": [
+            "mulberry-alternative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamancheh_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kamancheh_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "kamancheh_gut_historical",
+          "name": "Gut (pre-modern Qajar canon)",
+          "descriptors": [
+            "gut-pre-modern-qajar"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kamancheh_belly",
+      "name": "Belly skin",
+      "variants": [
+        {
+          "id": "sturgeon_kamancheh",
+          "name": "Sturgeon skin (traditional)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "authentic",
+            "rare",
+            "sturgeon-skin",
+            "fish-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "lamb_kamancheh",
+          "default": true,
+          "name": "Lamb skin",
+          "descriptors": [
+            "standard",
+            "low-mid-rich-spectrum",
+            "classical",
+            "lambskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamancheh_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "kamancheh_dastgah",
+          "default": true,
+          "name": "Persian dastgāh (Kayhan Kalhor canon)",
+          "descriptors": [
+            "radif-suited",
+            "vocal-imitating",
+            "classical",
+            "kayhan-kalhor-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamancheh_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kamancheh_walnut_body",
+          "default": true,
+          "name": "Walnut (canonical Persian)",
+          "descriptors": [
+            "walnut-canonical-persian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "kamancheh_mulberry_body",
+          "name": "Mulberry (alternative)",
+          "descriptors": [
+            "mulberry-alternative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamancheh_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kamancheh_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "kamancheh_gut_historical",
+          "name": "Gut (pre-modern Qajar canon)",
+          "descriptors": [
+            "gut-pre-modern-qajar"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

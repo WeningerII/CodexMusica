@@ -1,0 +1,451 @@
+{
+  "id": "setar_persian",
+  "name": "Setār (Persian long-neck lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "setār",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "setar_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "setar_4",
+          "default": true,
+          "name": "Four-string (modern)",
+          "descriptors": [
+            "standard",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "radif-suited"
+          ],
+          "canonical_tags": [
+            "dastgah"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setar_pluck",
+      "name": "Pluck",
+      "variants": [
+        {
+          "id": "setar_index_nail",
+          "default": true,
+          "name": "Right-hand index fingernail",
+          "descriptors": [
+            "meditative",
+            "dastgah-classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "radif-suited"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setar_body_wood",
+      "surface": false,
+      "name": "Body / bowl wood",
+      "variants": [
+        {
+          "id": "setar_walnut_body",
+          "default": true,
+          "name": "Walnut (canonical Persian)",
+          "descriptors": [
+            "walnut-bowl",
+            "canonical-persian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "radif-suited"
+          ]
+        },
+        {
+          "id": "setar_mulberry_body",
+          "name": "Mulberry (regional alternative)",
+          "descriptors": [
+            "mulberry-bowl"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setar_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "setar_steel_brass_modern",
+          "default": true,
+          "name": "Steel + brass-wound (modern canonical)",
+          "descriptors": [
+            "steel-brass-wound",
+            "modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "setar_gut_historical",
+          "name": "Gut historical (pre-modern radif canon)",
+          "descriptors": [
+            "gut-historical",
+            "pre-modern-radif"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setar_tradition",
+      "surface": false,
+      "name": "Tradition / lineage",
+      "variants": [
+        {
+          "id": "setar_radif_canonical",
+          "default": true,
+          "name": "Radif canonical (Mohammad Reza Lotfi / Hossein Alizadeh lineage)",
+          "descriptors": [
+            "radif-canonical",
+            "lotfi-alizadeh-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "dastgah"
+          ]
+        },
+        {
+          "id": "setar_sufi_meditative",
+          "name": "Sufi meditative (Nour Ali Boroumand lineage)",
+          "descriptors": [
+            "sufi-meditative",
+            "boroumand-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "setar_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "setar_4",
+          "default": true,
+          "name": "Four-string (modern)",
+          "descriptors": [
+            "standard",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "radif-suited"
+          ],
+          "canonical_tags": [
+            "dastgah"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setar_pluck",
+      "name": "Pluck",
+      "variants": [
+        {
+          "id": "setar_index_nail",
+          "default": true,
+          "name": "Right-hand index fingernail",
+          "descriptors": [
+            "meditative",
+            "dastgah-classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "radif-suited"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setar_body_wood",
+      "surface": false,
+      "name": "Body / bowl wood",
+      "variants": [
+        {
+          "id": "setar_walnut_body",
+          "default": true,
+          "name": "Walnut (canonical Persian)",
+          "descriptors": [
+            "walnut-bowl",
+            "canonical-persian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "radif-suited"
+          ]
+        },
+        {
+          "id": "setar_mulberry_body",
+          "name": "Mulberry (regional alternative)",
+          "descriptors": [
+            "mulberry-bowl"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setar_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "setar_steel_brass_modern",
+          "default": true,
+          "name": "Steel + brass-wound (modern canonical)",
+          "descriptors": [
+            "steel-brass-wound",
+            "modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "setar_gut_historical",
+          "name": "Gut historical (pre-modern radif canon)",
+          "descriptors": [
+            "gut-historical",
+            "pre-modern-radif"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setar_tradition",
+      "surface": false,
+      "name": "Tradition / lineage",
+      "variants": [
+        {
+          "id": "setar_radif_canonical",
+          "default": true,
+          "name": "Radif canonical (Mohammad Reza Lotfi / Hossein Alizadeh lineage)",
+          "descriptors": [
+            "radif-canonical",
+            "lotfi-alizadeh-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "dastgah"
+          ]
+        },
+        {
+          "id": "setar_sufi_meditative",
+          "name": "Sufi meditative (Nour Ali Boroumand lineage)",
+          "descriptors": [
+            "sufi-meditative",
+            "boroumand-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

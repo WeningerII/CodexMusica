@@ -1,0 +1,177 @@
+{
+  "id": "classic_rb",
+  "name": "Classic R&B (1948-1962 era)",
+  "family": "blues_gospel",
+  "lineage": "Atlantic Records New York 1948-1962 small-combo R&B canon — Ruth Brown, LaVern Baker, the Drifters, Ray Charles I Got a Woman and What Did I Say, Big Joe Turner Shake Rattle and Roll, the Coasters — tracked by Tom Dowd at Atlantic Studios 11 West 60th Street with a recurring NYC session rhythm section, distinct from later Stax / Motown / Philly Soul subgenres",
+  "recipe": "classic classic r&b, functional Song, soul R&B branch, christian gospel black gospel contemporary urban gospel. thick, declaimed, chest resonance low mid, ornamental. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning chicken-scratch single coil electric guitar, upright bass, pre muffled edge muffled bronze bell bronze machine hammered drum kit, gospel runs upright piano, tenor ensemble honking attack saxophone. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 635,
+  "score": 407.416,
+  "config": {
+    "traditions": [
+      "classic_rb",
+      "black_gospel_choir",
+      "contemporary_urban_gospel"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 9.231499999999999,
+          "amp_make": 11.9965,
+          "body_wood": 0.78,
+          "neck_wood": 0.78,
+          "fretboard": 0.7149999999999999,
+          "pickup_magnet": 0.2865,
+          "string_material": 0.2865,
+          "string_gauge": 0.78,
+          "bridge": 0.0735,
+          "scale_length": 0.78,
+          "finish": 0,
+          "string_tuning": 1.69
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "steel_upright",
+          "upright_play": "slap_upright"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "upright_strings": 0.2865,
+          "upright_play": 0.1185
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 11.75,
+          "shell_wood": 0.318,
+          "shell_thickness": 0,
+          "bearing_edges": 0.78,
+          "drumhead": 1.17,
+          "snare_wires": 0.78,
+          "cymbal_alloy": 3.798,
+          "cymbal_hammering": 1.2349999999999999,
+          "cymbal_lathing": 0.695,
+          "cymbal_finish": 0.2865,
+          "drum_technique": 11.75
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 18.150499999999997,
+          "upright_use": 0.78,
+          "upright_piano_size": 0.6
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 11.219499999999998,
+          "sax_size": 8.399999999999999,
+          "sax_reed": 0.2865,
+          "sax_body_alloy": -0.035,
+          "sax_mouthpiece": 0.2865,
+          "sax_technique": 8.399999999999999,
+          "sax_maker_school": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 17.378499999999992,
+          "voice_quality": 14.81999999999999,
+          "voice_vibrato": 0.78,
+          "voice_articulation": 8.349999999999998,
+          "voice_microtone": 1.56,
+          "voice_tradition": 20.084999999999997,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 14.229999999999997,
+          "voice_speech_song": 9.554999999999998,
+          "voice_ensemble_config": 6.759999999999998,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 0.5774999999999999,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 0.7800000000000001
+        }
+      }
+    ],
+    "room": "atlantic_studios_nyc",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "shellac_78"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_tube_screamer"
+    ]
+  }
+}

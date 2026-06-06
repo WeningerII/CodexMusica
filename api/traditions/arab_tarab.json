@@ -1,0 +1,185 @@
+{
+  "id": "arab_tarab",
+  "name": "Tarab (Arab East classical)",
+  "family": "classical",
+  "lineage": "Arab East (Egyptian, Levantine, Syrian, Iraqi) classical-vocal art-music tradition built on the takht ensemble (oud, qanun, ney, riq, kamancheh, with violin section added in the 20th-century Egyptian extension) accompanying a virtuoso vocal soloist performing elaborated maqam-system vocal-form on classical Arabic poetry; figures include Mohammed Abdel Wahab, Sayed Darwish, and the post-WWII era anchored by Umm Kulthum and Abdel Halim Hafez",
+  "recipe": "classic North American mid-1970s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, med east poetic ballad poetry shashmaqam azerbaijani mugham. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, kayhan kalhor canon walnut canonical Persian legato kamancheh, court tradition pre twentieth century takht arab, kanun kanun. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
+  "recipe_chars": 986,
+  "score": 652.366,
+  "config": {
+    "traditions": [
+      "arab_tarab",
+      "shashmaqam_central_asian",
+      "azerbaijani_mugham"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 4.0649999999999995,
+          "voice_quality": 1.885,
+          "voice_vibrato": 6.89,
+          "voice_articulation": 0.39,
+          "voice_microtone": 14.404999999999998,
+          "voice_tradition": 27.169999999999998,
+          "voice_mechanism_compound": 17.735,
+          "voice_estill_quality": 16.711499999999997,
+          "voice_speech_song": 12.534999999999998,
+          "voice_ensemble_config": 5.199999999999999,
+          "voice_ornament_system": 26.82875,
+          "voice_pitch_organization": 26.40875,
+          "voice_processing_chain": 3.9650000000000003,
+          "voice_multitrack_stack": 4.29
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_horn",
+          "oud_body_wood": "oud_padauk_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 12.5,
+          "oud_school": 6.46,
+          "oud_strings": 6.5,
+          "oud_pick": 0.39,
+          "oud_body_wood": 3.795,
+          "oud_soundboard_wood": 2.09075,
+          "oud_string_material": 5.329999999999999
+        }
+      },
+      {
+        "id": "qanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "qanun_strings": "qanun_arab_72",
+          "qanun_levers": "mandal_brass",
+          "qanun_pick": "qanun_finger_picks",
+          "qanun_body_wood": "qanun_rosewood_body",
+          "qanun_bridge_skin": "qanun_goat_skin_bridge",
+          "qanun_string_material": "qanun_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 12.5,
+          "qanun_strings": 6.5,
+          "qanun_levers": -1.05,
+          "qanun_pick": 6.89,
+          "qanun_body_wood": 5.265,
+          "qanun_bridge_skin": 2.4357499999999996,
+          "qanun_string_material": 0
+        }
+      },
+      {
+        "id": "riq",
+        "slots": {
+          "riq_size": "riq_medium",
+          "riq_context": "riq_takht",
+          "riq_shell_wood": "riq_rosewood_inlaid",
+          "riq_head_material": "riq_fish_skin_canonical",
+          "riq_jingles": "riq_brass_jingles"
+        },
+        "scores": {
+          "riq_size": 8.58,
+          "riq_context": 0.78,
+          "riq_shell_wood": 5.005,
+          "riq_head_material": 2.9899999999999998,
+          "riq_jingles": 2.08
+        }
+      },
+      {
+        "id": "ney",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "ney_use": "ney_persian_classical",
+          "ney_pitch": "ney_kerdaniye",
+          "ney_body_material": "ney_arundo_canonical",
+          "ney_lineage": "ney_hassan_kassai"
+        },
+        "scores": {
+          "wind_articulation": 12.54,
+          "ney_use": 4.29,
+          "ney_pitch": 6.5,
+          "ney_body_material": 1.95,
+          "ney_lineage": 5.329999999999999
+        }
+      },
+      {
+        "id": "kamancheh",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kamancheh_belly": "lamb_kamancheh",
+          "kamancheh_use": "kamancheh_dastgah",
+          "kamancheh_body_wood": "kamancheh_walnut_body",
+          "kamancheh_strings": "kamancheh_steel_modern"
+        },
+        "scores": {
+          "bowed_technique": 12.5,
+          "kamancheh_belly": 6.89,
+          "kamancheh_use": 10.790000000000001,
+          "kamancheh_body_wood": 1.95,
+          "kamancheh_strings": -0.875
+        }
+      },
+      {
+        "id": "takht_arab",
+        "slots": {
+          "members": "takht_oud",
+          "takht_arab_era": "takht_arab_classical"
+        },
+        "scores": {
+          "members": 0.24,
+          "takht_arab_era": 3.7700000000000005
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "kanun_school": "kanun_arab",
+          "kanun_articulation": "kanun_tortoiseshell_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": 12.5,
+          "kanun_school": 12.09,
+          "kanun_articulation": 0.325
+        }
+      }
+    ],
+    "room": "cairo_studio_misr_umm_kulthum_era",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

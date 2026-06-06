@@ -1,0 +1,410 @@
+{
+  "id": "pipa",
+  "name": "Pipa (Chinese pear-shaped lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pipa",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pipa_frets",
+      "name": "Fret configuration",
+      "variants": [
+        {
+          "id": "pipa_modern_frets",
+          "default": true,
+          "name": "Modern 24-fret chromatic",
+          "descriptors": [
+            "versatile",
+            "virtuoso",
+            "concert"
+          ],
+          "match_tokens": [
+            "modern",
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "pipa_traditional_frets",
+          "name": "Traditional 12-fret",
+          "descriptors": [
+            "archaic",
+            "authentic",
+            "historical"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipa_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "pipa_silk",
+          "default": true,
+          "name": "Silk strings (traditional)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "vocal-imitating",
+            "classical",
+            "silk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "pipa_steel_nylon",
+          "name": "Steel/nylon (modern)",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "contemporary",
+            "steel",
+            "nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipa_pick",
+      "surface": false,
+      "name": "Pick technique",
+      "variants": [
+        {
+          "id": "pipa_fingerpicks",
+          "default": true,
+          "name": "Five fingerpicks (taping)",
+          "descriptors": [
+            "articulate",
+            "dense",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "pipa_fingernail",
+          "name": "Natural fingernail",
+          "descriptors": [
+            "damped-attack-onset",
+            "recital"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipa_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "pipa_red_sandalwood",
+          "default": true,
+          "name": "Red sandalwood / zitan (premium canonical)",
+          "descriptors": [
+            "red-sandalwood",
+            "zitan",
+            "premium-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "pipa_rosewood",
+          "name": "Rosewood / huanghuali (premium alternative)",
+          "descriptors": [
+            "rosewood",
+            "huanghuali"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "pipa_padauk",
+          "name": "Padauk (mid-tier)",
+          "descriptors": [
+            "padauk",
+            "mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "pipa_mahogany",
+          "name": "Mahogany (commercial)",
+          "descriptors": [
+            "mahogany",
+            "commercial-grade"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pipa_frets",
+      "name": "Fret configuration",
+      "variants": [
+        {
+          "id": "pipa_modern_frets",
+          "default": true,
+          "name": "Modern 24-fret chromatic",
+          "descriptors": [
+            "versatile",
+            "virtuoso",
+            "concert"
+          ],
+          "match_tokens": [
+            "modern",
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "pipa_traditional_frets",
+          "name": "Traditional 12-fret",
+          "descriptors": [
+            "archaic",
+            "authentic",
+            "historical"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipa_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "pipa_silk",
+          "default": true,
+          "name": "Silk strings (traditional)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "vocal-imitating",
+            "classical",
+            "silk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "pipa_steel_nylon",
+          "name": "Steel/nylon (modern)",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "contemporary",
+            "steel",
+            "nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipa_pick",
+      "surface": false,
+      "name": "Pick technique",
+      "variants": [
+        {
+          "id": "pipa_fingerpicks",
+          "default": true,
+          "name": "Five fingerpicks (taping)",
+          "descriptors": [
+            "articulate",
+            "dense",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "pipa_fingernail",
+          "name": "Natural fingernail",
+          "descriptors": [
+            "damped-attack-onset",
+            "recital"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipa_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "pipa_red_sandalwood",
+          "default": true,
+          "name": "Red sandalwood / zitan (premium canonical)",
+          "descriptors": [
+            "red-sandalwood",
+            "zitan",
+            "premium-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "pipa_rosewood",
+          "name": "Rosewood / huanghuali (premium alternative)",
+          "descriptors": [
+            "rosewood",
+            "huanghuali"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "pipa_padauk",
+          "name": "Padauk (mid-tier)",
+          "descriptors": [
+            "padauk",
+            "mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "pipa_mahogany",
+          "name": "Mahogany (commercial)",
+          "descriptors": [
+            "mahogany",
+            "commercial-grade"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

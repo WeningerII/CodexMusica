@@ -1,0 +1,594 @@
+{
+  "id": "kora",
+  "name": "Kora (Mande 21-string harp-lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kora",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_call_and_response",
+          "name": "Call-and-response",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "akonting",
+            "banjo_5_string",
+            "sintir",
+            "xalam"
+          ],
+          "descriptors": [
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "call-response",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "griot",
+            "west-african"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kora_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "kora_21_traditional",
+          "default": true,
+          "name": "21-string traditional",
+          "descriptors": [
+            "virtuoso",
+            "griot"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_25_extended",
+          "name": "25-string extended-range",
+          "descriptors": [
+            "contemporary",
+            "expanded",
+            "crossover"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kora_resonator",
+      "name": "Calabash gourd",
+      "variants": [
+        {
+          "id": "kora_calabash_full",
+          "default": true,
+          "name": "Full-size calabash",
+          "descriptors": [
+            "deep",
+            "resonant",
+            "traditional",
+            "calabash",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kora_calabash_med",
+          "name": "Medium calabash",
+          "descriptors": [
+            "focused",
+            "portable",
+            "modern",
+            "calabash",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kora_strings_mat",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kora_fishing_line",
+          "default": true,
+          "name": "Nylon fishing line (modern Mande canonical)",
+          "descriptors": [
+            "standard",
+            "consistent",
+            "modern",
+            "nylon",
+            "fishing-line"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kora_gut_traditional",
+          "name": "Gut (pre-1960s historical)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "archaic",
+            "rare",
+            "gut"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "kora_nylon_braided",
+          "name": "Braided nylon (premium luthier)",
+          "descriptors": [
+            "braided-nylon",
+            "premium-luthier"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kora_top_skin",
+      "surface": false,
+      "name": "Top skin (cowhide)",
+      "variants": [
+        {
+          "id": "kora_cowhide_canonical",
+          "default": true,
+          "name": "Cowhide (canonical Mande)",
+          "descriptors": [
+            "cowhide-canonical",
+            "mande-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_goat_skin_alternative",
+          "name": "Goat-skin (lighter regional alternative)",
+          "descriptors": [
+            "goat-skin",
+            "lighter-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kora_neck_wood",
+      "surface": false,
+      "name": "Neck wood (handle)",
+      "variants": [
+        {
+          "id": "kora_hardwood_local",
+          "default": true,
+          "name": "Local Mande hardwood",
+          "descriptors": [
+            "mande-hardwood",
+            "local-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_rosewood_modern",
+          "name": "Rosewood (modern boutique)",
+          "descriptors": [
+            "rosewood",
+            "modern-boutique"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kora_lineage",
+      "surface": false,
+      "name": "Lineage / tradition",
+      "variants": [
+        {
+          "id": "kora_diabate_lineage",
+          "default": true,
+          "name": "Diabaté lineage (Sidiki / Toumani / Sona, Mali canonical)",
+          "descriptors": [
+            "diabate-lineage",
+            "mali-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_konte_lineage",
+          "name": "Konté lineage (Gambia / Casamance)",
+          "descriptors": [
+            "konte-lineage",
+            "gambia-casamance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_suso_lineage",
+          "name": "Suso lineage (Gambia, modern revival)",
+          "descriptors": [
+            "suso-lineage",
+            "gambia-modern-revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_modern_concert",
+          "name": "Modern concert (Ballaké Sissoko fusion)",
+          "descriptors": [
+            "modern-concert",
+            "ballake-sissoko-fusion"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_fingerpicked"
+    },
+    {
+      "id": "kora_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "kora_21_traditional",
+          "default": true,
+          "name": "21-string traditional",
+          "descriptors": [
+            "virtuoso",
+            "griot"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_25_extended",
+          "name": "25-string extended-range",
+          "descriptors": [
+            "contemporary",
+            "expanded",
+            "crossover"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kora_resonator",
+      "name": "Calabash gourd",
+      "variants": [
+        {
+          "id": "kora_calabash_full",
+          "default": true,
+          "name": "Full-size calabash",
+          "descriptors": [
+            "deep",
+            "resonant",
+            "traditional",
+            "calabash",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kora_calabash_med",
+          "name": "Medium calabash",
+          "descriptors": [
+            "focused",
+            "portable",
+            "modern",
+            "calabash",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kora_strings_mat",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kora_fishing_line",
+          "default": true,
+          "name": "Nylon fishing line (modern Mande canonical)",
+          "descriptors": [
+            "standard",
+            "consistent",
+            "modern",
+            "nylon",
+            "fishing-line"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kora_gut_traditional",
+          "name": "Gut (pre-1960s historical)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "archaic",
+            "rare",
+            "gut"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "kora_nylon_braided",
+          "name": "Braided nylon (premium luthier)",
+          "descriptors": [
+            "braided-nylon",
+            "premium-luthier"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kora_top_skin",
+      "surface": false,
+      "name": "Top skin (cowhide)",
+      "variants": [
+        {
+          "id": "kora_cowhide_canonical",
+          "default": true,
+          "name": "Cowhide (canonical Mande)",
+          "descriptors": [
+            "cowhide-canonical",
+            "mande-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_goat_skin_alternative",
+          "name": "Goat-skin (lighter regional alternative)",
+          "descriptors": [
+            "goat-skin",
+            "lighter-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kora_neck_wood",
+      "surface": false,
+      "name": "Neck wood (handle)",
+      "variants": [
+        {
+          "id": "kora_hardwood_local",
+          "default": true,
+          "name": "Local Mande hardwood",
+          "descriptors": [
+            "mande-hardwood",
+            "local-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_rosewood_modern",
+          "name": "Rosewood (modern boutique)",
+          "descriptors": [
+            "rosewood",
+            "modern-boutique"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kora_lineage",
+      "surface": false,
+      "name": "Lineage / tradition",
+      "variants": [
+        {
+          "id": "kora_diabate_lineage",
+          "default": true,
+          "name": "Diabaté lineage (Sidiki / Toumani / Sona, Mali canonical)",
+          "descriptors": [
+            "diabate-lineage",
+            "mali-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_konte_lineage",
+          "name": "Konté lineage (Gambia / Casamance)",
+          "descriptors": [
+            "konte-lineage",
+            "gambia-casamance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_suso_lineage",
+          "name": "Suso lineage (Gambia, modern revival)",
+          "descriptors": [
+            "suso-lineage",
+            "gambia-modern-revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "kora_modern_concert",
+          "name": "Modern concert (Ballaké Sissoko fusion)",
+          "descriptors": [
+            "modern-concert",
+            "ballake-sissoko-fusion"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    }
+  ]
+}

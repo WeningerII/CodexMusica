@@ -1,0 +1,374 @@
+{
+  "id": "dan_tranh",
+  "name": "Đàn tranh (Vietnamese 16-string zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "đàn tranh",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dan_tranh_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "dan_tranh_court",
+          "default": true,
+          "name": "Vietnamese court music",
+          "descriptors": [
+            "refined",
+            "classical",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "dan_tranh_folk",
+          "name": "Folk song accompaniment",
+          "descriptors": [
+            "lyrical",
+            "melodic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tranh_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "dan_tranh_sixteen",
+          "default": true,
+          "name": "Sixteen-string traditional",
+          "descriptors": [
+            "standard",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "dan_tranh_seventeen",
+          "name": "Seventeen-string modern",
+          "descriptors": [
+            "extended",
+            "concert-standard",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "dan_tranh_twentyfive",
+          "name": "Twenty-five-string extended",
+          "descriptors": [
+            "rare",
+            "avant-garde",
+            "modern-virtuosic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tranh_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dan_tranh_steel_modern",
+          "default": true,
+          "name": "Steel (modern canon)",
+          "descriptors": [
+            "steel-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "dan_tranh_silk_historical",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tranh_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "dan_tranh_paulownia",
+          "default": true,
+          "name": "Paulownia (canonical, like koto)",
+          "descriptors": [
+            "paulownia-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "dan_tranh_rosewood_frame",
+          "name": "Rosewood frame (premium decorative)",
+          "descriptors": [
+            "rosewood-frame",
+            "premium-decorative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dan_tranh_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "dan_tranh_court",
+          "default": true,
+          "name": "Vietnamese court music",
+          "descriptors": [
+            "refined",
+            "classical",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "dan_tranh_folk",
+          "name": "Folk song accompaniment",
+          "descriptors": [
+            "lyrical",
+            "melodic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tranh_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "dan_tranh_sixteen",
+          "default": true,
+          "name": "Sixteen-string traditional",
+          "descriptors": [
+            "standard",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "dan_tranh_seventeen",
+          "name": "Seventeen-string modern",
+          "descriptors": [
+            "extended",
+            "concert-standard",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "dan_tranh_twentyfive",
+          "name": "Twenty-five-string extended",
+          "descriptors": [
+            "rare",
+            "avant-garde",
+            "modern-virtuosic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tranh_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dan_tranh_steel_modern",
+          "default": true,
+          "name": "Steel (modern canon)",
+          "descriptors": [
+            "steel-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "dan_tranh_silk_historical",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tranh_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "dan_tranh_paulownia",
+          "default": true,
+          "name": "Paulownia (canonical, like koto)",
+          "descriptors": [
+            "paulownia-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "dan_tranh_rosewood_frame",
+          "name": "Rosewood frame (premium decorative)",
+          "descriptors": [
+            "rosewood-frame",
+            "premium-decorative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ]
+}

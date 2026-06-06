@@ -1,0 +1,104 @@
+{
+  "id": "khaliji_gulf",
+  "name": "Khaliji (Arabian Gulf music)",
+  "family": "global",
+  "lineage": "Khaliji (\"Gulf\") urban popular music of the Arabian Peninsula Gulf states — Kuwait, Bahrain, Saudi Arabia, Qatar, UAE, Oman — characterized by mid-tempo 2/4 or 4/4 metric base with syncopated 2-and-4 backbeat and distinctive Khaliji-modal vocabulary between maqam-Arabic and Persian-dastgah. The genre developed from the older sawt classical urban-chamber Bahraini-and-Kuwaiti tradition into contemporary Khaliji-pop through the post-1970s petroleum-era recording industry centered in Bahrain, Kuwait, and Riyadh.",
+  "recipe": "classic mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music maghrebi andalusi nuba shashmaqam. extended whistle, low dynamic level, chest resonance low mid, maqam neutral step. walnut ribs canonical mid tier spruce face pyramid nylon oud, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 563,
+  "score": 367.675,
+  "config": {
+    "traditions": [
+      "khaliji_gulf",
+      "maghrebi_andalusi_nuba",
+      "shashmaqam_central_asian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 8.165,
+          "voice_quality": 3.4450000000000003,
+          "voice_vibrato": 6.24,
+          "voice_articulation": 0.39,
+          "voice_microtone": 7.150000000000001,
+          "voice_tradition": 15.47,
+          "voice_mechanism_compound": 9.735000000000001,
+          "voice_estill_quality": 6.37,
+          "voice_speech_song": 12.024999999999999,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 13.780000000000001,
+          "voice_pitch_organization": 13.780000000000001,
+          "voice_processing_chain": 3.495,
+          "voice_multitrack_stack": 2.5999999999999996
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.85,
+          "oud_school": 3.6399999999999997,
+          "oud_strings": 2.6,
+          "oud_pick": 2.9949999999999997,
+          "oud_body_wood": 3.6399999999999997,
+          "oud_soundboard_wood": 2.0549999999999997,
+          "oud_string_material": 3.2699999999999996
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_synthetic_mylar",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "darbuka_material": 2.5499999999999994,
+          "darbuka_skin": 3.1949999999999994,
+          "darbuka_regional_style": 5.59
+        }
+      }
+    ],
+    "room": "qat_chew_majlis_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

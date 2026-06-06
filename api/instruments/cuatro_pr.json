@@ -1,0 +1,467 @@
+{
+  "id": "cuatro_pr",
+  "name": "Cuatro (Puerto Rican)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cuatro",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_tremolo",
+          "name": "Tremolo (mandolin-style)",
+          "applies_to": [
+            "baglamas",
+            "bouzouki",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "tiple",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "leona",
+            "vihuela_mexicana",
+            "domra"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "rapid-tremolo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "mandolin",
+            "mediterranean"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "cuatro_pr_config",
+      "name": "Course configuration",
+      "variants": [
+        {
+          "id": "cuatro_pr_five_double",
+          "default": true,
+          "name": "Five doubled courses (10 strings, canonical)",
+          "descriptors": [
+            "standard",
+            "modern"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "jíbaro"
+          ]
+        },
+        {
+          "id": "cuatro_pr_four_course",
+          "name": "Four-course (older)",
+          "descriptors": [
+            "archaic",
+            "pre-modernized",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_pr_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "cuatro_pr_jibaro",
+          "default": true,
+          "name": "Jíbaro folk (canonical)",
+          "descriptors": [
+            "traditional",
+            "mountain-music",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cuatro_pr_classical",
+          "name": "Classical concert",
+          "descriptors": [
+            "modern",
+            "soloistic",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_pr_popular",
+          "name": "Popular / Christmas parranda",
+          "descriptors": [
+            "celebratory",
+            "communal",
+            "seasonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_pr_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cuatro_pr_mahogany",
+          "default": true,
+          "name": "Mahogany (canonical Puerto Rican)",
+          "descriptors": [
+            "mahogany-canonical",
+            "puerto-rican-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cuatro_pr_yagrumo",
+          "name": "Yagrumo (traditional alternative)",
+          "descriptors": [
+            "yagrumo-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cuatro_pr_capa_prieto",
+          "name": "Capá prieto (premium luthier)",
+          "descriptors": [
+            "capa-prieto",
+            "premium-luthier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_pr_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cuatro_pr_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cuatro_pr_gut_historical",
+          "name": "Gut (pre-modern historical)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "cuatro_pr_config",
+      "name": "Course configuration",
+      "variants": [
+        {
+          "id": "cuatro_pr_five_double",
+          "default": true,
+          "name": "Five doubled courses (10 strings, canonical)",
+          "descriptors": [
+            "standard",
+            "modern"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "jíbaro"
+          ]
+        },
+        {
+          "id": "cuatro_pr_four_course",
+          "name": "Four-course (older)",
+          "descriptors": [
+            "archaic",
+            "pre-modernized",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_pr_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "cuatro_pr_jibaro",
+          "default": true,
+          "name": "Jíbaro folk (canonical)",
+          "descriptors": [
+            "traditional",
+            "mountain-music",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cuatro_pr_classical",
+          "name": "Classical concert",
+          "descriptors": [
+            "modern",
+            "soloistic",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_pr_popular",
+          "name": "Popular / Christmas parranda",
+          "descriptors": [
+            "celebratory",
+            "communal",
+            "seasonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_pr_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cuatro_pr_mahogany",
+          "default": true,
+          "name": "Mahogany (canonical Puerto Rican)",
+          "descriptors": [
+            "mahogany-canonical",
+            "puerto-rican-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cuatro_pr_yagrumo",
+          "name": "Yagrumo (traditional alternative)",
+          "descriptors": [
+            "yagrumo-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cuatro_pr_capa_prieto",
+          "name": "Capá prieto (premium luthier)",
+          "descriptors": [
+            "capa-prieto",
+            "premium-luthier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_pr_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cuatro_pr_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "cuatro_pr_gut_historical",
+          "name": "Gut (pre-modern historical)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

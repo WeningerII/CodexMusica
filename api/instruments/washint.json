@@ -1,0 +1,60 @@
+{
+  "id": "washint",
+  "name": "Washint (Ethiopian bamboo flute)",
+  "family": "wind",
+  "class": "flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "washint",
+  "parts": [
+    {
+      "id": "washint_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "washint_bamboo",
+          "default": true,
+          "name": "Bamboo (four-hole)",
+          "descriptors": [
+            "breathy",
+            "organic-tone",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "end-blown"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "washint_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "washint_bamboo",
+          "default": true,
+          "name": "Bamboo (four-hole)",
+          "descriptors": [
+            "breathy",
+            "organic-tone",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "end-blown"
+          ]
+        }
+      ]
+    }
+  ]
+}

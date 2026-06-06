@@ -1,0 +1,236 @@
+{
+  "id": "freak_folk_2000s",
+  "name": "Freak folk",
+  "family": "global",
+  "lineage": "Mid-2000s psychedelic-folk revival emerging from the Devendra Banhart / Vetiver / Joanna Newsom / CocoRosie cluster extending the 1960s-70s Vashti Bunyan / Karen Dalton / Linda Perhacs psychedelic-folk lineage into the post-millennium era; recordings: Devendra Banhart Rejoicing in the Hands 2004 and Cripple Crow 2005, Joanna Newsom The Milk-Eyed Mender 2004 and Ys 2006, CocoRosie La Maison de mon Rêve 2004, Vetiver Vetiver 2004",
+  "recipe": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop. thick, incomplete closure resting, chest resonance low mid, unrestrained. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 777,
+  "score": 266.97,
+  "config": {
+    "traditions": [
+      "freak_folk_2000s",
+      "hyperpop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 17.811249999999998,
+          "voice_quality": 2.6120000000000005,
+          "voice_vibrato": 1.042,
+          "voice_articulation": 0.795,
+          "voice_microtone": 1.6162499999999995,
+          "voice_tradition": 18.482374999999998,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 2.5090000000000003,
+          "voice_speech_song": 9.049624999999997,
+          "voice_ensemble_config": 6.532249999999998,
+          "voice_ornament_system": 1.4264999999999999,
+          "voice_pitch_organization": 0.652,
+          "voice_processing_chain": 1.532375,
+          "voice_multitrack_stack": 3.9612500000000006
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 20.599999999999994,
+          "string_tuning": 0,
+          "top_wood": 1.010125,
+          "back_sides": 1.010125,
+          "string_acoustic": 1.081375,
+          "acoustic_om_technique": 20.599999999999994
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 0.38587499999999997,
+          "harp_pedals": 0.031875
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 16.449999999999996,
+          "fiddle_strings": 0.06187499999999999,
+          "fiddle_bow": 0.058124999999999996,
+          "fiddle_mute": 0.058124999999999996,
+          "fiddle_articulation": 0.1075
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 16.794374999999995,
+          "accordion_reed_material": 1.055125,
+          "musette_offset": 0.09375,
+          "reed_config": 0.354,
+          "bellows": 0.09375,
+          "voicing_chamber": 0.042624999999999996,
+          "accordion_maker_school": 7.053499999999999
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.705625,
+          "orch_strings": 0.042624999999999996,
+          "orch_top_wood": 0.7,
+          "orch_back_wood": 0.7,
+          "orch_varnish": 0.325,
+          "orch_setup_period": 0.7324999999999999,
+          "orch_bow": 0.050624999999999996,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.1075,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "autoharp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "autoharp_chord_bars": "autoharp_15_chord",
+          "autoharp_context": "autoharp_folk_revival",
+          "autoharp_strings": "autoharp_steel_modern",
+          "autoharp_body_wood": "autoharp_spruce_maple"
+        },
+        "scores": {
+          "acoustic_technique": 3.7,
+          "autoharp_chord_bars": 6.747249999999998,
+          "autoharp_context": 2.271375,
+          "autoharp_strings": 0.097,
+          "autoharp_body_wood": 0.075625
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_fluorocarbon",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 16.550624999999997,
+          "banjo_back": 0.050624999999999996,
+          "tone_ring": 0.005625,
+          "banjo_head": 6.570874999999997,
+          "banjo_pot": 0.136375,
+          "banjo_play": 0.005625,
+          "banjo_rim_wood": 0.005625,
+          "banjo_neck_wood": 1.025125,
+          "banjo_strings": 0.043125,
+          "banjo_bridge": 0.0045,
+          "banjo_setup_period": 6.5208749999999975
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_3",
+          "glockenspiel_mallet": "glockenspiel_plastic"
+        },
+        "scores": {
+          "percussion_technique": 0.75,
+          "glockenspiel_size": 0.08574999999999999,
+          "glockenspiel_mallet": 1.010125
+        }
+      },
+      {
+        "id": "recorder",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "recorder_size": "alto_recorder",
+          "recorder_context": "recorder_baroque_solo",
+          "recorder_body_wood": "recorder_maple"
+        },
+        "scores": {
+          "wind_articulation": 16.499374999999997,
+          "recorder_size": 0.331875,
+          "recorder_context": 0.39,
+          "recorder_body_wood": 1.310125
+        }
+      }
+    ],
+    "room": "takoma_home_recording_fahey",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

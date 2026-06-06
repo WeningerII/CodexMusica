@@ -1,0 +1,194 @@
+{
+  "id": "frevo",
+  "name": "Frevo",
+  "family": "global",
+  "lineage": "Brazilian Pernambuco (Recife) carnival fast-tempo brass-band marcha tradition codified 1907-onward as the working-class-and-capoeira-defense response to the elite-elite carnival-club tradition. The canonical frevo-orquestra ensemble: trumpets, trombones, saxophones, and rhythm-section (snare-and-bass-drum military-marching kit, sometimes augmented with percussive surdo-and-tamborim Brazilian-samba percussion). The frevo-de-rua street-version is purely instrumental and very fast (typically 200+ BPM), led by passistas dancers carrying small umbrellas (sombrinhas) executing the characteristic acrobatic-jumping passo-de-frevo footwork. Three sub-genres: frevo-canção (sung-frevo with vocal-lyrics), frevo-de-bloco (more relaxed bloco-carnival-association style), and frevo-de-rua (instrumental-street-version). UNESCO 2007-inscribed.",
+  "recipe": "classic North American modern frevo, groove Percussion, Brazilian branch, charanga danza Cuban, American jazz improv on frame latin jazz hard bop. thick, intimate aspirated, pure, punctuated. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, nickel silver bright projecting ensemble continuous-airflow legato saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, brass vintage ambassador asymmetric bronze bell bronze drum kit, samba bateria. estudio rozenblit recife. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 858,
+  "score": 773.123,
+  "config": {
+    "traditions": [
+      "frevo",
+      "latin_jazz",
+      "hard_bop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.6249999999999993,
+          "voice_quality": 3.000000000000001,
+          "voice_vibrato": 2.24,
+          "voice_articulation": 1.3,
+          "voice_microtone": 1.5749999999999995,
+          "voice_tradition": 5.785,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 8.905,
+          "voice_ensemble_config": 10.14,
+          "voice_ornament_system": 0.8949999999999999,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 2.54
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 5.3950000000000005,
+          "brass_size": 0.24,
+          "trumpet_mouthpiece": 2.2749999999999995,
+          "brass_mute": 0.045,
+          "trumpet_technique": 5.3950000000000005,
+          "trumpet_bell_metal": 3.38,
+          "trumpet_maker_school": 2.21
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 5.3950000000000005,
+          "sax_size": 0.22499999999999998,
+          "sax_reed": 0.15,
+          "sax_body_alloy": 2.0349999999999997,
+          "sax_mouthpiece": 0.24,
+          "sax_technique": 1.7499999999999998,
+          "sax_maker_school": 0.9099999999999997
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 5.3950000000000005,
+          "trombone_type": 1.7499999999999998,
+          "trombone_mouthpiece": 1.6999999999999997,
+          "trombone_mute": 0.045,
+          "trombone_technique": 1.3,
+          "trombone_bell_metal": 3.38,
+          "trombone_maker_school": 2.21
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": 1.2899999999999998,
+          "amp_make": 3.3799999999999994,
+          "body_wood": 2.525,
+          "pickup_config": 2.3449999999999998,
+          "string_type": 2.2749999999999995,
+          "scale_length_b": 0.31499999999999995,
+          "fretted_or_not": 1.195,
+          "bass_technique": 2.0349999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 10.14,
+          "shell_wood": 2.08,
+          "shell_thickness": 0.045,
+          "bearing_edges": 0.26999999999999996,
+          "drumhead": 2.2099999999999995,
+          "snare_wires": 0.22499999999999998,
+          "cymbal_alloy": 2.08,
+          "cymbal_hammering": 3.965,
+          "cymbal_lathing": 5.07,
+          "cymbal_finish": 0.15,
+          "drum_technique": 10.14
+        }
+      },
+      {
+        "id": "samba_bateria",
+        "slots": {
+          "sections": "sb_cuicas",
+          "context": "sb_carnaval"
+        },
+        "scores": {
+          "sections": 1.69,
+          "context": 0.24
+        }
+      }
+    ],
+    "room": "estudio_rozenblit_recife",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "tube_pre",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_15ips"
+    },
+    "tuning": "frevo_2_4_fast",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

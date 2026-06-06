@@ -1,0 +1,156 @@
+{
+  "id": "stoner_metal",
+  "name": "Stoner metal",
+  "family": "rock",
+  "lineage": "Southern California desert-rock-derived heavy-blues-revival genre that emerged in early-1990s Palm Desert and Los Angeles — codified through Kyuss (the founding band from Palm Desert, Welcome to Sky Valley 1994), Queens of the Stone Age (Josh Hommes post-Kyuss continuation, Songs for the Deaf 2002), Sleep (the Bay Area parallel canon, Sleeps Holy Mountain 1992 and the legendary 60-minute single-track Dopesmoker 2003), Fu Manchu, Monster Magnet; built on Sabbath chord vocabulary plus blues-rock pentatonic vocabulary plus down-tuned heavy-fuzz amplifier worship",
+  "recipe": "classic North American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, equal tempered. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch ernie ball slinky riff driven electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+  "recipe_chars": 593,
+  "score": 614.748,
+  "config": {
+    "traditions": [
+      "stoner_metal",
+      "sludge_metal",
+      "post_metal_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_orange",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 15.166999999999998,
+          "amp_make": 15.827499999999999,
+          "body_wood": 3.3799999999999994,
+          "neck_wood": 1.17,
+          "fretboard": 1.17,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.39,
+          "string_material": 1.17,
+          "bridge": 0.7665,
+          "scale_length": 4.9399999999999995,
+          "string_gauge": 0.78,
+          "finish": 0,
+          "string_tuning": 16.9
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 10.0125,
+          "amp_make": 15.827499999999999,
+          "body_wood": 0.78,
+          "pickup_config": 0,
+          "string_type": 21.7265,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 16.8365
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_clear",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 6.759999999999998,
+          "shell_wood": 4.159999999999999,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 0.78,
+          "drumhead": 1.17,
+          "snare_wires": 0.78,
+          "cymbal_alloy": 27.662499999999998,
+          "cymbal_hammering": 16.65,
+          "cymbal_lathing": 16.6815,
+          "cymbal_finish": 1.17,
+          "drum_technique": 16.7545
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 24.96099999999999,
+          "voice_quality": 10.45,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 0.3,
+          "voice_microtone": 16.604999999999997,
+          "voice_tradition": 3.25,
+          "voice_mechanism_compound": 14.151499999999999,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 7.604999999999997,
+          "voice_ensemble_config": 6.759999999999998,
+          "voice_ornament_system": 0.9749999999999996,
+          "voice_pitch_organization": 2.08,
+          "voice_processing_chain": 2.145,
+          "voice_multitrack_stack": 2.3555
+        }
+      }
+    ],
+    "room": "stoner_doom_garage_amplifier_room",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_british_high_gain",
+      "medium": "tape_15ips"
+    },
+    "tuning": "doom_sabbath_tritone_diminished",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_big_muff_pi",
+      "fx_proco_rat"
+    ]
+  }
+}

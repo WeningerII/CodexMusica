@@ -1,0 +1,68 @@
+{
+  "id": "icelandic_rimur",
+  "name": "Icelandic rímur (epic-chant)",
+  "family": "global",
+  "lineage": "Icelandic rímur (singular ríma) epic-chant narrative tradition of Iceland, comprising sung-narrative cycles based on Old Norse sagas, Continental medieval romance, and biblical-and-classical sources. Origin documented from late fourteenth-century onward, with continuous transmission through Icelandic farmstead winter-evening-entertainment context (the kvöldvaka evening-vigil reading-and-singing gathering) into the twentieth century. Performance: solo unaccompanied chanting in characteristic narrow-range Phrygian-and-related modes, with the canonical poetic-meter ferskeytt four-line stanza form and elaborate alliterative-and-internal-rhyme conventions inherited from skaldic verse. The Iðunn society (founded 1929) and the Kvæðamannafélagið Iðunn (Iðunn Rímur-singer Society) anchor institutional preservation; the post-2000s neo-folk revival has reactivated the genre.",
+  "recipe": "classic mid-2000s icelandic rímur, ballad Poetry, Slavic bard branch, indigenous ritual devotional hawaiian mele oli sacred-chant māori karanga and pōwhiri ritual call. thick, declaimed, nervy, narrative. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 351,
+  "score": 176.635,
+  "config": {
+    "traditions": [
+      "icelandic_rimur",
+      "hawaiian_oli_mele",
+      "maori_karanga_powhiri"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.1799999999999993,
+          "voice_quality": 3.4887500000000005,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.0900000000000003,
+          "voice_microtone": 0.39,
+          "voice_tradition": 8.385,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 5.785000000000001,
+          "voice_speech_song": 11.765,
+          "voice_ensemble_config": 13.39,
+          "voice_ornament_system": 3.1500000000000004,
+          "voice_pitch_organization": 4.095000000000001,
+          "voice_processing_chain": 4.9125,
+          "voice_multitrack_stack": 5.133750000000001
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

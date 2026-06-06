@@ -1,0 +1,87 @@
+{
+  "id": "italian_canti_partigiani",
+  "name": "Italian canti partigiani (Resistance songs)",
+  "family": "global",
+  "lineage": "Italian Resistance-and-Partisan-songbook protest-song tradition continuous from 1943-1945 anti-fascist Resistance era (\"Bella Ciao\" as the Resistance anthem in its post-1948 mythologized form, though the song's actual partisan-era usage is disputed by scholars) through post-war Italian Communist Party and Italian left-wing political-songwriter tradition continuous into modern Italian protest-song repertoire",
+  "recipe": "classic 1943-1945 italian canti partigiani, protest Song, European branch, anglo American protest song, chanson fado ballad poetry, Mediterranean ballad ballad poetry american folk-revival protest song morna. lament wail, tasteful, continuous-phonation, operatic. martin lifespan fingerpicked acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 448,
+  "score": 176.868,
+  "config": {
+    "traditions": [
+      "italian_canti_partigiani",
+      "american_folk_revival_protest",
+      "morna"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "operatic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 2.2749999999999995,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.2299999999999995,
+          "voice_microtone": 0.38999999999999996,
+          "voice_tradition": 18.06,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 19.674999999999997,
+          "voice_speech_song": 13.974999999999994,
+          "voice_ensemble_config": 5.979999999999999,
+          "voice_ornament_system": 16.9,
+          "voice_pitch_organization": 3.0349999999999997,
+          "voice_processing_chain": 2.965,
+          "voice_multitrack_stack": 2.079999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 2.789999999999999,
+          "string_tuning": 0,
+          "top_wood": 0.54,
+          "back_sides": 0.585,
+          "string_acoustic": 2.08,
+          "acoustic_om_technique": 2.789999999999999
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

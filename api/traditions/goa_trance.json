@@ -1,0 +1,97 @@
+{
+  "id": "goa_trance",
+  "name": "Goa trance",
+  "family": "global",
+  "lineage": "Mid-1990s Indian-beach electronic dance subgenre, codified through full-moon parties on Goa beaches (Anjuna, Vagator) — Goa Gil as the canonical DJ-organizer, with characteristic 130-140 BPM tempo, acid-bass-line foundation, Indian-modal melodic motifs, and analog-synth-and-303 production aesthetic",
+  "recipe": "classic 1994-1996 goa trance, electronic Dance, trance branch, hindu ritual devotional borgeet bhajan. analog mono synth, digital subtractive, TR-909, melodic pitched sampler. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter phaser flanger analog bucket-brigade delay.",
+  "recipe_chars": 364,
+  "score": 45.71,
+  "config": {
+    "traditions": [
+      "goa_trance",
+      "borgeet_assamese",
+      "bhajan"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 2.45,
+          "mono_oscillator": 1.3,
+          "mono_filter": 2.6,
+          "mono_archetypes": 1.435,
+          "mono_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 0.9999999999999999,
+          "va_archetypes": 3.8,
+          "digital_subtractive_context": 3.3799999999999994
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 1.3,
+          "tr909_production_origin": 0.7149999999999994
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 1.3,
+          "sampler_bit_depth": 2.5000000000000004,
+          "sampler_workflow": 1.625,
+          "sampler_classic_context": 3.6399999999999997
+        }
+      }
+    ],
+    "room": "festival_stage",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "phaser_pedal",
+      "flanger_pedal",
+      "analog_delay"
+    ]
+  }
+}

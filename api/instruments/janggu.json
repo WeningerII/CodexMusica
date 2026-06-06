@@ -1,0 +1,358 @@
+{
+  "id": "janggu",
+  "name": "Janggu / changgo (Korean hourglass drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "janggu",
+  "parts": [
+    {
+      "id": "janggu_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "janggu_pansori",
+          "default": true,
+          "name": "Pansori / sanjo accompaniment",
+          "descriptors": [
+            "virtuoso",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_samul_nori",
+          "name": "Samul nori",
+          "descriptors": [
+            "ensemble",
+            "folk",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "janggu_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "janggu_wood",
+          "default": true,
+          "name": "Wood double-bowl (canonical)",
+          "descriptors": [
+            "traditional",
+            "asymmetric",
+            "authentic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_composite",
+          "name": "Modern composite",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "twenty-first-century",
+            "composite-material"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "janggu_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "janggu_paulownia_canonical",
+          "default": true,
+          "name": "Paulownia (canonical Korean)",
+          "descriptors": [
+            "paulownia-canonical-korean"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_pine",
+          "name": "Pine (alternative)",
+          "descriptors": [
+            "pine-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "janggu_head",
+      "surface": false,
+      "name": "Head material (asymmetric pair)",
+      "variants": [
+        {
+          "id": "janggu_horse_dog_asymmetric",
+          "default": true,
+          "name": "Horse-hide (puk treble) + dog-hide (chae bass) — canonical asymmetric Korean",
+          "descriptors": [
+            "horse-dog-asymmetric-canonical-korean"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_cowhide_modern",
+          "name": "Cowhide both heads (modern stable)",
+          "descriptors": [
+            "cowhide-modern-stable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "janggu_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "janggu_pansori_godo",
+          "default": true,
+          "name": "Pansori godo (one-drum song-cycle accompaniment, canonical)",
+          "descriptors": [
+            "pansori-godo-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_samul_lineage",
+          "name": "Samul nori (Kim Duk-soo lineage, 1978 founding)",
+          "descriptors": [
+            "samul-nori-kim-duk-soo-1978-founding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_pungmul_outdoor",
+          "name": "Pungmul outdoor village (pre-samul-nori)",
+          "descriptors": [
+            "pungmul-outdoor-village-pre-samul-nori"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "janggu_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "janggu_pansori",
+          "default": true,
+          "name": "Pansori / sanjo accompaniment",
+          "descriptors": [
+            "virtuoso",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_samul_nori",
+          "name": "Samul nori",
+          "descriptors": [
+            "ensemble",
+            "folk",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "janggu_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "janggu_wood",
+          "default": true,
+          "name": "Wood double-bowl (canonical)",
+          "descriptors": [
+            "traditional",
+            "asymmetric",
+            "authentic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_composite",
+          "name": "Modern composite",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "twenty-first-century",
+            "composite-material"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "janggu_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "janggu_paulownia_canonical",
+          "default": true,
+          "name": "Paulownia (canonical Korean)",
+          "descriptors": [
+            "paulownia-canonical-korean"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_pine",
+          "name": "Pine (alternative)",
+          "descriptors": [
+            "pine-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "janggu_head",
+      "surface": false,
+      "name": "Head material (asymmetric pair)",
+      "variants": [
+        {
+          "id": "janggu_horse_dog_asymmetric",
+          "default": true,
+          "name": "Horse-hide (puk treble) + dog-hide (chae bass) — canonical asymmetric Korean",
+          "descriptors": [
+            "horse-dog-asymmetric-canonical-korean"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_cowhide_modern",
+          "name": "Cowhide both heads (modern stable)",
+          "descriptors": [
+            "cowhide-modern-stable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "janggu_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "janggu_pansori_godo",
+          "default": true,
+          "name": "Pansori godo (one-drum song-cycle accompaniment, canonical)",
+          "descriptors": [
+            "pansori-godo-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_samul_lineage",
+          "name": "Samul nori (Kim Duk-soo lineage, 1978 founding)",
+          "descriptors": [
+            "samul-nori-kim-duk-soo-1978-founding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "janggu_pungmul_outdoor",
+          "name": "Pungmul outdoor village (pre-samul-nori)",
+          "descriptors": [
+            "pungmul-outdoor-village-pre-samul-nori"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "pi_nai",
+  "name": "Pi nai (Thai quadruple-reed oboe)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pi nai",
+  "parts": [
+    {
+      "id": "pi_nai_style",
+      "name": "Style",
+      "variants": [
+        {
+          "id": "pi_nai_piphat",
+          "default": true,
+          "name": "Piphat ensemble (canonical)",
+          "descriptors": [
+            "nasal",
+            "lead-melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "piphat",
+            "thai"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pi_nai_style",
+      "name": "Style",
+      "variants": [
+        {
+          "id": "pi_nai_piphat",
+          "default": true,
+          "name": "Piphat ensemble (canonical)",
+          "descriptors": [
+            "nasal",
+            "lead-melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "piphat",
+            "thai"
+          ]
+        }
+      ]
+    }
+  ]
+}

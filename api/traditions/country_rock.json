@@ -1,0 +1,254 @@
+{
+  "id": "country_rock",
+  "name": "Country rock",
+  "family": "rock_punk",
+  "lineage": "Late-1960s through 1970s LA-centered amplified country-and-rock fusion codified by The Byrds Sweetheart of the Rodeo (1968), The Flying Burrito Brothers, Poco, the Eagles Take It Easy era, Linda Ronstadt, Emmylou Harris",
+  "recipe": "classic Los Angeles 1967-1969 country rock, functional Song, country rock branch, pop rock folk rock, southern rock distorted rock. thick, worn fold, melodic, equal tempered. steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, steel double stops fiddle. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ.",
+  "recipe_chars": 999,
+  "score": 1287.485,
+  "config": {
+    "traditions": [
+      "country_rock",
+      "southern_rock",
+      "folk_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 53.98000000000003,
+          "voice_quality": 0.8612499999999998,
+          "voice_vibrato": 22.760000000000005,
+          "voice_articulation": 0.118125,
+          "voice_microtone": 27.05000000000001,
+          "voice_tradition": 8.450000000000001,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 24.025625,
+          "voice_speech_song": 9.944999999999999,
+          "voice_ensemble_config": 7.409999999999998,
+          "voice_ornament_system": 0.21125000000000002,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 5.581250000000001,
+          "voice_multitrack_stack": 5.791875000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "open_e",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 26.25,
+          "string_tuning": 0.45624999999999993,
+          "top_wood": 0.33,
+          "back_sides": 0.33,
+          "string_acoustic": 2.3912500000000003
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 22.30625,
+          "amp_make": 23.633750000000003,
+          "body_wood": 0.30000000000000004,
+          "neck_wood": 0.33,
+          "fretboard": 0.33,
+          "pickup_magnet": 0.33,
+          "string_material": 1.56,
+          "string_gauge": 1,
+          "bridge": 0.01875,
+          "scale_length": 1,
+          "finish": 0,
+          "string_tuning": 13.650000000000007
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 25.441250000000004,
+          "amp_make": 23.633750000000003,
+          "pickup_steel": 0.30000000000000004,
+          "string_setup": 9.99125,
+          "bar_material": 1.56,
+          "pedal_steel_brand": 23.092500000000005,
+          "pedal_steel_neck_config": 23.2925,
+          "pedal_steel_strings": 22.606250000000003
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 0.25625,
+          "amp_make": 22.99625,
+          "body_wood": 0.6000000000000001,
+          "pickup_config": 0.01875,
+          "string_type": 28.776250000000015,
+          "scale_length_b": 1.3,
+          "fretted_or_not": 0.056249999999999994,
+          "bass_technique": 25.80625000000001
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 10.919999999999998,
+          "shell_wood": 1.56,
+          "shell_thickness": 0.056249999999999994,
+          "bearing_edges": 0.34875,
+          "drumhead": 1.6999999999999997,
+          "snare_wires": 0.30000000000000004,
+          "cymbal_alloy": 27.250000000000014,
+          "cymbal_hammering": 27.248750000000012,
+          "cymbal_lathing": 27.256250000000012,
+          "cymbal_finish": 0.33,
+          "drum_technique": 25.500000000000014
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 1.7449999999999997,
+          "drawbar_setting": 25.85625000000001,
+          "rotary_speed": 25.455625000000012,
+          "percussion_setting": 13.260000000000005,
+          "tonewheel_model": 10.465000000000003,
+          "leslie_cabinet_model": 1.69
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 1.7562499999999996,
+          "grand_piano_size": 0.30000000000000004,
+          "grand_piano_brand": 0.424375,
+          "piano_hammer": 13.130000000000004,
+          "piano_rim": 13.520000000000005,
+          "piano_soundboard": 1.6999999999999997,
+          "piano_pinblock": 0.26,
+          "piano_plate": 0.26,
+          "piano_pitch_standard": 0.325
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 22.85,
+          "fiddle_strings": 1.56,
+          "fiddle_bow": 0.33,
+          "fiddle_mute": 0.124375,
+          "fiddle_articulation": 0.39
+        }
+      }
+    ],
+    "room": "sunset_sound_studios_hollywood",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_api_312",
+      "console": "console_quad_eight_la_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_api_550",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
+    },
+    "tuning": "americana_train_beat_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_spring_reverb"
+    ]
+  }
+}

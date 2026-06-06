@@ -1,0 +1,135 @@
+{
+  "id": "easy_listening_orchestral",
+  "name": "Easy listening (orchestral pop)",
+  "family": "global",
+  "lineage": "Mid-20th-century instrumental and vocal orchestral-pop tradition — codified through Percy Faith (Theme from A Summer Place 1959), Mantovani (the cascading-strings sound), Henry Mancini (Moon River 1961, the Pink Panther theme 1963), Ray Conniff (the orchestrated-vocal-chorus sound), Lawrence Welk, Mitch Miller; the genre served as the mid-century mass-audience easy-listening AM-radio format before the rock-and-roll era displaced it from commercial-radio dominance",
+  "recipe": "classic North American late-1950s easy listening, functional Song, crooners branch, western common practice art music, American jazz smooth vocal british brass band classical period. concert harp, string quartet inst, cold pressed weikert felt oversize maple tension resonator European spruce grand piano, through composed jazz big band, mixed satb canonical 4 part western polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, European maple bosnian source flamed figure cremonese pre 1750 four layer system violin orchestral. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 802,
+  "score": 178.995,
+  "config": {
+    "traditions": [
+      "easy_listening_orchestral",
+      "british_brass_band",
+      "classical_period_18c"
+    ],
+    "instruments": [
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 3.769999999999999,
+          "harp_pedals": 2.8199999999999994
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_modern",
+          "string_quartet_inst_era": "string_quartet_inst_romantic"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "quartet_school": 0.045,
+          "string_quartet_inst_era": 2.9899999999999998
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_weikert_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 6.645,
+          "grand_piano_size": 3.769999999999999,
+          "grand_piano_brand": 2.9899999999999998,
+          "piano_hammer": 5.669999999999999,
+          "piano_rim": 8.757499999999999,
+          "piano_soundboard": 6.449999999999999,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": 4.9399999999999995
+        }
+      },
+      {
+        "id": "jazz_big_band",
+        "slots": {
+          "sections": "bb_saxes",
+          "era": "bb_progressive"
+        },
+        "scores": {
+          "sections": 0,
+          "era": 1.69
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 3.5299999999999994,
+          "choir_polyphonic_configuration": 4.1866666666666665,
+          "choir_regional_canonical_configuration": 1.145,
+          "choir_ensemble_repertoire": 6.759999999999999
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 7.199999999999999,
+          "orch_strings": 0.39,
+          "orch_top_wood": 0.325,
+          "orch_back_wood": 1.625,
+          "orch_varnish": 1.4,
+          "orch_setup_period": -0.07,
+          "orch_bow": 1.4783333333333335,
+          "orch_bow_stick": 0.95,
+          "orch_articulation": 0.72,
+          "orch_rosin": -0.05
+        }
+      }
+    ],
+    "room": "nyc_brill_building_tin_pan_alley",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

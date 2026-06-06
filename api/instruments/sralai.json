@@ -1,0 +1,98 @@
+{
+  "id": "sralai",
+  "name": "Sralai (Khmer quadruple-reed conical oboe)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sralai",
+  "parts": [
+    {
+      "id": "sralai_reed",
+      "name": "Reed construction",
+      "variants": [
+        {
+          "id": "sralai_palm_leaf_quadruple",
+          "default": true,
+          "name": "Palm-leaf quadruple reed, conical bore (canonical Khmer)",
+          "descriptors": [
+            "palm-leaf-quadruple-reed-conical-bore-canonical-khmer"
+          ],
+          "match_tokens": [
+            "wind",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sralai_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "sralai_pinpeat_lead_melodic",
+          "default": true,
+          "name": "Pinpeat melodic lead (sustained voice)",
+          "descriptors": [
+            "pinpeat-melodic-lead-sustained-voice"
+          ],
+          "match_tokens": [
+            "wind",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sralai_reed",
+      "name": "Reed construction",
+      "variants": [
+        {
+          "id": "sralai_palm_leaf_quadruple",
+          "default": true,
+          "name": "Palm-leaf quadruple reed, conical bore (canonical Khmer)",
+          "descriptors": [
+            "palm-leaf-quadruple-reed-conical-bore-canonical-khmer"
+          ],
+          "match_tokens": [
+            "wind",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sralai_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "sralai_pinpeat_lead_melodic",
+          "default": true,
+          "name": "Pinpeat melodic lead (sustained voice)",
+          "descriptors": [
+            "pinpeat-melodic-lead-sustained-voice"
+          ],
+          "match_tokens": [
+            "wind",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

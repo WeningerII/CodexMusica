@@ -1,0 +1,126 @@
+{
+  "id": "vocal_trance",
+  "name": "Vocal trance",
+  "family": "global",
+  "lineage": "Pop-vocal trance subgenre fusing trance instrumentation with female-led vocal performances — codified through Tiësto featuring Kirsty Hawkshaw \"Just Be\" (2003), Armin van Buuren\\u2019s collaborations with Sharon den Adel, ATB and York-style productions, characterized by main-room emotional-vocal builds",
+  "recipe": "classic early-2000s vocal trance, electronic Dance, trance branch, house electronic dance tech-house chicago house. thick, pure, equal tempered, min yo. singing lead analog poly synth, singing lead digital subtractive, TR-909, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 381,
+  "score": 219.033,
+  "config": {
+    "traditions": [
+      "vocal_trance",
+      "tech_house_classic",
+      "chicago_house"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 7.084375,
+          "voice_quality": 0.26,
+          "voice_vibrato": 1.035,
+          "voice_articulation": 0.39,
+          "voice_microtone": 5.250000000000001,
+          "voice_tradition": 7.734999999999999,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 7.409999999999999,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 1,
+          "voice_processing_chain": 7.02,
+          "voice_multitrack_stack": 7.539999999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 5.890625000000001,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 5.890625000000001,
+          "va_archetypes": 8.294999999999998,
+          "digital_subtractive_context": 5.589999999999998
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 1.7499999999999998,
+          "drum_machine_909_context": 2.4206249999999994,
+          "tr909_production_origin": 0.375
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_emax",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 0.3,
+          "sampler_bit_depth": 0.09,
+          "sampler_workflow": 0.325,
+          "sampler_classic_context": 15.339999999999996
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

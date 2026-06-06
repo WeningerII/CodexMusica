@@ -1,0 +1,165 @@
+{
+  "id": "salsa_romantica",
+  "name": "Salsa romántica (80s romantic)",
+  "family": "pop",
+  "lineage": "Softer-romantic style of salsa developed in mid-1980s Miami and New York from older salsa dura. Reduced rhythmic-aggression, simpler arrangements, slower-mid-tempo, explicit romantic-love-and-relationship lyric content. Emerged through Latin-Caribbean commercial-radio-targeting and became dominant late-1980s-and-1990s salsa-mainstream. RMM Records and producer Sergio George consolidated canonical sound.",
+  "recipe": "classic tropical 1984-1986 salsa romántica, groove Percussion, son salsa branch, Latin am troubadour ballad poetry milonga cueca. thick, low dynamic level, chest resonance low mid, rhythmic. cold pressed weikert felt birch laminated maple laminated Asian spruce grand piano, alder pyramid pure nickel bass British mid 60s era electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 752,
+  "score": 177.057,
+  "config": {
+    "traditions": [
+      "salsa_romantica",
+      "milonga",
+      "cueca_chilena"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 2.8400000000000003,
+          "voice_quality": 3.185,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 1.63,
+          "voice_microtone": 2.250000000000001,
+          "voice_tradition": 2.88,
+          "voice_mechanism_compound": 3.1199999999999997,
+          "voice_estill_quality": 1.69,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0.28500000000000003,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 6.9849999999999985,
+          "voice_multitrack_stack": 5.949999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_weikert_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_415_baroque"
+        },
+        "scores": {
+          "keyboard_technique": 2.45,
+          "grand_piano_size": 3.0799999999999996,
+          "grand_piano_brand": 7.265,
+          "piano_hammer": 3.03,
+          "piano_rim": 3.185,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_motown"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 2.8800000000000003,
+          "body_wood": 3.3799999999999994,
+          "pickup_config": 0.345,
+          "string_type": 3.3799999999999994,
+          "scale_length_b": 3.0799999999999996,
+          "fretted_or_not": 0.435,
+          "bass_technique": -0.035
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": -0.035,
+          "brass_mute": 0.15,
+          "trumpet_technique": -0.05,
+          "trumpet_bell_metal": 1.69,
+          "trumpet_maker_school": 1.69
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_son"
+        },
+        "scores": {
+          "percussion_technique": 5.385,
+          "timbales_shell": 5.4399999999999995,
+          "timbales_context": 0.24
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 5.385,
+          "conga_set": 0.24,
+          "conga_skin": 3.6399999999999997,
+          "conga_shell_wood": 3.6399999999999997
+        }
+      }
+    ],
+    "room": "fania_la_tierra_studios_ny",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_30ips"
+    },
+    "tuning": "son_clave_3_2",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

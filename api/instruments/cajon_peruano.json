@@ -1,0 +1,130 @@
+{
+  "id": "cajon_peruano",
+  "name": "Cajón peruano (Peruvian box drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cajón",
+  "parts": [
+    {
+      "id": "cajon_peruano_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "cajon_peruano_open_back",
+          "default": true,
+          "name": "Open-back wooden box (Afro-Peruvian original)",
+          "descriptors": [
+            "wood",
+            "open-back",
+            "afro-peruvian-tradition",
+            "festejo-tradition",
+            "marinera-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "afro-peruvian-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cajon_peruano_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "cajon_peruano_festejo",
+          "default": true,
+          "name": "Festejo accompaniment",
+          "descriptors": [
+            "festejo-tradition",
+            "fast-syncopated"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "afro-peruvian-tradition"
+          ]
+        },
+        {
+          "id": "cajon_peruano_marinera",
+          "name": "Marinera accompaniment",
+          "descriptors": [
+            "marinera-tradition",
+            "medium-paced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "marinera-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cajon_peruano_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "cajon_peruano_open_back",
+          "default": true,
+          "name": "Open-back wooden box (Afro-Peruvian original)",
+          "descriptors": [
+            "wood",
+            "open-back",
+            "afro-peruvian-tradition",
+            "festejo-tradition",
+            "marinera-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "afro-peruvian-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cajon_peruano_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "cajon_peruano_festejo",
+          "default": true,
+          "name": "Festejo accompaniment",
+          "descriptors": [
+            "festejo-tradition",
+            "fast-syncopated"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "afro-peruvian-tradition"
+          ]
+        },
+        {
+          "id": "cajon_peruano_marinera",
+          "name": "Marinera accompaniment",
+          "descriptors": [
+            "marinera-tradition",
+            "medium-paced"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "marinera-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

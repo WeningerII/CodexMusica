@@ -1,0 +1,170 @@
+{
+  "id": "sertanejo_universitario",
+  "name": "Sertanejo universitário (Brazilian pop-country)",
+  "family": "country",
+  "lineage": "Brazilian sertanejo subgenre emerging in late-2000s as a urban-modern revival of the older sertanejo country-music tradition, targeted at younger university-student audiences. Characterized by pop-country-influenced harmonic vocabulary, slower mid-tempo love-ballad register, and twin-male-vocal-harmony presentation. Goiânia, Brasília, and São Paulo studios anchored the canonical sound. Michel Teló's 2011 \"Ai Se Eu Te Pego\" became the international-crossover hit.",
+  "recipe": "classic 2007-2009 sertanejo universitário, functional Song, Brazilian song branch, country functional song country rock western swing. thick, register break ornamental, melodic, equal tempered. cedar flatwound thomastik travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, steel pre muffled edge muffled hot rolled annealed drum kit, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 657,
+  "score": 567.885,
+  "config": {
+    "traditions": [
+      "sertanejo_universitario",
+      "country_rock",
+      "western_swing"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "register_break_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 20.789999999999992,
+          "voice_quality": 3.1850000000000005,
+          "voice_vibrato": 13.34,
+          "voice_articulation": 0.26999999999999996,
+          "voice_microtone": 8.010000000000002,
+          "voice_tradition": 11.309999999999999,
+          "voice_mechanism_compound": 1.525,
+          "voice_estill_quality": 14.454999999999998,
+          "voice_speech_song": 8.125,
+          "voice_ensemble_config": 3.25,
+          "voice_ornament_system": 0.525,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 4.740000000000001,
+          "voice_multitrack_stack": 5.68
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "drop_d",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "thomastik_flat_top"
+        },
+        "scores": {
+          "acoustic_technique": 13.2,
+          "string_tuning": 0,
+          "top_wood": 1.69,
+          "back_sides": 0.045,
+          "string_acoustic": 1.69
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 13.445,
+          "amp_make": 13.724999999999998,
+          "body_wood": 4.140000000000001,
+          "neck_wood": 1.69,
+          "fretboard": 1.625,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 1.3,
+          "string_material": 2.0700000000000003,
+          "bridge": 1.69,
+          "scale_length": 2.645,
+          "string_gauge": 1.54,
+          "finish": 0.045,
+          "string_tuning": 2.69
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 3.25,
+          "shell_wood": 1.035,
+          "shell_thickness": 0.045,
+          "bearing_edges": 1.54,
+          "drumhead": 9.795,
+          "snare_wires": 1.54,
+          "cymbal_alloy": 5.745,
+          "cymbal_hammering": 9.25,
+          "cymbal_lathing": 9.04,
+          "cymbal_finish": 0.28500000000000003,
+          "drum_technique": 3.25
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_walking",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 13.624999999999998,
+          "body_wood": 1.69,
+          "pickup_config": 1.345,
+          "string_type": 1.69,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.15,
+          "bass_technique": 13.445
+        }
+      }
+    ],
+    "room": "estudios_scatena_sp",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "id": "dilruba",
+  "name": "Dilruba (Punjabi bowed lute)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dilruba",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dilruba_neck",
+      "name": "Neck length",
+      "variants": [
+        {
+          "id": "long_dilruba",
+          "default": true,
+          "name": "Long-neck (sitar-derived)",
+          "descriptors": [
+            "meend-rich",
+            "classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dilruba_use",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "dilruba_kirtan",
+          "name": "Sikh devotional",
+          "descriptors": [
+            "sustained",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "dilruba_classical",
+          "default": true,
+          "name": "North Indian classical",
+          "descriptors": [
+            "raga-suited",
+            "expressive",
+            "solo"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dilruba_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "dilruba_tun",
+          "default": true,
+          "name": "Tun / Indian cedar (canonical)",
+          "descriptors": [
+            "tun-indian-cedar-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "dilruba_teak",
+          "name": "Teak (alternative)",
+          "descriptors": [
+            "teak-alternative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dilruba_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dilruba_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical) + bronze sympathetics",
+          "descriptors": [
+            "steel-bronze-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "dilruba_gut_historical",
+          "name": "Gut (pre-modern historical Sikh canon)",
+          "descriptors": [
+            "gut-pre-modern-sikh-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dilruba_neck",
+      "name": "Neck length",
+      "variants": [
+        {
+          "id": "long_dilruba",
+          "default": true,
+          "name": "Long-neck (sitar-derived)",
+          "descriptors": [
+            "meend-rich",
+            "classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dilruba_use",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "dilruba_kirtan",
+          "name": "Sikh devotional",
+          "descriptors": [
+            "sustained",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "dilruba_classical",
+          "default": true,
+          "name": "North Indian classical",
+          "descriptors": [
+            "raga-suited",
+            "expressive",
+            "solo"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dilruba_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "dilruba_tun",
+          "default": true,
+          "name": "Tun / Indian cedar (canonical)",
+          "descriptors": [
+            "tun-indian-cedar-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "dilruba_teak",
+          "name": "Teak (alternative)",
+          "descriptors": [
+            "teak-alternative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dilruba_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dilruba_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical) + bronze sympathetics",
+          "descriptors": [
+            "steel-bronze-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "dilruba_gut_historical",
+          "name": "Gut (pre-modern historical Sikh canon)",
+          "descriptors": [
+            "gut-pre-modern-sikh-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

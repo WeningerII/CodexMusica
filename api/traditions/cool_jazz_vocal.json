@@ -1,0 +1,156 @@
+{
+  "id": "cool_jazz_vocal",
+  "name": "Cool jazz vocal",
+  "family": "global",
+  "lineage": "Late-1950s/60s cool-school West-Coast-jazz vocal aesthetic — Chet Baker (Sings, 1954), June Christy, Anita ODay, Julie London — restrained delivery, intimate microphone presence, small-group accompaniment, contrasted against the muscular East Coast hard bop of the same period",
+  "recipe": "classic North American 1957-1959 cool jazz vocal, improv On Frame, smooth vocal branch, Latin jazz improv on frame descarga ethio-jazz. thick, intimate aspirated, melodic, equal tempered. cold pressed wurzen felt oversize maple tension resonator a 415 grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow legato saxophone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 679,
+  "score": 452.599,
+  "config": {
+    "traditions": [
+      "cool_jazz_vocal",
+      "descarga_cubana",
+      "ethio_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 10.903749999999997,
+          "voice_quality": 6.61375,
+          "voice_vibrato": 1.1352499999999999,
+          "voice_articulation": 0.435,
+          "voice_microtone": 10.999999999999998,
+          "voice_tradition": 14.625,
+          "voice_mechanism_compound": 1.0983749999999997,
+          "voice_estill_quality": 0.30374999999999996,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 4.8100000000000005,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 0.563,
+          "voice_processing_chain": 4.64425,
+          "voice_multitrack_stack": 4.9399999999999995
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_415_baroque"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.42849999999999994,
+          "grand_piano_brand": 0.4798749999999999,
+          "piano_hammer": 1.885,
+          "piano_rim": 2.275,
+          "piano_soundboard": 0.325,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 2.7237500000000003
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "upright_strings": 11.25,
+          "upright_play": 11.25
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_jazz"
+        },
+        "scores": {
+          "percussion_technique": 6.5,
+          "shell_wood": 0.339375,
+          "shell_thickness": 0,
+          "bearing_edges": 0.344875,
+          "drumhead": 16.25,
+          "snare_wires": 0.254875,
+          "cymbal_alloy": 11.157499999999997,
+          "cymbal_hammering": 12.55825,
+          "cymbal_lathing": 12.78125,
+          "cymbal_finish": 0.430875,
+          "drum_technique": 11.25
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 6.544999999999999,
+          "sax_size": 0.254875,
+          "sax_reed": 0.294375,
+          "sax_body_alloy": 11.295,
+          "sax_mouthpiece": 0.294375,
+          "sax_technique": 11.25,
+          "sax_maker_school": 13.259999999999998
+        }
+      }
+    ],
+    "room": "capitol_tower_studios_la",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": "audiophile_intimate",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

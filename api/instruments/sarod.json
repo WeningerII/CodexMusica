@@ -1,0 +1,717 @@
+{
+  "id": "sarod",
+  "name": "Sarod (Hindustani fretless lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sarod",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sarod_fingerboard",
+      "name": "Fingerboard surface",
+      "variants": [
+        {
+          "id": "polished_steel",
+          "name": "Polished steel plate",
+          "descriptors": [
+            "gliding",
+            "sustained",
+            "meend-suited",
+            "steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "chrome_plated",
+          "default": true,
+          "name": "Chrome-plated",
+          "descriptors": [
+            "durable",
+            "articulate-low-distortion",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_belly",
+      "name": "Belly material",
+      "variants": [
+        {
+          "id": "goat_skin_belly",
+          "default": true,
+          "name": "Goat skin",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "natural-material-resonance",
+            "traditional",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "parchment_synthetic",
+          "name": "Synthetic membrane",
+          "descriptors": [
+            "stable",
+            "consistent",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_pluck",
+      "name": "Pluck (java)",
+      "variants": [
+        {
+          "id": "coconut_shell_pick",
+          "default": true,
+          "name": "Coconut shell pick",
+          "descriptors": [
+            "biting",
+            "classical",
+            "traditional",
+            "coconut-shell",
+            "shell"
+          ],
+          "match_tokens": [
+            "picked",
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "wire_pick",
+          "surface": false,
+          "name": "Wire pick",
+          "descriptors": [
+            "sharp",
+            "modern"
+          ],
+          "match_tokens": [
+            "picked",
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_taraf",
+      "name": "Sympathetic strings",
+      "variants": [
+        {
+          "id": "taraf_eleven",
+          "default": true,
+          "name": "11 sympathetic strings",
+          "descriptors": [
+            "standard",
+            "full-resonance",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "taraf_fifteen",
+          "name": "15 sympathetic strings",
+          "descriptors": [
+            "ringing",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "sarod_teak_body",
+          "default": true,
+          "name": "Teak (canonical seasoned)",
+          "descriptors": [
+            "teak",
+            "seasoned-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_tun_body",
+          "name": "Tun (Indian cedar)",
+          "descriptors": [
+            "tun",
+            "indian-cedar",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_mahogany_body",
+          "name": "Mahogany (modern alternative)",
+          "descriptors": [
+            "mahogany",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_strings",
+      "surface": false,
+      "name": "Main playing strings",
+      "variants": [
+        {
+          "id": "sarod_steel_bronze_modern",
+          "default": true,
+          "name": "Steel + bronze (modern canon)",
+          "descriptors": [
+            "steel-bronze",
+            "modern-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_phosphor_bronze",
+          "name": "Phosphor bronze (alternative)",
+          "descriptors": [
+            "phosphor-bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_pure_steel",
+          "name": "Pure steel (heavier brightness)",
+          "descriptors": [
+            "pure-steel",
+            "heavier-brightness"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_gharana",
+      "surface": false,
+      "name": "Gharana lineage",
+      "variants": [
+        {
+          "id": "sarod_maihar_gharana",
+          "default": true,
+          "name": "Maihar gharana (Ali Akbar Khan / Allauddin Khan)",
+          "descriptors": [
+            "maihar-gharana",
+            "ali-akbar-khan-lineage",
+            "allauddin-khan-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_shahjahanpur_gharana",
+          "name": "Shahjahanpur / Bangash gharana (Amjad Ali Khan)",
+          "descriptors": [
+            "shahjahanpur-bangash-gharana",
+            "amjad-ali-khan-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_senia_gharana",
+          "name": "Senia gharana (Mughal-era origin)",
+          "descriptors": [
+            "senia-gharana",
+            "mughal-era-origin"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sarod_fingerboard",
+      "name": "Fingerboard surface",
+      "variants": [
+        {
+          "id": "polished_steel",
+          "name": "Polished steel plate",
+          "descriptors": [
+            "gliding",
+            "sustained",
+            "meend-suited",
+            "steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "chrome_plated",
+          "default": true,
+          "name": "Chrome-plated",
+          "descriptors": [
+            "durable",
+            "articulate-low-distortion",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_belly",
+      "name": "Belly material",
+      "variants": [
+        {
+          "id": "goat_skin_belly",
+          "default": true,
+          "name": "Goat skin",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "natural-material-resonance",
+            "traditional",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "parchment_synthetic",
+          "name": "Synthetic membrane",
+          "descriptors": [
+            "stable",
+            "consistent",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_pluck",
+      "name": "Pluck (java)",
+      "variants": [
+        {
+          "id": "coconut_shell_pick",
+          "default": true,
+          "name": "Coconut shell pick",
+          "descriptors": [
+            "biting",
+            "classical",
+            "traditional",
+            "coconut-shell",
+            "shell"
+          ],
+          "match_tokens": [
+            "picked",
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "wire_pick",
+          "surface": false,
+          "name": "Wire pick",
+          "descriptors": [
+            "sharp",
+            "modern"
+          ],
+          "match_tokens": [
+            "picked",
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_taraf",
+      "name": "Sympathetic strings",
+      "variants": [
+        {
+          "id": "taraf_eleven",
+          "default": true,
+          "name": "11 sympathetic strings",
+          "descriptors": [
+            "standard",
+            "full-resonance",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "taraf_fifteen",
+          "name": "15 sympathetic strings",
+          "descriptors": [
+            "ringing",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "sarod_teak_body",
+          "default": true,
+          "name": "Teak (canonical seasoned)",
+          "descriptors": [
+            "teak",
+            "seasoned-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_tun_body",
+          "name": "Tun (Indian cedar)",
+          "descriptors": [
+            "tun",
+            "indian-cedar",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_mahogany_body",
+          "name": "Mahogany (modern alternative)",
+          "descriptors": [
+            "mahogany",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_strings",
+      "surface": false,
+      "name": "Main playing strings",
+      "variants": [
+        {
+          "id": "sarod_steel_bronze_modern",
+          "default": true,
+          "name": "Steel + bronze (modern canon)",
+          "descriptors": [
+            "steel-bronze",
+            "modern-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_phosphor_bronze",
+          "name": "Phosphor bronze (alternative)",
+          "descriptors": [
+            "phosphor-bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_pure_steel",
+          "name": "Pure steel (heavier brightness)",
+          "descriptors": [
+            "pure-steel",
+            "heavier-brightness"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarod_gharana",
+      "surface": false,
+      "name": "Gharana lineage",
+      "variants": [
+        {
+          "id": "sarod_maihar_gharana",
+          "default": true,
+          "name": "Maihar gharana (Ali Akbar Khan / Allauddin Khan)",
+          "descriptors": [
+            "maihar-gharana",
+            "ali-akbar-khan-lineage",
+            "allauddin-khan-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_shahjahanpur_gharana",
+          "name": "Shahjahanpur / Bangash gharana (Amjad Ali Khan)",
+          "descriptors": [
+            "shahjahanpur-bangash-gharana",
+            "amjad-ali-khan-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sarod_senia_gharana",
+          "name": "Senia gharana (Mughal-era origin)",
+          "descriptors": [
+            "senia-gharana",
+            "mughal-era-origin"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

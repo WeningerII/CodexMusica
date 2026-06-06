@@ -1,0 +1,68 @@
+{
+  "id": "sami_northern_luohti",
+  "name": "Northern Sámi luohti yoik",
+  "family": "global",
+  "lineage": "Northern Sámi luohti yoik tradition of the Sápmi region of northern Norway, Sweden, Finland, and the Russian Kola Peninsula. Luohti is the principal yoik subgenre of the Northern Sámi (Davvisámegiella-speaking) population — a sung-vocal form whose conceptual orientation is fundamentally different from Western lyric song: a yoik does not sing \"about\" its subject but rather is the subject — to yoik a person, a place, or an animal is to evoke and bring-present that subject through the act of yoiking. Vocal style features narrow-range melody (two-to-five pitches typically), characteristic nasal-resonant timbre, characteristic descending-melodic-contour shapes, repeated melodic-formula cycling, and a strikingly non-strophic open-ended performance temporality (a yoik does not have a definite beginning or ending — the singer enters and exits a yoik mid-phrase). Pre-tempered tonal system with characteristic fourth, fifth, and octave intervals as the structural skeleton. Repertoire is personal: each Sámi person traditionally has an assigned-or-received luohti that names them, and natural-feature luohti exist for specific mountains, lakes, and reindeer-herd boundaries. The Sámi Christian-mission suppression-era 1850s-1950s pushed the tradition underground; the post-1970s Sámi cultural revival (anchored in the founding of the Sámi Parliament and the Sami University College) has restored public-performance space, with figures such as Nils-Aslak Valkeapää, Mari Boine, and Wimme Saari among the canonical twentieth-century revival figures. Arnt Bakke's 1949-1972 field-recording collection at UiT The Norwegian Arctic University Museum (Tromsø) and Ola Graff's continued 1982-2019 collection constitute the principal documentary anchor. Distinguished from Skolt and Southern Sámi yoik by Northern-Sámi-Davvisámegiella dialect; distinguished from Finnish joiku by language-specific cadential and intonation vocabulary.",
+  "recipe": "classic mid-1960s northern sámi luohti yoik, drone Modal, vocal branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. kargyraa, declaimed, melodic, unrestrained. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 363,
+  "score": 254.589,
+  "config": {
+    "traditions": [
+      "sami_northern_luohti",
+      "inuit_katajjaq_games",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 5.329999999999999,
+          "voice_quality": 2.745,
+          "voice_vibrato": 3.3149999999999995,
+          "voice_articulation": 2.89,
+          "voice_microtone": 2.600000000000001,
+          "voice_tradition": 27.585,
+          "voice_mechanism_compound": 5.28,
+          "voice_estill_quality": 7.475,
+          "voice_speech_song": 18.395000000000003,
+          "voice_ensemble_config": 16.64,
+          "voice_ornament_system": 20.527500000000003,
+          "voice_pitch_organization": 3.9650000000000007,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 8.709999999999999
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "sami_narrow_range_pentatonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

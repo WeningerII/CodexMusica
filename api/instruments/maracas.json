@@ -1,0 +1,200 @@
+{
+  "id": "maracas",
+  "name": "Maracas",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "maracas",
+  "parts": [
+    {
+      "id": "maracas_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "maracas_gourd",
+          "default": true,
+          "name": "Calabash gourd",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "gourd",
+            "calabash"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "maracas_leather",
+          "name": "Leather-bound (Venezuelan)",
+          "descriptors": [
+            "regional",
+            "distinctive",
+            "traditional",
+            "leather"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "maracas_plastic",
+          "name": "Plastic / synthetic",
+          "descriptors": [
+            "modern",
+            "mass-produced",
+            "consistent",
+            "plastic",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maracas_filling",
+      "name": "Filling",
+      "variants": [
+        {
+          "id": "maracas_seeds",
+          "default": true,
+          "name": "Dried seeds",
+          "descriptors": [
+            "organic-rattle",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "maracas_pebbles",
+          "name": "Small pebbles",
+          "descriptors": [
+            "sharper",
+            "denser",
+            "alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "maracas_beads",
+          "name": "Beads",
+          "descriptors": [
+            "modern",
+            "tightly-rhythmic",
+            "consistent"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "maracas_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "maracas_gourd",
+          "default": true,
+          "name": "Calabash gourd",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "gourd",
+            "calabash"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "maracas_leather",
+          "name": "Leather-bound (Venezuelan)",
+          "descriptors": [
+            "regional",
+            "distinctive",
+            "traditional",
+            "leather"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "maracas_plastic",
+          "name": "Plastic / synthetic",
+          "descriptors": [
+            "modern",
+            "mass-produced",
+            "consistent",
+            "plastic",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maracas_filling",
+      "name": "Filling",
+      "variants": [
+        {
+          "id": "maracas_seeds",
+          "default": true,
+          "name": "Dried seeds",
+          "descriptors": [
+            "organic-rattle",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "maracas_pebbles",
+          "name": "Small pebbles",
+          "descriptors": [
+            "sharper",
+            "denser",
+            "alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "maracas_beads",
+          "name": "Beads",
+          "descriptors": [
+            "modern",
+            "tightly-rhythmic",
+            "consistent"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "id": "electric_piano_tine",
+  "name": "Tine-and-tonebar electric piano",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 1
+  },
+  "short": "tine electric piano",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_jazz_comping",
+          "name": "Jazz comping",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "electric_piano_tine"
+          ],
+          "descriptors": [
+            "comped",
+            "voice-leading"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "comping",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "keyboard_gospel_chord_runs",
+          "name": "Gospel chord-runs",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "tonewheel_organ",
+            "electric_piano_tine"
+          ],
+          "descriptors": [
+            "gospel-runs"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "chordal",
+            "block-chord",
+            "bebop-runs"
+          ],
+          "canonical_tags": [
+            "gospel",
+            "soul"
+          ]
+        },
+        {
+          "id": "keyboard_minimalist_repeated",
+          "name": "Minimalist / repeated cells",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "electric_piano_tine",
+            "celesta",
+            "rhodes_electric"
+          ],
+          "descriptors": [
+            "repeated",
+            "cellular"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "minimalist"
+          ]
+        },
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        },
+        {
+          "id": "keyboard_ostinato_groove",
+          "name": "Ostinato groove",
+          "applies_to": [
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "electric_piano_tine",
+            "clavinet",
+            "tonewheel_organ"
+          ],
+          "descriptors": [
+            "ostinato",
+            "pocket"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "soul",
+            "funk"
+          ]
+        },
+        {
+          "id": "keyboard_arpeggio_sustain_rich",
+          "name": "Arpeggiated sustain-rich",
+          "applies_to": [
+            "grand_piano",
+            "rhodes_electric",
+            "mellotron",
+            "electric_piano_tine",
+            "tape_replay_keyboard",
+            "pipe_organ"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sustain-rich-overtones"
+          ],
+          "match_tokens": [
+            "arpeggio-decoration",
+            "sustained",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "shoegaze"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tine_voicing",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "mellow_tine",
+          "default": true,
+          "name": "Soft / mellow tines",
+          "descriptors": [
+            "woody"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "aggressive_tine",
+          "name": "Hard / bell-y tines",
+          "descriptors": [
+            "biting",
+            "crisp",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tine_effect",
+      "surface": false,
+      "name": "Effect chain",
+      "variants": [
+        {
+          "id": "dry_tine",
+          "name": "Dry",
+          "descriptors": [
+            "low-dynamic-level",
+            "pure"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "tremolo_tine",
+          "default": true,
+          "name": "Tremolo (auto-pan)",
+          "descriptors": [
+            "swirling",
+            "cyclical",
+            "vintage"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "rapid-tremolo",
+            "electric"
+          ]
+        },
+        {
+          "id": "phaser_tine",
+          "name": "Phaser",
+          "descriptors": [
+            "watery",
+            "sweeping"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "funk"
+          ]
+        },
+        {
+          "id": "overdrive_tine",
+          "name": "Overdrive",
+          "descriptors": [
+            "gritty",
+            "high-gain-saturation",
+            "rock-context"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tine_voicing",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "mellow_tine",
+          "default": true,
+          "name": "Soft / mellow tines",
+          "descriptors": [
+            "woody"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "aggressive_tine",
+          "name": "Hard / bell-y tines",
+          "descriptors": [
+            "biting",
+            "crisp",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tine_effect",
+      "surface": false,
+      "name": "Effect chain",
+      "variants": [
+        {
+          "id": "dry_tine",
+          "name": "Dry",
+          "descriptors": [
+            "low-dynamic-level",
+            "pure"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "tremolo_tine",
+          "default": true,
+          "name": "Tremolo (auto-pan)",
+          "descriptors": [
+            "swirling",
+            "cyclical",
+            "vintage"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "rapid-tremolo",
+            "electric"
+          ]
+        },
+        {
+          "id": "phaser_tine",
+          "name": "Phaser",
+          "descriptors": [
+            "watery",
+            "sweeping"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "funk"
+          ]
+        },
+        {
+          "id": "overdrive_tine",
+          "name": "Overdrive",
+          "descriptors": [
+            "gritty",
+            "high-gain-saturation",
+            "rock-context"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    }
+  ]
+}

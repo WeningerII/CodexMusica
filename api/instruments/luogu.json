@@ -1,0 +1,174 @@
+{
+  "id": "luogu",
+  "name": "Luogu (Chinese gong-and-drum percussion ensemble)",
+  "family": "ensemble",
+  "class": "drum_kit",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "luogu",
+  "parts": [
+    {
+      "id": "luogu_use",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "luogu_jingju",
+          "default": true,
+          "name": "Jingju (Beijing opera) percussion ensemble",
+          "descriptors": [
+            "percussion-section"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "beijing-opera",
+            "jingju"
+          ]
+        },
+        {
+          "id": "luogu_yueju",
+          "name": "Yueju (Cantonese opera) percussion ensemble",
+          "descriptors": [],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "cantonese-opera",
+            "yueju"
+          ]
+        },
+        {
+          "id": "luogu_ritual_celebratory",
+          "name": "Ritual / celebratory ensemble",
+          "descriptors": [
+            "ritual",
+            "celebratory",
+            "folk"
+          ],
+          "match_tokens": [
+            "ritual-context",
+            "percussive-attack",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "lion-dance",
+            "dragon-dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "luogu_sections",
+      "surface": false,
+      "name": "Section composition",
+      "variants": [
+        {
+          "id": "luogu_full_jingju",
+          "default": true,
+          "name": "Full jingju percussion (daluo, xiaoluo, naobo, ban, bangu)",
+          "descriptors": [
+            "ban-clapper"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "jingju"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "luogu_use",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "luogu_jingju",
+          "default": true,
+          "name": "Jingju (Beijing opera) percussion ensemble",
+          "descriptors": [
+            "percussion-section"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "beijing-opera",
+            "jingju"
+          ]
+        },
+        {
+          "id": "luogu_yueju",
+          "name": "Yueju (Cantonese opera) percussion ensemble",
+          "descriptors": [],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "cantonese-opera",
+            "yueju"
+          ]
+        },
+        {
+          "id": "luogu_ritual_celebratory",
+          "name": "Ritual / celebratory ensemble",
+          "descriptors": [
+            "ritual",
+            "celebratory",
+            "folk"
+          ],
+          "match_tokens": [
+            "ritual-context",
+            "percussive-attack",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "lion-dance",
+            "dragon-dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "luogu_sections",
+      "surface": false,
+      "name": "Section composition",
+      "variants": [
+        {
+          "id": "luogu_full_jingju",
+          "default": true,
+          "name": "Full jingju percussion (daluo, xiaoluo, naobo, ban, bangu)",
+          "descriptors": [
+            "ban-clapper"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "jingju"
+          ]
+        }
+      ]
+    }
+  ]
+}

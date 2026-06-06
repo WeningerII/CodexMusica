@@ -1,0 +1,127 @@
+{
+  "id": "maracatu",
+  "name": "Maracatu",
+  "family": "global",
+  "lineage": "Pernambuco (Recife-and-Olinda) Afro-Brazilian cortejo-procession carnival tradition of the nação-de-baque-virado coronation-pageant lineage 1700s-onward, where rei-and-rainha Black-royal-couple-and-court led by maracatu-baque-virado heavy-mid-tempo percussion processions enact symbolic Afro-Catholic-Yoruba-Bantu syncretic-king-coronation ceremony. The baque-virado rhythm features alfaia barrel-drums (two-headed rope-tensioned), caixa snare-with-bottom-strings, gonguê single-cowbell, and ganzá shaker, with calunga doll-and-staff iconography carried by the procession. The baque-solto rural-zonal variant adds woodwind-and-trumpet melodic-elements and faster-tempo agitation. The genre seeded 1990s mangue-beat fusion-rock and remains central to Recife carnival.",
+  "recipe": "classic North American mid-1700s maracatu, groove Percussion, Brazilian branch, Afro-diasporic ritual devotional bomba punta. thick, declaimed, chest resonance low mid, punctuated. wood rope tensioned maracatu tradition alfaia, caxixi, agogo, a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic global traditional polyphonic choir ensemble, afoxe. estudio rozenblit recife. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 596,
+  "score": 166.725,
+  "config": {
+    "traditions": [
+      "maracatu",
+      "bomba_puertorican",
+      "punta_garifuna"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 2.6000000000000023,
+          "voice_quality": 1.5599999999999996,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 0.72,
+          "voice_microtone": 2.250000000000001,
+          "voice_tradition": 5.9799999999999995,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 10.725,
+          "voice_ensemble_config": 11.05,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 2.99,
+          "voice_processing_chain": 2.6,
+          "voice_multitrack_stack": 1.3
+        }
+      },
+      {
+        "id": "alfaia",
+        "slots": {
+          "alfaia_shell": "alfaia_wood_rope",
+          "alfaia_skin": "alfaia_cowhide",
+          "alfaia_technique": "alfaia_two_sticks"
+        },
+        "scores": {
+          "alfaia_shell": 2.315,
+          "alfaia_skin": 0.15,
+          "alfaia_technique": 6.24
+        }
+      },
+      {
+        "id": "caxixi",
+        "slots": {
+          "caxixi_size": "caxixi_paired",
+          "caxixi_filling": "caxixi_beads"
+        },
+        "scores": {
+          "caxixi_size": 1.69,
+          "caxixi_filling": 0.165
+        }
+      },
+      {
+        "id": "agogo",
+        "slots": {
+          "agogo_bell": "agogo_double",
+          "agogo_context": "agogo_candomble"
+        },
+        "scores": {
+          "agogo_bell": 1.69,
+          "agogo_context": 3.33
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 1.3,
+          "choir_polyphonic_configuration": 2.08,
+          "choir_regional_canonical_configuration": 1.69,
+          "choir_ensemble_repertoire": 1.3
+        }
+      },
+      {
+        "id": "afoxe",
+        "slots": {
+          "afoxe_body": "afoxe_gourd_beads"
+        },
+        "scores": {
+          "afoxe_body": 0.15
+        }
+      }
+    ],
+    "room": "estudio_rozenblit_recife",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "maracatu_nacao_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

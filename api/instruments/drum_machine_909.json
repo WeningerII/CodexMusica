@@ -1,0 +1,318 @@
+{
+  "id": "drum_machine_909",
+  "name": "Roland TR-909 drum machine",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "TR-909",
+  "parts": [
+    {
+      "id": "tr909_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "tr909_kick",
+          "default": true,
+          "name": "Kick (punchy hybrid)",
+          "descriptors": [
+            "fast-attack-transient"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "house"
+          ]
+        },
+        {
+          "id": "tr909_hat",
+          "name": "Hi-hat (sample-based)",
+          "descriptors": [
+            "sizzly"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "tr909_clap",
+          "name": "Hand clap",
+          "descriptors": [
+            "sharp"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "rave"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drum_machine_909_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "drum_machine_909_house",
+          "default": true,
+          "name": "House music",
+          "descriptors": [
+            "Chicago-foundational",
+            "club-staple"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "drum_machine_909_techno",
+          "name": "Techno",
+          "descriptors": [
+            "mechanical",
+            "genre-defining"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "detroit"
+          ]
+        },
+        {
+          "id": "drum_machine_909_hardcore",
+          "name": "Hardcore / breakbeat",
+          "descriptors": [
+            "nineties-rave",
+            "fast-tempo",
+            "derivative-genres"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tr909_production_origin",
+      "surface": false,
+      "name": "Production origin",
+      "variants": [
+        {
+          "id": "tr909_roland_osaka_canonical",
+          "default": true,
+          "name": "Roland Osaka 1983-1985 (canonical original — 10,000 unit run, hybrid analog-sample architecture)",
+          "descriptors": [
+            "roland-osaka-1983-1985-canonical-original-10000-unit-run-hybrid-analog-sample"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "tr909_behringer_rd_9",
+          "name": "Behringer RD-9 (modern clone)",
+          "descriptors": [
+            "behringer-rd-9-modern-clone"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "tr909_tr_8s_modern",
+          "name": "Roland TR-8S (modern AIRA digital recreation)",
+          "descriptors": [
+            "roland-tr-8s-modern-aira-digital-recreation"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tr909_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "tr909_kick",
+          "default": true,
+          "name": "Kick (punchy hybrid)",
+          "descriptors": [
+            "fast-attack-transient"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "house"
+          ]
+        },
+        {
+          "id": "tr909_hat",
+          "name": "Hi-hat (sample-based)",
+          "descriptors": [
+            "sizzly"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "tr909_clap",
+          "name": "Hand clap",
+          "descriptors": [
+            "sharp"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "rave"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drum_machine_909_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "drum_machine_909_house",
+          "default": true,
+          "name": "House music",
+          "descriptors": [
+            "Chicago-foundational",
+            "club-staple"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "drum_machine_909_techno",
+          "name": "Techno",
+          "descriptors": [
+            "mechanical",
+            "genre-defining"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "detroit"
+          ]
+        },
+        {
+          "id": "drum_machine_909_hardcore",
+          "name": "Hardcore / breakbeat",
+          "descriptors": [
+            "nineties-rave",
+            "fast-tempo",
+            "derivative-genres"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tr909_production_origin",
+      "surface": false,
+      "name": "Production origin",
+      "variants": [
+        {
+          "id": "tr909_roland_osaka_canonical",
+          "default": true,
+          "name": "Roland Osaka 1983-1985 (canonical original — 10,000 unit run, hybrid analog-sample architecture)",
+          "descriptors": [
+            "roland-osaka-1983-1985-canonical-original-10000-unit-run-hybrid-analog-sample"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "tr909_behringer_rd_9",
+          "name": "Behringer RD-9 (modern clone)",
+          "descriptors": [
+            "behringer-rd-9-modern-clone"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "tr909_tr_8s_modern",
+          "name": "Roland TR-8S (modern AIRA digital recreation)",
+          "descriptors": [
+            "roland-tr-8s-modern-aira-digital-recreation"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "dance-driving"
+          ]
+        }
+      ]
+    }
+  ]
+}

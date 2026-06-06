@@ -1,0 +1,122 @@
+{
+  "id": "pahu",
+  "name": "Pahu (Hawaiian sharkskin log drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pahu",
+  "parts": [
+    {
+      "id": "pahu_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "pahu_coconut_log_sharkskin_canonical",
+          "default": true,
+          "name": "Coconut log carved hollow, sharkskin head, hand-struck (canonical Hawaiian sacred drum)",
+          "descriptors": [
+            "coconut-log-carved-hollow-sharkskin-head-hand-struck-canonical-hawaiian-sacred"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition",
+            "polynesian-sacred"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pahu_role",
+      "surface": false,
+      "name": "Ceremonial role",
+      "variants": [
+        {
+          "id": "pahu_heiau_sacred_canonical",
+          "default": true,
+          "name": "Heiau (temple) sacred — pahu pu‘ule prayer drum",
+          "descriptors": [
+            "heiau-temple-sacred-pahu-puule-prayer-drum"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition",
+            "polynesian-sacred"
+          ]
+        },
+        {
+          "id": "pahu_hula_kahiko_accompaniment",
+          "name": "Hula kahiko accompaniment (pahu mele)",
+          "descriptors": [
+            "hula-kahiko-accompaniment-pahu-mele-song-drum"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pahu_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "pahu_coconut_log_sharkskin_canonical",
+          "default": true,
+          "name": "Coconut log carved hollow, sharkskin head, hand-struck (canonical Hawaiian sacred drum)",
+          "descriptors": [
+            "coconut-log-carved-hollow-sharkskin-head-hand-struck-canonical-hawaiian-sacred"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition",
+            "polynesian-sacred"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pahu_role",
+      "surface": false,
+      "name": "Ceremonial role",
+      "variants": [
+        {
+          "id": "pahu_heiau_sacred_canonical",
+          "default": true,
+          "name": "Heiau (temple) sacred — pahu pu‘ule prayer drum",
+          "descriptors": [
+            "heiau-temple-sacred-pahu-puule-prayer-drum"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition",
+            "polynesian-sacred"
+          ]
+        },
+        {
+          "id": "pahu_hula_kahiko_accompaniment",
+          "name": "Hula kahiko accompaniment (pahu mele)",
+          "descriptors": [
+            "hula-kahiko-accompaniment-pahu-mele-song-drum"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "hawaiian-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

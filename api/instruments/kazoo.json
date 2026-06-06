@@ -1,0 +1,90 @@
+{
+  "id": "kazoo",
+  "name": "Kazoo (membranophone hummed-through pipe)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kazoo",
+  "parts": [
+    {
+      "id": "kazoo_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "kazoo_metal",
+          "default": true,
+          "name": "Metal kazoo (canonical)",
+          "descriptors": [
+            "buzzy"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "jug-band",
+            "skiffle"
+          ]
+        },
+        {
+          "id": "kazoo_plastic",
+          "name": "Plastic kazoo (modern)",
+          "descriptors": [
+            "lightweight",
+            "modern",
+            "plastic"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kazoo_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "kazoo_metal",
+          "default": true,
+          "name": "Metal kazoo (canonical)",
+          "descriptors": [
+            "buzzy"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "jug-band",
+            "skiffle"
+          ]
+        },
+        {
+          "id": "kazoo_plastic",
+          "name": "Plastic kazoo (modern)",
+          "descriptors": [
+            "lightweight",
+            "modern",
+            "plastic"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

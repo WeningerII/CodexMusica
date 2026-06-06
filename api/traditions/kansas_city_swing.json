@@ -1,0 +1,198 @@
+{
+  "id": "kansas_city_swing",
+  "name": "Kansas City swing",
+  "family": "jazz",
+  "lineage": "1930s-40s Kansas City African-American big-band swing tradition (Count Basie, Bennie Moten, Mary Lou Williams, Lester Young, Charlie Parker) built on blues-frame riff-foreground structure and head arrangements rather than pre-written scores",
+  "recipe": "classic North American mid-1930s kansas city swing, improv On Frame, kansas city branch, American jazz early, American jazz bop, American jazz boogie woogie new orleans jazz boogie-woogie. thick, blues-shouter, nervy, equal tempered. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, birch vintage ambassador asymmetric bronze bell bronze drum kit. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 780,
+  "score": 690.652,
+  "config": {
+    "traditions": [
+      "kansas_city_swing",
+      "new_orleans",
+      "boogie_woogie"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 1.5,
+          "sax_size": 2.1449999999999996,
+          "sax_reed": 0.645,
+          "sax_body_alloy": 13.800625,
+          "sax_mouthpiece": 0.945,
+          "sax_technique": 13.75,
+          "sax_maker_school": 17.81
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.5,
+          "brass_size": 0.945,
+          "trumpet_mouthpiece": 17.875,
+          "brass_mute": 0.8306249999999998,
+          "trumpet_technique": 1.5,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 7.15
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 1.5,
+          "trombone_type": 13.75,
+          "trombone_mouthpiece": 14.09,
+          "trombone_mute": 0,
+          "trombone_technique": 0.78,
+          "trombone_bell_metal": 0.39,
+          "trombone_maker_school": 7.15
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 2.7849999999999993,
+          "grand_piano_size": 0.435,
+          "grand_piano_brand": 1.17,
+          "piano_hammer": 7.085,
+          "piano_rim": 9.165,
+          "piano_soundboard": 2.015,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 0.325
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "upright_strings": 13.75,
+          "upright_play": 13.75
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "fourteen_step_hammering",
+          "cymbal_lathing": "hand_lathed_pit_retaining",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 17.289999999999992,
+          "shell_wood": 1.340625,
+          "shell_thickness": 0,
+          "bearing_edges": 0.045,
+          "drumhead": 17.81,
+          "snare_wires": 0.045,
+          "cymbal_alloy": 19.218249999999998,
+          "cymbal_hammering": 15.075625,
+          "cymbal_lathing": 14.629999999999999,
+          "cymbal_finish": 0.645,
+          "drum_technique": 17.289999999999992
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 19.093999999999998,
+          "voice_quality": 15.330124999999994,
+          "voice_vibrato": 0.645,
+          "voice_articulation": 0.414375,
+          "voice_microtone": 13.603124999999999,
+          "voice_tradition": 17.875,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 1.755,
+          "voice_speech_song": 10.594999999999995,
+          "voice_ensemble_config": 10.139999999999997,
+          "voice_ornament_system": 0.49499999999999994,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 4.029999999999999,
+          "voice_multitrack_stack": 0.6499999999999999
+        }
+      }
+    ],
+    "room": "studio_swing_live_room",
+    "archetype": "arch_swing_era_live_studio",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

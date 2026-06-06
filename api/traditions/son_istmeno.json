@@ -1,0 +1,98 @@
+{
+  "id": "son_istmeno",
+  "name": "Son istmeño (Oaxaca Isthmus)",
+  "family": "global",
+  "lineage": "Regional Mexican son tradition of the Isthmus of Tehuantepec (southeastern Oaxaca), the Zapotec-cultural-region southern-Mexican-Pacific lowland. Zapotec-language vocal repertoire alongside Spanish, characteristic 6/8 alternating-with-3/4, and Tehuana-feminine cultural register. Marimba ensemble (parallel to but distinct from Guatemalan Maya marimba), acoustic-guitar, voice. La Sandunga (Andrés Gutiérrez 1853) is the unofficial Zapotec anthem.",
+  "recipe": "classic early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion pagode baião. vocal fry, intimate aspirated, punctuated, Chinese classical vocal. marimba orchestral, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 443,
+  "score": 72.568,
+  "config": {
+    "traditions": [
+      "son_istmeno",
+      "pagode",
+      "baiao"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 1.25,
+          "voice_vibrato": 0.38999999999999996,
+          "voice_articulation": 0.9299999999999999,
+          "voice_microtone": 0.045,
+          "voice_tradition": 4.875000000000001,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 1.625,
+          "voice_ensemble_config": 3.38,
+          "voice_ornament_system": 3.2,
+          "voice_pitch_organization": 1.2899999999999998,
+          "voice_processing_chain": 2.07,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "marimba_orchestral",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "marimba_size": "marimba_4_octave",
+          "marimba_orchestral_bar": "marimba_orchestral_padauk"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "marimba_size": 0.15,
+          "marimba_orchestral_bar": 0.15
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "sitka_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "coated_nano_p"
+        },
+        "scores": {
+          "acoustic_technique": 2.05,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.24,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.24
+        }
+      }
+    ],
+    "room": "mexico_bolero_xochimilco_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mariachi_son_6_8_3_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

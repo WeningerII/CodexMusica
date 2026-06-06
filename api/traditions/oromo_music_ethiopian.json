@@ -1,0 +1,111 @@
+{
+  "id": "oromo_music_ethiopian",
+  "name": "Oromo music (Ethiopian Cushitic)",
+  "family": "global",
+  "lineage": "Oromo vocal-and-instrumental tradition of central-southern Ethiopia and northern Kenya, the largest Cushitic-language-speaking community in the Horn of Africa. Repertoire spans geerarsa men's heroic chant, weedduu wedding songs, irreecha thanksgiving songs at Lake Hora Arsadi, and contemporary Afaan Oromoo political-protest song. Performance integrates voice-led melodic content with krar, masenqo, and kebero accompaniment. Modal vocabulary draws on qenet pentatonic with Borana-Macha-Tulama-Arsi regional cadential vocabulary.",
+  "recipe": "classic modern oromo music, ballad Poetry, west African griot branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, declaimed, pure, mande jeli vocal. gut ethiopian historical krar, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved kebero, curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 566,
+  "score": 179.76,
+  "config": {
+    "traditions": [
+      "oromo_music_ethiopian",
+      "pontic_greek",
+      "azmari_ethiopian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 4.355000000000001,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0,
+          "voice_microtone": 0.24,
+          "voice_tradition": 16.639999999999997,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 2.4050000000000002,
+          "voice_pitch_organization": 5.975,
+          "voice_processing_chain": 1.9289999999999998,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "krar",
+        "slots": {
+          "krar_strings": "krar_six",
+          "krar_body": "krar_wood_skin",
+          "krar_string_material": "krar_gut_historical"
+        },
+        "scores": {
+          "krar_strings": 1.69,
+          "krar_body": 0,
+          "krar_string_material": 1.2349999999999999
+        }
+      },
+      {
+        "id": "kebero",
+        "slots": {
+          "kebero_skin": "kebero_calfskin",
+          "kebero_shell_wood": "kebero_olive_canonical",
+          "kebero_tradition": "kebero_orthodox_tewahedo"
+        },
+        "scores": {
+          "kebero_skin": 1.69,
+          "kebero_shell_wood": 1.3,
+          "kebero_tradition": 0.8839999999999999
+        }
+      },
+      {
+        "id": "masenqo",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "masenqo_body": "masenqo_diamond_parchment",
+          "masenqo_string": "masenqo_horsehair_single",
+          "masenqo_bow": "masenqo_horsehair_curved_bow",
+          "masenqo_tradition": "masenqo_azmari"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "masenqo_body": 0.18525,
+          "masenqo_string": 0,
+          "masenqo_bow": 1.3,
+          "masenqo_tradition": 1.3
+        }
+      }
+    ],
+    "room": "tanzanian_outdoor_village_clearing",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "ethio_qenet_unified",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

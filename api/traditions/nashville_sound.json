@@ -1,0 +1,102 @@
+{
+  "id": "nashville_sound",
+  "name": "Nashville Sound",
+  "family": "country",
+  "lineage": "Late-1950s through 1960s smooth-pop country crossover production aesthetic codified by Chet Atkins (RCA Studio B Nashville producer, the Nashville Sound architect) and Owen Bradley (Decca/MCA Quonset Hut producer) as a deliberate softening of honky-tonks rough-edged dance-hall instrumentation toward smoother string-section and vocal-chorus-backed pop production — designed to compete with rock and roll for AM-radio pop airplay; recordings include Patsy Cline I Fall to Pieces 1961 and Crazy 1961, Jim Reeves Hes Got the Whole World in His Hands 1962, Eddy Arnold Make the World Go Away 1965",
+  "recipe": "classic North American 1957-1959 nashville sound, functional Song, nashville branch, crooners functional song brill building pop american barbershop quartet. thick, melodic, equal tempered, modern pop training. parlor classic steel silk strummed open chord ringing overtones parlor acoustic guitar, double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 559,
+  "score": 191.879,
+  "config": {
+    "traditions": [
+      "nashville_sound",
+      "brill_building_pop",
+      "barbershop_quartet"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 23.658499999999993,
+          "voice_quality": 0.19500000000000003,
+          "voice_vibrato": 11.815499999999998,
+          "voice_articulation": 0.13000000000000003,
+          "voice_microtone": 12.202499999999997,
+          "voice_tradition": 12.524499999999998,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 13.524999999999995,
+          "voice_speech_song": 11.114999999999997,
+          "voice_ensemble_config": 7.799999999999999,
+          "voice_ornament_system": 0.1575,
+          "voice_pitch_organization": 1.0045,
+          "voice_processing_chain": 5.265,
+          "voice_multitrack_stack": 2.08
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "d_standard",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "rosewood_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
+        },
+        "scores": {
+          "acoustic_technique": 11.704499999999998,
+          "string_tuning": 0.9044999999999999,
+          "top_wood_parlor": 0.39,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 1.119
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "plain_lamb_gut_fiddle",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 13.107499999999998,
+          "fiddle_strings": 0.95,
+          "fiddle_bow": 0.015,
+          "fiddle_mute": 0.363,
+          "fiddle_articulation": 0.0655
+        }
+      }
+    ],
+    "room": "nashville_rca_studio_b_quonset_hut",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_api_525",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "country_nashville_three_chord_train_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

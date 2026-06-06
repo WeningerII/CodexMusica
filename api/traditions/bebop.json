@@ -1,0 +1,142 @@
+{
+  "id": "bebop",
+  "name": "Bebop",
+  "family": "jazz",
+  "lineage": "1944-1955 small-group jazz vocabulary codified by Charlie Parker, Dizzy Gillespie, Thelonious Monk, Bud Powell, Max Roach, Kenny Clarke — rapid chord changes, virtuosic melodic improvisation, complex rhythmic displacement, intimate quintet-sextet format displacing swing-era big bands",
+  "recipe": "classic North American mid-1950s bebop, improv On Frame, bop branch, American jazz early swing-era jazz orchestra new orleans jazz. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit. converted living room 1944-1959 indie-commercial van gelder hackensack. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 658,
+  "score": 359.864,
+  "config": {
+    "traditions": [
+      "bebop",
+      "big_band",
+      "new_orleans"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 4,
+          "sax_size": 4.048375,
+          "sax_reed": 0.048375,
+          "sax_body_alloy": 12.299999999999999,
+          "sax_mouthpiece": 0.15,
+          "sax_technique": 12,
+          "sax_maker_school": 15.534999999999998
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 4,
+          "brass_size": 0.054,
+          "trumpet_mouthpiece": 15.6,
+          "brass_mute": 0.39,
+          "trumpet_technique": 4,
+          "trumpet_bell_metal": 0.9221250000000001,
+          "trumpet_maker_school": 2.8600000000000003
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 1.74225,
+          "grand_piano_size": 0.406875,
+          "grand_piano_brand": 0.406875,
+          "piano_hammer": 2.7950000000000004,
+          "piano_rim": 2.7950000000000004,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.255625,
+          "piano_pitch_standard": 0.7149999999999999
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": 1.7922500000000001,
+          "upright_strings": 12,
+          "upright_play": 12
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "fourteen_step_hammering",
+          "cymbal_lathing": "hand_lathed_pit_retaining",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_jazz"
+        },
+        "scores": {
+          "percussion_technique": 8.45,
+          "shell_wood": 0.395625,
+          "shell_thickness": 0.005625,
+          "bearing_edges": 0.016875,
+          "drumhead": 15.534999999999998,
+          "snare_wires": 0.016875,
+          "cymbal_alloy": 13.444999999999999,
+          "cymbal_hammering": 14.905624999999999,
+          "cymbal_lathing": 12.11125,
+          "cymbal_finish": 0.048375,
+          "drum_technique": 12
+        }
+      }
+    ],
+    "room": "van_gelder_hackensack",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "bebop_complex_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

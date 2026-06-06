@@ -1,0 +1,68 @@
+{
+  "id": "arabic_tahwidah",
+  "name": "Arabic tahwidah (تهويدة, cradle song)",
+  "family": "global",
+  "lineage": "Pan-Arab lullaby tradition (the term tahwidah cognate with the Arabic verb hawwada, 'to lull/soothe'), regional variants across Levantine, Maghrebi, Egyptian, Yemeni, and Gulf-Arabian traditions. Sung by mothers-and-grandmothers in informal domestic-context with no instrumental accompaniment, the tahwidah employs free-rhythm slow-tempo melismatic-ornamentation drawing on classical-maqam modal-vocabulary (Bayati, Rast, and Hijaz being the most common for lullabies). Lyrics typically address the child directly (often with regional-dialectal diminutives) and reference religious-protection invocations, mother's-and-grandmother's wishes-for-the-child, and pastoral imagery. The tradition has been disproportionately preserved by ethnomusicological field-recordings since the 1960s due to its private-domestic context being underrepresented in commercial-recording.",
+  "recipe": "classic mid-1960s arabic tahwidah, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry persian dastgāh andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, unrestrained. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 399,
+  "score": 256.245,
+  "config": {
+    "traditions": [
+      "arabic_tahwidah",
+      "persian_dastgah",
+      "andalusi_nuba"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "arabic_maqam_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 2.0500000000000007,
+          "voice_vibrato": 2.9899999999999998,
+          "voice_articulation": 2.5,
+          "voice_microtone": 21.154999999999998,
+          "voice_tradition": 29.185,
+          "voice_mechanism_compound": 10.235000000000001,
+          "voice_estill_quality": 8.850000000000001,
+          "voice_speech_song": 11.634999999999998,
+          "voice_ensemble_config": 8.84,
+          "voice_ornament_system": 24.974999999999998,
+          "voice_pitch_organization": 25.455,
+          "voice_processing_chain": 4.159999999999999,
+          "voice_multitrack_stack": 2.08
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

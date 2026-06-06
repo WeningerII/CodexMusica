@@ -1,0 +1,68 @@
+{
+  "id": "inuit_katajjaq_games",
+  "name": "Inuit katajjaq throat-singing game",
+  "family": "global",
+  "lineage": "Inuit katajjaq throat-singing game tradition of the eastern Canadian Arctic (Nunavut, Nunavik, and Nunatsiavut Inuit communities), with cognate forms across the Inuit cultural area including nipaquhiit in the Kivalliq region, pirqsirniq in Iglulik, and parallel Iñupiaq and Yupik forms in Alaska and Chukotka. Performed by two women standing face-to-face, very close together, taking turns producing rhythmic vocal patterns of inhaled-and-exhaled breath-sounds, throat-clicks, glottal-stops, and pitched-fundamental tones — each woman's mouth and throat resonating as a chamber that the other's breath excites, with the two voices interlocking in rapid hocketed alternation. The game ends when one performer either laughs, cannot maintain the breath-cycle, or breaks the established pattern. Functionally a game (entertainment, competition) rather than ritual or aesthetic performance — though in some communities also functions as a women's collective-bonding practice and as a contest-skill display. Katajjaq is genealogically and acoustically connected to the Ainu rekuhkara women's-throat-game tradition (extinct early twentieth century), with both forms hypothesized to descend from a circum-Pacific-Arctic ancient substrate. Jean-Jacques Nattiez's 1999 Ethnomusicology article (Inuit Throat-Games and Siberian Throat Singing, 43/3) and Beverley Cavanagh's 1976 Canadian Folk Music Journal piece constitute the foundational scholarship; Tanya Tagaq (born 1975, Cambridge Bay, Nunavut) is the contemporary revival figure whose performance-art interpretation has brought international visibility to the tradition. Distinguished from Tuvan and Mongolian overtone-singing by katajjaq's female-duo hocketed-breath-and-throat-sound configuration (vs solo single-voice-overtone-melody); distinguished from broader throat-singing by katajjaq's game/contest functional context.",
+  "recipe": "classic late-1990s inuit katajjaq throat-singing game, ritual Devotional, arctic branch, overtone drone modal tuvan throat singing khöömii. sygyt, false fold engaged, overtone rich sustained, punctuated. iglu community hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 354,
+  "score": 371.462,
+  "config": {
+    "traditions": [
+      "inuit_katajjaq_games",
+      "tuvan_throat",
+      "mongolian_xoomii"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 15.275,
+          "voice_quality": 14.689999999999998,
+          "voice_vibrato": 3.5100000000000002,
+          "voice_articulation": 1.645,
+          "voice_microtone": 14.571250000000003,
+          "voice_tradition": 51.08125,
+          "voice_mechanism_compound": 27.145,
+          "voice_estill_quality": 6.695,
+          "voice_speech_song": 18.395000000000003,
+          "voice_ensemble_config": 19.630000000000003,
+          "voice_ornament_system": 9.45,
+          "voice_pitch_organization": 16.185000000000002,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 3.38
+        }
+      }
+    ],
+    "room": "iglu_community_hall",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "id": "string_quartet_inst",
+  "name": "String quartet (ensemble)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "string quartet",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "quartet_school",
+      "surface": false,
+      "name": "Performance school",
+      "variants": [
+        {
+          "id": "quartet_classical",
+          "default": true,
+          "name": "Classical / romantic standard",
+          "descriptors": [
+            "blended"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bowed",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "quartet_baroque",
+          "name": "Baroque (gut, period)",
+          "descriptors": [
+            "gut"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "quartet_modern",
+          "name": "Modern / contemporary",
+          "descriptors": [
+            "extended-techniques",
+            "timbral",
+            "experimental"
+          ],
+          "match_tokens": [
+            "modern",
+            "bowed",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_quartet_inst_era",
+      "surface": false,
+      "name": "Era / repertoire",
+      "variants": [
+        {
+          "id": "string_quartet_inst_classical",
+          "default": true,
+          "name": "Classical period (late-eighteenth)",
+          "descriptors": [
+            "foundational",
+            "foundational-form",
+            "historical"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bowed"
+          ]
+        },
+        {
+          "id": "string_quartet_inst_romantic",
+          "name": "Romantic / late-Romantic",
+          "descriptors": [
+            "nineteenth-century",
+            "expressive-extended",
+            "expanded-form"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "bowed"
+          ]
+        },
+        {
+          "id": "string_quartet_inst_contemporary",
+          "name": "Modern / contemporary",
+          "descriptors": [
+            "twentieth-first-century",
+            "experimental",
+            "expanded-language"
+          ],
+          "match_tokens": [
+            "contemporary",
+            "contemporary-classical",
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "quartet_school",
+      "surface": false,
+      "name": "Performance school",
+      "variants": [
+        {
+          "id": "quartet_classical",
+          "default": true,
+          "name": "Classical / romantic standard",
+          "descriptors": [
+            "blended"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bowed",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "quartet_baroque",
+          "name": "Baroque (gut, period)",
+          "descriptors": [
+            "gut"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "bowed",
+            "ensemble",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "quartet_modern",
+          "name": "Modern / contemporary",
+          "descriptors": [
+            "extended-techniques",
+            "timbral",
+            "experimental"
+          ],
+          "match_tokens": [
+            "modern",
+            "bowed",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_quartet_inst_era",
+      "surface": false,
+      "name": "Era / repertoire",
+      "variants": [
+        {
+          "id": "string_quartet_inst_classical",
+          "default": true,
+          "name": "Classical period (late-eighteenth)",
+          "descriptors": [
+            "foundational",
+            "foundational-form",
+            "historical"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bowed"
+          ]
+        },
+        {
+          "id": "string_quartet_inst_romantic",
+          "name": "Romantic / late-Romantic",
+          "descriptors": [
+            "nineteenth-century",
+            "expressive-extended",
+            "expanded-form"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "bowed"
+          ]
+        },
+        {
+          "id": "string_quartet_inst_contemporary",
+          "name": "Modern / contemporary",
+          "descriptors": [
+            "twentieth-first-century",
+            "experimental",
+            "expanded-language"
+          ],
+          "match_tokens": [
+            "contemporary",
+            "contemporary-classical",
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

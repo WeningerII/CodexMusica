@@ -1,0 +1,217 @@
+{
+  "id": "qawwal_voice",
+  "surface": false,
+  "name": "Qawwal lead voice",
+  "family": "voice",
+  "class": "vocal_lead",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "qawwal voice",
+  "parts": [
+    {
+      "id": "qawwal_role",
+      "surface": false,
+      "name": "Role",
+      "variants": [
+        {
+          "id": "qawwali_lead",
+          "default": true,
+          "name": "Qawwali lead vocalist (mukhya)",
+          "descriptors": [
+            "melismatic",
+            "ornate",
+            "sustained-high-register",
+            "declaimed",
+            "ecstatic",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "qawwali",
+            "devotional",
+            "sufi"
+          ]
+        },
+        {
+          "id": "qawwali_chorus",
+          "name": "Qawwali chorus (group-response)",
+          "descriptors": [
+            "responsorial",
+            "antiphonal-articulation",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "melismatic",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "devotional",
+            "qawwali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qawwal_voice_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "qawwal_voice_shrine",
+          "default": true,
+          "name": "Sufi shrine (canonical)",
+          "descriptors": [
+            "ceremonial",
+            "devotional"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "melismatic"
+          ]
+        },
+        {
+          "id": "qawwal_voice_concert",
+          "surface": false,
+          "name": "Concert hall",
+          "descriptors": [
+            "twentieth-century-onward",
+            "staged",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "concert",
+            "speech-derived",
+            "melismatic"
+          ]
+        },
+        {
+          "id": "qawwal_voice_film",
+          "surface": false,
+          "name": "Pop / film fusion",
+          "descriptors": [
+            "commercial",
+            "cross-genre",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "melismatic",
+            "devotional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "qawwal_role",
+      "surface": false,
+      "name": "Role",
+      "variants": [
+        {
+          "id": "qawwali_lead",
+          "default": true,
+          "name": "Qawwali lead vocalist (mukhya)",
+          "descriptors": [
+            "melismatic",
+            "ornate",
+            "sustained-high-register",
+            "declaimed",
+            "ecstatic",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "qawwali",
+            "devotional",
+            "sufi"
+          ]
+        },
+        {
+          "id": "qawwali_chorus",
+          "name": "Qawwali chorus (group-response)",
+          "descriptors": [
+            "responsorial",
+            "antiphonal-articulation",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "melismatic",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "devotional",
+            "qawwali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qawwal_voice_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "qawwal_voice_shrine",
+          "default": true,
+          "name": "Sufi shrine (canonical)",
+          "descriptors": [
+            "ceremonial",
+            "devotional"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "melismatic"
+          ]
+        },
+        {
+          "id": "qawwal_voice_concert",
+          "surface": false,
+          "name": "Concert hall",
+          "descriptors": [
+            "twentieth-century-onward",
+            "staged",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "concert",
+            "speech-derived",
+            "melismatic"
+          ]
+        },
+        {
+          "id": "qawwal_voice_film",
+          "surface": false,
+          "name": "Pop / film fusion",
+          "descriptors": [
+            "commercial",
+            "cross-genre",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "melismatic",
+            "devotional"
+          ]
+        }
+      ]
+    }
+  ]
+}

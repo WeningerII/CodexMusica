@@ -1,0 +1,274 @@
+{
+  "id": "kakaki",
+  "name": "Kakaki (West African long trumpet)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kakaki",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_call_blowing",
+          "default": true,
+          "name": "Call-blowing (signal/ritual)",
+          "applies_to": [
+            "shofar",
+            "kakaki",
+            "conch_shell_horn"
+          ],
+          "descriptors": [
+            "call",
+            "ritual"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "call-response",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "liturgical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kakaki_length",
+      "name": "Length class",
+      "variants": [
+        {
+          "id": "kakaki_short",
+          "name": "Short (~2m)",
+          "descriptors": [
+            "portable",
+            "wedding-context",
+            "common"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "kakaki_standard",
+          "default": true,
+          "name": "Standard (~3m)",
+          "descriptors": [
+            "court-ceremonial",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "kakaki_long",
+          "name": "Extra-long (~4m+)",
+          "descriptors": [
+            "ceremonial",
+            "royal-context",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kakaki_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "kakaki_court",
+          "default": true,
+          "name": "Sarki court ceremonial",
+          "descriptors": [
+            "Hausa-Fulani-traditional"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "kakaki_procession",
+          "name": "Wedding procession",
+          "descriptors": [
+            "celebratory",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "kakaki_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "cultural-preservation",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kakaki_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "kakaki_brass_canonical",
+          "default": true,
+          "name": "Sheet brass (canonical Hausa-Fulani — hammered tube)",
+          "descriptors": [
+            "sheet-brass-canonical-hausa-fulani-hammered-tube"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "kakaki_copper",
+          "name": "Copper (alternative)",
+          "descriptors": [
+            "copper-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kakaki_length",
+      "name": "Length class",
+      "variants": [
+        {
+          "id": "kakaki_short",
+          "name": "Short (~2m)",
+          "descriptors": [
+            "portable",
+            "wedding-context",
+            "common"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "kakaki_standard",
+          "default": true,
+          "name": "Standard (~3m)",
+          "descriptors": [
+            "court-ceremonial",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "kakaki_long",
+          "name": "Extra-long (~4m+)",
+          "descriptors": [
+            "ceremonial",
+            "royal-context",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kakaki_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "kakaki_court",
+          "default": true,
+          "name": "Sarki court ceremonial",
+          "descriptors": [
+            "Hausa-Fulani-traditional"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "kakaki_procession",
+          "name": "Wedding procession",
+          "descriptors": [
+            "celebratory",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "kakaki_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "cultural-preservation",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kakaki_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "kakaki_brass_canonical",
+          "default": true,
+          "name": "Sheet brass (canonical Hausa-Fulani — hammered tube)",
+          "descriptors": [
+            "sheet-brass-canonical-hausa-fulani-hammered-tube"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "kakaki_copper",
+          "name": "Copper (alternative)",
+          "descriptors": [
+            "copper-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

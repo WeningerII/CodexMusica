@@ -1,0 +1,389 @@
+{
+  "id": "sampler_drum_machine",
+  "name": "Sample-based drum machine / sampler",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "sampler drum machine",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_sample_chopped",
+          "name": "Sample chopped",
+          "applies_to": [
+            "sampler_classic",
+            "sampler_drum_machine",
+            "turntable"
+          ],
+          "descriptors": [
+            "chopped",
+            "sampled"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "plunderphonics"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sample_bitdepth",
+      "surface": false,
+      "name": "Bit depth / sample rate",
+      "variants": [
+        {
+          "id": "twelve_bit",
+          "name": "12-bit @ ~26 kHz",
+          "descriptors": [
+            "gritty"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "boom-bap"
+          ]
+        },
+        {
+          "id": "eight_bit",
+          "name": "8-bit (early)",
+          "descriptors": [
+            "crunchy",
+            "aliased",
+            "archaic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "sixteen_bit",
+          "default": true,
+          "name": "16-bit @ 44.1 kHz",
+          "descriptors": [
+            "clean",
+            "low-distortion-low-coloration",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "twenty_four_bit",
+          "name": "24-bit @ 96 kHz",
+          "descriptors": [
+            "pristine",
+            "hi-fi",
+            "audiophile"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sample_swing",
+      "name": "Swing / timing",
+      "variants": [
+        {
+          "id": "tight_swing",
+          "name": "Tight quantize",
+          "descriptors": [
+            "rigid",
+            "mechanical"
+          ],
+          "match_tokens": [
+            "tight-attack",
+            "subtle-swing",
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "electronic"
+          ]
+        },
+        {
+          "id": "mid_swing",
+          "default": true,
+          "name": "Medium swing (~54%)",
+          "descriptors": [
+            "hip-hop-warm",
+            "flexible",
+            "human"
+          ],
+          "match_tokens": [
+            "subtle-swing",
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "heavy_swing",
+          "name": "Heavy swing (~58–62%)",
+          "descriptors": [
+            "swung",
+            "pocket"
+          ],
+          "match_tokens": [
+            "heavy",
+            "low-end-heavy",
+            "subtle-swing",
+            "electronic"
+          ],
+          "canonical_tags": [
+            "boom-bap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sample_processing",
+      "name": "Sample processing",
+      "variants": [
+        {
+          "id": "pitched_kick",
+          "default": true,
+          "name": "Pitched-and-stretched kick",
+          "descriptors": [
+            "low-mid-thick",
+            "tuned"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "chopped_break",
+          "name": "Chopped breakbeat",
+          "descriptors": [
+            "rolling"
+          ],
+          "match_tokens": [
+            "chopped",
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "jungle"
+          ]
+        },
+        {
+          "id": "one_shots_layered",
+          "name": "Layered one-shots",
+          "descriptors": [
+            "dense",
+            "hybrid",
+            "engineered"
+          ],
+          "match_tokens": [
+            "layered",
+            "electronic",
+            "sample-based"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sample_bitdepth",
+      "surface": false,
+      "name": "Bit depth / sample rate",
+      "variants": [
+        {
+          "id": "twelve_bit",
+          "name": "12-bit @ ~26 kHz",
+          "descriptors": [
+            "gritty"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "boom-bap"
+          ]
+        },
+        {
+          "id": "eight_bit",
+          "name": "8-bit (early)",
+          "descriptors": [
+            "crunchy",
+            "aliased",
+            "archaic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "sixteen_bit",
+          "default": true,
+          "name": "16-bit @ 44.1 kHz",
+          "descriptors": [
+            "clean",
+            "low-distortion-low-coloration",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "twenty_four_bit",
+          "name": "24-bit @ 96 kHz",
+          "descriptors": [
+            "pristine",
+            "hi-fi",
+            "audiophile"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sample_swing",
+      "name": "Swing / timing",
+      "variants": [
+        {
+          "id": "tight_swing",
+          "name": "Tight quantize",
+          "descriptors": [
+            "rigid",
+            "mechanical"
+          ],
+          "match_tokens": [
+            "tight-attack",
+            "subtle-swing",
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "electronic"
+          ]
+        },
+        {
+          "id": "mid_swing",
+          "default": true,
+          "name": "Medium swing (~54%)",
+          "descriptors": [
+            "hip-hop-warm",
+            "flexible",
+            "human"
+          ],
+          "match_tokens": [
+            "subtle-swing",
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "heavy_swing",
+          "name": "Heavy swing (~58–62%)",
+          "descriptors": [
+            "swung",
+            "pocket"
+          ],
+          "match_tokens": [
+            "heavy",
+            "low-end-heavy",
+            "subtle-swing",
+            "electronic"
+          ],
+          "canonical_tags": [
+            "boom-bap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sample_processing",
+      "name": "Sample processing",
+      "variants": [
+        {
+          "id": "pitched_kick",
+          "default": true,
+          "name": "Pitched-and-stretched kick",
+          "descriptors": [
+            "low-mid-thick",
+            "tuned"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "chopped_break",
+          "name": "Chopped breakbeat",
+          "descriptors": [
+            "rolling"
+          ],
+          "match_tokens": [
+            "chopped",
+            "electronic",
+            "sample-based",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "jungle"
+          ]
+        },
+        {
+          "id": "one_shots_layered",
+          "name": "Layered one-shots",
+          "descriptors": [
+            "dense",
+            "hybrid",
+            "engineered"
+          ],
+          "match_tokens": [
+            "layered",
+            "electronic",
+            "sample-based"
+          ]
+        }
+      ]
+    }
+  ]
+}

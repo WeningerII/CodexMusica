@@ -1,0 +1,778 @@
+{
+  "id": "fiddle",
+  "name": "Fiddle",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "fiddle",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_chopped_old_time",
+          "name": "Chopped / old-time",
+          "applies_to": [
+            "fiddle",
+            "violin_orchestral"
+          ],
+          "descriptors": [
+            "chopped",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "old-time",
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "bowed_bluegrass_double_stops",
+          "name": "Bluegrass / fiddle-tradition double-stops",
+          "applies_to": [
+            "fiddle",
+            "violin_orchestral"
+          ],
+          "descriptors": [
+            "double-stops"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "bluegrass",
+            "fiddle",
+            "old-time",
+            "country",
+            "western-swing"
+          ]
+        },
+        {
+          "id": "bowed_klezmer_ornamented",
+          "name": "Klezmer ornament-heavy",
+          "applies_to": [
+            "fiddle",
+            "violin_orchestral",
+            "viola_classical",
+            "violin_carnatic"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ornament-heavy"
+          ],
+          "canonical_tags": [
+            "klezmer",
+            "eastern-european"
+          ]
+        },
+        {
+          "id": "bowed_celtic_session",
+          "name": "Celtic session-fiddle",
+          "applies_to": [
+            "fiddle",
+            "violin_orchestral"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad"
+          ]
+        },
+        {
+          "id": "bowed_rough_drone",
+          "name": "Rough drone",
+          "applies_to": [
+            "fiddle",
+            "gusle",
+            "kamancheh",
+            "rebab",
+            "morin_khuur"
+          ],
+          "descriptors": [
+            "drone-like",
+            "raspy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "folk",
+            "medieval"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "fiddle_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "gut_strings",
+          "name": "Gut (catgut)",
+          "descriptors": [
+            "overtone-rich",
+            "gut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "gut_wound",
+          "name": "Gut-core wound",
+          "descriptors": [
+            "period",
+            "expressive",
+            "gut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_fiddle",
+          "name": "Plain sheep gut (vernacular)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "short-sustain",
+            "pre-1940-period"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "pre-modern"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_fiddle",
+          "name": "Plain lamb gut (Aquila HU)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "organic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "silver_wound_lamb_gut_fiddle",
+          "name": "Silver-wound on lamb gut (Pirastro)",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "synthetic_core",
+          "default": true,
+          "name": "Synthetic core",
+          "descriptors": [
+            "balanced",
+            "modern-standard",
+            "stable",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "steel_core",
+          "name": "Steel core",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "soloistic",
+            "steel"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fiddle_bow",
+      "name": "Bow rosin",
+      "variants": [
+        {
+          "id": "light_rosin",
+          "default": true,
+          "name": "Light / dry-climate",
+          "descriptors": [
+            "treble-extended",
+            "clean",
+            "articulate"
+          ],
+          "match_tokens": [
+            "light-attack",
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "dark_rosin",
+          "name": "Dark / humid",
+          "descriptors": [
+            "grippy",
+            "full"
+          ],
+          "match_tokens": [
+            "dark",
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "galeazzi_1791_baroque_rosin_fiddle",
+          "name": "Galeazzi 1791 Italian-recipe (baroque/pre-modern)",
+          "descriptors": [
+            "galeazzi-1791",
+            "baroque-recipe",
+            "period-rosin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "period-performance",
+            "pre-modern"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "magic_rosin_fiddle",
+          "name": "Magic Rosin (modern acrylic)",
+          "descriptors": [
+            "magic-rosin",
+            "modern-acrylic-base"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fiddle_mute",
+      "surface": false,
+      "name": "Mute",
+      "variants": [
+        {
+          "id": "no_mute",
+          "default": true,
+          "surface": false,
+          "name": "None (senza sord)",
+          "descriptors": [
+            "direct",
+            "full",
+            "present"
+          ],
+          "match_tokens": [
+            "muted",
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "rubber_mute",
+          "surface": false,
+          "name": "Rubber mute",
+          "descriptors": [
+            "softened",
+            "distant",
+            "romantic",
+            "rubber"
+          ],
+          "match_tokens": [
+            "muted",
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "practice_mute",
+          "surface": false,
+          "name": "Practice / heavy mute",
+          "descriptors": [
+            "dampened",
+            "dead",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "muted",
+            "bowed",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fiddle_articulation",
+      "surface": false,
+      "name": "Articulation",
+      "variants": [
+        {
+          "id": "arco",
+          "default": true,
+          "name": "Arco (bowed)",
+          "descriptors": [
+            "sustaining",
+            "melodic",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "pizz",
+          "name": "Pizzicato",
+          "descriptors": [
+            "plucky",
+            "percussive",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "col_legno",
+          "name": "Col legno",
+          "descriptors": [
+            "clattery",
+            "percussive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sul_pont",
+          "name": "Sul ponticello",
+          "descriptors": [
+            "glassy",
+            "overtone-driven"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sul_tasto",
+          "name": "Sul tasto",
+          "descriptors": [
+            "flutey",
+            "low-overtone-bowing",
+            "breathy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "fiddle_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "gut_strings",
+          "name": "Gut (catgut)",
+          "descriptors": [
+            "overtone-rich",
+            "gut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "gut_wound",
+          "name": "Gut-core wound",
+          "descriptors": [
+            "period",
+            "expressive",
+            "gut"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_fiddle",
+          "name": "Plain sheep gut (vernacular)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "short-sustain",
+            "pre-1940-period"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "pre-modern"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_fiddle",
+          "name": "Plain lamb gut (Aquila HU)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "organic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "silver_wound_lamb_gut_fiddle",
+          "name": "Silver-wound on lamb gut (Pirastro)",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "synthetic_core",
+          "default": true,
+          "name": "Synthetic core",
+          "descriptors": [
+            "balanced",
+            "modern-standard",
+            "stable",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "steel_core",
+          "name": "Steel core",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "soloistic",
+            "steel"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fiddle_bow",
+      "name": "Bow rosin",
+      "variants": [
+        {
+          "id": "light_rosin",
+          "default": true,
+          "name": "Light / dry-climate",
+          "descriptors": [
+            "treble-extended",
+            "clean",
+            "articulate"
+          ],
+          "match_tokens": [
+            "light-attack",
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "dark_rosin",
+          "name": "Dark / humid",
+          "descriptors": [
+            "grippy",
+            "full"
+          ],
+          "match_tokens": [
+            "dark",
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "galeazzi_1791_baroque_rosin_fiddle",
+          "name": "Galeazzi 1791 Italian-recipe (baroque/pre-modern)",
+          "descriptors": [
+            "galeazzi-1791",
+            "baroque-recipe",
+            "period-rosin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition",
+            "period-performance",
+            "pre-modern"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "magic_rosin_fiddle",
+          "name": "Magic Rosin (modern acrylic)",
+          "descriptors": [
+            "magic-rosin",
+            "modern-acrylic-base"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fiddle_mute",
+      "surface": false,
+      "name": "Mute",
+      "variants": [
+        {
+          "id": "no_mute",
+          "default": true,
+          "surface": false,
+          "name": "None (senza sord)",
+          "descriptors": [
+            "direct",
+            "full",
+            "present"
+          ],
+          "match_tokens": [
+            "muted",
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "rubber_mute",
+          "surface": false,
+          "name": "Rubber mute",
+          "descriptors": [
+            "softened",
+            "distant",
+            "romantic",
+            "rubber"
+          ],
+          "match_tokens": [
+            "muted",
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "practice_mute",
+          "surface": false,
+          "name": "Practice / heavy mute",
+          "descriptors": [
+            "dampened",
+            "dead",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "muted",
+            "bowed",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fiddle_articulation",
+      "surface": false,
+      "name": "Articulation",
+      "variants": [
+        {
+          "id": "arco",
+          "default": true,
+          "name": "Arco (bowed)",
+          "descriptors": [
+            "sustaining",
+            "melodic",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "pizz",
+          "name": "Pizzicato",
+          "descriptors": [
+            "plucky",
+            "percussive",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "col_legno",
+          "name": "Col legno",
+          "descriptors": [
+            "clattery",
+            "percussive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sul_pont",
+          "name": "Sul ponticello",
+          "descriptors": [
+            "glassy",
+            "overtone-driven"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sul_tasto",
+          "name": "Sul tasto",
+          "descriptors": [
+            "flutey",
+            "low-overtone-bowing",
+            "breathy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

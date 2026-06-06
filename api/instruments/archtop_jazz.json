@@ -1,0 +1,953 @@
+{
+  "id": "archtop_jazz",
+  "name": "Archtop jazz guitar",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "archtop jazz",
+  "parts": [
+    {
+      "id": "electric_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "electric_clean_strummed",
+          "default": true,
+          "name": "Clean strummed",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "twelve_string_electric",
+            "archtop_jazz",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "clean",
+            "strummed"
+          ],
+          "match_tokens": [
+            "electric",
+            "open-chord-ringing-overtones",
+            "picked"
+          ],
+          "canonical_tags": [
+            "pop",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "electric_jazz_comping",
+          "name": "Jazz comping",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "archtop_jazz",
+            "semi_hollow"
+          ],
+          "descriptors": [
+            "comped",
+            "clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "jazz-trained",
+            "comping"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "electric_arpeggiated_clean",
+          "name": "Arpeggiated clean",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "twelve_string_electric",
+            "archtop_jazz",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "arpeggio-decoration",
+            "picked"
+          ],
+          "canonical_tags": [
+            "shoegaze",
+            "post-punk",
+            "indie"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "amp_make",
+      "name": "Amplifier archetype",
+      "variants": [
+        {
+          "id": "amp_unspecified",
+          "default": true,
+          "name": "Unspecified",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass",
+            "pedal_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "amp_british_60s_selmer",
+          "name": "Selmer (Twin Selectortone, Truvoice — British 60s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "selmer-amp",
+            "british-60s-amp",
+            "midrange-honk",
+            "push-button-tone-select"
+          ],
+          "match_tokens": [
+            "electric",
+            "midrange-forward",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "british-beat-boom-canonical"
+          ]
+        },
+        {
+          "id": "amp_british_60s_vox_ac",
+          "name": "Vox AC15 / AC30 / Top Boost (British 60s chime)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric"
+          ],
+          "descriptors": [
+            "vox-ac-amp",
+            "british-60s-amp",
+            "top-boost-chime",
+            "blue-alnico-speaker"
+          ],
+          "match_tokens": [
+            "electric",
+            "chimey",
+            "top-end-extension",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "british-beat-boom-canonical",
+            "jangle-pop"
+          ]
+        },
+        {
+          "id": "amp_american_fender_tweed",
+          "name": "Fender Tweed (Bassman / Deluxe — American 50s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "fender-tweed-amp",
+            "american-50s-amp",
+            "tweed-breakup",
+            "thick-midrange"
+          ],
+          "match_tokens": [
+            "electric",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "blues-canonical",
+            "rockabilly",
+            "country",
+            "early-rock-and-roll"
+          ]
+        },
+        {
+          "id": "amp_american_fender_blackface",
+          "name": "Fender Blackface (Twin / Deluxe Reverb — American 60s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "pedal_steel"
+          ],
+          "descriptors": [
+            "fender-blackface-amp",
+            "american-60s-amp",
+            "spring-reverb-bright",
+            "scooped-clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-with-reverb",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "surf",
+            "country",
+            "soul",
+            "funk",
+            "rhythm-and-blues"
+          ]
+        },
+        {
+          "id": "amp_modern_modeling",
+          "name": "Modeling amplifier (Kemper / Fractal / Katana)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "modeled-amp",
+            "digital-amplification",
+            "profile-based",
+            "modern-rig"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "djent",
+            "modern-metal"
+          ]
+        },
+        {
+          "id": "amp_roland_jc120",
+          "name": "Roland JC-120 Jazz Chorus (Japanese solid-state stereo, 1975)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric"
+          ],
+          "descriptors": [
+            "roland-jc120-amp",
+            "solid-state-stereo-chorus",
+            "pristine-clean",
+            "transistor-clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-chorused",
+            "solid-state-amplification"
+          ],
+          "canonical_tags": [
+            "post-punk",
+            "dream-pop",
+            "jazz-fusion",
+            "new-wave"
+          ]
+        },
+        {
+          "id": "amp_american_fender_champ",
+          "name": "Fender Champ / Princeton (low-watt American tweed/blackface)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz"
+          ],
+          "descriptors": [
+            "fender-champ-amp",
+            "low-wattage-studio-grit",
+            "easily-cranked",
+            "natural-power-tube-breakup"
+          ],
+          "match_tokens": [
+            "electric",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "blues-canonical",
+            "studio-grit",
+            "rockabilly"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "archtop_body",
+      "name": "Body type",
+      "variants": [
+        {
+          "id": "archtop_full_hollow",
+          "default": true,
+          "name": "Full hollow (L5, Super 400)",
+          "descriptors": [
+            "body-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "archtop_thinline",
+          "name": "Thinline (ES-175)",
+          "descriptors": [
+            "feedback-resistant",
+            "versatile"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archtop_pickup",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "archtop_floating",
+          "name": "Floating pickup (acoustic-leaning)",
+          "descriptors": [
+            "acoustic-leaning",
+            "low-mid-rich-spectrum",
+            "classical-jazz"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "archtop_set_humbucker",
+          "default": true,
+          "name": "Set humbucker (Es-175)",
+          "descriptors": [
+            "versatile",
+            "low-mid-rich-spectrum"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "archtop_charlie_christian_blade",
+          "name": "Charlie Christian blade (ES-150 canonical)",
+          "descriptors": [
+            "charlie-christian-blade",
+            "es-150",
+            "pre-war-jazz-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "vintage"
+          ]
+        },
+        {
+          "id": "archtop_dearmond_rhythm_chief",
+          "name": "DeArmond Rhythm Chief (vintage clip-on)",
+          "descriptors": [
+            "dearmond",
+            "clip-on",
+            "vintage-jazz"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archtop_top_wood",
+      "surface": false,
+      "name": "Top construction",
+      "variants": [
+        {
+          "id": "archtop_carved_spruce",
+          "default": true,
+          "name": "Carved solid spruce top (Gibson L-5 / Super 400 canon)",
+          "descriptors": [
+            "carved-top",
+            "solid-spruce",
+            "gibson-canon",
+            "high-arched-carve"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "archtop_laminated_maple",
+          "name": "Laminated maple top (Gibson ES-175 / Epiphone Joe Pass)",
+          "descriptors": [
+            "laminated-maple",
+            "es-175-canon",
+            "feedback-resistant"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "archtop_pressed_spruce",
+          "name": "Pressed spruce top (Heritage, mid-tier)",
+          "descriptors": [
+            "pressed-spruce",
+            "mid-tier"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archtop_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "thomastik_jazz_flat",
+          "default": true,
+          "name": "Thomastik flatwound jazz (canonical archtop)",
+          "descriptors": [
+            "thomastik",
+            "flatwound",
+            "jazz-warm",
+            "reduced-finger-squeak"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "daddario_chromes_jazz",
+          "name": "D'Addario Chromes flatwound",
+          "descriptors": [
+            "daddario-chromes",
+            "flatwound",
+            "jazz-warm"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "pure_nickel_jazz_round",
+          "name": "Pure nickel roundwound (Tal Farlow / vintage jazz)",
+          "descriptors": [
+            "pure-nickel",
+            "roundwound",
+            "vintage-jazz"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "la_bella_jazz_flat",
+          "name": "La Bella jazz flatwound",
+          "descriptors": [
+            "la-bella",
+            "flatwound",
+            "warm-archtop"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archtop_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "archtop_walking_chords",
+          "default": true,
+          "name": "Walking chord-melody",
+          "descriptors": [
+            "walking",
+            "chord-melody"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "archtop_comp_swing",
+          "name": "Swing-era comping",
+          "descriptors": [
+            "comped",
+            "rhythm-section"
+          ],
+          "match_tokens": [
+            "comping",
+            "subtle-swing",
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "swing"
+          ]
+        },
+        {
+          "id": "archtop_bebop_lines",
+          "name": "Bebop single-line",
+          "descriptors": [
+            "single-line"
+          ],
+          "match_tokens": [
+            "bebop-derived",
+            "jazz-trained",
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "archtop_bossa_finger",
+          "name": "Bossa fingerpicked",
+          "descriptors": [
+            "fingerpicked"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "bossa"
+          ]
+        },
+        {
+          "id": "archtop_chunk_chord",
+          "name": "Western-swing chunk",
+          "descriptors": [
+            "chunked",
+            "rhythm-comping"
+          ],
+          "match_tokens": [
+            "chordal",
+            "block-chord",
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "western-swing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "archtop_body",
+      "name": "Body type",
+      "variants": [
+        {
+          "id": "archtop_full_hollow",
+          "default": true,
+          "name": "Full hollow (L5, Super 400)",
+          "descriptors": [
+            "body-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "archtop_thinline",
+          "name": "Thinline (ES-175)",
+          "descriptors": [
+            "feedback-resistant",
+            "versatile"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archtop_pickup",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "archtop_floating",
+          "name": "Floating pickup (acoustic-leaning)",
+          "descriptors": [
+            "acoustic-leaning",
+            "low-mid-rich-spectrum",
+            "classical-jazz"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "archtop_set_humbucker",
+          "default": true,
+          "name": "Set humbucker (Es-175)",
+          "descriptors": [
+            "versatile",
+            "low-mid-rich-spectrum"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "archtop_charlie_christian_blade",
+          "name": "Charlie Christian blade (ES-150 canonical)",
+          "descriptors": [
+            "charlie-christian-blade",
+            "es-150",
+            "pre-war-jazz-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "vintage"
+          ]
+        },
+        {
+          "id": "archtop_dearmond_rhythm_chief",
+          "name": "DeArmond Rhythm Chief (vintage clip-on)",
+          "descriptors": [
+            "dearmond",
+            "clip-on",
+            "vintage-jazz"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archtop_top_wood",
+      "surface": false,
+      "name": "Top construction",
+      "variants": [
+        {
+          "id": "archtop_carved_spruce",
+          "default": true,
+          "name": "Carved solid spruce top (Gibson L-5 / Super 400 canon)",
+          "descriptors": [
+            "carved-top",
+            "solid-spruce",
+            "gibson-canon",
+            "high-arched-carve"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "archtop_laminated_maple",
+          "name": "Laminated maple top (Gibson ES-175 / Epiphone Joe Pass)",
+          "descriptors": [
+            "laminated-maple",
+            "es-175-canon",
+            "feedback-resistant"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "archtop_pressed_spruce",
+          "name": "Pressed spruce top (Heritage, mid-tier)",
+          "descriptors": [
+            "pressed-spruce",
+            "mid-tier"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archtop_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "thomastik_jazz_flat",
+          "default": true,
+          "name": "Thomastik flatwound jazz (canonical archtop)",
+          "descriptors": [
+            "thomastik",
+            "flatwound",
+            "jazz-warm",
+            "reduced-finger-squeak"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "daddario_chromes_jazz",
+          "name": "D'Addario Chromes flatwound",
+          "descriptors": [
+            "daddario-chromes",
+            "flatwound",
+            "jazz-warm"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "pure_nickel_jazz_round",
+          "name": "Pure nickel roundwound (Tal Farlow / vintage jazz)",
+          "descriptors": [
+            "pure-nickel",
+            "roundwound",
+            "vintage-jazz"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "la_bella_jazz_flat",
+          "name": "La Bella jazz flatwound",
+          "descriptors": [
+            "la-bella",
+            "flatwound",
+            "warm-archtop"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archtop_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "archtop_walking_chords",
+          "default": true,
+          "name": "Walking chord-melody",
+          "descriptors": [
+            "walking",
+            "chord-melody"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "archtop_comp_swing",
+          "name": "Swing-era comping",
+          "descriptors": [
+            "comped",
+            "rhythm-section"
+          ],
+          "match_tokens": [
+            "comping",
+            "subtle-swing",
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "swing"
+          ]
+        },
+        {
+          "id": "archtop_bebop_lines",
+          "name": "Bebop single-line",
+          "descriptors": [
+            "single-line"
+          ],
+          "match_tokens": [
+            "bebop-derived",
+            "jazz-trained",
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "archtop_bossa_finger",
+          "name": "Bossa fingerpicked",
+          "descriptors": [
+            "fingerpicked"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "bossa"
+          ]
+        },
+        {
+          "id": "archtop_chunk_chord",
+          "name": "Western-swing chunk",
+          "descriptors": [
+            "chunked",
+            "rhythm-comping"
+          ],
+          "match_tokens": [
+            "chordal",
+            "block-chord",
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "western-swing"
+          ]
+        }
+      ]
+    }
+  ]
+}

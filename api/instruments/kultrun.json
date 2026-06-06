@@ -1,0 +1,132 @@
+{
+  "id": "kultrun",
+  "name": "Kultrún (Mapuche shamanic frame-drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kultrún",
+  "parts": [
+    {
+      "id": "kultrun_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "kultrun_laurel_lingue_rauli_canonical",
+          "default": true,
+          "name": "Laurel / lingue / rauli wood body (canonical Mapuche build)",
+          "descriptors": [
+            "laurel-lingue-rauli-wood-canonical-mapuche-build"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "mapuche-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kultrun_head",
+      "name": "Head",
+      "variants": [
+        {
+          "id": "kultrun_goat_or_horse_skin_painted_canonical",
+          "default": true,
+          "name": "Goat or horse skin with cosmological-diagram paint (canonical)",
+          "descriptors": [
+            "goat-or-horse-skin-cosmological-diagram-painted-canonical"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "mapuche-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kultrun_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "kultrun_machi_shamanic_canonical",
+          "default": true,
+          "name": "Machi shamanic ritual (canonical ngillatún ceremony)",
+          "descriptors": [
+            "machi-shamanic-ritual-canonical-ngillatun"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "mapuche-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kultrun_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "kultrun_laurel_lingue_rauli_canonical",
+          "default": true,
+          "name": "Laurel / lingue / rauli wood body (canonical Mapuche build)",
+          "descriptors": [
+            "laurel-lingue-rauli-wood-canonical-mapuche-build"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "mapuche-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kultrun_head",
+      "name": "Head",
+      "variants": [
+        {
+          "id": "kultrun_goat_or_horse_skin_painted_canonical",
+          "default": true,
+          "name": "Goat or horse skin with cosmological-diagram paint (canonical)",
+          "descriptors": [
+            "goat-or-horse-skin-cosmological-diagram-painted-canonical"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "mapuche-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kultrun_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "kultrun_machi_shamanic_canonical",
+          "default": true,
+          "name": "Machi shamanic ritual (canonical ngillatún ceremony)",
+          "descriptors": [
+            "machi-shamanic-ritual-canonical-ngillatun"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "mapuche-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

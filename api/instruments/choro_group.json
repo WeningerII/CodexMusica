@@ -1,0 +1,218 @@
+{
+  "id": "choro_group",
+  "name": "Choro group (regional Brazilian)",
+  "family": "ensemble",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "choro group",
+  "parts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "choro_solo",
+          "name": "Solo melodic (flute, clarinet, mandolin, or bandolim)",
+          "descriptors": [
+            "lead",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "ensemble",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "choro_seven_string",
+          "name": "7-string guitar (baixaria counter-bass)",
+          "descriptors": [
+            "counter-melodic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "choro_cavaquinho_member",
+          "default": true,
+          "name": "Cavaquinho (chord-foundation)",
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "choro_pandeiro_member",
+          "name": "Pandeiro (percussion)",
+          "descriptors": [],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choro_group_era",
+      "surface": false,
+      "name": "Era / period",
+      "variants": [
+        {
+          "id": "choro_group_old",
+          "default": true,
+          "name": "Old-school choro (turn-of-twentieth)",
+          "descriptors": [
+            "origin-period",
+            "foundational"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "choro_group_classic",
+          "name": "Mid-century classic (1930s-50s)",
+          "descriptors": [
+            "radio-era",
+            "standard-canon",
+            "popular"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "choro_group_revival",
+          "name": "Modern revival (1970s-onward)",
+          "descriptors": [
+            "preservationist",
+            "twenty-first-century",
+            "concert"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "choro_solo",
+          "name": "Solo melodic (flute, clarinet, mandolin, or bandolim)",
+          "descriptors": [
+            "lead",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "ensemble",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "choro_seven_string",
+          "name": "7-string guitar (baixaria counter-bass)",
+          "descriptors": [
+            "counter-melodic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "choro_cavaquinho_member",
+          "default": true,
+          "name": "Cavaquinho (chord-foundation)",
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "choro_pandeiro_member",
+          "name": "Pandeiro (percussion)",
+          "descriptors": [],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choro_group_era",
+      "surface": false,
+      "name": "Era / period",
+      "variants": [
+        {
+          "id": "choro_group_old",
+          "default": true,
+          "name": "Old-school choro (turn-of-twentieth)",
+          "descriptors": [
+            "origin-period",
+            "foundational"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "choro_group_classic",
+          "name": "Mid-century classic (1930s-50s)",
+          "descriptors": [
+            "radio-era",
+            "standard-canon",
+            "popular"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "choro_group_revival",
+          "name": "Modern revival (1970s-onward)",
+          "descriptors": [
+            "preservationist",
+            "twenty-first-century",
+            "concert"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choro-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

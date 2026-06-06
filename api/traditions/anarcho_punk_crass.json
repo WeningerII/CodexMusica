@@ -1,0 +1,153 @@
+{
+  "id": "anarcho_punk_crass",
+  "name": "Anarcho-punk (Crass)",
+  "family": "rock_punk",
+  "lineage": "British post-1977 punk substyle centered on the Crass collective at Dial House (Essex commune, founded 1967, music project 1977-1984) and the parallel Poison Girls, Flux of Pink Indians, and Conflict scenes. Combines aggressive punk musical-aesthetic with explicit anarchist-pacifist-feminist-vegan political content, DIY-distribution-and-production self-organization, and rigorous anti-commercial cultural-stance. The 1980 Reality Asylum, 1981 Penis Envy, and 1982 Christ — The Album consolidated the canonical anarcho-punk register.",
+  "recipe": "classic North American mid-1980s anarcho-punk, distorted Rock, punk branch, regional distorted rock latin rock rasin. thick, declaimed, equal tempered, beatbox. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 631,
+  "score": 427.373,
+  "config": {
+    "traditions": [
+      "anarcho_punk_crass",
+      "latin_rock",
+      "rasin_haitian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 5.327750000000003,
+          "voice_quality": 1.4,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.24,
+          "voice_microtone": 5.5950000000000015,
+          "voice_tradition": 1.4949999999999999,
+          "voice_mechanism_compound": 2.665000000000001,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 16.235,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 5.02525,
+          "voice_multitrack_stack": 0.615
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 15.95,
+          "amp_make": 25.154999999999998,
+          "body_wood": 0.38025,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.045,
+          "pickup_winding": 0.21,
+          "string_material": 0.39,
+          "bridge": 0.29025,
+          "scale_length": 0.3705,
+          "string_gauge": 0.18525,
+          "finish": 0,
+          "string_tuning": 4.55
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 17.995,
+          "amp_make": 4.42,
+          "body_wood": 0.3705,
+          "pickup_config": 0.18525,
+          "string_type": 7.15,
+          "scale_length_b": 0.18525,
+          "fretted_or_not": 0.195,
+          "bass_technique": 21.545
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "single_clear",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 16,
+          "shell_wood": 0.39,
+          "shell_thickness": 0.09,
+          "bearing_edges": 0.18525,
+          "drumhead": 0.39,
+          "snare_wires": 0.18525,
+          "cymbal_alloy": 21.84,
+          "cymbal_hammering": 5.9655000000000005,
+          "cymbal_lathing": 5.49,
+          "cymbal_finish": 0.39,
+          "drum_technique": 16
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_marshall_jcm800",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

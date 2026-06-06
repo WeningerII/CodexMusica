@@ -1,0 +1,1007 @@
+{
+  "id": "acoustic_guitar_dread",
+  "name": "Dreadnought acoustic guitar",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dreadnought acoustic guitar",
+  "parts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "acoustic_resonator_steel",
+            "mountain_dulcimer",
+            "cittern"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "narrative"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "singer-songwriter",
+            "folk",
+            "folk-revival",
+            "confessional",
+            "ballad-poetry"
+          ]
+        },
+        {
+          "id": "acoustic_flatpicked",
+          "name": "Flatpicked single-note",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mandolin",
+            "mandola",
+            "cittern",
+            "acoustic_guitar_parlor",
+            "upright_bass"
+          ],
+          "descriptors": [
+            "flatpicked",
+            "articulated"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "bluegrass",
+            "old-time"
+          ]
+        },
+        {
+          "id": "acoustic_strummed_ringing",
+          "default": true,
+          "name": "Open-chord strumming (ringing)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "mandolin",
+            "mandola",
+            "autoharp",
+            "celtic_harp",
+            "cittern"
+          ],
+          "descriptors": [
+            "strummed",
+            "open-chord-ringing-overtones"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "folk-revival",
+            "pop"
+          ]
+        },
+        {
+          "id": "acoustic_bottleneck_slide",
+          "name": "Bottleneck slide",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [
+            "slide",
+            "open-tuned"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "delta",
+            "blues-canonical",
+            "country-blues"
+          ]
+        },
+        {
+          "id": "acoustic_travis_picking",
+          "name": "Travis picking",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar"
+          ],
+          "descriptors": [
+            "travis-picked",
+            "alternating-thumb"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "picked"
+          ],
+          "canonical_tags": [
+            "country",
+            "folk"
+          ]
+        },
+        {
+          "id": "acoustic_drone_modal",
+          "name": "Drop-tuned drone",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mandolin",
+            "mandola",
+            "mountain_dulcimer",
+            "cittern",
+            "autoharp"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "britfolk"
+          ]
+        },
+        {
+          "id": "acoustic_chord_melody",
+          "name": "Chord-melody",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "mandolin",
+            "upright_bass"
+          ],
+          "descriptors": [
+            "chord-melody"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "chordal",
+            "block-chord",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "acoustic_clawhammer",
+          "name": "Clawhammer / frailing",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mountain_dulcimer"
+          ],
+          "descriptors": [
+            "clawhammer",
+            "frailed"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "old-time",
+            "appalachian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "string_tuning",
+      "name": "String tuning",
+      "variants": [
+        {
+          "id": "standard_tuning",
+          "default": true,
+          "name": "Standard (EADGBE)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "acoustic-only",
+            "standard-tuned"
+          ]
+        },
+        {
+          "id": "drop_d",
+          "name": "Drop D",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [
+            "drop-d-tuning"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation",
+            "modal",
+            "open-bass"
+          ],
+          "canonical_tags": [
+            "american-primitive",
+            "fingerstyle-soloist",
+            "modern-rock"
+          ]
+        },
+        {
+          "id": "open_d",
+          "name": "Open D (DADF♯AD)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [
+            "open-d-tuning"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation",
+            "modal",
+            "open-tuned"
+          ],
+          "canonical_tags": [
+            "slide-blues",
+            "country-blues"
+          ]
+        },
+        {
+          "id": "open_e",
+          "name": "Open E (EBEG♯BE)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [
+            "open-e-tuning"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation",
+            "modal",
+            "open-tuned"
+          ],
+          "canonical_tags": [
+            "slide-blues",
+            "country-blues",
+            "gospel-blues"
+          ]
+        },
+        {
+          "id": "open_g",
+          "name": "Open G (DGDGBD)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [
+            "open-g-tuning"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation",
+            "modal",
+            "open-tuned"
+          ],
+          "canonical_tags": [
+            "delta",
+            "slide-blues",
+            "piedmont-blues"
+          ]
+        },
+        {
+          "id": "dadgad",
+          "name": "DADGAD",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor"
+          ],
+          "descriptors": [
+            "dadgad-tuning"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation",
+            "modal",
+            "open-tuned"
+          ],
+          "canonical_tags": [
+            "britfolk",
+            "celtic",
+            "irish-traditional",
+            "scottish"
+          ]
+        },
+        {
+          "id": "eb_standard",
+          "name": "E♭ standard",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor"
+          ],
+          "descriptors": [
+            "half-step-down-tuning"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "lowered-tuning"
+          ],
+          "canonical_tags": [
+            "blues-rock",
+            "hard-rock"
+          ]
+        },
+        {
+          "id": "d_standard",
+          "name": "D standard",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor"
+          ],
+          "descriptors": [
+            "whole-step-down-tuning"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "lowered-tuning",
+            "detuned"
+          ],
+          "canonical_tags": [
+            "stoner-rock",
+            "doom"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "sitka",
+          "name": "Sitka spruce",
+          "descriptors": [
+            "treble-extended",
+            "articulate",
+            "headroom-rich",
+            "sitka-spruce",
+            "spruce"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "engelmann",
+          "default": true,
+          "name": "Engelmann spruce",
+          "descriptors": [
+            "low-density-tonewood",
+            "vintage",
+            "spruce"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "adirondack",
+          "name": "Adirondack / red spruce",
+          "descriptors": [
+            "dynamic",
+            "projecting",
+            "dry",
+            "spruce"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cedar",
+          "name": "Cedar",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "responsive",
+            "soft-attack",
+            "cedar"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "mahogany_top",
+          "name": "Mahogany top",
+          "descriptors": [
+            "woody",
+            "midrange-thick",
+            "fundamental",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "back_sides",
+      "surface": false,
+      "name": "Back & sides",
+      "variants": [
+        {
+          "id": "rosewood_bs",
+          "default": true,
+          "name": "Indian rosewood",
+          "descriptors": [
+            "deep",
+            "overtone-rich",
+            "dimensional",
+            "indian-rosewood",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "mahogany_bs",
+          "name": "Mahogany",
+          "descriptors": [
+            "dry",
+            "fundamental",
+            "woody",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "maple_bs",
+          "name": "Maple",
+          "descriptors": [
+            "treble-extended",
+            "controlled",
+            "maple"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "koa_bs",
+          "name": "Koa",
+          "descriptors": [
+            "golden",
+            "full",
+            "koa"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_acoustic",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "eighty_twenty",
+          "default": true,
+          "name": "80/20 bronze (modern bright)",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "fresh",
+            "bronze",
+            "80-20-cu-zn"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "phosphor_bronze",
+          "name": "Phosphor bronze (Martin pre-war canon)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "full",
+            "balanced",
+            "phosphor-bronze",
+            "pre-war-martin"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "silk_steel",
+          "name": "Silk-and-steel (parlor / vintage)",
+          "descriptors": [
+            "low-tension-strings",
+            "mellow",
+            "easy-pull",
+            "steel",
+            "silk"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "monel",
+          "name": "Monel (gypsy jazz / vintage)",
+          "descriptors": [
+            "earthy",
+            "overtone-rich-sustained",
+            "growly",
+            "monel-alloy"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "nickel_bronze",
+          "name": "Nickel bronze (D'Addario modern blend)",
+          "descriptors": [
+            "nickel-bronze",
+            "transparent-warm",
+            "modern-blend"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "coated_nano_acoustic",
+          "name": "Coated (Elixir Nanoweb / Polyweb)",
+          "descriptors": [
+            "coated",
+            "nanoweb",
+            "long-life",
+            "reduced-finger-squeak"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "thomastik_flat_top",
+          "name": "Thomastik flatwound acoustic",
+          "descriptors": [
+            "flatwound",
+            "low-tension",
+            "jazz-warm",
+            "thomastik"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "martin_lifespan",
+          "name": "Martin Lifespan / SP+ (sealed)",
+          "descriptors": [
+            "martin",
+            "lifespan",
+            "sealed",
+            "pre-war-tone"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "gut_pre_1900_steel",
+          "name": "Pre-1900 plain gut (parlor / minstrel era)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "pre-1900-parlor",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "sitka",
+          "name": "Sitka spruce",
+          "descriptors": [
+            "treble-extended",
+            "articulate",
+            "headroom-rich",
+            "sitka-spruce",
+            "spruce"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "engelmann",
+          "default": true,
+          "name": "Engelmann spruce",
+          "descriptors": [
+            "low-density-tonewood",
+            "vintage",
+            "spruce"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "adirondack",
+          "name": "Adirondack / red spruce",
+          "descriptors": [
+            "dynamic",
+            "projecting",
+            "dry",
+            "spruce"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cedar",
+          "name": "Cedar",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "responsive",
+            "soft-attack",
+            "cedar"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "mahogany_top",
+          "name": "Mahogany top",
+          "descriptors": [
+            "woody",
+            "midrange-thick",
+            "fundamental",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "back_sides",
+      "surface": false,
+      "name": "Back & sides",
+      "variants": [
+        {
+          "id": "rosewood_bs",
+          "default": true,
+          "name": "Indian rosewood",
+          "descriptors": [
+            "deep",
+            "overtone-rich",
+            "dimensional",
+            "indian-rosewood",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "mahogany_bs",
+          "name": "Mahogany",
+          "descriptors": [
+            "dry",
+            "fundamental",
+            "woody",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "maple_bs",
+          "name": "Maple",
+          "descriptors": [
+            "treble-extended",
+            "controlled",
+            "maple"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "koa_bs",
+          "name": "Koa",
+          "descriptors": [
+            "golden",
+            "full",
+            "koa"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_acoustic",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "eighty_twenty",
+          "default": true,
+          "name": "80/20 bronze (modern bright)",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "fresh",
+            "bronze",
+            "80-20-cu-zn"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "phosphor_bronze",
+          "name": "Phosphor bronze (Martin pre-war canon)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "full",
+            "balanced",
+            "phosphor-bronze",
+            "pre-war-martin"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "silk_steel",
+          "name": "Silk-and-steel (parlor / vintage)",
+          "descriptors": [
+            "low-tension-strings",
+            "mellow",
+            "easy-pull",
+            "steel",
+            "silk"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "monel",
+          "name": "Monel (gypsy jazz / vintage)",
+          "descriptors": [
+            "earthy",
+            "overtone-rich-sustained",
+            "growly",
+            "monel-alloy"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "nickel_bronze",
+          "name": "Nickel bronze (D'Addario modern blend)",
+          "descriptors": [
+            "nickel-bronze",
+            "transparent-warm",
+            "modern-blend"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "coated_nano_acoustic",
+          "name": "Coated (Elixir Nanoweb / Polyweb)",
+          "descriptors": [
+            "coated",
+            "nanoweb",
+            "long-life",
+            "reduced-finger-squeak"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "thomastik_flat_top",
+          "name": "Thomastik flatwound acoustic",
+          "descriptors": [
+            "flatwound",
+            "low-tension",
+            "jazz-warm",
+            "thomastik"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "martin_lifespan",
+          "name": "Martin Lifespan / SP+ (sealed)",
+          "descriptors": [
+            "martin",
+            "lifespan",
+            "sealed",
+            "pre-war-tone"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "gut_pre_1900_steel",
+          "name": "Pre-1900 plain gut (parlor / minstrel era)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "pre-1900-parlor",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

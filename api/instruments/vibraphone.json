@@ -1,0 +1,247 @@
+{
+  "id": "vibraphone",
+  "name": "Vibraphone",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "vibraphone",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_mallets_orchestral",
+          "default": true,
+          "name": "Mallets orchestral",
+          "applies_to": [
+            "marimba_orchestral",
+            "vibraphone",
+            "xylophone",
+            "glockenspiel",
+            "timpani"
+          ],
+          "descriptors": [
+            "mallets"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "vibe_motor",
+      "name": "Motor speed",
+      "variants": [
+        {
+          "id": "vibe_off",
+          "name": "Motor off",
+          "descriptors": [
+            "static",
+            "focused",
+            "classical-like"
+          ],
+          "match_tokens": [
+            "mallets",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "vibe_slow",
+          "name": "Slow tremolo",
+          "descriptors": [
+            "ballad-suited"
+          ],
+          "match_tokens": [
+            "mallets",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "vibe_fast",
+          "default": true,
+          "name": "Fast tremolo",
+          "descriptors": [
+            "vintage"
+          ],
+          "match_tokens": [
+            "fast-attack-transient",
+            "mallets",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vibe_mallets",
+      "name": "Mallet hardness",
+      "variants": [
+        {
+          "id": "vibe_soft_mallets",
+          "name": "Soft yarn",
+          "descriptors": [
+            "round"
+          ],
+          "match_tokens": [
+            "soft-attack",
+            "mallets",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "vibe_medium_mallets",
+          "default": true,
+          "name": "Medium",
+          "descriptors": [
+            "versatile",
+            "articulate-low-distortion",
+            "standard"
+          ],
+          "match_tokens": [
+            "mallets",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "vibe_hard_mallets",
+          "name": "Hard rubber",
+          "descriptors": [
+            "treble-extended",
+            "articulate",
+            "attack-forward",
+            "rubber"
+          ],
+          "match_tokens": [
+            "mallets",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vibe_motor",
+      "name": "Motor speed",
+      "variants": [
+        {
+          "id": "vibe_off",
+          "name": "Motor off",
+          "descriptors": [
+            "static",
+            "focused",
+            "classical-like"
+          ],
+          "match_tokens": [
+            "mallets",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "vibe_slow",
+          "name": "Slow tremolo",
+          "descriptors": [
+            "ballad-suited"
+          ],
+          "match_tokens": [
+            "mallets",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "vibe_fast",
+          "default": true,
+          "name": "Fast tremolo",
+          "descriptors": [
+            "vintage"
+          ],
+          "match_tokens": [
+            "fast-attack-transient",
+            "mallets",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vibe_mallets",
+      "name": "Mallet hardness",
+      "variants": [
+        {
+          "id": "vibe_soft_mallets",
+          "name": "Soft yarn",
+          "descriptors": [
+            "round"
+          ],
+          "match_tokens": [
+            "soft-attack",
+            "mallets",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "vibe_medium_mallets",
+          "default": true,
+          "name": "Medium",
+          "descriptors": [
+            "versatile",
+            "articulate-low-distortion",
+            "standard"
+          ],
+          "match_tokens": [
+            "mallets",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "vibe_hard_mallets",
+          "name": "Hard rubber",
+          "descriptors": [
+            "treble-extended",
+            "articulate",
+            "attack-forward",
+            "rubber"
+          ],
+          "match_tokens": [
+            "mallets",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

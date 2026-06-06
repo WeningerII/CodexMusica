@@ -1,0 +1,140 @@
+{
+  "id": "siku_panpipes",
+  "name": "Siku panpipes (Andean Aymara)",
+  "family": "wind",
+  "class": "flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "siku",
+  "parts": [
+    {
+      "id": "siku_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "siku_ira_arca_paired",
+          "default": true,
+          "name": "Paired ira/arca rows (interlocking dialogue)",
+          "descriptors": [
+            "paired-rows",
+            "interlocking",
+            "andean-tradition",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "andean-tradition",
+            "huayno-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "siku_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "siku_malta",
+          "default": true,
+          "name": "Malta (medium, standard register)",
+          "descriptors": [
+            "standard-register"
+          ],
+          "match_tokens": [
+            "panpipe"
+          ]
+        },
+        {
+          "id": "siku_zanca",
+          "name": "Zanca (large, low register)",
+          "descriptors": [
+            "low-register"
+          ],
+          "match_tokens": [
+            "panpipe"
+          ]
+        },
+        {
+          "id": "siku_chuli",
+          "name": "Chuli (small, octave-high)",
+          "descriptors": [
+            "octave-doubling"
+          ],
+          "match_tokens": [
+            "panpipe"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "siku_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "siku_ira_arca_paired",
+          "default": true,
+          "name": "Paired ira/arca rows (interlocking dialogue)",
+          "descriptors": [
+            "paired-rows",
+            "interlocking",
+            "andean-tradition",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "andean-tradition",
+            "huayno-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "siku_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "siku_malta",
+          "default": true,
+          "name": "Malta (medium, standard register)",
+          "descriptors": [
+            "standard-register"
+          ],
+          "match_tokens": [
+            "panpipe"
+          ]
+        },
+        {
+          "id": "siku_zanca",
+          "name": "Zanca (large, low register)",
+          "descriptors": [
+            "low-register"
+          ],
+          "match_tokens": [
+            "panpipe"
+          ]
+        },
+        {
+          "id": "siku_chuli",
+          "name": "Chuli (small, octave-high)",
+          "descriptors": [
+            "octave-doubling"
+          ],
+          "match_tokens": [
+            "panpipe"
+          ]
+        }
+      ]
+    }
+  ]
+}

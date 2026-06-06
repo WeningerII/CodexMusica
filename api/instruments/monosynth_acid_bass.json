@@ -1,0 +1,378 @@
+{
+  "id": "monosynth_acid_bass",
+  "name": "Monophonic transistor-bass synthesizer",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "mono bass synth",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_arpeggiated",
+          "name": "Arpeggiated sequence",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "monosynth_acid_bass"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "arpeggio-decoration"
+          ],
+          "canonical_tags": [
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_bass_sub",
+          "name": "Sub-bass",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "monosynth_acid_bass",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "digital_subtractive"
+          ],
+          "descriptors": [
+            "sub-bass",
+            "low"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "trap",
+            "dubstep"
+          ]
+        },
+        {
+          "id": "electronic_acid_squelch",
+          "name": "Acid squelch (303-style)",
+          "applies_to": [
+            "monosynth_acid_bass",
+            "analog_mono_synth",
+            "modular_synth"
+          ],
+          "descriptors": [
+            "squelchy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "electronic",
+            "classic-acid"
+          ],
+          "canonical_tags": [
+            "acid",
+            "techno"
+          ],
+          "default": true
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "wave_acid",
+      "name": "Waveform",
+      "variants": [
+        {
+          "id": "saw_acid",
+          "default": true,
+          "name": "Sawtooth",
+          "descriptors": [
+            "treble-extended",
+            "biting",
+            "high-gain-saturation"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "low-register"
+          ]
+        },
+        {
+          "id": "square_acid",
+          "name": "Square",
+          "descriptors": [
+            "hollow",
+            "reedy",
+            "subby"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "filter_acid",
+      "name": "Filter sweep",
+      "variants": [
+        {
+          "id": "closed_acid",
+          "name": "Closed (low cutoff)",
+          "descriptors": [
+            "muffled",
+            "sub-driven",
+            "thick"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "low-register"
+          ]
+        },
+        {
+          "id": "opening_acid",
+          "default": true,
+          "name": "Opening sweep",
+          "descriptors": [
+            "squelching",
+            "climbing",
+            "classic-acid"
+          ],
+          "match_tokens": [
+            "electronic",
+            "low-register"
+          ]
+        },
+        {
+          "id": "open_acid",
+          "name": "Open (high cutoff)",
+          "descriptors": [
+            "biting",
+            "high-gain-saturation",
+            "piercing"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "classic-acid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "accent_acid",
+      "name": "Accent",
+      "variants": [
+        {
+          "id": "no_accent_acid",
+          "name": "No accent",
+          "descriptors": [
+            "flat",
+            "steady",
+            "minimal"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "low-register"
+          ]
+        },
+        {
+          "id": "subtle_accent_acid",
+          "default": true,
+          "name": "Subtle accent",
+          "descriptors": [
+            "rolling",
+            "expressive",
+            "classic"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "low-register"
+          ]
+        },
+        {
+          "id": "heavy_accent_acid",
+          "name": "Heavy accent",
+          "descriptors": [
+            "squelchy",
+            "fast-attack-transient"
+          ],
+          "match_tokens": [
+            "heavy",
+            "low-end-heavy",
+            "classic-acid",
+            "electronic"
+          ],
+          "canonical_tags": [
+            "acid"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electronic_technique",
+      "default_variant": "electronic_acid_squelch"
+    },
+    {
+      "id": "wave_acid",
+      "name": "Waveform",
+      "variants": [
+        {
+          "id": "saw_acid",
+          "default": true,
+          "name": "Sawtooth",
+          "descriptors": [
+            "treble-extended",
+            "biting",
+            "high-gain-saturation"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "low-register"
+          ]
+        },
+        {
+          "id": "square_acid",
+          "name": "Square",
+          "descriptors": [
+            "hollow",
+            "reedy",
+            "subby"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "filter_acid",
+      "name": "Filter sweep",
+      "variants": [
+        {
+          "id": "closed_acid",
+          "name": "Closed (low cutoff)",
+          "descriptors": [
+            "muffled",
+            "sub-driven",
+            "thick"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "low-register"
+          ]
+        },
+        {
+          "id": "opening_acid",
+          "default": true,
+          "name": "Opening sweep",
+          "descriptors": [
+            "squelching",
+            "climbing",
+            "classic-acid"
+          ],
+          "match_tokens": [
+            "electronic",
+            "low-register"
+          ]
+        },
+        {
+          "id": "open_acid",
+          "name": "Open (high cutoff)",
+          "descriptors": [
+            "biting",
+            "high-gain-saturation",
+            "piercing"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "classic-acid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "accent_acid",
+      "name": "Accent",
+      "variants": [
+        {
+          "id": "no_accent_acid",
+          "name": "No accent",
+          "descriptors": [
+            "flat",
+            "steady",
+            "minimal"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "low-register"
+          ]
+        },
+        {
+          "id": "subtle_accent_acid",
+          "default": true,
+          "name": "Subtle accent",
+          "descriptors": [
+            "rolling",
+            "expressive",
+            "classic"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "low-register"
+          ]
+        },
+        {
+          "id": "heavy_accent_acid",
+          "name": "Heavy accent",
+          "descriptors": [
+            "squelchy",
+            "fast-attack-transient"
+          ],
+          "match_tokens": [
+            "heavy",
+            "low-end-heavy",
+            "classic-acid",
+            "electronic"
+          ],
+          "canonical_tags": [
+            "acid"
+          ]
+        }
+      ]
+    }
+  ]
+}

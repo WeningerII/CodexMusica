@@ -1,0 +1,234 @@
+{
+  "id": "concertina",
+  "name": "Concertina (English / Anglo / Irish)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "concertina",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "concertina_type",
+      "surface": true,
+      "name": "Concertina system",
+      "variants": [
+        {
+          "id": "anglo_concertina",
+          "default": true,
+          "name": "Anglo concertina (Irish-folk lineage)",
+          "descriptors": [
+            "bellows-pumped",
+            "bisonoric",
+            "tight-articulation",
+            "sea-shanty-canonical",
+            "celtic-irish-canonical"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "small-bellows"
+          ]
+        },
+        {
+          "id": "english_concertina",
+          "name": "English concertina (chromatic-uniform)",
+          "descriptors": [
+            "unisonoric",
+            "chromatic",
+            "parlor-tradition",
+            "salon"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "small-bellows"
+          ]
+        },
+        {
+          "id": "duet_concertina",
+          "name": "Duet concertina (Crane / Maccann)",
+          "descriptors": [
+            "two-handed-melody-bass",
+            "self-accompaniment"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "small-bellows"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concertina_reed_grade",
+      "surface": false,
+      "name": "Reed grade",
+      "variants": [
+        {
+          "id": "concertina_traditional",
+          "default": true,
+          "name": "Traditional steel reeds",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "articulate"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_hybrid_accordion_reed",
+          "name": "Hybrid (accordion-reed)",
+          "descriptors": [
+            "warm",
+            "uniform",
+            "modern-production"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "concertina_type",
+      "surface": true,
+      "name": "Concertina system",
+      "variants": [
+        {
+          "id": "anglo_concertina",
+          "default": true,
+          "name": "Anglo concertina (Irish-folk lineage)",
+          "descriptors": [
+            "bellows-pumped",
+            "bisonoric",
+            "tight-articulation",
+            "sea-shanty-canonical",
+            "celtic-irish-canonical"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "small-bellows"
+          ]
+        },
+        {
+          "id": "english_concertina",
+          "name": "English concertina (chromatic-uniform)",
+          "descriptors": [
+            "unisonoric",
+            "chromatic",
+            "parlor-tradition",
+            "salon"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "small-bellows"
+          ]
+        },
+        {
+          "id": "duet_concertina",
+          "name": "Duet concertina (Crane / Maccann)",
+          "descriptors": [
+            "two-handed-melody-bass",
+            "self-accompaniment"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "small-bellows"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concertina_reed_grade",
+      "surface": false,
+      "name": "Reed grade",
+      "variants": [
+        {
+          "id": "concertina_traditional",
+          "default": true,
+          "name": "Traditional steel reeds",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "articulate"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_hybrid_accordion_reed",
+          "name": "Hybrid (accordion-reed)",
+          "descriptors": [
+            "warm",
+            "uniform",
+            "modern-production"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": "jazz_trio_piano",
+  "name": "Piano trio (jazz)",
+  "family": "ensemble",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "piano trio",
+  "parts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "pt_piano",
+          "default": true,
+          "name": "Piano (lead and chord)",
+          "descriptors": [
+            "lead",
+            "foundational"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pt_bass",
+          "name": "Upright bass (walking)",
+          "descriptors": [
+            "walking-line",
+            "foundational"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pt_drums",
+          "name": "Drum kit (brushes / sticks)",
+          "descriptors": [
+            "supporting",
+            "responsive"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era",
+      "variants": [
+        {
+          "id": "jazz_classic_trio",
+          "default": true,
+          "name": "Classic-era (1950s-60s)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "foundational"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "jazz_modern_trio",
+          "name": "Modern (post-1980)",
+          "descriptors": [
+            "extended",
+            "virtuoso",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "pt_piano",
+          "default": true,
+          "name": "Piano (lead and chord)",
+          "descriptors": [
+            "lead",
+            "foundational"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pt_bass",
+          "name": "Upright bass (walking)",
+          "descriptors": [
+            "walking-line",
+            "foundational"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pt_drums",
+          "name": "Drum kit (brushes / sticks)",
+          "descriptors": [
+            "supporting",
+            "responsive"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era",
+      "variants": [
+        {
+          "id": "jazz_classic_trio",
+          "default": true,
+          "name": "Classic-era (1950s-60s)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "foundational"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "jazz_modern_trio",
+          "name": "Modern (post-1980)",
+          "descriptors": [
+            "extended",
+            "virtuoso",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

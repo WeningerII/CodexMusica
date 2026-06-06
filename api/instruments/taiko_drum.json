@@ -1,0 +1,422 @@
+{
+  "id": "taiko_drum",
+  "name": "Taiko (Japanese ensemble drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "taiko",
+  "parts": [
+    {
+      "id": "taiko_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "taiko_chu_daiko",
+          "default": true,
+          "name": "Chū-daiko (medium ensemble standard)",
+          "descriptors": [
+            "driving",
+            "projection-strong"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_o_daiko",
+          "name": "Ō-daiko (large festival/concert)",
+          "descriptors": [
+            "foundational",
+            "low-fundamental-tuning",
+            "projection-strong"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_shime_daiko",
+          "name": "Shime-daiko (small, rope-tensioned, high-pitched)",
+          "descriptors": [
+            "sharp",
+            "cutting",
+            "rope-tensioned"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taiko_skin",
+      "name": "Heads",
+      "variants": [
+        {
+          "id": "taiko_cowhide",
+          "default": true,
+          "name": "Cowhide both heads (canonical Japanese)",
+          "descriptors": [
+            "cowhide-canonical-japanese"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_horsehide",
+          "name": "Horsehide (smaller drums, traditional alternative)",
+          "descriptors": [
+            "horsehide-traditional-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taiko_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "taiko_keyaki_canonical",
+          "default": true,
+          "name": "Keyaki zelkova (canonical Japanese — single hollowed trunk)",
+          "descriptors": [
+            "keyaki-zelkova-canonical-japanese-single-hollowed-trunk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_sen",
+          "name": "Sen (castor aralia — mid-tier alternative)",
+          "descriptors": [
+            "sen-castor-aralia-mid-tier"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_stave_built",
+          "name": "Stave-built (modern non-trunk construction)",
+          "descriptors": [
+            "stave-built-modern-non-trunk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taiko_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "taiko_oedo_sukeroku",
+          "default": true,
+          "name": "Oedo Sukeroku Daiko (canonical kumi-daiko lineage, post-1951)",
+          "descriptors": [
+            "oedo-sukeroku-canonical-kumi-daiko"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_kodo_sado",
+          "name": "Kodo Sado Island lineage",
+          "descriptors": [
+            "kodo-sado-island-lineage"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_san_francisco",
+          "name": "San Francisco Taiko Dojo (Tanaka 1968 diasporic lineage)",
+          "descriptors": [
+            "sf-taiko-dojo-tanaka-1968-diasporic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taiko_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "taiko_kumi_daiko",
+          "default": true,
+          "name": "Kumi-daiko (modern ensemble, post-1951)",
+          "descriptors": [
+            "modern-ensemble",
+            "choreographed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_festival_matsuri",
+          "name": "Festival matsuri (traditional outdoor)",
+          "descriptors": [
+            "outdoor",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_gagaku_ritual",
+          "name": "Gagaku/Buddhist ritual",
+          "descriptors": [
+            "ceremonial",
+            "sustained"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "gagaku"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "taiko_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "taiko_chu_daiko",
+          "default": true,
+          "name": "Chū-daiko (medium ensemble standard)",
+          "descriptors": [
+            "driving",
+            "projection-strong"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_o_daiko",
+          "name": "Ō-daiko (large festival/concert)",
+          "descriptors": [
+            "foundational",
+            "low-fundamental-tuning",
+            "projection-strong"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_shime_daiko",
+          "name": "Shime-daiko (small, rope-tensioned, high-pitched)",
+          "descriptors": [
+            "sharp",
+            "cutting",
+            "rope-tensioned"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taiko_skin",
+      "name": "Heads",
+      "variants": [
+        {
+          "id": "taiko_cowhide",
+          "default": true,
+          "name": "Cowhide both heads (canonical Japanese)",
+          "descriptors": [
+            "cowhide-canonical-japanese"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_horsehide",
+          "name": "Horsehide (smaller drums, traditional alternative)",
+          "descriptors": [
+            "horsehide-traditional-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taiko_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "taiko_keyaki_canonical",
+          "default": true,
+          "name": "Keyaki zelkova (canonical Japanese — single hollowed trunk)",
+          "descriptors": [
+            "keyaki-zelkova-canonical-japanese-single-hollowed-trunk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_sen",
+          "name": "Sen (castor aralia — mid-tier alternative)",
+          "descriptors": [
+            "sen-castor-aralia-mid-tier"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_stave_built",
+          "name": "Stave-built (modern non-trunk construction)",
+          "descriptors": [
+            "stave-built-modern-non-trunk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taiko_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "taiko_oedo_sukeroku",
+          "default": true,
+          "name": "Oedo Sukeroku Daiko (canonical kumi-daiko lineage, post-1951)",
+          "descriptors": [
+            "oedo-sukeroku-canonical-kumi-daiko"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_kodo_sado",
+          "name": "Kodo Sado Island lineage",
+          "descriptors": [
+            "kodo-sado-island-lineage"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_san_francisco",
+          "name": "San Francisco Taiko Dojo (Tanaka 1968 diasporic lineage)",
+          "descriptors": [
+            "sf-taiko-dojo-tanaka-1968-diasporic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taiko_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "taiko_kumi_daiko",
+          "default": true,
+          "name": "Kumi-daiko (modern ensemble, post-1951)",
+          "descriptors": [
+            "modern-ensemble",
+            "choreographed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_festival_matsuri",
+          "name": "Festival matsuri (traditional outdoor)",
+          "descriptors": [
+            "outdoor",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "taiko_gagaku_ritual",
+          "name": "Gagaku/Buddhist ritual",
+          "descriptors": [
+            "ceremonial",
+            "sustained"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "gagaku"
+          ]
+        }
+      ]
+    }
+  ]
+}

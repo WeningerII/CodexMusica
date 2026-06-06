@@ -1,0 +1,75 @@
+{
+  "id": "ambient",
+  "name": "Ambient",
+  "family": "electronic",
+  "lineage": "Long-form atmospheric electronic-music genre codified by Brian Eno from 1975 onward — Discreet Music 1975, then the Ambient series Ambient 1: Music for Airports 1978 establishing both the genre name and the founding aesthetic of music as functional environment-shaping; extended through Apollo: Atmospheres and Soundtracks 1983 with Daniel Lanois and Roger Eno, Harold Budd collaborations, the modern continuation through Stars of the Lid, William Basinski (The Disintegration Loops 2002), Tim Hecker, Grouper",
+  "recipe": "classic mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, tape replay keyboard, handpan. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
+  "recipe_chars": 413,
+  "score": 35.068,
+  "config": {
+    "traditions": [
+      "ambient"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 14.685142857142854,
+          "oscillator": 1.8265,
+          "filter_topology": 0.5374285714285714,
+          "envelope": 7.409999999999999,
+          "modulation": 0.3
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "brass_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "tape_voice": 0.78,
+          "tape_state": 0.3
+        }
+      },
+      {
+        "id": "handpan",
+        "slots": {
+          "handpan_scale": "handpan_f_integral",
+          "handpan_maker": "handpan_hang"
+        },
+        "scores": {
+          "handpan_scale": 2.21,
+          "handpan_maker": 1.014
+        }
+      }
+    ],
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "hall_reverb",
+      "analog_delay"
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "maori_karanga_powhiri",
+  "name": "Māori karanga and pōwhiri ritual call",
+  "family": "global",
+  "lineage": "Māori karanga and pōwhiri formal-welcome ceremonial vocal tradition of Aotearoa New Zealand. The karanga is the high-pitched extended-pitch-glide formal call performed by senior women (the kaikaranga) at the opening of a pōwhiri formal welcome ceremony as visiting parties approach the marae (carved meeting-house and forecourt). The kaikaranga of the host iwi (tribe) initiates the karanga with a long sustained high-pitched call extending across many seconds, which the kaikaranga of the visiting party answers, and the call-response continues across phases as the visitors physically approach the carved whare-nui meeting-house. The karanga functions to acknowledge the dead, identify the visitors, invoke the ancestors, and ritually-spatially admit the visitors onto sacred ground. Vocal architecture features extended-pitch-sustain, high-register projection (the kaikaranga voice carrying across a wide outdoor distance), characteristic pitch-bend ornament, and a strikingly non-strophic open-ended duration determined by ceremonial context. Following the karanga, the broader pōwhiri sequence proceeds through whaikōrero (formal oratory by senior men, the kaikōrero), waiata (sung songs accompanying or responding to the oratory), and finally hongi (forehead-and-nose-pressing ritual greeting). The pūtātara conch-shell trumpet sometimes signals the opening of the karanga sequence. Performance contexts include marae-welcome of guests, tangihanga funerals, school and parliament openings, and any other formal-ceremonial gathering at a marae. Mervyn McLean's Maori Music (Auckland University Press 1996) is the principal English-language scholarly documentation. Distinguished from Māori waiata sung-song by karanga's extended-pitch-glide ceremonial-call (vs strophic-melodic-song) configuration; distinguished from Tongan lakalaka by karanga's women-only call-and-response (vs Tongan large-group choreographed-poetry) functional framework.",
+  "recipe": "classic mid-1990s māori karanga and pōwhiri ritual call, ritual Devotional, indigenous branch, vocal drone modal skolt sámi leuʹdd northern sámi luohti yoik. vocal fry, declaimed, nervy, unrestrained. conch shell mouthpiece canonical aotearoa signaling karanga powhiri ceremonial calling canonical Maori putatara. marae forecourt. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 460,
+  "score": 246.92,
+  "config": {
+    "traditions": [
+      "maori_karanga_powhiri",
+      "sami_skolt_leudd",
+      "sami_northern_luohti"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 6.5649999999999995,
+          "voice_quality": 11.544999999999998,
+          "voice_vibrato": 3.5999999999999996,
+          "voice_articulation": 3.55,
+          "voice_microtone": 6.39,
+          "voice_tradition": 18.264999999999997,
+          "voice_mechanism_compound": 4.845000000000001,
+          "voice_estill_quality": 5.965,
+          "voice_speech_song": 24.375,
+          "voice_ensemble_config": 16.64,
+          "voice_ornament_system": 5.75,
+          "voice_pitch_organization": 6.24,
+          "voice_processing_chain": 6.89,
+          "voice_multitrack_stack": 8.969999999999999
+        }
+      },
+      {
+        "id": "putatara",
+        "slots": {
+          "putatara_body": "putatara_conch_shell_mouthpiece_canonical",
+          "putatara_tradition": "putatara_karanga_powhiri_canonical"
+        },
+        "scores": {
+          "putatara_body": 4.29,
+          "putatara_tradition": 16.760000000000005
+        }
+      }
+    ],
+    "room": "marae_forecourt",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

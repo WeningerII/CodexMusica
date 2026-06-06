@@ -1,0 +1,176 @@
+{
+  "id": "pentecostal_gospel",
+  "name": "Black Pentecostal gospel",
+  "family": "blues_gospel",
+  "lineage": "Black Pentecostal / COGIC (Church of God in Christ) liturgical music tradition characterized by Hammond B3 organ, piano, drums, electric bass, congregational call-and-response with melismatic lead vocal — codified through James Cleveland, Mahalia Jackson, the Caravans, Edwin Hawkins, Andrae Crouch, Aretha Franklins Amazing Grace (1972, New Temple Missionary Baptist Church LA)",
+  "recipe": "classic North American early-1970s black pentecostal gospel, ritual Devotional, pentecostal branch, soul R&B functional song southern soul classic r&b. thick, declaimed, ornamental, blues inflected. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum fast tremolo tonewheel organ, gospel runs upright piano, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, full lathed both sides lathed sticks pocket drum kit, ecstatic call response choir pentecostal cogic, choir southern black gospel. pentecostal storefront church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 783,
+  "score": 436.957,
+  "config": {
+    "traditions": [
+      "pentecostal_gospel",
+      "southern_soul",
+      "classic_rb"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 11.286999999999994,
+          "voice_quality": 14.441999999999993,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 9.249999999999998,
+          "voice_microtone": 0.7905,
+          "voice_tradition": 20.91,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 11.219999999999997,
+          "voice_speech_song": 2.925,
+          "voice_ensemble_config": 11.646999999999997,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 1.26,
+          "voice_processing_chain": 2.08,
+          "voice_multitrack_stack": 2.47
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 12.276999999999997,
+          "drawbar_setting": 9.849999999999998,
+          "rotary_speed": 9.2,
+          "percussion_setting": 0.78,
+          "tonewheel_model": 12.673999999999996,
+          "leslie_cabinet_model": 2.015
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 12.276999999999997,
+          "upright_use": 0.534,
+          "upright_piano_size": 0.7045000000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 1.6499999999999997,
+          "amp_make": 4.16,
+          "body_wood": 1.0680000000000003,
+          "pickup_config": 0,
+          "string_type": 5.59,
+          "scale_length_b": 0.534,
+          "fretted_or_not": 0.39,
+          "bass_technique": 1.65
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_sticks_motown",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "fourteen_step_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "sticks_motown"
+        },
+        "scores": {
+          "percussion_technique": 1.95,
+          "shell_wood": 0.6525,
+          "shell_thickness": 0.3,
+          "bearing_edges": 0.534,
+          "drumhead": 0.7899999999999999,
+          "snare_wires": 0.534,
+          "cymbal_alloy": 0.052500000000000005,
+          "cymbal_hammering": 0.8449999999999999,
+          "cymbal_lathing": 1.5949999999999998,
+          "cymbal_finish": 0.345,
+          "drum_technique": 1.95
+        }
+      },
+      {
+        "id": "choir_pentecostal_cogic",
+        "slots": {
+          "voices": "cogic_lead",
+          "context": "devotional_tempo"
+        },
+        "scores": {
+          "voices": 3.2900000000000005,
+          "context": 1.492
+        }
+      },
+      {
+        "id": "choir_southern_black_gospel",
+        "slots": {
+          "voices": "lead_vocalist",
+          "accompaniment": "gospel_full_band",
+          "era": "gospel_quartet_lineage"
+        },
+        "scores": {
+          "voices": 2.687,
+          "accompaniment": 0.78,
+          "era": 4.16
+        }
+      }
+    ],
+    "room": "pentecostal_storefront_church",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

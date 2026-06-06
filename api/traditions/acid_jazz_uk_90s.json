@@ -1,0 +1,177 @@
+{
+  "id": "acid_jazz_uk_90s",
+  "name": "Acid jazz (UK 1990s)",
+  "family": "jazz",
+  "lineage": "UK-originated 1980s-1990s dance-club jazz fusion style integrating hard-bop and soul-jazz influences with dance-club rhythmic-foundation, hip-hop production-elements, and electronic-instrumentation. Acid Jazz Records (founded 1987 by Eddie Piller and Gilles Peterson) consolidated the canonical sound; Galliano, Brand New Heavies, Jamiroquai, Incognito, and James Taylor Quartet anchored the recording roster. Distinguished from broader 1980s-jazz-fusion by acid jazz's dance-club orientation and UK-cultural context.",
+  "recipe": "classic North American acid jazz, improv On Frame, fusion branch, soul R&B functional song new jack swing doo-wop. thick, blues-shouter, pure, narrative. tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, Japanese factory birch laminated maple laminated wet sand cast cast iron grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, turntable. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 746,
+  "score": 681.026,
+  "config": {
+    "traditions": [
+      "acid_jazz_uk_90s",
+      "new_jack_swing",
+      "doo_wop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 29.77500000000001,
+          "voice_quality": 5.600000000000001,
+          "voice_vibrato": 0.6,
+          "voice_articulation": 6.8950000000000005,
+          "voice_microtone": 24.750000000000007,
+          "voice_tradition": 25.79500000000001,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 6.445,
+          "voice_speech_song": 9.294999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 11.454999999999998,
+          "voice_multitrack_stack": 7.999999999999999
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 6.37,
+          "sax_size": 4.9,
+          "sax_reed": 0.345,
+          "sax_body_alloy": 25.000000000000007,
+          "sax_mouthpiece": 0.345,
+          "sax_technique": 25.195000000000007,
+          "sax_maker_school": 25.828750000000007
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 5.835,
+          "grand_piano_size": 0.5249999999999999,
+          "grand_piano_brand": 0.825,
+          "piano_hammer": 1.885,
+          "piano_rim": 3.2500000000000004,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.56,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": 4.9,
+          "amp_make": 9.940000000000001,
+          "body_wood": 1.0500000000000003,
+          "pickup_config": 0.7949999999999999,
+          "string_type": 25.60000000000001,
+          "scale_length_b": 0.6,
+          "fretted_or_not": 0.105,
+          "bass_technique": 25.000000000000007
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "oak_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 34.71,
+          "shell_wood": 0.435,
+          "shell_thickness": 0,
+          "bearing_edges": 0.9450000000000001,
+          "drumhead": 25.70000000000001,
+          "snare_wires": 0.5249999999999999,
+          "cymbal_alloy": 35.588750000000005,
+          "cymbal_hammering": 25.540000000000006,
+          "cymbal_lathing": 26.318750000000005,
+          "cymbal_finish": 0.345,
+          "drum_technique": 34.71
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 1.945,
+          "turntable_technique": 3.295
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_30ips"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

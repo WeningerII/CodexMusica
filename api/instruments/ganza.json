@@ -1,0 +1,64 @@
+{
+  "id": "ganza",
+  "name": "Ganzá (Brazilian tube shaker)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ganzá",
+  "parts": [
+    {
+      "id": "ganza_source",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "ganza_metal_cylinder",
+          "default": true,
+          "name": "Metal cylinder (samba-school standard)",
+          "descriptors": [
+            "hiss-driven",
+            "samba-tradition",
+            "metallic-tube",
+            "metal-construction"
+          ],
+          "match_tokens": [
+            "shaker",
+            "samba-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ganza_source",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "ganza_metal_cylinder",
+          "default": true,
+          "name": "Metal cylinder (samba-school standard)",
+          "descriptors": [
+            "hiss-driven",
+            "samba-tradition",
+            "metallic-tube",
+            "metal-construction"
+          ],
+          "match_tokens": [
+            "shaker",
+            "samba-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

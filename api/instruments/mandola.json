@@ -1,0 +1,600 @@
+{
+  "id": "mandola",
+  "name": "Mandola (alto mandolin)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "mandola",
+  "parts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_flatpicked",
+          "name": "Flatpicked single-note",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mandolin",
+            "mandola",
+            "cittern",
+            "acoustic_guitar_parlor",
+            "upright_bass"
+          ],
+          "descriptors": [
+            "flatpicked",
+            "articulated"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "bluegrass",
+            "old-time"
+          ]
+        },
+        {
+          "id": "acoustic_strummed_ringing",
+          "default": true,
+          "name": "Open-chord strumming (ringing)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "mandolin",
+            "mandola",
+            "autoharp",
+            "celtic_harp",
+            "cittern"
+          ],
+          "descriptors": [
+            "strummed",
+            "open-chord-ringing-overtones"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "folk-revival",
+            "pop"
+          ]
+        },
+        {
+          "id": "acoustic_drone_modal",
+          "name": "Drop-tuned drone",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mandolin",
+            "mandola",
+            "mountain_dulcimer",
+            "cittern",
+            "autoharp"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "britfolk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "mandola_size",
+      "surface": false,
+      "name": "Tuning class",
+      "variants": [
+        {
+          "id": "mandola_alto",
+          "name": "Alto (tuned a fifth below mandolin)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "voice-like",
+            "irish-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "octave_mandola",
+          "default": true,
+          "name": "Octave mandola",
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "celtic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandola_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "mandola_classical",
+          "default": true,
+          "name": "Classical mandolin orchestra",
+          "descriptors": [
+            "late-nineteenth-century",
+            "large-ensemble"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_session",
+          "name": "Folk session (Celtic / bluegrass)",
+          "descriptors": [
+            "regional",
+            "twenty-first-century",
+            "cross-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_art",
+          "name": "Solo / concert",
+          "descriptors": [
+            "art-music",
+            "composed-tradition",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandola_top",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "mandola_sitka",
+          "default": true,
+          "name": "Sitka spruce",
+          "descriptors": [
+            "sitka",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_adirondack",
+          "name": "Adirondack red spruce (premium)",
+          "descriptors": [
+            "adirondack",
+            "red-spruce",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_german_spruce",
+          "name": "German spruce (classical orchestra)",
+          "descriptors": [
+            "german-spruce",
+            "european-alpine"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "mandola_italian_alpine",
+          "name": "Italian alpine (Brescian)",
+          "descriptors": [
+            "italian-alpine",
+            "brescian-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandola_back",
+      "surface": false,
+      "name": "Back wood",
+      "variants": [
+        {
+          "id": "mandola_european_maple",
+          "default": true,
+          "name": "European maple",
+          "descriptors": [
+            "european-maple",
+            "flamed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_big_leaf_maple",
+          "name": "Big-leaf maple",
+          "descriptors": [
+            "big-leaf-maple",
+            "modern-american"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_mahogany",
+          "name": "Mahogany",
+          "descriptors": [
+            "mahogany",
+            "woody-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandola_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "mandola_phosphor",
+          "default": true,
+          "name": "Phosphor bronze (medium)",
+          "descriptors": [
+            "phosphor-bronze",
+            "balanced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_eighty_twenty",
+          "name": "80/20 bronze",
+          "descriptors": [
+            "80-20-cu-zn",
+            "snappy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_daddario",
+          "name": "D'Addario mandola set",
+          "descriptors": [
+            "daddario",
+            "phosphor-bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_thomastik_jazz_flat",
+          "name": "Thomastik flatwound (jazz mandola)",
+          "descriptors": [
+            "thomastik",
+            "flatwound",
+            "jazz-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mandola_size",
+      "surface": false,
+      "name": "Tuning class",
+      "variants": [
+        {
+          "id": "mandola_alto",
+          "name": "Alto (tuned a fifth below mandolin)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "voice-like",
+            "irish-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "octave_mandola",
+          "default": true,
+          "name": "Octave mandola",
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "celtic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandola_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "mandola_classical",
+          "default": true,
+          "name": "Classical mandolin orchestra",
+          "descriptors": [
+            "late-nineteenth-century",
+            "large-ensemble"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_session",
+          "name": "Folk session (Celtic / bluegrass)",
+          "descriptors": [
+            "regional",
+            "twenty-first-century",
+            "cross-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_art",
+          "name": "Solo / concert",
+          "descriptors": [
+            "art-music",
+            "composed-tradition",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandola_top",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "mandola_sitka",
+          "default": true,
+          "name": "Sitka spruce",
+          "descriptors": [
+            "sitka",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_adirondack",
+          "name": "Adirondack red spruce (premium)",
+          "descriptors": [
+            "adirondack",
+            "red-spruce",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_german_spruce",
+          "name": "German spruce (classical orchestra)",
+          "descriptors": [
+            "german-spruce",
+            "european-alpine"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "mandola_italian_alpine",
+          "name": "Italian alpine (Brescian)",
+          "descriptors": [
+            "italian-alpine",
+            "brescian-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandola_back",
+      "surface": false,
+      "name": "Back wood",
+      "variants": [
+        {
+          "id": "mandola_european_maple",
+          "default": true,
+          "name": "European maple",
+          "descriptors": [
+            "european-maple",
+            "flamed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_big_leaf_maple",
+          "name": "Big-leaf maple",
+          "descriptors": [
+            "big-leaf-maple",
+            "modern-american"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_mahogany",
+          "name": "Mahogany",
+          "descriptors": [
+            "mahogany",
+            "woody-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandola_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "mandola_phosphor",
+          "default": true,
+          "name": "Phosphor bronze (medium)",
+          "descriptors": [
+            "phosphor-bronze",
+            "balanced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_eighty_twenty",
+          "name": "80/20 bronze",
+          "descriptors": [
+            "80-20-cu-zn",
+            "snappy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_daddario",
+          "name": "D'Addario mandola set",
+          "descriptors": [
+            "daddario",
+            "phosphor-bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "mandola_thomastik_jazz_flat",
+          "name": "Thomastik flatwound (jazz mandola)",
+          "descriptors": [
+            "thomastik",
+            "flatwound",
+            "jazz-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    }
+  ]
+}

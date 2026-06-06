@@ -1,0 +1,68 @@
+{
+  "id": "persian_lalai",
+  "name": "Persian lālā'ī (لالایی, cradle song)",
+  "family": "global",
+  "lineage": "Persian cradle-song tradition continuous from medieval Persian domestic-vocal practice through pre-revolutionary modern-Iranian domestic singing and diaspora practice in Los Angeles, Stockholm, and Toronto Iranian communities",
+  "recipe": "classic modern persian lālā'ī, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry ghazal andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. tehran classical dastgah context. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 410,
+  "score": 218.167,
+  "config": {
+    "traditions": [
+      "persian_lalai",
+      "ghazal",
+      "andalusi_nuba"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.9899999999999998,
+          "voice_quality": 0.7149999999999999,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.3900000000000001,
+          "voice_microtone": 5.525,
+          "voice_tradition": 25.804999999999996,
+          "voice_mechanism_compound": 19.284999999999997,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 9.879999999999999,
+          "voice_ensemble_config": 4.419999999999999,
+          "voice_ornament_system": 21.279999999999998,
+          "voice_pitch_organization": 22.794999999999995,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 3.3799999999999994
+        }
+      }
+    ],
+    "room": "tehran_classical_dastgah_context",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "dastgah_persian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

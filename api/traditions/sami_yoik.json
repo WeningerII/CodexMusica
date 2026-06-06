@@ -1,0 +1,68 @@
+{
+  "id": "sami_yoik",
+  "name": "Sámi yoik",
+  "family": "global",
+  "lineage": "Indigenous Sámi (northern Norway / Sweden / Finland / Russia) vocal tradition of singing-about rather than singing-of — a yoik does not have a subject, it IS its subject; modal vocal melismatic tradition known by region-specific names (luohti in North Sámi, juoiggus in Inari Sámi, vuolle in Lule Sámi, leu_dd in Skolt Sámi), often unaccompanied solo with occasional sálldi frame drum",
+  "recipe": "classic modern sámi yoik, drone Modal, vocal branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, false fold engaged, continuous-phonation, filtered throat. sapmi outdoor tundra yoik. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 376,
+  "score": 197.06,
+  "config": {
+    "traditions": [
+      "sami_yoik",
+      "inuit_katajjaq_games",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 5.329999999999999,
+          "voice_quality": 3.4450000000000003,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.9750000000000001,
+          "voice_microtone": 1.6899999999999997,
+          "voice_tradition": 16.184999999999995,
+          "voice_mechanism_compound": 6.7299999999999995,
+          "voice_estill_quality": 3.6399999999999997,
+          "voice_speech_song": 4.68,
+          "voice_ensemble_config": 8.84,
+          "voice_ornament_system": 4.34,
+          "voice_pitch_organization": 2.7950000000000004,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 5.329999999999999
+        }
+      }
+    ],
+    "room": "sapmi_outdoor_tundra_yoik",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

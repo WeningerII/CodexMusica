@@ -1,0 +1,120 @@
+{
+  "id": "grand_opera_french",
+  "name": "Grand opera (French nineteenth century)",
+  "family": "classical",
+  "lineage": "Nineteenth-century French operatic style characterized by five-act structure, large historical-or-mythological subjects, elaborate ballet sequences, and massive choral and orchestral forces. Daniel Auber's La muette de Portici (1828), Giacomo Meyerbeer's Les Huguenots (1836) and Le Prophète (1849), and Hector Berlioz's Les Troyens (1858) are canonical type-specimens. The Paris Opéra and the Palais Garnier (opened 1875) constitute the institutional anchors. Distinguished from Italian opera by grand-opera's spectacular-scale and French-language declamatory recitative vocabulary.",
+  "recipe": "classic North American late-1820s grand opera, art Music, western common practice branch, chanson fado ballad poetry greek éntechno cape verdean batuko of santiago island. thick, lament wail, chest resonance low mid, punctuated. beech laminated maple laminated European tradition European spruce norway spruce grand piano, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 573,
+  "score": 286.081,
+  "config": {
+    "traditions": [
+      "grand_opera_french",
+      "greek_entechno",
+      "cape_verdean_batuko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 1.79025,
+          "voice_quality": 2.7950000000000004,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 1.1449999999999998,
+          "voice_microtone": 3.11375,
+          "voice_tradition": 9.787749999999999,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 17.393,
+          "voice_speech_song": 14.349999999999998,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 15.1205,
+          "voice_pitch_organization": 2.4450000000000003,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 2.18025
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 2.09975,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 3.185,
+          "piano_rim": 3.25,
+          "piano_soundboard": 3.25,
+          "piano_pinblock": 2.6900000000000004,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": 4.875
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "italian_alpine_spruce_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "pizz_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 5.75,
+          "orch_strings": 0.79975,
+          "orch_top_wood": 4.653,
+          "orch_back_wood": 2.74025,
+          "orch_varnish": 4.615,
+          "orch_setup_period": 1.2349999999999999,
+          "orch_bow": 1.5599999999999998,
+          "orch_bow_stick": 3.1200000000000006,
+          "orch_articulation": 0.9099999999999999,
+          "orch_rosin": 7.66
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

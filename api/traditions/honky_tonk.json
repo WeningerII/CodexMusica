@@ -1,0 +1,210 @@
+{
+  "id": "honky_tonk",
+  "name": "Honky-tonk",
+  "family": "vernacular",
+  "lineage": "Post-WWII Texas-and-Tennessee honky-tonk country tradition that dominated commercial country from 1945-1955 — codified through Ernest Tubb (Walking the Floor Over You 1941, the founding honky-tonk recording), Hank Williams (the honky-tonk figure, Lovesick Blues 1949, Im So Lonesome I Could Cry 1949, his 1953 death at 29 closed the founding era), Lefty Frizzell (the most-imitated honky-tonk vocalist), Webb Pierce, Faron Young, Ray Price; characterized by amplified-band dance-hall instrumentation (pedal steel guitar, fiddle, electric guitar, upright bass, drums) and lyrical content of working-class drinking, cheating, and barroom-romantic-loss",
+  "recipe": "classic North American mid-1950s honky-tonk, functional Song, honky tonk era branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, worn fold, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup nickel plated steel nickel single coil electric guitar, sustaining steel upright bass, steel fx9 manganese bronze over hammered post lathe strikes drum kit, steel double stops rubber fiddle, tack upright piano. honky tonk dance hall. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 720,
+  "score": 432.918,
+  "config": {
+    "traditions": [
+      "honky_tonk",
+      "texas_country_folk_storyteller",
+      "freak_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 13.099999999999994,
+          "voice_quality": 1.0999999999999999,
+          "voice_vibrato": 9.785,
+          "voice_articulation": 0.69,
+          "voice_microtone": 1.675,
+          "voice_tradition": 3.0550000000000015,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 12.264999999999997,
+          "voice_speech_song": 10.204999999999998,
+          "voice_ensemble_config": 7.2799999999999985,
+          "voice_ornament_system": 0.7149999999999997,
+          "voice_pitch_organization": 0.78,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 0.9099999999999997
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "brass_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 13.035,
+          "amp_make": 10.649999999999997,
+          "pickup_steel": 0.39,
+          "string_setup": 4.1899999999999995,
+          "bar_material": 1.69,
+          "pedal_steel_brand": 11.519999999999998,
+          "pedal_steel_neck_config": 10.37,
+          "pedal_steel_strings": 10.384999999999998
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 10.295,
+          "amp_make": 10.649999999999997,
+          "body_wood": 0.39,
+          "neck_wood": 0.43499999999999994,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.285,
+          "string_material": 1.69,
+          "string_gauge": 0.39,
+          "bridge": 0.09,
+          "scale_length": 0.39,
+          "finish": 0.3,
+          "string_tuning": 1.69
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "steel_upright",
+          "upright_play": "slap_upright"
+        },
+        "scores": {
+          "acoustic_technique": 0.325,
+          "upright_strings": 1.69,
+          "upright_play": 0.345
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "double_coated",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "meinl_fx9",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "lathing_raw_unlathed",
+          "cymbal_finish": "brilliant_finish",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 6.889999999999999,
+          "shell_wood": 1.69,
+          "shell_thickness": 0.39,
+          "bearing_edges": 0.39,
+          "drumhead": 0.39,
+          "snare_wires": 0.39,
+          "cymbal_alloy": 2.7850000000000006,
+          "cymbal_hammering": 2.925,
+          "cymbal_lathing": 1.0849999999999997,
+          "cymbal_finish": 0.9099999999999999,
+          "drum_technique": 6.889999999999999
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 12.644999999999998,
+          "fiddle_strings": 2.5700000000000003,
+          "fiddle_bow": 0.32999999999999996,
+          "fiddle_mute": 1.15,
+          "fiddle_articulation": 0.09
+        }
+      },
+      {
+        "id": "tack_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_honky_tonk",
+          "tack_density": "full_tacks",
+          "tack_piano_context": "tack_piano_saloon"
+        },
+        "scores": {
+          "keyboard_technique": 19.7,
+          "tack_density": 13.645,
+          "tack_piano_context": 1.0200000000000002
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_honky_tonk",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 19.7,
+          "upright_use": 0.39,
+          "upright_piano_size": 0.32999999999999996
+        }
+      }
+    ],
+    "room": "honky_tonk_dance_hall",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_api_525",
+      "eq": "eq_api_550",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
+    },
+    "tuning": "country_nashville_three_chord_train_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_spring_reverb",
+      "fx_analog_delay"
+    ]
+  }
+}

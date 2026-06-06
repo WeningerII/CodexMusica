@@ -1,0 +1,135 @@
+{
+  "id": "american_drinking_song",
+  "name": "American drinking song (frat, sea-shanty-derived, country)",
+  "family": "global",
+  "lineage": "American drinking-song tradition continuous from 18th-19th century English-Irish-and-Scottish-imported drinking-song-and-sea-shanty repertoire through 19th-century American-frontier and Civil-War-era expansion through 20th-century college-fraternity drinking-song-and-country-music drinking-song lineage into modern American continuous bar-and-roadhouse practice; foundational repertoire includes \"99 Bottles of Beer,\" \"Show Me the Way to Go Home,\" \"Beer Barrel Polka,\" \"Drink to Me Only with Thine Eyes\"",
+  "recipe": "classic modern american drinking song, drinking Song, americas branch, European drinking song, americana country, atlantic Southeast Asian shanty gothic americana gothic country. thick, low dynamic level, melodic, continuous-phonation. dadgad tuning phosphor bronze pre war martin travis picked dreadnought acoustic guitar, fluorocarbon modern open back scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition double brass chromatic canon suzuki Japanese modern precision harmonica. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 667,
+  "score": 306.222,
+  "config": {
+    "traditions": [
+      "american_drinking_song",
+      "gothic_americana",
+      "gothic_country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 9.999999999999996,
+          "voice_quality": 4.875,
+          "voice_vibrato": 7.6425,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 1.7000000000000002,
+          "voice_tradition": 4.16,
+          "voice_mechanism_compound": 1.628125,
+          "voice_estill_quality": 8.938125,
+          "voice_speech_song": 22.165,
+          "voice_ensemble_config": 10.269999999999998,
+          "voice_ornament_system": 0.375,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.585,
+          "voice_multitrack_stack": 0.33
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "dadgad",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 7.45,
+          "string_tuning": 3.1,
+          "top_wood": 0.9099999999999999,
+          "back_sides": 0.9099999999999999,
+          "string_acoustic": 1.69
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_fluorocarbon",
+          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.879999999999999,
+          "banjo_back": 0.9099999999999999,
+          "tone_ring": 0.9099999999999999,
+          "banjo_head": 10.919999999999998,
+          "banjo_pot": 0.045,
+          "banjo_play": 0,
+          "banjo_rim_wood": 0.15,
+          "banjo_neck_wood": 0.12,
+          "banjo_strings": 1.69,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 9.944999999999999
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonica_type": "octave_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "double_brass_harm",
+          "harmonica_technique": "harm_folk_first_position",
+          "harmonica_maker_school": "harmonica_suzuki_japanese",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 7.5425,
+          "harmonica_type": 0.211875,
+          "harmonica_comb": 5.014375,
+          "harmonica_reed": 3.475,
+          "harmonica_technique": 7.5425,
+          "harmonica_maker_school": 1.69,
+          "harmonica_tuning": 0.78
+        }
+      }
+    ],
+    "room": "irish_pub",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

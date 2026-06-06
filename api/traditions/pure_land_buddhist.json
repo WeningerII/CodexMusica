@@ -1,0 +1,68 @@
+{
+  "id": "pure_land_buddhist",
+  "name": "Pure Land Buddhist chant",
+  "family": "global",
+  "lineage": "East-Asian Pure-Land (Jingtu / Jodo) devotional chant tradition centered on the Amitabha nembutsu (recitation of Amitabha’s name) — codified through 5th-century Chinese teacher Tan Luan, formalized as separate school by Shan Tao (613-681), then Honen (1133-1212) establishing Jōdo-shū in Japan, and Shinran (1173-1263) founding Jōdo Shinshū; characterized by repetitive nianfo / nembutsu name-chanting practice in slow-tempo melismatic delivery",
+  "recipe": "classic North American early-1130s pure land buddhist chant, ritual Devotional, buddhist branch, east Asian art music beijing opera japanese gidayū-bushi. vocal fry, pressed, chest resonance low mid, Chinese classical vocal. tibetan monastery assembly. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 384,
+  "score": 145.645,
+  "config": {
+    "traditions": [
+      "pure_land_buddhist",
+      "beijing_opera",
+      "japanese_gidayu_bushi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.9450000000000002,
+          "voice_quality": 8.17,
+          "voice_vibrato": 2.3449999999999998,
+          "voice_articulation": 0.33,
+          "voice_microtone": 0.43499999999999994,
+          "voice_tradition": 9.75,
+          "voice_mechanism_compound": 4.4399999999999995,
+          "voice_estill_quality": 0.87,
+          "voice_speech_song": 3.3799999999999994,
+          "voice_ensemble_config": 5.174999999999999,
+          "voice_ornament_system": 6.899999999999999,
+          "voice_pitch_organization": 1.8299999999999996,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 1.6049999999999998
+        }
+      }
+    ],
+    "room": "tibetan_monastery_assembly",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "wolof_grain_grinding",
+  "name": "Wolof-Senegambian grain-grinding women's song",
+  "family": "global",
+  "lineage": "Wolof-Senegambian women's grain-grinding song tradition continuous from premodern Senegambian domestic-grain-processing labor practice through colonial-era continuous performance into modern Senegambian continuous practice",
+  "recipe": "classic modern wolof-senegambian grain-grinding women's song, domestic Rhythm, sub saharan African branch, south Asian domestic rhythm, sub saharan African field work, sub saharan African praise song yoruba oríkì mande-wolof west-african harvest-and-field song. vocal fry, declaimed, tasteful, continuous-phonation. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 481,
+  "score": 179.554,
+  "config": {
+    "traditions": [
+      "wolof_grain_grinding",
+      "yoruba_oriki",
+      "mande_wolof_harvest"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 3.055000000000003,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0,
+          "voice_tradition": 15.860000000000001,
+          "voice_mechanism_compound": 1.95,
+          "voice_estill_quality": 1.3649999999999998,
+          "voice_speech_song": 6.954999999999999,
+          "voice_ensemble_config": 3.74,
+          "voice_ornament_system": 10.919999999999998,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 0.6499999999999999,
+          "voice_multitrack_stack": 1.56
+        }
+      }
+    ],
+    "room": "tanzanian_outdoor_village_clearing",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mande_pentatonic_jeli_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

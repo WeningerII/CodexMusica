@@ -1,0 +1,507 @@
+{
+  "id": "recorder",
+  "name": "Recorder (renaissance / baroque)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "recorder",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        },
+        {
+          "id": "wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "uilleann_pipes",
+            "biniou",
+            "highland_bagpipes",
+            "bombarde",
+            "recorder",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "shawm",
+            "zurna",
+            "mizmar",
+            "ghaita",
+            "ciaramella",
+            "duduk",
+            "mey"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "recorder_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "soprano_recorder",
+          "default": true,
+          "name": "Soprano (descant)",
+          "descriptors": [
+            "accessible",
+            "renaissance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "alto_recorder",
+          "name": "Alto (treble)",
+          "descriptors": [
+            "baroque-soloistic",
+            "low-overtone-rich",
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "tenor_recorder",
+          "name": "Tenor",
+          "descriptors": [
+            "low-overtone-rich",
+            "consort",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bass_recorder",
+          "name": "Bass",
+          "descriptors": [
+            "deep",
+            "consort",
+            "baroque-leaning"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recorder_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "recorder_renaissance",
+          "default": true,
+          "name": "Renaissance consort",
+          "descriptors": [
+            "historical",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "recorder_baroque_solo",
+          "name": "Baroque solo",
+          "descriptors": [
+            "featured",
+            "composed-tradition",
+            "art-music"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "soloistic",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "recorder_school",
+          "surface": false,
+          "name": "Pedagogical / school",
+          "descriptors": [
+            "beginner",
+            "modern",
+            "introductory"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recorder_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "recorder_boxwood_canonical",
+          "default": true,
+          "name": "Boxwood (canonical Renaissance / baroque)",
+          "descriptors": [
+            "boxwood-canonical-renaissance-baroque"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "breathing",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "recorder_grenadilla",
+          "name": "Grenadilla / African blackwood (modern premium)",
+          "descriptors": [
+            "grenadilla-african-blackwood-modern-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "recorder_maple",
+          "name": "Maple (mid-tier baroque alternative)",
+          "descriptors": [
+            "maple-mid-tier-baroque-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "recorder_pearwood",
+          "name": "Pearwood (Renaissance alternative)",
+          "descriptors": [
+            "pearwood-renaissance-alternative"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "recorder_plastic_pedagogical",
+          "name": "Plastic (pedagogical Yamaha / Aulos)",
+          "descriptors": [
+            "plastic-pedagogical-yamaha-aulos"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "recorder_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "soprano_recorder",
+          "default": true,
+          "name": "Soprano (descant)",
+          "descriptors": [
+            "accessible",
+            "renaissance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "alto_recorder",
+          "name": "Alto (treble)",
+          "descriptors": [
+            "baroque-soloistic",
+            "low-overtone-rich",
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "tenor_recorder",
+          "name": "Tenor",
+          "descriptors": [
+            "low-overtone-rich",
+            "consort",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bass_recorder",
+          "name": "Bass",
+          "descriptors": [
+            "deep",
+            "consort",
+            "baroque-leaning"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recorder_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "recorder_renaissance",
+          "default": true,
+          "name": "Renaissance consort",
+          "descriptors": [
+            "historical",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "recorder_baroque_solo",
+          "name": "Baroque solo",
+          "descriptors": [
+            "featured",
+            "composed-tradition",
+            "art-music"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "soloistic",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "recorder_school",
+          "surface": false,
+          "name": "Pedagogical / school",
+          "descriptors": [
+            "beginner",
+            "modern",
+            "introductory"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recorder_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "recorder_boxwood_canonical",
+          "default": true,
+          "name": "Boxwood (canonical Renaissance / baroque)",
+          "descriptors": [
+            "boxwood-canonical-renaissance-baroque"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "breathing",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "recorder_grenadilla",
+          "name": "Grenadilla / African blackwood (modern premium)",
+          "descriptors": [
+            "grenadilla-african-blackwood-modern-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "recorder_maple",
+          "name": "Maple (mid-tier baroque alternative)",
+          "descriptors": [
+            "maple-mid-tier-baroque-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "recorder_pearwood",
+          "name": "Pearwood (Renaissance alternative)",
+          "descriptors": [
+            "pearwood-renaissance-alternative"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "recorder_plastic_pedagogical",
+          "name": "Plastic (pedagogical Yamaha / Aulos)",
+          "descriptors": [
+            "plastic-pedagogical-yamaha-aulos"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": "kompa_direkt",
+  "name": "Kompa-direkt (Haitian)",
+  "family": "global",
+  "lineage": "The original founding Haitian kompa-direkt tradition invented by Nemours Jean-Baptiste in 1955 — characterized by big-band horn-section arrangement, slower 2/4 dance tempo (90-110 BPM), and the meringue Haitian rhythmic foundation; figures Nemours Jean-Baptiste (the founder), his orchestra Ensemble Aux Calebasses, and the parallel cadence-rampa lineage of Webert Sicot",
+  "recipe": "classic North American mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra dixieland. thick, full chest belt, punctuated, equal tempered. single coil electric guitar, thomastik infeld low tension jazz warm walking fingerstyle electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, nickel silver bright projecting ensemble continuous-airflow legato saxophone, congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 682,
+  "score": 298.558,
+  "config": {
+    "traditions": [
+      "kompa_direkt",
+      "big_band",
+      "dixieland_traditional_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 3.5215000000000005,
+          "voice_quality": 4.891500000000001,
+          "voice_vibrato": 0.3,
+          "voice_articulation": 1.69,
+          "voice_microtone": 2.795,
+          "voice_tradition": 4.745000000000002,
+          "voice_mechanism_compound": 1.266,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 3.3149999999999995,
+          "voice_ensemble_config": 3.25,
+          "voice_ornament_system": 0.15,
+          "voice_pitch_organization": 0.9099999999999999,
+          "voice_processing_chain": 2.9899999999999998,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "roasted_maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "poly",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 0.6499999999999998,
+          "body_wood": 0.3,
+          "neck_wood": 0.3,
+          "fretboard": 0.25,
+          "pickup_magnet": 0.105,
+          "string_material": 0.195,
+          "string_gauge": 0.3,
+          "bridge": 0.0315,
+          "scale_length": 0.3,
+          "finish": 0.195,
+          "string_tuning": 0.8879999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 0.6499999999999998,
+          "body_wood": 0.3,
+          "pickup_config": 0,
+          "string_type": 3.25,
+          "scale_length_b": 0.3765,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 2.5
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_jazz"
+        },
+        "scores": {
+          "percussion_technique": 4.55,
+          "shell_wood": 0.516,
+          "shell_thickness": 0,
+          "bearing_edges": 0.3,
+          "drumhead": 3.25,
+          "snare_wires": 0.3,
+          "cymbal_alloy": 2.3950000000000005,
+          "cymbal_hammering": 3.0865,
+          "cymbal_lathing": 5.2625,
+          "cymbal_finish": 0.105,
+          "drum_technique": 4.55
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 4.095000000000001,
+          "sax_size": 0.3,
+          "sax_reed": 0.105,
+          "sax_body_alloy": 3.25,
+          "sax_mouthpiece": 0.15,
+          "sax_technique": 2.5315,
+          "sax_maker_school": 0.585
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 0.26,
+          "conga_set": 0.2265,
+          "conga_skin": 0.45299999999999996,
+          "conga_shell_wood": 0.4215
+        }
+      }
+    ],
+    "room": "port_au_prince_haitian_kompa_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "haitian_kompa_meringue",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

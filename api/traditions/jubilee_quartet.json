@@ -1,0 +1,94 @@
+{
+  "id": "jubilee_quartet",
+  "name": "Jubilee quartet",
+  "family": "blues_gospel",
+  "lineage": "Late-19th-century African-American close-harmony sacred quartet tradition originating from the Fisk Jubilee Singers (Fisk University Nashville, founded 1871 to raise funds for the historically Black university through their groundbreaking 1871-onward concert tours of spirituals) — established the male-quartet template that became foundational for both Black gospel quartet tradition and the secular-derivative doo-wop tradition. Notable groups include the Hampton Institute Quartet, Tuskegee Institute Singers, the Fisk Jubilee Quartet recordings 1909-onward",
+  "recipe": "classic modern jubilee quartet, ritual Devotional, jubilee quartet branch, christian gospel spirituals, christian gospel black gospel, soul R&B doowop gospel quartet. thick, declaimed, chest resonance low mid, ornamental. choir doo wop group, a cappella small 3 to 8 one per part antiphonal double choir alternating andean three voice parallel thirds quechua aymara choir ensemble. southern black church gospel choir. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 490,
+  "score": 319.423,
+  "config": {
+    "traditions": [
+      "jubilee_quartet",
+      "gospel_quartet_male",
+      "black_gospel_choir"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 18.551249999999996,
+          "voice_quality": 20.759999999999994,
+          "voice_vibrato": 0.78,
+          "voice_articulation": 13.75,
+          "voice_microtone": 0.39,
+          "voice_tradition": 22.294999999999998,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 16.107499999999998,
+          "voice_speech_song": 6.824999999999999,
+          "voice_ensemble_config": 15.194374999999997,
+          "voice_ornament_system": 7.15,
+          "voice_pitch_organization": 0.585,
+          "voice_processing_chain": 2.2749999999999995,
+          "voice_multitrack_stack": 3.25
+        }
+      },
+      {
+        "id": "choir_doo_wop_group",
+        "slots": {
+          "voices": "doo_wop_baritone",
+          "arrangement": "doo_wop_with_band"
+        },
+        "scores": {
+          "voices": 0.78,
+          "arrangement": 2.08
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_regional_canonical_configuration": "choir_regional_andean_three_voice_parallel_thirds",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 2.08,
+          "choir_polyphonic_configuration": 2.7299999999999995,
+          "choir_regional_canonical_configuration": 1.56,
+          "choir_ensemble_repertoire": 2.47
+        }
+      }
+    ],
+    "room": "southern_black_church_gospel_choir",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

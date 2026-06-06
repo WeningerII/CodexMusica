@@ -1,0 +1,84 @@
+{
+  "id": "vietnamese_hat_cheo",
+  "name": "Vietnamese hát chèo (northern folk opera)",
+  "family": "classical",
+  "lineage": "Vietnamese hát chèo northern-Vietnamese folk-opera tradition of the Red River Delta region (Hà Nam, Nam Định, Thái Bình, Hải Dương, and Hưng Yên provinces). Origin traced to tenth-eleventh century rural-Vietnamese village-temple ceremonial performance, with the canonical literary repertoire codified in seventeenth-nineteenth centuries. Distinguished from cải lương by northern-Vietnamese (vs southern-Vietnamese) regional identity and rural-village (vs urban-commercial) traditional functional context. Performance integrates dramatic recitation, melodic-song, dance, mime, and small-ensemble accompaniment. The Vietnam National Chèo Theatre in Hanoi anchors institutional preservation; rural village-ensemble transmission continues in original Red River Delta communities.",
+  "recipe": "classic North American mid-1970s vietnamese hát chèo, art Music, southeast Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, Chinese classical vocal. paulownia dan tranh. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 430,
+  "score": 167.073,
+  "config": {
+    "traditions": [
+      "vietnamese_hat_cheo",
+      "cantonese_opera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 5.25,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 0.4095,
+          "voice_microtone": 0.0315,
+          "voice_tradition": 9.1,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 14.368500000000001,
+          "voice_speech_song": 10.117999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 9.95,
+          "voice_pitch_organization": 21.5905,
+          "voice_processing_chain": 5.237500000000001,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "dan_tranh",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "dan_tranh_use": "dan_tranh_court",
+          "dan_tranh_strings": "dan_tranh_seventeen",
+          "dan_tranh_string_material": "dan_tranh_silk_historical",
+          "dan_tranh_body_wood": "dan_tranh_paulownia"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.6365,
+          "dan_tranh_use": 1.69,
+          "dan_tranh_strings": 1.69,
+          "dan_tranh_string_material": 0.045,
+          "dan_tranh_body_wood": 1.69
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

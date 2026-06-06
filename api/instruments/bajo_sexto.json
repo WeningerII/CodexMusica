@@ -1,0 +1,425 @@
+{
+  "id": "bajo_sexto",
+  "name": "Bajo sexto",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bajo sexto",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "bajo_courses",
+      "name": "Courses",
+      "variants": [
+        {
+          "id": "twelve_string_bajo",
+          "default": true,
+          "name": "Twelve strings (six double courses)",
+          "descriptors": [
+            "ringing",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "tejano"
+          ]
+        },
+        {
+          "id": "ten_string_bajo",
+          "name": "Ten strings (bajo quinto)",
+          "descriptors": [
+            "lighter",
+            "higher",
+            "norteño-amenable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_top",
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "spruce_bj",
+          "default": true,
+          "name": "Spruce",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "articulate",
+            "spruce"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "cedar_bj",
+          "name": "Cedar",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "responsive",
+            "soft-attack",
+            "cedar"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "phosphor_bajo",
+          "default": true,
+          "name": "Phosphor bronze (modern Tex-Mex canon)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "full",
+            "balanced",
+            "phosphor-bronze",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "eighty_twenty_bajo",
+          "name": "80/20 bronze",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "fresh",
+            "80-20-cu-zn"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bajo_nickel_wound",
+          "name": "Nickel-wound (modern Tejano)",
+          "descriptors": [
+            "nickel-wound",
+            "modern-tejano"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bajo_gut_pre_1950s",
+          "name": "Gut (pre-1950s historical)",
+          "descriptors": [
+            "gut-pre-1950s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_back_wood",
+      "surface": false,
+      "name": "Back / sides wood",
+      "variants": [
+        {
+          "id": "bajo_rosewood_indian",
+          "default": true,
+          "name": "Indian rosewood (modern Tex-Mex canon)",
+          "descriptors": [
+            "indian-rosewood-tex-mex"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "bajo_mahogany_back",
+          "name": "Mahogany (warmer)",
+          "descriptors": [
+            "mahogany-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bajo_maple_back",
+          "name": "Maple (modern alternative)",
+          "descriptors": [
+            "maple-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bajo_courses",
+      "name": "Courses",
+      "variants": [
+        {
+          "id": "twelve_string_bajo",
+          "default": true,
+          "name": "Twelve strings (six double courses)",
+          "descriptors": [
+            "ringing",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "tejano"
+          ]
+        },
+        {
+          "id": "ten_string_bajo",
+          "name": "Ten strings (bajo quinto)",
+          "descriptors": [
+            "lighter",
+            "higher",
+            "norteño-amenable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_top",
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "spruce_bj",
+          "default": true,
+          "name": "Spruce",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "articulate",
+            "spruce"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "cedar_bj",
+          "name": "Cedar",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "responsive",
+            "soft-attack",
+            "cedar"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "phosphor_bajo",
+          "default": true,
+          "name": "Phosphor bronze (modern Tex-Mex canon)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "full",
+            "balanced",
+            "phosphor-bronze",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "eighty_twenty_bajo",
+          "name": "80/20 bronze",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "fresh",
+            "80-20-cu-zn"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bajo_nickel_wound",
+          "name": "Nickel-wound (modern Tejano)",
+          "descriptors": [
+            "nickel-wound",
+            "modern-tejano"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bajo_gut_pre_1950s",
+          "name": "Gut (pre-1950s historical)",
+          "descriptors": [
+            "gut-pre-1950s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_back_wood",
+      "surface": false,
+      "name": "Back / sides wood",
+      "variants": [
+        {
+          "id": "bajo_rosewood_indian",
+          "default": true,
+          "name": "Indian rosewood (modern Tex-Mex canon)",
+          "descriptors": [
+            "indian-rosewood-tex-mex"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "bajo_mahogany_back",
+          "name": "Mahogany (warmer)",
+          "descriptors": [
+            "mahogany-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bajo_maple_back",
+          "name": "Maple (modern alternative)",
+          "descriptors": [
+            "maple-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,487 @@
+{
+  "id": "tar_persian",
+  "name": "Tār (Persian double-bowl lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tār",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tar_belly",
+      "name": "Belly skin",
+      "variants": [
+        {
+          "id": "tar_lamb_skin",
+          "default": true,
+          "name": "Lamb skin",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "breathing",
+            "lambskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "tar_synthetic",
+          "name": "Synthetic membrane",
+          "descriptors": [
+            "consistent",
+            "modern",
+            "stable",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_pick",
+      "surface": false,
+      "name": "Pick (mizrab)",
+      "variants": [
+        {
+          "id": "tar_brass_mizrab",
+          "default": true,
+          "name": "Brass mizrab",
+          "descriptors": [
+            "biting",
+            "classical",
+            "brass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "dastgah"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_body_wood",
+      "surface": false,
+      "name": "Body / bowl wood",
+      "variants": [
+        {
+          "id": "tar_mulberry_body",
+          "default": true,
+          "name": "Mulberry (canonical double-bowl)",
+          "descriptors": [
+            "mulberry-bowl",
+            "canonical-double-bowl"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "tar_walnut_body",
+          "name": "Walnut (premium alternative)",
+          "descriptors": [
+            "walnut-bowl",
+            "premium-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tar_steel_bronze",
+          "default": true,
+          "name": "Steel + bronze (modern canonical)",
+          "descriptors": [
+            "steel-bronze-mix",
+            "modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "tar_gut_historical",
+          "name": "Gut (pre-modern Qajar canon)",
+          "descriptors": [
+            "gut-historical",
+            "pre-modern-qajar"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_tradition",
+      "surface": false,
+      "name": "Tradition / lineage",
+      "variants": [
+        {
+          "id": "tar_radif_canonical",
+          "default": true,
+          "name": "Radif canonical (Mirza Hossein Qoli / Ali Akbar Shahnazi lineage)",
+          "descriptors": [
+            "radif-canonical",
+            "shahnazi-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "dastgah"
+          ]
+        },
+        {
+          "id": "tar_modern_concert",
+          "name": "Modern concert (Hossein Alizadeh lineage)",
+          "descriptors": [
+            "modern-concert",
+            "alizadeh-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tar_belly",
+      "name": "Belly skin",
+      "variants": [
+        {
+          "id": "tar_lamb_skin",
+          "default": true,
+          "name": "Lamb skin",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "breathing",
+            "lambskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "tar_synthetic",
+          "name": "Synthetic membrane",
+          "descriptors": [
+            "consistent",
+            "modern",
+            "stable",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_pick",
+      "surface": false,
+      "name": "Pick (mizrab)",
+      "variants": [
+        {
+          "id": "tar_brass_mizrab",
+          "default": true,
+          "name": "Brass mizrab",
+          "descriptors": [
+            "biting",
+            "classical",
+            "brass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "dastgah"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_body_wood",
+      "surface": false,
+      "name": "Body / bowl wood",
+      "variants": [
+        {
+          "id": "tar_mulberry_body",
+          "default": true,
+          "name": "Mulberry (canonical double-bowl)",
+          "descriptors": [
+            "mulberry-bowl",
+            "canonical-double-bowl"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "tar_walnut_body",
+          "name": "Walnut (premium alternative)",
+          "descriptors": [
+            "walnut-bowl",
+            "premium-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tar_steel_bronze",
+          "default": true,
+          "name": "Steel + bronze (modern canonical)",
+          "descriptors": [
+            "steel-bronze-mix",
+            "modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "tar_gut_historical",
+          "name": "Gut (pre-modern Qajar canon)",
+          "descriptors": [
+            "gut-historical",
+            "pre-modern-qajar"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_tradition",
+      "surface": false,
+      "name": "Tradition / lineage",
+      "variants": [
+        {
+          "id": "tar_radif_canonical",
+          "default": true,
+          "name": "Radif canonical (Mirza Hossein Qoli / Ali Akbar Shahnazi lineage)",
+          "descriptors": [
+            "radif-canonical",
+            "shahnazi-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "dastgah"
+          ]
+        },
+        {
+          "id": "tar_modern_concert",
+          "name": "Modern concert (Hossein Alizadeh lineage)",
+          "descriptors": [
+            "modern-concert",
+            "alizadeh-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ]
+}

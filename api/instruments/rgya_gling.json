@@ -1,0 +1,96 @@
+{
+  "id": "rgya_gling",
+  "name": "Rgya gling (Tibetan double-reed oboe)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "rgya gling",
+  "parts": [
+    {
+      "id": "rgya_gling_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "rgya_gling_conical_bore_double_reed_canonical",
+          "default": true,
+          "name": "Conical-bore double-reed oboe (canonical Tibetan monastic ceremonial)",
+          "descriptors": [
+            "conical-bore-double-reed-canonical-tibetan-monastic"
+          ],
+          "match_tokens": [
+            "wind",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rgya_gling_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "rgya_gling_monastic_ceremonial_canonical",
+          "default": true,
+          "name": "Gelug monastic ceremonial accompaniment (canonical)",
+          "descriptors": [
+            "gelug-monastic-ceremonial-canonical-tibetan"
+          ],
+          "match_tokens": [
+            "wind",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rgya_gling_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "rgya_gling_conical_bore_double_reed_canonical",
+          "default": true,
+          "name": "Conical-bore double-reed oboe (canonical Tibetan monastic ceremonial)",
+          "descriptors": [
+            "conical-bore-double-reed-canonical-tibetan-monastic"
+          ],
+          "match_tokens": [
+            "wind",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rgya_gling_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "rgya_gling_monastic_ceremonial_canonical",
+          "default": true,
+          "name": "Gelug monastic ceremonial accompaniment (canonical)",
+          "descriptors": [
+            "gelug-monastic-ceremonial-canonical-tibetan"
+          ],
+          "match_tokens": [
+            "wind",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

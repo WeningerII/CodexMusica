@@ -1,0 +1,168 @@
+{
+  "id": "latin_alternative",
+  "name": "Latin alternative",
+  "family": "global",
+  "lineage": "Spanish-language alternative-rock tradition codified through Mexican Café Tacuba, Argentine Soda Stereo and Café Tacvba, Chilean Los Prisioneros, and the broader Hispanic-American post-1990s indie-rock ecosystem; characterized by rock instrumentation with regional-Latin folk and electronic crossovers, and Spanish-language alternative-poetic lyrical register",
+  "recipe": "classic mid-1990s latin alternative, distorted Rock, regional branch, alternative distorted rock grunge math rock and post-rock. thick, conversational, pure, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, walnut machine hammered symmetric pattern organized rows full lathed drum kit, water buffalo premium alternative oak staved canonical Cuban open slap hand drum congas. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 673,
+  "score": 460.653,
+  "config": {
+    "traditions": [
+      "latin_alternative",
+      "grunge",
+      "math_rock_post_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "speech_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 18.079999999999995,
+          "voice_quality": 1.145,
+          "voice_vibrato": 0.9750000000000001,
+          "voice_articulation": 0.585,
+          "voice_microtone": 14.999999999999996,
+          "voice_tradition": 5.59,
+          "voice_mechanism_compound": 3.0550000000000006,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 6.305,
+          "voice_ensemble_config": 6.24,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 3.2249999999999996,
+          "voice_processing_chain": 3.14,
+          "voice_multitrack_stack": 1
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 3.1200000000000006,
+          "amp_make": 7.8,
+          "body_wood": 4.304999999999999,
+          "neck_wood": 0.9750000000000001,
+          "fretboard": 0.3,
+          "pickup_magnet": 0.345,
+          "pickup_winding": 1.02,
+          "string_material": 0.15,
+          "bridge": 0.9750000000000001,
+          "scale_length": 2.9849999999999994,
+          "string_gauge": 0.9750000000000001,
+          "finish": 0,
+          "string_tuning": 7.93
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 7.865,
+          "body_wood": 1.9500000000000002,
+          "pickup_config": 0.8850000000000001,
+          "string_type": 19.824999999999996,
+          "scale_length_b": 0.9750000000000001,
+          "fretted_or_not": 0.105,
+          "bass_technique": 15.199999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_round",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "wires_30",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 6.24,
+          "shell_wood": 1.02,
+          "shell_thickness": 0.43499999999999994,
+          "bearing_edges": 1.17,
+          "drumhead": 0.9099999999999999,
+          "snare_wires": 1.365,
+          "cymbal_alloy": 15.59,
+          "cymbal_hammering": 15.194999999999997,
+          "cymbal_lathing": 15.344999999999997,
+          "cymbal_finish": 0.38999999999999996,
+          "drum_technique": 15.249999999999998
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_water_buffalo",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 6.5249999999999995,
+          "conga_set": 0.15,
+          "conga_skin": 5.2,
+          "conga_shell_wood": 1.755
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": "mormon_tabernacle_choir",
+  "name": "Mormon Tabernacle Choir tradition",
+  "family": "classical",
+  "lineage": "Mormon Tabernacle Choir of the LDS Church (founded 1847 in Salt Lake City, Utah) liturgical-and-concert choral tradition, comprising approximately 360 unpaid volunteer LDS Church-member singers. The choir performs at LDS General Conference biannual sessions and weekly Music & the Spoken Word radio broadcasts (continuous since 1929). Repertoire spans Mormon-specific liturgical hymns from the LDS Hymnbook, broader Christian-Protestant hymn tradition, and twentieth-century American-Western art-music. Distinguished by its 360-voice scale and the Salt Lake Tabernacle Aeolian-Skinner pipe-organ.",
+  "recipe": "classic North American late-1840s mormon tabernacle choir tradition, ritual Devotional, christian gospel branch, western common practice art music bel canto opera early romantic. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western five voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, skinner aeolian skinner canonical American eclectic early 20th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ. cathedral. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 762,
+  "score": 191.745,
+  "config": {
+    "traditions": [
+      "mormon_tabernacle_choir",
+      "bel_canto_opera",
+      "early_romantic_19c"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.800000000000001,
+          "voice_quality": 7.195000000000001,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.75,
+          "voice_microtone": 4.225,
+          "voice_tradition": 7.8,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 3.5500000000000007,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 2.4000000000000004,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 0.525
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_five_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 2.6,
+          "choir_polyphonic_configuration": 3.6449999999999996,
+          "choir_regional_canonical_configuration": 3.38,
+          "choir_ensemble_repertoire": 3.3499999999999996
+        }
+      },
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_romantic",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_skinner_american",
+          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
+          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
+          "pipe_organ_action": "pipe_organ_pneumatic"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "pipe_organ_class": 0.435,
+          "pipe_organ_context": 11.569999999999999,
+          "pipe_organ_voicing_school": 6.76,
+          "pipe_organ_pipe_alloy": 2.04,
+          "pipe_organ_temperament": 1.605,
+          "pipe_organ_action": 3.38
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

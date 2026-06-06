@@ -1,0 +1,142 @@
+{
+  "id": "roneat_ek",
+  "name": "Roneat ek (Khmer high-pitched bamboo xylophone)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "roneat-ek",
+  "parts": [
+    {
+      "id": "roneat_ek_bars",
+      "name": "Bar material",
+      "variants": [
+        {
+          "id": "roneat_ek_bamboo_21_bar_canonical",
+          "default": true,
+          "name": "Twenty-one bamboo bars, boat-shaped resonator (canonical pinpeat lead)",
+          "descriptors": [
+            "twenty-one-bamboo-bars-boat-resonator-canonical-pinpeat-lead"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        },
+        {
+          "id": "roneat_ek_hardwood_alt",
+          "name": "Hardwood-bar alternative",
+          "descriptors": [
+            "hardwood-bars-alternative-rosewood-padauk"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roneat_ek_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "roneat_ek_royal_court_canonical",
+          "default": true,
+          "name": "Royal court pinpeat (canonical pre-1975 lineage)",
+          "descriptors": [
+            "royal-court-pinpeat-canonical-pre-1975-lineage"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition"
+          ]
+        },
+        {
+          "id": "roneat_ek_temple_ceremonial",
+          "name": "Wat-temple ceremonial",
+          "descriptors": [
+            "wat-temple-ceremonial-cambodian-buddhist"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "roneat_ek_bars",
+      "name": "Bar material",
+      "variants": [
+        {
+          "id": "roneat_ek_bamboo_21_bar_canonical",
+          "default": true,
+          "name": "Twenty-one bamboo bars, boat-shaped resonator (canonical pinpeat lead)",
+          "descriptors": [
+            "twenty-one-bamboo-bars-boat-resonator-canonical-pinpeat-lead"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        },
+        {
+          "id": "roneat_ek_hardwood_alt",
+          "name": "Hardwood-bar alternative",
+          "descriptors": [
+            "hardwood-bars-alternative-rosewood-padauk"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roneat_ek_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "roneat_ek_royal_court_canonical",
+          "default": true,
+          "name": "Royal court pinpeat (canonical pre-1975 lineage)",
+          "descriptors": [
+            "royal-court-pinpeat-canonical-pre-1975-lineage"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition"
+          ]
+        },
+        {
+          "id": "roneat_ek_temple_ceremonial",
+          "name": "Wat-temple ceremonial",
+          "descriptors": [
+            "wat-temple-ceremonial-cambodian-buddhist"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

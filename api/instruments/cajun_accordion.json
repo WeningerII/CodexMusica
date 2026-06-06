@@ -1,0 +1,104 @@
+{
+  "id": "cajun_accordion",
+  "name": "Cajun single-row diatonic accordion",
+  "family": "wind",
+  "class": "free-reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Cajun accordion",
+  "parts": [
+    {
+      "id": "cajun_accordion_make",
+      "name": "Make / row",
+      "variants": [
+        {
+          "id": "cajun_single_row_c_or_d",
+          "default": true,
+          "name": "Single-row diatonic in C or D (LeBlanc, Bon Cajun, Acadian)",
+          "descriptors": [
+            "single-row-diatonic",
+            "cajun-tradition",
+            "four-stops-with-coupling"
+          ],
+          "match_tokens": [
+            "accordion",
+            "cajun-tradition",
+            "louisiana-french"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cajun_accordion_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "cajun_bellows_chop_drone",
+          "default": true,
+          "name": "Bellows-chop rhythmic accent + drone-foot continuous",
+          "descriptors": [
+            "bellows-chop",
+            "drone-foot",
+            "cajun-tradition"
+          ],
+          "match_tokens": [
+            "accordion",
+            "cajun-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cajun_accordion_make",
+      "name": "Make / row",
+      "variants": [
+        {
+          "id": "cajun_single_row_c_or_d",
+          "default": true,
+          "name": "Single-row diatonic in C or D (LeBlanc, Bon Cajun, Acadian)",
+          "descriptors": [
+            "single-row-diatonic",
+            "cajun-tradition",
+            "four-stops-with-coupling"
+          ],
+          "match_tokens": [
+            "accordion",
+            "cajun-tradition",
+            "louisiana-french"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cajun_accordion_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "cajun_bellows_chop_drone",
+          "default": true,
+          "name": "Bellows-chop rhythmic accent + drone-foot continuous",
+          "descriptors": [
+            "bellows-chop",
+            "drone-foot",
+            "cajun-tradition"
+          ],
+          "match_tokens": [
+            "accordion",
+            "cajun-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

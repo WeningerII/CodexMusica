@@ -1,0 +1,100 @@
+{
+  "id": "korean_chongmyo_jeryeak",
+  "name": "Chongmyo jeryeak (royal ancestral shrine music, UNESCO 2008)",
+  "family": "classical",
+  "lineage": "Korean Chongmyo jeryeak (Royal Ancestral Shrine Music) Joseon-dynasty court ritual music for the spring-and-autumn ancestor-veneration ceremony at the Chongmyo Royal Shrine in Seoul. Composed in 1463 by King Sejo (reigned 1455-1468) from earlier Goryeo-and-Tang-derived material, the suite comprises two parts: Botaepyeong (eleven movements praising civil virtue, performed during the literary-rite portion of the ceremony) and Jeongdaeeop (eleven movements praising martial virtue, performed during the military-rite portion). Performance configuration: a large court ensemble of approximately fifty musicians plus sixty-four dancers performing the strict ilmu line-dance choreography. UNESCO Masterpiece 2001 (with Jongmyo Jerye ritual), Representative List 2008.",
+  "recipe": "classic chongmyo jeryeak, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. kargyraa, declaimed, overtone rich sustained, punctuated. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 656,
+  "score": 217.29,
+  "config": {
+    "traditions": [
+      "korean_chongmyo_jeryeak",
+      "shipibo_icaros",
+      "inuit_katajjaq_games"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.1049999999999995,
+          "voice_quality": 1.7549999999999994,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 0.9750000000000001,
+          "voice_microtone": 0.39,
+          "voice_tradition": 7.085,
+          "voice_mechanism_compound": 2.5949999999999998,
+          "voice_estill_quality": 4.695,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 5.5,
+          "voice_pitch_organization": 3.1200000000000006,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 4.859999999999999
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 1.69,
+          "choir_polyphonic_configuration": 4.785,
+          "choir_regional_canonical_configuration": 2.834999999999999,
+          "choir_ensemble_repertoire": 3
+        }
+      },
+      {
+        "id": "janggu",
+        "slots": {
+          "janggu_use": "janggu_samul_nori",
+          "janggu_construction": "janggu_composite",
+          "janggu_shell_wood": "janggu_paulownia_canonical",
+          "janggu_head": "janggu_horse_dog_asymmetric",
+          "janggu_lineage": "janggu_pungmul_outdoor"
+        },
+        "scores": {
+          "janggu_use": 1.69,
+          "janggu_construction": 1.69,
+          "janggu_shell_wood": 1.69,
+          "janggu_head": 1.69,
+          "janggu_lineage": 1.125
+        }
+      }
+    ],
+    "room": "korean_gugak_hall",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "korean_jeongak_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

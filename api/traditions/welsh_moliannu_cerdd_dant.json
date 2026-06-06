@@ -1,0 +1,92 @@
+{
+  "id": "welsh_moliannu_cerdd_dant",
+  "name": "Welsh moliannu and cerdd dant (Welsh praise-poetry)",
+  "family": "global",
+  "lineage": "Welsh medieval praise-poetry tradition continuous from 6th-7th-century Taliesin-and-Aneirin foundational era (the Cynfeirdd \"early-poets\") through 12th-13th century Gogynfeirdd \"poets-of-the-princes\" era of court-praise-poetry through continuous-Welsh-bardic transmission into modern penillion-singing and cerdd dant (\"string-craft\") harp-and-voice tradition",
+  "recipe": "classic modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal zulu izibongo mande jeli / griot praise-song. declaimed, tasteful, continuous-phonation, mande jeli vocal. nylon celtic harp, foundational foundational warm informal choir welsh male. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 487,
+  "score": 202.893,
+  "config": {
+    "traditions": [
+      "welsh_moliannu_cerdd_dant",
+      "zulu_izibongo",
+      "mande_jeli_praise"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 16.36499999999999,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0,
+          "voice_tradition": 14.624999999999995,
+          "voice_mechanism_compound": 0.9099999999999999,
+          "voice_estill_quality": 0.9099999999999999,
+          "voice_speech_song": 9.945,
+          "voice_ensemble_config": 9.1,
+          "voice_ornament_system": 7.050000000000001,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 1.9300000000000002,
+          "voice_multitrack_stack": 0.6499999999999995
+        }
+      },
+      {
+        "id": "celtic_harp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "celtic_harp_levers": "lever_camac",
+          "celtic_harp_strings": "celtic_nylon"
+        },
+        "scores": {
+          "acoustic_technique": -0.1,
+          "celtic_harp_levers": 1.69,
+          "celtic_harp_strings": 2.6
+        }
+      },
+      {
+        "id": "choir_welsh_male",
+        "slots": {
+          "voicing": "ttbb_welsh",
+          "context": "welsh_rugby_terraces"
+        },
+        "scores": {
+          "voicing": 1.435,
+          "context": 1.3900000000000001
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

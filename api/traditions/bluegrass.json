@@ -1,0 +1,151 @@
+{
+  "id": "bluegrass",
+  "name": "Bluegrass",
+  "family": "vernacular",
+  "lineage": "Kentucky-and-Appalachian string-band genre codified by Bill Monroe (the founding figure, his Blue Grass Boys band of 1939-onward giving the genre its name, with the 1945-1948 lineup of Earl Scruggs banjo, Lester Flatt guitar, Chubby Wise fiddle, Cedric Rainwater bass marking the genre birth) — extended through Lester Flatt and Earl Scruggs (their post-Monroe Foggy Mountain Boys, 1948 onward), the Stanley Brothers, Jim and Jesse, the Osborne Brothers, the second-wave New Grass Revival (Sam Bush, Bela Fleck) and the modern Alison Krauss and Union Station era",
+  "recipe": "classic North American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian mississippi delta field holler. sitka spruce spruce maple phosphor bronze pre war martin dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, steel flatpicked upright bass, steel magic rosin modern acrylic base double stops fiddle, flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 711,
+  "score": 234.156,
+  "config": {
+    "traditions": [
+      "bluegrass",
+      "old_time",
+      "mississippi_delta_field_holler"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_clawhammer",
+          "string_tuning": "open_g",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 7.899999999999999,
+          "string_tuning": 0.16500000000000004,
+          "top_wood": 1.309,
+          "back_sides": 1.309,
+          "string_acoustic": 1.3215000000000001
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "mandolin_shape": "f_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "eighty_twenty_m",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 7.899999999999999,
+          "mandolin_shape": 7.299999999999999,
+          "mandolin_top": 7.6187499999999995,
+          "mandolin_back": 7.299999999999999,
+          "mandolin_bracing": 7.003749999999999,
+          "mandolin_strings": 1.3215000000000001,
+          "mandolin_fingerboard": 0.31875,
+          "mandolin_pickup": 7.279999999999999
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "banjo_back": "resonator",
+          "tone_ring": "flathead",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "three_finger",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_neck_wood": "banjo_maple_neck",
+          "banjo_strings": "banjo_medium_bluegrass",
+          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.76,
+          "banjo_back": 1.309,
+          "tone_ring": 6.999999999999999,
+          "banjo_head": 7.279999999999999,
+          "banjo_pot": 1.6165,
+          "banjo_play": 2.9349999999999996,
+          "banjo_rim_wood": 7.6427499999999995,
+          "banjo_neck_wood": 7.434999999999999,
+          "banjo_strings": 7.434999999999999,
+          "banjo_bridge": 7.434999999999999,
+          "banjo_setup_period": 17.77675
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": 7.899999999999999,
+          "upright_strings": 1.309,
+          "upright_play": 0.01875
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "sul_tasto"
+        },
+        "scores": {
+          "bowed_technique": 11.816249999999998,
+          "fiddle_strings": 1.309,
+          "fiddle_bow": 1.309,
+          "fiddle_mute": 0.3345,
+          "fiddle_articulation": 0.1175
+        }
+      },
+      {
+        "id": "mandola",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "mandola_size": "mandola_alto",
+          "mandola_context": "mandola_session",
+          "mandola_top": "mandola_italian_alpine",
+          "mandola_back": "mandola_big_leaf_maple",
+          "mandola_strings": "mandola_eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 7.899999999999999,
+          "mandola_size": 0.08024999999999999,
+          "mandola_context": 0.39,
+          "mandola_top": 0.39,
+          "mandola_back": 0.25999999999999995,
+          "mandola_strings": 0.012499999999999999
+        }
+      }
+    ],
+    "room": "bristol_sessions_appalachian_pre_commercial",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "bluegrass_high_lonesome_pentatonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

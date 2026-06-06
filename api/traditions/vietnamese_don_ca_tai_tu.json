@@ -1,0 +1,112 @@
+{
+  "id": "vietnamese_don_ca_tai_tu",
+  "name": "Vietnamese đờn ca tài tử (southern amateur music, UNESCO 2013)",
+  "family": "classical",
+  "lineage": "Vietnamese đờn ca tài tử (\"music of talented amateurs\") southern-Vietnamese chamber-music tradition emerging in late-nineteenth-century Mekong Delta from the synthesis of the older nhã nhạc court-music tradition with southern-Vietnamese folk-music. UNESCO Intangible Cultural Heritage 2013. Performance configuration: small intimate amateur-ensemble of literate-class male and female musicians playing đàn tranh sixteen-string zither, đàn bầu one-string monochord, đàn nguyệt moon-lute, đàn tỳ bà pear-lute, đàn cò two-string fiddle, plus singer. Repertoire organized around the twenty bản tổ canonical melodic patterns. The form is the direct musical ancestor of cải lương southern-popular theatre.",
+  "recipe": "classic North American vietnamese đờn ca tài tử, art Music, southeast Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, Chinese classical vocal. paulownia dan tranh, dan bau, silk red sandalwood zitan premium pipa. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 474,
+  "score": 143.727,
+  "config": {
+    "traditions": [
+      "vietnamese_don_ca_tai_tu",
+      "cantonese_opera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.750000000000001,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 1.6847500000000002,
+          "voice_articulation": 0.4095,
+          "voice_microtone": 0.0315,
+          "voice_tradition": 7.93,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 7.15,
+          "voice_speech_song": 4.41675,
+          "voice_ensemble_config": 3.38,
+          "voice_ornament_system": 4.2,
+          "voice_pitch_organization": 15.090499999999999,
+          "voice_processing_chain": 2.1854999999999998,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "dan_tranh",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "dan_tranh_use": "dan_tranh_court",
+          "dan_tranh_strings": "dan_tranh_seventeen",
+          "dan_tranh_string_material": "dan_tranh_silk_historical",
+          "dan_tranh_body_wood": "dan_tranh_paulownia"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.6365,
+          "dan_tranh_use": 1.69,
+          "dan_tranh_strings": 1.69,
+          "dan_tranh_string_material": 0.045,
+          "dan_tranh_body_wood": 1.69
+        }
+      },
+      {
+        "id": "dan_bau",
+        "slots": {
+          "dan_bau_amplification": "dan_bau_electric",
+          "dan_bau_technique": "dan_bau_canonical"
+        },
+        "scores": {
+          "dan_bau_amplification": 0,
+          "dan_bau_technique": 0.4095
+        }
+      },
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_traditional_frets",
+          "pipa_strings": "pipa_silk",
+          "pipa_pick": "pipa_fingerpicks",
+          "pipa_body_wood": "pipa_red_sandalwood"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.6365,
+          "pipa_frets": 0.045,
+          "pipa_strings": 1.3,
+          "pipa_pick": 0,
+          "pipa_body_wood": 1.625
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

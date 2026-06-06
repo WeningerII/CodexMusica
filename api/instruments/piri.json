@@ -1,0 +1,188 @@
+{
+  "id": "piri",
+  "name": "Piri (Korean cylindrical double-reed)",
+  "family": "wind",
+  "class": "reed",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "piri",
+  "parts": [
+    {
+      "id": "piri_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "piri_hyangpiri",
+          "default": true,
+          "name": "Hyangpiri (folk, larger)",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "agile"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "gugak-tradition"
+          ]
+        },
+        {
+          "id": "piri_sepiri",
+          "name": "Sepiri (court chamber, smaller)",
+          "descriptors": [
+            "delicate",
+            "korean-court-ensemble",
+            "small-piri-higher-pitched"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "jeongak"
+          ]
+        },
+        {
+          "id": "piri_dangpiri",
+          "name": "Dangpiri (Tang-derived, ceremonial)",
+          "descriptors": [
+            "ceremonial",
+            "older"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "jeongak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piri_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "piri_bamboo_canonical",
+          "default": true,
+          "name": "Bamboo (canonical Korean)",
+          "descriptors": [
+            "bamboo-canonical-korean"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "gugak-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piri_reed",
+      "surface": false,
+      "name": "Reed (large double-reed)",
+      "variants": [
+        {
+          "id": "piri_arundo_large_canonical",
+          "default": true,
+          "name": "Large Arundo donax double-reed (canonical Korean gugak)",
+          "descriptors": [
+            "arundo-donax-large-canonical-korean-gugak"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "gugak-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "piri_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "piri_hyangpiri",
+          "default": true,
+          "name": "Hyangpiri (folk, larger)",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "agile"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "gugak-tradition"
+          ]
+        },
+        {
+          "id": "piri_sepiri",
+          "name": "Sepiri (court chamber, smaller)",
+          "descriptors": [
+            "delicate",
+            "korean-court-ensemble",
+            "small-piri-higher-pitched"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "jeongak"
+          ]
+        },
+        {
+          "id": "piri_dangpiri",
+          "name": "Dangpiri (Tang-derived, ceremonial)",
+          "descriptors": [
+            "ceremonial",
+            "older"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "jeongak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piri_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "piri_bamboo_canonical",
+          "default": true,
+          "name": "Bamboo (canonical Korean)",
+          "descriptors": [
+            "bamboo-canonical-korean"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "gugak-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piri_reed",
+      "surface": false,
+      "name": "Reed (large double-reed)",
+      "variants": [
+        {
+          "id": "piri_arundo_large_canonical",
+          "default": true,
+          "name": "Large Arundo donax double-reed (canonical Korean gugak)",
+          "descriptors": [
+            "arundo-donax-large-canonical-korean-gugak"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "gugak-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

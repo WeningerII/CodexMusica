@@ -1,0 +1,85 @@
+{
+  "id": "maskandi",
+  "name": "Maskandi",
+  "family": "global",
+  "lineage": "Zulu South African male-vocal-and-guitar tradition that emerged in the mid-20th century from rural KwaZulu-Natal migrant-labour culture — characterized by the izibongo praise-poetry vocal opening, the maskandi guitar style with characteristic open-chord strumming and finger-picking patterns, and Zulu-language lyrical content addressing rural-urban migration, romantic longing, and traditional social commentary; figures Phuzekhemisi, Ihhashi Elimhlophe, Bhekumuzi Luthuli, Mfaz Omnyama",
+  "recipe": "classic tropical mid-1970s maskandi, drone Modal, string branch, central east south African groove percussion chimurenga soukous. vocal fry, declaimed, chest resonance low mid, Yoruba tonal vocal. cedar phosphor bronze bronze parlor acoustic guitar. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 438,
+  "score": 101.725,
+  "config": {
+    "traditions": [
+      "maskandi",
+      "chimurenga",
+      "soukous"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.4572499999999993,
+          "voice_quality": 5.272125000000002,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 0.39999999999999997,
+          "voice_microtone": 0.23149999999999996,
+          "voice_tradition": 16.379999999999995,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 8.254999999999999,
+          "voice_ensemble_config": 8.579999999999998,
+          "voice_ornament_system": 0.363,
+          "voice_pitch_organization": 1.755,
+          "voice_processing_chain": 3.2987499999999996,
+          "voice_multitrack_stack": 3.769999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "open_d",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 2.131,
+          "string_tuning": 1.17,
+          "top_wood_parlor": 1.3,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 1.3
+        }
+      }
+    ],
+    "room": "johannesburg_gallo_african_studios",
+    "archetype": "arch_kingston_jamaican_commercial",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mande_pentatonic_jeli_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

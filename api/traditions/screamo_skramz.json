@@ -1,0 +1,156 @@
+{
+  "id": "screamo_skramz",
+  "name": "Screamo / skramz (90s-2000s)",
+  "family": "rock_punk",
+  "lineage": "1990s emocore and 2000s screamo subgenre developed from hardcore-punk emotional-aggressive register, characterized by screamed-and-melodic vocal alternation, dynamic-contrasted song structure, and confessional-emotional lyrical content. Saetia, City of Caterpillar, Pg.99, Orchid, and Hot Cross constitute the canonical American skramz roster; the parallel European screamo scene (Funeral Diner, Envy from Japan) extended international reach.",
+  "recipe": "classic North American screamo / skramz, distorted Rock, emo branch, thrash metal groove metal speed metal. thick, incomplete closure resting, melodic, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+  "recipe_chars": 643,
+  "score": 418.574,
+  "config": {
+    "traditions": [
+      "screamo_skramz",
+      "groove_metal",
+      "speed_metal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 5.516750000000003,
+          "voice_quality": 3.1865,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 1.0140000000000002,
+          "voice_microtone": 5.403750000000001,
+          "voice_tradition": 1.625,
+          "voice_mechanism_compound": 10.985,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 9.0855,
+          "voice_ornament_system": 1.3764999999999998,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 4.81
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 7.67,
+          "amp_make": 10.92,
+          "body_wood": 1.2870000000000001,
+          "neck_wood": 1.5265,
+          "fretboard": 1.5265,
+          "pickup_magnet": 0,
+          "pickup_winding": 1.5625,
+          "string_material": 1.5265,
+          "bridge": 1.2870000000000001,
+          "scale_length": 2.5740000000000003,
+          "string_gauge": 1.4820000000000002,
+          "finish": 0,
+          "string_tuning": 7.15
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 5.2,
+          "amp_make": 2.7950000000000004,
+          "body_wood": 2.5740000000000003,
+          "pickup_config": 0.435,
+          "string_type": 7.15,
+          "scale_length_b": 1.2870000000000001,
+          "fretted_or_not": 0.195,
+          "bass_technique": 8.75
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "double_coated",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 6.629999999999999,
+          "shell_wood": 1.69,
+          "shell_thickness": 0.126,
+          "bearing_edges": 1.2870000000000001,
+          "drumhead": 1.5265,
+          "snare_wires": 1.2870000000000001,
+          "cymbal_alloy": 12.0265,
+          "cymbal_hammering": 5.643750000000001,
+          "cymbal_lathing": 5.431500000000001,
+          "cymbal_finish": 1.5265,
+          "drum_technique": 6.629999999999999
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_big_muff_pi",
+      "fx_proco_rat"
+    ]
+  }
+}

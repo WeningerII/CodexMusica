@@ -1,0 +1,155 @@
+{
+  "id": "riot_grrrl",
+  "name": "Riot grrrl (early 90s feminist punk)",
+  "family": "rock_punk",
+  "lineage": "Early-1990s American feminist punk subgenre emerging in Olympia, Washington and Washington, D.C., addressing rape, domestic violence, female empowerment, and patriarchal critique through aggressive punk musical-aesthetic. Bikini Kill (1990 founded), Bratmobile, Heavens to Betsy, and Huggy Bear constitute the canonical roster; the Riot Grrrl manifesto and zine-distribution-network anchored the broader cultural movement. K Records and Kill Rock Stars provided institutional infrastructure.",
+  "recipe": "classic North American 1990-1993 riot grrrl, distorted Rock, punk branch, regional distorted rock latin rock aussie pub rock. thick, equal tempered, beatbox, false fold distorted phonation. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay boss DS-1.",
+  "recipe_chars": 684,
+  "score": 443.072,
+  "config": {
+    "traditions": [
+      "riot_grrrl",
+      "latin_rock",
+      "aussie_pub_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 8.281499999999992,
+          "voice_quality": 0.105,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.27149999999999996,
+          "voice_microtone": 8.844999999999997,
+          "voice_tradition": 1.3895,
+          "voice_mechanism_compound": 2.665000000000001,
+          "voice_estill_quality": 2.5445000000000007,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 13.152999999999999,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 4.095,
+          "voice_processing_chain": 1.4949999999999999,
+          "voice_multitrack_stack": 0.8145
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 12.7,
+          "amp_make": 20.929999999999996,
+          "body_wood": 1.69,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.0765,
+          "pickup_winding": 0.2835,
+          "string_material": 0.39,
+          "bridge": 0.1365,
+          "scale_length": 1.69,
+          "string_gauge": 0.1365,
+          "finish": 0,
+          "string_tuning": 6.24
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 14.776499999999999,
+          "amp_make": 4.485,
+          "body_wood": 0.273,
+          "pickup_config": 0,
+          "string_type": 11.375,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 0.2265,
+          "bass_technique": 21.5765
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_clear",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 12.75,
+          "shell_wood": 0.4215,
+          "shell_thickness": 0.09,
+          "bearing_edges": 0.39,
+          "drumhead": 0.39,
+          "snare_wires": 0.1365,
+          "cymbal_alloy": 21.84,
+          "cymbal_hammering": 8.844999999999999,
+          "cymbal_lathing": 8.739999999999998,
+          "cymbal_finish": 0.39,
+          "drum_technique": 12.75
+        }
+      }
+    ],
+    "room": "studio_pacnw_commercial_indie",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_boss_ds1"
+    ]
+  }
+}

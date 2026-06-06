@@ -1,0 +1,209 @@
+{
+  "id": "drumline_school_marching",
+  "surface": false,
+  "name": "School marching drumline",
+  "family": "ensemble",
+  "class": "drum_kit",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 1,
+    "harmonicity": -2,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "school drumline",
+  "parts": [
+    {
+      "id": "section",
+      "surface": false,
+      "name": "Section",
+      "variants": [
+        {
+          "id": "school_snare",
+          "default": true,
+          "name": "Snare line",
+          "descriptors": [
+            "rudimental",
+            "foundational",
+            "accessible"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "school_tenor",
+          "name": "Tenor line",
+          "descriptors": [
+            "melodic-toms",
+            "foundational",
+            "accessible"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "school_bass",
+          "name": "Bass line",
+          "descriptors": [
+            "split-tonal",
+            "foundational",
+            "accessible"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drumline_school_marching_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "drumline_school_marching_halftime",
+          "default": true,
+          "name": "Football halftime",
+          "descriptors": [
+            "American-collegiate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "drumline_school_marching_dci",
+          "surface": false,
+          "name": "Drum-corps competition",
+          "descriptors": [
+            "twentieth-century",
+            "highly-arranged"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "drumline_school_marching_pep",
+          "surface": false,
+          "name": "Pep band / event",
+          "descriptors": [
+            "casual",
+            "short-form",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "section",
+      "surface": false,
+      "name": "Section",
+      "variants": [
+        {
+          "id": "school_snare",
+          "default": true,
+          "name": "Snare line",
+          "descriptors": [
+            "rudimental",
+            "foundational",
+            "accessible"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "school_tenor",
+          "name": "Tenor line",
+          "descriptors": [
+            "melodic-toms",
+            "foundational",
+            "accessible"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "school_bass",
+          "name": "Bass line",
+          "descriptors": [
+            "split-tonal",
+            "foundational",
+            "accessible"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drumline_school_marching_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "drumline_school_marching_halftime",
+          "default": true,
+          "name": "Football halftime",
+          "descriptors": [
+            "American-collegiate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "drumline_school_marching_dci",
+          "surface": false,
+          "name": "Drum-corps competition",
+          "descriptors": [
+            "twentieth-century",
+            "highly-arranged"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "drumline_school_marching_pep",
+          "surface": false,
+          "name": "Pep band / event",
+          "descriptors": [
+            "casual",
+            "short-form",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

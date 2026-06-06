@@ -1,0 +1,169 @@
+{
+  "id": "folk_noir",
+  "name": "Folk noir (contemporary dark chamber-folk songwriter tradition)",
+  "family": "vernacular",
+  "lineage": "Contemporary dark chamber-folk songwriter tradition centered around Marissa Nadler (six-album catalog from Ballads of Living and Dying 2004 through Strangers 2016), Espers (Greg Weeks / Meg Baird / Helena Espvall, Philadelphia), and the broader Kemado / Mexican Summer / Hexham Head circle — with Victorian, Pre-Raphaelite, surrealist-poetry (Nadler set Pablo Neruda on her debut), and cinematic-noir literary roots; the term was originally coined by Tony Wakeford for Sol Invictus to distance from the neofolk umbrella, but contemporary usage names the Nadler-Espers chamber-folk lineage. Distinct from gothic_americana (Southern Gothic / Pentecostal roots) and from neofolk-apocalyptic (Current 93, Death in June, post-industrial / Romantic-traditionalism lineage)",
+  "recipe": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, incomplete closure resting, chest resonance low mid, equal tempered. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired beech laminated maple laminated grand piano, pistoy cinnabar loaded red dyed deep dark red modern setup cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 752,
+  "score": 319.135,
+  "config": {
+    "traditions": [
+      "folk_noir",
+      "anglican_choral_cathedral",
+      "hyperion_classical_aesthetic"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 17.099999999999994,
+          "voice_quality": 3.3000000000000007,
+          "voice_vibrato": 2.8649999999999993,
+          "voice_articulation": 0.24,
+          "voice_microtone": 1.5599999999999996,
+          "voice_tradition": 23.83499999999999,
+          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_estill_quality": 3.955000000000001,
+          "voice_speech_song": 12.934999999999997,
+          "voice_ensemble_config": 10.529999999999994,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 2.725,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood": "sitka_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 22.339999999999996,
+          "string_tuning": 0.26,
+          "top_wood": 0.825,
+          "back_sides": 0.39,
+          "string_acoustic": 2.29,
+          "acoustic_om_technique": 22.339999999999996
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "vintage_steinway_pre_war_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 2.845,
+          "grand_piano_size": 1.2,
+          "grand_piano_brand": 4.68,
+          "piano_hammer": 2.04,
+          "piano_rim": 3.3149999999999995,
+          "piano_soundboard": 2.925,
+          "piano_pinblock": -0.035,
+          "piano_plate": 0.6499999999999999,
+          "piano_pitch_standard": 1.3
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "pistoy_gut_cello",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 0.25,
+          "cello_strings": 2.55,
+          "cello_top_wood": -0.035,
+          "cello_back_wood": 0.25,
+          "cello_varnish": 0.7,
+          "cello_setup_period": 1.24,
+          "cello_bow_grip": 3.1199999999999997,
+          "cello_rosin": 0.26,
+          "cello_bow_stick": 3.3
+        }
+      },
+      {
+        "id": "autoharp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "autoharp_chord_bars": "autoharp_15_chord",
+          "autoharp_context": "autoharp_folk_revival",
+          "autoharp_strings": "autoharp_steel_modern",
+          "autoharp_body_wood": "autoharp_spruce_maple"
+        },
+        "scores": {
+          "acoustic_technique": 0.26,
+          "autoharp_chord_bars": 6.789999999999998,
+          "autoharp_context": 2.145,
+          "autoharp_strings": 1.69,
+          "autoharp_body_wood": 1.26
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_female",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 19.644999999999996,
+          "harmonium_action": 1.29,
+          "harmonium_voicing": 1.785,
+          "harmonium_use": 1.56
+        }
+      }
+    ],
+    "room": "hexham_head_studio_pa_chamber_folk",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "folk_noir_aeolian_phrygian_chamber",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

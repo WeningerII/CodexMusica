@@ -1,0 +1,440 @@
+{
+  "id": "riq",
+  "name": "Riq (Egyptian frame drum with jingles)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "riq",
+  "parts": [
+    {
+      "id": "riq_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "riq_small",
+          "name": "Small (sharp, fast)",
+          "descriptors": [
+            "high",
+            "fast-roll",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_medium",
+          "default": true,
+          "name": "Medium (Egyptian)",
+          "descriptors": [
+            "takht-standard",
+            "classical",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_large",
+          "name": "Large (deep, ceremonial)",
+          "descriptors": [
+            "ceremonial",
+            "projecting",
+            "ritual"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "riq_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "riq_takht",
+          "default": true,
+          "name": "Classical Arab takht",
+          "descriptors": [
+            "wasla-suite",
+            "ornamentation-heavy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_sufi",
+          "name": "Sufi ceremony",
+          "descriptors": [
+            "ritual",
+            "meditative",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_wedding",
+          "name": "Wedding / festive",
+          "descriptors": [
+            "popular",
+            "celebratory",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "riq_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "riq_rosewood_inlaid",
+          "default": true,
+          "name": "Rosewood with mother-of-pearl inlay (canonical Egyptian takht)",
+          "descriptors": [
+            "rosewood-mop-inlay-canonical-egyptian-takht"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "riq_walnut_premium",
+          "name": "Walnut inlaid (premium Syrian)",
+          "descriptors": [
+            "walnut-inlaid-premium-syrian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_beech_modern",
+          "name": "Beech (mid-tier modern)",
+          "descriptors": [
+            "beech-mid-tier-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "riq_head_material",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "riq_fish_skin_canonical",
+          "default": true,
+          "name": "Fish-skin (canonical Egyptian — light, responsive)",
+          "descriptors": [
+            "fish-skin-canonical-egyptian-light-responsive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_goat_skin",
+          "name": "Goat-skin (deeper alternative)",
+          "descriptors": [
+            "goat-skin-deeper"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_synthetic_modern",
+          "name": "Synthetic Remo Mylar (modern climate-stable)",
+          "descriptors": [
+            "synthetic-remo-mylar-modern-climate-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "riq_jingles",
+      "surface": false,
+      "name": "Jingle pair metal",
+      "variants": [
+        {
+          "id": "riq_brass_jingles",
+          "default": true,
+          "name": "Brass jingles (canonical takht)",
+          "descriptors": [
+            "brass-jingles-canonical-takht"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_silver_jingles",
+          "name": "Silver jingles (premium)",
+          "descriptors": [
+            "silver-jingles-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "riq_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "riq_small",
+          "name": "Small (sharp, fast)",
+          "descriptors": [
+            "high",
+            "fast-roll",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_medium",
+          "default": true,
+          "name": "Medium (Egyptian)",
+          "descriptors": [
+            "takht-standard",
+            "classical",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_large",
+          "name": "Large (deep, ceremonial)",
+          "descriptors": [
+            "ceremonial",
+            "projecting",
+            "ritual"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "riq_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "riq_takht",
+          "default": true,
+          "name": "Classical Arab takht",
+          "descriptors": [
+            "wasla-suite",
+            "ornamentation-heavy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_sufi",
+          "name": "Sufi ceremony",
+          "descriptors": [
+            "ritual",
+            "meditative",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_wedding",
+          "name": "Wedding / festive",
+          "descriptors": [
+            "popular",
+            "celebratory",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "riq_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "riq_rosewood_inlaid",
+          "default": true,
+          "name": "Rosewood with mother-of-pearl inlay (canonical Egyptian takht)",
+          "descriptors": [
+            "rosewood-mop-inlay-canonical-egyptian-takht"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "riq_walnut_premium",
+          "name": "Walnut inlaid (premium Syrian)",
+          "descriptors": [
+            "walnut-inlaid-premium-syrian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_beech_modern",
+          "name": "Beech (mid-tier modern)",
+          "descriptors": [
+            "beech-mid-tier-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "riq_head_material",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "riq_fish_skin_canonical",
+          "default": true,
+          "name": "Fish-skin (canonical Egyptian — light, responsive)",
+          "descriptors": [
+            "fish-skin-canonical-egyptian-light-responsive"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_goat_skin",
+          "name": "Goat-skin (deeper alternative)",
+          "descriptors": [
+            "goat-skin-deeper"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_synthetic_modern",
+          "name": "Synthetic Remo Mylar (modern climate-stable)",
+          "descriptors": [
+            "synthetic-remo-mylar-modern-climate-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "riq_jingles",
+      "surface": false,
+      "name": "Jingle pair metal",
+      "variants": [
+        {
+          "id": "riq_brass_jingles",
+          "default": true,
+          "name": "Brass jingles (canonical takht)",
+          "descriptors": [
+            "brass-jingles-canonical-takht"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "riq_silver_jingles",
+          "name": "Silver jingles (premium)",
+          "descriptors": [
+            "silver-jingles-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

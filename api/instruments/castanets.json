@@ -1,0 +1,234 @@
+{
+  "id": "castanets",
+  "name": "Castanets",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "castanets",
+  "parts": [
+    {
+      "id": "castanets_material",
+      "surface": false,
+      "name": "Material",
+      "variants": [
+        {
+          "id": "castanets_rosewood",
+          "default": true,
+          "name": "Rosewood (granadillo)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "standard",
+            "professional",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "castanets_ebony",
+          "name": "Ebony",
+          "descriptors": [
+            "sharp",
+            "treble-extended",
+            "premium",
+            "ebony"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "castanets_pomegranate",
+          "name": "Pomegranate-wood",
+          "descriptors": [
+            "regional",
+            "traditional",
+            "Iberian",
+            "pomegranate-wood"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "castanets_boxwood",
+          "name": "Boxwood",
+          "descriptors": [
+            "light",
+            "projecting",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "castanets_mounting",
+      "name": "Mounting / playing",
+      "variants": [
+        {
+          "id": "castanets_palillos",
+          "default": true,
+          "name": "Hand-pair palillos",
+          "descriptors": [
+            "virtuosic",
+            "paired"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "flamenco"
+          ]
+        },
+        {
+          "id": "castanets_machine",
+          "name": "Machine castanets (mounted)",
+          "descriptors": [
+            "orchestral",
+            "symphonic"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "castanets_paddle",
+          "name": "Paddle / school castanets",
+          "descriptors": [
+            "simple",
+            "pedagogical",
+            "beginner"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "castanets_material",
+      "surface": false,
+      "name": "Material",
+      "variants": [
+        {
+          "id": "castanets_rosewood",
+          "default": true,
+          "name": "Rosewood (granadillo)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "standard",
+            "professional",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "castanets_ebony",
+          "name": "Ebony",
+          "descriptors": [
+            "sharp",
+            "treble-extended",
+            "premium",
+            "ebony"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "castanets_pomegranate",
+          "name": "Pomegranate-wood",
+          "descriptors": [
+            "regional",
+            "traditional",
+            "Iberian",
+            "pomegranate-wood"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "castanets_boxwood",
+          "name": "Boxwood",
+          "descriptors": [
+            "light",
+            "projecting",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "castanets_mounting",
+      "name": "Mounting / playing",
+      "variants": [
+        {
+          "id": "castanets_palillos",
+          "default": true,
+          "name": "Hand-pair palillos",
+          "descriptors": [
+            "virtuosic",
+            "paired"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "flamenco"
+          ]
+        },
+        {
+          "id": "castanets_machine",
+          "name": "Machine castanets (mounted)",
+          "descriptors": [
+            "orchestral",
+            "symphonic"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "castanets_paddle",
+          "name": "Paddle / school castanets",
+          "descriptors": [
+            "simple",
+            "pedagogical",
+            "beginner"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

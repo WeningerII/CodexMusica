@@ -1,0 +1,224 @@
+{
+  "id": "gamelan_javanese_full",
+  "name": "Full Javanese gamelan ensemble",
+  "family": "ensemble",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "gamelan (Javanese)",
+  "parts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Section roles",
+      "variants": [
+        {
+          "id": "gj_balungan",
+          "default": true,
+          "name": "Balungan (skeleton melody: saron, demung)",
+          "descriptors": [
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gj_panerusan",
+          "name": "Panerusan (elaboration: gender, gambang, bonang)",
+          "descriptors": [
+            "ornamental",
+            "virtuoso",
+            "melodic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gj_punctuating",
+          "name": "Punctuating (kenong, kethuk, kempul, gong ageng)",
+          "descriptors": [
+            "colotomic",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gj_drum_kendhang",
+          "name": "Kendhang (lead drum)",
+          "descriptors": [
+            "lead",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gj_rebab_voice",
+          "surface": false,
+          "name": "Rebab and pesindhèn voice",
+          "descriptors": [
+            "ornamental",
+            "classical"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "gj_slendro",
+          "name": "Sléndro (5-tone)",
+          "descriptors": [
+            "archaic",
+            "meditative",
+            "classical"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gj_pelog",
+          "default": true,
+          "name": "Pélog (7-tone)",
+          "descriptors": [
+            "ceremonial",
+            "classical"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Section roles",
+      "variants": [
+        {
+          "id": "gj_balungan",
+          "default": true,
+          "name": "Balungan (skeleton melody: saron, demung)",
+          "descriptors": [
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gj_panerusan",
+          "name": "Panerusan (elaboration: gender, gambang, bonang)",
+          "descriptors": [
+            "ornamental",
+            "virtuoso",
+            "melodic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gj_punctuating",
+          "name": "Punctuating (kenong, kethuk, kempul, gong ageng)",
+          "descriptors": [
+            "colotomic",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gj_drum_kendhang",
+          "name": "Kendhang (lead drum)",
+          "descriptors": [
+            "lead",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gj_rebab_voice",
+          "surface": false,
+          "name": "Rebab and pesindhèn voice",
+          "descriptors": [
+            "ornamental",
+            "classical"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "gj_slendro",
+          "name": "Sléndro (5-tone)",
+          "descriptors": [
+            "archaic",
+            "meditative",
+            "classical"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        },
+        {
+          "id": "gj_pelog",
+          "default": true,
+          "name": "Pélog (7-tone)",
+          "descriptors": [
+            "ceremonial",
+            "classical"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic"
+          ]
+        }
+      ]
+    }
+  ]
+}

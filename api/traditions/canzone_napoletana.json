@@ -1,0 +1,133 @@
+{
+  "id": "canzone_napoletana",
+  "name": "Canzone napoletana (Neapolitan song)",
+  "family": "classical",
+  "lineage": "Neapolitan-language art-popular song tradition, comprising the canonical Naples-and-Campania song-repertoire from the mid-nineteenth-century onward (the genre crystallized around the 1839 Piedigrotta Festival commissioned songs and continuing through the 1890s \"golden age\" with O sole mio, 1898 by Eduardo di Capua and Giovanni Capurro). The form combines elements of Italian operatic-melodic-vocabulary, Mediterranean folk-traditions, and Neapolitan-dialect literary poetry. Distinguished by canzone napoletana's strict use of the Neapolitan language (a distinct Romance language closely related to but distinct from standard Italian).",
+  "recipe": "classic North American mid-1890s canzone napoletana, functional Song, iberian branch, Mediterranean ballad ballad poetry kabyle music greek nisiotika. thick, low dynamic level, chest resonance low mid, Mediterranean demotic vocal. bowl back Italian German spruce classical leaning phosphor bronze bronze mandolin, cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed weikert felt beech laminated maple laminated European tradition grand piano. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 692,
+  "score": 228.14,
+  "config": {
+    "traditions": [
+      "canzone_napoletana",
+      "kabyle_music_algerian",
+      "greek_nisiotika"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 2.795000000000001,
+          "voice_quality": 3.185000000000001,
+          "voice_vibrato": 2.9899999999999998,
+          "voice_articulation": 0.33,
+          "voice_microtone": 0.15,
+          "voice_tradition": 12.22,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 11.27,
+          "voice_speech_song": 13.324999999999998,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 8.95,
+          "voice_pitch_organization": 4.745,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 1.815
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "german_spruce_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "mandolin_shape": 5.069999999999999,
+          "mandolin_top": 3.3799999999999994,
+          "mandolin_back": 0.15,
+          "mandolin_bracing": -0.05,
+          "mandolin_strings": 1.54,
+          "mandolin_fingerboard": 1.445,
+          "mandolin_pickup": 6.759999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 5.2,
+          "string_tuning": 0,
+          "top_wood_parlor": 1.495,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 1.54
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_weikert_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 2.65,
+          "grand_piano_size": 1.495,
+          "grand_piano_brand": 3.3799999999999994,
+          "piano_hammer": 3.9949999999999997,
+          "piano_rim": 4.9399999999999995,
+          "piano_soundboard": 4.9399999999999995,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.495,
+          "piano_pitch_standard": 4.9399999999999995
+        }
+      }
+    ],
+    "room": "naples_canzone_napoletana_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

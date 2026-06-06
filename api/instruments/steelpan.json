@@ -1,0 +1,244 @@
+{
+  "id": "steelpan",
+  "name": "Steelpan (Trinidadian)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "steelpan",
+  "parts": [
+    {
+      "id": "steelpan_voice",
+      "surface": false,
+      "name": "Voice / range",
+      "variants": [
+        {
+          "id": "tenor_pan",
+          "default": true,
+          "name": "Tenor pan (lead)",
+          "descriptors": [
+            "melodic",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        },
+        {
+          "id": "double_seconds",
+          "name": "Double seconds",
+          "descriptors": [
+            "harmonic",
+            "versatile",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "doubled",
+            "percussive-attack",
+            "metallic"
+          ]
+        },
+        {
+          "id": "cello_pan",
+          "name": "Cello pan",
+          "descriptors": [
+            "mid",
+            "foundational",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bass_pan",
+          "name": "Bass pan (6-pan)",
+          "descriptors": [
+            "deep",
+            "grounding",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steelpan_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "steelpan_panyard",
+          "default": true,
+          "name": "Carnival panyard",
+          "descriptors": [
+            "communal",
+            "Trinidadian-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "melodic"
+          ]
+        },
+        {
+          "id": "steelpan_orchestra",
+          "name": "Steel orchestra concert",
+          "descriptors": [
+            "modern",
+            "arranged",
+            "concert-stage",
+            "steel"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "melodic"
+          ]
+        },
+        {
+          "id": "steelpan_session",
+          "name": "Pop / session",
+          "descriptors": [
+            "commercial",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "steelpan_voice",
+      "surface": false,
+      "name": "Voice / range",
+      "variants": [
+        {
+          "id": "tenor_pan",
+          "default": true,
+          "name": "Tenor pan (lead)",
+          "descriptors": [
+            "melodic",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        },
+        {
+          "id": "double_seconds",
+          "name": "Double seconds",
+          "descriptors": [
+            "harmonic",
+            "versatile",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "doubled",
+            "percussive-attack",
+            "metallic"
+          ]
+        },
+        {
+          "id": "cello_pan",
+          "name": "Cello pan",
+          "descriptors": [
+            "mid",
+            "foundational",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bass_pan",
+          "name": "Bass pan (6-pan)",
+          "descriptors": [
+            "deep",
+            "grounding",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steelpan_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "steelpan_panyard",
+          "default": true,
+          "name": "Carnival panyard",
+          "descriptors": [
+            "communal",
+            "Trinidadian-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "melodic"
+          ]
+        },
+        {
+          "id": "steelpan_orchestra",
+          "name": "Steel orchestra concert",
+          "descriptors": [
+            "modern",
+            "arranged",
+            "concert-stage",
+            "steel"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "melodic"
+          ]
+        },
+        {
+          "id": "steelpan_session",
+          "name": "Pop / session",
+          "descriptors": [
+            "commercial",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "lithuanian_sutartines",
+  "name": "Lithuanian sutartinės multipart (UNESCO 2010)",
+  "family": "global",
+  "lineage": "Lithuanian sutartinės multipart-singing tradition of northeastern Lithuania (Aukštaitija region), recognized as UNESCO Intangible Cultural Heritage 2010. Sutartinės are female-group (occasionally mixed-or-male) polyphonic songs in characteristic parallel-second intervals — two-or-three voices moving in tight major-second-and-minor-second clusters, with strict canonical-imitative entry-patterns at the second or fourth. The genre includes vocal-only (sutartinės-as-song) and instrumental variants performed on kanklės (board zither, finger-plucked) and skudučiai (multiple-tube pan-pipes played by multiple players in hocketed pattern, with each player blowing only one tube and the melodic line resulting from the rapid alternation across players). Sutartinė structure typically alternates between an opening-formula sung by one voice, an answering response from the second voice, and the eventual building-up of the canonical two-or-three-voice texture. Repertoire spans work-song accompaniment, calendar-rite celebrations, wedding-cycle songs, and the broader Baltic narrow-range narrative-poetic tradition. Modal vocabulary draws on the Lithuanian sutartinės parallel-seconds vocabulary, considered one of the most archaic tonal systems in Europe with possible deep Indo-European ritual-music continuity. Zenonas Slaviūnas's three-volume 1820-sutartinė edition (1958-1959) is the foundational corpus-documentation; Stasys Paliulis's instrumental-sutartinė collection complements the vocal corpus; Daiva Vyčinienė at the Lithuanian Folk Culture Centre drafted the 2010 UNESCO nomination. Distinguished from Latvian dainas by Lithuanian sutartinės parallel-seconds polyphonic configuration (vs Latvian-dainas-as-mostly-monophonic-or-heterophonic); distinguished from Estonian Setu leelo by Lithuanian's strict-canonical-imitation (vs Setu's call-and-response-with-drone-bourdon) architecture.",
+  "recipe": "classic lithuanian sutartinės multipart, drone Modal, vocal branch, indigenous ritual devotional inuit katajjaq throat-singing game mapuche tayil genealogical chant. kargyraa, false fold engaged, pure, narrative. board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai. baltic outdoor village. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 584,
+  "score": 271.385,
+  "config": {
+    "traditions": [
+      "lithuanian_sutartines",
+      "inuit_katajjaq_games",
+      "mapuche_tayil_ritual"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.9399999999999995,
+          "voice_quality": 1.7549999999999994,
+          "voice_vibrato": 2.4949999999999997,
+          "voice_articulation": 1.0399999999999998,
+          "voice_microtone": 1.3,
+          "voice_tradition": 14.689999999999996,
+          "voice_mechanism_compound": 9.62,
+          "voice_estill_quality": 5.785,
+          "voice_speech_song": 14.104999999999997,
+          "voice_ensemble_config": 14.039999999999996,
+          "voice_ornament_system": 3.7700000000000005,
+          "voice_pitch_organization": 4.185,
+          "voice_processing_chain": 6.825,
+          "voice_multitrack_stack": 6.24
+        }
+      },
+      {
+        "id": "kankles",
+        "slots": {
+          "kankles_body": "kankles_board_zither_finger_plucked_canonical",
+          "kankles_tradition": "kankles_sutartines_canonical"
+        },
+        "scores": {
+          "kankles_body": 15.535,
+          "kankles_tradition": 12.829999999999998
+        }
+      },
+      {
+        "id": "skuduciai",
+        "slots": {
+          "skuduciai_body": "skuduciai_multiple_pipes_hocketed_canonical",
+          "skuduciai_tradition": "skuduciai_sutartines_canonical"
+        },
+        "scores": {
+          "skuduciai_body": 18.525,
+          "skuduciai_tradition": 14.67
+        }
+      }
+    ],
+    "room": "baltic_outdoor_village",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "lithuanian_sutartines_seconds",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "id": "american_clipper_shanty",
+  "name": "American clipper-ship shanty",
+  "family": "global",
+  "lineage": "American-clipper-ship-era shanty tradition continuous from 1830s-1880s American-merchant-marine clipper-ship work-song practice (the heyday of American clipper-ship trade between American-Eastern-Seaboard, California, China, and Australia) through 20th-century revival into modern American-folk-revival continuous practice; foundational repertoire includes \"Sacramento\" (capstan-shanty for California-gold-rush trade), \"Shenandoah\"",
+  "recipe": "classic mid-1830s american clipper-ship shanty, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry indie folk texas country-folk storyteller. thick, incomplete closure resting, melodic, continuous-phonation. Celtic Irish straight concertina, synthetic magic rosin modern acrylic base drone like fiddle. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 502,
+  "score": 186.315,
+  "config": {
+    "traditions": [
+      "american_clipper_shanty",
+      "indie_folk_2000s",
+      "texas_country_folk_storyteller"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.410000000000001,
+          "voice_quality": 1.795,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 1.69,
+          "voice_tradition": 6.240000000000001,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.7149999999999997,
+          "voice_speech_song": 9.165,
+          "voice_ensemble_config": 3.1200000000000006,
+          "voice_ornament_system": 1.2849999999999997,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.9749999999999996,
+          "voice_multitrack_stack": 0.645
+        }
+      },
+      {
+        "id": "concertina",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "concertina_type": "anglo_concertina",
+          "concertina_reed_grade": "concertina_hybrid_accordion_reed"
+        },
+        "scores": {
+          "free_reed_technique": 3.1500000000000004,
+          "concertina_type": 10.53,
+          "concertina_reed_grade": 1.69
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "pizz"
+        },
+        "scores": {
+          "bowed_technique": 3.245,
+          "fiddle_strings": 1.69,
+          "fiddle_bow": 3.685,
+          "fiddle_mute": 0.255,
+          "fiddle_articulation": 0.09
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

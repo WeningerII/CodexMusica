@@ -1,0 +1,153 @@
+{
+  "id": "post_punk_revival",
+  "name": "Post-punk revival (2000s)",
+  "family": "rock_punk",
+  "lineage": "Early-2000s indie rock subgenre revisiting late-1970s and early-1980s post-punk aesthetic (Joy Division, Wire, Gang of Four, the Fall) with explicit angular-guitar-and-driving-bass arrangement. Interpol (NYC 2002-onward), Franz Ferdinand (Glasgow), Bloc Party, the Editors, the Killers, the Strokes (parallel garage-rock-revival), and the broader 2002-2006 NME-promoted UK-American post-punk-revival wave consolidated the canonical sound.",
+  "recipe": "classic British post-punk revival, distorted Rock, alternative branch, classic distorted rock britpop merseybeat. thick, chest resonance low mid, equal tempered, false fold distorted phonation. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 703,
+  "score": 408.151,
+  "config": {
+    "traditions": [
+      "post_punk_revival",
+      "britpop",
+      "merseybeat"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 11.694999999999993,
+          "voice_quality": 0.0315,
+          "voice_vibrato": 1.125,
+          "voice_articulation": 0,
+          "voice_microtone": 11.749999999999996,
+          "voice_tradition": -0.035,
+          "voice_mechanism_compound": 2.665000000000001,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 10.8695,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 9.295,
+          "voice_multitrack_stack": 7.452999999999999
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 8.95,
+          "amp_make": 17.744999999999997,
+          "body_wood": 1.69,
+          "neck_wood": 0.885,
+          "fretboard": 0.135,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.9099999999999999,
+          "string_material": 0.195,
+          "bridge": 0.885,
+          "scale_length": 1.7700000000000002,
+          "string_gauge": 0.885,
+          "finish": 0.435,
+          "string_tuning": 8.84
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 11.084999999999999,
+          "amp_make": 7.865,
+          "body_wood": 1.7700000000000002,
+          "pickup_config": 0.045,
+          "string_type": 15.6,
+          "scale_length_b": 0.885,
+          "fretted_or_not": 0,
+          "bass_technique": 21.135
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 10.299999999999999,
+          "shell_wood": 0.4215,
+          "shell_thickness": 0,
+          "bearing_edges": 1.08,
+          "drumhead": 0.885,
+          "snare_wires": 0.885,
+          "cymbal_alloy": 21.085,
+          "cymbal_hammering": 12.081499999999998,
+          "cymbal_lathing": 11.989999999999998,
+          "cymbal_finish": 0.195,
+          "drum_technique": 12.09
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

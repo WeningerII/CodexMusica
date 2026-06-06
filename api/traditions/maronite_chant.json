@@ -1,0 +1,83 @@
+{
+  "id": "maronite_chant",
+  "name": "Maronite liturgical chant",
+  "family": "classical",
+  "lineage": "Maronite Catholic liturgical chant of the Maronite Church (the largest Eastern Catholic Church, in full communion with Rome, centered in Lebanon). Lineage descends from the broader West-Syriac Antiochene rite. The Beth Gazo eight-mode oktoechos system is shared with Syriac Orthodox but with Maronite-Lebanese recension and Latin-rite influences from post-twelfth-century communion with Rome. The Quzhaya monastery in the Qadisha Valley (founded sixteenth century) and Patriarchal seat at Bkerké anchor institutional transmission. Liturgical language is Syriac for the Eucharistic anaphora and Arabic for most other content.",
+  "recipe": "classic modern maronite liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum ars nova. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 474,
+  "score": 136.434,
+  "config": {
+    "traditions": [
+      "maronite_chant",
+      "ars_antiqua_organum",
+      "ars_nova_french"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "arabic_maqam_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 4.635000000000001,
+          "voice_quality": 7.540000000000001,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.99,
+          "voice_microtone": 3.1000000000000005,
+          "voice_tradition": 6.33375,
+          "voice_mechanism_compound": 6.759999999999999,
+          "voice_estill_quality": 6.5649999999999995,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 6.759999999999999,
+          "voice_ornament_system": 6.95,
+          "voice_pitch_organization": 6.045,
+          "voice_processing_chain": 3.0075,
+          "voice_multitrack_stack": 1.21875
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_svanetian_complex_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 3.5737499999999995,
+          "choir_polyphonic_configuration": 5.8267500000000005,
+          "choir_regional_canonical_configuration": 4.24125,
+          "choir_ensemble_repertoire": 4.68
+        }
+      }
+    ],
+    "room": "stone_armenian_church",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

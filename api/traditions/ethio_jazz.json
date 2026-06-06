@@ -1,0 +1,326 @@
+{
+  "id": "ethio_jazz",
+  "name": "Ethio-jazz",
+  "family": "global",
+  "lineage": "Ethiopian Golden Age 1969-1974 Amha-Kaifa-Philips label canon — codified through Mulatu Astatke’s Berklee-and-NYC training brought back to Addis Ababa, the Roha Band and Walias Band as the canonical recording ensembles, Mahmoud Ahmed (Ere Mela Mela 1975), Alemayehu Eshete, Tlahoun Gèssèssè, and Tilahun Gessesse as canonical singers; characterized by Ethiopian kignit-modal vocals over jazz-and-soul instrumental beds",
+  "recipe": "classic North American mid-1970s ethio-jazz, improv On Frame, Latin jazz branch, vocal drone modal flamenco. thick, nasal, pure, narrative.",
+  "recipe_chars": 139,
+  "score": 588.177,
+  "config": {
+    "traditions": [
+      "ethio_jazz",
+      "flamenco",
+      "mor_lam"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "nasal_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 15.389999999999993,
+          "voice_quality": 1.9000000000000017,
+          "voice_vibrato": 1.645,
+          "voice_articulation": 3.765,
+          "voice_microtone": 14.394999999999996,
+          "voice_tradition": 13.339999999999996,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 2.99,
+          "voice_speech_song": 12.935000000000002,
+          "voice_ensemble_config": 12.870000000000001,
+          "voice_ornament_system": 0.9000000000000001,
+          "voice_pitch_organization": 11.189999999999996,
+          "voice_processing_chain": 4.029999999999999,
+          "voice_multitrack_stack": 3.3449999999999998
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_slow",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "vibe_motor": 14.719999999999997,
+          "vibe_mallets": 13.249999999999996
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_16_pedal",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_leslie_rotary"
+        },
+        "scores": {
+          "keyboard_technique": 0.2,
+          "combo_organ_model": 0.39,
+          "combo_organ_voicing": 3.3199999999999994,
+          "combo_organ_context": 1.695,
+          "amp_make": 2.8500000000000005
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 4.7749999999999995,
+          "sax_size": 3.29,
+          "sax_reed": 0,
+          "sax_body_alloy": 13.549999999999997,
+          "sax_mouthpiece": 0.78,
+          "sax_technique": 13.624999999999996,
+          "sax_maker_school": 19.415
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 4.7749999999999995,
+          "brass_size": 0.7499999999999999,
+          "trumpet_mouthpiece": 15.844999999999999,
+          "brass_mute": 0.39,
+          "trumpet_technique": 4.7749999999999995,
+          "trumpet_bell_metal": 2.6,
+          "trumpet_maker_school": 3.38
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "tailgate_slide",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 4.7749999999999995,
+          "trombone_type": 13.999999999999996,
+          "trombone_mouthpiece": 13.394999999999996,
+          "trombone_mute": 0.39,
+          "trombone_technique": 0.78,
+          "trombone_bell_metal": 2.6,
+          "trombone_maker_school": 3.38
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 3.5,
+          "amp_make": 2.9450000000000003,
+          "body_wood": 0.42,
+          "neck_wood": 0.39,
+          "fretboard": 0.33,
+          "pickup_magnet": 0.39,
+          "string_material": 0.3,
+          "string_gauge": 1.17,
+          "bridge": 0.6599999999999999,
+          "scale_length": 0.39,
+          "finish": 0.045,
+          "string_tuning": 5.2
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "flatwound",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": 3.2,
+          "amp_make": 7.170000000000001,
+          "body_wood": 0.39,
+          "pickup_config": 0.045,
+          "string_type": 14.299999999999997,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.7499999999999999,
+          "bass_technique": 13.249999999999996
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "hand_lathed_pit_retaining",
+          "cymbal_finish": "traditional_finish",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 20.41,
+          "shell_wood": 0.78,
+          "shell_thickness": 0.045,
+          "bearing_edges": 1.17,
+          "drumhead": 15.734999999999998,
+          "snare_wires": 0.39,
+          "cymbal_alloy": 13.489999999999995,
+          "cymbal_hammering": 14.789999999999996,
+          "cymbal_lathing": 15.499999999999998,
+          "cymbal_finish": 0.3,
+          "drum_technique": 20.41
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 5.86,
+          "conga_set": 1.4100000000000001,
+          "conga_skin": 2.6,
+          "conga_shell_wood": 2.6
+        }
+      },
+      {
+        "id": "krar",
+        "slots": {
+          "krar_strings": "krar_six",
+          "krar_body": "krar_wood_skin",
+          "krar_string_material": "krar_gut_historical"
+        },
+        "scores": {
+          "krar_strings": 0.78,
+          "krar_body": 0.78,
+          "krar_string_material": 4.784999999999998
+        }
+      },
+      {
+        "id": "masenqo",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "masenqo_body": "masenqo_diamond_parchment",
+          "masenqo_string": "masenqo_horsehair_single",
+          "masenqo_bow": "masenqo_horsehair_curved_bow",
+          "masenqo_tradition": "masenqo_azmari"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "masenqo_body": 1.17,
+          "masenqo_string": 0,
+          "masenqo_bow": 7.614999999999998,
+          "masenqo_tradition": 7.914999999999998
+        }
+      },
+      {
+        "id": "kebero",
+        "slots": {
+          "kebero_skin": "kebero_calfskin",
+          "kebero_shell_wood": "kebero_olive_canonical",
+          "kebero_tradition": "kebero_orthodox_tewahedo"
+        },
+        "scores": {
+          "kebero_skin": 8.004999999999999,
+          "kebero_shell_wood": 7.914999999999998,
+          "kebero_tradition": 2.6
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_son",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 5.86,
+          "bongos_skin": 2.535,
+          "bongos_context": 0.78,
+          "bongos_shell_wood": 2.6
+        }
+      },
+      {
+        "id": "washint",
+        "slots": {
+          "washint_body": "washint_bamboo"
+        },
+        "scores": {
+          "washint_body": 0.39
+        }
+      }
+    ],
+    "room": "addis_radio_clandestine_studio",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "medium_indian_lebanese_pressing"
+    },
+    "tuning": "kignit_tezeta_minor",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

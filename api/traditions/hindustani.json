@@ -1,0 +1,168 @@
+{
+  "id": "hindustani",
+  "name": "Hindustani classical",
+  "family": "classical",
+  "lineage": "North Indian classical raga tradition organized through the gharana (lineage-school) transmission system across Gwalior, Agra, Patiala, Kirana, Atrauli-Jaipur, Indore, Mewati, Benares gharanas — codified through V.N. Bhatkhandes 10-thaat system in the early 20th century, 20th-century lineage Ustad Bismillah Khan (shehnai), Ravi Shankar (sitar), Vilayat Khan (sitar), Ali Akbar Khan (sarod), Pandit Bhimsen Joshi (Kirana vocal), Pandit Hariprasad Chaurasia (bansuri)",
+  "recipe": "classic North American mid-1970s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, suited to female vocal gourd body canonical traditional tanpura, steel modern tun indian cedar alternative shivkumar sharma canonical lineage santoor, coconut shell shell tun indian cedar maihar gharana sarod, low overtone rich kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani bismillah khan banaras lineage canonical Hindustani shehnai. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
+  "recipe_chars": 973,
+  "score": 321.429,
+  "config": {
+    "traditions": [
+      "hindustani",
+      "telugu_kirtana",
+      "sinhala_vannama"
+    ],
+    "instruments": [
+      {
+        "id": "sitar",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sitar_neck": "teak",
+          "sitar_resonator": "single_kaddu",
+          "sitar_jawari": "camel_bone",
+          "sitar_taraf": "taraf_11",
+          "sitar_frets": "tied_gut_parda",
+          "sitar_pluck": "wire_mizrab",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_jawari_style": "sitar_jawari_open",
+          "sitar_gharana": "sitar_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 13.785,
+          "sitar_neck": 0.8657142857142858,
+          "sitar_resonator": 0.6,
+          "sitar_jawari": 0.42000000000000004,
+          "sitar_taraf": 0.42000000000000004,
+          "sitar_frets": 0.39,
+          "sitar_pluck": 6.375,
+          "sitar_main_strings": -1.05,
+          "sitar_jawari_style": 4.4799999999999995,
+          "sitar_gharana": 9.791428571428572
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 9.379999999999999,
+          "tabla_bayan": 6.674999999999999,
+          "tabla_syahi": 2.08
+        }
+      },
+      {
+        "id": "tanpura",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "tanpura_size": "female_size",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "five_string_chitra",
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_gourd_body"
+        },
+        "scores": {
+          "plucked_traditional_technique": 13.785,
+          "tanpura_size": 2.6,
+          "tanpura_jawari": 13.5,
+          "tanpura_strings": 4.16,
+          "tanpura_string_material": 0.93,
+          "tanpura_body_wood": 1.35
+        }
+      },
+      {
+        "id": "santoor",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "santoor_courses": "santoor_70",
+          "santoor_mallets": "walnut_mallets",
+          "santoor_strings": "steel_strings_santoor",
+          "santoor_body_wood": "santoor_tun",
+          "santoor_lineage": "santoor_shivkumar_sharma_canon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 13.785,
+          "santoor_courses": 6.744642857142856,
+          "santoor_mallets": 0.7307142857142858,
+          "santoor_strings": 5.069999999999999,
+          "santoor_body_wood": 3.0999999999999996,
+          "santoor_lineage": 2.9899999999999998
+        }
+      },
+      {
+        "id": "sarod",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sarod_fingerboard": "polished_steel",
+          "sarod_belly": "goat_skin_belly",
+          "sarod_pluck": "coconut_shell_pick",
+          "sarod_taraf": "taraf_eleven",
+          "sarod_body_wood": "sarod_tun_body",
+          "sarod_strings": "sarod_phosphor_bronze",
+          "sarod_gharana": "sarod_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 13.785,
+          "sarod_fingerboard": 0.39,
+          "sarod_belly": 1.0007142857142857,
+          "sarod_pluck": 6.75,
+          "sarod_taraf": 6.614999999999999,
+          "sarod_body_wood": 3.0999999999999996,
+          "sarod_strings": 0,
+          "sarod_gharana": 9.791428571428572
+        }
+      },
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "bansuri_length": "classical_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_kerala_bamboo",
+          "bansuri_lineage": "bansuri_hariprasad_maihar"
+        },
+        "scores": {
+          "wind_articulation": 13.629999999999999,
+          "bansuri_length": 2.095,
+          "bansuri_ornament": 8.775,
+          "bansuri_body_material": 4.64,
+          "bansuri_lineage": 10.220714285714285
+        }
+      },
+      {
+        "id": "shehnai",
+        "slots": {
+          "shehnai_register": "shehnai_standard_c",
+          "shehnai_use": "shehnai_classical_solo",
+          "shehnai_body_wood": "shehnai_sheesham_canonical",
+          "shehnai_reed": "shehnai_arundo_quadruple",
+          "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+        },
+        "scores": {
+          "shehnai_register": 7.279999999999999,
+          "shehnai_use": 11.18,
+          "shehnai_body_wood": 5.279999999999999,
+          "shehnai_reed": 0.93,
+          "shehnai_lineage": 9.125714285714285
+        }
+      }
+    ],
+    "room": "varanasi_benares_gharana_baithak",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

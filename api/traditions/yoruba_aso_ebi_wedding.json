@@ -1,0 +1,109 @@
+{
+  "id": "yoruba_aso_ebi_wedding",
+  "name": "Yoruba aso ebi wedding music",
+  "family": "global",
+  "lineage": "Yoruba wedding-music tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora domestic practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora; the aso ebi (unified-dress) wedding tradition emphasizes group-celebration vocal-and-drumming participation",
+  "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion congolese rumba mbaqanga. thick, low dynamic level, tasteful, continuous-phonation. iroko alternative west African talking drum, modern revival iroko west African premium dunun, foundational bass rhythm calabash shekere. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 520,
+  "score": 252.128,
+  "config": {
+    "traditions": [
+      "yoruba_aso_ebi_wedding",
+      "congolese_rumba",
+      "mbaqanga"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_sob",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 4.18,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 2.08,
+          "voice_articulation": 2.9899999999999998,
+          "voice_microtone": 4.535,
+          "voice_tradition": 45.10999999999999,
+          "voice_mechanism_compound": 2.055,
+          "voice_estill_quality": 0.39,
+          "voice_speech_song": 9.034999999999998,
+          "voice_ensemble_config": 7.669999999999998,
+          "voice_ornament_system": 7.3999999999999995,
+          "voice_pitch_organization": 20.744999999999997,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 2.8600000000000003
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 0.39,
+          "talking_drum_context": 2.08,
+          "talking_drum_shell_wood": 7.834999999999998,
+          "talking_drum_head": 0.43499999999999994
+        }
+      },
+      {
+        "id": "dunun",
+        "slots": {
+          "dunun_size": "sangban",
+          "dunun_bell": "dunun_double_bell",
+          "dunun_shell_wood": "dunun_iroko",
+          "dunun_head": "dunun_cowhide_canonical"
+        },
+        "scores": {
+          "dunun_size": 0.5549999999999999,
+          "dunun_bell": 2.47,
+          "dunun_shell_wood": 4.680000000000001,
+          "dunun_head": 0.585
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_large",
+          "shekere_beads": "shekere_cowrie"
+        },
+        "scores": {
+          "shekere_size": 1.3199999999999998,
+          "shekere_beads": 19.025
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

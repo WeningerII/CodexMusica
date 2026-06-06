@@ -1,0 +1,168 @@
+{
+  "id": "funeral_doom",
+  "name": "Funeral doom",
+  "family": "global",
+  "lineage": "Extreme-slow doom-metal sub-style codified through Thergothon (Finnish, Stream from the Heavens 1994), Skepticism, Mournful Congregation, and Esoteric — characterized by sub-30 BPM tempo, sustained heavy-distortion guitar drones, glacial drumming, and bell-like cathedral-organ accents; ritual-funereal lyrical and visual identity",
+  "recipe": "classic mid-1990s funeral doom, distorted Rock, doom branch, ambient experimental electric witch house vaporwave aesthetic. thick, larynx lowered, overtone rich sustained, narrative. orange amp British heavy crunch basswood lower tension down tuning power chord humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, mahogany vintage ambassador asymmetric machine hammered symmetric pattern drum kit, sustained pad analog poly synth. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 632,
+  "score": 261.702,
+  "config": {
+    "traditions": [
+      "funeral_doom",
+      "witch_house_2010s",
+      "vapor_aesthetic"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.3850000000000016,
+          "voice_quality": 12.859999999999996,
+          "voice_vibrato": 1.63,
+          "voice_articulation": 0.69,
+          "voice_microtone": 3.500000000000001,
+          "voice_tradition": 2.5000000000000004,
+          "voice_mechanism_compound": 11.069999999999997,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 6.954999999999998,
+          "voice_ensemble_config": 5.719999999999999,
+          "voice_ornament_system": 2.495,
+          "voice_pitch_organization": 4.095,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 0.78
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_orange",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 11.7,
+          "amp_make": 13.679999999999998,
+          "body_wood": 4.809999999999999,
+          "neck_wood": 0.585,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.15,
+          "pickup_winding": 0.15,
+          "string_material": 0.39,
+          "bridge": 0.39,
+          "scale_length": 4.809999999999999,
+          "string_gauge": 1.69,
+          "finish": 0,
+          "string_tuning": 7.539999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "electric_technique": 11.7,
+          "amp_make": 13.679999999999998,
+          "body_wood": 1.17,
+          "pickup_config": 0.15,
+          "string_type": 4.26,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0,
+          "bass_technique": 3.9399999999999995
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "lathing_raw_unlathed",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 5.719999999999999,
+          "shell_wood": 1.455,
+          "shell_thickness": 0,
+          "bearing_edges": 0.6299999999999999,
+          "drumhead": 1.55,
+          "snare_wires": 0.585,
+          "cymbal_alloy": 13.339999999999998,
+          "cymbal_hammering": 3.74,
+          "cymbal_lathing": 3.845,
+          "cymbal_finish": 1.455,
+          "drum_technique": 5.719999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 3.285,
+          "poly_archetypes": 1.71,
+          "poly_voices": 1.63,
+          "poly_maker_lineage": -1.435
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_california_modern",
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

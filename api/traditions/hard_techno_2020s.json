@@ -1,0 +1,63 @@
+{
+  "id": "hard_techno_2020s",
+  "name": "Hard techno (2020s revival)",
+  "family": "electronic",
+  "lineage": "Early-2020s techno-revival wave returning to aggressive 140-160 BPM tempo and distorted-industrial production after the long 2010s minimal-techno period. The genre crystallized through Berlin and Amsterdam underground rave scenes, with key labels including Klockworks, Token, and (popularly) the broader Mall Grab and DJ Plead-led Sydney-Berlin axis. TikTok and Instagram circulation accelerated the genre into mainstream commercial visibility 2021-2023.",
+  "recipe": "classic hard techno, electronic Dance, techno branch, thrash metal, industrial noise experimental electric djent. TR-808, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 329,
+  "score": 15.662,
+  "config": {
+    "traditions": [
+      "hard_techno_2020s",
+      "ebm_european_body",
+      "djent"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_cowbell",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 0.195,
+          "drum_machine_808_context": 3.3149999999999995,
+          "tr808_production_origin": 0.255
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "oscillator": 0.77275,
+          "filter_topology": 1.5377500000000002,
+          "envelope": 0.7799999999999999,
+          "modulation": 0.09
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

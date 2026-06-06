@@ -1,0 +1,82 @@
+{
+  "id": "cape_breton_milling",
+  "name": "Cape Breton milling-frolic",
+  "family": "global",
+  "lineage": "Atlantic Canadian (Cape Breton, Nova Scotia) Scottish Gaelic balladic continuation tradition — milling frolics (òrain luaidh) sung by groups of women while pounding (waulking) wool tweed cloth, with call-and-response solo-and-chorus structure in Scottish Gaelic language; preserved through the Cape Breton Gaelic community and the Beaton family tradition",
+  "recipe": "classic modern cape breton milling-frolic, ballad Poetry, cape breton Gaelic branch, christian gospel sacred harp sacred harp singing. thick, declaimed, ornamental, Scottish Gaelic vocal. call response single leader group response sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. connemara kitchen sean nos. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 477,
+  "score": 90.396,
+  "config": {
+    "traditions": [
+      "cape_breton_milling",
+      "sacred_harp_singing"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.2499999999999996,
+          "voice_quality": 3.17325,
+          "voice_vibrato": 0.38249999999999995,
+          "voice_articulation": 1.7499999999999998,
+          "voice_microtone": 0.0037499999999999994,
+          "voice_tradition": 21.53475,
+          "voice_mechanism_compound": 2.38725,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 6.110499999999998,
+          "voice_ensemble_config": 5.862499999999999,
+          "voice_ornament_system": 3.97325,
+          "voice_pitch_organization": 1.68525,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 0.6074999999999999
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 0.78,
+          "choir_polyphonic_configuration": 3.3537500000000002,
+          "choir_regional_canonical_configuration": 2.9000000000000004,
+          "choir_ensemble_repertoire": 2.21
+        }
+      }
+    ],
+    "room": "connemara_kitchen_sean_nos",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

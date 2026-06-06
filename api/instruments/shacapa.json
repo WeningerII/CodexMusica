@@ -1,0 +1,96 @@
+{
+  "id": "shacapa",
+  "name": "Shacapa (Shipibo leaf-bundle rattle)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "shacapa",
+  "parts": [
+    {
+      "id": "shacapa_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "shacapa_leaf_bundle_plant_stem_canonical",
+          "default": true,
+          "name": "Leaf-bundle rattle bound on plant-stem handle (canonical Amazonian shamanic)",
+          "descriptors": [
+            "leaf-bundle-plant-stem-canonical-amazonian-shamanic"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "shipibo-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shacapa_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "shacapa_icaros_canonical",
+          "default": true,
+          "name": "Icaros nocturnal healing-song accompaniment (canonical)",
+          "descriptors": [
+            "icaros-nocturnal-healing-canonical-shipibo"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "shipibo-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shacapa_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "shacapa_leaf_bundle_plant_stem_canonical",
+          "default": true,
+          "name": "Leaf-bundle rattle bound on plant-stem handle (canonical Amazonian shamanic)",
+          "descriptors": [
+            "leaf-bundle-plant-stem-canonical-amazonian-shamanic"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "shipibo-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shacapa_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "shacapa_icaros_canonical",
+          "default": true,
+          "name": "Icaros nocturnal healing-song accompaniment (canonical)",
+          "descriptors": [
+            "icaros-nocturnal-healing-canonical-shipibo"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "shipibo-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

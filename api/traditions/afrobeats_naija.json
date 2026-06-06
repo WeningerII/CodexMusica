@@ -1,0 +1,111 @@
+{
+  "id": "afrobeats_naija",
+  "name": "Afrobeats (Naija)",
+  "family": "global",
+  "lineage": "Nigerian (with Ghanaian and broader West African parallel development) urban popular music genre that emerged in the 2000s and went global from 2017 onward through Burna Boy (Pan-African genre-fusion), Wizkid (the Drake collaboration Come Closer 2017, then the 2020 album Made in Lagos), Davido, Tems, Tiwa Savage, Rema, Asake — distinguished from Fela Kutis original 1970s Afrobeat by 30-40 BPM faster tempo, digital production foundation, hip-hop-influenced song structure, and broader pop-radio commercial register",
+  "recipe": "classic mid-2000s afrobeats, functional Song, African pop branch, west African groove percussion, Afro-diasporic MC rhythm hiplife jùjú. extended whistle, rap, melodic, narrative. roland tr 8s modern aira digital recreation TR-808, singing lead analog poly synth, sampler drum machine. large tropical 1965-1985 mid-major EMI. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 455,
+  "score": 170.746,
+  "config": {
+    "traditions": [
+      "afrobeats_naija",
+      "hiplife",
+      "juju"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 9.034999999999998,
+          "voice_quality": 3.185,
+          "voice_vibrato": 0.8625000000000002,
+          "voice_articulation": 4.65,
+          "voice_microtone": 7.445,
+          "voice_tradition": 21.06,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 7.475,
+          "voice_ensemble_config": 4.16,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 1.0525,
+          "voice_processing_chain": 4.095000000000001,
+          "voice_multitrack_stack": 5.135
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 1.95,
+          "drum_machine_808_context": 3.835,
+          "tr808_production_origin": 1.5325
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 7.864999999999999,
+          "poly_archetypes": 0.056249999999999994,
+          "poly_voices": 0.3825,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 1.45,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 2.6,
+          "sample_processing": 0.39
+        }
+      }
+    ],
+    "room": "studio_emi_lagos_african",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

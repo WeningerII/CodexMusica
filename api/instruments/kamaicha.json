@@ -1,0 +1,179 @@
+{
+  "id": "kamaicha",
+  "name": "Kamaicha (Rajasthani bowed lute)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kamaicha",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kamaicha_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kamaicha_mango_sheesham_canonical",
+          "default": true,
+          "name": "Mango or sheesham wood bowl with goat-skin belly (canonical Thar Desert build)",
+          "descriptors": [
+            "mango-sheesham-wood-canonical-thar-desert-build"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rajasthani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamaicha_strings",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "kamaicha_gut_main_plus_sympathetic_canonical",
+          "default": true,
+          "name": "Gut main strings plus sympathetic resonance strings (canonical)",
+          "descriptors": [
+            "gut-main-sympathetic-resonance-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rajasthani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamaicha_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "kamaicha_manganiyar_canonical",
+          "default": true,
+          "name": "Manganiyar hereditary musician lineage (canonical)",
+          "descriptors": [
+            "manganiyar-hereditary-lineage-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rajasthani-tradition"
+          ]
+        },
+        {
+          "id": "kamaicha_langa_alt",
+          "name": "Langa hereditary musician lineage (alternate)",
+          "descriptors": [
+            "langa-hereditary-lineage-alternate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rajasthani-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kamaicha_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kamaicha_mango_sheesham_canonical",
+          "default": true,
+          "name": "Mango or sheesham wood bowl with goat-skin belly (canonical Thar Desert build)",
+          "descriptors": [
+            "mango-sheesham-wood-canonical-thar-desert-build"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rajasthani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamaicha_strings",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "kamaicha_gut_main_plus_sympathetic_canonical",
+          "default": true,
+          "name": "Gut main strings plus sympathetic resonance strings (canonical)",
+          "descriptors": [
+            "gut-main-sympathetic-resonance-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rajasthani-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamaicha_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "kamaicha_manganiyar_canonical",
+          "default": true,
+          "name": "Manganiyar hereditary musician lineage (canonical)",
+          "descriptors": [
+            "manganiyar-hereditary-lineage-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rajasthani-tradition"
+          ]
+        },
+        {
+          "id": "kamaicha_langa_alt",
+          "name": "Langa hereditary musician lineage (alternate)",
+          "descriptors": [
+            "langa-hereditary-lineage-alternate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rajasthani-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

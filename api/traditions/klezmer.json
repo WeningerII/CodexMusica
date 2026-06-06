@@ -1,0 +1,180 @@
+{
+  "id": "klezmer",
+  "name": "Klezmer",
+  "family": "vernacular",
+  "lineage": "Eastern European Ashkenazi Jewish wedding-band tradition that was the central popular-celebratory music of the Yiddish-speaking world from the 16th-early-20th centuries before the Holocaust decimated its practitioner community; revived from the 1970s onward through The Klezmer Conservatory Band, Andy Statman, the Klezmatics, Brave Old World, and the Margot Leverett-Klezmer-Mountain-Boys lineage",
+  "recipe": "classic North American mid-1970s klezmer, improv On Frame, klezmer improv branch, string drone modal, European wedding maskandi greek gamílio glendí. ebonite hard rubber klezmer tradition clarinet, ornamented fiddle, castagnari Italian premium folk music bellows articulated accordion, bellows articulated piano accordion, upright bass, trumpet, klezmer ensemble, art music Italian alpine brescian tradition European maple mandola, hammered dulcimer. klezmer simcha celebration hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 615,
+  "score": 116.452,
+  "config": {
+    "traditions": [
+      "klezmer",
+      "maskandi",
+      "greek_gamilio_glendi"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "bass_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "glissando_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "clarinet_body": 16.63,
+          "clarinet_size": 0.21,
+          "clarinet_reed": 0.345,
+          "clarinet_articulation": 12
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_klezmer_ornamented",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "pizz"
+        },
+        "scores": {
+          "bowed_technique": 13.995,
+          "fiddle_strings": 0.09,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.20749999999999996,
+          "fiddle_articulation": 0.42
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 11.95,
+          "accordion_reed_material": 0.20749999999999996,
+          "musette_offset": 0.7925,
+          "reed_config": 0.42,
+          "bellows": 0.7925,
+          "voicing_chamber": 0.21,
+          "accordion_maker_school": 1.69
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_upright",
+          "upright_play": "slap_upright"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "upright_strings": 0.045,
+          "upright_play": 0.22499999999999998
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 0.19500000000000003,
+          "brass_size": 0.045,
+          "trumpet_mouthpiece": 0.7149999999999999,
+          "brass_mute": 0.15,
+          "trumpet_technique": 0.19500000000000003,
+          "trumpet_bell_metal": 0.99,
+          "trumpet_maker_school": 0.39
+        }
+      },
+      {
+        "id": "klezmer_ensemble",
+        "slots": {
+          "sections": "klez_violin_lead",
+          "rhythm_section": "klez_accordion"
+        },
+        "scores": {
+          "sections": 0.7925,
+          "rhythm_section": 0.20749999999999996
+        }
+      },
+      {
+        "id": "mandola",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "mandola_size": "mandola_alto",
+          "mandola_context": "mandola_art",
+          "mandola_top": "mandola_italian_alpine",
+          "mandola_back": "mandola_european_maple",
+          "mandola_strings": "mandola_eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 2.4699999999999998,
+          "mandola_size": 0.39,
+          "mandola_context": 3.77,
+          "mandola_top": 2.535,
+          "mandola_back": 2.57,
+          "mandola_strings": 0.24
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_french_chanson"
+        },
+        "scores": {
+          "free_reed_technique": 11.95,
+          "pa_size": 0.195,
+          "pa_use": 0.20749999999999996
+        }
+      },
+      {
+        "id": "hammered_dulcimer",
+        "slots": {
+          "hammer_dulcimer_courses": "hd_15_15",
+          "hammer_material": "leather_covered",
+          "hammered_dulcimer_body_wood": "hd_walnut_canonical",
+          "hammered_dulcimer_strings": "hd_phosphor_bronze"
+        },
+        "scores": {
+          "hammer_dulcimer_courses": 0.15,
+          "hammer_material": 0.7925,
+          "hammered_dulcimer_body_wood": 0.7949999999999999,
+          "hammered_dulcimer_strings": 0
+        }
+      }
+    ],
+    "room": "klezmer_simcha_celebration_hall",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "klezmer_freygish_ahava_raba_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

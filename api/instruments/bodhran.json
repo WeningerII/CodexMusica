@@ -1,0 +1,266 @@
+{
+  "id": "bodhran",
+  "name": "Bodhrán (Irish frame drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bodhrán",
+  "parts": [
+    {
+      "id": "bodhran_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "bodhran_kerry",
+          "default": true,
+          "name": "Kerry style (knuckle)",
+          "descriptors": [
+            "traditional",
+            "rural",
+            "minimal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "bodhran_top_end",
+          "name": "Top-end stick (Tipper)",
+          "descriptors": [
+            "modern",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bodhran_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "bodhran_goatskin",
+          "default": true,
+          "name": "Goatskin (canonical Irish)",
+          "descriptors": [
+            "goat-skin-canonical-irish",
+            "traditional",
+            "low-fundamental-tuning"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "bodhran_synthetic",
+          "name": "Synthetic Remo (modern weather-stable)",
+          "descriptors": [
+            "consistent",
+            "climate-resistant",
+            "commercial",
+            "synthetic-remo"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "bodhran_calfskin",
+          "name": "Calfskin (rare premium)",
+          "descriptors": [
+            "calfskin-rare-premium",
+            "softer"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bodhran_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "bodhran_birch_ply",
+          "default": true,
+          "name": "Birch ply (canonical modern Irish)",
+          "descriptors": [
+            "birch-ply-canonical-modern-irish"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "bodhran_ash_traditional",
+          "name": "Ash (pre-modern traditional Irish)",
+          "descriptors": [
+            "ash-pre-modern-traditional-irish"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "bodhran_cedar",
+          "name": "Cedar (warmer modern alternative)",
+          "descriptors": [
+            "cedar-warmer-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bodhran_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "bodhran_kerry",
+          "default": true,
+          "name": "Kerry style (knuckle)",
+          "descriptors": [
+            "traditional",
+            "rural",
+            "minimal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "bodhran_top_end",
+          "name": "Top-end stick (Tipper)",
+          "descriptors": [
+            "modern",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bodhran_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "bodhran_goatskin",
+          "default": true,
+          "name": "Goatskin (canonical Irish)",
+          "descriptors": [
+            "goat-skin-canonical-irish",
+            "traditional",
+            "low-fundamental-tuning"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "bodhran_synthetic",
+          "name": "Synthetic Remo (modern weather-stable)",
+          "descriptors": [
+            "consistent",
+            "climate-resistant",
+            "commercial",
+            "synthetic-remo"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "bodhran_calfskin",
+          "name": "Calfskin (rare premium)",
+          "descriptors": [
+            "calfskin-rare-premium",
+            "softer"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bodhran_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "bodhran_birch_ply",
+          "default": true,
+          "name": "Birch ply (canonical modern Irish)",
+          "descriptors": [
+            "birch-ply-canonical-modern-irish"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "bodhran_ash_traditional",
+          "name": "Ash (pre-modern traditional Irish)",
+          "descriptors": [
+            "ash-pre-modern-traditional-irish"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "bodhran_cedar",
+          "name": "Cedar (warmer modern alternative)",
+          "descriptors": [
+            "cedar-warmer-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

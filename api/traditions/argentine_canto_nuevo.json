@@ -1,0 +1,117 @@
+{
+  "id": "argentine_canto_nuevo",
+  "name": "Argentine canto nuevo / canto popular",
+  "family": "global",
+  "lineage": "Argentine canto nuevo / canto popular protest-song tradition continuous from 1960s-1980s Argentine military-dictatorship-era political folk-and-songwriter scene; centered on Mercedes Sosa, Atahualpa Yupanqui (foundational figure), León Gieco, and the Movimiento del Nuevo Cancionero",
+  "recipe": "classic North American mid-1960s argentine canto nuevo / canto popular, protest Song, iberian Latin branch, Latin am troubadour ballad poetry, European protest song, americas wedding milonga andean matrimonio huayno. thick, melodic, continuous-phonation, andean quechua vocal. fingerpicked acoustic guitar, naranjillo andean premium wood cedar andean andean classical charango, ceibo canonical Argentine leguero hollowed trunk bombo andino. bedroom. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 596,
+  "score": 196.183,
+  "config": {
+    "traditions": [
+      "argentine_canto_nuevo",
+      "milonga",
+      "andean_matrimonio_huayno"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "twang_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 4.640000000000001,
+          "voice_quality": 0.325,
+          "voice_vibrato": 0.8756250000000001,
+          "voice_articulation": 1.69,
+          "voice_microtone": 0.24,
+          "voice_tradition": 8.515,
+          "voice_mechanism_compound": 3.0262499999999997,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 9.424999999999999,
+          "voice_ensemble_config": 5.589999999999998,
+          "voice_ornament_system": 4.45,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 3.7350000000000003,
+          "voice_multitrack_stack": 3.7737499999999997
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 5.995,
+          "string_tuning": 0.19500000000000003,
+          "top_wood": 0.63,
+          "back_sides": 0.63,
+          "string_acoustic": 0.63,
+          "acoustic_om_technique": 5.995
+        }
+      },
+      {
+        "id": "charango",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "charango_back": "charango_naranjillo",
+          "charango_top_wood": "charango_cedar_top",
+          "charango_strings": "charango_5_double",
+          "charango_string_material": "charango_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.13,
+          "charango_back": 1.02,
+          "charango_top_wood": 1.5449999999999995,
+          "charango_strings": 1.415625,
+          "charango_string_material": 0.39
+        }
+      },
+      {
+        "id": "bombo_andino",
+        "slots": {
+          "bombo_andino_construction": "bombo_andino_leguero",
+          "bombo_andino_skin": "bombo_andino_llama",
+          "bombo_andino_shell_wood": "bombo_andino_ceibo"
+        },
+        "scores": {
+          "bombo_andino_construction": 6.239999999999998,
+          "bombo_andino_skin": 0.8849999999999999,
+          "bombo_andino_shell_wood": 6.560624999999998
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "transformer_solid_state",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "huayno_2_4_andean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

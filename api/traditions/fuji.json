@@ -1,0 +1,120 @@
+{
+  "id": "fuji",
+  "name": "Fújì",
+  "family": "global",
+  "lineage": "Yoruba-Nigerian Muslim popular music genre codified through Sikiru Ayinde Barrister (1965-onward founder), Ayinde Kollington (Wasiu Ayinde Marshal Kollington Ayinla, then KWAM-1 / King Wasiu Ayinde Marshal), Pasuma Wonder, Saheed Osupa — derived from the Yoruba Muslim were tradition (pre-dawn Ramadan religious-rousing songs) extended into secular celebration music, with the dundun talking-drum battery expanded to 6-8 drummers and percussion-only acoustic instrumentation (no electric instruments)",
+  "recipe": "classic West African modern fújì, groove Percussion, west African branch, islamic ritual devotional acehnese saman were music. extended whistle, declaimed, nervy, rhythmic. omo cedrela odorata canonical Yoruba dundun talking drum, secular cedar canonical Yoruba lucumi synthetic aberinkula secular only bata, agogo, shekere. large tropical 1965-1985 mid-major EMI. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 506,
+  "score": 206.104,
+  "config": {
+    "traditions": [
+      "fuji",
+      "acehnese_saman",
+      "were_music_yoruba"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.17,
+          "voice_quality": 2.3315,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 0.5205000000000001,
+          "voice_microtone": 0.27149999999999996,
+          "voice_tradition": 28.275,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 5.914999999999998,
+          "voice_ensemble_config": 5.849999999999999,
+          "voice_ornament_system": 5.134999999999999,
+          "voice_pitch_organization": 11.794499999999996,
+          "voice_processing_chain": 2.517,
+          "voice_multitrack_stack": 1.363
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_omo_canonical",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 0.39,
+          "talking_drum_context": 1.69,
+          "talking_drum_shell_wood": 7.019999999999998,
+          "talking_drum_head": 0.39
+        }
+      },
+      {
+        "id": "bata",
+        "slots": {
+          "bata_set": "iya",
+          "bata_use": "bata_secular",
+          "bata_shell_wood": "bata_cedar_canonical",
+          "bata_head_material": "bata_synthetic_modern"
+        },
+        "scores": {
+          "bata_set": 0.363,
+          "bata_use": 2.4699999999999998,
+          "bata_shell_wood": 5.329999999999998,
+          "bata_head_material": 2.7215
+        }
+      },
+      {
+        "id": "agogo",
+        "slots": {
+          "agogo_bell": "agogo_single",
+          "agogo_context": "agogo_candomble"
+        },
+        "scores": {
+          "agogo_bell": 1.3,
+          "agogo_context": 1.69
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_medium",
+          "shekere_beads": "shekere_cowrie"
+        },
+        "scores": {
+          "shekere_size": 0.39,
+          "shekere_beads": 10.249999999999996
+        }
+      }
+    ],
+    "room": "studio_emi_lagos_african",
+    "archetype": "arch_emi_lagos_african_70s",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

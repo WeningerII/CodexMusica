@@ -1,0 +1,115 @@
+{
+  "id": "saidi_upper_egyptian",
+  "name": "Saidi music (Upper Egyptian)",
+  "family": "global",
+  "lineage": "Saidi music of Upper Egypt (south of Cairo extending to Aswan), the canonical pre-modern rural musical tradition of the Egyptian Nile Valley peasant Saidi communities. Performance centers on the mizmar pair (loud double-reed conical-bore aerophone played in heterophonic-melodic-elaboration) over tabla baladi or tabla dohola two-headed barrel-drum. Repertoire spans wedding-celebration cycles, mawwal vocal-lament solo declamations (free-rhythm extended-melismatic-ornament register), and tahtib stick-dance accompaniment cycles for which Saidi music is particularly known.",
+  "recipe": "classic North American mid-1950s saidi music, functional Song, mid east n African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, tabla, apricot canonical Egyptian arundo donax canonical nile delta mizmar. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 543,
+  "score": 128.876,
+  "config": {
+    "traditions": [
+      "saidi_upper_egyptian",
+      "indonesian_jaipongan",
+      "fuji"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 6.5,
+          "voice_quality": 2.6265,
+          "voice_vibrato": 1.95,
+          "voice_articulation": 0.9337500000000001,
+          "voice_microtone": 5.743750000000001,
+          "voice_tradition": 12.74,
+          "voice_mechanism_compound": 1.9155000000000002,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 3.575,
+          "voice_ensemble_config": 4.940000000000001,
+          "voice_ornament_system": 1.69,
+          "voice_pitch_organization": 2.2,
+          "voice_processing_chain": 3.345,
+          "voice_multitrack_stack": 3.5100000000000002
+        }
+      },
+      {
+        "id": "tar_frame_drum",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "tar_size": "tar_small",
+          "tar_frame_drum_context": "tar_frame_drum_sufi",
+          "tar_frame_shell_wood": "tar_frame_walnut",
+          "tar_frame_head": "tar_frame_goat_skin"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "tar_size": 0.24375000000000002,
+          "tar_frame_drum_context": 0.23624999999999996,
+          "tar_frame_shell_wood": 1.54,
+          "tar_frame_head": 1.495
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "teak_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 0.24,
+          "tabla_bayan": 0.8902499999999999,
+          "tabla_syahi": 1.69
+        }
+      },
+      {
+        "id": "mizmar",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "mizmar_pitch": "mizmar_high",
+          "mizmar_context": "mizmar_shaabi",
+          "mizmar_body_wood": "mizmar_apricot_canonical",
+          "mizmar_reed": "mizmar_arundo_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000002,
+          "mizmar_pitch": 0.375,
+          "mizmar_context": 3.25,
+          "mizmar_body_wood": 3.7949999999999995,
+          "mizmar_reed": 2.795
+        }
+      }
+    ],
+    "room": "cairo_studio_misr_umm_kulthum_era",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_field_recorder_portable",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

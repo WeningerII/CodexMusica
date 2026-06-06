@@ -1,0 +1,256 @@
+{
+  "id": "melodeon_diatonic",
+  "name": "Melodeon (diatonic button accordion)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "melodeon",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_chordal_chugging",
+          "name": "Chordal chugging / vamp",
+          "applies_to": [
+            "melodeon_diatonic",
+            "accordion",
+            "piano_accordion"
+          ],
+          "descriptors": [
+            "chordal",
+            "rhythm"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "old-time",
+            "cajun",
+            "tejano"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        },
+        {
+          "id": "free_reed_drone_under",
+          "name": "Drone-under-melody",
+          "applies_to": [
+            "concertina_anglo",
+            "concertina_english",
+            "melodeon_diatonic",
+            "accordion"
+          ],
+          "descriptors": [
+            "drone-like"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "cajun"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "melodeon_rows",
+      "name": "Row configuration",
+      "variants": [
+        {
+          "id": "melodeon_2_row",
+          "default": true,
+          "name": "Two-row D/G",
+          "descriptors": [
+            "english-folk"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodeon_3_row",
+          "name": "Three-row chromatic",
+          "descriptors": [
+            "extended",
+            "versatile",
+            "irish-suited"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melodeon_diatonic_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "melodeon_diatonic_celtic",
+          "default": true,
+          "name": "Irish / Scottish session",
+          "descriptors": [
+            "celtic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodeon_diatonic_morris",
+          "name": "English Morris / country dance",
+          "descriptors": [
+            "regional-traditional",
+            "communal"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodeon_diatonic_french",
+          "name": "French folk (musette-leaning)",
+          "descriptors": [
+            "continental",
+            "distinctive-tone",
+            "regional"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "melodeon_rows",
+      "name": "Row configuration",
+      "variants": [
+        {
+          "id": "melodeon_2_row",
+          "default": true,
+          "name": "Two-row D/G",
+          "descriptors": [
+            "english-folk"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodeon_3_row",
+          "name": "Three-row chromatic",
+          "descriptors": [
+            "extended",
+            "versatile",
+            "irish-suited"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melodeon_diatonic_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "melodeon_diatonic_celtic",
+          "default": true,
+          "name": "Irish / Scottish session",
+          "descriptors": [
+            "celtic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodeon_diatonic_morris",
+          "name": "English Morris / country dance",
+          "descriptors": [
+            "regional-traditional",
+            "communal"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "melodeon_diatonic_french",
+          "name": "French folk (musette-leaning)",
+          "descriptors": [
+            "continental",
+            "distinctive-tone",
+            "regional"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

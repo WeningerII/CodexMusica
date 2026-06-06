@@ -1,0 +1,341 @@
+{
+  "id": "eurorack_modular",
+  "name": "Eurorack modular synthesizer",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "eurorack",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_pad_drone",
+          "default": true,
+          "name": "Pad / drone",
+          "applies_to": [
+            "analog_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "string_machine",
+            "granular_synth",
+            "ondes_martenot",
+            "modular_synth",
+            "eurorack_modular"
+          ],
+          "descriptors": [
+            "sustained",
+            "pad"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-and-pad",
+            "drone-like",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "shoegaze"
+          ]
+        },
+        {
+          "id": "electronic_arpeggiated",
+          "name": "Arpeggiated sequence",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "monosynth_acid_bass"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "arpeggio-decoration"
+          ],
+          "canonical_tags": [
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_bass_sub",
+          "name": "Sub-bass",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "monosynth_acid_bass",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "digital_subtractive"
+          ],
+          "descriptors": [
+            "sub-bass",
+            "low"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "trap",
+            "dubstep"
+          ]
+        },
+        {
+          "id": "electronic_modular_patch",
+          "name": "Modular patch evolution",
+          "applies_to": [
+            "modular_synth",
+            "eurorack_modular",
+            "granular_synth"
+          ],
+          "descriptors": [
+            "modular",
+            "evolving"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "idm"
+          ]
+        },
+        {
+          "id": "electronic_glitch_textural",
+          "name": "Glitch / textural",
+          "applies_to": [
+            "granular_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "sampler_classic",
+            "wavetable_synth"
+          ],
+          "descriptors": [
+            "glitched",
+            "textural"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "idm",
+            "experimental"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "eurorack_focus",
+      "name": "System focus",
+      "variants": [
+        {
+          "id": "eurorack_west_coast",
+          "default": true,
+          "name": "West Coast (wave-folding, multi-stage oscillators)",
+          "descriptors": [
+            "Buchla-derived",
+            "timbral",
+            "experimental"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "eurorack_east_coast",
+          "name": "East Coast (subtractive, classic)",
+          "descriptors": [
+            "Moog-derived",
+            "familiar",
+            "musical"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "eurorack_generative",
+          "name": "Generative / random patches",
+          "descriptors": [
+            "evolving",
+            "experimental",
+            "meditative"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eurorack_modular_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "eurorack_modular_live",
+          "name": "Live performance",
+          "descriptors": [
+            "unpredictable",
+            "gestural",
+            "concert"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "eurorack_modular_studio",
+          "default": true,
+          "name": "Studio composition",
+          "descriptors": [
+            "patient",
+            "experimental",
+            "arranged"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "eurorack_modular_film",
+          "name": "Sound design / film",
+          "descriptors": [
+            "textural",
+            "commissioned",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "eurorack_focus",
+      "name": "System focus",
+      "variants": [
+        {
+          "id": "eurorack_west_coast",
+          "default": true,
+          "name": "West Coast (wave-folding, multi-stage oscillators)",
+          "descriptors": [
+            "Buchla-derived",
+            "timbral",
+            "experimental"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "eurorack_east_coast",
+          "name": "East Coast (subtractive, classic)",
+          "descriptors": [
+            "Moog-derived",
+            "familiar",
+            "musical"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "eurorack_generative",
+          "name": "Generative / random patches",
+          "descriptors": [
+            "evolving",
+            "experimental",
+            "meditative"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eurorack_modular_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "eurorack_modular_live",
+          "name": "Live performance",
+          "descriptors": [
+            "unpredictable",
+            "gestural",
+            "concert"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "eurorack_modular_studio",
+          "default": true,
+          "name": "Studio composition",
+          "descriptors": [
+            "patient",
+            "experimental",
+            "arranged"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "eurorack_modular_film",
+          "name": "Sound design / film",
+          "descriptors": [
+            "textural",
+            "commissioned",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        }
+      ]
+    }
+  ]
+}

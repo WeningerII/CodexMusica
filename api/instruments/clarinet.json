@@ -1,0 +1,735 @@
+{
+  "id": "clarinet",
+  "name": "Clarinet (B♭ / bass / contrabass)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "clarinet",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_bebop_runs",
+          "name": "Bebop fast runs",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "cornet"
+          ],
+          "descriptors": [
+            "angular"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bebop-derived",
+            "jazz-trained",
+            "bebop-runs",
+            "gospel-runs"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "wind_multiphonic_avant",
+          "name": "Multiphonic / avant-garde",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "oboe"
+          ],
+          "descriptors": [
+            "multiphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "avant-garde",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "avant",
+            "noise",
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "wind_split_tone_overblown",
+          "name": "Split-tone / overblown",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet"
+          ],
+          "descriptors": [
+            "split-tone",
+            "overblown"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "wind_breath_quiet",
+          "name": "Breath-tone, low dynamic",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "clarinet",
+            "cornet",
+            "flugelhorn",
+            "shakuhachi",
+            "ney"
+          ],
+          "descriptors": [
+            "breath-tone-airy",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "breathing",
+            "quiet"
+          ],
+          "canonical_tags": [
+            "lounge",
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_dixieland_lead",
+          "name": "Dixieland front-line",
+          "applies_to": [
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "cornet"
+          ],
+          "descriptors": [
+            "front-line"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "lead-melody",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "dixieland",
+            "new-orleans"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "clarinet_body",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "grenadilla_clarinet",
+          "default": true,
+          "name": "Grenadilla (African blackwood, traditional)",
+          "descriptors": [
+            "grenadilla",
+            "african-blackwood",
+            "dense-hardwood",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii",
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "buffet_greenline_clarinet",
+          "name": "Buffet Greenline (composite resin + blackwood dust)",
+          "descriptors": [
+            "composite-resin",
+            "blackwood-dust",
+            "humidity-resistant",
+            "climate-stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "hanson_btr_clarinet",
+          "name": "Hanson BTR (Boehm thermoset resin)",
+          "descriptors": [
+            "thermoset-resin",
+            "durable",
+            "consistent-bore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ebonite_clarinet",
+          "name": "Ebonite / hard rubber (klezmer canon)",
+          "descriptors": [
+            "ebonite",
+            "hard-rubber",
+            "softer-tone",
+            "klezmer-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "klezmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_size",
+      "surface": false,
+      "name": "Size",
+      "variants": [
+        {
+          "id": "b_flat_clarinet",
+          "name": "B♭ clarinet",
+          "descriptors": [
+            "low-overtone-rich",
+            "agile",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "a_clarinet",
+          "default": true,
+          "name": "A clarinet",
+          "descriptors": [
+            "mellower",
+            "sweeter",
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "e_flat_clarinet",
+          "name": "E♭ clarinet",
+          "descriptors": [
+            "piercing",
+            "treble-extended",
+            "folk-shrill"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bass_clarinet",
+          "name": "Bass clarinet",
+          "descriptors": [
+            "woody",
+            "dark"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "contra_clarinet",
+          "name": "Contrabass clarinet",
+          "descriptors": [
+            "cavernous",
+            "growling",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_reed",
+      "name": "Reed strength",
+      "variants": [
+        {
+          "id": "soft_clarinet_reed",
+          "name": "Soft",
+          "descriptors": [
+            "easy-blowing",
+            "treble-extended",
+            "flexible"
+          ],
+          "match_tokens": [
+            "soft-attack",
+            "reed-driven",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "medium_clarinet_reed",
+          "default": true,
+          "name": "Medium",
+          "descriptors": [
+            "balanced",
+            "versatile",
+            "standard"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "hard_clarinet_reed",
+          "name": "Hard",
+          "descriptors": [
+            "focused",
+            "dark",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_articulation",
+      "name": "Articulation",
+      "variants": [
+        {
+          "id": "tongued_clarinet",
+          "default": true,
+          "name": "Tongued (classical)",
+          "descriptors": [
+            "narrow-q-precise",
+            "articulate",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "glissando_clarinet",
+          "name": "Glissando / smear",
+          "descriptors": [
+            "sliding",
+            "expressive"
+          ],
+          "match_tokens": [
+            "glissando-heavy",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "klezmer"
+          ]
+        },
+        {
+          "id": "doina_clarinet",
+          "name": "Doina-style ornament",
+          "descriptors": [
+            "rhapsodic",
+            "wailing",
+            "klezmer-mode"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "clarinet_body",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "grenadilla_clarinet",
+          "default": true,
+          "name": "Grenadilla (African blackwood, traditional)",
+          "descriptors": [
+            "grenadilla",
+            "african-blackwood",
+            "dense-hardwood",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii",
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "buffet_greenline_clarinet",
+          "name": "Buffet Greenline (composite resin + blackwood dust)",
+          "descriptors": [
+            "composite-resin",
+            "blackwood-dust",
+            "humidity-resistant",
+            "climate-stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "hanson_btr_clarinet",
+          "name": "Hanson BTR (Boehm thermoset resin)",
+          "descriptors": [
+            "thermoset-resin",
+            "durable",
+            "consistent-bore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ebonite_clarinet",
+          "name": "Ebonite / hard rubber (klezmer canon)",
+          "descriptors": [
+            "ebonite",
+            "hard-rubber",
+            "softer-tone",
+            "klezmer-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "klezmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_size",
+      "surface": false,
+      "name": "Size",
+      "variants": [
+        {
+          "id": "b_flat_clarinet",
+          "name": "B♭ clarinet",
+          "descriptors": [
+            "low-overtone-rich",
+            "agile",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "a_clarinet",
+          "default": true,
+          "name": "A clarinet",
+          "descriptors": [
+            "mellower",
+            "sweeter",
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "e_flat_clarinet",
+          "name": "E♭ clarinet",
+          "descriptors": [
+            "piercing",
+            "treble-extended",
+            "folk-shrill"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bass_clarinet",
+          "name": "Bass clarinet",
+          "descriptors": [
+            "woody",
+            "dark"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "contra_clarinet",
+          "name": "Contrabass clarinet",
+          "descriptors": [
+            "cavernous",
+            "growling",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_reed",
+      "name": "Reed strength",
+      "variants": [
+        {
+          "id": "soft_clarinet_reed",
+          "name": "Soft",
+          "descriptors": [
+            "easy-blowing",
+            "treble-extended",
+            "flexible"
+          ],
+          "match_tokens": [
+            "soft-attack",
+            "reed-driven",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "medium_clarinet_reed",
+          "default": true,
+          "name": "Medium",
+          "descriptors": [
+            "balanced",
+            "versatile",
+            "standard"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "hard_clarinet_reed",
+          "name": "Hard",
+          "descriptors": [
+            "focused",
+            "dark",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clarinet_articulation",
+      "name": "Articulation",
+      "variants": [
+        {
+          "id": "tongued_clarinet",
+          "default": true,
+          "name": "Tongued (classical)",
+          "descriptors": [
+            "narrow-q-precise",
+            "articulate",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "glissando_clarinet",
+          "name": "Glissando / smear",
+          "descriptors": [
+            "sliding",
+            "expressive"
+          ],
+          "match_tokens": [
+            "glissando-heavy",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "klezmer"
+          ]
+        },
+        {
+          "id": "doina_clarinet",
+          "name": "Doina-style ornament",
+          "descriptors": [
+            "rhapsodic",
+            "wailing",
+            "klezmer-mode"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

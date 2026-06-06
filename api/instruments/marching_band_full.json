@@ -1,0 +1,258 @@
+{
+  "id": "marching_band_full",
+  "name": "Marching band (full)",
+  "family": "ensemble",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "marching band",
+  "parts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "mb_woodwinds",
+          "name": "Woodwinds (flutes, clarinets, saxes)",
+          "descriptors": [
+            "melodic",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "mb_brass",
+          "default": true,
+          "name": "Brass (trumpets, mellophones, baritones, sousaphones)",
+          "descriptors": [
+            "outdoor",
+            "brass"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "mb_drumline",
+          "name": "Drumline",
+          "descriptors": [
+            "driving",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "mb_pit",
+          "name": "Front ensemble (pit)",
+          "descriptors": [
+            "mallets",
+            "synths"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "mb_color_guard",
+          "name": "Color guard (visual)",
+          "descriptors": [
+            "visual",
+            "choreographed",
+            "complementary"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_style",
+      "surface": false,
+      "name": "School style",
+      "variants": [
+        {
+          "id": "hbcu_show",
+          "name": "HBCU show-band style",
+          "descriptors": [
+            "athletic",
+            "funk-derived",
+            "swung"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "corps_style",
+          "surface": false,
+          "name": "Drum-corps style (BOA / DCI-influenced)",
+          "descriptors": [
+            "military-tight",
+            "virtuoso",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "traditional_school",
+          "default": true,
+          "name": "Traditional school marching",
+          "descriptors": [
+            "accessible",
+            "foundational",
+            "traditional"
+          ],
+          "match_tokens": [
+            "folk-tradition",
+            "ensemble",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "mb_woodwinds",
+          "name": "Woodwinds (flutes, clarinets, saxes)",
+          "descriptors": [
+            "melodic",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "mb_brass",
+          "default": true,
+          "name": "Brass (trumpets, mellophones, baritones, sousaphones)",
+          "descriptors": [
+            "outdoor",
+            "brass"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "mb_drumline",
+          "name": "Drumline",
+          "descriptors": [
+            "driving",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "mb_pit",
+          "name": "Front ensemble (pit)",
+          "descriptors": [
+            "mallets",
+            "synths"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "mb_color_guard",
+          "name": "Color guard (visual)",
+          "descriptors": [
+            "visual",
+            "choreographed",
+            "complementary"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_style",
+      "surface": false,
+      "name": "School style",
+      "variants": [
+        {
+          "id": "hbcu_show",
+          "name": "HBCU show-band style",
+          "descriptors": [
+            "athletic",
+            "funk-derived",
+            "swung"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "corps_style",
+          "surface": false,
+          "name": "Drum-corps style (BOA / DCI-influenced)",
+          "descriptors": [
+            "military-tight",
+            "virtuoso",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "traditional_school",
+          "default": true,
+          "name": "Traditional school marching",
+          "descriptors": [
+            "accessible",
+            "foundational",
+            "traditional"
+          ],
+          "match_tokens": [
+            "folk-tradition",
+            "ensemble",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

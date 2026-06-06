@@ -1,0 +1,288 @@
+{
+  "id": "concertina_english",
+  "name": "English concertina",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "english concertina",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_bellows_articulated",
+          "name": "Bellows-articulated phrasing",
+          "applies_to": [
+            "bandoneon",
+            "accordion",
+            "piano_accordion",
+            "concertina_anglo",
+            "concertina_english"
+          ],
+          "descriptors": [
+            "bellows-articulated",
+            "phrased"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "tango",
+            "klezmer"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        },
+        {
+          "id": "free_reed_drone_under",
+          "name": "Drone-under-melody",
+          "applies_to": [
+            "concertina_anglo",
+            "concertina_english",
+            "melodeon_diatonic",
+            "accordion"
+          ],
+          "descriptors": [
+            "drone-like"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "cajun"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "concertina_english_config",
+      "name": "Button count",
+      "variants": [
+        {
+          "id": "concertina_english_48",
+          "default": true,
+          "name": "48-button (treble standard)",
+          "descriptors": [
+            "common"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_english_treble_48",
+          "name": "Treble 48 (high voice)",
+          "descriptors": [
+            "lead",
+            "song-accompaniment",
+            "chamber"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_english_baritone",
+          "name": "Baritone / tenor-treble",
+          "descriptors": [
+            "lower",
+            "duet-context",
+            "specialist"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concertina_english_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "concertina_english_classical",
+          "default": true,
+          "name": "Classical chamber",
+          "descriptors": [],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_english_english_folk",
+          "name": "English folk",
+          "descriptors": [
+            "regional",
+            "ballad-accompaniment",
+            "traditional"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "bellows-driven"
+          ]
+        },
+        {
+          "id": "concertina_english_song",
+          "name": "Song accompaniment",
+          "descriptors": [
+            "vocal-support",
+            "arrangement-dependent",
+            "common"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "concertina_english_config",
+      "name": "Button count",
+      "variants": [
+        {
+          "id": "concertina_english_48",
+          "default": true,
+          "name": "48-button (treble standard)",
+          "descriptors": [
+            "common"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_english_treble_48",
+          "name": "Treble 48 (high voice)",
+          "descriptors": [
+            "lead",
+            "song-accompaniment",
+            "chamber"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_english_baritone",
+          "name": "Baritone / tenor-treble",
+          "descriptors": [
+            "lower",
+            "duet-context",
+            "specialist"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concertina_english_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "concertina_english_classical",
+          "default": true,
+          "name": "Classical chamber",
+          "descriptors": [],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "concertina_english_english_folk",
+          "name": "English folk",
+          "descriptors": [
+            "regional",
+            "ballad-accompaniment",
+            "traditional"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "bellows-driven"
+          ]
+        },
+        {
+          "id": "concertina_english_song",
+          "name": "Song accompaniment",
+          "descriptors": [
+            "vocal-support",
+            "arrangement-dependent",
+            "common"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

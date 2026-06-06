@@ -1,0 +1,785 @@
+{
+  "id": "pipe_organ",
+  "name": "Pipe organ",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "pipe organ",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "harpsichord",
+            "pipe_organ",
+            "pump_organ_harmonium",
+            "celesta"
+          ],
+          "descriptors": [
+            "legato",
+            "pedal-resonant"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "sustained-tone",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        },
+        {
+          "id": "keyboard_arpeggio_sustain_rich",
+          "name": "Arpeggiated sustain-rich",
+          "applies_to": [
+            "grand_piano",
+            "rhodes_electric",
+            "mellotron",
+            "electric_piano_tine",
+            "tape_replay_keyboard",
+            "pipe_organ"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sustain-rich-overtones"
+          ],
+          "match_tokens": [
+            "arpeggio-decoration",
+            "sustained",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "shoegaze"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pipe_organ_class",
+      "name": "Class",
+      "variants": [
+        {
+          "id": "pipe_organ_baroque",
+          "default": true,
+          "name": "Baroque (mean-tone, mechanical action)",
+          "descriptors": [
+            "baroque-leaning",
+            "vivid",
+            "articulate"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_romantic",
+          "name": "Romantic / symphonic",
+          "descriptors": [
+            "orchestral",
+            "swelling",
+            "grand"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pipe_organ_neo_baroque",
+          "name": "Neo-baroque (post-1950 revival)",
+          "descriptors": [
+            "low-blend-articulate",
+            "articulate",
+            "clean"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_organ_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "pipe_organ_liturgical",
+          "default": true,
+          "name": "Sacred liturgical",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_concert",
+          "name": "Concert / virtuoso",
+          "descriptors": [
+            "art-music",
+            "recital",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "concert",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_theater",
+          "name": "Theater / silent-film",
+          "descriptors": [
+            "twentieth-century",
+            "entertainment",
+            "orchestral-color"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_organ_voicing_school",
+      "surface": false,
+      "name": "Voicing school",
+      "variants": [
+        {
+          "id": "pipe_organ_cavaille_coll",
+          "default": true,
+          "name": "Cavaillé-Coll Paris (canonical French symphonic — late 19th-century Romantic)",
+          "descriptors": [
+            "cavaille-coll-paris-canonical-french-symphonic-late-19th-century-romantic"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_schnitger_hamburg",
+          "name": "Schnitger Hamburg (canonical North German baroque — late 17th-century)",
+          "descriptors": [
+            "schnitger-hamburg-canonical-north-german-baroque-late-17th-century"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "pipe_organ_silbermann_saxon",
+          "name": "Silbermann Saxon (canonical Bach-era Central German baroque — early 18th-century)",
+          "descriptors": [
+            "silbermann-saxon-canonical-bach-era-central-german-baroque-early-18th-century"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "pipe_organ_henry_willis",
+          "name": "Henry Willis (canonical English Victorian — 1850s-1900)",
+          "descriptors": [
+            "henry-willis-canonical-english-victorian-1850s-1900"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_skinner_american",
+          "name": "Skinner American (Aeolian-Skinner canonical American Eclectic — early 20th-century)",
+          "descriptors": [
+            "skinner-aeolian-skinner-canonical-american-eclectic-early-20th-century"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_wurlitzer_theater",
+          "name": "Wurlitzer theater (canonical American silent-film — 1910s-1920s)",
+          "descriptors": [
+            "wurlitzer-theater-canonical-american-silent-film-1910s-1920s"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_organ_pipe_alloy",
+      "surface": false,
+      "name": "Pipe alloy",
+      "variants": [
+        {
+          "id": "pipe_organ_tin_lead_75_25",
+          "default": true,
+          "name": "Tin-lead 75:25 (canonical principal-rank — bright projecting)",
+          "descriptors": [
+            "tin-lead-75-25-canonical-principal-rank-bright-projecting"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_spotted_metal_50_50",
+          "name": "Spotted metal 50:50 tin-lead (canonical mixtures — bright historical)",
+          "descriptors": [
+            "spotted-metal-50-50-canonical-mixtures-bright-historical"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_high_lead_25_75",
+          "name": "High-lead 25:75 (canonical flue stops — mellow Romantic)",
+          "descriptors": [
+            "high-lead-25-75-canonical-flue-stops-mellow-romantic"
+          ],
+          "match_tokens": [
+            "romantic",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_wood_pipes",
+          "name": "Wood pipes (oak / pine — canonical pedal stops + flutes)",
+          "descriptors": [
+            "wood-oak-pine-canonical-pedal-stops-flutes"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_zinc_pedal",
+          "name": "Zinc (canonical large pedal pipes — late 19th-century cost-efficient)",
+          "descriptors": [
+            "zinc-canonical-large-pedal-pipes-late-19th-century-cost-efficient"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_organ_temperament",
+      "surface": false,
+      "name": "Temperament",
+      "variants": [
+        {
+          "id": "pipe_organ_equal_temperament",
+          "default": true,
+          "name": "Equal temperament (modern standard, post-1850)",
+          "descriptors": [
+            "equal-temperament-modern-standard-post-1850"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_meantone_quarter",
+          "name": "Quarter-comma meantone (canonical Renaissance / early baroque)",
+          "descriptors": [
+            "quarter-comma-meantone-canonical-renaissance-early-baroque"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "renaissance",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "pipe_organ_werckmeister_iii",
+          "name": "Werckmeister III (canonical Bach-era well-temperament)",
+          "descriptors": [
+            "werckmeister-iii-canonical-bach-era-well-temperament"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "pipe_organ_kirnberger_iii",
+          "name": "Kirnberger III (canonical late-baroque well-temperament)",
+          "descriptors": [
+            "kirnberger-iii-canonical-late-baroque-well-temperament"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_organ_action",
+      "surface": false,
+      "name": "Action mechanism",
+      "variants": [
+        {
+          "id": "pipe_organ_mechanical_tracker",
+          "default": true,
+          "name": "Mechanical tracker action (canonical baroque — direct touch responsiveness)",
+          "descriptors": [
+            "mechanical-tracker-canonical-baroque-direct-touch"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "pipe_organ_pneumatic",
+          "name": "Pneumatic action (canonical late 19th-century Romantic)",
+          "descriptors": [
+            "pneumatic-canonical-late-19th-century-romantic"
+          ],
+          "match_tokens": [
+            "romantic",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_electric_pneumatic",
+          "name": "Electric-pneumatic (canonical 20th-century American)",
+          "descriptors": [
+            "electric-pneumatic-canonical-20th-century-american"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pipe_organ_class",
+      "name": "Class",
+      "variants": [
+        {
+          "id": "pipe_organ_baroque",
+          "default": true,
+          "name": "Baroque (mean-tone, mechanical action)",
+          "descriptors": [
+            "baroque-leaning",
+            "vivid",
+            "articulate"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_romantic",
+          "name": "Romantic / symphonic",
+          "descriptors": [
+            "orchestral",
+            "swelling",
+            "grand"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pipe_organ_neo_baroque",
+          "name": "Neo-baroque (post-1950 revival)",
+          "descriptors": [
+            "low-blend-articulate",
+            "articulate",
+            "clean"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_organ_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "pipe_organ_liturgical",
+          "default": true,
+          "name": "Sacred liturgical",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_concert",
+          "name": "Concert / virtuoso",
+          "descriptors": [
+            "art-music",
+            "recital",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "concert",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_theater",
+          "name": "Theater / silent-film",
+          "descriptors": [
+            "twentieth-century",
+            "entertainment",
+            "orchestral-color"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_organ_voicing_school",
+      "surface": false,
+      "name": "Voicing school",
+      "variants": [
+        {
+          "id": "pipe_organ_cavaille_coll",
+          "default": true,
+          "name": "Cavaillé-Coll Paris (canonical French symphonic — late 19th-century Romantic)",
+          "descriptors": [
+            "cavaille-coll-paris-canonical-french-symphonic-late-19th-century-romantic"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_schnitger_hamburg",
+          "name": "Schnitger Hamburg (canonical North German baroque — late 17th-century)",
+          "descriptors": [
+            "schnitger-hamburg-canonical-north-german-baroque-late-17th-century"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "pipe_organ_silbermann_saxon",
+          "name": "Silbermann Saxon (canonical Bach-era Central German baroque — early 18th-century)",
+          "descriptors": [
+            "silbermann-saxon-canonical-bach-era-central-german-baroque-early-18th-century"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "pipe_organ_henry_willis",
+          "name": "Henry Willis (canonical English Victorian — 1850s-1900)",
+          "descriptors": [
+            "henry-willis-canonical-english-victorian-1850s-1900"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_skinner_american",
+          "name": "Skinner American (Aeolian-Skinner canonical American Eclectic — early 20th-century)",
+          "descriptors": [
+            "skinner-aeolian-skinner-canonical-american-eclectic-early-20th-century"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_wurlitzer_theater",
+          "name": "Wurlitzer theater (canonical American silent-film — 1910s-1920s)",
+          "descriptors": [
+            "wurlitzer-theater-canonical-american-silent-film-1910s-1920s"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_organ_pipe_alloy",
+      "surface": false,
+      "name": "Pipe alloy",
+      "variants": [
+        {
+          "id": "pipe_organ_tin_lead_75_25",
+          "default": true,
+          "name": "Tin-lead 75:25 (canonical principal-rank — bright projecting)",
+          "descriptors": [
+            "tin-lead-75-25-canonical-principal-rank-bright-projecting"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_spotted_metal_50_50",
+          "name": "Spotted metal 50:50 tin-lead (canonical mixtures — bright historical)",
+          "descriptors": [
+            "spotted-metal-50-50-canonical-mixtures-bright-historical"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_high_lead_25_75",
+          "name": "High-lead 25:75 (canonical flue stops — mellow Romantic)",
+          "descriptors": [
+            "high-lead-25-75-canonical-flue-stops-mellow-romantic"
+          ],
+          "match_tokens": [
+            "romantic",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_wood_pipes",
+          "name": "Wood pipes (oak / pine — canonical pedal stops + flutes)",
+          "descriptors": [
+            "wood-oak-pine-canonical-pedal-stops-flutes"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_zinc_pedal",
+          "name": "Zinc (canonical large pedal pipes — late 19th-century cost-efficient)",
+          "descriptors": [
+            "zinc-canonical-large-pedal-pipes-late-19th-century-cost-efficient"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_organ_temperament",
+      "surface": false,
+      "name": "Temperament",
+      "variants": [
+        {
+          "id": "pipe_organ_equal_temperament",
+          "default": true,
+          "name": "Equal temperament (modern standard, post-1850)",
+          "descriptors": [
+            "equal-temperament-modern-standard-post-1850"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_meantone_quarter",
+          "name": "Quarter-comma meantone (canonical Renaissance / early baroque)",
+          "descriptors": [
+            "quarter-comma-meantone-canonical-renaissance-early-baroque"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "renaissance",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "pipe_organ_werckmeister_iii",
+          "name": "Werckmeister III (canonical Bach-era well-temperament)",
+          "descriptors": [
+            "werckmeister-iii-canonical-bach-era-well-temperament"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "pipe_organ_kirnberger_iii",
+          "name": "Kirnberger III (canonical late-baroque well-temperament)",
+          "descriptors": [
+            "kirnberger-iii-canonical-late-baroque-well-temperament"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_organ_action",
+      "surface": false,
+      "name": "Action mechanism",
+      "variants": [
+        {
+          "id": "pipe_organ_mechanical_tracker",
+          "default": true,
+          "name": "Mechanical tracker action (canonical baroque — direct touch responsiveness)",
+          "descriptors": [
+            "mechanical-tracker-canonical-baroque-direct-touch"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "sustained-tone",
+            "devotional",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "pipe_organ_pneumatic",
+          "name": "Pneumatic action (canonical late 19th-century Romantic)",
+          "descriptors": [
+            "pneumatic-canonical-late-19th-century-romantic"
+          ],
+          "match_tokens": [
+            "romantic",
+            "sustained-tone",
+            "devotional"
+          ]
+        },
+        {
+          "id": "pipe_organ_electric_pneumatic",
+          "name": "Electric-pneumatic (canonical 20th-century American)",
+          "descriptors": [
+            "electric-pneumatic-canonical-20th-century-american"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "devotional"
+          ]
+        }
+      ]
+    }
+  ]
+}

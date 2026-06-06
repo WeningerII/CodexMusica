@@ -1,0 +1,308 @@
+{
+  "id": "thavil",
+  "name": "Thavil (South Indian double-headed)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "thavil",
+  "parts": [
+    {
+      "id": "thavil_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "thavil_periya_melam",
+          "default": true,
+          "name": "Periya melam (temple)",
+          "descriptors": [
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "thavil_concert",
+          "name": "Carnatic classical concert",
+          "descriptors": [
+            "modern",
+            "concert-stage",
+            "extended"
+          ],
+          "match_tokens": [
+            "concert",
+            "percussive-attack",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "thavil_folk",
+          "name": "Folk wedding",
+          "descriptors": [
+            "celebratory",
+            "outdoor",
+            "rural"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thavil_technique",
+      "surface": false,
+      "name": "Striking style",
+      "variants": [
+        {
+          "id": "thavil_stick_finger",
+          "default": true,
+          "name": "Stick-and-finger (canonical)",
+          "descriptors": [
+            "traditional",
+            "asymmetric",
+            "authentic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "thavil_all_stick",
+          "name": "All-stick (older)",
+          "descriptors": [
+            "archaic",
+            "two-stick",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "thavil_all_finger",
+          "name": "All-finger (rare)",
+          "descriptors": [
+            "variant",
+            "subtle",
+            "unusual"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thavil_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "thavil_jackwood",
+          "default": true,
+          "name": "Jackwood barrel (canonical Tamil)",
+          "descriptors": [
+            "jackwood-barrel-canonical-tamil"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "thavil_redwood",
+          "name": "Redwood (alternative)",
+          "descriptors": [
+            "redwood-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thavil_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "thavil_buffalo_goat",
+          "default": true,
+          "name": "Water-buffalo (bass) + goat (treble) thumb-cap (canonical periya melam)",
+          "descriptors": [
+            "buffalo-goat-thumb-cap-canonical-periya-melam"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "thavil_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "thavil_periya_melam",
+          "default": true,
+          "name": "Periya melam (temple)",
+          "descriptors": [
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "thavil_concert",
+          "name": "Carnatic classical concert",
+          "descriptors": [
+            "modern",
+            "concert-stage",
+            "extended"
+          ],
+          "match_tokens": [
+            "concert",
+            "percussive-attack",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "thavil_folk",
+          "name": "Folk wedding",
+          "descriptors": [
+            "celebratory",
+            "outdoor",
+            "rural"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thavil_technique",
+      "surface": false,
+      "name": "Striking style",
+      "variants": [
+        {
+          "id": "thavil_stick_finger",
+          "default": true,
+          "name": "Stick-and-finger (canonical)",
+          "descriptors": [
+            "traditional",
+            "asymmetric",
+            "authentic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "thavil_all_stick",
+          "name": "All-stick (older)",
+          "descriptors": [
+            "archaic",
+            "two-stick",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "thavil_all_finger",
+          "name": "All-finger (rare)",
+          "descriptors": [
+            "variant",
+            "subtle",
+            "unusual"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thavil_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "thavil_jackwood",
+          "default": true,
+          "name": "Jackwood barrel (canonical Tamil)",
+          "descriptors": [
+            "jackwood-barrel-canonical-tamil"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "thavil_redwood",
+          "name": "Redwood (alternative)",
+          "descriptors": [
+            "redwood-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thavil_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "thavil_buffalo_goat",
+          "default": true,
+          "name": "Water-buffalo (bass) + goat (treble) thumb-cap (canonical periya melam)",
+          "descriptors": [
+            "buffalo-goat-thumb-cap-canonical-periya-melam"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "thai_classical",
+  "name": "Thai classical (piphat)",
+  "family": "classical",
+  "lineage": "Thai court-and-temple piphat tuned-percussion ensemble tradition in seven-equal-temperament tuning — codified through the Ayutthaya-era (1351-1767) royal court repertoire and continuing through the Bangkok Rattanakosin period; the piphat ensemble centered on the ranat-ek and ranat-thum xylophones, khong wong large gong-circle, and pi-nai oboe, performing the great repertoire of Phra Aphai Mani, naphat ceremonial works, and dance accompaniment for khon and lakhon",
+  "recipe": "classic early-1350s thai classical, art Music, Thai classical branch, east Asian art music tibetan ache lhamo opera beijing opera. ranat ek, khong wong yai, pi nai, jackwood barrel canonical Thai piphat calfskin khao suk taphon. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 380,
+  "score": 129.81,
+  "config": {
+    "traditions": [
+      "thai_classical",
+      "tibetan_ache_lhamo",
+      "beijing_opera"
+    ],
+    "instruments": [
+      {
+        "id": "ranat_ek",
+        "slots": {
+          "ranat_ek_technique": "ranat_ek_kep"
+        },
+        "scores": {
+          "ranat_ek_technique": 27.409999999999997
+        }
+      },
+      {
+        "id": "khong_wong_yai",
+        "slots": {
+          "khong_wong_yai_role": "khong_wong_yai_main_melody"
+        },
+        "scores": {
+          "khong_wong_yai_role": 25.249999999999996
+        }
+      },
+      {
+        "id": "pi_nai",
+        "slots": {
+          "pi_nai_style": "pi_nai_piphat"
+        },
+        "scores": {
+          "pi_nai_style": 27.454999999999995
+        }
+      },
+      {
+        "id": "taphon",
+        "slots": {
+          "taphon_technique": "taphon_hand_struck",
+          "taphon_shell_wood": "taphon_jackwood_canonical",
+          "taphon_head": "taphon_calfskin_canonical"
+        },
+        "scores": {
+          "taphon_technique": 25.249999999999996,
+          "taphon_shell_wood": 12.124999999999998,
+          "taphon_head": 1.5299999999999998
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_tube_german_v72",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "thai_seven_equal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

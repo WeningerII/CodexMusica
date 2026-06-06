@@ -1,0 +1,87 @@
+{
+  "id": "tibetan_gyuto",
+  "name": "Gyütö multiphonic chant (Tibetan Buddhist)",
+  "family": "global",
+  "lineage": "Tibetan Vajrayana-Buddhist Gelugpa-school tantric-chant tradition of the Gyuto Tantric University monastery (founded 1474 by Je Sherab Sengge, originally located in Lhasa, exiled 1959 to Dharamsala-and-Mysore India). The signature gyumey rang-chen multiphonic-vocal-technique produces a single chord per voice through subharmonic-overtone-isolation, with the chord typically including the fundamental, a fifth, and a major-third harmonic-overtone (heard simultaneously). Liturgical-context is the tantric sadhana practice cycle: protector-deity invocation (kangso), initiation-empowerment (wangkur), and meditation-on-tutelary-deity (yidam). The dranyen long-trumpets, gyaling oboe-like-shawms, and damaru hourglass-hand-drums punctuate the chant at canonical liturgical-points.",
+  "recipe": "classic mid-1470s gyütö multiphonic chant, ritual Devotional, buddhist branch, overtone drone modal, indian subcontinent praise song tibetan thödröl praise-recitation khöömii. m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, ceremonial hammered copper brass telescoping canonical Tibetan gelug canonical Tibetan buddhist liturgy tibetan dungchen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 889,
+  "score": 176.628,
+  "config": {
+    "traditions": [
+      "tibetan_gyuto",
+      "tibetan_thodrol_lama_praise",
+      "mongolian_xoomii"
+    ],
+    "instruments": [
+      {
+        "id": "throat_singing_voice",
+        "slots": {
+          "throat_mechanism_root": "throat_mechanism_M1_compound_with_overtones",
+          "throat_overtone_target_region": "throat_overtone_8th_to_12th_partial",
+          "throat_singing_voice_region": "throat_singing_voice_himalayan_ritual"
+        },
+        "scores": {
+          "throat_mechanism_root": 8.58,
+          "throat_overtone_target_region": 5.2,
+          "throat_singing_voice_region": 18.525
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 7.279999999999999,
+          "choir_polyphonic_configuration": 2.9899999999999998,
+          "choir_regional_canonical_configuration": 4.225,
+          "choir_ensemble_repertoire": 3.9
+        }
+      },
+      {
+        "id": "tibetan_dungchen",
+        "slots": {
+          "dungchen_length": "dungchen_extended",
+          "dungchen_body_metal": "dungchen_copper_brass_canonical",
+          "dungchen_lineage": "dungchen_gelug_canonical"
+        },
+        "scores": {
+          "dungchen_length": 10.53,
+          "dungchen_body_metal": 3.9,
+          "dungchen_lineage": 8.84
+        }
+      },
+      {
+        "id": "tibetan_gyaling",
+        "slots": {
+          "gyaling_body": "gyaling_wood_metal_bell",
+          "gyaling_body_wood": "gyaling_rosewood_canonical",
+          "gyaling_reed": "gyaling_arundo_canonical"
+        },
+        "scores": {
+          "gyaling_body": 7.93,
+          "gyaling_body_wood": 3.835,
+          "gyaling_reed": 4.29
+        }
+      }
+    ],
+    "room": "tibetan_monastery_assembly",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "tibetan_chant_multiphonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

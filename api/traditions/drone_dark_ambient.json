@@ -1,0 +1,93 @@
+{
+  "id": "drone_dark_ambient",
+  "name": "Drone and dark ambient",
+  "family": "electronic",
+  "lineage": "Long-form sustained-tone genre family descending from early-20th-century minimalist composition (La Monte Young, Tony Conrad, Charlemagne Palestine), Brian Eno post-Roxy ambient canon (Ambient 1: Music for Airports 1978), the Eno-and-Lanois ambient-textural canon (Apollo: Atmospheres and Soundtracks 1983), and the 1990s-onward dark ambient extension into ritualistic-occult mood (Lustmord, Coil, Raison dÊtre, the Cold Meat Industry label catalog)",
+  "recipe": "classic North American mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal drone metal. pad like pad analog serge tcherepnin lineage canonical 1973 1980s cal arts patch programmable west coast pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 559,
+  "score": 113.962,
+  "config": {
+    "traditions": [
+      "drone_dark_ambient",
+      "doom",
+      "drone_metal_sustained"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "saw_super",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 20.909714285714287,
+          "oscillator": 2.015,
+          "filter_topology": 0.78,
+          "envelope": 9.136571428571427,
+          "modulation": 0.03471428571428571
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_serge_tcherepnin"
+        },
+        "scores": {
+          "electronic_technique": 20.909714285714287,
+          "mod_voltage_source": 1.065,
+          "mod_patch_density": 9.576285714285714,
+          "mod_lineage": 1.2349999999999999
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "brass_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "tape_voice": 2.08,
+          "tape_state": 0.03471428571428571
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_subtle",
+          "sm_voicing": "sm_violins"
+        },
+        "scores": {
+          "electronic_technique": 20.909714285714287,
+          "sm_voice_count": 2.08,
+          "sm_chorus": 0.045,
+          "sm_voicing": 2.08
+        }
+      }
+    ],
+    "room": "krautrock_dusseldorf_kling_klang_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "zulu_izibongo",
+  "name": "Zulu izibongo (praise-poetry)",
+  "family": "global",
+  "lineage": "Zulu izibongo praise-poetry tradition continuous from pre-colonial Zulu royal-court praise-singer (imbongi) practice through 19th-century Shaka-kaSenzangakhona-era continuous performance into modern South-African Zulu cultural-practice; the imbongi is the hereditary praise-poetry-and-political-orator role",
+  "recipe": "classic modern zulu izibongo, praise Song, sub saharan African branch, oceania pacific praise song, west African griot ballad poetry, African pop isicathamiya māori waiata mōteatea / patere mandé jeli. extended whistle, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 401,
+  "score": 162.107,
+  "config": {
+    "traditions": [
+      "zulu_izibongo",
+      "maori_waiata_moteatea_patere",
+      "mande_griot"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 2.4949999999999997,
+          "voice_quality": 21.819999999999993,
+          "voice_vibrato": 2.08,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 1.4999999999999996,
+          "voice_tradition": 31.264999999999997,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 8.125000000000002,
+          "voice_ensemble_config": 3.6400000000000006,
+          "voice_ornament_system": 7.45,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 1.2999999999999998,
+          "voice_multitrack_stack": 1.1949999999999998
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

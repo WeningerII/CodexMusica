@@ -1,0 +1,329 @@
+{
+  "id": "hardanger_fiddle_inst",
+  "name": "Hardingfele (Hardanger fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "hardingfele",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "hardingfele_strings",
+      "name": "Sympathetic strings",
+      "variants": [
+        {
+          "id": "hardingfele_4_taraf",
+          "default": true,
+          "name": "4 sympathetic (under)",
+          "descriptors": [
+            "traditional",
+            "drone-like",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "hardingfele_5_taraf",
+          "name": "5 sympathetic (modern)",
+          "descriptors": [
+            "extended",
+            "contemporary",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardingfele_tuning",
+      "surface": false,
+      "name": "Scordatura tuning",
+      "variants": [
+        {
+          "id": "hardingfele_old_norwegian",
+          "default": true,
+          "name": "Old Norwegian (A-D-A-E)",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardingfele_strings_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "hardingfele_synthetic_modern",
+          "default": true,
+          "name": "Synthetic core (modern Norwegian luthier canon)",
+          "descriptors": [
+            "synthetic-core-modern"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "hardingfele_gut_historical",
+          "name": "Gut (pre-1900 historical canonical)",
+          "descriptors": [
+            "gut-historical-pre-1900-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "hardingfele_steel_modern",
+          "name": "Steel (concert projection)",
+          "descriptors": [
+            "steel-concert-projection"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardingfele_inlay",
+      "surface": false,
+      "name": "Decorative inlay",
+      "variants": [
+        {
+          "id": "hardingfele_pearl_bone",
+          "default": true,
+          "name": "Mother-of-pearl + bone inlay (canonical Norwegian decorative)",
+          "descriptors": [
+            "mother-of-pearl-bone-inlay",
+            "canonical-norwegian-decorative"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "hardingfele_ink_rosing",
+          "name": "Ink rosing pattern (additional canonical decoration)",
+          "descriptors": [
+            "ink-rosing-pattern"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardingfele_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "hardingfele_spruce_maple",
+          "default": true,
+          "name": "Spruce top + maple back (canonical Norwegian)",
+          "descriptors": [
+            "spruce-maple-canonical-norwegian"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hardingfele_strings",
+      "name": "Sympathetic strings",
+      "variants": [
+        {
+          "id": "hardingfele_4_taraf",
+          "default": true,
+          "name": "4 sympathetic (under)",
+          "descriptors": [
+            "traditional",
+            "drone-like",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "hardingfele_5_taraf",
+          "name": "5 sympathetic (modern)",
+          "descriptors": [
+            "extended",
+            "contemporary",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardingfele_tuning",
+      "surface": false,
+      "name": "Scordatura tuning",
+      "variants": [
+        {
+          "id": "hardingfele_old_norwegian",
+          "default": true,
+          "name": "Old Norwegian (A-D-A-E)",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardingfele_strings_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "hardingfele_synthetic_modern",
+          "default": true,
+          "name": "Synthetic core (modern Norwegian luthier canon)",
+          "descriptors": [
+            "synthetic-core-modern"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "hardingfele_gut_historical",
+          "name": "Gut (pre-1900 historical canonical)",
+          "descriptors": [
+            "gut-historical-pre-1900-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "hardingfele_steel_modern",
+          "name": "Steel (concert projection)",
+          "descriptors": [
+            "steel-concert-projection"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardingfele_inlay",
+      "surface": false,
+      "name": "Decorative inlay",
+      "variants": [
+        {
+          "id": "hardingfele_pearl_bone",
+          "default": true,
+          "name": "Mother-of-pearl + bone inlay (canonical Norwegian decorative)",
+          "descriptors": [
+            "mother-of-pearl-bone-inlay",
+            "canonical-norwegian-decorative"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "hardingfele_ink_rosing",
+          "name": "Ink rosing pattern (additional canonical decoration)",
+          "descriptors": [
+            "ink-rosing-pattern"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardingfele_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "hardingfele_spruce_maple",
+          "default": true,
+          "name": "Spruce top + maple back (canonical Norwegian)",
+          "descriptors": [
+            "spruce-maple-canonical-norwegian"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

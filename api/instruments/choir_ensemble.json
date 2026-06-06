@@ -1,0 +1,1030 @@
+{
+  "id": "choir_ensemble",
+  "name": "Choir / vocal ensemble",
+  "family": "voice",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "choir",
+  "parts": [
+    {
+      "id": "choir_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "chamber_choir",
+          "default": true,
+          "name": "Chamber (12-30)",
+          "descriptors": [
+            "clean-articulation-low-blur",
+            "articulate",
+            "classical"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "symphonic_chorus",
+          "name": "Symphonic (60-120)",
+          "descriptors": [
+            "massive",
+            "orchestral",
+            "grand"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gospel_choir",
+          "name": "Gospel choir",
+          "descriptors": [
+            "ecstatic",
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "mens_chorus",
+          "name": "Male chorus",
+          "descriptors": [
+            "chest-resonance-low-mid",
+            "harmonically-rich-sustained",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "womens_chorus",
+          "name": "Female chorus",
+          "descriptors": [
+            "ringing",
+            "soaring"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "mixed_4_part_satb",
+          "name": "Mixed SATB (canonical 4-part Western)",
+          "descriptors": [
+            "mixed-satb-canonical-4-part-western"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "a_cappella_small_ensemble_3_8",
+          "name": "A cappella small ensemble (3-8 voices, one per part)",
+          "descriptors": [
+            "a-cappella-small-3-to-8-one-per-part"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_polyphonic_configuration",
+      "surface": false,
+      "name": "Polyphonic configuration (texture-type)",
+      "variants": [
+        {
+          "id": "choir_polyphony_homophonic_chordal",
+          "default": true,
+          "name": "Homophonic chordal (all voices rhythm-aligned)",
+          "descriptors": [
+            "homophonic-chordal-rhythm-aligned"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_imitative_counterpoint",
+          "name": "Imitative counterpoint (fugal entries)",
+          "descriptors": [
+            "imitative-counterpoint-fugal-entries"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_three_voice_polyphonic",
+          "name": "Three-voice polyphonic (regional-canonical configurations)",
+          "descriptors": [
+            "three-voice-polyphonic-regional-canonical"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_four_voice_polyphonic",
+          "name": "Four-voice polyphonic (regional-canonical configurations)",
+          "descriptors": [
+            "four-voice-polyphonic-regional-canonical"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_five_voice_polyphonic",
+          "name": "Five-voice polyphonic (regional-canonical configurations)",
+          "descriptors": [
+            "five-voice-polyphonic-regional-canonical"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_heterophonic",
+          "name": "Heterophonic (same melody, voice-by-voice variant ornamentation)",
+          "descriptors": [
+            "heterophonic-same-melody-variant-ornament-per-voice"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_hocket_distribution",
+          "name": "Hocket interlocked single-note distribution across voices",
+          "descriptors": [
+            "hocket-interlocked-single-note-distribution"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_dense_cluster",
+          "name": "Dense cluster polyphony (deliberate semitone/sub-semitone clusters)",
+          "descriptors": [
+            "dense-cluster-deliberate-second-seventh-ninth"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_polyrhythmic_layered",
+          "name": "Polyrhythmic vocal layering (independent cycles per voice)",
+          "descriptors": [
+            "polyrhythmic-vocal-layering-independent-cycles"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_antiphonal_double_choir",
+          "name": "Antiphonal double-choir (alternating ensembles)",
+          "descriptors": [
+            "antiphonal-double-choir-alternating"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "call-response"
+          ]
+        },
+        {
+          "id": "choir_polyphony_call_response_leader_group",
+          "name": "Call-and-response (single-leader + group-response)",
+          "descriptors": [
+            "call-response-single-leader-group-response"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "call-response"
+          ]
+        },
+        {
+          "id": "choir_polyphony_drone_plus_voices",
+          "name": "Drone-plus-voices (sustained-pedal voices under melodic line)",
+          "descriptors": [
+            "drone-plus-voices-sustained-pedal-under-melody"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "choir_polyphony_organum_4_5_8",
+          "name": "Organum parallel fourth-fifth-octave",
+          "descriptors": [
+            "parallel-fourth-fifth-octave-organum"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "sacred-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_regional_canonical_configuration",
+      "surface": false,
+      "name": "Regional canonical configuration",
+      "variants": [
+        {
+          "id": "choir_regional_none",
+          "default": true,
+          "name": "No specific regional configuration",
+          "descriptors": [],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_kakhetian_three_voice",
+          "name": "Kakhetian three-voice (two soloists + choral drone — Caucasian polyphonic)",
+          "descriptors": [
+            "kakhetian-three-voice-two-soloists-choral-drone"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_gurian_three_voice_krimanchuli",
+          "name": "Gurian three-voice with krimanchuli (mtkmeli + modzakhili + bani + M2-yodel upper)",
+          "descriptors": [
+            "gurian-three-voice-mtkmeli-modzakhili-bani-krimanchuli"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_svanetian_complex_three_voice",
+          "name": "Svanetian complex three-voice (Caucasian highland polyphonic)",
+          "descriptors": [
+            "svanetian-complex-three-voice-highland-polyphonic"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_paghjella_corsican",
+          "name": "Paghjella Corsican three-voice (secondu + bassu + terzu)",
+          "descriptors": [
+            "paghjella-corsican-secondu-bassu-terzu"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "corsican"
+          ]
+        },
+        {
+          "id": "choir_regional_bulgarian_diaphonic",
+          "name": "Bulgarian women three-voice diaphonic (open-throat high-pressure parallel-cluster)",
+          "descriptors": [
+            "bulgarian-women-three-voice-diaphonic-cluster"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        },
+        {
+          "id": "choir_regional_aka_four_part",
+          "name": "Aka four-part polyphony (motangole + ngue-wa-lembo + osese + diyei M1-M2-yodel)",
+          "descriptors": [
+            "aka-four-part-motangole-ngue-osese-diyei"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "aka-baka-polyphony"
+          ]
+        },
+        {
+          "id": "choir_regional_sardinian_cantu_a_tenore",
+          "name": "Sardinian cantu a tenore four-voice (oche + mesu-oche + contra-buzzing-fifth + bassu-ventricular-subharmonic)",
+          "descriptors": [
+            "sardinian-cantu-a-tenore-oche-mesu-contra-bassu"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "sardinian"
+          ]
+        },
+        {
+          "id": "choir_regional_gallura_five_voice",
+          "name": "Sardinian Gallura five-voice (tripli octave-doubled — distinct from cantu a tenore)",
+          "descriptors": [
+            "gallura-five-voice-tripli-octave-doubled"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "sardinian"
+          ]
+        },
+        {
+          "id": "choir_regional_mbenga_mbuti_three_voice_ostinato",
+          "name": "Mbenga-Mbuti three-voice ostinato (forager-polyphonic with hocket and yodel)",
+          "descriptors": [
+            "mbenga-mbuti-three-voice-ostinato-hocket-yodel"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_albanian_iso_polyphony",
+          "name": "Albanian iso-polyphony (drone-marrës-prerës with sustained iso)",
+          "descriptors": [
+            "albanian-iso-polyphony-marres-preres-iso"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "choir_regional_andean_three_voice_parallel_thirds",
+          "name": "Andean three-voice parallel-thirds (Quechua-Aymara)",
+          "descriptors": [
+            "andean-three-voice-parallel-thirds-quechua-aymara"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_polynesian_himene_tarava",
+          "name": "Polynesian himene-tarava parallel-thirds (Tahitian congregational polyphonic)",
+          "descriptors": [
+            "polynesian-himene-tarava-parallel-thirds-congregational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "polynesian-himene-tarava"
+          ]
+        },
+        {
+          "id": "choir_regional_sub_saharan_call_response_ostinato",
+          "name": "Sub-Saharan call-response ostinato (single-leader + group-response with polyrhythmic-layered cycles)",
+          "descriptors": [
+            "sub-saharan-call-response-ostinato-polyrhythmic"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "call-response"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_ensemble_repertoire",
+      "surface": false,
+      "name": "Repertoire / period",
+      "variants": [
+        {
+          "id": "choir_ensemble_renaissance",
+          "default": true,
+          "name": "Renaissance polyphony",
+          "descriptors": [
+            "sacred-Latin",
+            "historical"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_ensemble_romantic",
+          "name": "Romantic / oratorio",
+          "descriptors": [
+            "nineteenth-century",
+            "orchestral-paired",
+            "large-form"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "choir_ensemble_contemporary",
+          "name": "Contemporary / modern",
+          "descriptors": [
+            "twenty-first-century",
+            "experimental",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "contemporary",
+            "contemporary-classical",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "choir_ensemble_global_traditional",
+          "name": "Global traditional polyphonic (Caucasian / Sardinian / Aka / Bulgarian / Corsican etc.)",
+          "descriptors": [
+            "global-traditional-polyphonic-canonical"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "choir_ensemble_sacred_global",
+          "name": "Sacred liturgical global (Gregorian / Byzantine / Coptic / Maronite / Znamenny)",
+          "descriptors": [
+            "sacred-liturgical-global"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "sacred-traditional",
+            "devotional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "choir_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "chamber_choir",
+          "default": true,
+          "name": "Chamber (12-30)",
+          "descriptors": [
+            "clean-articulation-low-blur",
+            "articulate",
+            "classical"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "symphonic_chorus",
+          "name": "Symphonic (60-120)",
+          "descriptors": [
+            "massive",
+            "orchestral",
+            "grand"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gospel_choir",
+          "name": "Gospel choir",
+          "descriptors": [
+            "ecstatic",
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "mens_chorus",
+          "name": "Male chorus",
+          "descriptors": [
+            "chest-resonance-low-mid",
+            "harmonically-rich-sustained",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "womens_chorus",
+          "name": "Female chorus",
+          "descriptors": [
+            "ringing",
+            "soaring"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "mixed_4_part_satb",
+          "name": "Mixed SATB (canonical 4-part Western)",
+          "descriptors": [
+            "mixed-satb-canonical-4-part-western"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "a_cappella_small_ensemble_3_8",
+          "name": "A cappella small ensemble (3-8 voices, one per part)",
+          "descriptors": [
+            "a-cappella-small-3-to-8-one-per-part"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_polyphonic_configuration",
+      "surface": false,
+      "name": "Polyphonic configuration (texture-type)",
+      "variants": [
+        {
+          "id": "choir_polyphony_homophonic_chordal",
+          "default": true,
+          "name": "Homophonic chordal (all voices rhythm-aligned)",
+          "descriptors": [
+            "homophonic-chordal-rhythm-aligned"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_imitative_counterpoint",
+          "name": "Imitative counterpoint (fugal entries)",
+          "descriptors": [
+            "imitative-counterpoint-fugal-entries"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_three_voice_polyphonic",
+          "name": "Three-voice polyphonic (regional-canonical configurations)",
+          "descriptors": [
+            "three-voice-polyphonic-regional-canonical"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_four_voice_polyphonic",
+          "name": "Four-voice polyphonic (regional-canonical configurations)",
+          "descriptors": [
+            "four-voice-polyphonic-regional-canonical"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_five_voice_polyphonic",
+          "name": "Five-voice polyphonic (regional-canonical configurations)",
+          "descriptors": [
+            "five-voice-polyphonic-regional-canonical"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_heterophonic",
+          "name": "Heterophonic (same melody, voice-by-voice variant ornamentation)",
+          "descriptors": [
+            "heterophonic-same-melody-variant-ornament-per-voice"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_hocket_distribution",
+          "name": "Hocket interlocked single-note distribution across voices",
+          "descriptors": [
+            "hocket-interlocked-single-note-distribution"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_dense_cluster",
+          "name": "Dense cluster polyphony (deliberate semitone/sub-semitone clusters)",
+          "descriptors": [
+            "dense-cluster-deliberate-second-seventh-ninth"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_polyrhythmic_layered",
+          "name": "Polyrhythmic vocal layering (independent cycles per voice)",
+          "descriptors": [
+            "polyrhythmic-vocal-layering-independent-cycles"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_polyphony_antiphonal_double_choir",
+          "name": "Antiphonal double-choir (alternating ensembles)",
+          "descriptors": [
+            "antiphonal-double-choir-alternating"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "call-response"
+          ]
+        },
+        {
+          "id": "choir_polyphony_call_response_leader_group",
+          "name": "Call-and-response (single-leader + group-response)",
+          "descriptors": [
+            "call-response-single-leader-group-response"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "call-response"
+          ]
+        },
+        {
+          "id": "choir_polyphony_drone_plus_voices",
+          "name": "Drone-plus-voices (sustained-pedal voices under melodic line)",
+          "descriptors": [
+            "drone-plus-voices-sustained-pedal-under-melody"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "choir_polyphony_organum_4_5_8",
+          "name": "Organum parallel fourth-fifth-octave",
+          "descriptors": [
+            "parallel-fourth-fifth-octave-organum"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "sacred-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_regional_canonical_configuration",
+      "surface": false,
+      "name": "Regional canonical configuration",
+      "variants": [
+        {
+          "id": "choir_regional_none",
+          "default": true,
+          "name": "No specific regional configuration",
+          "descriptors": [],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_kakhetian_three_voice",
+          "name": "Kakhetian three-voice (two soloists + choral drone — Caucasian polyphonic)",
+          "descriptors": [
+            "kakhetian-three-voice-two-soloists-choral-drone"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_gurian_three_voice_krimanchuli",
+          "name": "Gurian three-voice with krimanchuli (mtkmeli + modzakhili + bani + M2-yodel upper)",
+          "descriptors": [
+            "gurian-three-voice-mtkmeli-modzakhili-bani-krimanchuli"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_svanetian_complex_three_voice",
+          "name": "Svanetian complex three-voice (Caucasian highland polyphonic)",
+          "descriptors": [
+            "svanetian-complex-three-voice-highland-polyphonic"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_paghjella_corsican",
+          "name": "Paghjella Corsican three-voice (secondu + bassu + terzu)",
+          "descriptors": [
+            "paghjella-corsican-secondu-bassu-terzu"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "corsican"
+          ]
+        },
+        {
+          "id": "choir_regional_bulgarian_diaphonic",
+          "name": "Bulgarian women three-voice diaphonic (open-throat high-pressure parallel-cluster)",
+          "descriptors": [
+            "bulgarian-women-three-voice-diaphonic-cluster"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        },
+        {
+          "id": "choir_regional_aka_four_part",
+          "name": "Aka four-part polyphony (motangole + ngue-wa-lembo + osese + diyei M1-M2-yodel)",
+          "descriptors": [
+            "aka-four-part-motangole-ngue-osese-diyei"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "aka-baka-polyphony"
+          ]
+        },
+        {
+          "id": "choir_regional_sardinian_cantu_a_tenore",
+          "name": "Sardinian cantu a tenore four-voice (oche + mesu-oche + contra-buzzing-fifth + bassu-ventricular-subharmonic)",
+          "descriptors": [
+            "sardinian-cantu-a-tenore-oche-mesu-contra-bassu"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "sardinian"
+          ]
+        },
+        {
+          "id": "choir_regional_gallura_five_voice",
+          "name": "Sardinian Gallura five-voice (tripli octave-doubled — distinct from cantu a tenore)",
+          "descriptors": [
+            "gallura-five-voice-tripli-octave-doubled"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "sardinian"
+          ]
+        },
+        {
+          "id": "choir_regional_mbenga_mbuti_three_voice_ostinato",
+          "name": "Mbenga-Mbuti three-voice ostinato (forager-polyphonic with hocket and yodel)",
+          "descriptors": [
+            "mbenga-mbuti-three-voice-ostinato-hocket-yodel"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_albanian_iso_polyphony",
+          "name": "Albanian iso-polyphony (drone-marrës-prerës with sustained iso)",
+          "descriptors": [
+            "albanian-iso-polyphony-marres-preres-iso"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "choir_regional_andean_three_voice_parallel_thirds",
+          "name": "Andean three-voice parallel-thirds (Quechua-Aymara)",
+          "descriptors": [
+            "andean-three-voice-parallel-thirds-quechua-aymara"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_regional_polynesian_himene_tarava",
+          "name": "Polynesian himene-tarava parallel-thirds (Tahitian congregational polyphonic)",
+          "descriptors": [
+            "polynesian-himene-tarava-parallel-thirds-congregational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "polynesian-himene-tarava"
+          ]
+        },
+        {
+          "id": "choir_regional_sub_saharan_call_response_ostinato",
+          "name": "Sub-Saharan call-response ostinato (single-leader + group-response with polyrhythmic-layered cycles)",
+          "descriptors": [
+            "sub-saharan-call-response-ostinato-polyrhythmic"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "call-response"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_ensemble_repertoire",
+      "surface": false,
+      "name": "Repertoire / period",
+      "variants": [
+        {
+          "id": "choir_ensemble_renaissance",
+          "default": true,
+          "name": "Renaissance polyphony",
+          "descriptors": [
+            "sacred-Latin",
+            "historical"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "choir-blendable",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "choir_ensemble_romantic",
+          "name": "Romantic / oratorio",
+          "descriptors": [
+            "nineteenth-century",
+            "orchestral-paired",
+            "large-form"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "choir_ensemble_contemporary",
+          "name": "Contemporary / modern",
+          "descriptors": [
+            "twenty-first-century",
+            "experimental",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "contemporary",
+            "contemporary-classical",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "choir_ensemble_global_traditional",
+          "name": "Global traditional polyphonic (Caucasian / Sardinian / Aka / Bulgarian / Corsican etc.)",
+          "descriptors": [
+            "global-traditional-polyphonic-canonical"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "choir_ensemble_sacred_global",
+          "name": "Sacred liturgical global (Gregorian / Byzantine / Coptic / Maronite / Znamenny)",
+          "descriptors": [
+            "sacred-liturgical-global"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble",
+            "sacred-traditional",
+            "devotional"
+          ]
+        }
+      ]
+    }
+  ]
+}

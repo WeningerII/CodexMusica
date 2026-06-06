@@ -1,0 +1,153 @@
+{
+  "id": "post_metal",
+  "name": "Post-metal",
+  "family": "rock",
+  "lineage": "US and European long-form instrumental-foregrounded metal-and-post-rock fusion that emerged from late-1990s onward — codified through Isis (the Boston-area post-metal band, Oceanic 2002, Panopticon 2004), Pelican (the Chicago instrumental-only canon, The Fire in Our Throats Will Beckon the Thaw 2005), Cult of Luna (Swedish), Russian Circles (Chicago instrumental-only), Neurosis (the founding pre-post-metal Oakland band, Through Silver in Blood 1996); built on extended-composition song structures (10-20 minute pieces), ambient-textural sections alternating with heavy crescendo peaks",
+  "recipe": "classic 1997-1999 post-metal, distorted Rock, post metal branch, experimental distorted rock krautrock post-rock. thick, low dynamic level, pure, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 588,
+  "score": 509.172,
+  "config": {
+    "traditions": [
+      "post_metal",
+      "krautrock",
+      "post_rock_extended"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 14.84874999999999,
+          "voice_quality": 0.9749999999999996,
+          "voice_vibrato": 3.72875,
+          "voice_articulation": 0.048749999999999995,
+          "voice_microtone": 14.874499999999994,
+          "voice_tradition": 4.3549999999999995,
+          "voice_mechanism_compound": 26.365000000000002,
+          "voice_estill_quality": 2.08975,
+          "voice_speech_song": 7.734999999999999,
+          "voice_ensemble_config": 5.968500000000001,
+          "voice_ornament_system": 1.86375,
+          "voice_pitch_organization": 0.7134999999999999,
+          "voice_processing_chain": 7.836249999999999,
+          "voice_multitrack_stack": 1.56
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 26.460000000000004,
+          "amp_make": 9.67875,
+          "body_wood": 10.367250000000002,
+          "neck_wood": 2.01375,
+          "fretboard": 2.01375,
+          "pickup_magnet": 0.105,
+          "pickup_winding": 1.1144999999999998,
+          "string_material": 2.01375,
+          "bridge": 0.23825000000000002,
+          "scale_length": 12.181750000000001,
+          "string_gauge": 0.39,
+          "finish": 0,
+          "string_tuning": 19.96725
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 7.734999999999999,
+          "body_wood": 0.47650000000000003,
+          "pickup_config": 0.39,
+          "string_type": 17.864999999999995,
+          "scale_length_b": 0.242,
+          "fretted_or_not": 0,
+          "bass_technique": 14.949999999999996
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_clear",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 8.514999999999999,
+          "shell_wood": 2.571,
+          "shell_thickness": 0,
+          "bearing_edges": 2.08,
+          "drumhead": 2.01375,
+          "snare_wires": 0.23825000000000002,
+          "cymbal_alloy": 40.463750000000005,
+          "cymbal_hammering": 14.989999999999995,
+          "cymbal_lathing": 15.199999999999996,
+          "cymbal_finish": 2.01375,
+          "drum_technique": 14.999999999999996
+        }
+      }
+    ],
+    "room": "stoner_doom_garage_amplifier_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_british_orange_dirty",
+      "medium": "digital_high"
+    },
+    "tuning": "doom_sabbath_tritone_diminished",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

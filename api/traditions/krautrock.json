@@ -1,0 +1,155 @@
+{
+  "id": "krautrock",
+  "name": "Krautrock",
+  "family": "rock_punk",
+  "lineage": "West German experimental rock genre that emerged in 1968-1980 — codified through Can (Tago Mago 1971, Ege Bamyasi 1972, Future Days 1973), Kraftwerk (Autobahn 1974, Trans-Europe Express 1977 — the electronic-pop founding albums), Neu! (Neu! 1972, Neu! 2 1973 — the motorik-rhythm-foundation albums), Faust, Amon Düül II, Tangerine Dream, Cluster, Harmonia, Popol Vuh; characterized by repetitive motorik rhythm (the Klaus Dinger drumbeat), tape-loop and tape-delay manipulation, modular-synthesizer sequencing, and a deliberate philosophical break from Anglo-American rock idiom",
+  "recipe": "classic European mid-1970s krautrock, distorted Rock, experimental branch, ambient experimental electric mallsoft vaporwave aesthetic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation wenge single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, analog synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 691,
+  "score": 215.702,
+  "config": {
+    "traditions": [
+      "krautrock",
+      "mallsoft",
+      "vapor_aesthetic"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 7.5,
+          "amp_make": 6.005,
+          "body_wood": 0.585,
+          "neck_wood": 1.41,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.39,
+          "string_material": 1.41,
+          "string_gauge": 0.6299999999999999,
+          "bridge": 0.195,
+          "scale_length": 1.17,
+          "finish": 0,
+          "string_tuning": 7.2799999999999985
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 1.45,
+          "amp_make": 5.305,
+          "body_wood": 1.17,
+          "pickup_config": 0.39,
+          "string_type": 13.009999999999996,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0,
+          "bass_technique": 13.249999999999996
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 7.409999999999998,
+          "shell_wood": 1.455,
+          "shell_thickness": 0,
+          "bearing_edges": 0.6299999999999999,
+          "drumhead": 2.54,
+          "snare_wires": 0.585,
+          "cymbal_alloy": 15.299999999999997,
+          "cymbal_hammering": 15.639999999999997,
+          "cymbal_lathing": 15.144999999999996,
+          "cymbal_finish": 1.455,
+          "drum_technique": 12.499999999999996
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 2.45,
+          "oscillator": 0.39,
+          "filter_topology": 0.6299999999999999,
+          "envelope": 0.9099999999999999,
+          "modulation": 0.045
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 2.75,
+          "drawbar_setting": 12.499999999999996,
+          "rotary_speed": 12.449999999999996,
+          "percussion_setting": 5.209999999999999,
+          "tonewheel_model": 4.744999999999999,
+          "leslie_cabinet_model": 0.195
+        }
+      }
+    ],
+    "room": "krautrock_dusseldorf_kling_klang_studio",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_british_hiwatt",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_tape_echo",
+      "fx_phaser_pedal"
+    ]
+  }
+}

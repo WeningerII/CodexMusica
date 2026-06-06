@@ -1,0 +1,154 @@
+{
+  "id": "dub",
+  "name": "Dub",
+  "family": "global",
+  "lineage": "Jamaican instrumental remix-and-effects genre invented by King Tubby (Osbourne Ruddock) in the late 1960s through the early 1970s in his Waterhouse-district Kingston home workshop — created by taking the rhythm tracks (riddims) of existing reggae recordings and live-re-mixing them through tape delay (Roland Space Echo), spring reverb, and dropout-mute manipulation; codified through King Tubby, Lee Scratch Perry (his Black Ark studio canon), Augustus Pablo (King Tubby Meets Rockers Uptown 1976), Scientist (Hopeton Brown, Tubbys protégé)",
+  "recipe": "classic tropical 1967-1969 dub, bass System, Jamaican branch, ambient experimental electric mallsoft vaporwave aesthetic. mahogany la bella flats Detroit soul bass canon thumb muted electric bass, walnut vintage ambassador asymmetric unlathed natural finish drum kit, Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 122 canonical 6l6 tube 40w rotary Hammond matched tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. kingston king tubby dub workshop. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb roland RE-201 space echo.",
+  "recipe_chars": 741,
+  "score": 129.298,
+  "config": {
+    "traditions": [
+      "dub",
+      "mallsoft",
+      "vapor_aesthetic"
+    ],
+    "instruments": [
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "electric_technique": 11.299999999999999,
+          "amp_make": 2.0799999999999996,
+          "body_wood": 1.17,
+          "pickup_config": 0,
+          "string_type": 3.69,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0,
+          "bass_technique": 11.299999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "meinl_fx9",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "lathing_raw_unlathed",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 11,
+          "shell_wood": 1.455,
+          "shell_thickness": 0,
+          "bearing_edges": 0.6299999999999999,
+          "drumhead": 1.17,
+          "snare_wires": 0.585,
+          "cymbal_alloy": 0.25999999999999973,
+          "cymbal_hammering": 0.325,
+          "cymbal_lathing": 2.2749999999999995,
+          "cymbal_finish": 1.455,
+          "drum_technique": 11
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 3.95,
+          "amp_make": 3.4450000000000016,
+          "body_wood": 0.585,
+          "neck_wood": 1.41,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.39,
+          "string_material": 1.41,
+          "string_gauge": 0.6299999999999999,
+          "bridge": 0.09,
+          "scale_length": 1.17,
+          "finish": 0,
+          "string_tuning": 2.205
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "stopped_rotor",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "drawbar_setting": -0.035,
+          "rotary_speed": 0.045,
+          "percussion_setting": 0.21,
+          "tonewheel_model": 3.6399999999999997,
+          "leslie_cabinet_model": 1.195
+        }
+      },
+      {
+        "id": "melodica",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "melodica_use": "melodica_dub",
+          "melodica_pitch": "melodica_alto",
+          "melodica_maker_school": "melodica_hohner_canonical"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "melodica_use": 4.75,
+          "melodica_pitch": 0.39,
+          "melodica_maker_school": 3.575
+        }
+      }
+    ],
+    "room": "kingston_king_tubby_dub_workshop",
+    "archetype": "arch_kingston_dub_console",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "medium_dub_plate_cut"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": "dub_mixing_aesthetic",
+    "arrangement": null,
+    "fx_extras": [
+      "fx_roland_space_echo",
+      "fx_spring_reverb",
+      "fx_plate_reverb"
+    ]
+  }
+}

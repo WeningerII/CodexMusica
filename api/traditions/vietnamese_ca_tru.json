@@ -1,0 +1,101 @@
+{
+  "id": "vietnamese_ca_tru",
+  "name": "Vietnamese ca trù (UNESCO 2009 Urgent Safeguarding)",
+  "family": "classical",
+  "lineage": "Vietnamese ca trù chamber-vocal tradition of northern Vietnam, recognized as UNESCO Intangible Cultural Heritage in Need of Urgent Safeguarding 2009. The form crystallized in the fifteenth century in Hanoi guild-house culture and developed through the late-imperial Lê and Nguyễn dynasties as the canonical literary-chamber form for the male literati class. Performance configuration: a female singer (ả đào) accompanies herself on the phách bamboo clapper (struck with a hardwood stick to mark cadence), with a male instrumentalist on đàn đáy (three-string long-necked fretted lute with unusually high frets enabling string-bending ornament) and a male patron-listener on the trống chầu praise-drum (struck to signal critical acclaim during performance — the patron is structurally part of the ensemble through this critical-response convention). The repertoire comprises forty-six canonical \"thể-types\" (poetic-meter categories) including hát nói (sung-recitation), múa bài bông (flower-offering dance accompaniment), hát giai (banquet song), and others — each thể with characteristic rhythmic-and-melodic conventions. Lyric base draws on classical Sino-Vietnamese poetic-meter forms. The mid-twentieth-century revolutionary-period cultural-policy suppressed ca trù as feudal, leading to near-extinction; the post-1990 revival under the guild-house Câu Lạc Bộ Ca Trù Hà Nội (Hanoi Ca Trù Club) and master-singer Quách Thị Hồ (1909-2001) restored continuity. Distinguished from southern Vietnamese hát ả đào by northern-dialect-specific cadential conventions; distinguished from chèo folk-opera by ca trù's solo-singer-with-chamber-trio (vs ensemble-theatrical) configuration; distinguished from quan họ by literary-chamber (vs village-festival-call-and-response) functional context.",
+  "recipe": "classic vietnamese ca trù, art Music, southeast Asian branch, indian bard ballad poetry rajasthani manganiyar tradition cambodian chapei dang veng. thick, declaimed, chest resonance low mid, narrative. three string long neck fretted canonical Vietnamese ca tru accompaniment high fret bending dan day, bamboo clapper struck hardwood stick canonical Vietnamese ca tru singer held cadence canonical Vietnamese phach, small praise drum patron struck canonical Vietnamese ca tru patron response canonical Vietnamese trong chau. wooden ca tru house. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 674,
+  "score": 345.48,
+  "config": {
+    "traditions": [
+      "vietnamese_ca_tru",
+      "rajasthani_manganiyar",
+      "cambodian_chapei_dang_veng"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.1500000000000004,
+          "voice_quality": 4.664500000000001,
+          "voice_vibrato": 3.9,
+          "voice_articulation": 1.3,
+          "voice_microtone": 1.2349999999999999,
+          "voice_tradition": 14.169999999999998,
+          "voice_mechanism_compound": 6.89,
+          "voice_estill_quality": 16.027,
+          "voice_speech_song": 11.504999999999997,
+          "voice_ensemble_config": 10.14,
+          "voice_ornament_system": 7.45,
+          "voice_pitch_organization": 11.955499999999997,
+          "voice_processing_chain": 4.55,
+          "voice_multitrack_stack": 2.9899999999999998
+        }
+      },
+      {
+        "id": "dan_day",
+        "slots": {
+          "dan_day_body": "dan_day_three_string_long_neck_canonical",
+          "dan_day_tradition": "dan_day_ca_tru_canonical"
+        },
+        "scores": {
+          "dan_day_body": 15.469999999999999,
+          "dan_day_tradition": 14.489
+        }
+      },
+      {
+        "id": "phach",
+        "slots": {
+          "phach_body": "phach_bamboo_clapper_struck_hardwood_stick_canonical",
+          "phach_tradition": "phach_ca_tru_canonical"
+        },
+        "scores": {
+          "phach_body": 17.2215,
+          "phach_tradition": 21.4615
+        }
+      },
+      {
+        "id": "trong_chau",
+        "slots": {
+          "trong_chau_body": "trong_chau_small_praise_drum_patron_struck_canonical",
+          "trong_chau_tradition": "trong_chau_ca_tru_patron_response_canonical"
+        },
+        "scores": {
+          "trong_chau_body": 18.33,
+          "trong_chau_tradition": 22.751499999999997
+        }
+      }
+    ],
+    "room": "wooden_ca_tru_house",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

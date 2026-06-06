@@ -1,0 +1,86 @@
+{
+  "id": "pingju_northern_chinese",
+  "name": "Pingju (Northern Chinese opera)",
+  "family": "classical",
+  "lineage": "Pingju Northern Chinese regional opera tradition emerging in late-nineteenth-century Hebei province from the lianhualao folk-song-and-storytelling form. Distinguished from jingju by accessible vernacular Mandarin language, naturalistic realistic staging, and contemporary-life dramaturgical content (vs jingju's classical historical-and-mythological repertoire). The genre became a major popular-theatrical form in northern China through the early-twentieth-century commercial-theatre period. The post-1949 Beijing Pingju Theatre and Hebei Provincial Pingju Theatre consolidated the modern repertoire. Canonical play Yang Sanjie Gao Zhuang (The Story of Yang Sanjie) constitutes the type-specimen.",
+  "recipe": "classic North American late-1940s pingju, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, narrative. python skin silk canonical traditional sanxian. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 351,
+  "score": 215.326,
+  "config": {
+    "traditions": [
+      "pingju_northern_chinese",
+      "cantonese_opera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_polychordal_stack"
+        },
+        "scores": {
+          "voice_register": 4.960000000000001,
+          "voice_quality": 12.849999999999998,
+          "voice_vibrato": 2.9899999999999998,
+          "voice_articulation": 1.4299999999999997,
+          "voice_microtone": 1.7735,
+          "voice_tradition": 24.31,
+          "voice_mechanism_compound": 5.6499999999999995,
+          "voice_estill_quality": 17.16,
+          "voice_speech_song": 14.16225,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 13.305,
+          "voice_pitch_organization": 6.861750000000002,
+          "voice_processing_chain": 5.05525,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "sanxian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sanxian_size": "sanxian_xiao",
+          "sanxian_context": "sanxian_composed",
+          "sanxian_head": "sanxian_python_skin",
+          "sanxian_strings": "sanxian_silk_traditional",
+          "sanxian_body_wood": "sanxian_padauk"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.813,
+          "sanxian_size": 3.3799999999999994,
+          "sanxian_context": 5.069999999999999,
+          "sanxian_head": 1.625,
+          "sanxian_strings": 1.69,
+          "sanxian_body_wood": 0.4305
+        }
+      }
+    ],
+    "room": "wooden_pagoda_hall",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

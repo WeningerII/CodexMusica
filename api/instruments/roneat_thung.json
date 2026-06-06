@@ -1,0 +1,98 @@
+{
+  "id": "roneat_thung",
+  "name": "Roneat thung (Khmer low-pitched bamboo xylophone)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "roneat-thung",
+  "parts": [
+    {
+      "id": "roneat_thung_bars",
+      "name": "Bar material",
+      "variants": [
+        {
+          "id": "roneat_thung_bamboo_canonical",
+          "default": true,
+          "name": "Bamboo bars, low-register boat resonator (canonical pinpeat second-voice)",
+          "descriptors": [
+            "bamboo-bars-low-register-canonical-pinpeat-second-voice"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roneat_thung_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "roneat_thung_pinpeat_counter",
+          "default": true,
+          "name": "Pinpeat counterpoint to roneat ek",
+          "descriptors": [
+            "pinpeat-counterpoint-to-roneat-ek-lead"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "roneat_thung_bars",
+      "name": "Bar material",
+      "variants": [
+        {
+          "id": "roneat_thung_bamboo_canonical",
+          "default": true,
+          "name": "Bamboo bars, low-register boat resonator (canonical pinpeat second-voice)",
+          "descriptors": [
+            "bamboo-bars-low-register-canonical-pinpeat-second-voice"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition",
+            "khmer-classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roneat_thung_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "roneat_thung_pinpeat_counter",
+          "default": true,
+          "name": "Pinpeat counterpoint to roneat ek",
+          "descriptors": [
+            "pinpeat-counterpoint-to-roneat-ek-lead"
+          ],
+          "match_tokens": [
+            "mallets",
+            "pinpeat-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

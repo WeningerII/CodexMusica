@@ -1,0 +1,96 @@
+{
+  "id": "skuduciai",
+  "name": "Skudučiai (Lithuanian pan-pipes)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "skudučiai",
+  "parts": [
+    {
+      "id": "skuduciai_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "skuduciai_multiple_pipes_hocketed_canonical",
+          "default": true,
+          "name": "Multiple tube-pipes played by multiple players in hocketed pattern (canonical Lithuanian)",
+          "descriptors": [
+            "multiple-tube-pipes-hocketed-canonical-lithuanian"
+          ],
+          "match_tokens": [
+            "wind",
+            "lithuanian-sutartines-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skuduciai_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "skuduciai_sutartines_canonical",
+          "default": true,
+          "name": "Instrumental sutartinės multi-player hocketed performance (canonical)",
+          "descriptors": [
+            "instrumental-sutartines-hocketed-canonical-lithuanian"
+          ],
+          "match_tokens": [
+            "wind",
+            "lithuanian-sutartines-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "skuduciai_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "skuduciai_multiple_pipes_hocketed_canonical",
+          "default": true,
+          "name": "Multiple tube-pipes played by multiple players in hocketed pattern (canonical Lithuanian)",
+          "descriptors": [
+            "multiple-tube-pipes-hocketed-canonical-lithuanian"
+          ],
+          "match_tokens": [
+            "wind",
+            "lithuanian-sutartines-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skuduciai_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "skuduciai_sutartines_canonical",
+          "default": true,
+          "name": "Instrumental sutartinės multi-player hocketed performance (canonical)",
+          "descriptors": [
+            "instrumental-sutartines-hocketed-canonical-lithuanian"
+          ],
+          "match_tokens": [
+            "wind",
+            "lithuanian-sutartines-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

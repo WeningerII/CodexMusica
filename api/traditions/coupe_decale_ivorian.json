@@ -1,0 +1,121 @@
+{
+  "id": "coupe_decale_ivorian",
+  "name": "Coupé-décalé (Ivorian dance music)",
+  "family": "global",
+  "lineage": "Coupé-décalé Ivorian dance-pop genre emerging in early-2000s Paris among the Ivorian diaspora club scene and rapidly transferred back to Abidjan. The name derives from Nouchi street-slang (\"couper\" to grab money, \"décaler\" to slip away) describing the get-rich-and-flee aspirational lifestyle. Production centers on hard four-on-the-floor digital kick with Nouchi-French lyrical content, simple call-and-response chorus, and electronic synth-bass. The death of founding figure Stéphane Hamidou Doukouré (Douk Saga) in 2006 mythologized the Paris-Abidjan founder-generation.",
+  "recipe": "classic 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, rap, overtone rich sustained, equal tempered. roland tr 8s modern aira digital recreation TR-808, sub bass analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 541,
+  "score": 138.642,
+  "config": {
+    "traditions": [
+      "coupe_decale_ivorian",
+      "south_african_kwaito",
+      "kwaito"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.6820000000000004,
+          "voice_quality": 1.3,
+          "voice_vibrato": 1.5205,
+          "voice_articulation": 0.1995,
+          "voice_microtone": 3.048750000000001,
+          "voice_tradition": 8.125,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 4.134,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0.35925,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 7.506999999999999,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 1.625,
+          "drum_machine_808_context": 3.3150000000000004,
+          "tr808_production_origin": 1.3
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 3.2487500000000002,
+          "oscillator": 1.69,
+          "filter_topology": 1.69,
+          "envelope": 0.35325,
+          "modulation": 0.22049999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 1.625,
+          "body_wood": 1.69,
+          "pickup_config": 0.27299999999999996,
+          "string_type": 1.69,
+          "scale_length_b": 0.72025,
+          "fretted_or_not": 0.0315,
+          "bass_technique": -0.035
+        }
+      }
+    ],
+    "room": "lagos_decca_west_african_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "soukous_rumba_seben_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

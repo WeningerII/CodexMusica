@@ -1,0 +1,86 @@
+{
+  "id": "brostep",
+  "name": "Brostep (American dubstep)",
+  "family": "electronic",
+  "lineage": "Late-2000s and early-2010s American adaptation of UK dubstep, characterized by aggressive distorted-synth \"wobble\" bass-line designs, half-time drum-and-bass rhythm, simplified song-structure, and explicit teen-festival-EDM targeting. Skrillex's Scary Monsters and Nice Sprites (2010), Excision, Datsik, Borgore, and the broader Mad Decent-OWSLA label rosters consolidated the canonical aesthetic.",
+  "recipe": "classic 2007-2009 brostep, bass System, bass descendants branch, house electronic dance deep house acid house. TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 429,
+  "score": 76.394,
+  "config": {
+    "traditions": [
+      "brostep",
+      "deep_house_soulful",
+      "acid_house"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 6.21,
+          "drum_machine_808_context": 6.305,
+          "tr808_production_origin": 0.375
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 11.91,
+          "oscillator": 6.26,
+          "filter_topology": 6.764374999999999,
+          "envelope": 0.3,
+          "modulation": 0.105
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 8.51,
+          "body_wood": 1.0987500000000001,
+          "pickup_config": 0.42,
+          "string_type": 7.06,
+          "scale_length_b": 0.5493750000000001,
+          "fretted_or_not": 0.135,
+          "bass_technique": -0.035
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

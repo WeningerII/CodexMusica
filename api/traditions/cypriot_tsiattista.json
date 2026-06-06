@@ -1,0 +1,116 @@
+{
+  "id": "cypriot_tsiattista",
+  "name": "Cypriot tsiattista (improvised dueling couplets, UNESCO 2011)",
+  "family": "global",
+  "lineage": "Cypriot tsiattista improvised-couplet poetic-dueling tradition of Cyprus (Greek-Cypriot communities), UNESCO Intangible Cultural Heritage 2011. Performance: two poet-singers face off in extempore Greek-Cypriot-dialect rhymed-couplet exchange, each turn answering the previous while introducing new poetic-and-philosophical-and-humorous-and-mocking material, accompanied by violin and laouto. The genre is structurally parallel to other improvised-poetic-dueling Mediterranean traditions (Basque bertsolaritza, Italian stornelli, Sardinian gara poetica, Sicilian mottetto), but with Cypriot-Greek dialect register and tetraposyllabos-fifteen-syllable-line characteristic poetic-meter. Performance contexts: weddings, agricultural festivals, and (post-2011 UNESCO inscription) the annual Tsiattistakia festivals in Cyprus.",
+  "recipe": "classic cypriot tsiattista, ballad Poetry, med east poetic branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. kargyraa, false fold engaged, overtone rich sustained, punctuated. sitka spruce violin orchestral, spruce face oud. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 481,
+  "score": 213.94,
+  "config": {
+    "traditions": [
+      "cypriot_tsiattista",
+      "inuit_katajjaq_games",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.1049999999999995,
+          "voice_quality": 3.4450000000000003,
+          "voice_vibrato": 0.855,
+          "voice_articulation": 0.9750000000000001,
+          "voice_microtone": 0.39,
+          "voice_tradition": 22.685,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 5.785,
+          "voice_speech_song": 10.075,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 3.1500000000000004,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 4.859999999999999
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_chopped_old_time",
+          "orch_strings": "gut_strings_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "spirit_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "orch_strings": 0,
+          "orch_top_wood": 1.625,
+          "orch_back_wood": -0.035,
+          "orch_varnish": -0.035,
+          "orch_setup_period": -0.07,
+          "orch_bow": 1.17,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 1.365,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_thirteen",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "oud_school": 3.1049999999999995,
+          "oud_strings": 0.195,
+          "oud_pick": 0.42,
+          "oud_body_wood": 0.7350000000000001,
+          "oud_soundboard_wood": 1.69,
+          "oud_string_material": 0.7350000000000001
+        }
+      }
+    ],
+    "room": "athens_minos_studios_60s_70s",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

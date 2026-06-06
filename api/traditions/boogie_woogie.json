@@ -1,0 +1,119 @@
+{
+  "id": "boogie_woogie",
+  "name": "Boogie-woogie",
+  "family": "blues_gospel",
+  "lineage": "1920s through 1940s African-American piano-blues idiom built on left-hand ostinato bass figures (walking-eighths or rolling-octaves) under right-hand blues melody — codified through Pinetop Smith’s \"Pinetop’s Boogie Woogie\" (1928), the Carnegie Hall From Spirituals to Swing concert (1938) bringing Albert Ammons, Meade Lux Lewis, and Pete Johnson to white audiences, and the wartime crossover into jump blues",
+  "recipe": "classic mid-1920s boogie-woogie, improv On Frame, boogie woogie branch, American jazz pre jazz ragtime, blues acoustic functional song piedmont blues. thick, blues-shouter, rhythmic, equal tempered. cold pressed wurzen felt oversize maple tension resonator stride grand stride upright stride tack piano. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 441,
+  "score": 238.574,
+  "config": {
+    "traditions": [
+      "boogie_woogie",
+      "ragtime",
+      "piedmont_blues"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 13.634999999999996,
+          "grand_piano_size": 0.324,
+          "grand_piano_brand": 0.3394017857142857,
+          "piano_hammer": 4.550303571428572,
+          "piano_rim": 5.265,
+          "piano_soundboard": 0.325,
+          "piano_pinblock": 0.295,
+          "piano_plate": -0.040625,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "upright_use": "upright_honky_tonk",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 13.634999999999996,
+          "upright_use": 0.324,
+          "upright_piano_size": 0.046714285714285715
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 25.98052678571428,
+          "voice_quality": 11.817589285714279,
+          "voice_vibrato": 0.3735,
+          "voice_articulation": 0.7504285714285714,
+          "voice_microtone": 8.549999999999997,
+          "voice_tradition": 8.589285714285715,
+          "voice_mechanism_compound": 1.45,
+          "voice_estill_quality": 3.1100267857142856,
+          "voice_speech_song": 11.30333928571428,
+          "voice_ensemble_config": 10.152169642857139,
+          "voice_ornament_system": 0.413875,
+          "voice_pitch_organization": 0.8539285714285711,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 0.9543749999999999
+        }
+      },
+      {
+        "id": "tack_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "tack_density": "sparse_tacks",
+          "tack_piano_context": "tack_piano_saloon"
+        },
+        "scores": {
+          "keyboard_technique": 13.634999999999996,
+          "tack_density": 4.749999999999999,
+          "tack_piano_context": 4.629928571428571
+        }
+      }
+    ],
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

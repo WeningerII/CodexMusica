@@ -1,0 +1,115 @@
+{
+  "id": "anglican_choral_evensong",
+  "name": "Anglican choral evensong",
+  "family": "global",
+  "lineage": "English Anglican choral evensong service-music tradition codified in the Book of Common Prayer (1549, 1662) with characteristic Magnificat and Nunc Dimittis canticle settings — sung daily across the cathedral foundations of the Church of England with characteristic boy-treble-and-adult-male-alto-tenor-bass voicing, Anglican-chant psalmody, and an unbroken liturgical-music transmission from the Reformation through the present including settings by Tallis, Gibbons, Stanford, Howells, and Britten",
+  "recipe": "classic late-1540s anglican choral evensong, ritual Devotional, anglican choral branch, western early art music burgundian school renaissance madrigal. thick, declaimed, chest resonance low mid, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, choir cathedral satb. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 812,
+  "score": 166.015,
+  "config": {
+    "traditions": [
+      "anglican_choral_evensong",
+      "burgundian_school",
+      "renaissance_madrigal"
+    ],
+    "instruments": [
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 1.9799999999999995,
+          "choir_polyphonic_configuration": 5.114999999999998,
+          "choir_regional_canonical_configuration": 5.329999999999999,
+          "choir_ensemble_repertoire": 2.9899999999999998
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "operatic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 3.535000000000001,
+          "voice_quality": 7.543750000000001,
+          "voice_vibrato": 1.9925,
+          "voice_articulation": 3.99,
+          "voice_microtone": 0.5199999999999998,
+          "voice_tradition": 4.525,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 3.5500000000000007,
+          "voice_speech_song": 8.644999999999998,
+          "voice_ensemble_config": 8.969999999999999,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 0.9099999999999999,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 1.1775
+        }
+      },
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
+          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
+          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
+          "pipe_organ_action": "pipe_organ_mechanical_tracker"
+        },
+        "scores": {
+          "keyboard_technique": 0.25,
+          "pipe_organ_class": 1.3687500000000001,
+          "pipe_organ_context": 6.11,
+          "pipe_organ_voicing_school": 4.938749999999999,
+          "pipe_organ_pipe_alloy": 3.7199999999999998,
+          "pipe_organ_temperament": 3.0187499999999994,
+          "pipe_organ_action": 3.5249999999999995
+        }
+      },
+      {
+        "id": "choir_cathedral_satb",
+        "slots": {
+          "voicing": "satb_with_boys",
+          "repertoire": "baroque_choral"
+        },
+        "scores": {
+          "voicing": 5.715,
+          "repertoire": 0.39
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

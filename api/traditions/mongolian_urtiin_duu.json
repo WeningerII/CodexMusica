@@ -1,0 +1,85 @@
+{
+  "id": "mongolian_urtiin_duu",
+  "name": "Mongolian urtiin duu long-song (UNESCO 2008)",
+  "family": "classical",
+  "lineage": "Mongolian urtiin duu (\"long song\") tradition, recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2005 and inscribed on the Representative List 2008. Solo vocal art-form characterized by extreme melisma — single text syllables extended across many breaths in elaborate ornamental melodic territory, with characteristic falsetto-and-chest-register alternation, a vibrato called shuranhai produced by ornamental throat-tremolo, and an overall melodic range extending across two-and-a-half octaves. Repertoire draws on praise-songs to natural features (rivers, mountains, the eternal blue sky tngri), ancestor-veneration cycles, and ceremonial-occasion repertoire. Accompaniment on morin khuur (the two-string horsehead fiddle that is the canonical Mongolian instrument). Pentatonic modal vocabulary with mode-specific ornament conventions and a strongly pastoral-derived expressive register. Norovbanzad (1931-2002) is the twentieth-century canonical singer. Carole Pegg's Mongolian Music, Dance & Oral Narrative (University of Washington Press 2001) is the principal English-language scholarly documentation, with Mongolian National Folk Song and Dance Academy archives the institutional anchor. The 2005 UNESCO inscription was a multinational nomination by Mongolia and China (for the parallel Inner Mongolian urtyn duu tradition). Distinguished from Mongolian bogino duu (\"short song\") by the long-song's extreme-melisma extended-form structure; distinguished from Tuvan ezengileer melodic-style by Mongolian-Khalkh dialect-specific cadential conventions; distinguished from Kazakh küy by voice-led (vs instrumental-led) tradition structure.",
+  "recipe": "classic mongolian urtiin duu long-song, drone Modal, heterophonic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. kargyraa, declaimed, melodic, ornamental. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 422,
+  "score": 363.145,
+  "config": {
+    "traditions": [
+      "mongolian_urtiin_duu",
+      "sami_northern_luohti",
+      "sami_southern_vuelie"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 28.209999999999997,
+          "voice_quality": 6.695000000000002,
+          "voice_vibrato": 3.9749999999999996,
+          "voice_articulation": 3.5949999999999998,
+          "voice_microtone": 4.265,
+          "voice_tradition": 24.189999999999998,
+          "voice_mechanism_compound": 24.73,
+          "voice_estill_quality": 6.11,
+          "voice_speech_song": 20.475000000000005,
+          "voice_ensemble_config": 14.820000000000002,
+          "voice_ornament_system": 4.7,
+          "voice_pitch_organization": 29.075000000000003,
+          "voice_processing_chain": 8.58,
+          "voice_multitrack_stack": 7.279999999999999
+        }
+      },
+      {
+        "id": "morin_khuur",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "morin_khuur_use": "morin_khuur_long_song",
+          "morin_khuur_construction": "morin_khuur_modern_wood",
+          "morin_khuur_body_wood": "morin_khuur_sycamore",
+          "morin_khuur_strings": "morin_khuur_horsehair_canonical"
+        },
+        "scores": {
+          "bowed_technique": 6.045,
+          "morin_khuur_use": 40.205000000000005,
+          "morin_khuur_construction": 2.6,
+          "morin_khuur_body_wood": 11.56,
+          "morin_khuur_strings": 7.669999999999999
+        }
+      }
+    ],
+    "room": "open_steppe_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_pentatonic_long_song",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

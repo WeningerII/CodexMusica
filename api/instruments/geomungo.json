@@ -1,0 +1,346 @@
+{
+  "id": "geomungo",
+  "name": "Geomungo (Korean six-string fretted zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "geomungo",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "geomungo_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "geomungo_classical",
+          "default": true,
+          "name": "Korean court classical",
+          "descriptors": [
+            "sustained",
+            "meditative",
+            "court"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "plucked"
+          ]
+        },
+        {
+          "id": "geomungo_sanjo",
+          "name": "Sanjo solo",
+          "descriptors": [
+            "percussive",
+            "virtuoso",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geomungo_technique",
+      "surface": false,
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "geomungo_suldae",
+          "default": true,
+          "name": "Suldae bamboo stick (canonical)",
+          "descriptors": [
+            "traditional",
+            "percussive-attack",
+            "distinctive",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "geomungo_finger",
+          "name": "Finger-pluck (rare)",
+          "descriptors": [
+            "damped-attack-onset",
+            "archaic",
+            "unusual"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "geomungo_hybrid",
+          "name": "Modern hybrid",
+          "descriptors": [
+            "contemporary",
+            "composed-music",
+            "concert"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geomungo_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "geomungo_silk_canonical",
+          "default": true,
+          "name": "Silk (canonical canonical court canon)",
+          "descriptors": [
+            "silk-canonical",
+            "court-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "geomungo_nylon_modern",
+          "name": "Nylon (modern alternative)",
+          "descriptors": [
+            "nylon-modern",
+            "durable-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geomungo_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "geomungo_paulownia",
+          "default": true,
+          "name": "Paulownia (canonical Korean)",
+          "descriptors": [
+            "paulownia",
+            "canonical-korean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "geomungo_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "geomungo_classical",
+          "default": true,
+          "name": "Korean court classical",
+          "descriptors": [
+            "sustained",
+            "meditative",
+            "court"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "plucked"
+          ]
+        },
+        {
+          "id": "geomungo_sanjo",
+          "name": "Sanjo solo",
+          "descriptors": [
+            "percussive",
+            "virtuoso",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geomungo_technique",
+      "surface": false,
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "geomungo_suldae",
+          "default": true,
+          "name": "Suldae bamboo stick (canonical)",
+          "descriptors": [
+            "traditional",
+            "percussive-attack",
+            "distinctive",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "geomungo_finger",
+          "name": "Finger-pluck (rare)",
+          "descriptors": [
+            "damped-attack-onset",
+            "archaic",
+            "unusual"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "geomungo_hybrid",
+          "name": "Modern hybrid",
+          "descriptors": [
+            "contemporary",
+            "composed-music",
+            "concert"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geomungo_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "geomungo_silk_canonical",
+          "default": true,
+          "name": "Silk (canonical canonical court canon)",
+          "descriptors": [
+            "silk-canonical",
+            "court-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "geomungo_nylon_modern",
+          "name": "Nylon (modern alternative)",
+          "descriptors": [
+            "nylon-modern",
+            "durable-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geomungo_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "geomungo_paulownia",
+          "default": true,
+          "name": "Paulownia (canonical Korean)",
+          "descriptors": [
+            "paulownia",
+            "canonical-korean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

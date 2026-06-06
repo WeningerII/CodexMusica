@@ -1,0 +1,68 @@
+{
+  "id": "norwegian_stev_solo",
+  "name": "Norwegian stev (solo singing-game)",
+  "family": "global",
+  "lineage": "Norwegian stev solo-singing tradition of inland-Norway (Setesdal, Telemark, and adjacent mountain regions), comprising short improvised-or-traditional four-line quatrains sung unaccompanied. Two main streams: gamlestev (\"old stev\") canonical fixed-traditional-stanzas, and nystev (\"new stev\") improvised-on-occasion stanzas often performed in competitive-dialogic exchange between two singers. Performance: solo unaccompanied voice in characteristic narrow-range Norwegian-pentatonic-and-modal vocabulary with strict stev-meter four-stress-line. The Hilme inland-Norway lineage and the canonical nineteenth-century stev-singers (Jorunn Hilme, Talleiv Røysland) consolidated institutional documentation; the post-1970s Norwegian folk-music revival re-established practice.",
+  "recipe": "classic mid-1970s norwegian stev, ballad Poetry, Celtic balladic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. vocal fry, low dynamic level, melodic, blues inflected. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 341,
+  "score": 166.315,
+  "config": {
+    "traditions": [
+      "norwegian_stev_solo",
+      "sami_northern_luohti",
+      "sami_southern_vuelie"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.185,
+          "voice_quality": 1.75,
+          "voice_vibrato": 0.655,
+          "voice_articulation": 0.375,
+          "voice_microtone": 1.54,
+          "voice_tradition": 15.925,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 2.6,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 11.699999999999998,
+          "voice_ornament_system": 7.7375,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 3.72,
+          "voice_multitrack_stack": 1.9600000000000002
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

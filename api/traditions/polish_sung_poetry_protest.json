@@ -1,0 +1,87 @@
+{
+  "id": "polish_sung_poetry_protest",
+  "name": "Polish poezja śpiewana and Solidarność-era protest (1960s-1980s)",
+  "family": "global",
+  "lineage": "Polish poezja śpiewana (\"sung poetry\") and piosenka literacka (\"literary song\") protest-song tradition continuous from 1960s-1980s Communist-era Polish political-songwriter scene; centered on Jacek Kaczmarski (the Solidarność-aligned songwriter-bard whose \"Mury\" 1978 became the Solidarność anthem), Przemysław Gintrowski, Zbigniew Łapiński, Wojciech Bellon",
+  "recipe": "classic polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry american folk-revival protest song morna. lament wail, continuous-phonation, Mediterranean demotic vocal, m1 with m0 pulse borrowing. narrative fingerpicked acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 486,
+  "score": 133.75,
+  "config": {
+    "traditions": [
+      "polish_sung_poetry_protest",
+      "american_folk_revival_protest",
+      "morna"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 0.435,
+          "voice_quality": 1.7499999999999998,
+          "voice_vibrato": 0.195,
+          "voice_articulation": 2.47,
+          "voice_microtone": 0.39,
+          "voice_tradition": 1.885,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 1.3649999999999998,
+          "voice_speech_song": 12.284999999999997,
+          "voice_ensemble_config": 6.369999999999998,
+          "voice_ornament_system": 0.795,
+          "voice_pitch_organization": 2.47,
+          "voice_processing_chain": 5.75,
+          "voice_multitrack_stack": 7.664999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 2.4699999999999998,
+          "string_tuning": 0,
+          "top_wood": 0.045,
+          "back_sides": 0.045,
+          "string_acoustic": 0.43499999999999994,
+          "acoustic_om_technique": 2.4699999999999998
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

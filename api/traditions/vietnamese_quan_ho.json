@@ -1,0 +1,68 @@
+{
+  "id": "vietnamese_quan_ho",
+  "name": "Vietnamese quan họ Bắc Ninh (UNESCO 2009)",
+  "family": "global",
+  "lineage": "Vietnamese quan họ Bắc Ninh antiphonal courtship-song tradition of the Bắc Ninh province, the Red River Delta region north of Hanoi, recognized as UNESCO Intangible Cultural Heritage 2009. Performance involves paired female-and-male choral groups (liền chị women, liền anh men) from neighboring villages who exchange improvised verse-and-response over the course of a year of festival visits, with the courtship-exchange the formal narrative-arc of the repertoire. Vocal style features unaccompanied (originally — modern stage performance often adds chamber-ensemble accompaniment) two-or-three-voice female and male chorus in heterophonic-melodic-elaboration register, with characteristic Vietnamese pentatonic-modal vocabulary and the distinctive vibrato-ornament called nẩy hột (\"rice-grain vibrato,\" a precisely-articulated rapid pitch-and-amplitude wobble unique to quan họ vocal-aesthetic). Verse-forms draw on canonical four-line, six-eight-line, and seven-seven-six-eight Vietnamese poetic-meter structures. The forty-nine documented \"kết-chạ\" (sworn-sister-village) pair-relationships constitute the social-structural infrastructure of the tradition. The UNESCO ICH 2009 dossier (Bắc Ninh provincial nomination) documents two hundred and forty-nine quan họ villages across the region. Distinguished from ca trù by quan họ's village-festival-collective (vs chamber-literary) functional context; distinguished from xoan (the adjacent ritual-village tradition) by quan họ's courtship-exchange (vs ancestor-veneration) functional framing; distinguished from southern Vietnamese đờn ca tài tử by northern Red-River-Delta dialect-specific cadential conventions.",
+  "recipe": "classic vietnamese quan họ bắc ninh, art Music, southeast Asian branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. kargyraa, declaimed, melodic, callresponse articulation. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 376,
+  "score": 219.315,
+  "config": {
+    "traditions": [
+      "vietnamese_quan_ho",
+      "inuit_katajjaq_games",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "call_response_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.9899999999999998,
+          "voice_quality": 3.4450000000000003,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 1.445,
+          "voice_microtone": 1.625,
+          "voice_tradition": 13.454999999999997,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 13.584999999999999,
+          "voice_ensemble_config": 13.519999999999998,
+          "voice_ornament_system": 3.04,
+          "voice_pitch_organization": 14.834999999999997,
+          "voice_processing_chain": 3.9,
+          "voice_multitrack_stack": 4.68
+        }
+      }
+    ],
+    "room": "forest_clearing",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "mallsoft",
+  "name": "Mallsoft (vaporwave subgenre)",
+  "family": "electronic",
+  "lineage": "Mid-2010s vaporwave subgenre evoking the atmosphere of 1980s-1990s American suburban shopping malls through extensive reverb-processed Muzak-and-elevator-music sampling, distant-and-ghostly atmospheric production, and explicit retail-space liminality thematic content. ░▒▓ 컴퓨터 데이터 ▓▒░, Disconscious, Cat System Corp., and the broader Bandcamp-distributed mallsoft scene anchor the canonical aesthetic.",
+  "recipe": "classic 2014-2016 mallsoft, experimental Elec, ambient branch, east Asian pop functional song enka j-indie. pad like lead analog synth, field textural sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 353,
+  "score": 56.145,
+  "config": {
+    "traditions": [
+      "mallsoft",
+      "enka",
+      "j_indie"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 3.835,
+          "oscillator": 0.435,
+          "filter_topology": 1.69,
+          "envelope": 1.59,
+          "modulation": 0.9299999999999999
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "fairlight_cmi",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.7,
+          "sampler_archetypes": 0.6,
+          "sampler_bit_depth": 1.53,
+          "sampler_workflow": 3.745,
+          "sampler_classic_context": 6.694999999999999
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "vaporwave_aesthetic",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

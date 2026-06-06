@@ -1,0 +1,79 @@
+{
+  "id": "sfyria_antia",
+  "name": "Sfyria whistled language (Antia, Greece)",
+  "family": "global",
+  "lineage": "Sfyria whistled-language tradition of Antia village on Mount Ochi in Evia island, Greece — a fully grammatical whistled register of the Greek language using turbulent lip-and-tongue-formed source to encode Greek phonemes across the mountain-and-canyon terrain of Mount Ochi; documented by the contemporary linguistic-anthropology lineage including Sotiris Apostolopoulos and the Onassis Foundation cultural-preservation initiatives; the smaller and more endangered sibling of Silbo Gomero, with only a handful of remaining fluent speakers in the Antia village; the whistled-language family includes the Kuşköy Turkish Black Sea whistled-Turkish tradition, the Hmong courtship-whistle, Mazatec, and other documented whistled-languages globally",
+  "recipe": "classic modern sfyria whistled language, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, unrestrained. lip aperture turbulent source whistled language signal communication whistled voice. canyon. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 448,
+  "score": 224.91,
+  "config": {
+    "traditions": [
+      "sfyria_antia",
+      "shipibo_icaros",
+      "inuit_katajjaq_games"
+    ],
+    "instruments": [
+      {
+        "id": "whistled_voice",
+        "slots": {
+          "whistled_voice_source": "whistled_lip_aperture",
+          "whistled_voice_context": "whistled_voice_signal_communication"
+        },
+        "scores": {
+          "whistled_voice_source": 8.97,
+          "whistled_voice_context": 20.244999999999997
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.34,
+          "voice_quality": 3.4450000000000003,
+          "voice_vibrato": 0.855,
+          "voice_articulation": 0.9750000000000001,
+          "voice_microtone": 6.35,
+          "voice_tradition": 19.889999999999993,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 1.95,
+          "voice_speech_song": 8.774999999999999,
+          "voice_ensemble_config": 10.399999999999999,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 6.989999999999999,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 2.34
+        }
+      }
+    ],
+    "room": "canyon",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

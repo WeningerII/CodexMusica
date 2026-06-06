@@ -1,0 +1,98 @@
+{
+  "id": "coco_brasileiro",
+  "name": "Coco brasileiro (NE Brazilian work-song)",
+  "family": "global",
+  "lineage": "Brazilian coco northeastern-Brazilian song-and-dance tradition of Pernambuco, Paraíba, and Alagoas, descended from the African-Brazilian colonial-period rural-work-song tradition (coco was originally a coconut-husking work-song with stamping-rhythm accompaniment). Performance: lead singer with chorus response, hand-clapping or ganzá-shaker rhythm, occasional pandeiro frame-drum. Repertoire spans rural-worker thematic content, coastal-fishing themes, and romantic-couplet improvisation. Genre revival under Nação Zumbi and Chico Science in 1990s integrated coco with rock-and-electronic-production.",
+  "recipe": "classic mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion embolada baião. thick, intimate aspirated, melodic, narrative. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 461,
+  "score": 145.62,
+  "config": {
+    "traditions": [
+      "coco_brasileiro",
+      "embolada",
+      "baiao"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 6.550000000000002,
+          "voice_quality": 1.85,
+          "voice_vibrato": 1.445,
+          "voice_articulation": 1.2999999999999998,
+          "voice_microtone": 3.150000000000001,
+          "voice_tradition": 9.165,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 16.705,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 0.75,
+          "voice_processing_chain": 4.16,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.045,
+          "tambourine_orch_context": 0.045
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_samba",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "pandeiro_size": 2.8199999999999994,
+          "pandeiro_context": 3.3799999999999994,
+          "pandeiro_head": 7.279999999999999,
+          "pandeiro_shell_wood": 7.279999999999999,
+          "pandeiro_jingles": 7.279999999999999
+        }
+      }
+    ],
+    "room": "estudio_rozenblit_recife",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "baiao_2_4_beat_one_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

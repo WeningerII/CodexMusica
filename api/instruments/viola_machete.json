@@ -1,0 +1,96 @@
+{
+  "id": "viola_machete",
+  "name": "Viola machete (Brazilian small five-string lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "viola machete",
+  "parts": [
+    {
+      "id": "viola_machete_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "viola_machete_small_five_string_portuguese_origin_canonical",
+          "default": true,
+          "name": "Small five-string lute body of Portuguese cavaquinho-machete origin (canonical)",
+          "descriptors": [
+            "small-five-string-portuguese-cavaquinho-canonical-brazilian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "samba-de-roda-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_machete_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "viola_machete_samba_de_roda_canonical",
+          "default": true,
+          "name": "Samba de roda accompaniment (canonical Recôncavo)",
+          "descriptors": [
+            "samba-de-roda-accompaniment-canonical-reconcavo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "samba-de-roda-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "viola_machete_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "viola_machete_small_five_string_portuguese_origin_canonical",
+          "default": true,
+          "name": "Small five-string lute body of Portuguese cavaquinho-machete origin (canonical)",
+          "descriptors": [
+            "small-five-string-portuguese-cavaquinho-canonical-brazilian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "samba-de-roda-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_machete_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "viola_machete_samba_de_roda_canonical",
+          "default": true,
+          "name": "Samba de roda accompaniment (canonical Recôncavo)",
+          "descriptors": [
+            "samba-de-roda-accompaniment-canonical-reconcavo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "samba-de-roda-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "damaru",
+  "name": "Damaru (Tibetan double-headed hand-drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "damaru",
+  "parts": [
+    {
+      "id": "damaru_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "damaru_double_headed_cord_pellets_canonical",
+          "default": true,
+          "name": "Small double-headed hand-drum with cord-pellets that strike both heads when rotated (canonical)",
+          "descriptors": [
+            "double-headed-cord-pellets-rotated-canonical-tibetan"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "damaru_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "damaru_gelug_ritual_canonical",
+          "default": true,
+          "name": "Gelug monastic ritual instrument (canonical)",
+          "descriptors": [
+            "gelug-monastic-ritual-canonical-tibetan"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "damaru_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "damaru_double_headed_cord_pellets_canonical",
+          "default": true,
+          "name": "Small double-headed hand-drum with cord-pellets that strike both heads when rotated (canonical)",
+          "descriptors": [
+            "double-headed-cord-pellets-rotated-canonical-tibetan"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "damaru_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "damaru_gelug_ritual_canonical",
+          "default": true,
+          "name": "Gelug monastic ritual instrument (canonical)",
+          "descriptors": [
+            "gelug-monastic-ritual-canonical-tibetan"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,476 @@
+{
+  "id": "acoustic_resonator_steel",
+  "name": "Steel-body single-cone resonator guitar",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "steel-body resonator",
+  "parts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "acoustic_resonator_steel",
+            "mountain_dulcimer",
+            "cittern"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "narrative"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "singer-songwriter",
+            "folk",
+            "folk-revival",
+            "confessional",
+            "ballad-poetry"
+          ]
+        },
+        {
+          "id": "acoustic_bottleneck_slide",
+          "name": "Bottleneck slide",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [
+            "slide",
+            "open-tuned"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "delta",
+            "blues-canonical",
+            "country-blues"
+          ],
+          "default": true
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "string_tuning",
+      "name": "String tuning",
+      "variants": [
+        {
+          "id": "standard_tuning",
+          "default": true,
+          "name": "Standard (EADGBE)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "acoustic-only",
+            "standard-tuned"
+          ]
+        },
+        {
+          "id": "drop_d",
+          "name": "Drop D",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [
+            "drop-d-tuning"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation",
+            "modal",
+            "open-bass"
+          ],
+          "canonical_tags": [
+            "american-primitive",
+            "fingerstyle-soloist",
+            "modern-rock"
+          ]
+        },
+        {
+          "id": "open_d",
+          "name": "Open D (DADF♯AD)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [
+            "open-d-tuning"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation",
+            "modal",
+            "open-tuned"
+          ],
+          "canonical_tags": [
+            "slide-blues",
+            "country-blues"
+          ]
+        },
+        {
+          "id": "open_e",
+          "name": "Open E (EBEG♯BE)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [
+            "open-e-tuning"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation",
+            "modal",
+            "open-tuned"
+          ],
+          "canonical_tags": [
+            "slide-blues",
+            "country-blues",
+            "gospel-blues"
+          ]
+        },
+        {
+          "id": "open_g",
+          "name": "Open G (DGDGBD)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [
+            "open-g-tuning"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation",
+            "modal",
+            "open-tuned"
+          ],
+          "canonical_tags": [
+            "delta",
+            "slide-blues",
+            "piedmont-blues"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "cone_type",
+      "name": "Cone type",
+      "variants": [
+        {
+          "id": "biscuit",
+          "default": true,
+          "name": "Biscuit (single-cone)",
+          "descriptors": [],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ],
+          "canonical_tags": [
+            "delta"
+          ]
+        },
+        {
+          "id": "spider",
+          "name": "Spider (single-cone)",
+          "descriptors": [
+            "mellower",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        },
+        {
+          "id": "tricone",
+          "name": "Tricone",
+          "descriptors": [
+            "singing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "body_resonator",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "steel_body",
+          "default": true,
+          "name": "Steel body",
+          "descriptors": [
+            "ringing",
+            "treble-extended",
+            "cutting",
+            "steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        },
+        {
+          "id": "brass_body",
+          "name": "Brass body (often nickel-plated)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "projecting",
+            "sustaining",
+            "brass",
+            "nickel",
+            "nickel-plated"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        },
+        {
+          "id": "wood_body",
+          "name": "Wood body",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "mellow",
+            "woody"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "res_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "eighty_twenty_res",
+          "default": true,
+          "name": "80/20 bronze",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "classic",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        },
+        {
+          "id": "phosphor_res",
+          "name": "Phosphor bronze",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "full",
+            "mellower",
+            "phosphor-bronze",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "acoustic_technique",
+      "default_variant": "acoustic_bottleneck_slide"
+    },
+    {
+      "id": "cone_type",
+      "name": "Cone type",
+      "variants": [
+        {
+          "id": "biscuit",
+          "default": true,
+          "name": "Biscuit (single-cone)",
+          "descriptors": [],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ],
+          "canonical_tags": [
+            "delta"
+          ]
+        },
+        {
+          "id": "spider",
+          "name": "Spider (single-cone)",
+          "descriptors": [
+            "mellower",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        },
+        {
+          "id": "tricone",
+          "name": "Tricone",
+          "descriptors": [
+            "singing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "body_resonator",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "steel_body",
+          "default": true,
+          "name": "Steel body",
+          "descriptors": [
+            "ringing",
+            "treble-extended",
+            "cutting",
+            "steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        },
+        {
+          "id": "brass_body",
+          "name": "Brass body (often nickel-plated)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "projecting",
+            "sustaining",
+            "brass",
+            "nickel",
+            "nickel-plated"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        },
+        {
+          "id": "wood_body",
+          "name": "Wood body",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "mellow",
+            "woody"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "res_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "eighty_twenty_res",
+          "default": true,
+          "name": "80/20 bronze",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "classic",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        },
+        {
+          "id": "phosphor_res",
+          "name": "Phosphor bronze",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "full",
+            "mellower",
+            "phosphor-bronze",
+            "bronze"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "blues-derived"
+          ]
+        }
+      ]
+    }
+  ]
+}

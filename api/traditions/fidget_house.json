@@ -1,0 +1,98 @@
+{
+  "id": "fidget_house",
+  "name": "Fidget house",
+  "family": "electronic",
+  "lineage": "Late-2000s UK-and-American house subgenre characterized by hyperactive cut-and-paste vocal-sample manipulation, glitchy-shifted rhythmic-displacement, and aggressive-funky bass-line emphasis. Switch (Dave Taylor) and Sinden (Sam Sintron) inaugurated the canonical sound through their 2007 Get Familiar mix and parallel Hercules Recordings releases; the genre intersected with broader bassline UK garage and informed the subsequent Major Lazer and Diplo-led commercial moombahton hybrid.",
+  "recipe": "classic 2007-2009 fidget house, electronic Dance, house branch, uk soundsystem bass system bassline future garage. vocal fry, rap, chest resonance low mid, punctuated. TR-808, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 383,
+  "score": 126.989,
+  "config": {
+    "traditions": [
+      "fidget_house",
+      "bassline_uk",
+      "future_garage"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 1.56,
+          "voice_vibrato": 0.663,
+          "voice_articulation": 1.69,
+          "voice_microtone": 1.3865,
+          "voice_tradition": 1.625,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 11.765,
+          "voice_ensemble_config": 11.7,
+          "voice_ornament_system": 0.9099999999999999,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 7.65,
+          "voice_multitrack_stack": 5.07
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 2.535,
+          "drum_machine_808_context": 2.6,
+          "tr808_production_origin": 0.1365
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "sample_hold"
+        },
+        "scores": {
+          "electronic_technique": 2.405,
+          "oscillator": 2.6,
+          "filter_topology": 2.6,
+          "envelope": 1.69,
+          "modulation": 1.3
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

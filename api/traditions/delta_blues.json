@@ -1,0 +1,106 @@
+{
+  "id": "delta_blues",
+  "name": "Delta blues",
+  "family": "blues_gospel",
+  "lineage": "Country-blues tradition of the Mississippi Delta region — slide-guitar-and-vocal solo and small-ensemble repertoire developed in the early twentieth century through the lineage of Charley Patton (the 1929 Paramount recordings), Son House, Robert Johnson (the 1936-37 San Antonio and Dallas sessions), Skip James, Bukka White, and continuing through the post-WWII Chicago-blues electrification by Muddy Waters, Howlin' Wolf, and others",
+  "recipe": "classic late-1920s delta blues, ballad Poetry, delta narrative branch, vocal drone modal, blues acoustic functional song, American south field work piedmont blues mississippi delta field holler. thick, worn fold, melodic, unrestrained. open g tuning slide steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 481,
+  "score": 363.11,
+  "config": {
+    "traditions": [
+      "delta_blues",
+      "piedmont_blues",
+      "mississippi_delta_field_holler"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 18.987499999999994,
+          "voice_quality": 16.45,
+          "voice_vibrato": 2.6875,
+          "voice_articulation": 3.5287500000000005,
+          "voice_microtone": 7.931249999999999,
+          "voice_tradition": 9.23,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 3.9000000000000004,
+          "voice_speech_song": 7.735,
+          "voice_ensemble_config": 6.76,
+          "voice_ornament_system": 1.6899999999999997,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 2.6
+        }
+      },
+      {
+        "id": "acoustic_resonator_steel",
+        "slots": {
+          "acoustic_technique": "acoustic_bottleneck_slide",
+          "string_tuning": "open_g",
+          "cone_type": "biscuit",
+          "body_resonator": "brass_body",
+          "res_strings": "phosphor_res"
+        },
+        "scores": {
+          "acoustic_technique": 12.624999999999998,
+          "string_tuning": 12.319999999999999,
+          "cone_type": 9.5,
+          "body_resonator": 0.57,
+          "res_strings": 0.615
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "free_reed_technique": "free_reed_blues_cross",
+          "harmonica_type": "tremolo_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 9.45,
+          "harmonica_type": 0.66,
+          "harmonica_comb": 21.376249999999995,
+          "harmonica_reed": 17.27,
+          "harmonica_technique": 26.25,
+          "harmonica_maker_school": 17.041249999999998,
+          "harmonica_tuning": 8.709999999999999
+        }
+      }
+    ],
+    "room": "tin_roofed_shack",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

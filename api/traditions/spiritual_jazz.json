@@ -1,0 +1,211 @@
+{
+  "id": "spiritual_jazz",
+  "name": "Spiritual jazz",
+  "family": "jazz",
+  "lineage": "Late-1960s/1970s African-American jazz movement combining modal-and-free harmonic vocabulary with explicit religious / political / Afro-diasporic content — Pharoah Sanders, Alice Coltrane, Don Cherry, Lonnie Liston Smith, the Strata-East and Impulse! catalogs",
+  "recipe": "classic British 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, declaimed, melodic, punctuated. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator a 442 European orchestral prepared grand piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze over hammered drum kit, hardwood calabash mbira, tabla, drone like modal sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 740,
+  "score": 423.4,
+  "config": {
+    "traditions": [
+      "spiritual_jazz",
+      "flamenco",
+      "mor_lam"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 6.550000000000001,
+          "sax_size": 0.3,
+          "sax_reed": 0.3,
+          "sax_body_alloy": 17.399999999999995,
+          "sax_mouthpiece": 0.3,
+          "sax_technique": 17.294999999999998,
+          "sax_maker_school": 15.499999999999996
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 3.7,
+          "grand_piano_size": 0.3,
+          "grand_piano_brand": 0.345,
+          "piano_hammer": 2.6,
+          "piano_rim": 3.9650000000000003,
+          "piano_soundboard": 0.7149999999999999,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 2.275
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": -0.05,
+          "upright_strings": 17.249999999999996,
+          "upright_play": 17.294999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "fiberskyn_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "hand_lathed_pit_retaining",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 17.159999999999993,
+          "shell_wood": 0.44999999999999996,
+          "shell_thickness": 0,
+          "bearing_edges": 0.44999999999999996,
+          "drumhead": 17.199999999999996,
+          "snare_wires": 0.3,
+          "cymbal_alloy": 18.334999999999994,
+          "cymbal_hammering": 17.999999999999996,
+          "cymbal_lathing": 18.419999999999998,
+          "cymbal_finish": 0.3,
+          "drum_technique": 17.249999999999996
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 17.439999999999994,
+          "voice_quality": 4.545000000000001,
+          "voice_vibrato": 1.1049999999999998,
+          "voice_articulation": 0.69,
+          "voice_microtone": 17.299999999999994,
+          "voice_tradition": 18.149999999999995,
+          "voice_mechanism_compound": 5.459999999999999,
+          "voice_estill_quality": 2.5999999999999996,
+          "voice_speech_song": 7.604999999999997,
+          "voice_ensemble_config": 7.149999999999998,
+          "voice_ornament_system": 4.65,
+          "voice_pitch_organization": 2.3000000000000003,
+          "voice_processing_chain": 2.4000000000000004,
+          "voice_multitrack_stack": 4.3500000000000005
+        }
+      },
+      {
+        "id": "mbira",
+        "slots": {
+          "tine_material": "iron_forged",
+          "mbira_board": "mubvamaropa",
+          "mbira_resonator": "deze_calabash",
+          "mbira_buzz": "bottle_caps"
+        },
+        "scores": {
+          "tine_material": 0.3,
+          "mbira_board": 1.5149999999999997,
+          "mbira_resonator": 1.5149999999999997,
+          "mbira_buzz": 0.15
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 0.15,
+          "tabla_bayan": 0.15,
+          "tabla_syahi": 1.515
+        }
+      },
+      {
+        "id": "sitar",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "sitar_neck": "teak",
+          "sitar_resonator": "single_kaddu",
+          "sitar_jawari": "camel_bone",
+          "sitar_taraf": "taraf_11",
+          "sitar_frets": "tied_gut_parda",
+          "sitar_pluck": "wire_mizrab",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_jawari_style": "sitar_jawari_open",
+          "sitar_gharana": "sitar_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.65,
+          "sitar_neck": 0.3,
+          "sitar_resonator": 0,
+          "sitar_jawari": 0.3,
+          "sitar_taraf": 0,
+          "sitar_frets": 0,
+          "sitar_pluck": 0,
+          "sitar_main_strings": -1.2,
+          "sitar_jawari_style": 0,
+          "sitar_gharana": 0.39
+        }
+      }
+    ],
+    "room": "strata_east_loft_nyc",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "modal_jazz_dorian_static",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

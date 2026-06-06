@@ -1,0 +1,74 @@
+{
+  "id": "mongolian_xoomii",
+  "name": "Khöömii (Mongolian overtone singing)",
+  "family": "global",
+  "lineage": "Mongolian throat-singing overtone-vocal-technique tradition, the canonical method of simultaneous fundamental-and-formant-overtone production via aryepiglottic-fold steppe-narrowing of the throat. Eight named sub-techniques: kharkhiraa deep-low-fundamental-with-loud-overtones, sygyt high-melodic-overtone-isolation, ezengileer rhythmic-jaw-vibration, dumchuktaar nasal-passage technique, shahaa fluttering-overtone-modulation, khoomei middle-register basic-style, bagalzuuryn-khoomei smooth-style, and khamryn-khoomei nostril-and-mouth combined-resonance. Practiced traditionally by Western-Mongolian Khalkha-Oirat herder communities, contextualized within nomadic-pastoralist horse-and-livestock work-song repertoire and shamanic-spirit-communication ritual. UNESCO intangible-heritage 2010-inscribed.",
+  "recipe": "classic early-2010s khöömii, drone Modal, overtone branch, buddhist ritual devotional beompae shōmyō. m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, traditional mongolian tuvan tradition tovshuur. mongolian ger interior. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 564,
+  "score": 84.022,
+  "config": {
+    "traditions": [
+      "mongolian_xoomii",
+      "beompae_korean",
+      "shomyo_japanese"
+    ],
+    "instruments": [
+      {
+        "id": "throat_singing_voice",
+        "slots": {
+          "throat_mechanism_root": "throat_mechanism_M1_compound_with_overtones",
+          "throat_overtone_target_region": "throat_overtone_8th_to_12th_partial",
+          "throat_singing_voice_region": "throat_singing_voice_himalayan_ritual"
+        },
+        "scores": {
+          "throat_mechanism_root": 16.38,
+          "throat_overtone_target_region": 9.23,
+          "throat_singing_voice_region": 5.459999999999999
+        }
+      },
+      {
+        "id": "morin_khuur",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "morin_khuur_use": "morin_khuur_long_song",
+          "morin_khuur_construction": "morin_khuur_modern_wood",
+          "morin_khuur_body_wood": "morin_khuur_sycamore",
+          "morin_khuur_strings": "morin_khuur_horsehair_canonical"
+        },
+        "scores": {
+          "bowed_technique": 1.8199999999999998,
+          "morin_khuur_use": 13.602875,
+          "morin_khuur_construction": 0.7036875,
+          "morin_khuur_body_wood": 5.59,
+          "morin_khuur_strings": 1.3
+        }
+      },
+      {
+        "id": "tovshuur",
+        "slots": {
+          "tovshuur_strings": "tovshuur_two",
+          "tovshuur_body": "tovshuur_carved_wood_hide"
+        },
+        "scores": {
+          "tovshuur_strings": 5.9799999999999995,
+          "tovshuur_body": 0.8218124999999998
+        }
+      }
+    ],
+    "room": "mongolian_ger_interior",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_khoomei_harmonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "id": "zeuhl_french",
+  "name": "Zeuhl (French progressive Magma)",
+  "family": "rock_punk",
+  "lineage": "1970s French progressive-rock subgenre invented by drummer-composer Christian Vander's Magma (founded 1969), characterized by Kobaïan invented-language vocals, complex polyrhythmic compositional structures, dark-symphonic orchestration, and explicit science-fiction mythological-narrative content. Magma's Mëkanïk Dëstruktïẁ Kömmandöh (1973), Köhntarkösz (1974), and Üdü Ẁüdü (1976) constitute the canonical core. The genre influenced subsequent French-progressive Univers Zéro, Art Zoyd, and Magma-affiliated solo projects.",
+  "recipe": "classic European mid-1970s zeuhl, distorted Rock, progressive rock branch, western modern art music second viennese school. thick, larynx lowered, tasteful, narrative. hiwatt amp British clean amp high wattage headroom basswood pau ferro humbucker electric guitar, hiwatt amp British clean amp high wattage headroom mahogany ernie ball slinky electric bass, walnut fiberskyn synthetic calf machine hammered symmetric pattern drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. intimate paris small studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 625,
+  "score": 343.34,
+  "config": {
+    "traditions": [
+      "zeuhl_french",
+      "les_six_french",
+      "second_viennese_school"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 11.349999999999994,
+          "voice_quality": 1.2349999999999997,
+          "voice_vibrato": 2.085,
+          "voice_articulation": 1.0999999999999999,
+          "voice_microtone": 15.074999999999998,
+          "voice_tradition": 2.2099999999999995,
+          "voice_mechanism_compound": 1.3650000000000002,
+          "voice_estill_quality": 0.9750000000000001,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_hiwatt",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 3.4000000000000004,
+          "amp_make": 6.694999999999999,
+          "body_wood": 2.6,
+          "neck_wood": 0.585,
+          "fretboard": 1.275,
+          "pickup_magnet": 1.035,
+          "pickup_winding": 1.035,
+          "string_material": 1.275,
+          "bridge": 0.585,
+          "scale_length": 2.6,
+          "string_gauge": 1.8749999999999998,
+          "finish": 0,
+          "string_tuning": 7.279999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_british_hiwatt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 1.9000000000000001,
+          "amp_make": 6.694999999999999,
+          "body_wood": 1.425,
+          "pickup_config": 0.9099999999999999,
+          "string_type": 11.785,
+          "scale_length_b": 0.9099999999999999,
+          "fretted_or_not": 0,
+          "bass_technique": 10.7
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "fiberskyn_drumhead",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b23",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 4.9399999999999995,
+          "shell_wood": 1.495,
+          "shell_thickness": 1.035,
+          "bearing_edges": 0.9099999999999999,
+          "drumhead": 2.09,
+          "snare_wires": 1.035,
+          "cymbal_alloy": 23.5,
+          "cymbal_hammering": 12.45,
+          "cymbal_lathing": 12.645,
+          "cymbal_finish": 1.495,
+          "drum_technique": 10.75
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.84,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 6,
+          "piano_rim": 6,
+          "piano_soundboard": 1.6999999999999997,
+          "piano_pinblock": 1.7499999999999998,
+          "piano_plate": 2.2099999999999995,
+          "piano_pitch_standard": 2.2749999999999995
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_marshall_plexi_1959",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

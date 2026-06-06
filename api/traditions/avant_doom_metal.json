@@ -1,0 +1,153 @@
+{
+  "id": "avant_doom_metal",
+  "name": "Avant-garde doom / funeral doom",
+  "family": "rock_punk",
+  "lineage": "1990s heavy-metal subgenre extending traditional doom-metal slow-tempo into extreme funereal-tempo (typically 30-50 BPM, sometimes far slower) with explicit funeral-procession-funereal-rite thematic content. Thergothon (Finland 1990s), Skepticism (Finland), Esoteric (UK), Mournful Congregation (Australia), and Bell Witch constitute the canonical funeral doom roster. Distinguished from broader doom by funeral doom's extreme tempo and explicit funereal-grief register.",
+  "recipe": "classic mid-1990s avant-garde doom / funeral doom, distorted Rock, doom branch, christian gospel ritual devotional black gospel sacred steel. thick, declaimed, tasteful, ornamental. orange amp British heavy crunch basswood nickel plated steel nickel humbucker electric guitar, orange amp British heavy crunch stainless steel roundwound riff driven electric bass, steel kevlar aramid extreme tension machine hammered drum kit. denver gothic basement studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 586,
+  "score": 420.9,
+  "config": {
+    "traditions": [
+      "avant_doom_metal",
+      "black_gospel_choir",
+      "sacred_steel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 5.245000000000002,
+          "voice_quality": 21.45,
+          "voice_vibrato": 0.735,
+          "voice_articulation": 1.8999999999999997,
+          "voice_microtone": 3.650000000000001,
+          "voice_tradition": 2.2099999999999995,
+          "voice_mechanism_compound": 11.649999999999999,
+          "voice_estill_quality": 1.5499999999999996,
+          "voice_speech_song": 3.989999999999999,
+          "voice_ensemble_config": 3.25,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 1.41
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_orange",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "c_standard"
+        },
+        "scores": {
+          "electric_technique": 21.700000000000003,
+          "amp_make": 22.945000000000004,
+          "body_wood": 6.33,
+          "neck_wood": 0.345,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.735,
+          "pickup_winding": 0.735,
+          "string_material": 2.504999999999999,
+          "bridge": 0.46499999999999997,
+          "scale_length": 6.374999999999999,
+          "string_gauge": 1.345,
+          "finish": 0,
+          "string_tuning": 10.195000000000002
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_s",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "electric_technique": 21.700000000000003,
+          "amp_make": 22.945000000000004,
+          "body_wood": 0.09,
+          "pickup_config": 0.9600000000000001,
+          "string_type": 3.75,
+          "scale_length_b": 0.735,
+          "fretted_or_not": 0.8699999999999999,
+          "bass_technique": 3.7
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "kevlar_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 3.25,
+          "shell_wood": 1.4249999999999994,
+          "shell_thickness": 0.24,
+          "bearing_edges": 1.0799999999999998,
+          "drumhead": 2.55,
+          "snare_wires": 0.045,
+          "cymbal_alloy": 14.295,
+          "cymbal_hammering": 3.6950000000000003,
+          "cymbal_lathing": 4.16,
+          "cymbal_finish": 0.345,
+          "drum_technique": 3.75
+        }
+      }
+    ],
+    "room": "denver_gothic_basement_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_british_orange_dirty",
+      "medium": "digital_high"
+    },
+    "tuning": "doom_sabbath_tritone_diminished",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

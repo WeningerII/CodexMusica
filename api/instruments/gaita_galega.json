@@ -1,0 +1,475 @@
+{
+  "id": "gaita_galega",
+  "name": "Gaita galega (Galician bagpipes)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gaita galega",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        },
+        {
+          "id": "wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "uilleann_pipes",
+            "biniou",
+            "highland_bagpipes",
+            "bombarde",
+            "recorder",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "shawm",
+            "zurna",
+            "mizmar",
+            "ghaita",
+            "ciaramella",
+            "duduk",
+            "mey"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ],
+          "default": true
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gaita_galega_drones",
+      "name": "Drone configuration",
+      "variants": [
+        {
+          "id": "gaita_galega_three_drones",
+          "default": true,
+          "name": "Three drones (ronco-bass, ronquillo-tenor, chillón-soprano)",
+          "descriptors": [
+            "gaita",
+            "galega",
+            "three-drone",
+            "iberian-celtic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "galician"
+          ]
+        },
+        {
+          "id": "gaita_galega_two_drones",
+          "name": "Two-drone older configuration",
+          "descriptors": [
+            "gaita",
+            "galega",
+            "archaic",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_galega_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "gaita_galega_alborada",
+          "default": true,
+          "name": "Alborada (dawn-procession piece)",
+          "descriptors": [
+            "alborada",
+            "gaita",
+            "processional",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "galician"
+          ]
+        },
+        {
+          "id": "gaita_galega_muiñeira",
+          "name": "Muiñeira (Galician 6/8 dance)",
+          "descriptors": [
+            "muiñeira",
+            "gaita",
+            "dance-driving",
+            "compound-duple"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "galician"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_galega_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "gaita_galega_boxwood",
+          "default": true,
+          "name": "Boxwood (canonical Galician)",
+          "descriptors": [
+            "boxwood-canonical-galician"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaita_galega_ebony",
+          "name": "Ebony (premium ceremonial)",
+          "descriptors": [
+            "ebony-premium-ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaita_galega_african_blackwood",
+          "name": "African blackwood (modern premium)",
+          "descriptors": [
+            "african-blackwood-modern-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_galega_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "gaita_galega_cane_canonical",
+          "default": true,
+          "name": "Cane double-reed Arundo donax (canonical Galician)",
+          "descriptors": [
+            "cane-arundo-donax-canonical-galician"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaita_galega_synthetic_reed",
+          "name": "Synthetic reeds (modern stable)",
+          "descriptors": [
+            "synthetic-reeds-modern-stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_galega_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "gaita_galega_goatskin_canonical",
+          "default": true,
+          "name": "Goatskin (canonical Galician)",
+          "descriptors": [
+            "goatskin-canonical-galician"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaita_galega_synthetic_bag",
+          "name": "Synthetic bag (modern stable)",
+          "descriptors": [
+            "synthetic-bag-modern-stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wind_articulation",
+      "default_variant": "wind_ornament_heavy"
+    },
+    {
+      "id": "gaita_galega_drones",
+      "name": "Drone configuration",
+      "variants": [
+        {
+          "id": "gaita_galega_three_drones",
+          "default": true,
+          "name": "Three drones (ronco-bass, ronquillo-tenor, chillón-soprano)",
+          "descriptors": [
+            "gaita",
+            "galega",
+            "three-drone",
+            "iberian-celtic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "galician"
+          ]
+        },
+        {
+          "id": "gaita_galega_two_drones",
+          "name": "Two-drone older configuration",
+          "descriptors": [
+            "gaita",
+            "galega",
+            "archaic",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_galega_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "gaita_galega_alborada",
+          "default": true,
+          "name": "Alborada (dawn-procession piece)",
+          "descriptors": [
+            "alborada",
+            "gaita",
+            "processional",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "galician"
+          ]
+        },
+        {
+          "id": "gaita_galega_muiñeira",
+          "name": "Muiñeira (Galician 6/8 dance)",
+          "descriptors": [
+            "muiñeira",
+            "gaita",
+            "dance-driving",
+            "compound-duple"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "galician"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_galega_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "gaita_galega_boxwood",
+          "default": true,
+          "name": "Boxwood (canonical Galician)",
+          "descriptors": [
+            "boxwood-canonical-galician"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaita_galega_ebony",
+          "name": "Ebony (premium ceremonial)",
+          "descriptors": [
+            "ebony-premium-ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaita_galega_african_blackwood",
+          "name": "African blackwood (modern premium)",
+          "descriptors": [
+            "african-blackwood-modern-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_galega_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "gaita_galega_cane_canonical",
+          "default": true,
+          "name": "Cane double-reed Arundo donax (canonical Galician)",
+          "descriptors": [
+            "cane-arundo-donax-canonical-galician"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaita_galega_synthetic_reed",
+          "name": "Synthetic reeds (modern stable)",
+          "descriptors": [
+            "synthetic-reeds-modern-stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_galega_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "gaita_galega_goatskin_canonical",
+          "default": true,
+          "name": "Goatskin (canonical Galician)",
+          "descriptors": [
+            "goatskin-canonical-galician"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaita_galega_synthetic_bag",
+          "name": "Synthetic bag (modern stable)",
+          "descriptors": [
+            "synthetic-bag-modern-stable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

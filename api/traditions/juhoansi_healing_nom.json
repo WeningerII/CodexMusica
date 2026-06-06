@@ -1,0 +1,68 @@
+{
+  "id": "juhoansi_healing_nom",
+  "name": "Ju|'hoansi healing songs (Kalahari)",
+  "family": "global",
+  "lineage": "Ju|'hoansi (formerly !Kung) trance-healing song tradition of the Nyae Nyae region of Namibia and adjacent Botswana Kalahari, central to the n|om trance-dance ceremony. Nocturnal gatherings around a fire-circle: women sit in concentric ring clapping and singing named medicine-songs (giraffe medicine, sun medicine, gemsbok medicine, honey medicine), while men dance in the outer ring until they enter !kia trance-state and lay hands on participants for healing. Vocal architecture features yodel-edge falsetto-and-chest-register alternation, hocketed interlocking pattern-cycles, and characteristic descending-melodic contours over staggered group ostinato. Gilbert Rouget's 1957 Smithsonian Folkways FE 4487 recordings (Bushmen Music and Pygmy Music), Lorna Marshall's 1950s-1980s Harvard Peabody documentation (published as Nyae Nyae !Kung Beliefs and Rites, 1999), and Emmanuelle Olivier's 1993-1995 doctoral fieldwork at the British Library Sound Archive constitute the documentary canon. The tradition predates by millennia the more recent Kalahari population entries, with linguistic and genetic evidence supporting deep continuity. Distinguished from Xhosa umngqokolo by Ju|'hoansi's polyphonic-ensemble-over-solo-overtone configuration; distinguished from Aka and Baka rainforest polyphony by Kalahari open-desert acoustic context and trance-healing functional framing.",
+  "recipe": "classic 1993-1995 ju|'hoansi healing songs, ritual Devotional, indigenous branch, vocal drone modal macedonian glasoechko male diaphonic alpine yodel. kargyraa, declaimed, melodic, continuous-phonation. outdoor kalahari fire circle. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 362,
+  "score": 174.09,
+  "config": {
+    "traditions": [
+      "juhoansi_healing_nom",
+      "macedonian_glasoechko",
+      "alpine_yodel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.12,
+          "voice_quality": 6.045,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.615,
+          "voice_microtone": 0.24,
+          "voice_tradition": 10.075,
+          "voice_mechanism_compound": 3.8449999999999998,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 18.265000000000004,
+          "voice_ensemble_config": 21.515000000000004,
+          "voice_ornament_system": 4.24,
+          "voice_pitch_organization": 4.029999999999999,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 4.29
+        }
+      }
+    ],
+    "room": "outdoor_kalahari_fire_circle",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

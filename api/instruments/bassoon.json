@@ -1,0 +1,467 @@
+{
+  "id": "bassoon",
+  "name": "Bassoon",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bassoon",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "bassoon_school",
+      "surface": false,
+      "name": "School",
+      "variants": [
+        {
+          "id": "bassoon_heckel",
+          "default": true,
+          "name": "Heckel (German/American)",
+          "descriptors": [
+            "low-overtone-rich",
+            "full",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bassoon_french",
+          "name": "Buffet French system",
+          "descriptors": [
+            "reedy",
+            "vibrant",
+            "french-orchestra"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassoon_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "bassoon_maple_canonical",
+          "default": true,
+          "name": "Mountain maple (canonical Heckel)",
+          "descriptors": [
+            "mountain-maple-canonical-heckel"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bassoon_palisander",
+          "name": "Palisander / rosewood (premium Heckel)",
+          "descriptors": [
+            "palisander-rosewood-premium-heckel"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "bassoon_polypropylene",
+          "name": "Polypropylene (student-tier Fox Renard)",
+          "descriptors": [
+            "polypropylene-student-tier-fox-renard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassoon_reed",
+      "surface": false,
+      "name": "Reed cane",
+      "variants": [
+        {
+          "id": "bassoon_glotin_cane",
+          "default": true,
+          "name": "Glotin Var French cane (canonical Heckel double-reed)",
+          "descriptors": [
+            "glotin-var-french-cane-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bassoon_rieger_cane",
+          "name": "Rieger German cane (premium)",
+          "descriptors": [
+            "rieger-german-cane-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bassoon_donati_cane",
+          "name": "Donati Spanish cane (Buffet French-system)",
+          "descriptors": [
+            "donati-spanish-cane-buffet-french-system"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassoon_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "bassoon_orch",
+          "default": true,
+          "name": "Orchestral standard",
+          "descriptors": [
+            "foundation-bass",
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bassoon_chamber",
+          "name": "Chamber / wind quintet",
+          "descriptors": [
+            "ensemble",
+            "middle-voice",
+            "standard"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bassoon_concerto",
+          "name": "Solo concerto",
+          "descriptors": [
+            "featured",
+            "virtuosic",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bassoon_school",
+      "surface": false,
+      "name": "School",
+      "variants": [
+        {
+          "id": "bassoon_heckel",
+          "default": true,
+          "name": "Heckel (German/American)",
+          "descriptors": [
+            "low-overtone-rich",
+            "full",
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bassoon_french",
+          "name": "Buffet French system",
+          "descriptors": [
+            "reedy",
+            "vibrant",
+            "french-orchestra"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassoon_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "bassoon_maple_canonical",
+          "default": true,
+          "name": "Mountain maple (canonical Heckel)",
+          "descriptors": [
+            "mountain-maple-canonical-heckel"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bassoon_palisander",
+          "name": "Palisander / rosewood (premium Heckel)",
+          "descriptors": [
+            "palisander-rosewood-premium-heckel"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "bassoon_polypropylene",
+          "name": "Polypropylene (student-tier Fox Renard)",
+          "descriptors": [
+            "polypropylene-student-tier-fox-renard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassoon_reed",
+      "surface": false,
+      "name": "Reed cane",
+      "variants": [
+        {
+          "id": "bassoon_glotin_cane",
+          "default": true,
+          "name": "Glotin Var French cane (canonical Heckel double-reed)",
+          "descriptors": [
+            "glotin-var-french-cane-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bassoon_rieger_cane",
+          "name": "Rieger German cane (premium)",
+          "descriptors": [
+            "rieger-german-cane-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bassoon_donati_cane",
+          "name": "Donati Spanish cane (Buffet French-system)",
+          "descriptors": [
+            "donati-spanish-cane-buffet-french-system"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bassoon_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "bassoon_orch",
+          "default": true,
+          "name": "Orchestral standard",
+          "descriptors": [
+            "foundation-bass",
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bassoon_chamber",
+          "name": "Chamber / wind quintet",
+          "descriptors": [
+            "ensemble",
+            "middle-voice",
+            "standard"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bassoon_concerto",
+          "name": "Solo concerto",
+          "descriptors": [
+            "featured",
+            "virtuosic",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "id": "east_coast_hip_hop_classic",
+  "name": "East Coast hip-hop (classic NY)",
+  "family": "hip_hop",
+  "lineage": "New York City classic hip-hop tradition encompassing Bronx-origin 1970s breakbeat-DJ-and-MC culture through 1990s \"golden age\" of Native Tongues, Boom Bap, and Wu-Tang Clan-led hardcore-NY sound. Characterized by sample-based production drawing on jazz, soul, and funk record collections, virtuoso lyrical-technique emphasis, and dense urban-NY cultural-narrative content. The Premier-Pete-Rock-RZA production lineage and the canonical Rakim-Nas-Biggie-Jay-Z MC tradition define the canonical East Coast aesthetic.",
+  "recipe": "classic mid-1970s east coast hip-hop, mc Rhythm, east coast branch, us hip hop conscious rap conscious hip-hop. thick, rap, narrative, equal tempered. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sampled chopped turntable. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 485,
+  "score": 294.904,
+  "config": {
+    "traditions": [
+      "east_coast_hip_hop_classic",
+      "conscious_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 9.640249999999998,
+          "voice_quality": 15.72325,
+          "voice_vibrato": 0.23025,
+          "voice_articulation": 11.38375,
+          "voice_microtone": 6.300000000000001,
+          "voice_tradition": 7.0155,
+          "voice_mechanism_compound": 3.3637500000000005,
+          "voice_estill_quality": 3.4130000000000007,
+          "voice_speech_song": 12.106499999999999,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0.0735,
+          "voice_pitch_organization": 3.1654999999999998,
+          "voice_processing_chain": 8.555,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 6.763,
+          "sampler_archetypes": 11.7,
+          "sampler_bit_depth": 1.9500000000000002,
+          "sampler_workflow": 8.681499999999998,
+          "sampler_classic_context": 17.225
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 7.0545,
+          "drum_machine_808_context": 3.3799999999999994,
+          "tr808_production_origin": 2.4049999999999994
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 6.763,
+          "turntable_technique": 12.54375
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

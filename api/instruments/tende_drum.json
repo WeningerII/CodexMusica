@@ -1,0 +1,96 @@
+{
+  "id": "tende_drum",
+  "name": "Tendé (Tuareg mortar-drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tendé",
+  "parts": [
+    {
+      "id": "tende_drum_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "tende_drum_wooden_mortar_goatskin_canonical",
+          "default": true,
+          "name": "Wooden mortar with stretched goatskin head, struck in alternation by two women (canonical)",
+          "descriptors": [
+            "wooden-mortar-goatskin-struck-alternation-canonical-tuareg"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "tuareg-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tende_drum_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "tende_drum_pestle_rhythm_canonical",
+          "default": true,
+          "name": "Tendé pestle-rhythm song accompaniment (canonical Saharan)",
+          "descriptors": [
+            "pestle-rhythm-song-canonical-saharan"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "tuareg-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tende_drum_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "tende_drum_wooden_mortar_goatskin_canonical",
+          "default": true,
+          "name": "Wooden mortar with stretched goatskin head, struck in alternation by two women (canonical)",
+          "descriptors": [
+            "wooden-mortar-goatskin-struck-alternation-canonical-tuareg"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "tuareg-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tende_drum_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "tende_drum_pestle_rhythm_canonical",
+          "default": true,
+          "name": "Tendé pestle-rhythm song accompaniment (canonical Saharan)",
+          "descriptors": [
+            "pestle-rhythm-song-canonical-saharan"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "tuareg-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

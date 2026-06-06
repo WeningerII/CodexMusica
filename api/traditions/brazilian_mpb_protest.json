@@ -1,0 +1,104 @@
+{
+  "id": "brazilian_mpb_protest",
+  "name": "Brazilian MPB-era protest (música popular brasileira during dictatorship)",
+  "family": "global",
+  "lineage": "Brazilian Música Popular Brasileira (MPB) protest-song tradition continuous from 1964-1985 Brazilian-military-dictatorship-era political-songwriter scene; centered on Chico Buarque (the foundational figure whose subtle-allegorical anti-dictatorship songs evaded censorship most consistently), Caetano Veloso, Gilberto Gil, Geraldo Vandré, Milton Nascimento, Edu Lobo",
+  "recipe": "classic North American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry milonga greek éntechno politicized. thick, intimate aspirated, chest resonance low mid, continuous-phonation. classical nylon-string guitar, jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 545,
+  "score": 134.772,
+  "config": {
+    "traditions": [
+      "brazilian_mpb_protest",
+      "milonga",
+      "greek_entechno_politicized"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 0.8957142857142857,
+          "voice_quality": 8.569999999999999,
+          "voice_vibrato": 0.7457142857142858,
+          "voice_articulation": 1.69,
+          "voice_microtone": 0.045,
+          "voice_tradition": 5.3,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 9.035,
+          "voice_ensemble_config": 2.21,
+          "voice_ornament_system": 3.7,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 1.1263392857142855
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "thumb_attack_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.8499999999999999,
+          "string_tuning": 0,
+          "top_wood_classical": 0.39,
+          "bracing_classical": 0.7457142857142858,
+          "string_classical": 0.9570535714285715,
+          "attack_technique_cl": 1.5
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_portuguese",
+          "cavaquinho_context": "cavaquinho_choro",
+          "cavaquinho_body_wood": "cavaquinho_jacaranda",
+          "cavaquinho_strings": "cavaquinho_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.325,
+          "cavaquinho_origin": 0.8700000000000001,
+          "cavaquinho_context": 10.4,
+          "cavaquinho_body_wood": 1.1049999999999998,
+          "cavaquinho_strings": 0.7149999999999999
+        }
+      }
+    ],
+    "room": "estudios_scatena_sp",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "transformer_solid_state",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "samba_2_4_telecoteco",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "id": "venice_carnevale",
+  "name": "Venetian Carnevale (masquerade-ball processional)",
+  "family": "global",
+  "lineage": "Venetian Carnevale tradition documented from medieval-Venetian Carnival celebration (the documented Venetian-Carnevale lineage extends to 11th-12th-century with the canonical post-1268 Doge-mandated Giovedi Grasso celebration) through 18th-century peak-Carnevale era through 1797-Napoleonic suppression through 1979 modern-revival into modern Venice Carnevale continuous practice",
+  "recipe": "classic late-1260s venetian carnevale, carnival Processional, European branch, American south carnival processional, European wedding, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian wedding cantu and launeddas music. false fold engaged, tasteful, continuous-phonation, Mediterranean demotic vocal. concert modern carbon fiber classical nylon-string guitar, synthetic magic rosin modern acrylic base drone like fiddle, boxwood canonical renaissance Baroque recorder. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 658,
+  "score": 194.6,
+  "config": {
+    "traditions": [
+      "venice_carnevale",
+      "croatian_klapa_dalmatian",
+      "sardinian_wedding_cantu_launeddas"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 3.185,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 1.69,
+          "voice_microtone": 0.15,
+          "voice_tradition": 7.664999999999999,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 2.385,
+          "voice_speech_song": 3.055,
+          "voice_ensemble_config": 2.99,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 2.8600000000000003,
+          "voice_processing_chain": 1.885,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.8499999999999999,
+          "string_tuning": 0,
+          "top_wood_classical": 0.39,
+          "bracing_classical": 3.3799999999999994,
+          "string_classical": 3.3799999999999994,
+          "attack_technique_cl": 0.195
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 4.115,
+          "fiddle_strings": 3.3799999999999994,
+          "fiddle_bow": 7.474999999999999,
+          "fiddle_mute": 0.315,
+          "fiddle_articulation": 0.26999999999999996
+        }
+      },
+      {
+        "id": "recorder",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "recorder_size": "alto_recorder",
+          "recorder_context": "recorder_baroque_solo",
+          "recorder_body_wood": "recorder_boxwood_canonical"
+        },
+        "scores": {
+          "wind_articulation": 1.56,
+          "recorder_size": 0.39,
+          "recorder_context": 3.3799999999999994,
+          "recorder_body_wood": 3.3149999999999995
+        }
+      }
+    ],
+    "room": "outdoor_dalmatian_square",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

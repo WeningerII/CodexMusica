@@ -1,0 +1,128 @@
+{
+  "id": "uyghur_muqam",
+  "name": "Uyghur On Ikki Muqam (Twelve Muqams, UNESCO 2008)",
+  "family": "classical",
+  "lineage": "Uyghur On Ikki Muqam (\"Twelve Muqams\") classical Central Asian art-music tradition of the Uyghur Turkic-Muslim population of the Tarim Basin (Xinjiang). UNESCO Masterpiece 2005, Representative List 2008. The twelve canonical muqamat — Rak, Chebbiyat, Mushavrek, Charigah, Pengigah, Ozhal, Echeh, Ushshaq, Bayat, Nava, Sigah, Iraq — each comprises three sections: chong naghma free-rhythm great-song suite; dastan metrically-bound narrative-song; faster mashrap social-dance section. Turdi Akhun in the 1950s codified recensions; the Xinjiang Muqam Ensemble anchors institutional transmission.",
+  "recipe": "classic uyghur on ikki muqam, art Music, middle eastern classical branch, Persian arab improv improv on frame turkish-romani çümbüş music tarab. vocal fry, chest resonance low mid, narrative, maqam neutral step. mulberry bowl canonical kurdish steel modern tanbur persian, turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato. bukhara shashmaqam courtyard chamber. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 765,
+  "score": 280.167,
+  "config": {
+    "traditions": [
+      "uyghur_muqam",
+      "turkish_romani_cumbus",
+      "arab_tarab"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.5138749999999999,
+          "voice_quality": 0.20049999999999998,
+          "voice_vibrato": 4.9399999999999995,
+          "voice_articulation": 1.0999999999999999,
+          "voice_microtone": 2.7300000000000004,
+          "voice_tradition": 17.55,
+          "voice_mechanism_compound": 13.758,
+          "voice_estill_quality": 10.902749999999997,
+          "voice_speech_song": 12.094499999999998,
+          "voice_ensemble_config": 3.120000000000001,
+          "voice_ornament_system": 15.950624999999999,
+          "voice_pitch_organization": 16.61375,
+          "voice_processing_chain": 2.6197500000000002,
+          "voice_multitrack_stack": 1.726875
+        }
+      },
+      {
+        "id": "tanbur_persian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "tanbur_use": "tanbur_yarsan",
+          "tanbur_persian_strings": "tanbur_persian_three",
+          "tanbur_persian_body_wood": "tanbur_mulberry_body",
+          "tanbur_persian_string_material": "tanbur_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.5,
+          "tanbur_use": 0.255,
+          "tanbur_persian_strings": 2.4693749999999994,
+          "tanbur_persian_body_wood": 1.69,
+          "tanbur_persian_string_material": 1.69
+        }
+      },
+      {
+        "id": "dutar",
+        "slots": {
+          "dutar_body": "dutar_turkmen_long",
+          "dutar_strings": "dutar_silk_traditional",
+          "dutar_tradition": "dutar_shashmaqam_bukharan"
+        },
+        "scores": {
+          "dutar_body": 1.69,
+          "dutar_strings": 1.69,
+          "dutar_tradition": 6.629999999999999
+        }
+      },
+      {
+        "id": "daf",
+        "slots": {
+          "daf_rings": "daf_with_rings",
+          "daf_context": "daf_classical",
+          "daf_shell_wood": "daf_walnut_canonical",
+          "daf_head_material": "daf_goat_skin_canonical",
+          "daf_jingle_metal": "daf_brass_rings"
+        },
+        "scores": {
+          "daf_rings": 0.2415,
+          "daf_context": 12.219999999999999,
+          "daf_shell_wood": 3.5100000000000002,
+          "daf_head_material": 1.69,
+          "daf_jingle_metal": 1.69
+        }
+      },
+      {
+        "id": "sato",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "sato_body": "sato_mulberry_pear_long_neck",
+          "sato_tradition": "sato_shashmaqam_canonical"
+        },
+        "scores": {
+          "bowed_technique": 9.5,
+          "sato_body": 1.6478749999999998,
+          "sato_tradition": 6.629999999999999
+        }
+      }
+    ],
+    "room": "bukhara_shashmaqam_courtyard_chamber",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

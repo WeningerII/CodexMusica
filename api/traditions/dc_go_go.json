@@ -1,0 +1,223 @@
+{
+  "id": "dc_go_go",
+  "name": "DC go-go (1970s-onward)",
+  "family": "hip_hop",
+  "lineage": "Washington D.C.-specific funk subgenre developed in mid-1970s by Chuck Brown (1936-2012), characterized by continuous percussion-and-bass-and-vocal groove without breaks between songs (the \"go-go\" of perpetual-motion), call-and-response between bandleader and audience, and Latin-percussion (congas, timbales, cowbell) integration with funk-band horn-section. Trouble Funk, Rare Essence, Experience Unlimited, and Backyard Band extended the canonical roster.",
+  "recipe": "classic dc go-go, functional Song, soul R&B branch, funk percussive groove percussion future funk. thick, blues-shouter, chest resonance low mid, narrative. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, cowhide mid tier siam oak mid tier modern open slap hand drum congas, open slap hand drum timbales, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, tenor ensemble honking attack saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 901,
+  "score": 413.079,
+  "config": {
+    "traditions": [
+      "dc_go_go",
+      "future_funk_vaporwave",
+      "funk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 3.6475000000000004,
+          "voice_quality": 3.853500000000002,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.6,
+          "voice_microtone": 2.8654999999999995,
+          "voice_tradition": 7.264500000000001,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 3.6550000000000002,
+          "voice_speech_song": 15.404999999999998,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 1.4049999999999998,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 17.352999999999998,
+          "voice_multitrack_stack": 4.2459999999999996
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 15.231499999999999,
+          "amp_make": 15.567999999999998,
+          "body_wood": 3.38,
+          "neck_wood": 1.69,
+          "fretboard": 1.625,
+          "pickup_magnet": 0.42,
+          "pickup_winding": 0.42,
+          "string_material": 1.5550000000000002,
+          "bridge": 1.69,
+          "scale_length": 3.38,
+          "string_gauge": 1.69,
+          "finish": 0,
+          "string_tuning": 3.38
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 15.2,
+          "amp_make": 5.7655,
+          "body_wood": 1.69,
+          "pickup_config": 0.6015,
+          "string_type": 6.5,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.9099999999999999,
+          "bass_technique": 15.2
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 10.009999999999998,
+          "shell_wood": 1.5865,
+          "shell_thickness": 0,
+          "bearing_edges": 1.69,
+          "drumhead": 1.69,
+          "snare_wires": 1.69,
+          "cymbal_alloy": 1.4049999999999998,
+          "cymbal_hammering": -0.035,
+          "cymbal_lathing": 2.4699999999999998,
+          "cymbal_finish": 1.5550000000000002,
+          "drum_technique": 10.009999999999998
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 3.8675,
+          "conga_set": 0.258,
+          "conga_skin": 1.69,
+          "conga_shell_wood": 1.69
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "percussion_technique": 3.8675,
+          "timbales_shell": 0.756,
+          "timbales_context": 0.36750000000000005
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 7.396,
+          "brass_size": 1.5550000000000002,
+          "trumpet_mouthpiece": 1.625,
+          "brass_mute": 0.1365,
+          "trumpet_technique": 7.396,
+          "trumpet_bell_metal": 1.69,
+          "trumpet_maker_school": 1.69
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 7.396,
+          "sax_size": 3.6500000000000004,
+          "sax_reed": 1.5550000000000002,
+          "sax_body_alloy": -0.035,
+          "sax_mouthpiece": 1.5550000000000002,
+          "sax_technique": 3.65,
+          "sax_maker_school": 0.6599999999999999
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

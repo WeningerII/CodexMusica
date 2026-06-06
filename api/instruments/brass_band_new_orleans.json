@@ -1,0 +1,232 @@
+{
+  "id": "brass_band_new_orleans",
+  "name": "New Orleans brass band",
+  "family": "ensemble",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "NOLA brass band",
+  "parts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "nola_trumpets",
+          "default": true,
+          "name": "Trumpets (2-3)",
+          "descriptors": [
+            "lead"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_trombones",
+          "name": "Trombones (1-2)",
+          "descriptors": [
+            "glissando"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_saxes",
+          "name": "Saxophones (alto / tenor)",
+          "descriptors": [
+            "low-overtone-rich",
+            "section-blend",
+            "melodic-countersignature"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_sousaphone",
+          "name": "Sousaphone (bass-line)",
+          "descriptors": [
+            "walking-bass",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_snare",
+          "name": "Snare drum",
+          "descriptors": [
+            "rolling"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_bass_drum",
+          "name": "Bass drum (with cymbal)",
+          "descriptors": [
+            "second-line"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era / school",
+      "variants": [
+        {
+          "id": "nola_traditional",
+          "default": true,
+          "name": "Traditional (heritage-band style)",
+          "descriptors": [
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_modern_brass",
+          "name": "Modern (hip-hop-and-funk-infused)",
+          "descriptors": [
+            "contemporary",
+            "virtuoso",
+            "crossover"
+          ],
+          "match_tokens": [
+            "modern",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "nola_trumpets",
+          "default": true,
+          "name": "Trumpets (2-3)",
+          "descriptors": [
+            "lead"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_trombones",
+          "name": "Trombones (1-2)",
+          "descriptors": [
+            "glissando"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_saxes",
+          "name": "Saxophones (alto / tenor)",
+          "descriptors": [
+            "low-overtone-rich",
+            "section-blend",
+            "melodic-countersignature"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_sousaphone",
+          "name": "Sousaphone (bass-line)",
+          "descriptors": [
+            "walking-bass",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_snare",
+          "name": "Snare drum",
+          "descriptors": [
+            "rolling"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_bass_drum",
+          "name": "Bass drum (with cymbal)",
+          "descriptors": [
+            "second-line"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era / school",
+      "variants": [
+        {
+          "id": "nola_traditional",
+          "default": true,
+          "name": "Traditional (heritage-band style)",
+          "descriptors": [
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "traditional",
+            "folk-tradition",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "nola_modern_brass",
+          "name": "Modern (hip-hop-and-funk-infused)",
+          "descriptors": [
+            "contemporary",
+            "virtuoso",
+            "crossover"
+          ],
+          "match_tokens": [
+            "modern",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

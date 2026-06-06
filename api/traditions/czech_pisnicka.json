@@ -1,0 +1,87 @@
+{
+  "id": "czech_pisnicka",
+  "name": "Czech písnička",
+  "family": "global",
+  "lineage": "Czech songwriter folk-poetic song tradition codified through Karel Kryl (the émigré protest voice of the 1968 Prague Spring), Jaromír Nohavica (the working-class storyteller), Vladimír Mišík (the rock-adjacent variant), Hutka, the Plastic People of the Universe (samizdat psychedelic-rock variant), and the broader Czech literary-poetic song tradition under and after Communist rule",
+  "recipe": "classic North American late-1960s czech písnička, ballad Poetry, Slavic bard branch, chanson fado ballad poetry morna cape verdean batuko of santiago island. thick, lament wail, melodic, punctuated. fingerpicked acoustic guitar. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 433,
+  "score": 163.067,
+  "config": {
+    "traditions": [
+      "czech_pisnicka",
+      "morna",
+      "cape_verdean_batuko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 8.645,
+          "voice_quality": 2.2749999999999995,
+          "voice_vibrato": 0.9944999999999999,
+          "voice_articulation": 0.7395,
+          "voice_microtone": 4.900000000000001,
+          "voice_tradition": 8.775,
+          "voice_mechanism_compound": 0.6,
+          "voice_estill_quality": 1.2349999999999997,
+          "voice_speech_song": 5.915,
+          "voice_ensemble_config": 4.55,
+          "voice_ornament_system": 1.17,
+          "voice_pitch_organization": 0.885,
+          "voice_processing_chain": 2.9955000000000003,
+          "voice_multitrack_stack": 2.004
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood": "cedar_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 6.4495000000000005,
+          "string_tuning": 0,
+          "top_wood": 0.5595000000000001,
+          "back_sides": 0.609,
+          "string_acoustic": 0.5595000000000001,
+          "acoustic_om_technique": 6.4495000000000005
+        }
+      }
+    ],
+    "room": "prague_supraphon_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "folk_fingerstyle_alternating_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

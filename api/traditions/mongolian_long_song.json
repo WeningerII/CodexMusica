@@ -1,0 +1,96 @@
+{
+  "id": "mongolian_long_song",
+  "name": "Mongolian long-song (urtyn duu)",
+  "family": "global",
+  "lineage": "Mongolian urtyn-duu ceremonial-long-song tradition with sustained-melismatic vocal-line over morin-khuur horse-head-fiddle drone-accompaniment, the canonical singing style of the inner-Asian steppe nomadic-pastoralist horse-and-herder culture. UNESCO-inscribed intangible-cultural-heritage 2008-onward, with three regional variants (Eastern Khalkha aristocratic-court style, Western Oirat folk-rural style, Southern Inner-Mongolia diasporic style). Long-songs unfold over 5-20 minute durations through ornamental-throat-glottal techniques (kazargai, shuranhai), strict-textual three-line couplets typically about horses, mountains, ancestors, and steppe-landscape, and free-rhythm ametrical pulse anchored only by breath-phrase boundaries.",
+  "recipe": "classic modern mongolian long-song, drone Modal, heterophonic branch, overtone drone modal tuvan kargyraa subharmonic throat-singing tuvan sygyt high-whistle overtone. sygyt, false fold engaged, overtone rich sustained, unrestrained. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, mongolian tuvan tradition wood hide tovshuur. mongolian ger interior. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 523,
+  "score": 491.602,
+  "config": {
+    "traditions": [
+      "mongolian_long_song",
+      "tuvan_kargyraa",
+      "tuvan_sygyt"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "khoomei_tuvan_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_solo_over_choral_drone",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 16.574999999999996,
+          "voice_quality": 4.355,
+          "voice_vibrato": 3.2414999999999994,
+          "voice_articulation": 1.2349999999999999,
+          "voice_microtone": 2.6649999999999996,
+          "voice_tradition": 16.639999999999997,
+          "voice_mechanism_compound": 16.509999999999994,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 10.724999999999994,
+          "voice_ensemble_config": 9.88,
+          "voice_ornament_system": 1.945,
+          "voice_pitch_organization": 20.735,
+          "voice_processing_chain": 4.4864999999999995,
+          "voice_multitrack_stack": 3.25
+        }
+      },
+      {
+        "id": "morin_khuur",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "morin_khuur_use": "morin_khuur_long_song",
+          "morin_khuur_construction": "morin_khuur_modern_wood",
+          "morin_khuur_body_wood": "morin_khuur_sycamore",
+          "morin_khuur_strings": "morin_khuur_horsehair_canonical"
+        },
+        "scores": {
+          "bowed_technique": 7.345000000000001,
+          "morin_khuur_use": 27.1985,
+          "morin_khuur_construction": 1.155,
+          "morin_khuur_body_wood": 6.239999999999998,
+          "morin_khuur_strings": 2.08
+        }
+      },
+      {
+        "id": "tovshuur",
+        "slots": {
+          "tovshuur_strings": "tovshuur_two",
+          "tovshuur_body": "tovshuur_carved_wood_hide"
+        },
+        "scores": {
+          "tovshuur_strings": 7.019999999999998,
+          "tovshuur_body": 1.515
+        }
+      }
+    ],
+    "room": "mongolian_ger_interior",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_khoomei_harmonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

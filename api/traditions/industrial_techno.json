@@ -1,0 +1,63 @@
+{
+  "id": "industrial_techno",
+  "name": "Industrial techno (2010s London-school distorted machine techno)",
+  "family": "electronic",
+  "lineage": "2010s techno subgenre emphasizing industrial-electronic textures, distorted-machine percussion, and unforgiving-mechanical aesthetic over melodic content. Perc Trax label (founded 2003 by Ali Wells, peak influence 2010s), Downwards (Regis label), Sandwell District collective, and Veronica Vasicka's Minimal Wave/Cititrax labels anchored the canonical sound. Cross-pollination with EBM, post-industrial, and dark-techno informed parallel Berlin Berghain underground.",
+  "recipe": "classic industrial techno, electronic Dance, techno branch, industrial noise experimental electric dark electro / aggrotech. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, analog synth. no single room 2015-present distributed distributed production. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 401,
+  "score": 20.047,
+  "config": {
+    "traditions": [
+      "industrial_techno",
+      "ebm_european_body",
+      "dark_electro_aggrotech"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 0,
+          "drum_machine_808_context": 0.9085000000000001,
+          "tr808_production_origin": 2.535
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "oscillator": 0.9535,
+          "filter_topology": 0.8320000000000001,
+          "envelope": 0.423,
+          "modulation": 0.1365
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "id": "mardi_gras_indians",
+  "name": "New Orleans Mardi Gras Indians",
+  "family": "global",
+  "lineage": "New Orleans Mardi Gras Indian tradition continuous from mid-19th-century Afro-American-and-Native-American cultural exchange in New Orleans through 20th-century continuous tribal-performance into modern New Orleans continuous Mardi Gras practice; the Mardi Gras Indian \"tribes\" (Wild Magnolias, Wild Tchoupitoulas, Golden Eagles, Black Eagles) perform handmade-feathered-suit processional with characteristic call-and-response chants",
+  "recipe": "classic modern new orleans mardi gras indians, carnival Processional, American south branch, Caribbean carnival processional, sub saharan African praise song, African diasporic funeral lament yoruba ìrèmọjẹ bahamian junkanoo. low dynamic level, tasteful, continuous-phonation, Yoruba tonal vocal. tambourine orch, synthetic remo modern hands layered tar frame drum. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 527,
+  "score": 137.837,
+  "config": {
+    "traditions": [
+      "mardi_gras_indians",
+      "yoruba_iremoje",
+      "caribbean_junkanoo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 4.875,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0.045,
+          "voice_tradition": 13.325,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 7.344999999999998,
+          "voice_ensemble_config": 6.759999999999998,
+          "voice_ornament_system": 3.055,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 1.2,
+          "voice_multitrack_stack": 0.48
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.195,
+          "tambourine_orch_context": 0.195
+        }
+      },
+      {
+        "id": "tar_frame_drum",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "tar_size": "tar_large",
+          "tar_frame_drum_context": "tar_frame_drum_art",
+          "tar_frame_shell_wood": "tar_frame_walnut",
+          "tar_frame_head": "tar_frame_synthetic"
+        },
+        "scores": {
+          "percussion_technique": 3.2,
+          "tar_size": 0,
+          "tar_frame_drum_context": 1.69,
+          "tar_frame_shell_wood": 0.756,
+          "tar_frame_head": 1.69
+        }
+      }
+    ],
+    "room": "havana_solar_outdoor_courtyard",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

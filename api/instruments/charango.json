@@ -1,0 +1,459 @@
+{
+  "id": "charango",
+  "name": "Charango (Andean compact lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "charango",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "charango_back",
+      "name": "Back material",
+      "variants": [
+        {
+          "id": "charango_armadillo",
+          "name": "Armadillo shell (pre-1973 historical canonical)",
+          "descriptors": [
+            "authentic",
+            "low-mid-rich-spectrum",
+            "rare",
+            "armadillo-shell",
+            "shell",
+            "pre-1973-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "cites-app-iii"
+          ]
+        },
+        {
+          "id": "charango_wood",
+          "default": true,
+          "name": "Wood (modern, sustainable)",
+          "descriptors": [
+            "standard",
+            "consistent",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "charango_naranjillo",
+          "name": "Naranjillo (Bolivian / Peruvian premium luthier wood)",
+          "descriptors": [
+            "naranjillo",
+            "andean-premium-wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "charango_jacaranda",
+          "name": "Jacarandá (Brazilian rosewood, premium)",
+          "descriptors": [
+            "jacaranda",
+            "brazilian-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "charango_top_wood",
+      "surface": false,
+      "name": "Top wood (tapa)",
+      "variants": [
+        {
+          "id": "charango_cedar_top",
+          "default": true,
+          "name": "Cedar (canonical Andean)",
+          "descriptors": [
+            "cedar-canonical",
+            "andean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "charango_spruce_top",
+          "name": "Spruce (modern alternative)",
+          "descriptors": [
+            "spruce-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "charango_pine_top",
+          "name": "Pine (traditional rural)",
+          "descriptors": [
+            "pine-traditional-rural"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "charango_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "charango_5_double",
+          "default": true,
+          "name": "5 doubled courses (canonical Andean)",
+          "descriptors": [
+            "andean-classical"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "charango_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "charango_nylon_canonical",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "charango_gut_historical",
+          "name": "Gut (pre-1950s Andean historical)",
+          "descriptors": [
+            "gut-pre-1950s-andean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "charango_fluorocarbon",
+          "name": "Fluorocarbon (modern luthier alternative)",
+          "descriptors": [
+            "fluorocarbon-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "charango_back",
+      "name": "Back material",
+      "variants": [
+        {
+          "id": "charango_armadillo",
+          "name": "Armadillo shell (pre-1973 historical canonical)",
+          "descriptors": [
+            "authentic",
+            "low-mid-rich-spectrum",
+            "rare",
+            "armadillo-shell",
+            "shell",
+            "pre-1973-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "cites-app-iii"
+          ]
+        },
+        {
+          "id": "charango_wood",
+          "default": true,
+          "name": "Wood (modern, sustainable)",
+          "descriptors": [
+            "standard",
+            "consistent",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "charango_naranjillo",
+          "name": "Naranjillo (Bolivian / Peruvian premium luthier wood)",
+          "descriptors": [
+            "naranjillo",
+            "andean-premium-wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "charango_jacaranda",
+          "name": "Jacarandá (Brazilian rosewood, premium)",
+          "descriptors": [
+            "jacaranda",
+            "brazilian-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "charango_top_wood",
+      "surface": false,
+      "name": "Top wood (tapa)",
+      "variants": [
+        {
+          "id": "charango_cedar_top",
+          "default": true,
+          "name": "Cedar (canonical Andean)",
+          "descriptors": [
+            "cedar-canonical",
+            "andean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "charango_spruce_top",
+          "name": "Spruce (modern alternative)",
+          "descriptors": [
+            "spruce-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "charango_pine_top",
+          "name": "Pine (traditional rural)",
+          "descriptors": [
+            "pine-traditional-rural"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "charango_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "charango_5_double",
+          "default": true,
+          "name": "5 doubled courses (canonical Andean)",
+          "descriptors": [
+            "andean-classical"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "charango_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "charango_nylon_canonical",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "charango_gut_historical",
+          "name": "Gut (pre-1950s Andean historical)",
+          "descriptors": [
+            "gut-pre-1950s-andean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "charango_fluorocarbon",
+          "name": "Fluorocarbon (modern luthier alternative)",
+          "descriptors": [
+            "fluorocarbon-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ]
+}

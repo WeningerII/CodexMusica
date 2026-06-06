@@ -1,0 +1,132 @@
+{
+  "id": "turkish_romani_cumbus",
+  "name": "Turkish-Romani çümbüş music",
+  "family": "global",
+  "lineage": "Anatolian-Romani urban entertainment tradition centered around the Sulukule and Edirnekapı Romani quarters of Istanbul and the broader Turkish Romani diaspora across Anatolia; characteristic instrument the çümbüş (a banjo-oud hybrid invented 1930 by Zeynel Abidin Cümbüş), performed alongside kanun, darbuka, clarinet, violin for wedding-and-celebration repertoire",
+  "recipe": "classic North American early-1930s turkish-romani çümbüş music, improv On Frame, Persian arab improv branch, med east poetic ballad poetry, klezmer improv improv on frame ethiopian azmari minstrel-poet pontic greek music. vocal fry, pure, maqam neutral step, Mediterranean demotic vocal. aluminum rim zeynel abidin skin head modern banjo like nylon oud courses cumbus, kanun tortoiseshell traditional kanun, goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka, ebonite hard rubber klezmer tradition clarinet. budapest carpathian csarda tavern. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 713,
+  "score": 171.156,
+  "config": {
+    "traditions": [
+      "turkish_romani_cumbus",
+      "azmari_ethiopian",
+      "pontic_greek"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.5206250000000001,
+          "voice_quality": 0,
+          "voice_vibrato": 0.8700000000000001,
+          "voice_articulation": 0.050624999999999996,
+          "voice_microtone": 7.295,
+          "voice_tradition": 12.224999999999998,
+          "voice_mechanism_compound": 3.6500000000000004,
+          "voice_estill_quality": 0.6,
+          "voice_speech_song": 4.615,
+          "voice_ensemble_config": 4.63875,
+          "voice_ornament_system": 4.04,
+          "voice_pitch_organization": 8.19,
+          "voice_processing_chain": 2.47,
+          "voice_multitrack_stack": 1.9106250000000002
+        }
+      },
+      {
+        "id": "cumbus",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cumbus_neck": "cumbus_saz_neck",
+          "cumbus_context": "cumbus_roma",
+          "cumbus_body": "cumbus_aluminum_rim",
+          "cumbus_head_skin": "cumbus_calfskin",
+          "cumbus_strings": "cumbus_nylon_oud_courses"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.3649999999999998,
+          "cumbus_neck": 0.39,
+          "cumbus_context": 0.675,
+          "cumbus_body": 2.685,
+          "cumbus_head_skin": 0.585,
+          "cumbus_strings": 1.195
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "kanun_school": "kanun_turkish",
+          "kanun_articulation": "kanun_tortoiseshell_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.05,
+          "kanun_school": 10.049999999999999,
+          "kanun_articulation": 1.25
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_turkish_split"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "darbuka_material": 0.585,
+          "darbuka_skin": 5.474999999999999,
+          "darbuka_regional_style": 4.634999999999999
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "doina_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "clarinet_body": 3.51,
+          "clarinet_size": 0.675,
+          "clarinet_reed": 0.585,
+          "clarinet_articulation": 1.7499999999999998
+        }
+      }
+    ],
+    "room": "budapest_carpathian_csarda_tavern",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,587 @@
+{
+  "id": "veena",
+  "name": "Saraswati vīṇā (South Indian fretted lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "veena",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "veena_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "ekanda",
+          "name": "Ekanda (single-block jackwood)",
+          "descriptors": [
+            "unified",
+            "resonant",
+            "master-grade"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "ottu",
+          "default": true,
+          "name": "Ottu (joined-construction)",
+          "descriptors": [
+            "standard",
+            "accessible",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veena_resonator",
+      "name": "Secondary resonator",
+      "variants": [
+        {
+          "id": "gourd_resonator",
+          "default": true,
+          "name": "Gourd",
+          "descriptors": [
+            "natural-material-resonance",
+            "low-mid-rich-spectrum",
+            "traditional",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "fiberglass_resonator",
+          "name": "Fiberglass",
+          "descriptors": [
+            "stable",
+            "modern",
+            "consistent",
+            "fiberglass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veena_pluck",
+      "name": "Pluck",
+      "variants": [
+        {
+          "id": "wire_plectrum_veena",
+          "default": true,
+          "name": "Wire plectrums on index/middle",
+          "descriptors": [
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "fingernail_veena",
+          "name": "Fingernail",
+          "descriptors": [
+            "damped-attack-onset",
+            "recital"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veena_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "veena_jackwood_canonical",
+          "default": true,
+          "name": "Jackwood (canonical Thanjavur/Mysore)",
+          "descriptors": [
+            "jackwood-canonical-thanjavur-mysore"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "veena_red_sandalwood",
+          "name": "Red sandalwood (premium)",
+          "descriptors": [
+            "red-sandalwood-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veena_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "veena_steel_bronze_modern",
+          "default": true,
+          "name": "Steel + bronze (modern canonical)",
+          "descriptors": [
+            "steel-bronze-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "veena_silk_historical",
+          "name": "Silk (pre-modern Vijayanagara-era historical)",
+          "descriptors": [
+            "silk-pre-modern-vijayanagara-era"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veena_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "veena_thanjavur_canonical",
+          "default": true,
+          "name": "Thanjavur lineage (canonical south Indian)",
+          "descriptors": [
+            "thanjavur-canonical-south-indian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "veena_mysore_lineage",
+          "name": "Mysore lineage (royal-court tradition)",
+          "descriptors": [
+            "mysore-royal-court-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "veena_andhra_lineage",
+          "name": "Andhra lineage",
+          "descriptors": [
+            "andhra-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "veena_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "ekanda",
+          "name": "Ekanda (single-block jackwood)",
+          "descriptors": [
+            "unified",
+            "resonant",
+            "master-grade"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "ottu",
+          "default": true,
+          "name": "Ottu (joined-construction)",
+          "descriptors": [
+            "standard",
+            "accessible",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veena_resonator",
+      "name": "Secondary resonator",
+      "variants": [
+        {
+          "id": "gourd_resonator",
+          "default": true,
+          "name": "Gourd",
+          "descriptors": [
+            "natural-material-resonance",
+            "low-mid-rich-spectrum",
+            "traditional",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "fiberglass_resonator",
+          "name": "Fiberglass",
+          "descriptors": [
+            "stable",
+            "modern",
+            "consistent",
+            "fiberglass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veena_pluck",
+      "name": "Pluck",
+      "variants": [
+        {
+          "id": "wire_plectrum_veena",
+          "default": true,
+          "name": "Wire plectrums on index/middle",
+          "descriptors": [
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "fingernail_veena",
+          "name": "Fingernail",
+          "descriptors": [
+            "damped-attack-onset",
+            "recital"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veena_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "veena_jackwood_canonical",
+          "default": true,
+          "name": "Jackwood (canonical Thanjavur/Mysore)",
+          "descriptors": [
+            "jackwood-canonical-thanjavur-mysore"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "veena_red_sandalwood",
+          "name": "Red sandalwood (premium)",
+          "descriptors": [
+            "red-sandalwood-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veena_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "veena_steel_bronze_modern",
+          "default": true,
+          "name": "Steel + bronze (modern canonical)",
+          "descriptors": [
+            "steel-bronze-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "veena_silk_historical",
+          "name": "Silk (pre-modern Vijayanagara-era historical)",
+          "descriptors": [
+            "silk-pre-modern-vijayanagara-era"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veena_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "veena_thanjavur_canonical",
+          "default": true,
+          "name": "Thanjavur lineage (canonical south Indian)",
+          "descriptors": [
+            "thanjavur-canonical-south-indian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "veena_mysore_lineage",
+          "name": "Mysore lineage (royal-court tradition)",
+          "descriptors": [
+            "mysore-royal-court-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "veena_andhra_lineage",
+          "name": "Andhra lineage",
+          "descriptors": [
+            "andhra-lineage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

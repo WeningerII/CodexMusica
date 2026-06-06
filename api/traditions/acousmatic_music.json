@@ -1,0 +1,63 @@
+{
+  "id": "acousmatic_music",
+  "name": "Acousmatic music (Schaeffer school post-musique-concrète)",
+  "family": "classical",
+  "lineage": "French electroacoustic-composition tradition descended from Pierre Schaeffer's 1948-onward musique concrète at Studio d'Essai / GRM (Groupe de Recherches Musicales). Acousmatic refers to music heard from loudspeakers without seeing the source, organized through reduced-listening principles. The post-Schaeffer second generation (François Bayle, Bernard Parmegiani, Luc Ferrari, Beatriz Ferreyra) developed the form into a distinct compositional aesthetic.",
+  "recipe": "classic North American modern acousmatic music, experimental Elec, musique concrete branch, ambient experimental electric dark ambient mallsoft. field textural sampler, tape replay keyboard. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 344,
+  "score": 46.769,
+  "config": {
+    "traditions": [
+      "acousmatic_music",
+      "dark_ambient_industrial",
+      "mallsoft"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 5.690000000000001,
+          "sampler_archetypes": 3.25,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 6.539375000000001,
+          "sampler_classic_context": 5.4
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "brass_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "tape_voice": 0.32999999999999996,
+          "tape_state": 0.045
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

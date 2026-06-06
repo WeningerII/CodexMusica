@@ -1,0 +1,72 @@
+{
+  "id": "jing_korean",
+  "name": "Jing (Korean large hanging brass gong)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "jing",
+  "parts": [
+    {
+      "id": "jing_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "jing_phrase_marker",
+          "default": true,
+          "name": "Phrase-marker — samul nori / pungmul",
+          "descriptors": [
+            "sustained"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "samul-nori",
+            "pungmul",
+            "korean-folk"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "jing_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "jing_phrase_marker",
+          "default": true,
+          "name": "Phrase-marker — samul nori / pungmul",
+          "descriptors": [
+            "sustained"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "samul-nori",
+            "pungmul",
+            "korean-folk"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "bolivian_diablada_oruro",
+  "name": "Bolivian diablada de Oruro (Carnaval de Oruro)",
+  "family": "global",
+  "lineage": "Bolivian Carnaval de Oruro diablada (devil-dance) processional tradition continuous from pre-Hispanic Andean ritual-dance practice through Spanish-colonial-era integration with Christian-Catholic devil-dance imagery (the post-1606 syncretism of Andean-Tio-deity worship with Catholic-devil-iconography) into modern UNESCO-recognized 2001 Carnaval de Oruro continuous practice",
+  "recipe": "classic mid-1600s bolivian diablada de oruro, carnival Processional, andean branch, European carnival processional, americas wedding, iberian Latin protest song andean matrimonio huayno cologne karneval. forward-resonance, tasteful, continuous-phonation, andean quechua vocal. pvc continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, yamaha xeno modern Japanese continuous-airflow legato standard rim orchestral balance trumpet, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 694,
+  "score": 280.589,
+  "config": {
+    "traditions": [
+      "bolivian_diablada_oruro",
+      "andean_matrimonio_huayno",
+      "cologne_karneval"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "twang_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 0.1604464285714286,
+          "voice_quality": 12.306428571428567,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.003214285714285714,
+          "voice_tradition": 17.05946428571428,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 11.653214285714284,
+          "voice_speech_song": 2.7950000000000004,
+          "voice_ensemble_config": 11.836964285714282,
+          "voice_ornament_system": 14.751964285714283,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 1.532142857142857,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "quena",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "quena_material": "quena_pvc",
+          "quena_pitch": "quena_g"
+        },
+        "scores": {
+          "wind_articulation": 3.25,
+          "quena_material": 3.0387500000000003,
+          "quena_pitch": 0.75
+        }
+      },
+      {
+        "id": "siku_panpipes",
+        "slots": {
+          "siku_construction": "siku_ira_arca_paired",
+          "siku_size": "siku_malta"
+        },
+        "scores": {
+          "siku_construction": 7.799999999999999,
+          "siku_size": 0.39
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 3.25,
+          "brass_size": 0.09321428571428571,
+          "trumpet_mouthpiece": 3.245,
+          "brass_mute": 0.012857142857142855,
+          "trumpet_technique": 0.19500000000000003,
+          "trumpet_bell_metal": 0.78,
+          "trumpet_maker_school": 1.69
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "meinl_fx9",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 1.8199999999999998,
+          "shell_wood": 0.3570535714285714,
+          "shell_thickness": 0.012857142857142855,
+          "bearing_edges": 1.69,
+          "drumhead": 4.701428571428572,
+          "snare_wires": 0.2217857142857143,
+          "cymbal_alloy": 4.16,
+          "cymbal_hammering": 3.198214285714286,
+          "cymbal_lathing": 3.153214285714286,
+          "cymbal_finish": 0.09321428571428571,
+          "drum_technique": 1.8199999999999998
+        }
+      }
+    ],
+    "room": "andean_altiplano_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "huayno_2_4_andean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

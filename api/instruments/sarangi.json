@@ -1,0 +1,450 @@
+{
+  "id": "sarangi",
+  "name": "Sārangī (bowed Indian lute with sympathetic strings)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sarangi",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_microtonal_inflected",
+          "name": "Microtonal-inflected",
+          "applies_to": [
+            "kamancheh",
+            "rebab",
+            "sarangi",
+            "esraj",
+            "violin_carnatic",
+            "morin_khuur",
+            "erhu",
+            "jinghu",
+            "haegeum"
+          ],
+          "descriptors": [
+            "microtonal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "microtonal-bend",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "maqam",
+            "arabic",
+            "hindustani"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sarangi_belly",
+      "name": "Belly skin",
+      "variants": [
+        {
+          "id": "goat_skin_sarangi",
+          "default": true,
+          "name": "Goat skin",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "vocal-imitating",
+            "traditional",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "fish_skin_sarangi",
+          "surface": false,
+          "name": "Fish-skin (lighter)",
+          "descriptors": [
+            "low-mass-responsive",
+            "responsive",
+            "rare",
+            "fish-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarangi_taraf",
+      "name": "Sympathetic resonators",
+      "variants": [
+        {
+          "id": "sarangi_35_strings",
+          "default": true,
+          "name": "35 sympathetic strings",
+          "descriptors": [
+            "halo",
+            "floating",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "sarangi_40_strings",
+          "name": "40 sympathetic strings",
+          "descriptors": [
+            "ultra-resonant",
+            "enveloping",
+            "master-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarangi_bow",
+      "name": "Bow",
+      "variants": [
+        {
+          "id": "horse_hair_loose",
+          "default": true,
+          "name": "Loose horse hair",
+          "descriptors": [
+            "low-overtone-bowing",
+            "low-mid-rich-spectrum",
+            "horsehair"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "horse_hair_tensioned",
+          "name": "Tensioned hair",
+          "descriptors": [
+            "articulate",
+            "attack-forward",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarangi_main_strings",
+      "surface": false,
+      "name": "Main playing strings",
+      "variants": [
+        {
+          "id": "sarangi_gut_main",
+          "default": true,
+          "name": "Gut (canonical traditional, 3 main playing strings)",
+          "descriptors": [
+            "gut-canonical",
+            "3-main-playing-strings",
+            "vocal-imitating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "sarangi_steel_main",
+          "name": "Steel (modern alternative)",
+          "descriptors": [
+            "steel-main",
+            "modern-alternative",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarangi_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "sarangi_tun_body",
+          "default": true,
+          "name": "Tun (Indian cedar — canonical)",
+          "descriptors": [
+            "tun-cedar",
+            "canonical"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "sarangi_teak_body",
+          "name": "Teak (modern alternative)",
+          "descriptors": [
+            "teak",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "sarangi_red_cedar_body",
+          "name": "Red cedar (premium tonal)",
+          "descriptors": [
+            "red-cedar",
+            "premium-tonal"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sarangi_belly",
+      "name": "Belly skin",
+      "variants": [
+        {
+          "id": "goat_skin_sarangi",
+          "default": true,
+          "name": "Goat skin",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "vocal-imitating",
+            "traditional",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "fish_skin_sarangi",
+          "surface": false,
+          "name": "Fish-skin (lighter)",
+          "descriptors": [
+            "low-mass-responsive",
+            "responsive",
+            "rare",
+            "fish-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarangi_taraf",
+      "name": "Sympathetic resonators",
+      "variants": [
+        {
+          "id": "sarangi_35_strings",
+          "default": true,
+          "name": "35 sympathetic strings",
+          "descriptors": [
+            "halo",
+            "floating",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "sarangi_40_strings",
+          "name": "40 sympathetic strings",
+          "descriptors": [
+            "ultra-resonant",
+            "enveloping",
+            "master-grade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarangi_bow",
+      "name": "Bow",
+      "variants": [
+        {
+          "id": "horse_hair_loose",
+          "default": true,
+          "name": "Loose horse hair",
+          "descriptors": [
+            "low-overtone-bowing",
+            "low-mid-rich-spectrum",
+            "horsehair"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "horse_hair_tensioned",
+          "name": "Tensioned hair",
+          "descriptors": [
+            "articulate",
+            "attack-forward",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarangi_main_strings",
+      "surface": false,
+      "name": "Main playing strings",
+      "variants": [
+        {
+          "id": "sarangi_gut_main",
+          "default": true,
+          "name": "Gut (canonical traditional, 3 main playing strings)",
+          "descriptors": [
+            "gut-canonical",
+            "3-main-playing-strings",
+            "vocal-imitating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "sarangi_steel_main",
+          "name": "Steel (modern alternative)",
+          "descriptors": [
+            "steel-main",
+            "modern-alternative",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarangi_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "sarangi_tun_body",
+          "default": true,
+          "name": "Tun (Indian cedar — canonical)",
+          "descriptors": [
+            "tun-cedar",
+            "canonical"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "sarangi_teak_body",
+          "name": "Teak (modern alternative)",
+          "descriptors": [
+            "teak",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "sarangi_red_cedar_body",
+          "name": "Red cedar (premium tonal)",
+          "descriptors": [
+            "red-cedar",
+            "premium-tonal"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

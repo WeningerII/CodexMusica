@@ -1,0 +1,68 @@
+{
+  "id": "bengali_ghum_paranir_gan",
+  "name": "Bengali ghum-paranir gan (cradle song)",
+  "family": "global",
+  "lineage": "Bengali cradle-song tradition continuous from medieval Bengal domestic-vocal practice through Rabindra-sangeet appropriation (Tagore composed multiple cradle-songs) into modern Bangla-language domestic singing across West Bengal and Bangladesh",
+  "recipe": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song rabindra sangeet hindi filmi. thick, chest resonance low mid, continuous-phonation, equal tempered. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 399,
+  "score": 163.445,
+  "config": {
+    "traditions": [
+      "bengali_ghum_paranir_gan",
+      "rabindra_sangeet",
+      "hindi_filmi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 2.6949999999999994,
+          "voice_quality": 0.325,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.495,
+          "voice_microtone": 3.3799999999999994,
+          "voice_tradition": 11.7,
+          "voice_mechanism_compound": 0.6499999999999999,
+          "voice_estill_quality": 0.9099999999999999,
+          "voice_speech_song": 8.515,
+          "voice_ensemble_config": 3.1200000000000006,
+          "voice_ornament_system": 6.370000000000001,
+          "voice_pitch_organization": 6.415000000000001,
+          "voice_processing_chain": 1.6249999999999998,
+          "voice_multitrack_stack": 2.08
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "shruti_22",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

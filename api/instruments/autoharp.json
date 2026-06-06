@@ -1,0 +1,380 @@
+{
+  "id": "autoharp",
+  "name": "Autoharp (chorded zither)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "autoharp",
+  "parts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_strummed_ringing",
+          "default": true,
+          "name": "Open-chord strumming (ringing)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "mandolin",
+            "mandola",
+            "autoharp",
+            "celtic_harp",
+            "cittern"
+          ],
+          "descriptors": [
+            "strummed",
+            "open-chord-ringing-overtones"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "folk-revival",
+            "pop"
+          ]
+        },
+        {
+          "id": "acoustic_drone_modal",
+          "name": "Drop-tuned drone",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mandolin",
+            "mandola",
+            "mountain_dulcimer",
+            "cittern",
+            "autoharp"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "britfolk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "autoharp_chord_bars",
+      "name": "Chord bar set",
+      "variants": [
+        {
+          "id": "autoharp_15_chord",
+          "default": true,
+          "name": "15-chord (folk standard)",
+          "descriptors": [
+            "versatile",
+            "folk",
+            "accessible"
+          ],
+          "match_tokens": [
+            "chordal",
+            "block-chord",
+            "plucked"
+          ]
+        },
+        {
+          "id": "autoharp_21_chord",
+          "name": "21-chord (extended)",
+          "descriptors": [
+            "modern",
+            "extended",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "chordal",
+            "block-chord",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autoharp_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "autoharp_appalachian",
+          "default": true,
+          "name": "Old-time / Appalachian",
+          "descriptors": [
+            "traditional",
+            "twentieth-century-American"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        },
+        {
+          "id": "autoharp_folk_revival",
+          "name": "Folk revival",
+          "descriptors": [
+            "nineteen-sixties",
+            "song-accompaniment",
+            "communal"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "plucked"
+          ]
+        },
+        {
+          "id": "autoharp_school",
+          "surface": false,
+          "name": "Children’s pedagogy",
+          "descriptors": [
+            "institutional",
+            "beginner",
+            "classroom"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autoharp_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "autoharp_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical 36-37 string set)",
+          "descriptors": [
+            "steel-modern-canonical-36-37-string-set"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        },
+        {
+          "id": "autoharp_phosphor_bronze",
+          "name": "Phosphor bronze wound (warmer alternative)",
+          "descriptors": [
+            "phosphor-bronze-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autoharp_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "autoharp_spruce_maple",
+          "default": true,
+          "name": "Spruce top + maple back (Oscar Schmidt / modern canonical)",
+          "descriptors": [
+            "spruce-maple-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        },
+        {
+          "id": "autoharp_solid_birch",
+          "name": "Solid birch (vintage 1920s-1940s)",
+          "descriptors": [
+            "solid-birch-vintage-1920s-1940s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "autoharp_chord_bars",
+      "name": "Chord bar set",
+      "variants": [
+        {
+          "id": "autoharp_15_chord",
+          "default": true,
+          "name": "15-chord (folk standard)",
+          "descriptors": [
+            "versatile",
+            "folk",
+            "accessible"
+          ],
+          "match_tokens": [
+            "chordal",
+            "block-chord",
+            "plucked"
+          ]
+        },
+        {
+          "id": "autoharp_21_chord",
+          "name": "21-chord (extended)",
+          "descriptors": [
+            "modern",
+            "extended",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "chordal",
+            "block-chord",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autoharp_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "autoharp_appalachian",
+          "default": true,
+          "name": "Old-time / Appalachian",
+          "descriptors": [
+            "traditional",
+            "twentieth-century-American"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        },
+        {
+          "id": "autoharp_folk_revival",
+          "name": "Folk revival",
+          "descriptors": [
+            "nineteen-sixties",
+            "song-accompaniment",
+            "communal"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "plucked"
+          ]
+        },
+        {
+          "id": "autoharp_school",
+          "surface": false,
+          "name": "Children’s pedagogy",
+          "descriptors": [
+            "institutional",
+            "beginner",
+            "classroom"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autoharp_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "autoharp_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical 36-37 string set)",
+          "descriptors": [
+            "steel-modern-canonical-36-37-string-set"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        },
+        {
+          "id": "autoharp_phosphor_bronze",
+          "name": "Phosphor bronze wound (warmer alternative)",
+          "descriptors": [
+            "phosphor-bronze-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autoharp_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "autoharp_spruce_maple",
+          "default": true,
+          "name": "Spruce top + maple back (Oscar Schmidt / modern canonical)",
+          "descriptors": [
+            "spruce-maple-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        },
+        {
+          "id": "autoharp_solid_birch",
+          "name": "Solid birch (vintage 1920s-1940s)",
+          "descriptors": [
+            "solid-birch-vintage-1920s-1940s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "ringing"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "outrun_synthwave",
+  "name": "Outrun / synthwave",
+  "family": "electronic",
+  "lineage": "2010s electronic subgenre developed through online distributed-production scenes integrating 1980s film-soundtrack synth-aesthetic (especially evoking Drive (2011) and the broader Cliff Martinez / Kavinsky soundtrack lineage), retro-futurist visual-and-thematic content, and explicit 1980s-Miami-Vice/Outrun-arcade-game cultural reference. Kavinsky's OutRun (2013), Mitch Murder, Lazerhawk, and the broader Rosso Corsa Records and FiXT Neon label rosters anchor the canonical sound.",
+  "recipe": "classic mid-2010s outrun / synthwave, experimental Elec, ambient branch, industrial noise experimental electric dark electro / aggrotech. 31 tet, false fold distorted phonation, sprechgesang notated approximate pitch, four and more voice polyphony. pad like pad analog synth, TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 477,
+  "score": 112.501,
+  "config": {
+    "traditions": [
+      "outrun_synthwave",
+      "ebm_european_body",
+      "dark_electro_aggrotech"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 0.408,
+          "voice_quality": 0.045,
+          "voice_vibrato": 0.276,
+          "voice_articulation": 0.198,
+          "voice_microtone": 0.045,
+          "voice_tradition": 7.15,
+          "voice_mechanism_compound": 0.9045000000000001,
+          "voice_estill_quality": 0.315,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 12.2,
+          "voice_multitrack_stack": 5.479499999999999
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 3.9445,
+          "oscillator": 0.543,
+          "filter_topology": 0.6944999999999999,
+          "envelope": 1.95,
+          "modulation": 0.1215
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 0,
+          "drum_machine_808_context": 7.626499999999999,
+          "tr808_production_origin": 0.255
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

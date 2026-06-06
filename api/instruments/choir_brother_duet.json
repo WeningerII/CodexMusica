@@ -1,0 +1,156 @@
+{
+  "id": "choir_brother_duet",
+  "name": "Close-harmony brother / sibling duet",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "brother duet",
+  "parts": [
+    {
+      "id": "arrangement",
+      "surface": false,
+      "name": "Harmony arrangement",
+      "variants": [
+        {
+          "id": "thirds_above",
+          "default": true,
+          "name": "Thirds above (high harmony)",
+          "descriptors": [
+            "fast-decay-focused-low",
+            "close"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "unison_to_split",
+          "name": "Unison-to-split-harmony arrangement",
+          "descriptors": [
+            "traditional",
+            "chest-resonance-low-mid",
+            "dynamic"
+          ],
+          "match_tokens": [
+            "unison-doubled",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tradition",
+      "name": "Tradition",
+      "variants": [
+        {
+          "id": "duet_country_brother",
+          "default": true,
+          "name": "Country / bluegrass brother duet",
+          "descriptors": [
+            "chest-resonance-low-mid",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "duet_gospel",
+          "name": "Gospel duo",
+          "descriptors": [
+            "call-response",
+            "fast-decay-focused-low",
+            "foundational"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "arrangement",
+      "surface": false,
+      "name": "Harmony arrangement",
+      "variants": [
+        {
+          "id": "thirds_above",
+          "default": true,
+          "name": "Thirds above (high harmony)",
+          "descriptors": [
+            "fast-decay-focused-low",
+            "close"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "unison_to_split",
+          "name": "Unison-to-split-harmony arrangement",
+          "descriptors": [
+            "traditional",
+            "chest-resonance-low-mid",
+            "dynamic"
+          ],
+          "match_tokens": [
+            "unison-doubled",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tradition",
+      "name": "Tradition",
+      "variants": [
+        {
+          "id": "duet_country_brother",
+          "default": true,
+          "name": "Country / bluegrass brother duet",
+          "descriptors": [
+            "chest-resonance-low-mid",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "duet_gospel",
+          "name": "Gospel duo",
+          "descriptors": [
+            "call-response",
+            "fast-decay-focused-low",
+            "foundational"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "choir-blendable"
+          ]
+        }
+      ]
+    }
+  ]
+}

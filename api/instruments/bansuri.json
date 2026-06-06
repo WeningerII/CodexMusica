@@ -1,0 +1,455 @@
+{
+  "id": "bansuri",
+  "name": "Bansuri (Indian transverse bamboo flute)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bansuri",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "bansuri_length",
+      "name": "Length / key",
+      "variants": [
+        {
+          "id": "small_bansuri",
+          "name": "Compact / high (folk)",
+          "descriptors": [
+            "treble-extended",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "classical_bansuri",
+          "default": true,
+          "name": "Classical concert (low E or D)",
+          "descriptors": [
+            "low-overtone-rich",
+            "raga-suited"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bass_bansuri",
+          "name": "Bass bansuri",
+          "descriptors": [
+            "deep",
+            "meditative",
+            "sub-rich"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bansuri_ornament",
+      "name": "Ornamentation",
+      "variants": [
+        {
+          "id": "meend_bansuri",
+          "default": true,
+          "name": "Meend (sliding bend)",
+          "descriptors": [
+            "gliding",
+            "vocal-mimicking"
+          ],
+          "match_tokens": [
+            "meend-rich",
+            "microtonal-bend",
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "raga"
+          ]
+        },
+        {
+          "id": "gamak_bansuri",
+          "name": "Gamak (rapid oscillation)",
+          "descriptors": [
+            "shaken",
+            "expressive",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "taan_bansuri",
+          "name": "Taan (rapid runs)",
+          "descriptors": [
+            "virtuosic",
+            "flowing",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bansuri_body_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "bansuri_assam_bamboo",
+          "default": true,
+          "name": "Assam-region bamboo Bambusa tulda (canonical Hindustani)",
+          "descriptors": [
+            "assam-bamboo-bambusa-tulda-canonical-hindustani"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bansuri_kerala_bamboo",
+          "name": "Kerala-region bamboo (alternative south Indian)",
+          "descriptors": [
+            "kerala-bamboo-alternative-south-indian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bansuri_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "bansuri_hariprasad_maihar",
+          "default": true,
+          "name": "Hariprasad Chaurasia / Maihar gharana (canonical 20th-century Hindustani concert)",
+          "descriptors": [
+            "hariprasad-chaurasia-maihar-gharana-canonical-20th-century"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bansuri_pannalal_ghosh",
+          "name": "Pannalal Ghosh lineage (foundational concert-bansuri tradition)",
+          "descriptors": [
+            "pannalal-ghosh-foundational-concert-bansuri"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bansuri_length",
+      "name": "Length / key",
+      "variants": [
+        {
+          "id": "small_bansuri",
+          "name": "Compact / high (folk)",
+          "descriptors": [
+            "treble-extended",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "classical_bansuri",
+          "default": true,
+          "name": "Classical concert (low E or D)",
+          "descriptors": [
+            "low-overtone-rich",
+            "raga-suited"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bass_bansuri",
+          "name": "Bass bansuri",
+          "descriptors": [
+            "deep",
+            "meditative",
+            "sub-rich"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bansuri_ornament",
+      "name": "Ornamentation",
+      "variants": [
+        {
+          "id": "meend_bansuri",
+          "default": true,
+          "name": "Meend (sliding bend)",
+          "descriptors": [
+            "gliding",
+            "vocal-mimicking"
+          ],
+          "match_tokens": [
+            "meend-rich",
+            "microtonal-bend",
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "raga"
+          ]
+        },
+        {
+          "id": "gamak_bansuri",
+          "name": "Gamak (rapid oscillation)",
+          "descriptors": [
+            "shaken",
+            "expressive",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "taan_bansuri",
+          "name": "Taan (rapid runs)",
+          "descriptors": [
+            "virtuosic",
+            "flowing",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bansuri_body_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "bansuri_assam_bamboo",
+          "default": true,
+          "name": "Assam-region bamboo Bambusa tulda (canonical Hindustani)",
+          "descriptors": [
+            "assam-bamboo-bambusa-tulda-canonical-hindustani"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bansuri_kerala_bamboo",
+          "name": "Kerala-region bamboo (alternative south Indian)",
+          "descriptors": [
+            "kerala-bamboo-alternative-south-indian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bansuri_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "bansuri_hariprasad_maihar",
+          "default": true,
+          "name": "Hariprasad Chaurasia / Maihar gharana (canonical 20th-century Hindustani concert)",
+          "descriptors": [
+            "hariprasad-chaurasia-maihar-gharana-canonical-20th-century"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bansuri_pannalal_ghosh",
+          "name": "Pannalal Ghosh lineage (foundational concert-bansuri tradition)",
+          "descriptors": [
+            "pannalal-ghosh-foundational-concert-bansuri"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ]
+}

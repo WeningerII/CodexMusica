@@ -1,0 +1,831 @@
+{
+  "id": "pedal_steel",
+  "name": "Pedal steel guitar",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "pedal steel",
+  "parts": [
+    {
+      "id": "electric_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "electric_slide_blues",
+          "name": "Slide / bottleneck blues",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "pedal_steel"
+          ],
+          "descriptors": [
+            "slide",
+            "bluesy"
+          ],
+          "match_tokens": [
+            "electric",
+            "blues-derived",
+            "blues-inflected",
+            "picked"
+          ],
+          "canonical_tags": [
+            "blues-canonical"
+          ]
+        },
+        {
+          "id": "electric_steel_pedal_swells",
+          "name": "Pedal-steel volume swells",
+          "applies_to": [
+            "pedal_steel"
+          ],
+          "descriptors": [
+            "volume-swells",
+            "crying",
+            "steel"
+          ],
+          "match_tokens": [
+            "electric",
+            "picked"
+          ],
+          "canonical_tags": [
+            "country",
+            "pedal-steel"
+          ],
+          "default": true
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "amp_make",
+      "name": "Amplifier archetype",
+      "variants": [
+        {
+          "id": "amp_unspecified",
+          "default": true,
+          "name": "Unspecified",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass",
+            "pedal_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "amp_american_fender_blackface",
+          "name": "Fender Blackface (Twin / Deluxe Reverb — American 60s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "pedal_steel"
+          ],
+          "descriptors": [
+            "fender-blackface-amp",
+            "american-60s-amp",
+            "spring-reverb-bright",
+            "scooped-clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-with-reverb",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "surf",
+            "country",
+            "soul",
+            "funk",
+            "rhythm-and-blues"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pickup_steel",
+      "name": "Pickup",
+      "variants": [
+        {
+          "id": "single_coil_steel",
+          "default": true,
+          "name": "Single-coil",
+          "descriptors": [
+            "twangy",
+            "biting",
+            "cutting"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "humbucker_steel",
+          "name": "Humbucker",
+          "descriptors": [
+            "treble-rolled-off",
+            "low-mid-thick",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_setup",
+      "name": "Tuning / copedent",
+      "variants": [
+        {
+          "id": "standard_e9",
+          "default": true,
+          "name": "E9 (country)",
+          "descriptors": [
+            "twangy",
+            "crying",
+            "classic-country"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "c6",
+          "name": "C6 (jazz / Hawaiian)",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "extended_e9c6",
+          "name": "Universal twelve-string",
+          "descriptors": [
+            "versatile",
+            "spread",
+            "comprehensive"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bar_material",
+      "surface": false,
+      "name": "Tone bar",
+      "variants": [
+        {
+          "id": "steel_bar",
+          "default": true,
+          "name": "Steel bar",
+          "descriptors": [
+            "treble-extended",
+            "cutting",
+            "narrow-attack-onset",
+            "steel"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "brass_bar",
+          "name": "Brass bar",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "singing",
+            "mellow",
+            "brass"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "glass_slide",
+          "name": "Glass slide",
+          "descriptors": [
+            "silvery",
+            "frictionless-glide",
+            "glass"
+          ],
+          "match_tokens": [
+            "slide",
+            "electric",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pedal_steel_brand",
+      "surface": false,
+      "name": "Builder / make",
+      "variants": [
+        {
+          "id": "sho_bud_classic",
+          "default": true,
+          "name": "Sho-Bud (classic Nashville, Buddy Emmons / Lloyd Green canon)",
+          "descriptors": [
+            "sho-bud",
+            "classic-nashville",
+            "mid-60s-70s-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country",
+            "vintage"
+          ]
+        },
+        {
+          "id": "emmons_push_pull",
+          "name": "Emmons push-pull (mechanical-canon vintage)",
+          "descriptors": [
+            "emmons-push-pull",
+            "mechanical-canon",
+            "pre-1980"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country",
+            "vintage"
+          ]
+        },
+        {
+          "id": "msa_classic",
+          "name": "MSA Classic (Lloyd Green later, modernized)",
+          "descriptors": [
+            "msa-classic",
+            "modernized-action"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country"
+          ]
+        },
+        {
+          "id": "mullen_d10",
+          "name": "Mullen D10 (modern Nashville)",
+          "descriptors": [
+            "mullen-d10",
+            "modern-nashville"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country"
+          ]
+        },
+        {
+          "id": "williams_gfi",
+          "name": "Williams / GFI (modern student / mid-tier)",
+          "descriptors": [
+            "williams",
+            "gfi",
+            "mid-tier-modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "zum_steel_modern",
+          "name": "ZumSteel (modern boutique)",
+          "descriptors": [
+            "zum-steel",
+            "modern-boutique"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pedal_steel_neck_config",
+      "surface": false,
+      "name": "Neck configuration",
+      "variants": [
+        {
+          "id": "pedal_steel_single_neck_e9",
+          "default": true,
+          "name": "Single-neck E9 (4-5 pedals + 5 knee levers)",
+          "descriptors": [
+            "single-neck",
+            "e9-only",
+            "standard-country-config"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country"
+          ]
+        },
+        {
+          "id": "pedal_steel_double_neck_d10",
+          "name": "Double-neck D10 (E9 + C6 — full canon)",
+          "descriptors": [
+            "double-neck",
+            "e9-c6",
+            "d10-canon",
+            "pro-rig"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country",
+            "western-swing"
+          ]
+        },
+        {
+          "id": "pedal_steel_universal_12",
+          "name": "Universal 12 (E9/B6 hybrid)",
+          "descriptors": [
+            "universal-12",
+            "e9-b6-hybrid",
+            "jeff-newman-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pedal_steel_strings",
+      "surface": false,
+      "name": "String set",
+      "variants": [
+        {
+          "id": "pedal_steel_george_l_e9",
+          "default": true,
+          "name": "George L's E9 set (Nashville canon)",
+          "descriptors": [
+            "george-l",
+            "e9-set",
+            "nashville-standard"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country"
+          ]
+        },
+        {
+          "id": "pedal_steel_jagwire_modern",
+          "name": "Jagwire modern (long-life coated)",
+          "descriptors": [
+            "jagwire",
+            "coated",
+            "long-life"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pedal_steel_daddario_xl",
+          "name": "D'Addario XL E9/C6",
+          "descriptors": [
+            "daddario-xl",
+            "standard"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electric_technique",
+      "default_variant": "electric_steel_pedal_swells"
+    },
+    {
+      "id": "pickup_steel",
+      "name": "Pickup",
+      "variants": [
+        {
+          "id": "single_coil_steel",
+          "default": true,
+          "name": "Single-coil",
+          "descriptors": [
+            "twangy",
+            "biting",
+            "cutting"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "humbucker_steel",
+          "name": "Humbucker",
+          "descriptors": [
+            "treble-rolled-off",
+            "low-mid-thick",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_setup",
+      "name": "Tuning / copedent",
+      "variants": [
+        {
+          "id": "standard_e9",
+          "default": true,
+          "name": "E9 (country)",
+          "descriptors": [
+            "twangy",
+            "crying",
+            "classic-country"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "c6",
+          "name": "C6 (jazz / Hawaiian)",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "extended_e9c6",
+          "name": "Universal twelve-string",
+          "descriptors": [
+            "versatile",
+            "spread",
+            "comprehensive"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bar_material",
+      "surface": false,
+      "name": "Tone bar",
+      "variants": [
+        {
+          "id": "steel_bar",
+          "default": true,
+          "name": "Steel bar",
+          "descriptors": [
+            "treble-extended",
+            "cutting",
+            "narrow-attack-onset",
+            "steel"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "brass_bar",
+          "name": "Brass bar",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "singing",
+            "mellow",
+            "brass"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "glass_slide",
+          "name": "Glass slide",
+          "descriptors": [
+            "silvery",
+            "frictionless-glide",
+            "glass"
+          ],
+          "match_tokens": [
+            "slide",
+            "electric",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pedal_steel_brand",
+      "surface": false,
+      "name": "Builder / make",
+      "variants": [
+        {
+          "id": "sho_bud_classic",
+          "default": true,
+          "name": "Sho-Bud (classic Nashville, Buddy Emmons / Lloyd Green canon)",
+          "descriptors": [
+            "sho-bud",
+            "classic-nashville",
+            "mid-60s-70s-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country",
+            "vintage"
+          ]
+        },
+        {
+          "id": "emmons_push_pull",
+          "name": "Emmons push-pull (mechanical-canon vintage)",
+          "descriptors": [
+            "emmons-push-pull",
+            "mechanical-canon",
+            "pre-1980"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country",
+            "vintage"
+          ]
+        },
+        {
+          "id": "msa_classic",
+          "name": "MSA Classic (Lloyd Green later, modernized)",
+          "descriptors": [
+            "msa-classic",
+            "modernized-action"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country"
+          ]
+        },
+        {
+          "id": "mullen_d10",
+          "name": "Mullen D10 (modern Nashville)",
+          "descriptors": [
+            "mullen-d10",
+            "modern-nashville"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country"
+          ]
+        },
+        {
+          "id": "williams_gfi",
+          "name": "Williams / GFI (modern student / mid-tier)",
+          "descriptors": [
+            "williams",
+            "gfi",
+            "mid-tier-modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "zum_steel_modern",
+          "name": "ZumSteel (modern boutique)",
+          "descriptors": [
+            "zum-steel",
+            "modern-boutique"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pedal_steel_neck_config",
+      "surface": false,
+      "name": "Neck configuration",
+      "variants": [
+        {
+          "id": "pedal_steel_single_neck_e9",
+          "default": true,
+          "name": "Single-neck E9 (4-5 pedals + 5 knee levers)",
+          "descriptors": [
+            "single-neck",
+            "e9-only",
+            "standard-country-config"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country"
+          ]
+        },
+        {
+          "id": "pedal_steel_double_neck_d10",
+          "name": "Double-neck D10 (E9 + C6 — full canon)",
+          "descriptors": [
+            "double-neck",
+            "e9-c6",
+            "d10-canon",
+            "pro-rig"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country",
+            "western-swing"
+          ]
+        },
+        {
+          "id": "pedal_steel_universal_12",
+          "name": "Universal 12 (E9/B6 hybrid)",
+          "descriptors": [
+            "universal-12",
+            "e9-b6-hybrid",
+            "jeff-newman-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pedal_steel_strings",
+      "surface": false,
+      "name": "String set",
+      "variants": [
+        {
+          "id": "pedal_steel_george_l_e9",
+          "default": true,
+          "name": "George L's E9 set (Nashville canon)",
+          "descriptors": [
+            "george-l",
+            "e9-set",
+            "nashville-standard"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "country"
+          ]
+        },
+        {
+          "id": "pedal_steel_jagwire_modern",
+          "name": "Jagwire modern (long-life coated)",
+          "descriptors": [
+            "jagwire",
+            "coated",
+            "long-life"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pedal_steel_daddario_xl",
+          "name": "D'Addario XL E9/C6",
+          "descriptors": [
+            "daddario-xl",
+            "standard"
+          ],
+          "match_tokens": [
+            "electric",
+            "slide",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "id": "atmospheric_dnb",
+  "name": "Atmospheric drum-and-bass",
+  "family": "electronic",
+  "lineage": "Mid-1990s and onward drum-and-bass subgenre emphasizing ambient-textural production, jazz-and-classical-influenced harmonic-vocabulary, and emotional-melodic development over rave-functional utility. LTJ Bukem and the Good Looking Records label (founded 1991) anchored the canonical atmospheric sound; Photek, Source Direct, Calibre, and the broader Hospital Records, Metalheadz, and Innerground label rosters extended the genre.",
+  "recipe": "classic 1994-1996 atmospheric drum-and-bass, bass System, bass descendants branch, ambient experimental electric outrun / synthwave darksynth. thick, low dynamic level, chest resonance low mid, equal tempered. TR-808, pad like pad analog synth, cold pressed weikert felt 18 ply hard rock maple vintage production grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 519,
+  "score": 185.202,
+  "config": {
+    "traditions": [
+      "atmospheric_dnb",
+      "outrun_synthwave",
+      "darksynth"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.8850000000000016,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 3.185,
+          "voice_articulation": 0.09,
+          "voice_microtone": 3.000000000000001,
+          "voice_tradition": 3.965,
+          "voice_mechanism_compound": 3.1500000000000004,
+          "voice_estill_quality": 4.735000000000001,
+          "voice_speech_song": 13.065000000000005,
+          "voice_ensemble_config": 13.000000000000004,
+          "voice_ornament_system": 4.84,
+          "voice_pitch_organization": 3.1500000000000004,
+          "voice_processing_chain": 2.975,
+          "voice_multitrack_stack": 1.56
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 5.34,
+          "drum_machine_808_context": 5.6899999999999995,
+          "tr808_production_origin": 0.15
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 5.285,
+          "oscillator": 5.39,
+          "filter_topology": 7.2299999999999995,
+          "envelope": 2.6,
+          "modulation": 0.045
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_weikert_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 3.25,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 5.630000000000001,
+          "piano_rim": 5.85,
+          "piano_soundboard": 3.295,
+          "piano_pinblock": 3.395,
+          "piano_plate": 5.82,
+          "piano_pitch_standard": 3.34
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

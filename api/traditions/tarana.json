@@ -1,0 +1,115 @@
+{
+  "id": "tarana",
+  "name": "Tarana (Hindustani vocalized-syllable composition)",
+  "family": "global",
+  "lineage": "Hindustani vocal genre using non-lexical vocalized syllables (tom, na, dir, dani, todani, yala, nadiri, drim) attributed by tradition to Amir Khusraus 13th-century court innovation — typically performed at the end of a khayal concert as a fast-tempo rhythmically dazzling concert-closer, with the syllables functioning as vocal-equivalent to tabla bols",
+  "recipe": "classic North American mid-1970s tarana, improv On Frame, indian classical improv branch, Sufi ritual devotional sufi sama qawwali. vocal fry, declaimed, chest resonance low mid, punctuated. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, silvery suited to female vocal tanpura. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 482,
+  "score": 177.04,
+  "config": {
+    "traditions": [
+      "tarana",
+      "sufi_sama",
+      "qawwali"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.9899999999999998,
+          "voice_quality": 1.5504999999999995,
+          "voice_vibrato": 1.95,
+          "voice_articulation": 0.78,
+          "voice_microtone": 0.853,
+          "voice_tradition": 9.035,
+          "voice_mechanism_compound": 3.65,
+          "voice_estill_quality": 7.276,
+          "voice_speech_song": 5.589999999999999,
+          "voice_ensemble_config": 4.16,
+          "voice_ornament_system": 10.860499999999998,
+          "voice_pitch_organization": 4.0445,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 3.77
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 3.835,
+          "tabla_bayan": 1.95,
+          "tabla_syahi": 0.39
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_overblow_modern",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 0,
+          "harmonium_action": 2.9899999999999998,
+          "harmonium_voicing": 2.9899999999999998,
+          "harmonium_use": 4.9399999999999995
+        }
+      },
+      {
+        "id": "tanpura",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "tanpura_size": "female_size",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "five_string_chitra",
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_gourd_body"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.9115,
+          "tanpura_size": 6.369999999999999,
+          "tanpura_jawari": 3.75,
+          "tanpura_strings": 1.3679999999999999,
+          "tanpura_string_material": 0.38999999999999996,
+          "tanpura_body_wood": 0.38999999999999996
+        }
+      }
+    ],
+    "room": "varanasi_benares_gharana_baithak",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

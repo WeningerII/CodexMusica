@@ -1,0 +1,68 @@
+{
+  "id": "work_songs_hollers",
+  "name": "Field hollers and work songs",
+  "family": "vernacular",
+  "lineage": "African-American vernacular work-song tradition of the agricultural and prison-labor south — including field hollers (solo melismatic vocal under physical labor), call-and-response group work songs (cotton-chopping, railroad-tie-laying, levee-construction), and the related prison work-song tradition documented at Mississippi State Penitentiary at Parchman Farm and Louisiana State Penitentiary at Angola through Alan Lomax's field-recording campaigns of the 1930s-40s",
+  "recipe": "classic North American mid-1930s field hollers and work songs, ballad Poetry, work song branch, vocal drone modal, American sacred ritual devotional southern sámi vuelie sámi yoik. vocal fry, declaimed, unrestrained, blues inflected. open air. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 338,
+  "score": 127.509,
+  "config": {
+    "traditions": [
+      "work_songs_hollers",
+      "sami_southern_vuelie",
+      "sami_yoik"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.093750000000001,
+          "voice_quality": 4.485,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 9,
+          "voice_microtone": 2.04,
+          "voice_tradition": 15.86,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 0.9099999999999999,
+          "voice_speech_song": 13.324999999999998,
+          "voice_ensemble_config": 7.93,
+          "voice_ornament_system": 1.885,
+          "voice_pitch_organization": 1.2149999999999996,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 2.9899999999999998
+        }
+      }
+    ],
+    "room": "open_prairie",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

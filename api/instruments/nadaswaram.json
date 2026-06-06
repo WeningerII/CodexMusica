@@ -1,0 +1,306 @@
+{
+  "id": "nadaswaram",
+  "name": "Nadaswaram (South Indian temple double-reed)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "nadaswaram",
+  "parts": [
+    {
+      "id": "nadaswaram_register",
+      "name": "Register",
+      "variants": [
+        {
+          "id": "nadaswaram_standard",
+          "default": true,
+          "name": "Standard nadaswaram (Carnatic / Tamil temple)",
+          "descriptors": [
+            "large-double-reed",
+            "temple-volume",
+            "auspicious-ceremonial",
+            "tamil-temple-context",
+            "periya-melam-ensemble"
+          ],
+          "match_tokens": [
+            "wind",
+            "double-reed",
+            "carnatic-tradition",
+            "tamil-tradition",
+            "temple-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_ensemble",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "nadaswaram_periya_melam",
+          "default": true,
+          "name": "Periya melam (temple processional ensemble with thavil)",
+          "descriptors": [
+            "periya-melam",
+            "thavil-percussion-pair",
+            "temple-procession"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "nadaswaram_aacha_canonical",
+          "default": true,
+          "name": "Aacha / Hardwickia binata (canonical Tamil)",
+          "descriptors": [
+            "aacha-hardwickia-binata-canonical-tamil"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        },
+        {
+          "id": "nadaswaram_redwood_alt",
+          "name": "Redwood (alternative)",
+          "descriptors": [
+            "redwood-alternative"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        },
+        {
+          "id": "nadaswaram_ebony_premium",
+          "name": "Ebony (premium ceremonial)",
+          "descriptors": [
+            "ebony-premium-ceremonial"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_reed",
+      "surface": false,
+      "name": "Reed (sealed double-reed)",
+      "variants": [
+        {
+          "id": "nadaswaram_arundo_palm_canonical",
+          "default": true,
+          "name": "Arundo donax with palm-leaf binding (canonical Tamil sippli reed)",
+          "descriptors": [
+            "arundo-palm-leaf-binding-canonical-tamil-sippli"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "nadaswaram_thiruvavaduthurai",
+          "default": true,
+          "name": "Thiruvavaduthurai lineage (canonical Tamil temple)",
+          "descriptors": [
+            "thiruvavaduthurai-lineage-canonical-tamil-temple"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        },
+        {
+          "id": "nadaswaram_thirumarugal",
+          "name": "Thirumarugal lineage",
+          "descriptors": [
+            "thirumarugal-lineage"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nadaswaram_register",
+      "name": "Register",
+      "variants": [
+        {
+          "id": "nadaswaram_standard",
+          "default": true,
+          "name": "Standard nadaswaram (Carnatic / Tamil temple)",
+          "descriptors": [
+            "large-double-reed",
+            "temple-volume",
+            "auspicious-ceremonial",
+            "tamil-temple-context",
+            "periya-melam-ensemble"
+          ],
+          "match_tokens": [
+            "wind",
+            "double-reed",
+            "carnatic-tradition",
+            "tamil-tradition",
+            "temple-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_ensemble",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "nadaswaram_periya_melam",
+          "default": true,
+          "name": "Periya melam (temple processional ensemble with thavil)",
+          "descriptors": [
+            "periya-melam",
+            "thavil-percussion-pair",
+            "temple-procession"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "nadaswaram_aacha_canonical",
+          "default": true,
+          "name": "Aacha / Hardwickia binata (canonical Tamil)",
+          "descriptors": [
+            "aacha-hardwickia-binata-canonical-tamil"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        },
+        {
+          "id": "nadaswaram_redwood_alt",
+          "name": "Redwood (alternative)",
+          "descriptors": [
+            "redwood-alternative"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        },
+        {
+          "id": "nadaswaram_ebony_premium",
+          "name": "Ebony (premium ceremonial)",
+          "descriptors": [
+            "ebony-premium-ceremonial"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_reed",
+      "surface": false,
+      "name": "Reed (sealed double-reed)",
+      "variants": [
+        {
+          "id": "nadaswaram_arundo_palm_canonical",
+          "default": true,
+          "name": "Arundo donax with palm-leaf binding (canonical Tamil sippli reed)",
+          "descriptors": [
+            "arundo-palm-leaf-binding-canonical-tamil-sippli"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "nadaswaram_thiruvavaduthurai",
+          "default": true,
+          "name": "Thiruvavaduthurai lineage (canonical Tamil temple)",
+          "descriptors": [
+            "thiruvavaduthurai-lineage-canonical-tamil-temple"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        },
+        {
+          "id": "nadaswaram_thirumarugal",
+          "name": "Thirumarugal lineage",
+          "descriptors": [
+            "thirumarugal-lineage"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

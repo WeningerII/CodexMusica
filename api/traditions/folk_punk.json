@@ -1,0 +1,187 @@
+{
+  "id": "folk_punk",
+  "name": "Folk punk (American 80s-90s)",
+  "family": "rock_punk",
+  "lineage": "Punk subgenre synthesizing folk-instrumentation (acoustic guitar, banjo, fiddle, accordion) with punk lyrical-and-attitudinal aesthetic. The Pogues (1983-onward) inaugurated the British-Irish strain; American folk-punk wave through Andrew Jackson Jihad, Defiance Ohio, Pat the Bunny, Mischief Brew, and the broader Plan-It-X Records roster constitutes the 2000s-2010s American development.",
+  "recipe": "classic North American modern folk punk, distorted Rock, punk branch, anglo singer song indie folk freak folk. thick, low dynamic level, chest resonance low mid, equal tempered. narrative fingerpicked dreadnought acoustic guitar, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick fingerpicked banjo 5 string, castagnari Italian premium folk music straight accordion, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 771,
+  "score": 421.878,
+  "config": {
+    "traditions": [
+      "folk_punk",
+      "freak_folk",
+      "indie_folk_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 14.562999999999999,
+          "voice_quality": 0.9999999999999998,
+          "voice_vibrato": 0.80325,
+          "voice_articulation": 0.1365,
+          "voice_microtone": 3.500000000000001,
+          "voice_tradition": 13.844999999999999,
+          "voice_mechanism_compound": 1.755,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 4.225,
+          "voice_ensemble_config": 16.76975,
+          "voice_ornament_system": 0.7149999999999997,
+          "voice_pitch_organization": 1.6215,
+          "voice_processing_chain": 1.5464999999999998,
+          "voice_multitrack_stack": 3.2500000000000004
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 11.694999999999999,
+          "string_tuning": 0,
+          "top_wood": 0.80325,
+          "back_sides": 0.16799999999999998,
+          "string_acoustic": 0.9397500000000001
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "banjo_back": "resonator",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 12.412999999999998,
+          "banjo_back": 0.063,
+          "tone_ring": 0.0315,
+          "banjo_head": 3.3799999999999994,
+          "banjo_pot": 0.063,
+          "banjo_play": 0,
+          "banjo_rim_wood": 0.1575,
+          "banjo_neck_wood": 0.80325,
+          "banjo_strings": 0.105,
+          "banjo_bridge": 0.105,
+          "banjo_setup_period": 3.3149999999999995
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "italian_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 10.713,
+          "accordion_reed_material": 0.9884999999999999,
+          "musette_offset": 1.663,
+          "reed_config": 0.147,
+          "bellows": 0,
+          "voicing_chamber": 0.38475000000000004,
+          "accordion_maker_school": 5.59
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 15.981499999999999,
+          "amp_make": 4.42,
+          "body_wood": 1.6065000000000003,
+          "pickup_config": 0.1365,
+          "string_type": 4.875,
+          "scale_length_b": 0.80325,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 19.7815
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_sticks_punk",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_punk"
+        },
+        "scores": {
+          "percussion_technique": 16,
+          "shell_wood": 0.105,
+          "shell_thickness": 0,
+          "bearing_edges": 0.80325,
+          "drumhead": 0.90825,
+          "snare_wires": 0.80325,
+          "cymbal_alloy": 19.762999999999998,
+          "cymbal_hammering": 3.9230000000000005,
+          "cymbal_lathing": 3.6500000000000004,
+          "cymbal_finish": 0.063,
+          "drum_technique": 16
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

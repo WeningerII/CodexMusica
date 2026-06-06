@@ -1,0 +1,207 @@
+{
+  "id": "whistled_voice",
+  "surface": false,
+  "name": "Whistled voice (lip/tongue turbulent source, no vocal-fold vibration)",
+  "family": "voice",
+  "class": "vocal_lead",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "whistled voice",
+  "parts": [
+    {
+      "id": "whistled_voice_source",
+      "name": "Source-filter configuration",
+      "variants": [
+        {
+          "id": "whistled_lip_aperture",
+          "default": true,
+          "name": "Lip-aperture-formed turbulent source",
+          "descriptors": [
+            "lip-aperture-turbulent-source",
+            "no-vocal-fold-vibration"
+          ],
+          "match_tokens": [
+            "breathing"
+          ]
+        },
+        {
+          "id": "whistled_tongue_palatal",
+          "name": "Tongue-palatal turbulent source",
+          "descriptors": [
+            "tongue-palatal-turbulent-source"
+          ],
+          "match_tokens": [
+            "breathing"
+          ]
+        },
+        {
+          "id": "whistled_tooth_lip_two_finger",
+          "name": "Tooth-lip two-finger high-pressure source",
+          "descriptors": [
+            "tooth-lip-two-finger-high-pressure-source"
+          ],
+          "match_tokens": [
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whistled_voice_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "whistled_voice_melodic_solo",
+          "default": true,
+          "name": "Solo melodic whistled-line",
+          "descriptors": [
+            "solo-melodic-whistled-line"
+          ],
+          "match_tokens": [
+            "breathing",
+            "lead",
+            "lead-melody"
+          ]
+        },
+        {
+          "id": "whistled_voice_signal_communication",
+          "name": "Whistled-language signal-communication",
+          "descriptors": [
+            "whistled-language-signal-communication"
+          ],
+          "match_tokens": [
+            "breathing"
+          ],
+          "canonical_tags": [
+            "silbo-gomero",
+            "sfyria-antia"
+          ]
+        },
+        {
+          "id": "whistled_voice_ornamental_layer",
+          "name": "Ornamental layer over song",
+          "descriptors": [
+            "ornamental-whistled-layer-over-song"
+          ],
+          "match_tokens": [
+            "breathing"
+          ]
+        },
+        {
+          "id": "whistled_voice_field_recording",
+          "name": "Field-recording / cultural-preservation context",
+          "descriptors": [
+            "field-recording-cultural-preservation"
+          ],
+          "match_tokens": [
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "whistled_voice_source",
+      "name": "Source-filter configuration",
+      "variants": [
+        {
+          "id": "whistled_lip_aperture",
+          "default": true,
+          "name": "Lip-aperture-formed turbulent source",
+          "descriptors": [
+            "lip-aperture-turbulent-source",
+            "no-vocal-fold-vibration"
+          ],
+          "match_tokens": [
+            "breathing"
+          ]
+        },
+        {
+          "id": "whistled_tongue_palatal",
+          "name": "Tongue-palatal turbulent source",
+          "descriptors": [
+            "tongue-palatal-turbulent-source"
+          ],
+          "match_tokens": [
+            "breathing"
+          ]
+        },
+        {
+          "id": "whistled_tooth_lip_two_finger",
+          "name": "Tooth-lip two-finger high-pressure source",
+          "descriptors": [
+            "tooth-lip-two-finger-high-pressure-source"
+          ],
+          "match_tokens": [
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whistled_voice_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "whistled_voice_melodic_solo",
+          "default": true,
+          "name": "Solo melodic whistled-line",
+          "descriptors": [
+            "solo-melodic-whistled-line"
+          ],
+          "match_tokens": [
+            "breathing",
+            "lead",
+            "lead-melody"
+          ]
+        },
+        {
+          "id": "whistled_voice_signal_communication",
+          "name": "Whistled-language signal-communication",
+          "descriptors": [
+            "whistled-language-signal-communication"
+          ],
+          "match_tokens": [
+            "breathing"
+          ],
+          "canonical_tags": [
+            "silbo-gomero",
+            "sfyria-antia"
+          ]
+        },
+        {
+          "id": "whistled_voice_ornamental_layer",
+          "name": "Ornamental layer over song",
+          "descriptors": [
+            "ornamental-whistled-layer-over-song"
+          ],
+          "match_tokens": [
+            "breathing"
+          ]
+        },
+        {
+          "id": "whistled_voice_field_recording",
+          "name": "Field-recording / cultural-preservation context",
+          "descriptors": [
+            "field-recording-cultural-preservation"
+          ],
+          "match_tokens": [
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ]
+}

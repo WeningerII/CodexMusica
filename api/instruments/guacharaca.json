@@ -1,0 +1,64 @@
+{
+  "id": "guacharaca",
+  "name": "Guacharaca (Colombian scraper)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "guacharaca",
+  "parts": [
+    {
+      "id": "guacharaca_body",
+      "name": "Material",
+      "variants": [
+        {
+          "id": "guacharaca_palm_wood",
+          "default": true,
+          "name": "Carved palm-wood with metal fork-scraper",
+          "descriptors": [
+            "organic-tone",
+            "wood",
+            "metal-fork",
+            "vallenato-tradition"
+          ],
+          "match_tokens": [
+            "scraper",
+            "vallenato-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "guacharaca_body",
+      "name": "Material",
+      "variants": [
+        {
+          "id": "guacharaca_palm_wood",
+          "default": true,
+          "name": "Carved palm-wood with metal fork-scraper",
+          "descriptors": [
+            "organic-tone",
+            "wood",
+            "metal-fork",
+            "vallenato-tradition"
+          ],
+          "match_tokens": [
+            "scraper",
+            "vallenato-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

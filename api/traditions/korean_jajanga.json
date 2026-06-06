@@ -1,0 +1,85 @@
+{
+  "id": "korean_jajanga",
+  "name": "Korean jajanga (자장가, cradle song)",
+  "family": "global",
+  "lineage": "Korean cradle-song tradition continuous from Joseon-era domestic-vocal practice through 20th-century colonial-era and post-Korean-War domestic singing across South Korea, North Korea, and Korean diaspora communities",
+  "recipe": "classic modern korean jajanga, lullaby, east Asian branch, east Asian pop functional song, east Asian art music, indian bard ballad poetry shidaiqu enka. thick, chest mix belt, melodic, continuous-phonation. cross tradition fusion concert context pansori voice. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 409,
+  "score": 207.66,
+  "config": {
+    "traditions": [
+      "korean_jajanga",
+      "shidaiqu",
+      "enka"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.1499999999999995,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 0.75,
+          "voice_articulation": 1.3,
+          "voice_microtone": 3.184999999999999,
+          "voice_tradition": 27.154999999999998,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.3,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 4.029999999999999,
+          "voice_ornament_system": 21.4,
+          "voice_pitch_organization": 2.09,
+          "voice_processing_chain": 2.7950000000000004,
+          "voice_multitrack_stack": 2.08
+        }
+      },
+      {
+        "id": "pansori_voice",
+        "slots": {
+          "pansori_phonation_mechanism": "pansori_cheonsa_clear_modal",
+          "pansori_sigimsae_ornament": "pansori_sigimsae_nonghyeon",
+          "pansori_jangdan_cycle": "pansori_jangdan_hwimori",
+          "pansori_chuimsae_response": "pansori_chuimsae_none",
+          "pansori_voice_repertoire": "pansori_voice_fusion_concert"
+        },
+        "scores": {
+          "pansori_phonation_mechanism": 0.3,
+          "pansori_sigimsae_ornament": 0.39,
+          "pansori_jangdan_cycle": 0.345,
+          "pansori_chuimsae_response": 0.345,
+          "pansori_voice_repertoire": 2.8600000000000003
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "korean_minsogak_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

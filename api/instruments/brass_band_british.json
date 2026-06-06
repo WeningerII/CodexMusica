@@ -1,0 +1,274 @@
+{
+  "id": "brass_band_british",
+  "name": "British brass band (full)",
+  "family": "ensemble",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "British brass band",
+  "parts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "cornets_section",
+          "default": true,
+          "name": "Cornets (10, including soprano)",
+          "descriptors": [
+            "lead",
+            "virtuoso",
+            "melodic"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "flugel_section",
+          "name": "Flugelhorn (1)",
+          "descriptors": [
+            "solo",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tenor_horns",
+          "name": "Tenor horns (3)",
+          "descriptors": [
+            "inner"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "baritones_section",
+          "name": "Baritones (2)",
+          "descriptors": [
+            "tenor"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "euphoniums_section",
+          "name": "Euphoniums (2)",
+          "descriptors": [
+            "soloistic"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "trombones_section",
+          "name": "Trombones (3, including bass)",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "basses_eb_bb",
+          "name": "Basses (Eb and BBb tubas)",
+          "descriptors": [
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "percussion_brass",
+          "name": "Percussion (3-4 players)",
+          "descriptors": [
+            "supporting",
+            "virtuoso",
+            "accent"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "brass_band_competition",
+          "default": true,
+          "name": "Competition (regional and national)",
+          "descriptors": [
+            "virtuoso",
+            "traditional"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "brass_band_concert",
+          "name": "Concert / community",
+          "descriptors": [
+            "low-overtone-rich-spectrum",
+            "accessible",
+            "foundational"
+          ],
+          "match_tokens": [
+            "concert",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "cornets_section",
+          "default": true,
+          "name": "Cornets (10, including soprano)",
+          "descriptors": [
+            "lead",
+            "virtuoso",
+            "melodic"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "flugel_section",
+          "name": "Flugelhorn (1)",
+          "descriptors": [
+            "solo",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tenor_horns",
+          "name": "Tenor horns (3)",
+          "descriptors": [
+            "inner"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "baritones_section",
+          "name": "Baritones (2)",
+          "descriptors": [
+            "tenor"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "euphoniums_section",
+          "name": "Euphoniums (2)",
+          "descriptors": [
+            "soloistic"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "trombones_section",
+          "name": "Trombones (3, including bass)",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "basses_eb_bb",
+          "name": "Basses (Eb and BBb tubas)",
+          "descriptors": [
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "percussion_brass",
+          "name": "Percussion (3-4 players)",
+          "descriptors": [
+            "supporting",
+            "virtuoso",
+            "accent"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "brass_band_competition",
+          "default": true,
+          "name": "Competition (regional and national)",
+          "descriptors": [
+            "virtuoso",
+            "traditional"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "brass_band_concert",
+          "name": "Concert / community",
+          "descriptors": [
+            "low-overtone-rich-spectrum",
+            "accessible",
+            "foundational"
+          ],
+          "match_tokens": [
+            "concert",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

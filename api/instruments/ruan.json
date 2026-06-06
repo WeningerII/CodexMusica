@@ -1,0 +1,404 @@
+{
+  "id": "ruan",
+  "name": "Ruan (Chinese moon-bodied lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ruan",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ruan_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "zhongruan",
+          "default": true,
+          "name": "Zhongruan (alto)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "daruan",
+          "name": "Daruan (bass)",
+          "descriptors": [
+            "deep",
+            "grounding",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruan_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "ruan_orchestra",
+          "name": "Chinese orchestra",
+          "descriptors": [
+            "modern",
+            "string-section",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "ruan_chamber",
+          "default": true,
+          "name": "Solo / chamber",
+          "descriptors": [
+            "low-dynamic-level",
+            "art-music",
+            "concert"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "ruan_pop_film",
+          "name": "Pop / film",
+          "descriptors": [
+            "commercial",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "session"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruan_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "ruan_red_sandalwood",
+          "default": true,
+          "name": "Red sandalwood (premium)",
+          "descriptors": [
+            "red-sandalwood",
+            "premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "ruan_rosewood",
+          "name": "Rosewood",
+          "descriptors": [
+            "rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "ruan_padauk",
+          "name": "Padauk (mid-tier)",
+          "descriptors": [
+            "padauk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruan_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ruan_nylon_steel_wound",
+          "default": true,
+          "name": "Nylon-steel-wound (modern canonical)",
+          "descriptors": [
+            "nylon-steel-wound",
+            "modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "ruan_silk_historical",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk-historical",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ruan_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "zhongruan",
+          "default": true,
+          "name": "Zhongruan (alto)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "daruan",
+          "name": "Daruan (bass)",
+          "descriptors": [
+            "deep",
+            "grounding",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruan_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "ruan_orchestra",
+          "name": "Chinese orchestra",
+          "descriptors": [
+            "modern",
+            "string-section",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "ruan_chamber",
+          "default": true,
+          "name": "Solo / chamber",
+          "descriptors": [
+            "low-dynamic-level",
+            "art-music",
+            "concert"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "ruan_pop_film",
+          "name": "Pop / film",
+          "descriptors": [
+            "commercial",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "session"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruan_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "ruan_red_sandalwood",
+          "default": true,
+          "name": "Red sandalwood (premium)",
+          "descriptors": [
+            "red-sandalwood",
+            "premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "ruan_rosewood",
+          "name": "Rosewood",
+          "descriptors": [
+            "rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "ruan_padauk",
+          "name": "Padauk (mid-tier)",
+          "descriptors": [
+            "padauk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruan_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ruan_nylon_steel_wound",
+          "default": true,
+          "name": "Nylon-steel-wound (modern canonical)",
+          "descriptors": [
+            "nylon-steel-wound",
+            "modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "ruan_silk_historical",
+          "name": "Silk (pre-modern historical)",
+          "descriptors": [
+            "silk-historical",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ]
+}

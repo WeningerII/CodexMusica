@@ -1,0 +1,153 @@
+{
+  "id": "d_beat_swedish",
+  "name": "D-beat (Swedish hardcore)",
+  "family": "rock_punk",
+  "lineage": "Punk subgenre named for the distinctive 1-and-3 kick / 2-and-4 snare beat-pattern codified by Discharge (UK 1977-onward). Swedish D-beat-revival scene centered on Anti-Cimex, Mob 47, and (in the 1990s D-beat wave) Driller Killer and Wolfpack drove international circulation. Characterized by Discharge-derived beat-pattern, distorted-bass-and-guitar tone, and bleak anti-war anti-government political content.",
+  "recipe": "classic North American modern d-beat, distorted Rock, punk branch, thrash metal groove metal djent. thick, chest resonance low mid, punctuated, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 658,
+  "score": 374.332,
+  "config": {
+    "traditions": [
+      "d_beat_swedish",
+      "groove_metal",
+      "djent"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 6.656500000000001,
+          "voice_quality": 0,
+          "voice_vibrato": 1.223,
+          "voice_articulation": 0.9175,
+          "voice_microtone": 5.355000000000002,
+          "voice_tradition": 1.4949999999999999,
+          "voice_mechanism_compound": 10.01,
+          "voice_estill_quality": 1.4449999999999998,
+          "voice_speech_song": 10.075,
+          "voice_ensemble_config": 10.8245,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 1.4625,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 1.5655000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 9.74,
+          "amp_make": 15.209999999999999,
+          "body_wood": 1.2545000000000002,
+          "neck_wood": 1.223,
+          "fretboard": 0.7729999999999999,
+          "pickup_magnet": 0.8780000000000001,
+          "pickup_winding": 0.105,
+          "string_material": 0.258,
+          "bridge": 1.223,
+          "scale_length": 2.4459999999999997,
+          "string_gauge": 1.5870000000000002,
+          "finish": 0,
+          "string_tuning": 3.7700000000000005
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 6.9815,
+          "amp_make": 4.485,
+          "body_wood": 2.4459999999999997,
+          "pickup_config": 0.7729999999999999,
+          "string_type": 7.15,
+          "scale_length_b": 1.223,
+          "fretted_or_not": 0.195,
+          "bass_technique": 12.5315
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "double_coated",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 10.009999999999998,
+          "shell_wood": 0.6489999999999999,
+          "shell_thickness": 0,
+          "bearing_edges": 1.223,
+          "drumhead": 1.223,
+          "snare_wires": 1.223,
+          "cymbal_alloy": 14.508,
+          "cymbal_hammering": 8.2275,
+          "cymbal_lathing": 5.4,
+          "cymbal_finish": 0.258,
+          "drum_technique": 10.009999999999998
+        }
+      }
+    ],
+    "room": "gothenburg_swedish_melodic_death_studio",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_marshall_jcm800",
+      "medium": "cassette_medium"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

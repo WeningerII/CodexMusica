@@ -1,0 +1,156 @@
+{
+  "id": "choir_welsh_male",
+  "name": "Welsh male voice choir",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Welsh male voice",
+  "parts": [
+    {
+      "id": "voicing",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "ttbb_welsh",
+          "default": true,
+          "name": "TTBB four-part",
+          "descriptors": [
+            "chest-resonance-low-mid",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "chordal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "surface": false,
+      "name": "Context",
+      "variants": [
+        {
+          "id": "welsh_eisteddfod",
+          "default": true,
+          "name": "Eisteddfod competition",
+          "descriptors": [
+            "virtuoso",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "welsh_chapel",
+          "name": "Chapel / hymn singing",
+          "descriptors": [
+            "congregational",
+            "chest-resonance-low-mid",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "welsh_rugby_terraces",
+          "name": "Rugby terrace / informal",
+          "descriptors": [
+            "informal",
+            "foundational",
+            "foundational-warm"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "voicing",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "ttbb_welsh",
+          "default": true,
+          "name": "TTBB four-part",
+          "descriptors": [
+            "chest-resonance-low-mid",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony",
+            "chordal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "surface": false,
+      "name": "Context",
+      "variants": [
+        {
+          "id": "welsh_eisteddfod",
+          "default": true,
+          "name": "Eisteddfod competition",
+          "descriptors": [
+            "virtuoso",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "welsh_chapel",
+          "name": "Chapel / hymn singing",
+          "descriptors": [
+            "congregational",
+            "chest-resonance-low-mid",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "welsh_rugby_terraces",
+          "name": "Rugby terrace / informal",
+          "descriptors": [
+            "informal",
+            "foundational",
+            "foundational-warm"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "close-harmony"
+          ]
+        }
+      ]
+    }
+  ]
+}

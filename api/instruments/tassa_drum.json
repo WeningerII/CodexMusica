@@ -1,0 +1,246 @@
+{
+  "id": "tassa_drum",
+  "name": "Tassa drum (Indo-Trinidadian)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tassa",
+  "parts": [
+    {
+      "id": "tassa_skin",
+      "name": "Skin",
+      "variants": [
+        {
+          "id": "tassa_goatskin",
+          "default": true,
+          "name": "Goat-skin tensioned by rope-and-fire (canonical Indo-Trinidadian)",
+          "descriptors": [
+            "goat-skin-rope-and-fire-canonical-indo-trinidadian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean",
+            "sticks"
+          ]
+        },
+        {
+          "id": "tassa_synthetic",
+          "name": "Synthetic (modern Caribbean carnival)",
+          "descriptors": [
+            "synthetic-modern-caribbean-carnival"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tassa_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "tassa_clay",
+          "default": true,
+          "name": "Clay shell (canonical Hosay procession)",
+          "descriptors": [
+            "clay-canonical-hosay-procession"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        },
+        {
+          "id": "tassa_metal",
+          "name": "Metal shell (modern Caribbean carnival)",
+          "descriptors": [
+            "metal-modern-caribbean-carnival"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        },
+        {
+          "id": "tassa_fiberglass",
+          "name": "Fiberglass (modern stable)",
+          "descriptors": [
+            "fiberglass-modern-stable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tassa_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "tassa_hosay_canonical",
+          "default": true,
+          "name": "Hosay procession (canonical Indo-Trinidadian Shia Muharram)",
+          "descriptors": [
+            "hosay-procession-canonical-indo-trinidadian-shia-muharram"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        },
+        {
+          "id": "tassa_hindu_wedding",
+          "name": "Hindu wedding tassa (Indo-Caribbean)",
+          "descriptors": [
+            "hindu-wedding-tassa-indo-caribbean"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        },
+        {
+          "id": "tassa_modern_carnival",
+          "name": "Modern Trinidadian carnival fusion",
+          "descriptors": [
+            "modern-trinidadian-carnival-fusion"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tassa_skin",
+      "name": "Skin",
+      "variants": [
+        {
+          "id": "tassa_goatskin",
+          "default": true,
+          "name": "Goat-skin tensioned by rope-and-fire (canonical Indo-Trinidadian)",
+          "descriptors": [
+            "goat-skin-rope-and-fire-canonical-indo-trinidadian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean",
+            "sticks"
+          ]
+        },
+        {
+          "id": "tassa_synthetic",
+          "name": "Synthetic (modern Caribbean carnival)",
+          "descriptors": [
+            "synthetic-modern-caribbean-carnival"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tassa_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "tassa_clay",
+          "default": true,
+          "name": "Clay shell (canonical Hosay procession)",
+          "descriptors": [
+            "clay-canonical-hosay-procession"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        },
+        {
+          "id": "tassa_metal",
+          "name": "Metal shell (modern Caribbean carnival)",
+          "descriptors": [
+            "metal-modern-caribbean-carnival"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        },
+        {
+          "id": "tassa_fiberglass",
+          "name": "Fiberglass (modern stable)",
+          "descriptors": [
+            "fiberglass-modern-stable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tassa_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "tassa_hosay_canonical",
+          "default": true,
+          "name": "Hosay procession (canonical Indo-Trinidadian Shia Muharram)",
+          "descriptors": [
+            "hosay-procession-canonical-indo-trinidadian-shia-muharram"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        },
+        {
+          "id": "tassa_hindu_wedding",
+          "name": "Hindu wedding tassa (Indo-Caribbean)",
+          "descriptors": [
+            "hindu-wedding-tassa-indo-caribbean"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        },
+        {
+          "id": "tassa_modern_carnival",
+          "name": "Modern Trinidadian carnival fusion",
+          "descriptors": [
+            "modern-trinidadian-carnival-fusion"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "indo-caribbean"
+          ]
+        }
+      ]
+    }
+  ]
+}

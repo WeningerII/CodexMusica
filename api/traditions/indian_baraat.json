@@ -1,0 +1,134 @@
+{
+  "id": "indian_baraat",
+  "name": "Indian baraat (groom's wedding procession)",
+  "family": "global",
+  "lineage": "Pan-Indian groom's wedding-procession music tradition continuous from medieval-era Indian royal-and-domestic processional-music practice through 19th-20th century commercial-baraat-band evolution into modern South-Asian-and-diaspora wedding practice; defined by the band-baaja-baaraat ensemble with shehnai, dhol, trumpet, and brass-and-percussion arrangement",
+  "recipe": "classic modern indian baraat, wedding, south Asian branch, carnival processional, south Asian pop functional song, south Asian art music indian holi-and-diwali festival processional new orleans brass band second-line. thick, low dynamic level, tasteful, continuous-phonation. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese student friendly trumpet, indian rosewood rosewood brass tabla. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 819,
+  "score": 237.045,
+  "config": {
+    "traditions": [
+      "indian_baraat",
+      "indian_holi_diwali_processional",
+      "new_orleans_brass_parade"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.55,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.69,
+          "voice_microtone": 3.5,
+          "voice_tradition": 17.2,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 9.554999999999998,
+          "voice_ensemble_config": 8.189999999999998,
+          "voice_ornament_system": 6.245000000000001,
+          "voice_pitch_organization": 6.250000000000001,
+          "voice_processing_chain": 5.84,
+          "voice_multitrack_stack": 1.2999999999999998
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_wedding",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_synthetic_head",
+          "dholak_tensioning": "dholak_bolt_tuned"
+        },
+        "scores": {
+          "dholak_use": 0.3,
+          "dholak_construction": 1.69,
+          "dholak_head": 1.69,
+          "dholak_tensioning": 1.69
+        }
+      },
+      {
+        "id": "shehnai",
+        "slots": {
+          "shehnai_register": "shehnai_standard_c",
+          "shehnai_use": "shehnai_naubat_ensemble",
+          "shehnai_body_wood": "shehnai_sheesham_canonical",
+          "shehnai_reed": "shehnai_arundo_quadruple",
+          "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+        },
+        "scores": {
+          "shehnai_register": 5.46,
+          "shehnai_use": 11.309999999999999,
+          "shehnai_body_wood": 5.395,
+          "shehnai_reed": 0.39,
+          "shehnai_lineage": 0.39
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 1.885,
+          "brass_size": 0.09,
+          "trumpet_mouthpiece": 3.2,
+          "brass_mute": 0,
+          "trumpet_technique": 1.885,
+          "trumpet_bell_metal": 2.08,
+          "trumpet_maker_school": 1.69
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 5.004999999999999,
+          "tabla_bayan": 1.69,
+          "tabla_syahi": 0.41999999999999993
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

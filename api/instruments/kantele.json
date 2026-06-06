@@ -1,0 +1,392 @@
+{
+  "id": "kantele",
+  "name": "Kantele (Finnish/Karelian zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kantele",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kantele_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "kantele_5",
+          "name": "Five-string archaic",
+          "descriptors": [
+            "archaic",
+            "runic",
+            "meditative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_36",
+          "default": true,
+          "name": "36-string concert",
+          "descriptors": [
+            "orchestral",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kantele_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "kantele_kalevala",
+          "default": true,
+          "name": "Kalevala epic singing",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_ballad",
+          "name": "Folk ballad",
+          "descriptors": [
+            "regional",
+            "song-accompaniment",
+            "communal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_art",
+          "name": "Modern art-music",
+          "descriptors": [
+            "concert",
+            "twentieth-century-composed",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kantele_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kantele_birch_alder",
+          "default": true,
+          "name": "Birch / alder (canonical Karelian)",
+          "descriptors": [
+            "birch-alder-karelian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_spruce_top",
+          "name": "Spruce top (modern concert)",
+          "descriptors": [
+            "spruce-top-modern-concert"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kantele_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kantele_steel_modern",
+          "default": true,
+          "name": "Steel (modern concert canonical)",
+          "descriptors": [
+            "steel-modern-concert-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_bronze_traditional",
+          "name": "Bronze (mid-tier traditional)",
+          "descriptors": [
+            "bronze-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_horsehair_archaic",
+          "name": "Horsehair (archaic pre-modern five-string)",
+          "descriptors": [
+            "horsehair-archaic-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "kantele_gut_historical",
+          "name": "Gut (pre-modern five-string)",
+          "descriptors": [
+            "gut-pre-modern-five-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kantele_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "kantele_5",
+          "name": "Five-string archaic",
+          "descriptors": [
+            "archaic",
+            "runic",
+            "meditative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_36",
+          "default": true,
+          "name": "36-string concert",
+          "descriptors": [
+            "orchestral",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kantele_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "kantele_kalevala",
+          "default": true,
+          "name": "Kalevala epic singing",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_ballad",
+          "name": "Folk ballad",
+          "descriptors": [
+            "regional",
+            "song-accompaniment",
+            "communal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_art",
+          "name": "Modern art-music",
+          "descriptors": [
+            "concert",
+            "twentieth-century-composed",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kantele_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kantele_birch_alder",
+          "default": true,
+          "name": "Birch / alder (canonical Karelian)",
+          "descriptors": [
+            "birch-alder-karelian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_spruce_top",
+          "name": "Spruce top (modern concert)",
+          "descriptors": [
+            "spruce-top-modern-concert"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kantele_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kantele_steel_modern",
+          "default": true,
+          "name": "Steel (modern concert canonical)",
+          "descriptors": [
+            "steel-modern-concert-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_bronze_traditional",
+          "name": "Bronze (mid-tier traditional)",
+          "descriptors": [
+            "bronze-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kantele_horsehair_archaic",
+          "name": "Horsehair (archaic pre-modern five-string)",
+          "descriptors": [
+            "horsehair-archaic-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "kantele_gut_historical",
+          "name": "Gut (pre-modern five-string)",
+          "descriptors": [
+            "gut-pre-modern-five-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

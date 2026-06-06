@@ -1,0 +1,172 @@
+{
+  "id": "calypso",
+  "name": "Calypso",
+  "family": "global",
+  "lineage": "Trinidadian narrative-and-topical song tradition emerging from post-1834 Emancipation kalinda stick-fighting chant, codified through the post-WWII commercial recording era — Mighty Sparrow (Slinger Francisco), Lord Kitchener (Aldwyn Roberts), Lord Invader, the Roaring Lion, Lord Melody, Calypso Rose; performed during the Trinidad and Tobago Carnival season (October-February preparation, with Carnival Monday-Tuesday peak) in calypso tent venues and competition contexts",
+  "recipe": "classic North American mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional garifuna paranda and hungu-hungu bachata. thick, narrative, Yoruba tonal vocal, m1 with m0 pulse borrowing. dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, bach stradivarius 180 canonical American orchestral trumpet, gold brass warmer tone rubber saxophone. trinidad calypso panyard outdoor. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 634,
+  "score": 175.56,
+  "config": {
+    "traditions": [
+      "calypso",
+      "garifuna_paranda_hungu_hungu",
+      "bachata"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 0.45499999999999985,
+          "voice_vibrato": 0.435,
+          "voice_articulation": 1.2799999999999998,
+          "voice_microtone": 0.15,
+          "voice_tradition": 5.654999999999999,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 10.854999999999997,
+          "voice_ensemble_config": 6.889999999999999,
+          "voice_ornament_system": 0.15,
+          "voice_pitch_organization": 0.9749999999999996,
+          "voice_processing_chain": 4.08,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "drop_d",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 2.5300000000000007,
+          "string_tuning": 0,
+          "top_wood": 0.435,
+          "back_sides": 0.435,
+          "string_acoustic": 0.48000000000000004
+        }
+      },
+      {
+        "id": "claves",
+        "slots": {
+          "claves_pattern": "claves_bembe",
+          "claves_wood": "claves_cuban_hardwood"
+        },
+        "scores": {
+          "claves_pattern": 1.98,
+          "claves_wood": 0.6
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "electric_technique": 0.25,
+          "amp_make": 0,
+          "body_wood": 0.8700000000000001,
+          "pickup_config": 0.045,
+          "string_type": 1.56,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.3,
+          "bass_technique": 1.43
+        }
+      },
+      {
+        "id": "steelpan",
+        "slots": {
+          "steelpan_voice": "cello_pan",
+          "steelpan_context": "steelpan_panyard"
+        },
+        "scores": {
+          "steelpan_voice": 0.585,
+          "steelpan_context": 2.08
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 0.7,
+          "brass_size": 0.435,
+          "trumpet_mouthpiece": 0.325,
+          "brass_mute": 0.15,
+          "trumpet_technique": 0.7,
+          "trumpet_bell_metal": 0.78,
+          "trumpet_maker_school": 1.6199999999999997
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 0.7,
+          "sax_size": 0.435,
+          "sax_reed": 0.435,
+          "sax_body_alloy": 1.55,
+          "sax_mouthpiece": 1.0799999999999998,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.195
+        }
+      }
+    ],
+    "room": "trinidad_calypso_panyard_outdoor",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "trinidad_calypso_soca_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

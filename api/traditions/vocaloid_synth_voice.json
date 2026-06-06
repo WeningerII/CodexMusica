@@ -1,0 +1,113 @@
+{
+  "id": "vocaloid_synth_voice",
+  "name": "Vocaloid synth-voice pop",
+  "family": "global",
+  "lineage": "Japanese synth-vocal subculture codified through Yamaha\\u2019s Vocaloid voice-synthesis software (2004) and the Hatsune Miku (2007) avatar that became the canonical virtual idol — characterized by user-generated music with synthetic-vocal lead, anime-inflected visual identity, and the Nico Nico Douga upload-and-remix ecosystem that fed the genre",
+  "recipe": "classic mid-2000s vocaloid synth-voice pop, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. plucked short envelope analog poly synth, plucked short envelope digital subtractive, field textural sampler, electric bass, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 506,
+  "score": 85.405,
+  "config": {
+    "traditions": [
+      "vocaloid_synth_voice",
+      "hyperpop"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 9.8365,
+          "poly_archetypes": 0.6014999999999999,
+          "poly_voices": 0.36750000000000005,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 9.8365,
+          "va_archetypes": 0.3,
+          "digital_subtractive_context": 5.2
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_pop_production"
+        },
+        "scores": {
+          "electronic_technique": 3.4499999999999993,
+          "sampler_archetypes": 0.45749999999999996,
+          "sampler_bit_depth": 0.2925,
+          "sampler_workflow": 3.5715,
+          "sampler_classic_context": 8.87375
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 0.13000000000000003,
+          "body_wood": 0.43050000000000005,
+          "pickup_config": 0.39,
+          "string_type": 0.268125,
+          "scale_length_b": 0.231,
+          "fretted_or_not": 0.1365,
+          "bass_technique": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_cowbell",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 0.39,
+          "drum_machine_808_context": 1.51425,
+          "tr808_production_origin": 1.2349999999999999
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

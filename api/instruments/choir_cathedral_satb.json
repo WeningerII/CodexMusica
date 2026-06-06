@@ -1,0 +1,250 @@
+{
+  "id": "choir_cathedral_satb",
+  "name": "Cathedral / classical SATB choir",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "cathedral choir",
+  "parts": [
+    {
+      "id": "voicing",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "satb_standard",
+          "default": true,
+          "name": "Standard SATB",
+          "descriptors": [
+            "blended",
+            "classical",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "devotional",
+            "chordal"
+          ]
+        },
+        {
+          "id": "satb_with_boys",
+          "name": "SATB with boy trebles",
+          "descriptors": [
+            "anglican",
+            "sustained",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "devotional",
+            "chordal"
+          ]
+        },
+        {
+          "id": "satb_double_choir",
+          "name": "Double choir (8-part)",
+          "descriptors": [
+            "antiphonal",
+            "renaissance",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "doubled",
+            "choir-blendable",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repertoire",
+      "surface": false,
+      "name": "Repertoire era",
+      "variants": [
+        {
+          "id": "renaissance_polyphony",
+          "name": "Renaissance polyphony",
+          "descriptors": [
+            "contrapuntal",
+            "sustained",
+            "meditative"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "choir-blendable",
+            "devotional"
+          ]
+        },
+        {
+          "id": "baroque_choral",
+          "name": "Baroque (oratorio, mass, cantata)",
+          "descriptors": [
+            "contrapuntal",
+            "dramatic",
+            "foundational"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "choir-blendable",
+            "devotional"
+          ]
+        },
+        {
+          "id": "romantic_choral",
+          "name": "Romantic (19th-century)",
+          "descriptors": [
+            "foundational",
+            "symphonic"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "choir-blendable",
+            "devotional"
+          ]
+        },
+        {
+          "id": "modern_classical_choral",
+          "default": true,
+          "name": "Modern / contemporary classical",
+          "descriptors": [
+            "extended-techniques",
+            "timbral",
+            "experimental"
+          ],
+          "match_tokens": [
+            "modern",
+            "classical",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "voicing",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "satb_standard",
+          "default": true,
+          "name": "Standard SATB",
+          "descriptors": [
+            "blended",
+            "classical",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "devotional",
+            "chordal"
+          ]
+        },
+        {
+          "id": "satb_with_boys",
+          "name": "SATB with boy trebles",
+          "descriptors": [
+            "anglican",
+            "sustained",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "devotional",
+            "chordal"
+          ]
+        },
+        {
+          "id": "satb_double_choir",
+          "name": "Double choir (8-part)",
+          "descriptors": [
+            "antiphonal",
+            "renaissance",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "doubled",
+            "choir-blendable",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repertoire",
+      "surface": false,
+      "name": "Repertoire era",
+      "variants": [
+        {
+          "id": "renaissance_polyphony",
+          "name": "Renaissance polyphony",
+          "descriptors": [
+            "contrapuntal",
+            "sustained",
+            "meditative"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "choir-blendable",
+            "devotional"
+          ]
+        },
+        {
+          "id": "baroque_choral",
+          "name": "Baroque (oratorio, mass, cantata)",
+          "descriptors": [
+            "contrapuntal",
+            "dramatic",
+            "foundational"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "choir-blendable",
+            "devotional"
+          ]
+        },
+        {
+          "id": "romantic_choral",
+          "name": "Romantic (19th-century)",
+          "descriptors": [
+            "foundational",
+            "symphonic"
+          ],
+          "match_tokens": [
+            "romantic",
+            "romantic-orchestra",
+            "choir-blendable",
+            "devotional"
+          ]
+        },
+        {
+          "id": "modern_classical_choral",
+          "default": true,
+          "name": "Modern / contemporary classical",
+          "descriptors": [
+            "extended-techniques",
+            "timbral",
+            "experimental"
+          ],
+          "match_tokens": [
+            "modern",
+            "classical",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

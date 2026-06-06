@@ -1,0 +1,153 @@
+{
+  "id": "forro_brasileiro",
+  "name": "Forró brasileiro",
+  "family": "global",
+  "lineage": "Brazilian Northeast accordion-led couple-dance tradition with three-instrument pé-de-serra canonical-ensemble: sanfona (accordion or button-accordion), zabumba (large two-headed flat-drum), and triângulo (steel triangle). Codified mid-20th-century by Pernambuco-and-Paraíba interior-rural-migration into urban-Recife and Rio-São-Paulo migrant-communities. The three canonical rhythmic-subforms — baião moderate-tempo with characteristic eighth-note zabumba dotted-pattern, xote slow-couple-dance derived from Czech schottische, xaxado fast-syncopated rural-bandit-cangaceiro dance — comprise the forró repertoire. The pé-de-serra traditional-style coexists with forró-eletrônico 1990s-onward electronic-bass-and-drum-machine variant centered in Bahia-and-Ceará.",
+  "recipe": "classic North American mid-1990s forró brasileiro, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, chest resonance low mid, punctuated. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, forró tradition open closed alternation triangulo forro, cedar nylon classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era electric bass. estudio rozenblit recife. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 637,
+  "score": 143.542,
+  "config": {
+    "traditions": [
+      "forro_brasileiro",
+      "pagode",
+      "baiao"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 2.405,
+          "voice_vibrato": 1.24,
+          "voice_articulation": 1.3,
+          "voice_microtone": 0.045,
+          "voice_tradition": 3.185,
+          "voice_mechanism_compound": 3.9,
+          "voice_estill_quality": 3.7050000000000005,
+          "voice_speech_song": 6.4350000000000005,
+          "voice_ensemble_config": 6.37,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 2.6,
+          "voice_processing_chain": 4.44,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 1.2349999999999999,
+          "accordion_reed_material": 1.3,
+          "musette_offset": 1.09,
+          "reed_config": 0.585,
+          "bellows": 1.09,
+          "voicing_chamber": 0.24,
+          "accordion_maker_school": 2.9899999999999998
+        }
+      },
+      {
+        "id": "zabumba",
+        "slots": {
+          "zabumba_shell": "zabumba_wood_shallow",
+          "zabumba_technique": "zabumba_baiao_pattern"
+        },
+        "scores": {
+          "zabumba_shell": 3.585,
+          "zabumba_technique": 5.2
+        }
+      },
+      {
+        "id": "triangulo_forro",
+        "slots": {
+          "triangulo_size": "triangulo_large_forro",
+          "triangulo_pattern": "triangulo_forro_pattern"
+        },
+        "scores": {
+          "triangulo_size": 1.3,
+          "triangulo_pattern": 1.3
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "string_tuning": 0,
+          "top_wood_classical": 3.9,
+          "bracing_classical": 1.135,
+          "string_classical": 1.2349999999999999,
+          "attack_technique_cl": 1.195
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 1.2349999999999999,
+          "body_wood": 2.6,
+          "pickup_config": 1.3,
+          "string_type": 2.38,
+          "scale_length_b": 1.24,
+          "fretted_or_not": 0.15,
+          "bass_technique": 0.325
+        }
+      }
+    ],
+    "room": "estudio_rozenblit_recife",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_15ips"
+    },
+    "tuning": "baiao_2_4_beat_one_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

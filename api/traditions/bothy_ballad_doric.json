@@ -1,0 +1,101 @@
+{
+  "id": "bothy_ballad_doric",
+  "name": "Bothy ballad (Doric)",
+  "family": "global",
+  "lineage": "Aberdeenshire and Northeast Scottish farm-laborer balladry sung in Doric Scots dialect — collected by Gavin Greig and James Bruce Duncan in the early 20th century, preserved through the School of Scottish Studies Hamish Henderson field recordings, performed by John Strachan, Jeannie Robertson, Lizzie Higgins, the Stewart family of Blairgowrie, and the modern Aberdeenshire continuation (Sheena Wellington, Jock Duncan)",
+  "recipe": "classic modern bothy ballad, ballad Poetry, bothy ballad branch, pre commercial country pre-commercial country roots. thick, low dynamic level, expressive, unrestrained. melodic straight accordion, Celtic straight melodeon diatonic. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 396,
+  "score": 129.548,
+  "config": {
+    "traditions": [
+      "bothy_ballad_doric",
+      "pre_commercial_country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 2.1025,
+          "voice_quality": 1.474375,
+          "voice_vibrato": 1.7499999999999998,
+          "voice_articulation": 2.5,
+          "voice_microtone": 0.2025,
+          "voice_tradition": 8.38975,
+          "voice_mechanism_compound": 1.0102499999999999,
+          "voice_estill_quality": 2.381625,
+          "voice_speech_song": 8.254999999999999,
+          "voice_ensemble_config": 7.151249999999999,
+          "voice_ornament_system": 3.95,
+          "voice_pitch_organization": 1.4100000000000001,
+          "voice_processing_chain": 3.3412499999999996,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 3.7,
+          "accordion_reed_material": 0.3,
+          "musette_offset": 0.315,
+          "reed_config": 0.015,
+          "bellows": 0.315,
+          "voicing_chamber": 0.007499999999999999,
+          "accordion_maker_school": 0.39
+        }
+      },
+      {
+        "id": "melodeon_diatonic",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "melodeon_rows": "melodeon_2_row",
+          "melodeon_diatonic_context": "melodeon_diatonic_celtic"
+        },
+        "scores": {
+          "free_reed_technique": 3.7,
+          "melodeon_rows": 0.39,
+          "melodeon_diatonic_context": 1.573125
+        }
+      }
+    ],
+    "room": "scottish_bothy_farmhouse_kitchen",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

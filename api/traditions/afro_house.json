@@ -1,0 +1,109 @@
+{
+  "id": "afro_house",
+  "name": "Afro house",
+  "family": "electronic",
+  "lineage": "Subgenre of deep-and-tech-house emerging from late 2000s through 2010s, integrating West, Central, and Southern African percussion-and-vocal influences into deep-house structural-and-tempo framework (118-126 BPM). Black Coffee (South African DJ-producer Nkosinathi Maphumulo) inaugurated the international Afro house ambassador role through his 2005-onward career; Themba, Caiiro, Da Capo, and the broader Innervisions, Get Physical, and Stay True Sounds labels anchor the canonical sound.",
+  "recipe": "classic modern afro house, electronic Dance, house branch, west African groove percussion indonesian jaipongan jùjú. vocal fry, melodic, rhythmic, Yoruba tonal vocal. TR-808, analog synth, log drum. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 409,
+  "score": 150.613,
+  "config": {
+    "traditions": [
+      "afro_house",
+      "indonesian_jaipongan",
+      "juju"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 0.22499999999999998,
+          "voice_vibrato": 0.8250000000000001,
+          "voice_articulation": 0.885,
+          "voice_microtone": 0.045,
+          "voice_tradition": 18.85,
+          "voice_mechanism_compound": 1.755,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 10.075,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 1.435,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 6.945,
+          "voice_multitrack_stack": 5.475000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_cowbell",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 0.045,
+          "drum_machine_808_context": 0.855,
+          "tr808_production_origin": 0.345
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "oscillator": 1.2000000000000002,
+          "filter_topology": 1.095,
+          "envelope": 0.6599999999999999,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "log_drum",
+        "slots": {
+          "log_drum_voice": "log_drum_mid",
+          "log_drum_context": "log_drum_amapiano"
+        },
+        "scores": {
+          "log_drum_voice": 0.7950000000000002,
+          "log_drum_context": 9.36
+        }
+      }
+    ],
+    "room": "lagos_decca_west_african_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

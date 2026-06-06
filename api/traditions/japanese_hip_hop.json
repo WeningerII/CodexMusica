@@ -1,0 +1,98 @@
+{
+  "id": "japanese_hip_hop",
+  "name": "Japanese hip-hop",
+  "family": "hip_hop",
+  "lineage": "Japanese-language hip-hop tradition emerging in 1980s and 1990s through Vibrastone, ECD, and the broader Tokyo-based underground scene. The 2000s commercial peak through KICK THE CAN CREW, KREVA, and the Mary Joy Recordings roster brought J-rap into mainstream-J-pop visibility. The 2010s-2020s wave through KOHH, Awich, JP THE WAVY, and the Bad Hop crew consolidated the contemporary scene. Distinguished by Japanese-language wordplay-density and explicit Japanese-cultural lyrical content.",
+  "recipe": "classic mid-1980s japanese hip-hop, mc Rhythm, intl hip hop branch, us hip hop east coast brooklyn drill east coast hip-hop. thick, rap, narrative, equal tempered. chopped sampler, TR-808. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 386,
+  "score": 252.755,
+  "config": {
+    "traditions": [
+      "japanese_hip_hop",
+      "brooklyn_drill",
+      "east_coast_hip_hop_classic"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.8675,
+          "voice_quality": 15.86,
+          "voice_vibrato": 0.3,
+          "voice_articulation": 6.826499999999999,
+          "voice_microtone": 3.000000000000001,
+          "voice_tradition": 13.042499999999999,
+          "voice_mechanism_compound": 0.7244999999999999,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 14.432999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0.21000000000000002,
+          "voice_pitch_organization": 2.8225000000000007,
+          "voice_processing_chain": 10.2365,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 6.79,
+          "sampler_archetypes": 13.39,
+          "sampler_bit_depth": 0.6,
+          "sampler_workflow": 6.99,
+          "sampler_classic_context": 17.225
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 7.332,
+          "drum_machine_808_context": 3.9025,
+          "tr808_production_origin": 0.44999999999999996
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

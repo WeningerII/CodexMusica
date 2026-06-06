@@ -29,6 +29,7 @@ Every operation is an `npm run` script (see `package.json`):
 | `npm run build` | Canonical ship: validate → audit → regression → smoke → build HTML → UI reachability (~20 min) |
 | `npm run build:fast` | Same, skipping the slow catalog-wide smoke + UI checks |
 | `npm run build:html` | Just (re)build `codex.html` from `references/`, with a post-build syntax check |
+| `npm run build:api` | Pre-compile every tradition into the static, server-free JSON "API" under `api/` + `llms.txt`/`sitemap.xml` |
 | `npm run validate` | Reference-integrity check (fatal on broken refs, axis violations, duplicate ids) |
 | `npm run audit` | Data-quality audit (advisory warnings) |
 | `npm run audit:coherence` | Substantive coherence audit: field-vs-field consistency (recording-era clashes, stamped vocal-tradition defaults, non-12-TET tuning contradictions) |
@@ -39,6 +40,19 @@ Every operation is an `npm run` script (see `package.json`):
 | `npm run lint` / `npm run format` | ESLint / Prettier |
 | `npm run ci` | `lint` + full `build` |
 | `npm run assets:*` | Regenerate embedded emoji / icon / photo assets (occasional) |
+
+## Static API (for agents & tools)
+
+`npm run build:api` pre-compiles every tradition into plain JSON files under `api/`,
+which GitHub Pages serves as-is — no server, no key, no per-call cost. An agent (or a
+deep-research LLM) fetches a URL and reads the recipe:
+
+- `api/index.json` — endpoint map + counts
+- `api/traditions/index.json` → `api/traditions/{id}.json` — recipe + arrangement per tradition
+- `api/instruments/index.json` → `api/instruments/{id}.json` — instrument data
+
+Discovery surface: root `llms.txt`, `sitemap.xml`, and `AGENTS.md` (the agent guide).
+All compute happens at build time; see `scripts/build_static_api.js`.
 
 ## Repository map
 

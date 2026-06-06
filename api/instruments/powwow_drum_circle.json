@@ -1,0 +1,198 @@
+{
+  "id": "powwow_drum_circle",
+  "name": "Powwow drum circle",
+  "family": "ensemble",
+  "class": "drum_kit",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "powwow drum",
+  "parts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "pw_lead_singer",
+          "default": true,
+          "name": "Lead singer (begins each push-up)",
+          "descriptors": [
+            "high-pitched",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pw_second_singer",
+          "name": "Second (echoes lead)",
+          "descriptors": [
+            "responsorial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pw_chorus_men",
+          "name": "Men's chorus around drum",
+          "descriptors": [
+            "blended"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pw_women_above",
+          "name": "Women's chorus (octave above)",
+          "descriptors": [
+            "high-octave",
+            "complementary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "style",
+      "name": "Style",
+      "variants": [
+        {
+          "id": "pw_northern",
+          "default": true,
+          "name": "Northern (high-pitched, fast)",
+          "descriptors": [
+            "high-pitched",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pw_southern",
+          "name": "Southern (lower-pitched, slower)",
+          "descriptors": [
+            "lower-pitched",
+            "slower",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "pw_lead_singer",
+          "default": true,
+          "name": "Lead singer (begins each push-up)",
+          "descriptors": [
+            "high-pitched",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pw_second_singer",
+          "name": "Second (echoes lead)",
+          "descriptors": [
+            "responsorial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pw_chorus_men",
+          "name": "Men's chorus around drum",
+          "descriptors": [
+            "blended"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pw_women_above",
+          "name": "Women's chorus (octave above)",
+          "descriptors": [
+            "high-octave",
+            "complementary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "style",
+      "name": "Style",
+      "variants": [
+        {
+          "id": "pw_northern",
+          "default": true,
+          "name": "Northern (high-pitched, fast)",
+          "descriptors": [
+            "high-pitched",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "pw_southern",
+          "name": "Southern (lower-pitched, slower)",
+          "descriptors": [
+            "lower-pitched",
+            "slower",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

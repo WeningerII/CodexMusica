@@ -1,0 +1,83 @@
+{
+  "id": "shona_mbira_praise",
+  "name": "Shona mbira praise music (Zimbabwe)",
+  "family": "global",
+  "lineage": "Shona mbira-and-vocal praise-music tradition continuous from pre-colonial Zimbabwe Karanga-Shona ritual-practice through colonial-period continuous performance into modern Zimbabwean Shona-cultural practice; the mbira dzavadzimu (mbira of the ancestors) is the canonical Shona ritual-and-praise instrument",
+  "recipe": "classic modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion maasai adumu warrior jumping-song inuit katajjaq throat-singing game. sygyt, declaimed, melodic, continuous-phonation. steel maple mbira. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 453,
+  "score": 203.887,
+  "config": {
+    "traditions": [
+      "shona_mbira_praise",
+      "maasai_adumu_olaranyani",
+      "inuit_katajjaq_games"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.47,
+          "voice_quality": 17.31499999999999,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 2.7949999999999995,
+          "voice_microtone": 2.435,
+          "voice_tradition": 19.370000000000005,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 1.3,
+          "voice_speech_song": 6.434999999999999,
+          "voice_ensemble_config": 4.940000000000001,
+          "voice_ornament_system": 5.78,
+          "voice_pitch_organization": 3.0349999999999997,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 2.47
+        }
+      },
+      {
+        "id": "mbira",
+        "slots": {
+          "tine_material": "spring_steel",
+          "mbira_board": "maple_kalimba",
+          "mbira_resonator": "box_resonator",
+          "mbira_buzz": "metal_beads"
+        },
+        "scores": {
+          "tine_material": 1.495,
+          "mbira_board": 1.495,
+          "mbira_resonator": 1.495,
+          "mbira_buzz": 1.495
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mbira_seven_tone",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

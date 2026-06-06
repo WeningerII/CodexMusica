@@ -1,0 +1,153 @@
+{
+  "id": "funk_metal",
+  "name": "Funk metal (mid-1980s funk-slap-bass heavy rock)",
+  "family": "rock_punk",
+  "lineage": "Mid-1980s-and-onward American rock subgenre integrating funk slap-bass and rhythmic-syncopation with heavy-rock guitar-bass-drum aesthetic. Red Hot Chili Peppers (Los Angeles, 1983-onward) inaugurated the canonical sound; Faith No More, Primus, Mr. Bungle, and Fishbone constitute the canonical roster. Distinguished from broader rock by funk metal's explicit syncopated-funk-bass emphasis.",
+  "recipe": "classic Los Angeles funk metal, distorted Rock, alternative branch, funk percussive groove percussion future funk. thick, low dynamic level, chest resonance low mid, punctuated. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany pre muffled edge muffled machine hammered symmetric pattern drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 608,
+  "score": 480.487,
+  "config": {
+    "traditions": [
+      "funk_metal",
+      "future_funk_vaporwave",
+      "funk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 16.285999999999994,
+          "voice_quality": 2.7950000000000004,
+          "voice_vibrato": 2.8445,
+          "voice_articulation": 2.6,
+          "voice_microtone": 15.749999999999996,
+          "voice_tradition": 2.5810000000000004,
+          "voice_mechanism_compound": 9.022,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 1.4365,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 22.636499999999998,
+          "voice_multitrack_stack": 7.247
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 16.567999999999998,
+          "amp_make": 19.2335,
+          "body_wood": 9.36,
+          "neck_wood": 2.8445,
+          "fretboard": 2.7945,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 1.69,
+          "string_material": 0.255,
+          "bridge": 2.8445,
+          "scale_length": 6.369999999999999,
+          "string_gauge": 2.8445,
+          "finish": 0,
+          "string_tuning": 14.689999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "electric_technique": 17.919999999999998,
+          "amp_make": 14.624999999999998,
+          "body_wood": 2.9899999999999998,
+          "pickup_config": 0.1815,
+          "string_type": 20.143,
+          "scale_length_b": 2.8445,
+          "fretted_or_not": 0.9099999999999999,
+          "bass_technique": 17.919999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 4.9399999999999995,
+          "shell_wood": 2.7725,
+          "shell_thickness": 0.3045,
+          "bearing_edges": 2.981,
+          "drumhead": 2.918,
+          "snare_wires": 2.9899999999999998,
+          "cymbal_alloy": 21.955,
+          "cymbal_hammering": 16.0815,
+          "cymbal_lathing": 16.0365,
+          "cymbal_finish": 0.27299999999999996,
+          "drum_technique": 16
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_mesa_dual_rectifier",
+      "medium": "tape_30ips"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

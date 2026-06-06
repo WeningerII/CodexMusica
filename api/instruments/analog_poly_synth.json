@@ -1,0 +1,519 @@
+{
+  "id": "analog_poly_synth",
+  "name": "Analog polyphonic synthesizer",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "analog poly synth",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_pad_drone",
+          "default": true,
+          "name": "Pad / drone",
+          "applies_to": [
+            "analog_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "string_machine",
+            "granular_synth",
+            "ondes_martenot",
+            "modular_synth",
+            "eurorack_modular"
+          ],
+          "descriptors": [
+            "sustained",
+            "pad"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-and-pad",
+            "drone-like",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "shoegaze"
+          ]
+        },
+        {
+          "id": "electronic_arpeggiated",
+          "name": "Arpeggiated sequence",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "monosynth_acid_bass"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "arpeggio-decoration"
+          ],
+          "canonical_tags": [
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_lead_line",
+          "name": "Lead synth line",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth",
+            "ondes_martenot",
+            "theremin"
+          ],
+          "descriptors": [
+            "lead",
+            "singing"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "pop",
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_bass_sub",
+          "name": "Sub-bass",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "monosynth_acid_bass",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "digital_subtractive"
+          ],
+          "descriptors": [
+            "sub-bass",
+            "low"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "trap",
+            "dubstep"
+          ]
+        },
+        {
+          "id": "electronic_pluck_short",
+          "name": "Pluck / short envelope",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth"
+          ],
+          "descriptors": [
+            "plucked",
+            "short-envelope"
+          ],
+          "match_tokens": [
+            "electronic",
+            "string-attack"
+          ],
+          "canonical_tags": [
+            "pop",
+            "edm"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "poly_archetypes",
+      "surface": false,
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "prophet_5",
+          "default": true,
+          "name": "Sequential Prophet-5",
+          "descriptors": [
+            "full"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "jupiter_8",
+          "name": "Roland Jupiter-8",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "pad-suited"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "oberheim_obxa",
+          "name": "Oberheim OB-Xa",
+          "descriptors": [
+            "wide",
+            "rock-context",
+            "beefy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "juno_60",
+          "name": "Roland Juno-60/106",
+          "descriptors": [
+            "accessible",
+            "classic-pad"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poly_voices",
+      "surface": false,
+      "name": "Voice count",
+      "variants": [
+        {
+          "id": "poly_5_voice",
+          "default": true,
+          "name": "5-voice",
+          "descriptors": [
+            "vintage",
+            "analog-drift-character"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "poly_8_voice",
+          "surface": false,
+          "name": "8-voice",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "pad-suited",
+            "flagship"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "poly_16_voice",
+          "surface": false,
+          "name": "16-voice modern",
+          "descriptors": [
+            "contemporary",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poly_maker_lineage",
+      "surface": false,
+      "name": "Maker lineage",
+      "variants": [
+        {
+          "id": "poly_sequential_smith",
+          "default": true,
+          "name": "Sequential Dave Smith lineage (canonical Prophet-5 1978 — San Jose CA)",
+          "descriptors": [
+            "sequential-dave-smith-lineage-canonical-prophet-5-1978-san-jose-ca"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "poly_oberheim_tom",
+          "name": "Oberheim Tom Oberheim lineage (canonical OB-X 1979 / OB-Xa 1980 — Los Angeles CA)",
+          "descriptors": [
+            "oberheim-tom-oberheim-lineage-canonical-ob-x-1979-ob-xa-1980-los-angeles-ca"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "poly_roland_jupiter",
+          "name": "Roland Jupiter lineage (canonical Jupiter-8 1981 — Osaka Japan)",
+          "descriptors": [
+            "roland-jupiter-lineage-canonical-jupiter-8-1981-osaka"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "poly_yamaha_cs",
+          "name": "Yamaha CS lineage (canonical CS-80 1976 — Hamamatsu Japan, polyphonic flagship)",
+          "descriptors": [
+            "yamaha-cs-lineage-canonical-cs-80-1976-hamamatsu-polyphonic-flagship"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "poly_archetypes",
+      "surface": false,
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "prophet_5",
+          "default": true,
+          "name": "Sequential Prophet-5",
+          "descriptors": [
+            "full"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "jupiter_8",
+          "name": "Roland Jupiter-8",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "pad-suited"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "oberheim_obxa",
+          "name": "Oberheim OB-Xa",
+          "descriptors": [
+            "wide",
+            "rock-context",
+            "beefy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "juno_60",
+          "name": "Roland Juno-60/106",
+          "descriptors": [
+            "accessible",
+            "classic-pad"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poly_voices",
+      "surface": false,
+      "name": "Voice count",
+      "variants": [
+        {
+          "id": "poly_5_voice",
+          "default": true,
+          "name": "5-voice",
+          "descriptors": [
+            "vintage",
+            "analog-drift-character"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "poly_8_voice",
+          "surface": false,
+          "name": "8-voice",
+          "descriptors": [
+            "overtone-rich-sustained",
+            "pad-suited",
+            "flagship"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "poly_16_voice",
+          "surface": false,
+          "name": "16-voice modern",
+          "descriptors": [
+            "contemporary",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poly_maker_lineage",
+      "surface": false,
+      "name": "Maker lineage",
+      "variants": [
+        {
+          "id": "poly_sequential_smith",
+          "default": true,
+          "name": "Sequential Dave Smith lineage (canonical Prophet-5 1978 — San Jose CA)",
+          "descriptors": [
+            "sequential-dave-smith-lineage-canonical-prophet-5-1978-san-jose-ca"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "poly_oberheim_tom",
+          "name": "Oberheim Tom Oberheim lineage (canonical OB-X 1979 / OB-Xa 1980 — Los Angeles CA)",
+          "descriptors": [
+            "oberheim-tom-oberheim-lineage-canonical-ob-x-1979-ob-xa-1980-los-angeles-ca"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "poly_roland_jupiter",
+          "name": "Roland Jupiter lineage (canonical Jupiter-8 1981 — Osaka Japan)",
+          "descriptors": [
+            "roland-jupiter-lineage-canonical-jupiter-8-1981-osaka"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "poly_yamaha_cs",
+          "name": "Yamaha CS lineage (canonical CS-80 1976 — Hamamatsu Japan, polyphonic flagship)",
+          "descriptors": [
+            "yamaha-cs-lineage-canonical-cs-80-1976-hamamatsu-polyphonic-flagship"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ]
+}

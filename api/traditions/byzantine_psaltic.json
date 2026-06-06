@@ -1,0 +1,83 @@
+{
+  "id": "byzantine_psaltic",
+  "name": "Byzantine psaltic art (modern Greek Orthodox)",
+  "family": "classical",
+  "lineage": "Modern Greek-Orthodox Byzantine chant tradition (post-1814 New Method notational reform by the Three Teachers Chrysanthos of Madytos, Gregorios the Protopsaltis, and Chourmouzios the Archivist). Performance: cantor (psaltis) and right-and-left choir (psaltries) alternating in the eight-mode oktoechos canonical liturgical-cycle. Distinguished from broader Byzantine-Orthodox chant by the New Method's simplified notational system and characteristic post-1814 vocal-style. The contemporary Mount Athos monastic tradition and the Athens-Constantinople patriarchal lineages constitute the institutional anchors.",
+  "recipe": "classic North American mid-1810s byzantine psaltic art, ritual Devotional, christian gospel branch, middle eastern classical art music libyan maluf maghrebi andalusi nuba. thick, declaimed, chest resonance low mid, ornamental. three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. stone armenian church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 507,
+  "score": 284.015,
+  "config": {
+    "traditions": [
+      "byzantine_psaltic",
+      "libyan_maluf",
+      "maghrebi_andalusi_nuba"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "arabic_maqam_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 4.3500000000000005,
+          "voice_quality": 7.585000000000001,
+          "voice_vibrato": 2.21,
+          "voice_articulation": 3.9,
+          "voice_microtone": 1.1699999999999995,
+          "voice_tradition": 12.284999999999997,
+          "voice_mechanism_compound": 7.199999999999999,
+          "voice_estill_quality": 5.3950000000000005,
+          "voice_speech_song": 11.764999999999999,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 6.825,
+          "voice_pitch_organization": 6.825,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "chamber_choir",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 4.635,
+          "choir_polyphonic_configuration": 3.38,
+          "choir_regional_canonical_configuration": 1.69,
+          "choir_ensemble_repertoire": 3.0749999999999997
+        }
+      }
+    ],
+    "room": "stone_armenian_church",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "byzantine_oktoechos_eight_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

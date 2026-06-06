@@ -1,0 +1,106 @@
+{
+  "id": "musique_concrete",
+  "name": "Musique concrète",
+  "family": "global",
+  "lineage": "Post-WWII Paris-school tape-collage composition tradition founded by Pierre Schaeffer at RTF in 1948 — Schaeffer\\u2019s Études aux chemins de fer (1948) the genre-founding work, joined by Pierre Henry (Symphonie pour un homme seul 1950), Luc Ferrari, and the GRM (Groupe de Recherches Musicales) studio that institutionalized the practice through the 1950s-1970s",
+  "recipe": "classic mid-1950s musique concrète, experimental Elec, musique concrete branch, western modern art music minimalist fluxus intermedia composition. field textural sampler, modular granular synth, modular eurorack modular, modern art rock modern greenwood revival radiohead post 2000 ennio morricone film ondes martenot, moog music etherwave canonical modern robert moog reissue 1996 present theremin. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 545,
+  "score": 85.345,
+  "config": {
+    "traditions": [
+      "musique_concrete",
+      "minimalist",
+      "fluxus_intermedia"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.7,
+          "sampler_archetypes": 2.5,
+          "sampler_bit_depth": 0.9099999999999999,
+          "sampler_workflow": 4.795000000000001,
+          "sampler_classic_context": 3.65
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 3.7,
+          "granular_use": 0.195,
+          "granular_synth_source": 1.95
+        }
+      },
+      {
+        "id": "eurorack_modular",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "eurorack_focus": "eurorack_west_coast",
+          "eurorack_modular_context": "eurorack_modular_film"
+        },
+        "scores": {
+          "electronic_technique": 3.7,
+          "eurorack_focus": 1.92,
+          "eurorack_modular_context": 1.92
+        }
+      },
+      {
+        "id": "ondes_martenot",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "ondes_martenot_model": "ondes_martenot_mark_vi",
+          "ondes_martenot_context": "ondes_martenot_rock",
+          "ondes_martenot_lineage": "ondes_martenot_radiohead_modern"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "ondes_martenot_model": 1.69,
+          "ondes_martenot_context": 3.12,
+          "ondes_martenot_lineage": 3.5249999999999995
+        }
+      },
+      {
+        "id": "theremin",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "theremin_model": "theremin_etherwave",
+          "theremin_technique": "theremin_drone",
+          "theremin_lineage": "theremin_moog_etherwave"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "theremin_model": 1.7499999999999998,
+          "theremin_technique": 0.645,
+          "theremin_lineage": 1.8199999999999998
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "edo_72",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

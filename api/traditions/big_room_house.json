@@ -1,0 +1,62 @@
+{
+  "id": "big_room_house",
+  "name": "Big room house (EDM festival)",
+  "family": "electronic",
+  "lineage": "Early-2010s house subgenre engineered for large festival main-stage performance contexts. Characterized by enormous-build-up-and-drop song-structure, simplified melodic and harmonic content, massive distorted-synth festival-anthem peak-sections, and predictable formulaic arrangement. Hardwell, Martin Garrix, Dimitri Vegas & Like Mike, and the Spinnin' Records-Revealed Recordings label rosters define the canonical sound. Tomorrowland, Ultra Music Festival, and EDC Las Vegas constitute the canonical festival circuit.",
+  "recipe": "classic 2010-2013 big room house, electronic Dance, house branch, thrash metal djent. behringer rd 8 modern clone analog circuit reproduction TR-808, pad like analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 366,
+  "score": 13.98,
+  "config": {
+    "traditions": [
+      "big_room_house",
+      "djent"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_cowbell",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 0.195,
+          "drum_machine_808_context": 1.1199999999999999,
+          "tr808_production_origin": 1.5415
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "oscillator": "triangle_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 2.45,
+          "oscillator": 1.6315,
+          "filter_topology": 2.1605,
+          "envelope": 1.6465,
+          "modulation": 0
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "id": "choir_pentecostal_cogic",
+  "name": "Pentecostal / COGIC gospel choir",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "COGIC choir",
+  "parts": [
+    {
+      "id": "voices",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "cogic_lead",
+          "default": true,
+          "name": "Lead with congregational response",
+          "descriptors": [
+            "ecstatic",
+            "call-response",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "cogic_choir",
+          "name": "Massed choir",
+          "descriptors": [
+            "shouting",
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "gospel-rooted",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "surface": false,
+      "name": "Service context",
+      "variants": [
+        {
+          "id": "shout_break",
+          "default": true,
+          "name": "Shout break (high-tempo)",
+          "descriptors": [
+            "driving",
+            "ecstatic",
+            "climactic"
+          ],
+          "match_tokens": [
+            "shouted",
+            "choir-blendable",
+            "gospel-rooted"
+          ]
+        },
+        {
+          "id": "devotional_tempo",
+          "name": "Devotional / slow",
+          "descriptors": [
+            "contemplative",
+            "melismatic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "devotional",
+            "choir-blendable",
+            "gospel-rooted"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "voices",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "cogic_lead",
+          "default": true,
+          "name": "Lead with congregational response",
+          "descriptors": [
+            "ecstatic",
+            "call-response",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "choir-blendable"
+          ]
+        },
+        {
+          "id": "cogic_choir",
+          "name": "Massed choir",
+          "descriptors": [
+            "shouting",
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "gospel-rooted",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "surface": false,
+      "name": "Service context",
+      "variants": [
+        {
+          "id": "shout_break",
+          "default": true,
+          "name": "Shout break (high-tempo)",
+          "descriptors": [
+            "driving",
+            "ecstatic",
+            "climactic"
+          ],
+          "match_tokens": [
+            "shouted",
+            "choir-blendable",
+            "gospel-rooted"
+          ]
+        },
+        {
+          "id": "devotional_tempo",
+          "name": "Devotional / slow",
+          "descriptors": [
+            "contemplative",
+            "melismatic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "devotional",
+            "choir-blendable",
+            "gospel-rooted"
+          ]
+        }
+      ]
+    }
+  ]
+}

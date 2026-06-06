@@ -1,0 +1,183 @@
+{
+  "id": "gothic_rock",
+  "name": "Gothic rock",
+  "family": "rock_punk",
+  "lineage": "Late-1970s through 1980s post-punk-derived dark atmospheric rock — codified through Bauhaus (Bela Lugosi’s Dead 1979), Siouxsie and the Banshees, The Cure (Pornography 1982, Disintegration 1989), Joy Division’s Closer (1980), and the Birthday Party / Nick Cave lineage; characterized by chorused-and-flanged guitar atmospherics, theatrical-baritone vocals, and gothic-literary lyrical subject matter",
+  "recipe": "classic North American 1977-1979 gothic rock, distorted Rock, gothic rock branch, alternative distorted rock, experimental distorted rock grunge. thick, incomplete closure resting, melodic, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, walnut pre muffled edge muffled machine hammered symmetric pattern drum kit, analog synth, string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 678,
+  "score": 730.965,
+  "config": {
+    "traditions": [
+      "gothic_rock",
+      "alternative_rock",
+      "grunge"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 22.879999999999992,
+          "voice_quality": 1.8500000000000008,
+          "voice_vibrato": 1.95,
+          "voice_articulation": 0.495,
+          "voice_microtone": 21.049999999999997,
+          "voice_tradition": 3.835000000000001,
+          "voice_mechanism_compound": 6.565000000000001,
+          "voice_estill_quality": 1.755,
+          "voice_speech_song": 12.935000000000002,
+          "voice_ensemble_config": 12.870000000000001,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 0.5549999999999999,
+          "voice_processing_chain": 6.785,
+          "voice_multitrack_stack": 6.305
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "alder",
+          "neck_wood": "wenge_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 9.355,
+          "amp_make": 19.564999999999998,
+          "body_wood": 1.17,
+          "neck_wood": 2.305,
+          "fretboard": 1.17,
+          "pickup_magnet": 0.39,
+          "string_material": 2.2,
+          "string_gauge": 2.34,
+          "bridge": 0.78,
+          "scale_length": 1.17,
+          "finish": 0.3,
+          "string_tuning": 12.219999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 6.949999999999999,
+          "amp_make": 11.764999999999999,
+          "body_wood": 1.17,
+          "pickup_config": 0.8850000000000001,
+          "string_type": 26.65,
+          "scale_length_b": 1.17,
+          "fretted_or_not": 0.105,
+          "bass_technique": 27.5
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 12.870000000000001,
+          "shell_wood": 2.8,
+          "shell_thickness": 0.43499999999999994,
+          "bearing_edges": 1.17,
+          "drumhead": 1.4,
+          "snare_wires": 1.17,
+          "cymbal_alloy": 29.9,
+          "cymbal_hammering": 21.544999999999998,
+          "cymbal_lathing": 21.395,
+          "cymbal_finish": 2.89,
+          "drum_technique": 20.799999999999997
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 1.3649999999999998,
+          "oscillator": 1.95,
+          "filter_topology": 2.34,
+          "envelope": 0.78,
+          "modulation": 0.105
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_off",
+          "sm_voicing": "sm_brass"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sm_voice_count": 0.39,
+          "sm_chorus": 0.3,
+          "sm_voicing": 0.39
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": "amp_roland_jc120",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "isolation_post_punk_aesthetic",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

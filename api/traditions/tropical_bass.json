@@ -1,0 +1,76 @@
+{
+  "id": "tropical_bass",
+  "name": "Global bass",
+  "family": "global",
+  "lineage": "Pan-Latin-American electronic global-bass subgenre fusing cumbia, dembow, kuduro, and dancehall — codified through Bersa Discos, Soundway Records, and Nacional Records labels post-2010; characterized by digitally-produced tropical-rhythm samples with sub-bass and house-tempo foundations",
+  "recipe": "classic early-2010s global bass, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm south african kwaito kwaito. sampler, TR-808, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 320,
+  "score": 84.487,
+  "config": {
+    "traditions": [
+      "tropical_bass",
+      "south_african_kwaito",
+      "kwaito"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.2315,
+          "sampler_archetypes": 0.894,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 0.325,
+          "sampler_classic_context": 16.509999999999998
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 7.731749999999998,
+          "drum_machine_808_context": 8.225749999999998,
+          "tr808_production_origin": 0.768375
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 7.6317499999999985,
+          "va_archetypes": 0.07125,
+          "digital_subtractive_context": 7.799999999999997
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

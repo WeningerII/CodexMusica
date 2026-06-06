@@ -1,0 +1,571 @@
+{
+  "id": "tanpura",
+  "name": "Tanpura (Indian drone lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 2,
+    "register": -1,
+    "range": -2,
+    "articulation": -2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tanpura",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tanpura_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "female_size",
+          "default": true,
+          "surface": false,
+          "name": "Female size (smaller, higher)",
+          "descriptors": [
+            "silvery",
+            "treble-extended",
+            "suited-to-female-vocal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "male_size",
+          "surface": false,
+          "name": "Male size (larger, deeper)",
+          "descriptors": [
+            "deep",
+            "resonant",
+            "grounding"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "tamburi_small",
+          "name": "Tamburi (instrumentalist tanpura)",
+          "descriptors": [
+            "focused",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_jawari",
+      "surface": false,
+      "name": "Bridge (jawari) profile",
+      "variants": [
+        {
+          "id": "curved_jawari",
+          "default": true,
+          "surface": false,
+          "name": "Curved (open jawari)",
+          "descriptors": [
+            "buzzing",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "flat_jawari",
+          "surface": false,
+          "name": "Flat (closed jawari)",
+          "descriptors": [
+            "focused",
+            "articulate-low-distortion",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_strings",
+      "surface": false,
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "four_string_classical",
+          "default": true,
+          "name": "Four strings (Pa-Sa-Sa-Sa)",
+          "descriptors": [
+            "full-spectrum",
+            "traditional"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "five_string_chitra",
+          "name": "Five-string (added Ma or shuddha Ni)",
+          "descriptors": [
+            "raga-specific",
+            "enhanced",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "electronic_drone_box",
+          "name": "Electronic drone box",
+          "descriptors": [
+            "portable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "electronic",
+            "drone-like",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tanpura_bronze_steel",
+          "default": true,
+          "name": "Bronze + steel (canonical mix)",
+          "descriptors": [
+            "bronze-steel-mix",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tanpura_brass_only",
+          "name": "All brass (warmer)",
+          "descriptors": [
+            "all-brass",
+            "warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_body_wood",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "tanpura_gourd_body",
+          "default": true,
+          "name": "Gourd body (canonical traditional)",
+          "descriptors": [
+            "gourd-body",
+            "kaddu",
+            "canonical-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tanpura_wooden_body",
+          "name": "Wooden body (Miraj-style)",
+          "descriptors": [
+            "wooden-body",
+            "miraj-style",
+            "durable-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tanpura_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "female_size",
+          "default": true,
+          "surface": false,
+          "name": "Female size (smaller, higher)",
+          "descriptors": [
+            "silvery",
+            "treble-extended",
+            "suited-to-female-vocal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "male_size",
+          "surface": false,
+          "name": "Male size (larger, deeper)",
+          "descriptors": [
+            "deep",
+            "resonant",
+            "grounding"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "tamburi_small",
+          "name": "Tamburi (instrumentalist tanpura)",
+          "descriptors": [
+            "focused",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_jawari",
+      "surface": false,
+      "name": "Bridge (jawari) profile",
+      "variants": [
+        {
+          "id": "curved_jawari",
+          "default": true,
+          "surface": false,
+          "name": "Curved (open jawari)",
+          "descriptors": [
+            "buzzing",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "flat_jawari",
+          "surface": false,
+          "name": "Flat (closed jawari)",
+          "descriptors": [
+            "focused",
+            "articulate-low-distortion",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_strings",
+      "surface": false,
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "four_string_classical",
+          "default": true,
+          "name": "Four strings (Pa-Sa-Sa-Sa)",
+          "descriptors": [
+            "full-spectrum",
+            "traditional"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "five_string_chitra",
+          "name": "Five-string (added Ma or shuddha Ni)",
+          "descriptors": [
+            "raga-specific",
+            "enhanced",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "electronic_drone_box",
+          "name": "Electronic drone box",
+          "descriptors": [
+            "portable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "electronic",
+            "drone-like",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tanpura_bronze_steel",
+          "default": true,
+          "name": "Bronze + steel (canonical mix)",
+          "descriptors": [
+            "bronze-steel-mix",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tanpura_brass_only",
+          "name": "All brass (warmer)",
+          "descriptors": [
+            "all-brass",
+            "warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanpura_body_wood",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "tanpura_gourd_body",
+          "default": true,
+          "name": "Gourd body (canonical traditional)",
+          "descriptors": [
+            "gourd-body",
+            "kaddu",
+            "canonical-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tanpura_wooden_body",
+          "name": "Wooden body (Miraj-style)",
+          "descriptors": [
+            "wooden-body",
+            "miraj-style",
+            "durable-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

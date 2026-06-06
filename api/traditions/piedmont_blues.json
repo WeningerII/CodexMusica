@@ -1,0 +1,106 @@
+{
+  "id": "piedmont_blues",
+  "name": "Piedmont blues",
+  "family": "blues_gospel",
+  "lineage": "Country-blues tradition of the southern Atlantic seaboard (North Carolina, South Carolina, Virginia, Georgia) — characterized by alternating-thumb fingerpicking guitar accompaniment (the so-called Piedmont style), ragtime-influenced harmonic vocabulary, and a less mournful register than Delta blues — codified through Blind Boy Fuller, Reverend Gary Davis, Blind Blake, Sonny Terry and Brownie McGhee, with continuing transmission through the folk-revival pedagogical inheritance",
+  "recipe": "classic mid-1930s piedmont blues, functional Song, blues acoustic branch, blues narrative ballad poetry classic blues women jug band. thick, worn fold, melodic, narrative. open g tuning fingerpicked parlor acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 414,
+  "score": 451.58,
+  "config": {
+    "traditions": [
+      "piedmont_blues",
+      "classic_blues_women",
+      "jug_band"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 21.684999999999995,
+          "voice_quality": 9.25,
+          "voice_vibrato": 3.625,
+          "voice_articulation": 0.75,
+          "voice_microtone": 7.93,
+          "voice_tradition": 9.23,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 5.265,
+          "voice_ensemble_config": 3.6399999999999997,
+          "voice_ornament_system": 0.5249999999999999,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
+        },
+        "scores": {
+          "acoustic_technique": 7.914999999999999,
+          "string_tuning": 7.4,
+          "top_wood_parlor": 0.51,
+          "back_sides_parlor": 0.21,
+          "string_acoustic_parlor": 0.7050000000000001
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 6.015000000000001,
+          "harmonica_type": 0.7349999999999999,
+          "harmonica_comb": 21.224999999999994,
+          "harmonica_reed": 15.424999999999997,
+          "harmonica_technique": 19.445,
+          "harmonica_maker_school": 17.159999999999997,
+          "harmonica_tuning": 7.93
+        }
+      }
+    ],
+    "room": "parlor",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_american_tweed",
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

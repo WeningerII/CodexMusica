@@ -1,0 +1,132 @@
+{
+  "id": "irish_pub_song",
+  "name": "Irish pub song / drinking song",
+  "family": "global",
+  "lineage": "Irish pub-song / drinking-song tradition continuous from 18th-19th century pub-and-shebeen drinking-song tradition through 20th-century Dubliners-and-Clancy-Brothers-era folk-revival into modern Irish-pub-session continuous practice; foundational repertoire includes \"Whiskey in the Jar,\" \"The Wild Rover,\" \"All for Me Grog,\" \"Whiskey, You're the Devil,\" \"The Parting Glass\"",
+  "recipe": "classic modern irish pub song / drinking song, drinking Song, European branch, americas drinking song, European protest song, anglo singer song ballad poetry freak folk indie folk. thick, incomplete closure resting, tasteful, continuous-phonation. fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base drone like fiddle, aluminum anodized modern burke goldie premium melodic tin whistle, goat skin canonical Irish birch ply canonical modern Irish bodhran. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 614,
+  "score": 283.968,
+  "config": {
+    "traditions": [
+      "irish_pub_song",
+      "freak_folk_2000s",
+      "indie_folk_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 2.990000000000001,
+          "voice_quality": 3.185,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.33,
+          "voice_tradition": 8.254999999999999,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.7149999999999997,
+          "voice_speech_song": 19.955,
+          "voice_ensemble_config": 7.539999999999997,
+          "voice_ornament_system": 0.7149999999999997,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 1.3649999999999998,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "drop_d",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 6.69,
+          "string_tuning": 0,
+          "top_wood": 0.9099999999999999,
+          "back_sides": 0.9099999999999999,
+          "string_acoustic": 0.81,
+          "acoustic_om_technique": 6.69
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 3.245,
+          "fiddle_strings": 1.69,
+          "fiddle_bow": 4.099375,
+          "fiddle_mute": 0.9099999999999999,
+          "fiddle_articulation": 0.39
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "d_whistle",
+          "whistle_ornament": "no_ornament",
+          "whistle_body_material": "whistle_aluminum_anodized"
+        },
+        "scores": {
+          "wind_articulation": 3.7250000000000005,
+          "whistle_key": 12.794999999999996,
+          "whistle_ornament": 1.69,
+          "whistle_body_material": 1.69
+        }
+      },
+      {
+        "id": "bodhran",
+        "slots": {
+          "bodhran_play": "bodhran_top_end",
+          "bodhran_skin": "bodhran_goatskin",
+          "bodhran_shell_wood": "bodhran_birch_ply"
+        },
+        "scores": {
+          "bodhran_play": 1.69,
+          "bodhran_skin": 8.189999999999998,
+          "bodhran_shell_wood": 9.879999999999999
+        }
+      }
+    ],
+    "room": "irish_pub",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

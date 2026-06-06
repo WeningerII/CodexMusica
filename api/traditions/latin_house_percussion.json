@@ -1,0 +1,150 @@
+{
+  "id": "latin_house_percussion",
+  "name": "Latin house",
+  "family": "global",
+  "lineage": "Latin-percussion-driven house subgenre codified through New York 1990s production — Louie Vega, Kenny \"Dope\" Gonzalez (Masters at Work duo), Frankie Feliciano — characterized by congas, timbales, and bongo accents layered over four-on-the-floor house foundation, Spanish-language vocal hooks, and son-and-salsa percussion vocabularies",
+  "recipe": "classic mid-1990s latin house, electronic Dance, Latin house branch, Cuban groove percussion cha-cha-chá charanga. extended whistle, melodic, beatbox, m1 with m0 pulse borrowing. digital subtractive, TR-909, open slap hand drum congas, brass open slap hand drum timbales, melodic orchestral imitation pitched sampler, claves. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 471,
+  "score": 272.635,
+  "config": {
+    "traditions": [
+      "latin_house_percussion",
+      "cha_cha_cha",
+      "charanga"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.8600000000000003,
+          "voice_quality": 0.49999999999999983,
+          "voice_vibrato": 1.0899999999999999,
+          "voice_articulation": 0.28500000000000003,
+          "voice_microtone": 0.28500000000000003,
+          "voice_tradition": 8.254999999999999,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 9.684999999999997,
+          "voice_ensemble_config": 11.699999999999996,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 1.0499999999999998,
+          "voice_processing_chain": 4.8149999999999995,
+          "voice_multitrack_stack": 3.97
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 0.19500000000000003,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 9.749999999999996
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 20.25,
+          "drum_machine_909_context": 0.78,
+          "tr909_production_origin": 0.15
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 17.499999999999993,
+          "conga_set": 0.525,
+          "conga_skin": 0.9099999999999999,
+          "conga_shell_wood": 0.9099999999999999
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "percussion_technique": 17.499999999999993,
+          "timbales_shell": 2.47,
+          "timbales_context": 1.8149999999999997
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 0.15,
+          "sampler_bit_depth": 0.6,
+          "sampler_workflow": 1.2,
+          "sampler_classic_context": 39.64999999999999
+        }
+      },
+      {
+        "id": "claves",
+        "slots": {
+          "claves_pattern": "claves_rumba",
+          "claves_wood": "claves_cuban_hardwood"
+        },
+        "scores": {
+          "claves_pattern": 1.17,
+          "claves_wood": 0.345
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

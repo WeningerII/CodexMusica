@@ -1,0 +1,120 @@
+{
+  "id": "tigrinya_music_eritrean",
+  "name": "Tigrinya music (Eritrean / northern Ethiopian)",
+  "family": "global",
+  "lineage": "Tigrinya vocal-and-string tradition of Eritrea and the Tigray region of northern Ethiopia, sharing the qenet pentatonic mode-system with broader Habesha practice but with Tigrinya-language poetic-meter and Eritrean-highland melodic-contour conventions. Performance ranges from solo wata one-string spike-fiddle to ensembles with krar bowl-lyre, masenqo, kebero drum, and washint flute. Distinguished from Amhara azmari by Tigrinya-language repertoire and Asmara-Mendefera-Massawa dialect.",
+  "recipe": "classic North American mid-1970s tigrinya music, ballad Poetry, west African griot branch, med east poetic ballad poetry somali qaraami song ethiopian azmari minstrel-poet. vocal fry, declaimed, chest resonance low mid, Yoruba tonal vocal. gut ethiopian historical krar, curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved kebero, washint. addis kazanchis azmari bet tej house. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 622,
+  "score": 199.47,
+  "config": {
+    "traditions": [
+      "tigrinya_music_eritrean",
+      "somali_qaraami",
+      "azmari_ethiopian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 4.355000000000001,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 0.0315,
+          "voice_microtone": 0.27149999999999996,
+          "voice_tradition": 16.444999999999997,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 2.4050000000000002,
+          "voice_pitch_organization": 5.975,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "krar",
+        "slots": {
+          "krar_strings": "krar_five",
+          "krar_body": "krar_wood_skin",
+          "krar_string_material": "krar_gut_historical"
+        },
+        "scores": {
+          "krar_strings": 0.0315,
+          "krar_body": 0.0315,
+          "krar_string_material": 1.2349999999999999
+        }
+      },
+      {
+        "id": "masenqo",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "masenqo_body": "masenqo_diamond_parchment",
+          "masenqo_string": "masenqo_horsehair_single",
+          "masenqo_bow": "masenqo_horsehair_curved_bow",
+          "masenqo_tradition": "masenqo_azmari"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "masenqo_body": 0.0315,
+          "masenqo_string": 0,
+          "masenqo_bow": 1.3,
+          "masenqo_tradition": 2.9899999999999998
+        }
+      },
+      {
+        "id": "kebero",
+        "slots": {
+          "kebero_skin": "kebero_calfskin",
+          "kebero_shell_wood": "kebero_olive_canonical",
+          "kebero_tradition": "kebero_orthodox_tewahedo"
+        },
+        "scores": {
+          "kebero_skin": 1.3,
+          "kebero_shell_wood": 1.3,
+          "kebero_tradition": 0.6175
+        }
+      },
+      {
+        "id": "washint",
+        "slots": {
+          "washint_body": "washint_bamboo"
+        },
+        "scores": {
+          "washint_body": 0
+        }
+      }
+    ],
+    "room": "addis_kazanchis_azmari_bet_tej_house",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "ethio_qenet_unified",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

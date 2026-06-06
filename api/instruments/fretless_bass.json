@@ -1,0 +1,696 @@
+{
+  "id": "fretless_bass",
+  "name": "Fretless electric bass",
+  "family": "electric_strings",
+  "class": "bass",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "fretless bass",
+  "parts": [
+    {
+      "id": "electric_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "electric_bass_walking",
+          "name": "Walking bass line",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "fretless_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "walking"
+          ],
+          "match_tokens": [
+            "electric",
+            "picked"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ],
+          "default": true
+        },
+        {
+          "id": "electric_bass_pocket",
+          "name": "Pocket fingerstyle locked",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "pocket",
+            "fingerstyle",
+            "locked"
+          ],
+          "match_tokens": [
+            "electric",
+            "rhythm-section-pocket",
+            "picked"
+          ],
+          "canonical_tags": [
+            "soul",
+            "funk",
+            "afrobeat"
+          ]
+        },
+        {
+          "id": "electric_bass_slap_pop",
+          "name": "Slap-and-pop",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "slapped",
+            "popped",
+            "percussive"
+          ],
+          "match_tokens": [
+            "electric",
+            "slappy",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "funk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "amp_make",
+      "name": "Amplifier archetype",
+      "variants": [
+        {
+          "id": "amp_unspecified",
+          "default": true,
+          "name": "Unspecified",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass",
+            "pedal_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "amp_american_ampeg_b15",
+          "name": "Ampeg B-15 flip-top (American 60s bass)",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "ampeg-b15-amp",
+            "american-60s-bass-amp",
+            "flip-top-character",
+            "rounded-low-end"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "soul",
+            "rhythm-and-blues",
+            "motown",
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "amp_american_ampeg_svt",
+          "name": "Ampeg SVT (American post-69 bass rock)",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "ampeg-svt-amp",
+            "rock-bass-amp",
+            "300-watt-stack",
+            "high-headroom"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "arena-rock"
+          ]
+        },
+        {
+          "id": "amp_modern_modeling",
+          "name": "Modeling amplifier (Kemper / Fractal / Katana)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "modeled-amp",
+            "digital-amplification",
+            "profile-based",
+            "modern-rig"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "djent",
+            "modern-metal"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "fretless_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "fretless_jazz",
+          "default": true,
+          "name": "Jazz / fusion solo",
+          "descriptors": [
+            "singing",
+            "vocal-imitating",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "electric"
+          ]
+        },
+        {
+          "id": "fretless_rock",
+          "name": "Art rock",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "expressive",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "rock-context",
+            "electric",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretless_bass_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "fretless_bass_conversion",
+          "default": true,
+          "name": "Fretless conversion (epoxy fingerboard)",
+          "descriptors": [
+            "distinctive-mwah",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_bass_factory",
+          "name": "Built-fretless (factory)",
+          "descriptors": [
+            "twenty-first-century",
+            "consistent",
+            "commercial"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_bass_lined",
+          "name": "Lined fretless (pedagogical)",
+          "descriptors": [
+            "hybrid",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretless_fingerboard_wood",
+      "surface": false,
+      "name": "Fretless fingerboard",
+      "variants": [
+        {
+          "id": "fretless_ebony_unlined",
+          "default": true,
+          "name": "Ebony unlined (Jaco canon — unmarked)",
+          "descriptors": [
+            "ebony",
+            "unlined",
+            "jaco-canon",
+            "singing-mwah"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "fretless_ebony_lined",
+          "name": "Ebony lined (pedagogical / Pino Palladino canon)",
+          "descriptors": [
+            "ebony",
+            "lined",
+            "visual-guides"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_pao_ferro",
+          "name": "Pau ferro unlined",
+          "descriptors": [
+            "pau-ferro",
+            "unlined"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_epoxy_maple",
+          "name": "Epoxy-coated maple (the original Jaco conversion)",
+          "descriptors": [
+            "maple-base",
+            "epoxy-coated",
+            "extra-mwah-sustain"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_micarta",
+          "name": "Micarta (Steve Bailey / 6-string boutique)",
+          "descriptors": [
+            "micarta",
+            "synthetic",
+            "durable"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_wenge",
+          "name": "Wenge unlined (Warwick canon)",
+          "descriptors": [
+            "wenge",
+            "percussive",
+            "warwick-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretless_bass_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "fretless_groundwound",
+          "default": true,
+          "name": "Ground-wound (canonical fretless, preserves fingerboard)",
+          "descriptors": [
+            "groundwound",
+            "half-round",
+            "fingerboard-friendly"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_flatwound",
+          "name": "Flatwound (jazz fretless canon)",
+          "descriptors": [
+            "flatwound",
+            "jazz-warm",
+            "fingerboard-friendly"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "fretless_tapewound",
+          "name": "Tape-wound (upright-emulation)",
+          "descriptors": [
+            "tape-wound",
+            "nylon-tape",
+            "upright-mwah"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_roundwound",
+          "name": "Roundwound (eats fingerboards but bright)",
+          "descriptors": [
+            "roundwound",
+            "bright-mwah",
+            "fingerboard-wear"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electric_technique",
+      "default_variant": "electric_bass_walking"
+    },
+    {
+      "id": "fretless_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "fretless_jazz",
+          "default": true,
+          "name": "Jazz / fusion solo",
+          "descriptors": [
+            "singing",
+            "vocal-imitating",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "electric"
+          ]
+        },
+        {
+          "id": "fretless_rock",
+          "name": "Art rock",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "expressive",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "rock-context",
+            "electric",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretless_bass_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "fretless_bass_conversion",
+          "default": true,
+          "name": "Fretless conversion (epoxy fingerboard)",
+          "descriptors": [
+            "distinctive-mwah",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_bass_factory",
+          "name": "Built-fretless (factory)",
+          "descriptors": [
+            "twenty-first-century",
+            "consistent",
+            "commercial"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_bass_lined",
+          "name": "Lined fretless (pedagogical)",
+          "descriptors": [
+            "hybrid",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretless_fingerboard_wood",
+      "surface": false,
+      "name": "Fretless fingerboard",
+      "variants": [
+        {
+          "id": "fretless_ebony_unlined",
+          "default": true,
+          "name": "Ebony unlined (Jaco canon — unmarked)",
+          "descriptors": [
+            "ebony",
+            "unlined",
+            "jaco-canon",
+            "singing-mwah"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "fretless_ebony_lined",
+          "name": "Ebony lined (pedagogical / Pino Palladino canon)",
+          "descriptors": [
+            "ebony",
+            "lined",
+            "visual-guides"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_pao_ferro",
+          "name": "Pau ferro unlined",
+          "descriptors": [
+            "pau-ferro",
+            "unlined"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_epoxy_maple",
+          "name": "Epoxy-coated maple (the original Jaco conversion)",
+          "descriptors": [
+            "maple-base",
+            "epoxy-coated",
+            "extra-mwah-sustain"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_micarta",
+          "name": "Micarta (Steve Bailey / 6-string boutique)",
+          "descriptors": [
+            "micarta",
+            "synthetic",
+            "durable"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_wenge",
+          "name": "Wenge unlined (Warwick canon)",
+          "descriptors": [
+            "wenge",
+            "percussive",
+            "warwick-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretless_bass_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "fretless_groundwound",
+          "default": true,
+          "name": "Ground-wound (canonical fretless, preserves fingerboard)",
+          "descriptors": [
+            "groundwound",
+            "half-round",
+            "fingerboard-friendly"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_flatwound",
+          "name": "Flatwound (jazz fretless canon)",
+          "descriptors": [
+            "flatwound",
+            "jazz-warm",
+            "fingerboard-friendly"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "fretless_tapewound",
+          "name": "Tape-wound (upright-emulation)",
+          "descriptors": [
+            "tape-wound",
+            "nylon-tape",
+            "upright-mwah"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        },
+        {
+          "id": "fretless_roundwound",
+          "name": "Roundwound (eats fingerboards but bright)",
+          "descriptors": [
+            "roundwound",
+            "bright-mwah",
+            "fingerboard-wear"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "fretless"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,470 @@
+{
+  "id": "shakuhachi",
+  "name": "Shakuhachi (Japanese end-blown bamboo flute)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "shakuhachi",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_breath_quiet",
+          "name": "Breath-tone, low dynamic",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "clarinet",
+            "cornet",
+            "flugelhorn",
+            "shakuhachi",
+            "ney"
+          ],
+          "descriptors": [
+            "breath-tone-airy",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "breathing",
+            "quiet"
+          ],
+          "canonical_tags": [
+            "lounge",
+            "cool-jazz"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "shaku_length",
+      "name": "Length / key",
+      "variants": [
+        {
+          "id": "one_eight",
+          "default": true,
+          "name": "1.8 shaku (D)",
+          "descriptors": [
+            "standard",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "honkyoku"
+          ]
+        },
+        {
+          "id": "two_one",
+          "name": "2.1 shaku (B)",
+          "descriptors": [
+            "deeper",
+            "meditative",
+            "contemplative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "two_four",
+          "name": "2.4 shaku (A)",
+          "descriptors": [
+            "low"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "zen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shaku_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "meri_kari",
+          "default": true,
+          "name": "Meri / kari pitch-bending",
+          "descriptors": [
+            "microtonal",
+            "expressive",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "mura_iki",
+          "name": "Mura-iki (broken breath)",
+          "descriptors": [
+            "textural",
+            "breathy",
+            "unique-to-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "classical_shaku",
+          "name": "Classical sustained tone",
+          "descriptors": [
+            "pure",
+            "meditative",
+            "centered"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shakuhachi_body_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "shakuhachi_madake_canonical",
+          "default": true,
+          "name": "Madake bamboo (Phyllostachys bambusoides — canonical Japanese, root section)",
+          "descriptors": [
+            "madake-bamboo-phyllostachys-canonical-japanese-root-section"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "shakuhachi_jinashi",
+          "name": "Jinashi (unlacquered raw bamboo — Komuso Fuke historical)",
+          "descriptors": [
+            "jinashi-unlacquered-komuso-fuke-historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "shakuhachi_jiari_lacquered",
+          "name": "Jiari (lacquered bore — Kinko/Tozan modern concert)",
+          "descriptors": [
+            "jiari-lacquered-bore-kinko-tozan-modern-concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shakuhachi_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "shakuhachi_kinko",
+          "default": true,
+          "name": "Kinko ryū (canonical Edo-period concert lineage)",
+          "descriptors": [
+            "kinko-ryu-canonical-edo-period-concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "shakuhachi_tozan",
+          "name": "Tozan ryū (Nakao Tozan modern composed lineage, 1896 founding)",
+          "descriptors": [
+            "tozan-ryu-nakao-1896-modern-composed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "shakuhachi_komuso_fuke",
+          "name": "Komuso Fuke-shū (canonical pre-Meiji honkyoku Zen tradition)",
+          "descriptors": [
+            "komuso-fuke-shu-canonical-pre-meiji-honkyoku-zen"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shaku_length",
+      "name": "Length / key",
+      "variants": [
+        {
+          "id": "one_eight",
+          "default": true,
+          "name": "1.8 shaku (D)",
+          "descriptors": [
+            "standard",
+            "versatile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "honkyoku"
+          ]
+        },
+        {
+          "id": "two_one",
+          "name": "2.1 shaku (B)",
+          "descriptors": [
+            "deeper",
+            "meditative",
+            "contemplative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "two_four",
+          "name": "2.4 shaku (A)",
+          "descriptors": [
+            "low"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "zen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shaku_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "meri_kari",
+          "default": true,
+          "name": "Meri / kari pitch-bending",
+          "descriptors": [
+            "microtonal",
+            "expressive",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "mura_iki",
+          "name": "Mura-iki (broken breath)",
+          "descriptors": [
+            "textural",
+            "breathy",
+            "unique-to-tradition"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "classical_shaku",
+          "name": "Classical sustained tone",
+          "descriptors": [
+            "pure",
+            "meditative",
+            "centered"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shakuhachi_body_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "shakuhachi_madake_canonical",
+          "default": true,
+          "name": "Madake bamboo (Phyllostachys bambusoides — canonical Japanese, root section)",
+          "descriptors": [
+            "madake-bamboo-phyllostachys-canonical-japanese-root-section"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "shakuhachi_jinashi",
+          "name": "Jinashi (unlacquered raw bamboo — Komuso Fuke historical)",
+          "descriptors": [
+            "jinashi-unlacquered-komuso-fuke-historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "shakuhachi_jiari_lacquered",
+          "name": "Jiari (lacquered bore — Kinko/Tozan modern concert)",
+          "descriptors": [
+            "jiari-lacquered-bore-kinko-tozan-modern-concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shakuhachi_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "shakuhachi_kinko",
+          "default": true,
+          "name": "Kinko ryū (canonical Edo-period concert lineage)",
+          "descriptors": [
+            "kinko-ryu-canonical-edo-period-concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "shakuhachi_tozan",
+          "name": "Tozan ryū (Nakao Tozan modern composed lineage, 1896 founding)",
+          "descriptors": [
+            "tozan-ryu-nakao-1896-modern-composed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "shakuhachi_komuso_fuke",
+          "name": "Komuso Fuke-shū (canonical pre-Meiji honkyoku Zen tradition)",
+          "descriptors": [
+            "komuso-fuke-shu-canonical-pre-meiji-honkyoku-zen"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ]
+}

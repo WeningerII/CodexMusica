@@ -1,0 +1,394 @@
+{
+  "id": "gusle",
+  "name": "Gusle (Balkan single-string)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "gusle",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_rough_drone",
+          "name": "Rough drone",
+          "applies_to": [
+            "fiddle",
+            "gusle",
+            "kamancheh",
+            "rebab",
+            "morin_khuur"
+          ],
+          "descriptors": [
+            "drone-like",
+            "raspy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "folk",
+            "medieval"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gusle_region",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "gusle_serbian",
+          "default": true,
+          "name": "Serbian / Montenegrin",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_bosnian",
+          "name": "Bosnian",
+          "descriptors": [
+            "regional",
+            "distinct-repertoire",
+            "mountain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_herzegovinian",
+          "name": "Herzegovinian",
+          "descriptors": [
+            "Dinaric",
+            "pastoral-tradition",
+            "specific"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusle_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "gusle_epic",
+          "default": true,
+          "name": "Epic singing accompaniment",
+          "descriptors": [
+            "oral-history",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_lament",
+          "name": "Lament / mourning",
+          "descriptors": [
+            "ritual",
+            "specific-occasion",
+            "restricted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_exile",
+          "name": "Diasporic / exile songs",
+          "descriptors": [
+            "identity-marker",
+            "modern",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusle_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "gusle_maple_carved",
+          "default": true,
+          "name": "Maple carved (canonical Balkan)",
+          "descriptors": [
+            "maple-carved-canonical-balkan"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_walnut_carved",
+          "name": "Walnut carved (premium)",
+          "descriptors": [
+            "walnut-carved-premium"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusle_string_material",
+      "surface": false,
+      "name": "String material — single string",
+      "variants": [
+        {
+          "id": "gusle_horsehair_canonical",
+          "default": true,
+          "name": "Horsehair bundle (canonical Balkan single-string)",
+          "descriptors": [
+            "horsehair-canonical-single-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_synthetic_modern",
+          "name": "Synthetic (modern alternative)",
+          "descriptors": [
+            "synthetic-modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gusle_region",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "gusle_serbian",
+          "default": true,
+          "name": "Serbian / Montenegrin",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_bosnian",
+          "name": "Bosnian",
+          "descriptors": [
+            "regional",
+            "distinct-repertoire",
+            "mountain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_herzegovinian",
+          "name": "Herzegovinian",
+          "descriptors": [
+            "Dinaric",
+            "pastoral-tradition",
+            "specific"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusle_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "gusle_epic",
+          "default": true,
+          "name": "Epic singing accompaniment",
+          "descriptors": [
+            "oral-history",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_lament",
+          "name": "Lament / mourning",
+          "descriptors": [
+            "ritual",
+            "specific-occasion",
+            "restricted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_exile",
+          "name": "Diasporic / exile songs",
+          "descriptors": [
+            "identity-marker",
+            "modern",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusle_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "gusle_maple_carved",
+          "default": true,
+          "name": "Maple carved (canonical Balkan)",
+          "descriptors": [
+            "maple-carved-canonical-balkan"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_walnut_carved",
+          "name": "Walnut carved (premium)",
+          "descriptors": [
+            "walnut-carved-premium"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusle_string_material",
+      "surface": false,
+      "name": "String material — single string",
+      "variants": [
+        {
+          "id": "gusle_horsehair_canonical",
+          "default": true,
+          "name": "Horsehair bundle (canonical Balkan single-string)",
+          "descriptors": [
+            "horsehair-canonical-single-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        },
+        {
+          "id": "gusle_synthetic_modern",
+          "name": "Synthetic (modern alternative)",
+          "descriptors": [
+            "synthetic-modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "epic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "id": "wurlitzer_ep",
+  "name": "Wurlitzer 200/200A electric piano",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 1
+  },
+  "short": "Wurlitzer",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_jazz_comping",
+          "name": "Jazz comping",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "electric_piano_tine"
+          ],
+          "descriptors": [
+            "comped",
+            "voice-leading"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "comping",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "keyboard_gospel_chord_runs",
+          "name": "Gospel chord-runs",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "tonewheel_organ",
+            "electric_piano_tine"
+          ],
+          "descriptors": [
+            "gospel-runs"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "chordal",
+            "block-chord",
+            "bebop-runs"
+          ],
+          "canonical_tags": [
+            "gospel",
+            "soul"
+          ]
+        },
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        },
+        {
+          "id": "keyboard_ostinato_groove",
+          "name": "Ostinato groove",
+          "applies_to": [
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "electric_piano_tine",
+            "clavinet",
+            "tonewheel_organ"
+          ],
+          "descriptors": [
+            "ostinato",
+            "pocket"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "soul",
+            "funk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "wurlitzer_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "wurlitzer_ray_charles",
+          "name": "R&B / Soul",
+          "descriptors": [
+            "nasal",
+            "barky",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "wurlitzer_supertramp",
+          "default": true,
+          "name": "70s pop / rock",
+          "descriptors": [
+            "nasal",
+            "character-rich",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wurlitzer_ep_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "wurlitzer_ep_bell",
+          "default": true,
+          "name": "Bell-like attack",
+          "descriptors": [
+            "characteristic",
+            "reed-tine"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "wurlitzer_ep_tremolo",
+          "name": "Tremolo (built-in)",
+          "descriptors": [
+            "vintage",
+            "characteristic-pulse",
+            "mellow"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "rapid-tremolo",
+            "electric"
+          ]
+        },
+        {
+          "id": "wurlitzer_ep_overdrive",
+          "name": "Distorted / overdriven",
+          "descriptors": [
+            "rock-context",
+            "crunchy"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wurlitzer_model",
+      "surface": false,
+      "name": "Wurlitzer model",
+      "variants": [
+        {
+          "id": "wurlitzer_200a_canonical",
+          "default": true,
+          "name": "Wurlitzer 200A (canonical 1974-1982 solid-state — Supertramp Logical Song-era canon)",
+          "descriptors": [
+            "wurlitzer-200a-canonical-1974-1982-solid-state-supertramp-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "wurlitzer_200_tube",
+          "name": "Wurlitzer 200 (1968-1974 tube-amplified — warmer)",
+          "descriptors": [
+            "wurlitzer-200-1968-1974-tube-amplified-warmer"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "wurlitzer_140b_classic",
+          "name": "Wurlitzer 140B (1960s tube — Ray Charles Whats I Say-era canon)",
+          "descriptors": [
+            "wurlitzer-140b-1960s-tube-ray-charles-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "wurlitzer_270_butterfly",
+          "name": "Wurlitzer 270 Butterfly (rare combo grand version 1981-1982)",
+          "descriptors": [
+            "wurlitzer-270-butterfly-rare-combo-grand-1981-1982"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wurlitzer_reed_material",
+      "surface": false,
+      "name": "Reed (struck-reed) material",
+      "variants": [
+        {
+          "id": "wurlitzer_steel_reed_canonical",
+          "default": true,
+          "name": "Hardened steel reeds with lead solder weight at tip (canonical Wurlitzer EP voicing)",
+          "descriptors": [
+            "steel-reed-lead-solder-tip-canonical-wurlitzer-ep-voicing"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wurlitzer_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "wurlitzer_ray_charles",
+          "name": "R&B / Soul",
+          "descriptors": [
+            "nasal",
+            "barky",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "wurlitzer_supertramp",
+          "default": true,
+          "name": "70s pop / rock",
+          "descriptors": [
+            "nasal",
+            "character-rich",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wurlitzer_ep_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "wurlitzer_ep_bell",
+          "default": true,
+          "name": "Bell-like attack",
+          "descriptors": [
+            "characteristic",
+            "reed-tine"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        },
+        {
+          "id": "wurlitzer_ep_tremolo",
+          "name": "Tremolo (built-in)",
+          "descriptors": [
+            "vintage",
+            "characteristic-pulse",
+            "mellow"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "rapid-tremolo",
+            "electric"
+          ]
+        },
+        {
+          "id": "wurlitzer_ep_overdrive",
+          "name": "Distorted / overdriven",
+          "descriptors": [
+            "rock-context",
+            "crunchy"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wurlitzer_model",
+      "surface": false,
+      "name": "Wurlitzer model",
+      "variants": [
+        {
+          "id": "wurlitzer_200a_canonical",
+          "default": true,
+          "name": "Wurlitzer 200A (canonical 1974-1982 solid-state — Supertramp Logical Song-era canon)",
+          "descriptors": [
+            "wurlitzer-200a-canonical-1974-1982-solid-state-supertramp-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "wurlitzer_200_tube",
+          "name": "Wurlitzer 200 (1968-1974 tube-amplified — warmer)",
+          "descriptors": [
+            "wurlitzer-200-1968-1974-tube-amplified-warmer"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "wurlitzer_140b_classic",
+          "name": "Wurlitzer 140B (1960s tube — Ray Charles Whats I Say-era canon)",
+          "descriptors": [
+            "wurlitzer-140b-1960s-tube-ray-charles-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "wurlitzer_270_butterfly",
+          "name": "Wurlitzer 270 Butterfly (rare combo grand version 1981-1982)",
+          "descriptors": [
+            "wurlitzer-270-butterfly-rare-combo-grand-1981-1982"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wurlitzer_reed_material",
+      "surface": false,
+      "name": "Reed (struck-reed) material",
+      "variants": [
+        {
+          "id": "wurlitzer_steel_reed_canonical",
+          "default": true,
+          "name": "Hardened steel reeds with lead solder weight at tip (canonical Wurlitzer EP voicing)",
+          "descriptors": [
+            "steel-reed-lead-solder-tip-canonical-wurlitzer-ep-voicing"
+          ],
+          "match_tokens": [
+            "electric",
+            "warmed"
+          ]
+        }
+      ]
+    }
+  ]
+}

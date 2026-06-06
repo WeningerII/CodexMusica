@@ -1,0 +1,1441 @@
+{
+  "id": "electric_bass",
+  "name": "Solid-body electric bass",
+  "family": "electric_strings",
+  "class": "bass",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "electric bass",
+  "parts": [
+    {
+      "id": "electric_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "electric_fuzz_riff",
+          "name": "Fuzz-driven riff",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "semi_hollow_bass"
+          ],
+          "descriptors": [
+            "fuzzed",
+            "riff-driven"
+          ],
+          "match_tokens": [
+            "electric",
+            "fuzzy-saturation",
+            "picked"
+          ],
+          "canonical_tags": [
+            "psychedelic",
+            "doom"
+          ]
+        },
+        {
+          "id": "electric_bass_walking",
+          "name": "Walking bass line",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "fretless_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "walking"
+          ],
+          "match_tokens": [
+            "electric",
+            "picked"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ],
+          "default": true
+        },
+        {
+          "id": "electric_bass_pocket",
+          "name": "Pocket fingerstyle locked",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "pocket",
+            "fingerstyle",
+            "locked"
+          ],
+          "match_tokens": [
+            "electric",
+            "rhythm-section-pocket",
+            "picked"
+          ],
+          "canonical_tags": [
+            "soul",
+            "funk",
+            "afrobeat"
+          ]
+        },
+        {
+          "id": "electric_bass_pick_aggressive",
+          "name": "Pick aggressive",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "picked",
+            "high-gain-saturation"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "rock-canonical",
+            "punk"
+          ]
+        },
+        {
+          "id": "electric_bass_slap_pop",
+          "name": "Slap-and-pop",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "slapped",
+            "popped",
+            "percussive"
+          ],
+          "match_tokens": [
+            "electric",
+            "slappy",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "funk"
+          ]
+        },
+        {
+          "id": "electric_bass_thumb_muted",
+          "name": "Thumb-muted dub",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass"
+          ],
+          "descriptors": [
+            "thumb-muted"
+          ],
+          "match_tokens": [
+            "electric",
+            "muted",
+            "picked"
+          ],
+          "canonical_tags": [
+            "reggae",
+            "dub"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "amp_make",
+      "name": "Amplifier archetype",
+      "variants": [
+        {
+          "id": "amp_unspecified",
+          "default": true,
+          "name": "Unspecified",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass",
+            "pedal_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "amp_british_60s_selmer",
+          "name": "Selmer (Twin Selectortone, Truvoice — British 60s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "selmer-amp",
+            "british-60s-amp",
+            "midrange-honk",
+            "push-button-tone-select"
+          ],
+          "match_tokens": [
+            "electric",
+            "midrange-forward",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "british-beat-boom-canonical"
+          ]
+        },
+        {
+          "id": "amp_british_late_60s_marshall_plexi",
+          "name": "Marshall Plexi / JTM (British late-60s rock)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "marshall-plexi-amp",
+            "british-rock-amp",
+            "crunch-breakup",
+            "cranked-tube"
+          ],
+          "match_tokens": [
+            "electric",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-blues-rock",
+            "arena-rock"
+          ]
+        },
+        {
+          "id": "amp_american_fender_tweed",
+          "name": "Fender Tweed (Bassman / Deluxe — American 50s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "fender-tweed-amp",
+            "american-50s-amp",
+            "tweed-breakup",
+            "thick-midrange"
+          ],
+          "match_tokens": [
+            "electric",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "blues-canonical",
+            "rockabilly",
+            "country",
+            "early-rock-and-roll"
+          ]
+        },
+        {
+          "id": "amp_american_ampeg_b15",
+          "name": "Ampeg B-15 flip-top (American 60s bass)",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "ampeg-b15-amp",
+            "american-60s-bass-amp",
+            "flip-top-character",
+            "rounded-low-end"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "soul",
+            "rhythm-and-blues",
+            "motown",
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "amp_american_ampeg_svt",
+          "name": "Ampeg SVT (American post-69 bass rock)",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "ampeg-svt-amp",
+            "rock-bass-amp",
+            "300-watt-stack",
+            "high-headroom"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "arena-rock"
+          ]
+        },
+        {
+          "id": "amp_modern_modeling",
+          "name": "Modeling amplifier (Kemper / Fractal / Katana)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "modeled-amp",
+            "digital-amplification",
+            "profile-based",
+            "modern-rig"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "djent",
+            "modern-metal"
+          ]
+        },
+        {
+          "id": "amp_british_hiwatt",
+          "name": "Hiwatt DR103 (British clean-headroom 100W)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "electric_bass"
+          ],
+          "descriptors": [
+            "hiwatt-amp",
+            "british-clean-amp",
+            "high-wattage-headroom",
+            "partridge-iron-transformers"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-headroom",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "progressive-rock",
+            "arena-rock",
+            "hard-rock"
+          ]
+        },
+        {
+          "id": "amp_british_orange",
+          "name": "Orange OR120 / Rockerverb (British heavy crunch)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "baritone_electric",
+            "electric_bass"
+          ],
+          "descriptors": [
+            "orange-amp",
+            "british-heavy-crunch",
+            "thick-mid-low",
+            "sludgy-character"
+          ],
+          "match_tokens": [
+            "electric",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "stoner-metal",
+            "sludge",
+            "doom",
+            "noise-rock"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "alder_b",
+          "default": true,
+          "name": "Alder",
+          "descriptors": [
+            "balanced",
+            "fast-attack-transient",
+            "mid-rich",
+            "alder"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "swamp_ash_b",
+          "name": "Swamp ash",
+          "descriptors": [
+            "scooped",
+            "snappy",
+            "growly",
+            "swamp-ash",
+            "ash"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "mahogany_b",
+          "name": "Mahogany",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "low-mid-thick",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickup_config",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "split_coil",
+          "default": true,
+          "name": "Single split-coil (P-style)",
+          "descriptors": [
+            "thumpy",
+            "midrange",
+            "fundamental"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "dual_single",
+          "name": "Dual single-coils (J-style)",
+          "descriptors": [
+            "scooped",
+            "growly",
+            "articulate"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "humbucker_mm",
+          "name": "Single humbucker (MM-style)",
+          "descriptors": [
+            "fast-attack-transient",
+            "focused-narrow-output",
+            "snappy"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "soapbar",
+          "name": "Active soapbar",
+          "descriptors": [
+            "full",
+            "hi-fi",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_type",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "roundwound_n",
+          "default": true,
+          "name": "Roundwound nickel",
+          "descriptors": [
+            "balanced",
+            "growly",
+            "articulate",
+            "nickel",
+            "roundwound"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "roundwound_s",
+          "name": "Roundwound stainless",
+          "descriptors": [
+            "zingy",
+            "treble-extended",
+            "modern",
+            "stainless-steel",
+            "roundwound"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "flatwound",
+          "name": "Flatwound (jazz / vintage)",
+          "descriptors": [
+            "thumpy",
+            "dark",
+            "mellow",
+            "flatwound"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "vintage"
+          ]
+        },
+        {
+          "id": "half_round",
+          "name": "Half-round",
+          "descriptors": [
+            "between",
+            "balanced",
+            "low-mid-rich-spectrum"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "la_bella_flats_motown",
+          "name": "La Bella jazz flats (Detroit soul bass canon)",
+          "descriptors": [
+            "la-bella-flats",
+            "detroit-soul-bass-canon",
+            "heavy-gauge-flatwound"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "motown",
+            "soul"
+          ]
+        },
+        {
+          "id": "pyramid_pure_nickel",
+          "name": "Pyramid pure nickel (Beatles-era / vintage)",
+          "descriptors": [
+            "pyramid",
+            "pure-nickel-bass",
+            "british-mid-60s-era"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "vintage"
+          ]
+        },
+        {
+          "id": "ernie_ball_slinky_bass",
+          "name": "Ernie Ball Slinky Bass",
+          "descriptors": [
+            "ernie-ball-slinky",
+            "rock-canon",
+            "balanced"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "rock"
+          ]
+        },
+        {
+          "id": "tape_wound_bass",
+          "name": "Tape-wound (upright-emulation)",
+          "descriptors": [
+            "tape-wound",
+            "nylon-tape",
+            "upright-like"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "coated_nano_bass",
+          "name": "Coated (Elixir Nanoweb bass)",
+          "descriptors": [
+            "coated",
+            "elixir-nanoweb",
+            "long-life"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "thomastik_jazz_bass_flat",
+          "name": "Thomastik-Infeld jazz flat bass (low-tension jazz)",
+          "descriptors": [
+            "thomastik-infeld",
+            "low-tension",
+            "jazz-warm"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scale_length_b",
+      "surface": false,
+      "name": "Scale length",
+      "variants": [
+        {
+          "id": "short_scale_b",
+          "name": "30\" short scale",
+          "descriptors": [
+            "thumpy",
+            "low-mid-thick",
+            "easy-feel"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "long_scale_b",
+          "default": true,
+          "name": "34\" long scale",
+          "descriptors": [
+            "standard",
+            "focused-low-end-decay",
+            "articulate"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "extra_long_b",
+          "name": "35\"+ extra long",
+          "descriptors": [
+            "focused-low-end-decay",
+            "low-clear",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretted_or_not",
+      "name": "Fretted",
+      "variants": [
+        {
+          "id": "fretted",
+          "default": true,
+          "name": "Fretted",
+          "descriptors": [
+            "articulate",
+            "percussive",
+            "standard"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "fretless",
+          "name": "Fretless",
+          "descriptors": [
+            "singing",
+            "sliding",
+            "mwah"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "fingerstyle_locked",
+          "name": "Fingerstyle locked groove",
+          "descriptors": [
+            "fingerstyle",
+            "locked",
+            "pocket"
+          ],
+          "match_tokens": [
+            "fingerpicked",
+            "electric"
+          ],
+          "canonical_tags": [
+            "funk",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "fingerstyle_walking",
+          "name": "Fingerstyle walking",
+          "descriptors": [
+            "walking",
+            "fingerstyle"
+          ],
+          "match_tokens": [
+            "fingerpicked",
+            "electric",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "pick_aggressive",
+          "default": true,
+          "name": "Pick aggressive",
+          "descriptors": [
+            "picked",
+            "high-gain-saturation"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "rock",
+            "punk"
+          ]
+        },
+        {
+          "id": "pick_motown",
+          "name": "Pick precise",
+          "descriptors": [
+            "picked",
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "motown"
+          ]
+        },
+        {
+          "id": "slap_pop",
+          "name": "Slap and pop",
+          "descriptors": [
+            "slapped",
+            "popped",
+            "percussive"
+          ],
+          "match_tokens": [
+            "slappy",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "funk"
+          ]
+        },
+        {
+          "id": "thumb_muted",
+          "surface": false,
+          "name": "Thumb-muted (palm-muted)",
+          "descriptors": [
+            "thumb-muted"
+          ],
+          "match_tokens": [
+            "muted",
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "reggae",
+            "dub"
+          ]
+        },
+        {
+          "id": "fingerpicked_country_b",
+          "name": "Fingerpicked country",
+          "descriptors": [
+            "fingerpicked",
+            "narrative"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "country"
+          ]
+        },
+        {
+          "id": "sub_bass_synth_blend",
+          "name": "Sub-bass synth blend",
+          "descriptors": [
+            "layered",
+            "sub-heavy"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electric_technique",
+      "default_variant": "electric_bass_walking"
+    },
+    {
+      "id": "body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "alder_b",
+          "default": true,
+          "name": "Alder",
+          "descriptors": [
+            "balanced",
+            "fast-attack-transient",
+            "mid-rich",
+            "alder"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "swamp_ash_b",
+          "name": "Swamp ash",
+          "descriptors": [
+            "scooped",
+            "snappy",
+            "growly",
+            "swamp-ash",
+            "ash"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "mahogany_b",
+          "name": "Mahogany",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "low-mid-thick",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickup_config",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "split_coil",
+          "default": true,
+          "name": "Single split-coil (P-style)",
+          "descriptors": [
+            "thumpy",
+            "midrange",
+            "fundamental"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "dual_single",
+          "name": "Dual single-coils (J-style)",
+          "descriptors": [
+            "scooped",
+            "growly",
+            "articulate"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "humbucker_mm",
+          "name": "Single humbucker (MM-style)",
+          "descriptors": [
+            "fast-attack-transient",
+            "focused-narrow-output",
+            "snappy"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "soapbar",
+          "name": "Active soapbar",
+          "descriptors": [
+            "full",
+            "hi-fi",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_type",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "roundwound_n",
+          "default": true,
+          "name": "Roundwound nickel",
+          "descriptors": [
+            "balanced",
+            "growly",
+            "articulate",
+            "nickel",
+            "roundwound"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "roundwound_s",
+          "name": "Roundwound stainless",
+          "descriptors": [
+            "zingy",
+            "treble-extended",
+            "modern",
+            "stainless-steel",
+            "roundwound"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "flatwound",
+          "name": "Flatwound (jazz / vintage)",
+          "descriptors": [
+            "thumpy",
+            "dark",
+            "mellow",
+            "flatwound"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "vintage"
+          ]
+        },
+        {
+          "id": "half_round",
+          "name": "Half-round",
+          "descriptors": [
+            "between",
+            "balanced",
+            "low-mid-rich-spectrum"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "la_bella_flats_motown",
+          "name": "La Bella jazz flats (Detroit soul bass canon)",
+          "descriptors": [
+            "la-bella-flats",
+            "detroit-soul-bass-canon",
+            "heavy-gauge-flatwound"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "motown",
+            "soul"
+          ]
+        },
+        {
+          "id": "pyramid_pure_nickel",
+          "name": "Pyramid pure nickel (Beatles-era / vintage)",
+          "descriptors": [
+            "pyramid",
+            "pure-nickel-bass",
+            "british-mid-60s-era"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "vintage"
+          ]
+        },
+        {
+          "id": "ernie_ball_slinky_bass",
+          "name": "Ernie Ball Slinky Bass",
+          "descriptors": [
+            "ernie-ball-slinky",
+            "rock-canon",
+            "balanced"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "rock"
+          ]
+        },
+        {
+          "id": "tape_wound_bass",
+          "name": "Tape-wound (upright-emulation)",
+          "descriptors": [
+            "tape-wound",
+            "nylon-tape",
+            "upright-like"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "coated_nano_bass",
+          "name": "Coated (Elixir Nanoweb bass)",
+          "descriptors": [
+            "coated",
+            "elixir-nanoweb",
+            "long-life"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "thomastik_jazz_bass_flat",
+          "name": "Thomastik-Infeld jazz flat bass (low-tension jazz)",
+          "descriptors": [
+            "thomastik-infeld",
+            "low-tension",
+            "jazz-warm"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scale_length_b",
+      "surface": false,
+      "name": "Scale length",
+      "variants": [
+        {
+          "id": "short_scale_b",
+          "name": "30\" short scale",
+          "descriptors": [
+            "thumpy",
+            "low-mid-thick",
+            "easy-feel"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "long_scale_b",
+          "default": true,
+          "name": "34\" long scale",
+          "descriptors": [
+            "standard",
+            "focused-low-end-decay",
+            "articulate"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "extra_long_b",
+          "name": "35\"+ extra long",
+          "descriptors": [
+            "focused-low-end-decay",
+            "low-clear",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fretted_or_not",
+      "name": "Fretted",
+      "variants": [
+        {
+          "id": "fretted",
+          "default": true,
+          "name": "Fretted",
+          "descriptors": [
+            "articulate",
+            "percussive",
+            "standard"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        },
+        {
+          "id": "fretless",
+          "name": "Fretless",
+          "descriptors": [
+            "singing",
+            "sliding",
+            "mwah"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "fingerstyle_locked",
+          "name": "Fingerstyle locked groove",
+          "descriptors": [
+            "fingerstyle",
+            "locked",
+            "pocket"
+          ],
+          "match_tokens": [
+            "fingerpicked",
+            "electric"
+          ],
+          "canonical_tags": [
+            "funk",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "fingerstyle_walking",
+          "name": "Fingerstyle walking",
+          "descriptors": [
+            "walking",
+            "fingerstyle"
+          ],
+          "match_tokens": [
+            "fingerpicked",
+            "electric",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "pick_aggressive",
+          "default": true,
+          "name": "Pick aggressive",
+          "descriptors": [
+            "picked",
+            "high-gain-saturation"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "rock",
+            "punk"
+          ]
+        },
+        {
+          "id": "pick_motown",
+          "name": "Pick precise",
+          "descriptors": [
+            "picked",
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "motown"
+          ]
+        },
+        {
+          "id": "slap_pop",
+          "name": "Slap and pop",
+          "descriptors": [
+            "slapped",
+            "popped",
+            "percussive"
+          ],
+          "match_tokens": [
+            "slappy",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "funk"
+          ]
+        },
+        {
+          "id": "thumb_muted",
+          "surface": false,
+          "name": "Thumb-muted (palm-muted)",
+          "descriptors": [
+            "thumb-muted"
+          ],
+          "match_tokens": [
+            "muted",
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "reggae",
+            "dub"
+          ]
+        },
+        {
+          "id": "fingerpicked_country_b",
+          "name": "Fingerpicked country",
+          "descriptors": [
+            "fingerpicked",
+            "narrative"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "country"
+          ]
+        },
+        {
+          "id": "sub_bass_synth_blend",
+          "name": "Sub-bass synth blend",
+          "descriptors": [
+            "layered",
+            "sub-heavy"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "electric",
+            "low-register",
+            "foundational-bass"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

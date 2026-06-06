@@ -1,0 +1,65 @@
+{
+  "id": "peak_techno",
+  "name": "Peak-time techno",
+  "family": "electronic",
+  "lineage": "Late-1990s onward European hard-techno subgenre crafted for peak-time large-club and outdoor festival rotation, characterized by 130-140 bpm driving four-on-the-floor, aggressive sub-bass, hypnotic loop-based arrangement, and minimal melodic content — codified through Berlin's Berghain-orbit producers (Marcel Dettmann, Ben Klock, Surgeon, Function), the Ostgut Ton label, and the broader European hard-techno festival circuit",
+  "recipe": "classic 1997-1999 peak-time techno, electronic Dance, techno branch, house electronic dance acid house chicago house. drum machine analog, sub bass analog synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 307,
+  "score": 23.865,
+  "config": {
+    "traditions": [
+      "peak_techno",
+      "acid_house",
+      "chicago_house"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "noise_only_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.75,
+          "snare_voice": 0.15,
+          "hat_voice": 0.045,
+          "shuffle_quantize": 4.795
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "sample_hold"
+        },
+        "scores": {
+          "electronic_technique": 3.1550000000000007,
+          "oscillator": 3.305,
+          "filter_topology": 1.69,
+          "envelope": 0.39,
+          "modulation": 0.15
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

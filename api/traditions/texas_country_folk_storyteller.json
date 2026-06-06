@@ -1,0 +1,199 @@
+{
+  "id": "texas_country_folk_storyteller",
+  "name": "Texas country-folk storyteller",
+  "family": "global",
+  "lineage": "Texas songwriter narrative-folk tradition centered around Townes Van Zandt, Guy Clark, Steve Earle, Jerry Jeff Walker, Lyle Lovett, Robert Earl Keen, Slaid Cleaves, James McMurtry — storytelling-foregrounded songwriting often tracked in Austin and Nashville",
+  "recipe": "classic North American mid-1970s texas country-folk storyteller, ballad Poetry, country folk story branch, outlaw country. thick, incomplete closure resting, expressive, narrative. travis picked fingerpicked acoustic guitar, double stops fiddle, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit, bowl back Italian k and k twin internal mounted acoustic faithful mandolin, pearwood marine band tradition straight harmonica. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 684,
+  "score": 315.255,
+  "config": {
+    "traditions": [
+      "texas_country_folk_storyteller",
+      "outlaw_country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 22.35249999999999,
+          "voice_quality": 2.8750000000000004,
+          "voice_vibrato": 11.749999999999998,
+          "voice_articulation": 3.131250000000001,
+          "voice_microtone": 0.35250000000000004,
+          "voice_tradition": 13.48,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 12.628749999999997,
+          "voice_speech_song": 8.3525,
+          "voice_ensemble_config": 5.616249999999999,
+          "voice_ornament_system": 1.5087499999999998,
+          "voice_pitch_organization": 0.32625,
+          "voice_processing_chain": 1.435,
+          "voice_multitrack_stack": 0.38249999999999995
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 23.349999999999994,
+          "string_tuning": 0,
+          "top_wood": 0.1575,
+          "back_sides": 0.1575,
+          "string_acoustic": 0.1575,
+          "acoustic_om_technique": 18.53125
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "silver_wound_lamb_gut_fiddle",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 12.409999999999998,
+          "fiddle_strings": 0.2575,
+          "fiddle_bow": 0.06,
+          "fiddle_mute": 0.345,
+          "fiddle_articulation": 0.06
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "electric_technique": 0.2,
+          "amp_make": 11.656249999999998,
+          "body_wood": 0.315,
+          "pickup_config": 0,
+          "string_type": 0.16875,
+          "scale_length_b": 0.1575,
+          "fretted_or_not": 0,
+          "bass_technique": 14.081249999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "double_coated",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b10",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "unlathed_bell",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 5.684999999999999,
+          "shell_wood": 0.08999999999999998,
+          "shell_thickness": 0,
+          "bearing_edges": 0.1575,
+          "drumhead": 0.25,
+          "snare_wires": 0.1575,
+          "cymbal_alloy": 0,
+          "cymbal_hammering": 0.325,
+          "cymbal_lathing": 0.8499999999999999,
+          "cymbal_finish": 0.31124999999999997,
+          "drum_technique": 5.684999999999999
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "redwood_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": -0.0425,
+          "mandolin_shape": 4.491249999999999,
+          "mandolin_top": 0.19,
+          "mandolin_back": 0.1575,
+          "mandolin_bracing": -0.035,
+          "mandolin_strings": 0.28375,
+          "mandolin_fingerboard": 0,
+          "mandolin_pickup": 6.306249999999999
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_folk_first_position",
+          "harmonica_maker_school": "harmonica_hering_brazilian",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 25.326249999999998,
+          "harmonica_type": 0.18375,
+          "harmonica_comb": 2.09,
+          "harmonica_reed": -0.035,
+          "harmonica_technique": 25.326249999999998,
+          "harmonica_maker_school": 0.0625,
+          "harmonica_tuning": 0.34125000000000005
+        }
+      }
+    ],
+    "room": "studio_in_the_country_bogalusa",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_15ips"
+    },
+    "tuning": "americana_train_beat_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

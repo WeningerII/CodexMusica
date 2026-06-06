@@ -1,0 +1,67 @@
+{
+  "id": "dark_ambient_industrial",
+  "name": "Dark ambient (1980s industrial-adjacent menacing drone)",
+  "family": "electronic",
+  "lineage": "1980s and 1990s ambient subgenre developed through industrial-music adjacent scene, characterized by drone-and-texture-based composition emphasizing menacing, dark, foreboding atmospheric content. Lustmord (Brian Williams), Coil, Nurse With Wound, and the broader Cold Spring Records and Side Effects label rosters anchor the canonical sound. Distinguished from broader ambient by dark ambient's explicit horror-cinematic-and-occult thematic orientation.",
+  "recipe": "classic European dark ambient, experimental Elec, ambient branch, industrial noise experimental electric dark electro / aggrotech. pad like pad analog synth, field textural sampler. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 332,
+  "score": 82.462,
+  "config": {
+    "traditions": [
+      "dark_ambient_industrial",
+      "ebm_european_body",
+      "dark_electro_aggrotech"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 16.194499999999998,
+          "oscillator": 0.543,
+          "filter_topology": 0.6944999999999999,
+          "envelope": 8.319999999999999,
+          "modulation": 0.1215
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 5.618000000000001,
+          "sampler_archetypes": 0.4094999999999999,
+          "sampler_bit_depth": 0.43949999999999995,
+          "sampler_workflow": 7.903500000000001,
+          "sampler_classic_context": 14.75
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

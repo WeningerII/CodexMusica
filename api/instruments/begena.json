@@ -1,0 +1,96 @@
+{
+  "id": "begena",
+  "name": "Begena (Ethiopian ten-string box-lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "begena",
+  "parts": [
+    {
+      "id": "begena_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "begena_ten_string_box_lyre_canonical",
+          "default": true,
+          "name": "Ten-string box-lyre with deep-buzzing leather plectrum (canonical Ethiopian devotional)",
+          "descriptors": [
+            "ten-string-box-lyre-deep-buzzing-leather-plectrum-canonical-ethiopian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ethiopian-zema-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "begena_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "begena_devotional_canonical",
+          "default": true,
+          "name": "Tewahedo devotional repertoire (canonical)",
+          "descriptors": [
+            "tewahedo-devotional-canonical-ethiopian-orthodox"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ethiopian-zema-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "begena_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "begena_ten_string_box_lyre_canonical",
+          "default": true,
+          "name": "Ten-string box-lyre with deep-buzzing leather plectrum (canonical Ethiopian devotional)",
+          "descriptors": [
+            "ten-string-box-lyre-deep-buzzing-leather-plectrum-canonical-ethiopian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ethiopian-zema-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "begena_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "begena_devotional_canonical",
+          "default": true,
+          "name": "Tewahedo devotional repertoire (canonical)",
+          "descriptors": [
+            "tewahedo-devotional-canonical-ethiopian-orthodox"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ethiopian-zema-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

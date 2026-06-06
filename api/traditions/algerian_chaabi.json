@@ -1,0 +1,133 @@
+{
+  "id": "algerian_chaabi",
+  "name": "Algerian chaabi (Algiers urban folk)",
+  "family": "global",
+  "lineage": "Algerian chaabi (\"popular\") urban-folk tradition of Algiers and broader Algerian coastal region, emerging in 1920s-1930s Algiers Casbah as working-class popular reinterpretation of older malhun classical-Arabic poetic tradition, with simplified modal structures and accessible Algerian-Arabic dialect lyrics. Founding figure El Hadj M'Hamed El Anka codified the genre, establishing instrumentation of oud, mandole, banjo (introduced through American jazz exposure), darbuka, and tar frame-drum. Repertoire spans poetic-philosophical reflection (qsida), urban-life observation, and post-1962 independence cultural-pride themes.",
+  "recipe": "classic North American mid-1920s algerian chaabi, functional Song, mid east n African pop branch, middle eastern classical art music shashmaqam uyghur on ikki muqam. thick, low dynamic level, chest resonance low mid, maqam neutral step. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 745,
+  "score": 316.705,
+  "config": {
+    "traditions": [
+      "algerian_chaabi",
+      "shashmaqam_central_asian",
+      "uyghur_muqam"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "arabic_maqam_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 12.349999999999998,
+          "voice_quality": 1.755,
+          "voice_vibrato": 4.55,
+          "voice_articulation": 0.39,
+          "voice_microtone": 9.684999999999999,
+          "voice_tradition": 18.004999999999995,
+          "voice_mechanism_compound": 6.4350000000000005,
+          "voice_estill_quality": 6.37,
+          "voice_speech_song": 8.645,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 16.314999999999998,
+          "voice_pitch_organization": 16.314999999999998,
+          "voice_processing_chain": 3.8399999999999994,
+          "voice_multitrack_stack": 1.155
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5,
+          "oud_school": 1.95,
+          "oud_strings": 2.6,
+          "oud_pick": 1.695,
+          "oud_body_wood": 1.95,
+          "oud_soundboard_wood": 2.0549999999999997,
+          "oud_string_material": 3.2699999999999996
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": 1.56,
+          "darbuka_material": 2.5499999999999994,
+          "darbuka_skin": 1.69,
+          "darbuka_regional_style": 5.130000000000001
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "banjo_back": "resonator",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "two_finger",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.629999999999999,
+          "banjo_back": 0.39,
+          "tone_ring": 0.24,
+          "banjo_head": 6.759999999999999,
+          "banjo_pot": 0.43500000000000005,
+          "banjo_play": 0.195,
+          "banjo_rim_wood": 0.24,
+          "banjo_neck_wood": 1.77,
+          "banjo_strings": 0.195,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 6.694999999999999
+        }
+      }
+    ],
+    "room": "casablanca_chaabi_moroccan_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

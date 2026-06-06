@@ -1,0 +1,87 @@
+{
+  "id": "catalan_nova_canco",
+  "name": "Catalan Nova Cançó",
+  "family": "global",
+  "lineage": "Catalan Nova Cançó (\"new song\") minority-language protest-song tradition continuous from 1959 founding by Els Setze Jutges collective through the Franco-era 1959-1975 Catalan-language-suppression-resistance period continuous into post-Franco Catalan-cultural-revival; centered on Lluís Llach, Raimon, Joan Manuel Serrat, Maria del Mar Bonet, Pi de la Serra",
+  "recipe": "classic mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, lament wail, melodic, continuous-phonation. fingerpicked acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 418,
+  "score": 148.795,
+  "config": {
+    "traditions": [
+      "catalan_nova_canco",
+      "morna",
+      "cape_verdean_batuko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 1.1799999999999997,
+          "voice_quality": 1.8849999999999998,
+          "voice_vibrato": 2.015,
+          "voice_articulation": 3.0349999999999997,
+          "voice_microtone": 0.3,
+          "voice_tradition": 5.654999999999999,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.345,
+          "voice_speech_song": 9.035,
+          "voice_ensemble_config": 2.21,
+          "voice_ornament_system": 3.6899999999999995,
+          "voice_pitch_organization": 3.835,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood": "cedar_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 3.9849999999999994,
+          "string_tuning": 0,
+          "top_wood": 0.585,
+          "back_sides": 0.585,
+          "string_acoustic": 0.7949999999999999,
+          "acoustic_om_technique": 3.9849999999999994
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "iberian_kantautor_minority_language_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

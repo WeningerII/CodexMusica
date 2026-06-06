@@ -1,0 +1,521 @@
+{
+  "id": "rebab",
+  "name": "Rebab (Indonesian/Malay spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "rebab",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_rough_drone",
+          "name": "Rough drone",
+          "applies_to": [
+            "fiddle",
+            "gusle",
+            "kamancheh",
+            "rebab",
+            "morin_khuur"
+          ],
+          "descriptors": [
+            "drone-like",
+            "raspy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "folk",
+            "medieval"
+          ]
+        },
+        {
+          "id": "bowed_microtonal_inflected",
+          "name": "Microtonal-inflected",
+          "applies_to": [
+            "kamancheh",
+            "rebab",
+            "sarangi",
+            "esraj",
+            "violin_carnatic",
+            "morin_khuur",
+            "erhu",
+            "jinghu",
+            "haegeum"
+          ],
+          "descriptors": [
+            "microtonal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "microtonal-bend",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "maqam",
+            "arabic",
+            "hindustani"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "rebab_region",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "rebab_javanese",
+          "default": true,
+          "name": "Javanese (gamelan)",
+          "descriptors": [
+            "gamelan-foundational",
+            "court"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_malay",
+          "name": "Malay (kelantan)",
+          "descriptors": [
+            "regional",
+            "mak-yong-context",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_yemeni",
+          "name": "Yemeni",
+          "descriptors": [
+            "Arab-tradition",
+            "distinct-construction",
+            "maqam-context"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebab_context",
+      "surface": false,
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "rebab_gamelan",
+          "default": true,
+          "name": "Gamelan ensemble (Java)",
+          "descriptors": [
+            "lead-melodic",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_wayang",
+          "name": "Wayang shadow-puppet",
+          "descriptors": [
+            "narrative",
+            "theatrical",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_solo",
+          "name": "Solo / chamber",
+          "descriptors": [
+            "low-dynamic-level",
+            "rare",
+            "art-context"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebab_body",
+      "surface": false,
+      "name": "Body / resonator",
+      "variants": [
+        {
+          "id": "rebab_wood_carved",
+          "default": true,
+          "name": "Carved hardwood body (canonical Javanese gamelan)",
+          "descriptors": [
+            "carved-hardwood-canonical-javanese"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_coconut_shell",
+          "name": "Coconut-shell resonator (Yemeni / Malay variant)",
+          "descriptors": [
+            "coconut-shell-yemeni-malay"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebab_skin",
+      "surface": false,
+      "name": "Belly skin",
+      "variants": [
+        {
+          "id": "rebab_goat_skin",
+          "default": true,
+          "name": "Goat skin (canonical Javanese)",
+          "descriptors": [
+            "goat-skin-canonical-javanese"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_fish_skin",
+          "name": "Fish-skin (Malay / lighter)",
+          "descriptors": [
+            "fish-skin-malay-lighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_buffalo_bladder",
+          "name": "Buffalo bladder (premium Yemeni)",
+          "descriptors": [
+            "buffalo-bladder-yemeni"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebab_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "rebab_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_silk_historical",
+          "name": "Silk (pre-modern gamelan historical)",
+          "descriptors": [
+            "silk-pre-modern-gamelan"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "rebab_gut_yemeni",
+          "name": "Gut (Yemeni / pre-modern Arab)",
+          "descriptors": [
+            "gut-yemeni-pre-modern-arab"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rebab_region",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "rebab_javanese",
+          "default": true,
+          "name": "Javanese (gamelan)",
+          "descriptors": [
+            "gamelan-foundational",
+            "court"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_malay",
+          "name": "Malay (kelantan)",
+          "descriptors": [
+            "regional",
+            "mak-yong-context",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_yemeni",
+          "name": "Yemeni",
+          "descriptors": [
+            "Arab-tradition",
+            "distinct-construction",
+            "maqam-context"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebab_context",
+      "surface": false,
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "rebab_gamelan",
+          "default": true,
+          "name": "Gamelan ensemble (Java)",
+          "descriptors": [
+            "lead-melodic",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_wayang",
+          "name": "Wayang shadow-puppet",
+          "descriptors": [
+            "narrative",
+            "theatrical",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_solo",
+          "name": "Solo / chamber",
+          "descriptors": [
+            "low-dynamic-level",
+            "rare",
+            "art-context"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebab_body",
+      "surface": false,
+      "name": "Body / resonator",
+      "variants": [
+        {
+          "id": "rebab_wood_carved",
+          "default": true,
+          "name": "Carved hardwood body (canonical Javanese gamelan)",
+          "descriptors": [
+            "carved-hardwood-canonical-javanese"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_coconut_shell",
+          "name": "Coconut-shell resonator (Yemeni / Malay variant)",
+          "descriptors": [
+            "coconut-shell-yemeni-malay"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebab_skin",
+      "surface": false,
+      "name": "Belly skin",
+      "variants": [
+        {
+          "id": "rebab_goat_skin",
+          "default": true,
+          "name": "Goat skin (canonical Javanese)",
+          "descriptors": [
+            "goat-skin-canonical-javanese"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_fish_skin",
+          "name": "Fish-skin (Malay / lighter)",
+          "descriptors": [
+            "fish-skin-malay-lighter"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_buffalo_bladder",
+          "name": "Buffalo bladder (premium Yemeni)",
+          "descriptors": [
+            "buffalo-bladder-yemeni"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebab_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "rebab_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "rebab_silk_historical",
+          "name": "Silk (pre-modern gamelan historical)",
+          "descriptors": [
+            "silk-pre-modern-gamelan"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "rebab_gut_yemeni",
+          "name": "Gut (Yemeni / pre-modern Arab)",
+          "descriptors": [
+            "gut-yemeni-pre-modern-arab"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

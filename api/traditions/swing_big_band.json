@@ -1,0 +1,197 @@
+{
+  "id": "swing_big_band",
+  "name": "Swing big band (1930s-40s)",
+  "family": "jazz",
+  "lineage": "1930s-1940s American jazz orchestra format with sectional brass-and-reed arrangement, 14-18 musicians, and dance-band repertoire emphasis. The Swing Era dominated American popular music c.1935-1945, with Benny Goodman, Count Basie, Duke Ellington, Glenn Miller, Tommy Dorsey, and Artie Shaw orchestras as canonical bandleaders. Distinguished from earlier hot-jazz by swing big band's formal-arranged composition (vs improvisational-collective) framework and dance-floor commercial-orientation.",
+  "recipe": "classic North American swing big band, improv On Frame, early branch, American jazz kansas city kansas city swing. thick, blues-shouter, equal tempered, scat. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, brass vintage ambassador asymmetric bronze bell bronze drum kit. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 777,
+  "score": 509.959,
+  "config": {
+    "traditions": [
+      "swing_big_band",
+      "kansas_city_swing"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 14.206999999999995,
+          "voice_quality": 0.5849999999999993,
+          "voice_vibrato": 0.09,
+          "voice_articulation": 0.22050000000000003,
+          "voice_microtone": 14.281499999999996,
+          "voice_tradition": 18.723375,
+          "voice_mechanism_compound": 3.1416249999999994,
+          "voice_estill_quality": 2.872625,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 0.0315,
+          "voice_pitch_organization": 3.6399999999999997,
+          "voice_processing_chain": 4.659625,
+          "voice_multitrack_stack": 0.23800000000000002
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.9000000000000001,
+          "brass_size": 0.135,
+          "trumpet_mouthpiece": 17.9405,
+          "brass_mute": 0,
+          "trumpet_technique": -0.05,
+          "trumpet_bell_metal": 3.048625,
+          "trumpet_maker_school": 7.93
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 1.9000000000000001,
+          "trombone_type": 14.5,
+          "trombone_mouthpiece": 15.886499999999998,
+          "trombone_mute": 0,
+          "trombone_technique": 0.6805000000000001,
+          "trombone_bell_metal": 3.048625,
+          "trombone_maker_school": 7.93
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 1.9000000000000001,
+          "sax_size": 0,
+          "sax_reed": 0.09,
+          "sax_body_alloy": 14.5075,
+          "sax_mouthpiece": 0.135,
+          "sax_technique": 14.5,
+          "sax_maker_school": 17.400125
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 1.9743750000000002,
+          "grand_piano_size": 1.4608750000000001,
+          "grand_piano_brand": 1.565,
+          "piano_hammer": 6.175,
+          "piano_rim": 6.175,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": 1.9500000000000002,
+          "upright_strings": 14.5,
+          "upright_play": 14.5
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "hand_lathed_pit_retaining",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 14.169999999999998,
+          "shell_wood": 1.5390000000000001,
+          "shell_thickness": 0,
+          "bearing_edges": 0,
+          "drumhead": 17.93425,
+          "snare_wires": 0,
+          "cymbal_alloy": 14.381499999999997,
+          "cymbal_hammering": 14.813,
+          "cymbal_lathing": 14.6,
+          "cymbal_finish": 0.09,
+          "drum_technique": 14.5
+        }
+      }
+    ],
+    "room": "studio_swing_live_room",
+    "archetype": "arch_swing_era_live_studio",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

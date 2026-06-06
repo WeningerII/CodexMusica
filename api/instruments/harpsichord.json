@@ -1,0 +1,580 @@
+{
+  "id": "harpsichord",
+  "name": "Harpsichord",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "harpsichord",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "harpsichord",
+            "pipe_organ",
+            "pump_organ_harmonium",
+            "celesta"
+          ],
+          "descriptors": [
+            "legato",
+            "pedal-resonant"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "sustained-tone",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        },
+        {
+          "id": "keyboard_avant_prepared",
+          "name": "Avant / prepared",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "harpsichord"
+          ],
+          "descriptors": [
+            "prepared"
+          ],
+          "match_tokens": [
+            "avant-garde",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "avant",
+            "experimental"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "harpsichord_register",
+      "name": "Register coupling",
+      "variants": [
+        {
+          "id": "harpsi_4_foot",
+          "name": "4-foot single",
+          "descriptors": [
+            "high-register",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "harpsi_8_foot",
+          "default": true,
+          "name": "8-foot single",
+          "descriptors": [
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "harpsi_double_8",
+          "name": "Double 8-foot (couplable)",
+          "descriptors": [
+            "full",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "harpsichord_solo",
+          "default": true,
+          "name": "Baroque solo",
+          "descriptors": [
+            "art-music",
+            "standard"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "harpsichord_continuo",
+          "name": "Continuo",
+          "descriptors": [
+            "foundation-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "harpsichord_modern",
+          "name": "Modern composed (twentieth-century)",
+          "descriptors": [
+            "neoclassical",
+            "concert",
+            "experimental"
+          ],
+          "match_tokens": [
+            "modern",
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "harpsichord_flemish_ruckers",
+          "default": true,
+          "name": "Flemish Ruckers Antwerp (canonical late 16th-17th century — Bach-era reference)",
+          "descriptors": [
+            "flemish-ruckers-antwerp-canonical-late-16th-17th-century-bach-era-reference"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_italian_cristofori",
+          "name": "Italian (Cristofori / Grimaldi canonical late 16th-17th century — single 8-foot)",
+          "descriptors": [
+            "italian-cristofori-grimaldi-canonical-late-16th-17th-century-single-8-foot"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_french_blanchet_taskin",
+          "name": "French Blanchet-Taskin Paris (canonical late 18th-century galant)",
+          "descriptors": [
+            "french-blanchet-taskin-paris-canonical-late-18th-century-galant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_english_kirkman",
+          "name": "English Kirkman / Shudi (canonical mid-18th-century London)",
+          "descriptors": [
+            "english-kirkman-shudi-canonical-mid-18th-century-london"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_plectrum",
+      "surface": false,
+      "name": "Plectrum material",
+      "variants": [
+        {
+          "id": "harpsichord_quill_canonical",
+          "default": true,
+          "name": "Bird-quill plectra (canonical historical — raven/crow/turkey)",
+          "descriptors": [
+            "bird-quill-plectra-canonical-historical-raven-crow-turkey"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_delrin_modern",
+          "name": "Delrin plastic plectra (canonical modern stable replacement)",
+          "descriptors": [
+            "delrin-plastic-plectra-canonical-modern-stable-replacement"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "harpsichord_leather_french",
+          "name": "Soft leather plectra (canonical French 18th-century alternative)",
+          "descriptors": [
+            "soft-leather-plectra-canonical-french-18th-century-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_temperament",
+      "surface": false,
+      "name": "Temperament",
+      "variants": [
+        {
+          "id": "harpsichord_meantone_quarter",
+          "default": true,
+          "name": "Quarter-comma meantone (canonical Renaissance / early baroque)",
+          "descriptors": [
+            "quarter-comma-meantone-canonical-renaissance-early-baroque"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_werckmeister_iii",
+          "name": "Werckmeister III (canonical Bach-era well-temperament)",
+          "descriptors": [
+            "werckmeister-iii-canonical-bach-era-well-temperament"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_vallotti",
+          "name": "Vallotti (canonical late-baroque Italian well-temperament)",
+          "descriptors": [
+            "vallotti-canonical-late-baroque-italian-well-temperament"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_equal_modern",
+          "name": "Equal temperament (modern concert standard)",
+          "descriptors": [
+            "equal-temperament-modern-concert-standard"
+          ],
+          "match_tokens": [
+            "modern",
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "harpsichord_register",
+      "name": "Register coupling",
+      "variants": [
+        {
+          "id": "harpsi_4_foot",
+          "name": "4-foot single",
+          "descriptors": [
+            "high-register",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "harpsi_8_foot",
+          "default": true,
+          "name": "8-foot single",
+          "descriptors": [
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "harpsi_double_8",
+          "name": "Double 8-foot (couplable)",
+          "descriptors": [
+            "full",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "harpsichord_solo",
+          "default": true,
+          "name": "Baroque solo",
+          "descriptors": [
+            "art-music",
+            "standard"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "harpsichord_continuo",
+          "name": "Continuo",
+          "descriptors": [
+            "foundation-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "harpsichord_modern",
+          "name": "Modern composed (twentieth-century)",
+          "descriptors": [
+            "neoclassical",
+            "concert",
+            "experimental"
+          ],
+          "match_tokens": [
+            "modern",
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "harpsichord_flemish_ruckers",
+          "default": true,
+          "name": "Flemish Ruckers Antwerp (canonical late 16th-17th century — Bach-era reference)",
+          "descriptors": [
+            "flemish-ruckers-antwerp-canonical-late-16th-17th-century-bach-era-reference"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_italian_cristofori",
+          "name": "Italian (Cristofori / Grimaldi canonical late 16th-17th century — single 8-foot)",
+          "descriptors": [
+            "italian-cristofori-grimaldi-canonical-late-16th-17th-century-single-8-foot"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_french_blanchet_taskin",
+          "name": "French Blanchet-Taskin Paris (canonical late 18th-century galant)",
+          "descriptors": [
+            "french-blanchet-taskin-paris-canonical-late-18th-century-galant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_english_kirkman",
+          "name": "English Kirkman / Shudi (canonical mid-18th-century London)",
+          "descriptors": [
+            "english-kirkman-shudi-canonical-mid-18th-century-london"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_plectrum",
+      "surface": false,
+      "name": "Plectrum material",
+      "variants": [
+        {
+          "id": "harpsichord_quill_canonical",
+          "default": true,
+          "name": "Bird-quill plectra (canonical historical — raven/crow/turkey)",
+          "descriptors": [
+            "bird-quill-plectra-canonical-historical-raven-crow-turkey"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_delrin_modern",
+          "name": "Delrin plastic plectra (canonical modern stable replacement)",
+          "descriptors": [
+            "delrin-plastic-plectra-canonical-modern-stable-replacement"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "harpsichord_leather_french",
+          "name": "Soft leather plectra (canonical French 18th-century alternative)",
+          "descriptors": [
+            "soft-leather-plectra-canonical-french-18th-century-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harpsichord_temperament",
+      "surface": false,
+      "name": "Temperament",
+      "variants": [
+        {
+          "id": "harpsichord_meantone_quarter",
+          "default": true,
+          "name": "Quarter-comma meantone (canonical Renaissance / early baroque)",
+          "descriptors": [
+            "quarter-comma-meantone-canonical-renaissance-early-baroque"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_werckmeister_iii",
+          "name": "Werckmeister III (canonical Bach-era well-temperament)",
+          "descriptors": [
+            "werckmeister-iii-canonical-bach-era-well-temperament"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_vallotti",
+          "name": "Vallotti (canonical late-baroque Italian well-temperament)",
+          "descriptors": [
+            "vallotti-canonical-late-baroque-italian-well-temperament"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "harpsichord_equal_modern",
+          "name": "Equal temperament (modern concert standard)",
+          "descriptors": [
+            "equal-temperament-modern-concert-standard"
+          ],
+          "match_tokens": [
+            "modern",
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    }
+  ]
+}

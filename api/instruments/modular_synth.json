@@ -1,0 +1,512 @@
+{
+  "id": "modular_synth",
+  "name": "Modular synthesizer (patch-based)",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "modular synth",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_pad_drone",
+          "default": true,
+          "name": "Pad / drone",
+          "applies_to": [
+            "analog_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "string_machine",
+            "granular_synth",
+            "ondes_martenot",
+            "modular_synth",
+            "eurorack_modular"
+          ],
+          "descriptors": [
+            "sustained",
+            "pad"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-and-pad",
+            "drone-like",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "shoegaze"
+          ]
+        },
+        {
+          "id": "electronic_arpeggiated",
+          "name": "Arpeggiated sequence",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "monosynth_acid_bass"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "arpeggio-decoration"
+          ],
+          "canonical_tags": [
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_bass_sub",
+          "name": "Sub-bass",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "monosynth_acid_bass",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "digital_subtractive"
+          ],
+          "descriptors": [
+            "sub-bass",
+            "low"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "trap",
+            "dubstep"
+          ]
+        },
+        {
+          "id": "electronic_acid_squelch",
+          "name": "Acid squelch (303-style)",
+          "applies_to": [
+            "monosynth_acid_bass",
+            "analog_mono_synth",
+            "modular_synth"
+          ],
+          "descriptors": [
+            "squelchy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "electronic",
+            "classic-acid"
+          ],
+          "canonical_tags": [
+            "acid",
+            "techno"
+          ]
+        },
+        {
+          "id": "electronic_modular_patch",
+          "name": "Modular patch evolution",
+          "applies_to": [
+            "modular_synth",
+            "eurorack_modular",
+            "granular_synth"
+          ],
+          "descriptors": [
+            "modular",
+            "evolving"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "idm"
+          ]
+        },
+        {
+          "id": "electronic_glitch_textural",
+          "name": "Glitch / textural",
+          "applies_to": [
+            "granular_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "sampler_classic",
+            "wavetable_synth"
+          ],
+          "descriptors": [
+            "glitched",
+            "textural"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "idm",
+            "experimental"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "mod_voltage_source",
+      "surface": false,
+      "name": "Primary voltage source",
+      "variants": [
+        {
+          "id": "mod_keyboard",
+          "default": true,
+          "name": "Keyboard CV",
+          "descriptors": [
+            "playable",
+            "melodic",
+            "traditional"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "mod_sequencer",
+          "name": "Sequencer (step CV)",
+          "descriptors": [
+            "rhythmic",
+            "generative",
+            "classic-modular"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "mod_random",
+          "name": "Random / sample-and-hold",
+          "descriptors": [
+            "chaotic",
+            "exploratory",
+            "generative"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod_patch_density",
+      "name": "Patch density",
+      "variants": [
+        {
+          "id": "mod_simple_patch",
+          "default": true,
+          "name": "Simple patch (1–2 modules)",
+          "descriptors": [
+            "focused",
+            "direct",
+            "clean"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "mod_dense_patch",
+          "name": "Dense patch (cross-modulation)",
+          "descriptors": [
+            "evolving",
+            "self-modulating",
+            "layered-ambient"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "mod_west_coast",
+          "name": "West-coast (low-pass gate, function-driven osc)",
+          "descriptors": [
+            "natural-material-resonance",
+            "plucky",
+            "timbral"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod_lineage",
+      "surface": false,
+      "name": "Modular lineage",
+      "variants": [
+        {
+          "id": "mod_moog_east_coast",
+          "default": true,
+          "name": "Moog east-coast modular (canonical 1964-1981 Trumansburg — keyboard-driven subtractive)",
+          "descriptors": [
+            "moog-east-coast-modular-canonical-1964-1981-trumansburg-keyboard-driven-subtractive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mod_buchla_west_coast",
+          "name": "Buchla west-coast modular (canonical 1965-1980s Berkeley — sequencer/touchplate timbral)",
+          "descriptors": [
+            "buchla-west-coast-modular-canonical-1965-1980s-berkeley-sequencer-touchplate-timbral"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mod_serge_tcherepnin",
+          "name": "Serge Serge Tcherepnin lineage (canonical 1973-1980s Cal Arts — patch-programmable West-Coast)",
+          "descriptors": [
+            "serge-tcherepnin-lineage-canonical-1973-1980s-cal-arts-patch-programmable-west-coast"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mod_doepfer_eurorack",
+          "name": "Doepfer eurorack (canonical 1995-present — small-format standardization)",
+          "descriptors": [
+            "doepfer-eurorack-canonical-1995-present-small-format-standardization"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "mod_emu_modular",
+          "name": "EMu Modular (1971-1978 — analog studio-grade East Coast precision)",
+          "descriptors": [
+            "emu-modular-1971-1978-analog-studio-grade-east-coast-precision"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mod_voltage_source",
+      "surface": false,
+      "name": "Primary voltage source",
+      "variants": [
+        {
+          "id": "mod_keyboard",
+          "default": true,
+          "name": "Keyboard CV",
+          "descriptors": [
+            "playable",
+            "melodic",
+            "traditional"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "mod_sequencer",
+          "name": "Sequencer (step CV)",
+          "descriptors": [
+            "rhythmic",
+            "generative",
+            "classic-modular"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "mod_random",
+          "name": "Random / sample-and-hold",
+          "descriptors": [
+            "chaotic",
+            "exploratory",
+            "generative"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod_patch_density",
+      "name": "Patch density",
+      "variants": [
+        {
+          "id": "mod_simple_patch",
+          "default": true,
+          "name": "Simple patch (1–2 modules)",
+          "descriptors": [
+            "focused",
+            "direct",
+            "clean"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "mod_dense_patch",
+          "name": "Dense patch (cross-modulation)",
+          "descriptors": [
+            "evolving",
+            "self-modulating",
+            "layered-ambient"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "mod_west_coast",
+          "name": "West-coast (low-pass gate, function-driven osc)",
+          "descriptors": [
+            "natural-material-resonance",
+            "plucky",
+            "timbral"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod_lineage",
+      "surface": false,
+      "name": "Modular lineage",
+      "variants": [
+        {
+          "id": "mod_moog_east_coast",
+          "default": true,
+          "name": "Moog east-coast modular (canonical 1964-1981 Trumansburg — keyboard-driven subtractive)",
+          "descriptors": [
+            "moog-east-coast-modular-canonical-1964-1981-trumansburg-keyboard-driven-subtractive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mod_buchla_west_coast",
+          "name": "Buchla west-coast modular (canonical 1965-1980s Berkeley — sequencer/touchplate timbral)",
+          "descriptors": [
+            "buchla-west-coast-modular-canonical-1965-1980s-berkeley-sequencer-touchplate-timbral"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mod_serge_tcherepnin",
+          "name": "Serge Serge Tcherepnin lineage (canonical 1973-1980s Cal Arts — patch-programmable West-Coast)",
+          "descriptors": [
+            "serge-tcherepnin-lineage-canonical-1973-1980s-cal-arts-patch-programmable-west-coast"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mod_doepfer_eurorack",
+          "name": "Doepfer eurorack (canonical 1995-present — small-format standardization)",
+          "descriptors": [
+            "doepfer-eurorack-canonical-1995-present-small-format-standardization"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ]
+        },
+        {
+          "id": "mod_emu_modular",
+          "name": "EMu Modular (1971-1978 — analog studio-grade East Coast precision)",
+          "descriptors": [
+            "emu-modular-1971-1978-analog-studio-grade-east-coast-precision"
+          ],
+          "match_tokens": [
+            "electronic",
+            "modular-patch"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ]
+}

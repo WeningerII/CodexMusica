@@ -1,0 +1,240 @@
+{
+  "id": "a_tenores_quartet",
+  "name": "A tenores (Sardinian male polyphonic quartet)",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "a tenores quartet",
+  "parts": [
+    {
+      "id": "voices",
+      "surface": false,
+      "name": "Voice roles",
+      "variants": [
+        {
+          "id": "bassu",
+          "default": true,
+          "name": "Bassu (low growl undertone)",
+          "descriptors": [
+            "sub-bass",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "contra_voice",
+          "surface": false,
+          "name": "Contra (mid-low)",
+          "descriptors": [
+            "nasal",
+            "close-harmony",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "mesu_oghe",
+          "name": "Mesu oghe (middle voice)",
+          "descriptors": [
+            "inner",
+            "close-harmony",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "oghe_solo",
+          "name": "Oghe (lead solo)",
+          "descriptors": [
+            "melodic",
+            "virtuoso",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a_tenores_quartet_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "a_tenores_quartet_procession",
+          "default": true,
+          "name": "Religious procession",
+          "descriptors": [
+            "communal"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "a_tenores_quartet_tavern",
+          "name": "Tavern / informal",
+          "descriptors": [
+            "casual",
+            "social-bonding",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "a_tenores_quartet_revival",
+          "name": "Concert / revival",
+          "descriptors": [
+            "twentieth-century",
+            "preservation",
+            "staged"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "voices",
+      "surface": false,
+      "name": "Voice roles",
+      "variants": [
+        {
+          "id": "bassu",
+          "default": true,
+          "name": "Bassu (low growl undertone)",
+          "descriptors": [
+            "sub-bass",
+            "foundational"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "contra_voice",
+          "surface": false,
+          "name": "Contra (mid-low)",
+          "descriptors": [
+            "nasal",
+            "close-harmony",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "mesu_oghe",
+          "name": "Mesu oghe (middle voice)",
+          "descriptors": [
+            "inner",
+            "close-harmony",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "oghe_solo",
+          "name": "Oghe (lead solo)",
+          "descriptors": [
+            "melodic",
+            "virtuoso",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a_tenores_quartet_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "a_tenores_quartet_procession",
+          "default": true,
+          "name": "Religious procession",
+          "descriptors": [
+            "communal"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "a_tenores_quartet_tavern",
+          "name": "Tavern / informal",
+          "descriptors": [
+            "casual",
+            "social-bonding",
+            "traditional"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "a_tenores_quartet_revival",
+          "name": "Concert / revival",
+          "descriptors": [
+            "twentieth-century",
+            "preservation",
+            "staged"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "sacred-traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

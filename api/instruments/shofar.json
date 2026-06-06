@@ -1,0 +1,236 @@
+{
+  "id": "shofar",
+  "name": "Shofar (ram's horn)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "shofar",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_call_blowing",
+          "default": true,
+          "name": "Call-blowing (signal/ritual)",
+          "applies_to": [
+            "shofar",
+            "kakaki",
+            "conch_shell_horn"
+          ],
+          "descriptors": [
+            "call",
+            "ritual"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "call-response",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "liturgical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "shofar_shape",
+      "surface": false,
+      "name": "Horn shape",
+      "variants": [
+        {
+          "id": "shofar_curved",
+          "default": true,
+          "name": "Curved (Ashkenazi)",
+          "descriptors": [
+            "standard",
+            "liturgical",
+            "common"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "shofar_yemenite",
+          "name": "Long spiraled (Yemenite)",
+          "descriptors": [
+            "distinctive",
+            "kudu-horn",
+            "extended-call"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "shofar_straight",
+          "name": "Straight (Sephardic variant)",
+          "descriptors": [
+            "regional",
+            "traditional",
+            "alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shofar_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "shofar_high_holidays",
+          "default": true,
+          "name": "Yamim Noraim",
+          "descriptors": [
+            "Rosh-Hashanah-Yom-Kippur",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "shofar_shabbat",
+          "name": "Shabbat / festival",
+          "descriptors": [
+            "restricted",
+            "communal",
+            "tradition-bound"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "shofar_memorial",
+          "name": "Modern memorial / civic",
+          "descriptors": [
+            "ceremonial",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shofar_shape",
+      "surface": false,
+      "name": "Horn shape",
+      "variants": [
+        {
+          "id": "shofar_curved",
+          "default": true,
+          "name": "Curved (Ashkenazi)",
+          "descriptors": [
+            "standard",
+            "liturgical",
+            "common"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "shofar_yemenite",
+          "name": "Long spiraled (Yemenite)",
+          "descriptors": [
+            "distinctive",
+            "kudu-horn",
+            "extended-call"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "shofar_straight",
+          "name": "Straight (Sephardic variant)",
+          "descriptors": [
+            "regional",
+            "traditional",
+            "alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shofar_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "shofar_high_holidays",
+          "default": true,
+          "name": "Yamim Noraim",
+          "descriptors": [
+            "Rosh-Hashanah-Yom-Kippur",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "shofar_shabbat",
+          "name": "Shabbat / festival",
+          "descriptors": [
+            "restricted",
+            "communal",
+            "tradition-bound"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "shofar_memorial",
+          "name": "Modern memorial / civic",
+          "descriptors": [
+            "ceremonial",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ritual-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

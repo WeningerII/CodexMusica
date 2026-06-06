@@ -1,0 +1,68 @@
+{
+  "id": "bengali_chhotoder_chora",
+  "name": "Bengali chhōtōdēr chōṛā (children's rhymes)",
+  "family": "global",
+  "lineage": "Bengali-language children's play-song tradition continuous from premodern Bengali folk-play-song origins through 19th-20th century Bengali-Renaissance literary-elevation (Rabindranath Tagore's Sahaj Path 1930 children's-curriculum rhyme-and-text reader canonical) and Sukumar Ray's nonsense-verse Abol Tabol 1923 into modern continuous Bengali-and-Bangladeshi childhood-practice",
+  "recipe": "classic early-1930s bengali chhōtōdēr chōṛā, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, indian bard ballad poetry cambodian chapei dang veng hindi lori. thick, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 378,
+  "score": 103.269,
+  "config": {
+    "traditions": [
+      "bengali_chhotoder_chora",
+      "cambodian_chapei_dang_veng",
+      "hindi_lori"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.8000000000000007,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.39,
+          "voice_tradition": 7.995000000000001,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 8.774999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 3.4250000000000007,
+          "voice_pitch_organization": 3.380000000000001,
+          "voice_processing_chain": 1.42,
+          "voice_multitrack_stack": 0.39
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

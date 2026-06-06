@@ -1,0 +1,232 @@
+{
+  "id": "arpa_jarocha",
+  "name": "Arpa jarocha (Veracruz diatonic harp)",
+  "family": "acoustic_strings",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "arpa jarocha",
+  "parts": [
+    {
+      "id": "arpa_jarocha_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "arpa_jarocha_36",
+          "default": true,
+          "name": "36-string diatonic (Veracruz son jarocho)",
+          "descriptors": [
+            "diatonic-only",
+            "son-jarocho-tradition",
+            "no-pedals",
+            "gut-or-nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition",
+            "veracruz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_jarocha_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "arpa_jarocha_cedrillo",
+          "default": true,
+          "name": "Cedrillo (canonical Veracruz)",
+          "descriptors": [
+            "cedrillo-canonical-veracruz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition"
+          ]
+        },
+        {
+          "id": "arpa_jarocha_caoba",
+          "name": "Caoba / mahogany (premium)",
+          "descriptors": [
+            "caoba-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_jarocha_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "arpa_jarocha_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition"
+          ]
+        },
+        {
+          "id": "arpa_jarocha_gut_historical",
+          "name": "Gut (pre-modern son jarocho historical)",
+          "descriptors": [
+            "gut-pre-modern-son-jarocho"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_jarocha_role",
+      "name": "Functional role",
+      "variants": [
+        {
+          "id": "arpa_jarocha_bass_and_arpeggio",
+          "default": true,
+          "name": "Bass-line + chordal-arpeggio (both hands)",
+          "descriptors": [
+            "bass-and-harmony",
+            "son-jarocho-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "arpa_jarocha_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "arpa_jarocha_36",
+          "default": true,
+          "name": "36-string diatonic (Veracruz son jarocho)",
+          "descriptors": [
+            "diatonic-only",
+            "son-jarocho-tradition",
+            "no-pedals",
+            "gut-or-nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition",
+            "veracruz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_jarocha_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "arpa_jarocha_cedrillo",
+          "default": true,
+          "name": "Cedrillo (canonical Veracruz)",
+          "descriptors": [
+            "cedrillo-canonical-veracruz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition"
+          ]
+        },
+        {
+          "id": "arpa_jarocha_caoba",
+          "name": "Caoba / mahogany (premium)",
+          "descriptors": [
+            "caoba-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_jarocha_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "arpa_jarocha_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition"
+          ]
+        },
+        {
+          "id": "arpa_jarocha_gut_historical",
+          "name": "Gut (pre-modern son jarocho historical)",
+          "descriptors": [
+            "gut-pre-modern-son-jarocho"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_jarocha_role",
+      "name": "Functional role",
+      "variants": [
+        {
+          "id": "arpa_jarocha_bass_and_arpeggio",
+          "default": true,
+          "name": "Bass-line + chordal-arpeggio (both hands)",
+          "descriptors": [
+            "bass-and-harmony",
+            "son-jarocho-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "son-jarocho-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

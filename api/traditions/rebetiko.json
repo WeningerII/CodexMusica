@@ -1,0 +1,121 @@
+{
+  "id": "rebetiko",
+  "name": "Rebetiko",
+  "family": "global",
+  "lineage": "Greek urban underclass blues-equivalent that emerged in the Piraeus port district and Athens working-class quarters after the 1922 Asia Minor Catastrophe brought Greek refugees from Smyrna and other Anatolian cities — codified through the recordings of Markos Vamvakaris, Vassilis Tsitsanis, Yiorgos Batis, Yiannis Papaioannou, Rita Abatzi, Roza Eskenazi, and the Piraeus Quartet across the 1930s-1940s",
+  "recipe": "classic mid-1930s rebetiko, ballad Poetry, Mediterranean ballad branch, vocal drone modal, European drinking song flamenco. thick, chest resonance low mid, punctuated, bend inflected. walnut staves canonical Greek gut pre 1950s rebetiko drone like modal bouzouki, walnut staves gut pre 1950s rebetiko drone like modal baglamas, cedar fingerpicked classical nylon-string guitar. athens piraeus rebetadika. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 477,
+  "score": 171.431,
+  "config": {
+    "traditions": [
+      "rebetiko",
+      "flamenco",
+      "mor_lam"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.644500000000001,
+          "voice_quality": 0.34999999999999964,
+          "voice_vibrato": 0.6399999999999999,
+          "voice_articulation": 0.615,
+          "voice_microtone": 1.24,
+          "voice_tradition": 20.474999999999994,
+          "voice_mechanism_compound": 1.6899999999999997,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 9.424999999999997,
+          "voice_ensemble_config": 8.059999999999999,
+          "voice_ornament_system": 1.1644999999999999,
+          "voice_pitch_organization": 1.2349999999999999,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 2.08
+        }
+      },
+      {
+        "id": "bouzouki",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "bouzouki_courses": "trichordo",
+          "bouzouki_pick": "bouzouki_thin",
+          "bouzouki_body_wood": "bouzouki_walnut_bowl",
+          "bouzouki_strings": "bouzouki_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.075,
+          "bouzouki_courses": 2.6,
+          "bouzouki_pick": 0.4245,
+          "bouzouki_body_wood": 4.159999999999999,
+          "bouzouki_strings": 1.685
+        }
+      },
+      {
+        "id": "baglamas",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "baglamas_config": "baglamas_three_double",
+          "baglamas_context": "baglamas_rebetiko",
+          "baglamas_body_wood": "baglamas_walnut",
+          "baglamas_strings": "baglamas_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.075,
+          "baglamas_config": 1.0545000000000002,
+          "baglamas_context": 5.295,
+          "baglamas_body_wood": 1.2149999999999996,
+          "baglamas_strings": 1.685
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "rasgueado_cl"
+        },
+        "scores": {
+          "acoustic_technique": 4.215,
+          "string_tuning": 0,
+          "top_wood_classical": 1.69,
+          "bracing_classical": 1.2285,
+          "string_classical": 0.39,
+          "attack_technique_cl": 0.975
+        }
+      }
+    ],
+    "room": "athens_piraeus_rebetadika",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

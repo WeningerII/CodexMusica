@@ -1,0 +1,160 @@
+{
+  "id": "trinidadian_iron",
+  "name": "Trinidadian iron (engine-room percussion)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "iron",
+  "parts": [
+    {
+      "id": "iron_source",
+      "name": "Source",
+      "variants": [
+        {
+          "id": "iron_brake_drum",
+          "default": true,
+          "name": "Brake-drum iron",
+          "descriptors": [
+            "ringing",
+            "bell-like",
+            "metallic-attack",
+            "iron",
+            "soca-engine-room"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "caribbean-traditional"
+          ]
+        },
+        {
+          "id": "iron_pipe",
+          "name": "Iron pipe",
+          "descriptors": [
+            "ringing",
+            "metallic-attack",
+            "iron",
+            "soca-engine-room"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "iron_pattern",
+      "name": "Pattern",
+      "variants": [
+        {
+          "id": "iron_quarter",
+          "default": true,
+          "name": "Quarter-note pulse",
+          "descriptors": [
+            "driving",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "soca-engine-room"
+          ]
+        },
+        {
+          "id": "iron_eighth",
+          "name": "Eighth-note ostinato",
+          "descriptors": [
+            "propulsive",
+            "driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "iron_source",
+      "name": "Source",
+      "variants": [
+        {
+          "id": "iron_brake_drum",
+          "default": true,
+          "name": "Brake-drum iron",
+          "descriptors": [
+            "ringing",
+            "bell-like",
+            "metallic-attack",
+            "iron",
+            "soca-engine-room"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "caribbean-traditional"
+          ]
+        },
+        {
+          "id": "iron_pipe",
+          "name": "Iron pipe",
+          "descriptors": [
+            "ringing",
+            "metallic-attack",
+            "iron",
+            "soca-engine-room"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "iron_pattern",
+      "name": "Pattern",
+      "variants": [
+        {
+          "id": "iron_quarter",
+          "default": true,
+          "name": "Quarter-note pulse",
+          "descriptors": [
+            "driving",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "soca-engine-room"
+          ]
+        },
+        {
+          "id": "iron_eighth",
+          "name": "Eighth-note ostinato",
+          "descriptors": [
+            "propulsive",
+            "driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic"
+          ]
+        }
+      ]
+    }
+  ]
+}

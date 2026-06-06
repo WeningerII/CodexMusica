@@ -1,0 +1,230 @@
+{
+  "id": "gypsy_jazz_quintet",
+  "name": "Gypsy jazz quintet",
+  "family": "ensemble",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "gypsy jazz",
+  "parts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "gj_lead_guitar",
+          "default": true,
+          "name": "Lead guitar (melody / solo)",
+          "descriptors": [
+            "virtuoso",
+            "tremolo",
+            "melodic"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gj_rhythm_guitars",
+          "name": "La pompe guitars (1-2)",
+          "descriptors": [
+            "percussive",
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "rhythm-section-pocket",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gj_violin",
+          "name": "Violin (alternate lead)",
+          "descriptors": [
+            "lyrical",
+            "virtuoso",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gj_bass",
+          "name": "Upright bass",
+          "descriptors": [
+            "walking-line",
+            "foundational",
+            "swung"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gypsy_jazz_quintet_era",
+      "surface": false,
+      "name": "Era / period",
+      "variants": [
+        {
+          "id": "gypsy_jazz_quintet_prewar",
+          "default": true,
+          "name": "Pre-war Paris (1930s)",
+          "descriptors": [
+            "foundational",
+            "origin-period"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gypsy_jazz_quintet_postwar",
+          "name": "Post-war continuation (1950s-70s)",
+          "descriptors": [
+            "European-traditional",
+            "preservationist",
+            "continuing-tradition"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gypsy_jazz_quintet_manouche",
+          "name": "Modern manouche revival (1980s+)",
+          "descriptors": [
+            "twenty-first-century",
+            "global"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "gj_lead_guitar",
+          "default": true,
+          "name": "Lead guitar (melody / solo)",
+          "descriptors": [
+            "virtuoso",
+            "tremolo",
+            "melodic"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gj_rhythm_guitars",
+          "name": "La pompe guitars (1-2)",
+          "descriptors": [
+            "percussive",
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "rhythm-section-pocket",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gj_violin",
+          "name": "Violin (alternate lead)",
+          "descriptors": [
+            "lyrical",
+            "virtuoso",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gj_bass",
+          "name": "Upright bass",
+          "descriptors": [
+            "walking-line",
+            "foundational",
+            "swung"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gypsy_jazz_quintet_era",
+      "surface": false,
+      "name": "Era / period",
+      "variants": [
+        {
+          "id": "gypsy_jazz_quintet_prewar",
+          "default": true,
+          "name": "Pre-war Paris (1930s)",
+          "descriptors": [
+            "foundational",
+            "origin-period"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gypsy_jazz_quintet_postwar",
+          "name": "Post-war continuation (1950s-70s)",
+          "descriptors": [
+            "European-traditional",
+            "preservationist",
+            "continuing-tradition"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gypsy_jazz_quintet_manouche",
+          "name": "Modern manouche revival (1980s+)",
+          "descriptors": [
+            "twenty-first-century",
+            "global"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

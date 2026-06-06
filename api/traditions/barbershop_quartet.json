@@ -1,0 +1,94 @@
+{
+  "id": "barbershop_quartet",
+  "name": "American barbershop quartet",
+  "family": "global",
+  "lineage": "American close-harmony unaccompanied male-vocal quartet tradition codified through the SPEBSQSA (Society for the Preservation and Encouragement of Barber Shop Quartet Singing in America, founded 1938 Tulsa Oklahoma, renamed Barbershop Harmony Society 2004) — descended from late-19th-century African-American barbershop-and-saloon harmony singing, with the chord structure of tenor (above melody-lead), lead, baritone, bass; codified canon includes the Buffalo Bills, the Suntones, the Vocal Majority, the modern continuation through the international annual contest circuit",
+  "recipe": "classic North American late-1930s american barbershop quartet, functional Song, crooners branch, christian gospel southern gospel, country functional song country rock bluegrass gospel. thick, declaimed, melodic, ornamental. choir barbershop quartet, khoisan click articulated song syllables vocal percussion solo lead humming melody simultaneous percussion dissociated airflow vocal percussion voice. us uk civic amateur band hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 564,
+  "score": 220.338,
+  "config": {
+    "traditions": [
+      "barbershop_quartet",
+      "country_rock",
+      "bluegrass_gospel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 5.234999999999999,
+          "voice_quality": 5.23,
+          "voice_vibrato": 1.8399999999999999,
+          "voice_articulation": 3.4999999999999996,
+          "voice_microtone": 0.7350000000000001,
+          "voice_tradition": 10.075,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 3.835,
+          "voice_speech_song": 5.785,
+          "voice_ensemble_config": 3.6399999999999997,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 0.7499999999999998,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 7.639999999999999
+        }
+      },
+      {
+        "id": "choir_barbershop_quartet",
+        "slots": {
+          "voices": "barbershop_lead",
+          "choir_barbershop_quartet_context": "choir_barbershop_quartet_contemporary"
+        },
+        "scores": {
+          "voices": 4.499999999999999,
+          "choir_barbershop_quartet_context": 1.3
+        }
+      },
+      {
+        "id": "vocal_percussion_voice",
+        "slots": {
+          "vocal_percussion_airstream_mechanism": "vocal_percussion_pulmonic_egressive",
+          "vocal_percussion_beatbox_articulation": "beatbox_humming_melody_dissociated",
+          "vocal_percussion_syllabic_drum_system": "syllabic_khoisan_click_song",
+          "vocal_percussion_context": "vocal_percussion_context_solo"
+        },
+        "scores": {
+          "vocal_percussion_airstream_mechanism": 0,
+          "vocal_percussion_beatbox_articulation": 1,
+          "vocal_percussion_syllabic_drum_system": 2.7950000000000004,
+          "vocal_percussion_context": 5.9799999999999995
+        }
+      }
+    ],
+    "room": "us_uk_civic_amateur_band_hall",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

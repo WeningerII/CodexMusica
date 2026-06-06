@@ -1,0 +1,83 @@
+{
+  "id": "parchman_prison_song",
+  "name": "Parchman prison work song",
+  "family": "global",
+  "lineage": "Mississippi State Penitentiary (Parchman Farm) Black prison-labor work-song tradition documented by John A. Lomax and Alan Lomax for the Library of Congress in their 1933-onward Southern field recordings — captured the antiphonal call-and-response work-song tradition (the lead-singer call answered by the gang chorus, synchronized to the axe-stroke or hoe-stroke timing) that preserved African polyrhythmic vocal practice in the most brutal post-Reconstruction prison-labor context; figures Leadbelly (Huddie Ledbetter, recorded at Angola Louisiana State Penitentiary 1933 by John Lomax), the broader Parchman prison-farm corpus continuing through Alan Lomaxs 1959 and 1968 return recordings",
+  "recipe": "classic modern parchman prison work song, ballad Poetry, prison song branch, christian gospel black gospel contemporary urban gospel. thick, declaimed, pure, ornamental. a cappella small 3 to 8 one per part antiphonal double choir alternating sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 439,
+  "score": 206.95,
+  "config": {
+    "traditions": [
+      "parchman_prison_song",
+      "black_gospel_choir",
+      "contemporary_urban_gospel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 7.968249999999999,
+          "voice_quality": 5.245,
+          "voice_vibrato": 0.8999999999999999,
+          "voice_articulation": 4,
+          "voice_microtone": 2.4461250000000003,
+          "voice_tradition": 12.111624999999997,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 3.3,
+          "voice_speech_song": 15.053874999999994,
+          "voice_ensemble_config": 7.669999999999998,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 0.15,
+          "voice_processing_chain": 4.569374999999999,
+          "voice_multitrack_stack": 1.7981250000000002
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 3.539625,
+          "choir_polyphonic_configuration": 4.714874999999999,
+          "choir_regional_canonical_configuration": 4.749,
+          "choir_ensemble_repertoire": 1.3
+        }
+      }
+    ],
+    "room": "us_dustbowl_outdoor_woody_guthrie",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

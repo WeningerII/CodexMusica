@@ -1,0 +1,70 @@
+{
+  "id": "khong_wong_yai",
+  "name": "Khong wong yai (Thai large gong circle, 16 tuned gongs)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "khong wong yai",
+  "parts": [
+    {
+      "id": "khong_wong_yai_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "khong_wong_yai_main_melody",
+          "default": true,
+          "name": "Luk khong (main melody, canonical)",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "lead-melody",
+            "mallets",
+            "metallic",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "piphat",
+            "thai"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "khong_wong_yai_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "khong_wong_yai_main_melody",
+          "default": true,
+          "name": "Luk khong (main melody, canonical)",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "lead-melody",
+            "mallets",
+            "metallic",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "piphat",
+            "thai"
+          ]
+        }
+      ]
+    }
+  ]
+}

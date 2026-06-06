@@ -1,0 +1,172 @@
+{
+  "id": "sho_mouth_organ",
+  "name": "Shō (gagaku mouth organ)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "shō",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sho_pipes",
+      "name": "Pipe count",
+      "variants": [
+        {
+          "id": "seventeen_pipes",
+          "default": true,
+          "name": "17 bamboo pipes",
+          "descriptors": [
+            "cluster-chord",
+            "shimmering",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sho_warming",
+      "name": "Warming method",
+      "variants": [
+        {
+          "id": "warmed_sho",
+          "default": true,
+          "name": "Warmed before play (essential)",
+          "descriptors": [
+            "ringing",
+            "overtone-pure"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "cold_sho",
+          "name": "Cold (not yet warmed)",
+          "descriptors": [
+            "dampened",
+            "unstable",
+            "discouraged"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sho_pipes",
+      "name": "Pipe count",
+      "variants": [
+        {
+          "id": "seventeen_pipes",
+          "default": true,
+          "name": "17 bamboo pipes",
+          "descriptors": [
+            "cluster-chord",
+            "shimmering",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sho_warming",
+      "name": "Warming method",
+      "variants": [
+        {
+          "id": "warmed_sho",
+          "default": true,
+          "name": "Warmed before play (essential)",
+          "descriptors": [
+            "ringing",
+            "overtone-pure"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "cold_sho",
+          "name": "Cold (not yet warmed)",
+          "descriptors": [
+            "dampened",
+            "unstable",
+            "discouraged"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

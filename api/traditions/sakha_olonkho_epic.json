@@ -1,0 +1,68 @@
+{
+  "id": "sakha_olonkho_epic",
+  "name": "Sakha olonkho heroic epic (UNESCO 2008)",
+  "family": "global",
+  "lineage": "Sakha (Yakut) olonkho heroic-epic recital tradition of the Republic of Sakha (Yakutia, far-eastern Siberia, Russian Federation). Recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2005 and inscribed on the Representative List 2008. Olonkhosut epic-reciters perform multi-day continuous recitations of heroic-epic cycles — Nyurgun Bootur the Swift, the canonical olonkho narrative codified in the twentieth-century thirty-six-thousand-verse recension by Platon Oiunsky (1893-1939, founding Sakha writer), provides the type-specimen. Performance alternates between sung-melodic passages for character-voices (each major character has an assigned melodic-mode signature) and rhythmic-recitation narrative passages for the omniscient narrator. Sung passages employ the kylyhakh ornamental vibrato — a characteristic Sakha throat-ornament with a tight, fluttering quality — and the Sakha pentatonic modal vocabulary. The olonkho cycles preserve pre-Christian Sakha cosmology (the three-world division: upper-world abaahy spirits, middle-world humans, lower-world demons), with the Tengrist sky-religion still legible in the cosmographic framing. Performance traditionally in winter, in the balagan log-and-earth dwelling, lasting multiple nights. V.L. Seroshevsky's 1896 ethnography Yakuts is the foundational Russian scholarly documentation; the Soviet-era Sakha Republic cultural-revival institutions provide ongoing transmission infrastructure. Distinguished from Mongolian and Kyrgyz heroic-epic traditions by Sakha-language-specific narrative-cadence grammar and kylyhakh-vibrato vocal-ornament signature; distinguished from Buryat-Mongol epic by Sakha-Yakutia far-eastern Siberian regional dialect.",
+  "recipe": "classic sakha olonkho heroic epic, ballad Poetry, Slavic bard branch, indigenous ritual devotional, med east poetic ballad poetry inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, melodic, narrative. wooden balagan. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 385,
+  "score": 206.746,
+  "config": {
+    "traditions": [
+      "sakha_olonkho_epic",
+      "inuit_katajjaq_games",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.1200000000000006,
+          "voice_quality": 2.69,
+          "voice_vibrato": 3.3149999999999995,
+          "voice_articulation": 4.317500000000001,
+          "voice_microtone": 1.69,
+          "voice_tradition": 8.32,
+          "voice_mechanism_compound": 3.9,
+          "voice_estill_quality": 2.6,
+          "voice_speech_song": 11.504999999999999,
+          "voice_ensemble_config": 9.75,
+          "voice_ornament_system": 3.9,
+          "voice_pitch_organization": 3.1200000000000006,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 4.68
+        }
+      }
+    ],
+    "room": "wooden_balagan",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

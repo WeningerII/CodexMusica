@@ -1,0 +1,50 @@
+{
+  "id": "polish_village_fiddle",
+  "name": "Polish village fiddle",
+  "family": "vernacular",
+  "lineage": "Eastern European folk-music tradition of rural Poland — characterized by single-fiddle or fiddle-and-drum (bęben obręczowy) lead with characteristic regional repertoires including the Tatra Górale (highlanders), Kurpie (northeastern), Beskid, Podlasie, and Mazowsze styles — preserved continuously through village-based wedding and ceremonial-occasion performance and documented through the twentieth-century ethnomusicological field-recording campaign",
+  "recipe": "classic North American mid-1970s polish village fiddle, drone Modal, string branch, Slavic bard ballad poetry karelian rune-singing ainu yukar epic recitation. double stops fiddle. wooden barn. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 325,
+  "score": 19.925,
+  "config": {
+    "traditions": [
+      "polish_village_fiddle",
+      "karelian_rune_singing",
+      "ainu_yukar_epic"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 9.549999999999997,
+          "fiddle_strings": 0.195,
+          "fiddle_bow": 0.045,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.7
+        }
+      }
+    ],
+    "room": "wooden_barn",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

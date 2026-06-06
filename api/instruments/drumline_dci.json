@@ -1,0 +1,244 @@
+{
+  "id": "drumline_dci",
+  "name": "Drum corps (DCI / drum-and-bugle)",
+  "family": "ensemble",
+  "class": "drum_kit",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 1,
+    "harmonicity": -2,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "drum corps",
+  "parts": [
+    {
+      "id": "section",
+      "surface": false,
+      "name": "Section",
+      "variants": [
+        {
+          "id": "dci_snare",
+          "default": true,
+          "name": "Snare line",
+          "descriptors": [
+            "military-tight",
+            "drilled"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dci_tenor",
+          "name": "Tenor / quad line",
+          "descriptors": [
+            "five-drum-arc",
+            "elaborate-figures"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dci_bass",
+          "name": "Bass line (5-6 graduated)",
+          "descriptors": [
+            "tonal-runs",
+            "split-figures"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dci_cymbals",
+          "name": "Cymbal line",
+          "descriptors": [
+            "accent",
+            "visual",
+            "choreographed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dci_front_ensemble",
+          "name": "Front ensemble (pit)",
+          "descriptors": [
+            "mallets",
+            "synths",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era",
+      "variants": [
+        {
+          "id": "dci_classic",
+          "default": true,
+          "name": "Classic-era (pre-2000)",
+          "descriptors": [
+            "acoustic-only",
+            "traditional",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dci_modern",
+          "name": "Modern (post-2000)",
+          "descriptors": [
+            "electronics-augmented",
+            "virtuoso",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "modern",
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "section",
+      "surface": false,
+      "name": "Section",
+      "variants": [
+        {
+          "id": "dci_snare",
+          "default": true,
+          "name": "Snare line",
+          "descriptors": [
+            "military-tight",
+            "drilled"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dci_tenor",
+          "name": "Tenor / quad line",
+          "descriptors": [
+            "five-drum-arc",
+            "elaborate-figures"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dci_bass",
+          "name": "Bass line (5-6 graduated)",
+          "descriptors": [
+            "tonal-runs",
+            "split-figures"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dci_cymbals",
+          "name": "Cymbal line",
+          "descriptors": [
+            "accent",
+            "visual",
+            "choreographed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dci_front_ensemble",
+          "name": "Front ensemble (pit)",
+          "descriptors": [
+            "mallets",
+            "synths",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era",
+      "variants": [
+        {
+          "id": "dci_classic",
+          "default": true,
+          "name": "Classic-era (pre-2000)",
+          "descriptors": [
+            "acoustic-only",
+            "traditional",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "dci_modern",
+          "name": "Modern (post-2000)",
+          "descriptors": [
+            "electronics-augmented",
+            "virtuoso",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "modern",
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

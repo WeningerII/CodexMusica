@@ -1,0 +1,83 @@
+{
+  "id": "syriac_orthodox_chant",
+  "name": "Syriac Orthodox liturgical chant",
+  "family": "classical",
+  "lineage": "Syriac Orthodox liturgical chant, the canonical sacred-music tradition of the Syriac Orthodox Church (Oriental Orthodox alongside Coptic, Armenian, Ethiopian). Follows the Beth Gazo (\"Treasury\") eight-mode oktoechos system with hundreds of canonical melodies. Performance: male choir of cantor-and-chorus chanting in Syriac (the ancient Aramaic liturgical language preserved unchanged from early-Christian period), with Maronite, Syrian Catholic, Assyrian Church of the East, and Indian Malankara Syrian Orthodox sharing overlapping recensions. The post-1915 Sayfo and late-twentieth-century Middle East displacement dispersed tradition across diaspora.",
+  "recipe": "classic mid-1910s syriac orthodox liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 511,
+  "score": 176.137,
+  "config": {
+    "traditions": [
+      "syriac_orthodox_chant",
+      "ars_antiqua_organum",
+      "renaissance_sacred_polyphony"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.635000000000001,
+          "voice_quality": 7.540000000000001,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 3.99,
+          "voice_microtone": 1.9499999999999993,
+          "voice_tradition": 8.19,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.692500000000001,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 5.9799999999999995,
+          "voice_processing_chain": 3.7079999999999997,
+          "voice_multitrack_stack": 1.3552499999999998
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 4.29,
+          "choir_polyphonic_configuration": 3.3799999999999994,
+          "choir_regional_canonical_configuration": 4.2375,
+          "choir_ensemble_repertoire": 6.369999999999999
+        }
+      }
+    ],
+    "room": "stone_armenian_church",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "id": "bata_drums",
+  "name": "Batá drums (Afro-Cuban liturgical three-drum set)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "batá",
+  "parts": [
+    {
+      "id": "bata_role",
+      "name": "Drum size/role",
+      "variants": [
+        {
+          "id": "bata_iya",
+          "default": true,
+          "name": "Iyá (mother — largest, lead)",
+          "descriptors": [
+            "lead",
+            "authoritative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "santeria",
+            "afro-cuban-liturgical",
+            "lukumi"
+          ]
+        },
+        {
+          "id": "bata_itotele",
+          "name": "Itótele (middle — answer)",
+          "descriptors": [
+            "response"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "santeria",
+            "lukumi"
+          ]
+        },
+        {
+          "id": "bata_okonkolo",
+          "name": "Okónkolo (smallest — pulse)",
+          "descriptors": [
+            "pulse",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "santeria",
+            "lukumi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bata_consecration",
+      "name": "Consecration state",
+      "variants": [
+        {
+          "id": "bata_aña",
+          "default": true,
+          "name": "Aña (consecrated, for sacred ceremony)",
+          "descriptors": [
+            "sacred",
+            "ritual",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "santeria",
+            "lukumi"
+          ]
+        },
+        {
+          "id": "bata_aberikula",
+          "name": "Aberíkula (unconsecrated, for concert/teaching)",
+          "descriptors": [
+            "secular",
+            "concert-context"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bata_role",
+      "name": "Drum size/role",
+      "variants": [
+        {
+          "id": "bata_iya",
+          "default": true,
+          "name": "Iyá (mother — largest, lead)",
+          "descriptors": [
+            "lead",
+            "authoritative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "santeria",
+            "afro-cuban-liturgical",
+            "lukumi"
+          ]
+        },
+        {
+          "id": "bata_itotele",
+          "name": "Itótele (middle — answer)",
+          "descriptors": [
+            "response"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "santeria",
+            "lukumi"
+          ]
+        },
+        {
+          "id": "bata_okonkolo",
+          "name": "Okónkolo (smallest — pulse)",
+          "descriptors": [
+            "pulse",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "santeria",
+            "lukumi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bata_consecration",
+      "name": "Consecration state",
+      "variants": [
+        {
+          "id": "bata_aña",
+          "default": true,
+          "name": "Aña (consecrated, for sacred ceremony)",
+          "descriptors": [
+            "sacred",
+            "ritual",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "santeria",
+            "lukumi"
+          ]
+        },
+        {
+          "id": "bata_aberikula",
+          "name": "Aberíkula (unconsecrated, for concert/teaching)",
+          "descriptors": [
+            "secular",
+            "concert-context"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

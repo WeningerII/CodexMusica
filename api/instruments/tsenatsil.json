@@ -1,0 +1,96 @@
+{
+  "id": "tsenatsil",
+  "name": "Tsenatsil (Ethiopian sistrum)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tsenatsil",
+  "parts": [
+    {
+      "id": "tsenatsil_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "tsenatsil_metal_jingle_frame_handle_canonical",
+          "default": true,
+          "name": "Metal jingle-frame on handle (canonical Tewahedo liturgical)",
+          "descriptors": [
+            "metal-jingle-frame-handle-canonical-tewahedo-liturgical"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "ethiopian-zema-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tsenatsil_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "tsenatsil_zema_canonical",
+          "default": true,
+          "name": "Zema liturgical-rhythm instrument (canonical)",
+          "descriptors": [
+            "zema-liturgical-rhythm-canonical-ethiopian"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "ethiopian-zema-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tsenatsil_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "tsenatsil_metal_jingle_frame_handle_canonical",
+          "default": true,
+          "name": "Metal jingle-frame on handle (canonical Tewahedo liturgical)",
+          "descriptors": [
+            "metal-jingle-frame-handle-canonical-tewahedo-liturgical"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "ethiopian-zema-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tsenatsil_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "tsenatsil_zema_canonical",
+          "default": true,
+          "name": "Zema liturgical-rhythm instrument (canonical)",
+          "descriptors": [
+            "zema-liturgical-rhythm-canonical-ethiopian"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "ethiopian-zema-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

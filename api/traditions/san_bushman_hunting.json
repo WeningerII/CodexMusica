@@ -1,0 +1,68 @@
+{
+  "id": "san_bushman_hunting",
+  "name": "San (Khoisan) hunting and trance song",
+  "family": "global",
+  "lineage": "San (Khoisan) hunting-and-trance song tradition continuous from premodern Kalahari-Desert hunter-gatherer practice through 20th-21st century continuous performance into modern San practice across Botswana, Namibia, and South Africa",
+  "recipe": "classic modern san (khoisan) hunting and trance song, hunting Song, sub saharan African branch, arctic hunting song, indigenous ritual devotional, central Asian hunting song maasai adumu warrior jumping-song inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, continuous-phonation. outdoor kalahari fire circle. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 468,
+  "score": 184.557,
+  "config": {
+    "traditions": [
+      "san_bushman_hunting",
+      "maasai_adumu_olaranyani",
+      "inuit_katajjaq_games"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 2.1449999999999996,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.1339999999999995,
+          "voice_microtone": 0.38999999999999996,
+          "voice_tradition": 8.385000000000002,
+          "voice_mechanism_compound": 3.809999999999999,
+          "voice_estill_quality": 1.3649999999999998,
+          "voice_speech_song": 13.324999999999998,
+          "voice_ensemble_config": 6.109999999999999,
+          "voice_ornament_system": 6.311,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 1.2149999999999999,
+          "voice_multitrack_stack": 1.53
+        }
+      }
+    ],
+    "room": "outdoor_kalahari_fire_circle",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

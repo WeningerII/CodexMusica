@@ -1,0 +1,206 @@
+{
+  "id": "kebero",
+  "name": "Kebero (Ethiopian double-headed conical drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kebero",
+  "parts": [
+    {
+      "id": "kebero_skin",
+      "name": "Heads",
+      "variants": [
+        {
+          "id": "kebero_calfskin",
+          "default": true,
+          "name": "Calfskin (canonical Ethiopian Orthodox)",
+          "descriptors": [
+            "calfskin-canonical-ethiopian-orthodox"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "liturgical"
+          ]
+        },
+        {
+          "id": "kebero_goatskin",
+          "name": "Goatskin (regional alternative)",
+          "descriptors": [
+            "goatskin-regional-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kebero_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "kebero_olive_canonical",
+          "default": true,
+          "name": "Ethiopian olive (canonical conical-staved)",
+          "descriptors": [
+            "ethiopian-olive-canonical-conical-staved"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "liturgical"
+          ]
+        },
+        {
+          "id": "kebero_acacia",
+          "name": "Acacia (alternative)",
+          "descriptors": [
+            "acacia-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kebero_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "kebero_orthodox_tewahedo",
+          "default": true,
+          "name": "Ethiopian Orthodox Tewahedo liturgy (canonical)",
+          "descriptors": [
+            "orthodox-tewahedo-liturgy-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "liturgical"
+          ]
+        },
+        {
+          "id": "kebero_secular_celebratory",
+          "name": "Secular celebratory",
+          "descriptors": [
+            "secular-celebratory"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kebero_skin",
+      "name": "Heads",
+      "variants": [
+        {
+          "id": "kebero_calfskin",
+          "default": true,
+          "name": "Calfskin (canonical Ethiopian Orthodox)",
+          "descriptors": [
+            "calfskin-canonical-ethiopian-orthodox"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "liturgical"
+          ]
+        },
+        {
+          "id": "kebero_goatskin",
+          "name": "Goatskin (regional alternative)",
+          "descriptors": [
+            "goatskin-regional-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kebero_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "kebero_olive_canonical",
+          "default": true,
+          "name": "Ethiopian olive (canonical conical-staved)",
+          "descriptors": [
+            "ethiopian-olive-canonical-conical-staved"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "liturgical"
+          ]
+        },
+        {
+          "id": "kebero_acacia",
+          "name": "Acacia (alternative)",
+          "descriptors": [
+            "acacia-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kebero_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "kebero_orthodox_tewahedo",
+          "default": true,
+          "name": "Ethiopian Orthodox Tewahedo liturgy (canonical)",
+          "descriptors": [
+            "orthodox-tewahedo-liturgy-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "liturgical"
+          ]
+        },
+        {
+          "id": "kebero_secular_celebratory",
+          "name": "Secular celebratory",
+          "descriptors": [
+            "secular-celebratory"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

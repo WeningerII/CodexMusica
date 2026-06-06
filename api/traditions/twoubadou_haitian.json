@@ -1,0 +1,129 @@
+{
+  "id": "twoubadou_haitian",
+  "name": "Twoubadou (Haitian troubadour)",
+  "family": "global",
+  "lineage": "Haitian rural-and-popular acoustic-song tradition emerging in early-twentieth-century Haiti from synthesis of Cuban son and bolero, Dominican merengue tipico, and Haitian rural folk-song. Acoustic-guitar, marímbula, mandolin, accordion, manouba scraper, voice. Working-class counterpart to elite-class urban kompa direct big-band tradition. Post-1980 acoustic-revival under Ti Coca, Manno Charlemagne, Beethova Obas.",
+  "recipe": "classic early-1980s twoubadou, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. thick, lament wail, pure, punctuated. fingerpicked parlor acoustic guitar, castagnari Italian premium folk music straight accordion, bowl back Italian big leaf maple modern American x brace modern mandolin mandolin. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 598,
+  "score": 201.331,
+  "config": {
+    "traditions": [
+      "twoubadou_haitian",
+      "cape_verdean_batuko",
+      "french_musette"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.795000000000001,
+          "voice_quality": 6.035000000000001,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.7664999999999998,
+          "voice_microtone": 0.4215,
+          "voice_tradition": 7.54,
+          "voice_mechanism_compound": 2.4479999999999995,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 1.44,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 4.185,
+          "voice_multitrack_stack": 2.0745
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
+        },
+        "scores": {
+          "acoustic_technique": 8.4765,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.54,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.8264999999999999
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "french_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 3.5880000000000005,
+          "accordion_reed_material": 0.54,
+          "musette_offset": 0.495,
+          "reed_config": 1.905,
+          "bellows": 0.39,
+          "voicing_chamber": 1.45,
+          "accordion_maker_school": 1.69
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "italian_alpine_spruce_m",
+          "mandolin_back": "big_leaf_maple",
+          "mandolin_bracing": "mandolin_x_brace",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 2.095,
+          "mandolin_shape": 1.69,
+          "mandolin_top": 0.78,
+          "mandolin_back": 1.69,
+          "mandolin_bracing": 1.69,
+          "mandolin_strings": 1.25,
+          "mandolin_fingerboard": 0.345,
+          "mandolin_pickup": 10.139999999999999
+        }
+      }
+    ],
+    "room": "port_au_prince_haitian_kompa_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "haitian_kompa_meringue",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

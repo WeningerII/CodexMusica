@@ -1,0 +1,344 @@
+{
+  "id": "kendang_indonesian",
+  "name": "Kendang (Indonesian gamelan hand drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kendang",
+  "parts": [
+    {
+      "id": "kendang_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "kendang_gendhing",
+          "default": true,
+          "name": "Kendang gendhing (large, court)",
+          "descriptors": [
+            "traditional",
+            "gamelan-leader",
+            "wood",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_ciblon",
+          "name": "Kendang ciblon (medium, lively)",
+          "descriptors": [
+            "agile",
+            "lively",
+            "gamelan-leader"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_ketipung",
+          "name": "Kendang ketipung (small, paired)",
+          "descriptors": [
+            "paired",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kendang_context",
+      "name": "Region",
+      "variants": [
+        {
+          "id": "kendang_javanese",
+          "default": true,
+          "name": "Javanese gamelan (interlocked patterns)",
+          "descriptors": [
+            "gamelan-javanese",
+            "interlocking",
+            "leader-role"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_balinese",
+          "name": "Balinese gamelan (lanang/wadon paired)",
+          "descriptors": [
+            "gamelan-balinese",
+            "paired-male-female",
+            "rapid-interlocking"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_sundanese",
+          "name": "Sundanese (jaipongan, accompanies dance)",
+          "descriptors": [
+            "gamelan-sundanese"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kendang_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "kendang_jackwood_canonical",
+          "default": true,
+          "name": "Jackwood barrel (canonical Javanese/Balinese)",
+          "descriptors": [
+            "jackwood-barrel-canonical-javanese-balinese"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_teak",
+          "name": "Teak (premium Javanese court)",
+          "descriptors": [
+            "teak-premium-javanese-court"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_mahogany",
+          "name": "Mahogany (mid-tier modern)",
+          "descriptors": [
+            "mahogany-mid-tier-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kendang_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "kendang_buffalo_hide_canonical",
+          "default": true,
+          "name": "Water-buffalo hide both heads with rattan lacing (canonical Javanese)",
+          "descriptors": [
+            "buffalo-hide-rattan-lacing-canonical-javanese"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_cowhide_alternative",
+          "name": "Cowhide (modern alternative)",
+          "descriptors": [
+            "cowhide-modern-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kendang_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "kendang_gendhing",
+          "default": true,
+          "name": "Kendang gendhing (large, court)",
+          "descriptors": [
+            "traditional",
+            "gamelan-leader",
+            "wood",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_ciblon",
+          "name": "Kendang ciblon (medium, lively)",
+          "descriptors": [
+            "agile",
+            "lively",
+            "gamelan-leader"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_ketipung",
+          "name": "Kendang ketipung (small, paired)",
+          "descriptors": [
+            "paired",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kendang_context",
+      "name": "Region",
+      "variants": [
+        {
+          "id": "kendang_javanese",
+          "default": true,
+          "name": "Javanese gamelan (interlocked patterns)",
+          "descriptors": [
+            "gamelan-javanese",
+            "interlocking",
+            "leader-role"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_balinese",
+          "name": "Balinese gamelan (lanang/wadon paired)",
+          "descriptors": [
+            "gamelan-balinese",
+            "paired-male-female",
+            "rapid-interlocking"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_sundanese",
+          "name": "Sundanese (jaipongan, accompanies dance)",
+          "descriptors": [
+            "gamelan-sundanese"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kendang_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "kendang_jackwood_canonical",
+          "default": true,
+          "name": "Jackwood barrel (canonical Javanese/Balinese)",
+          "descriptors": [
+            "jackwood-barrel-canonical-javanese-balinese"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_teak",
+          "name": "Teak (premium Javanese court)",
+          "descriptors": [
+            "teak-premium-javanese-court"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_mahogany",
+          "name": "Mahogany (mid-tier modern)",
+          "descriptors": [
+            "mahogany-mid-tier-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kendang_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "kendang_buffalo_hide_canonical",
+          "default": true,
+          "name": "Water-buffalo hide both heads with rattan lacing (canonical Javanese)",
+          "descriptors": [
+            "buffalo-hide-rattan-lacing-canonical-javanese"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "kendang_cowhide_alternative",
+          "name": "Cowhide (modern alternative)",
+          "descriptors": [
+            "cowhide-modern-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

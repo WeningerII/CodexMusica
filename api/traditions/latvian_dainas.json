@@ -1,0 +1,68 @@
+{
+  "id": "latvian_dainas",
+  "name": "Latvian dainas (folk-song quatrains)",
+  "family": "global",
+  "lineage": "Latvian dainas folk-quatrain song tradition: the canonical Latvian oral-poetic-and-song corpus comprising over 1.2 million collected four-line quatrains in trochaic-tetrameter or dactyl-tetrameter form, documenting the entire Latvian rural-life-cycle from birth-rituals through wedding-cycle through funeral-rites. Compiled by Krišjānis Barons (1835-1923) in the canonical six-volume Latvju Dainas (1894-1915), the largest single-author folklore-collection in any language. Performance configuration: unaccompanied solo or small-group female-voice in characteristic narrow-range pentatonic-or-modal melodic vocabulary with strict daina meter. The post-1991 Latvian-independence cultural-revival under the Song-and-Dance Celebration (Latvian: Dziesmu un deju svētki, UNESCO Masterpiece 2003) has consolidated institutional transmission. Distinguished from broader Baltic vocal music by daina's strict quatrain-form and Krišjānis Barons canonical-corpus reference.",
+  "recipe": "classic early-1830s latvian dainas, ballad Poetry, work song branch, vocal drone modal estonian setu leelo polyphonic song lithuanian sutartinės multipart. thick, declaimed, melodic, narrative. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 340,
+  "score": 180.786,
+  "config": {
+    "traditions": [
+      "latvian_dainas",
+      "estonian_setu_leelo",
+      "lithuanian_sutartines"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 9.139999999999999,
+          "voice_quality": 1.9693749999999999,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 1.6899999999999997,
+          "voice_microtone": 1.95,
+          "voice_tradition": 14.235,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 2.6,
+          "voice_speech_song": 13.324999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 1.56,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 4.875,
+          "voice_multitrack_stack": 4.29
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "lithuanian_sutartines_seconds",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

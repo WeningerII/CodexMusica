@@ -1,0 +1,206 @@
+{
+  "id": "jazz_big_band",
+  "name": "Jazz orchestra (full ensemble)",
+  "family": "ensemble",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "jazz orchestra",
+  "parts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "bb_saxes",
+          "default": true,
+          "name": "Saxophone section (5: 2 alto, 2 tenor, 1 baritone)",
+          "descriptors": [
+            "blended"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bb_trumpets",
+          "name": "Trumpet section (4-5)",
+          "descriptors": [
+            "lead"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bb_trombones",
+          "name": "Trombone section (4)",
+          "descriptors": [
+            "inner"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bb_rhythm",
+          "name": "Back-line (piano, guitar, bass, drums)",
+          "descriptors": [
+            "swung"
+          ],
+          "match_tokens": [
+            "rhythm-section-pocket",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era / arrangement school",
+      "variants": [
+        {
+          "id": "bb_swing",
+          "default": true,
+          "name": "Swing era arrangement",
+          "descriptors": [
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "subtle-swing",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bb_progressive",
+          "name": "Progressive / through-composed arranger lineage",
+          "descriptors": [
+            "extended-harmony",
+            "through-composed",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bb_latin",
+          "name": "Latin jazz orchestra (Afro-Cuban, Brazilian)",
+          "descriptors": [
+            "polyrhythmic",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sections",
+      "surface": false,
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "bb_saxes",
+          "default": true,
+          "name": "Saxophone section (5: 2 alto, 2 tenor, 1 baritone)",
+          "descriptors": [
+            "blended"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bb_trumpets",
+          "name": "Trumpet section (4-5)",
+          "descriptors": [
+            "lead"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bb_trombones",
+          "name": "Trombone section (4)",
+          "descriptors": [
+            "inner"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bb_rhythm",
+          "name": "Back-line (piano, guitar, bass, drums)",
+          "descriptors": [
+            "swung"
+          ],
+          "match_tokens": [
+            "rhythm-section-pocket",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "surface": false,
+      "name": "Era / arrangement school",
+      "variants": [
+        {
+          "id": "bb_swing",
+          "default": true,
+          "name": "Swing era arrangement",
+          "descriptors": [
+            "swung",
+            "foundational"
+          ],
+          "match_tokens": [
+            "subtle-swing",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bb_progressive",
+          "name": "Progressive / through-composed arranger lineage",
+          "descriptors": [
+            "extended-harmony",
+            "through-composed",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "bb_latin",
+          "name": "Latin jazz orchestra (Afro-Cuban, Brazilian)",
+          "descriptors": [
+            "polyrhythmic",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

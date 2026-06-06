@@ -1,0 +1,184 @@
+{
+  "id": "j_rock",
+  "name": "J-rock",
+  "family": "global",
+  "lineage": "Japanese-language alternative-rock and visual-kei tradition codified through X Japan (1980s-90s), Luna Sea, B\\u2019z, Mr. Children, L\\u2019Arc-en-Ciel, and the Buck-Tick visual-kei progenitor lineage — characterized by Western-rock instrumentation with Japanese-language vocals, dramatic stage personas, and extensive crossover with anime soundtrack production",
+  "recipe": "classic mid-1980s j-rock, distorted Rock, regional branch, east Asian pop functional song enka k-pop. thick, melodic, equal tempered, min yo. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 668,
+  "score": 405.45,
+  "config": {
+    "traditions": [
+      "j_rock",
+      "enka",
+      "k_pop_modern"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 15.699999999999992,
+          "voice_quality": 0.195,
+          "voice_vibrato": 0.585,
+          "voice_articulation": 0.045,
+          "voice_microtone": 17.595,
+          "voice_tradition": 12.414999999999996,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 5.915,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 0.9999999999999998,
+          "voice_pitch_organization": 2.665000000000001,
+          "voice_processing_chain": 3.105,
+          "voice_multitrack_stack": 0.78
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 1.8499999999999996,
+          "amp_make": 6.475,
+          "body_wood": 1.125,
+          "neck_wood": 0.33,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.3,
+          "string_material": 0.135,
+          "bridge": 0.33,
+          "scale_length": 1.02,
+          "string_gauge": 0.28500000000000003,
+          "finish": 0.15,
+          "string_tuning": 7.409999999999999
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 1.8499999999999996,
+          "amp_make": 6.475,
+          "body_wood": 0.33,
+          "neck_wood": 0.33,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.15,
+          "string_material": 0.135,
+          "string_gauge": 0.28500000000000003,
+          "bridge": 0.345,
+          "scale_length": 0.6150000000000001,
+          "finish": 0.15,
+          "string_tuning": 7.2299999999999995
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 0.26,
+          "amp_make": 6.924999999999999,
+          "body_wood": 0.6150000000000001,
+          "pickup_config": 0.24,
+          "string_type": 14.849999999999998,
+          "scale_length_b": 0.33,
+          "fretted_or_not": 0.195,
+          "bass_technique": 14.634999999999996
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 4.9399999999999995,
+          "shell_wood": 0.3,
+          "shell_thickness": 0.15,
+          "bearing_edges": 0.28500000000000003,
+          "drumhead": 2.1799999999999997,
+          "snare_wires": 0.43500000000000005,
+          "cymbal_alloy": 16.194999999999997,
+          "cymbal_hammering": 16.294999999999995,
+          "cymbal_lathing": 16.144999999999996,
+          "cymbal_finish": 0.15,
+          "drum_technique": 14.249999999999998
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_marshall_plexi_1959",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

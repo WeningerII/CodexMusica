@@ -1,0 +1,156 @@
+{
+  "id": "grunge",
+  "name": "Grunge",
+  "family": "rock_punk",
+  "lineage": "Seattle Pacific Northwest alternative-rock genre that emerged in the late 1980s and went global in 1991 — codified through Nirvana (Nevermind 1991, the commercial breakthrough produced by Butch Vig), Pearl Jam (Ten 1991), Soundgarden (Badmotorfinger 1991, then Superunknown 1994), Alice in Chains (Facelift 1990, Dirt 1992), Mudhoney (the Sub Pop founding band), Screaming Trees, Tad — built on a fusion of hardcore punk aggression and Sabbath-style heavy-blues-derived guitar tone",
+  "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal post-metal. thick, larynx lowered, pure, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation power chord humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, mahogany pre muffled edge muffled machine hammered symmetric pattern drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
+  "recipe_chars": 678,
+  "score": 533.04,
+  "config": {
+    "traditions": [
+      "grunge",
+      "sludge_metal",
+      "post_metal_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 20.489499999999996,
+          "voice_quality": 1.4499999999999995,
+          "voice_vibrato": 1.2074999999999998,
+          "voice_articulation": 0.40950000000000003,
+          "voice_microtone": 14.904999999999996,
+          "voice_tradition": 3.9090000000000007,
+          "voice_mechanism_compound": 13.243,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 7.994999999999997,
+          "voice_ensemble_config": 11.324000000000002,
+          "voice_ornament_system": 3.95,
+          "voice_pitch_organization": 1.4815,
+          "voice_processing_chain": 5.07,
+          "voice_multitrack_stack": 5.915000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 8.8235,
+          "amp_make": 16.835,
+          "body_wood": 0.636,
+          "neck_wood": 0.591,
+          "fretboard": 0.49499999999999994,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.39,
+          "string_material": 0.49499999999999994,
+          "bridge": 0.591,
+          "scale_length": 1.2269999999999999,
+          "string_gauge": 0.9209999999999999,
+          "finish": 0,
+          "string_tuning": 7.799999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 5.450000000000001,
+          "amp_make": 6.044999999999999,
+          "body_wood": 1.2269999999999999,
+          "pickup_config": 0,
+          "string_type": 15.274999999999999,
+          "scale_length_b": 0.636,
+          "fretted_or_not": 0.0735,
+          "bass_technique": 17.25
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 10.854999999999997,
+          "shell_wood": 2.08,
+          "shell_thickness": 0.78,
+          "bearing_edges": 0.8175,
+          "drumhead": 3.3815,
+          "snare_wires": 0.9089999999999999,
+          "cymbal_alloy": 20.995,
+          "cymbal_hammering": 14.981499999999999,
+          "cymbal_lathing": 15.0865,
+          "cymbal_finish": 0.49499999999999994,
+          "drum_technique": 11.749999999999998
+        }
+      }
+    ],
+    "room": "seattle_reciprocal_grunge_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_marshall_plexi_1959",
+      "medium": "tape_15ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_big_muff_pi",
+      "fx_boss_ds1"
+    ]
+  }
+}

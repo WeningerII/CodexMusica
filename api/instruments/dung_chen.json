@@ -1,0 +1,96 @@
+{
+  "id": "dung_chen",
+  "name": "Dung chen (Tibetan long metal trumpet)",
+  "family": "wind",
+  "class": "brass",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "dung chen",
+  "parts": [
+    {
+      "id": "dung_chen_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "dung_chen_copper_brass_silver_inlay_canonical",
+          "default": true,
+          "name": "Copper or brass telescoping body with silver inlay (canonical)",
+          "descriptors": [
+            "copper-brass-telescoping-silver-inlay-canonical-tibetan-build"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dung_chen_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "dung_chen_gelug_yang_chant_canonical",
+          "default": true,
+          "name": "Gelug monastic yang-chant ritual (canonical)",
+          "descriptors": [
+            "gelug-monastic-yang-chant-ritual-canonical"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dung_chen_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "dung_chen_copper_brass_silver_inlay_canonical",
+          "default": true,
+          "name": "Copper or brass telescoping body with silver inlay (canonical)",
+          "descriptors": [
+            "copper-brass-telescoping-silver-inlay-canonical-tibetan-build"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dung_chen_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "dung_chen_gelug_yang_chant_canonical",
+          "default": true,
+          "name": "Gelug monastic yang-chant ritual (canonical)",
+          "descriptors": [
+            "gelug-monastic-yang-chant-ritual-canonical"
+          ],
+          "match_tokens": [
+            "long-trumpet",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

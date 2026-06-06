@@ -1,0 +1,134 @@
+{
+  "id": "liquid_funk",
+  "name": "Liquid funk (drum & bass)",
+  "family": "global",
+  "lineage": "Early-2000s onward drum-and-bass subgenre emphasizing soulful-jazz harmonic foundation, melodic content, and accessible vocal-pop arrangement against rolling drum-and-bass percussion — codified through Calibre, High Contrast (True Colours 2002), Logistics, Netsky (Netsky 2010), London Elektricity, and the broader Hospital Records label catalog",
+  "recipe": "classic 2000-2003 liquid funk, bass System, uk soundsystem branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, full chest belt, melodic, narrative. melodic pitched sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 486,
+  "score": 159.843,
+  "config": {
+    "traditions": [
+      "liquid_funk",
+      "afrobeat",
+      "kompa"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 6.568750000000001,
+          "voice_quality": 0.6399999999999996,
+          "voice_vibrato": 1.538375,
+          "voice_articulation": 0.5999999999999999,
+          "voice_microtone": 5.550000000000001,
+          "voice_tradition": 3.835,
+          "voice_mechanism_compound": 1.186125,
+          "voice_estill_quality": 1.5499999999999998,
+          "voice_speech_song": 6.305,
+          "voice_ensemble_config": 6.24,
+          "voice_ornament_system": 1.95,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 2.5800000000000005,
+          "voice_multitrack_stack": 4.165125
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "sampler_archetypes": 0.294,
+          "sampler_bit_depth": 0.1215,
+          "sampler_workflow": 1.538375,
+          "sampler_classic_context": 9.23
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.5902499999999999,
+          "tr909_production_origin": 0.045
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 7.215,
+          "va_archetypes": 1.045,
+          "digital_subtractive_context": 6.369999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 3.2,
+          "amp_make": 7.865,
+          "body_wood": 0.636,
+          "pickup_config": 0.0765,
+          "string_type": 7.54,
+          "scale_length_b": 0.4545,
+          "fretted_or_not": 0,
+          "bass_technique": 3.25
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

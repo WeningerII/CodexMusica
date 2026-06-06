@@ -1,0 +1,386 @@
+{
+  "id": "resonator_guitar",
+  "name": "Resonator guitar (National / Dobro)",
+  "family": "acoustic_strings",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "resonator",
+  "parts": [
+    {
+      "id": "resonator_body",
+      "name": "Body / cone type",
+      "variants": [
+        {
+          "id": "resonator_national_tricone_metal",
+          "default": true,
+          "name": "National Tricone metal-body (three aluminum cones)",
+          "descriptors": [
+            "metal-body",
+            "bright-cutting",
+            "three-cone-system",
+            "national-steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonator",
+            "delta-blues-tradition",
+            "country-blues-tradition"
+          ]
+        },
+        {
+          "id": "resonator_national_single_cone_metal",
+          "name": "National Single-cone metal-body (biscuit bridge)",
+          "descriptors": [
+            "metal-body",
+            "single-cone",
+            "biscuit-bridge",
+            "punchy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonator",
+            "delta-blues-tradition"
+          ]
+        },
+        {
+          "id": "resonator_dobro_wood_single_cone",
+          "name": "Dobro wood-body single-cone (spider bridge)",
+          "descriptors": [
+            "wood-body",
+            "spider-bridge",
+            "spruce-resonator",
+            "bluegrass-tradition",
+            "lap-style"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonator",
+            "bluegrass-tradition",
+            "lap-steel-adjacent"
+          ]
+        },
+        {
+          "id": "resonator_national_brass_body",
+          "name": "National brass-body (warmer than steel)",
+          "descriptors": [
+            "brass-body",
+            "warmer-than-steel",
+            "national-style"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonator"
+          ]
+        },
+        {
+          "id": "resonator_wood_body_biscuit",
+          "name": "Wood-body biscuit-bridge",
+          "descriptors": [
+            "wood-body",
+            "biscuit-bridge",
+            "mellower-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonator"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resonator_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "phosphor_resonator",
+          "default": true,
+          "name": "Phosphor bronze (medium)",
+          "descriptors": [
+            "phosphor-bronze",
+            "medium-gauge",
+            "balanced"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "resonator"
+          ]
+        },
+        {
+          "id": "eighty_twenty_resonator",
+          "name": "80/20 bronze (bright slide)",
+          "descriptors": [
+            "80-20-cu-zn",
+            "bright-slide",
+            "snappy"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "resonator"
+          ]
+        },
+        {
+          "id": "gibson_dobro_set",
+          "name": "Dobro / bluegrass set (heavy)",
+          "descriptors": [
+            "heavy-gauge",
+            "dobro-canon",
+            "bluegrass"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "resonator",
+            "bluegrass-tradition"
+          ]
+        },
+        {
+          "id": "national_blues_set",
+          "name": "National blues set (medium-heavy)",
+          "descriptors": [
+            "national-canon",
+            "medium-heavy",
+            "delta-blues"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "resonator",
+            "delta-blues-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resonator_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "resonator_bottleneck_slide_fingerpicked",
+          "default": true,
+          "name": "Bottleneck slide + fingerpicked",
+          "descriptors": [
+            "glass-slide",
+            "fingerpicked",
+            "delta-blues-vocabulary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "delta-blues-tradition"
+          ]
+        },
+        {
+          "id": "resonator_lap_steel_position",
+          "name": "Lap-steel position with steel bar",
+          "descriptors": [
+            "lap-position",
+            "metal-bar",
+            "bluegrass-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "bluegrass-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "resonator_body",
+      "name": "Body / cone type",
+      "variants": [
+        {
+          "id": "resonator_national_tricone_metal",
+          "default": true,
+          "name": "National Tricone metal-body (three aluminum cones)",
+          "descriptors": [
+            "metal-body",
+            "bright-cutting",
+            "three-cone-system",
+            "national-steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonator",
+            "delta-blues-tradition",
+            "country-blues-tradition"
+          ]
+        },
+        {
+          "id": "resonator_national_single_cone_metal",
+          "name": "National Single-cone metal-body (biscuit bridge)",
+          "descriptors": [
+            "metal-body",
+            "single-cone",
+            "biscuit-bridge",
+            "punchy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonator",
+            "delta-blues-tradition"
+          ]
+        },
+        {
+          "id": "resonator_dobro_wood_single_cone",
+          "name": "Dobro wood-body single-cone (spider bridge)",
+          "descriptors": [
+            "wood-body",
+            "spider-bridge",
+            "spruce-resonator",
+            "bluegrass-tradition",
+            "lap-style"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonator",
+            "bluegrass-tradition",
+            "lap-steel-adjacent"
+          ]
+        },
+        {
+          "id": "resonator_national_brass_body",
+          "name": "National brass-body (warmer than steel)",
+          "descriptors": [
+            "brass-body",
+            "warmer-than-steel",
+            "national-style"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonator"
+          ]
+        },
+        {
+          "id": "resonator_wood_body_biscuit",
+          "name": "Wood-body biscuit-bridge",
+          "descriptors": [
+            "wood-body",
+            "biscuit-bridge",
+            "mellower-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonator"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resonator_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "phosphor_resonator",
+          "default": true,
+          "name": "Phosphor bronze (medium)",
+          "descriptors": [
+            "phosphor-bronze",
+            "medium-gauge",
+            "balanced"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "resonator"
+          ]
+        },
+        {
+          "id": "eighty_twenty_resonator",
+          "name": "80/20 bronze (bright slide)",
+          "descriptors": [
+            "80-20-cu-zn",
+            "bright-slide",
+            "snappy"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "resonator"
+          ]
+        },
+        {
+          "id": "gibson_dobro_set",
+          "name": "Dobro / bluegrass set (heavy)",
+          "descriptors": [
+            "heavy-gauge",
+            "dobro-canon",
+            "bluegrass"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "resonator",
+            "bluegrass-tradition"
+          ]
+        },
+        {
+          "id": "national_blues_set",
+          "name": "National blues set (medium-heavy)",
+          "descriptors": [
+            "national-canon",
+            "medium-heavy",
+            "delta-blues"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "resonator",
+            "delta-blues-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resonator_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "resonator_bottleneck_slide_fingerpicked",
+          "default": true,
+          "name": "Bottleneck slide + fingerpicked",
+          "descriptors": [
+            "glass-slide",
+            "fingerpicked",
+            "delta-blues-vocabulary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "delta-blues-tradition"
+          ]
+        },
+        {
+          "id": "resonator_lap_steel_position",
+          "name": "Lap-steel position with steel bar",
+          "descriptors": [
+            "lap-position",
+            "metal-bar",
+            "bluegrass-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slide",
+            "bluegrass-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

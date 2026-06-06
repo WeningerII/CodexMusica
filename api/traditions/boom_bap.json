@@ -1,0 +1,117 @@
+{
+  "id": "boom_bap",
+  "name": "Boom bap",
+  "family": "hip_hop",
+  "lineage": "East Coast 1990s sample-based hip-hop production aesthetic — codified through DJ Premier (Gang Starr, Jay-Z\\u2019s Reasonable Doubt 1996), Pete Rock, Large Professor, and Q-Tip\\u2019s A Tribe Called Quest production work; characterized by 90-95 BPM tempo, hard-snare-and-kick \"boom bap\" drum signature, jazz and soul sample loops, and East Coast lyrical-virtuoso emcee tradition",
+  "recipe": "classic North American mid-1990s boom bap, mc Rhythm, east coast branch, soul R&B functional song contemporary r&b doo-wop. thick, blues-shouter, narrative, equal tempered. sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampled chopped turntable. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 497,
+  "score": 303.74,
+  "config": {
+    "traditions": [
+      "boom_bap",
+      "contemporary_rb_late_90s_2000s",
+      "doo_wop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 10.574999999999998,
+          "voice_quality": 7.3,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 10.045,
+          "voice_microtone": 5.550000000000001,
+          "voice_tradition": 7.8,
+          "voice_mechanism_compound": 1.95,
+          "voice_estill_quality": 5.445,
+          "voice_speech_song": 8.774999999999999,
+          "voice_ensemble_config": 7.799999999999999,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 1.26,
+          "voice_processing_chain": 6,
+          "voice_multitrack_stack": 4.549999999999999
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 5.694999999999999,
+          "sample_bitdepth": 3.585,
+          "sample_swing": 8.839999999999998,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 6.45,
+          "amp_make": 8.24,
+          "body_wood": 0.5249999999999999,
+          "pickup_config": 0,
+          "string_type": 7.215000000000001,
+          "scale_length_b": 0.8999999999999999,
+          "fretted_or_not": 0.105,
+          "bass_technique": 6.45
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 5.694999999999999,
+          "turntable_technique": 10.844999999999999
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_american_op_amp",
+      "comp": "comp_api_525",
+      "eq": "eq_api_550",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

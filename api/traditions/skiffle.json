@@ -1,0 +1,166 @@
+{
+  "id": "skiffle",
+  "name": "Skiffle",
+  "family": "rock_punk",
+  "lineage": "UK 1953-1958 working-class amateur DIY folk-jazz hybrid genre — codified through Lonnie Donegan’s \"Rock Island Line\" (1954, his Chris Barber Jazz Band session) and subsequent solo records, with the Chas McDevitt and Nancy Whiskey \"Freight Train\" (1957) reaching the US Top 40; characterized by amateur-acoustic instrumentation (washboard, tea-chest bass, acoustic guitar, banjo) and American-folk repertoire adapted for UK youth",
+  "recipe": "classic British mid-1950s skiffle, functional Song, skiffle branch, pop rock folk rock, blues narrative jug band. thick, worn fold, melodic, narrative. flatwound thomastik fingerpicked acoustic guitar, tea chest bass, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick strummed banjo 5 string. bedroom. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
+  "recipe_chars": 540,
+  "score": 605.757,
+  "config": {
+    "traditions": [
+      "skiffle",
+      "jug_band",
+      "folk_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 44.99821428571429,
+          "voice_quality": 2.2499999999999996,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.1157499999999998,
+          "voice_microtone": 28.349999999999994,
+          "voice_tradition": 18.293035714285708,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 14.884999999999998,
+          "voice_ensemble_config": 11.569999999999999,
+          "voice_ornament_system": 0.012499999999999999,
+          "voice_pitch_organization": 0.09,
+          "voice_processing_chain": 3.6399999999999997,
+          "voice_multitrack_stack": 2.2749999999999995
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "eb_standard",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "thomastik_flat_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 17.64428571428571,
+          "string_tuning": 1.9375000000000002,
+          "top_wood": 0.705,
+          "back_sides": 0.705,
+          "string_acoustic": 3.844999999999999,
+          "acoustic_om_technique": 17.64428571428571
+        }
+      },
+      {
+        "id": "tea_chest_bass",
+        "slots": {
+          "tea_chest_construction": "tea_chest_single_string"
+        },
+        "scores": {
+          "tea_chest_construction": 13.449999999999996
+        }
+      },
+      {
+        "id": "frottoir",
+        "slots": {
+          "frottoir_construction": "frottoir_handheld",
+          "frottoir_striker": "frottoir_spoons"
+        },
+        "scores": {
+          "frottoir_construction": 4.29,
+          "frottoir_striker": 0.011249999999999998
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_folk_first_position",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_solo_chromatic"
+        },
+        "scores": {
+          "free_reed_technique": 13.465749999999995,
+          "harmonica_type": 3.8482142857142847,
+          "harmonica_comb": 7.54,
+          "harmonica_reed": 9.807499999999996,
+          "harmonica_technique": 13.465749999999995,
+          "harmonica_maker_school": 4.55,
+          "harmonica_tuning": 10.638392857142854
+        }
+      },
+      {
+        "id": "kazoo",
+        "slots": {
+          "kazoo_construction": "kazoo_metal"
+        },
+        "scores": {
+          "kazoo_construction": 14.049999999999995
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "two_finger",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 14.455642857142854,
+          "banjo_back": 0.78,
+          "tone_ring": 0.76725,
+          "banjo_head": 12.48,
+          "banjo_pot": 0.0037499999999999994,
+          "banjo_play": 0.0945,
+          "banjo_rim_wood": 0.3027142857142857,
+          "banjo_neck_wood": 0.37771428571428567,
+          "banjo_strings": 0.09,
+          "banjo_bridge": 0.045,
+          "banjo_setup_period": 11.634999999999998
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_60s_uk_small_commercial_early",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

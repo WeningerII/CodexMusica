@@ -1,0 +1,96 @@
+{
+  "id": "putatara",
+  "name": "Pūtātara (Māori conch-shell trumpet)",
+  "family": "wind",
+  "class": "brass",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "pūtātara",
+  "parts": [
+    {
+      "id": "putatara_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "putatara_conch_shell_mouthpiece_canonical",
+          "default": true,
+          "name": "Conch-shell trumpet with wooden mouthpiece (canonical Aotearoa signaling)",
+          "descriptors": [
+            "conch-shell-mouthpiece-canonical-aotearoa-signaling"
+          ],
+          "match_tokens": [
+            "wind",
+            "maori-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "putatara_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "putatara_karanga_powhiri_canonical",
+          "default": true,
+          "name": "Karanga and pōwhiri ceremonial calling (canonical)",
+          "descriptors": [
+            "karanga-powhiri-ceremonial-calling-canonical-maori"
+          ],
+          "match_tokens": [
+            "wind",
+            "maori-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "putatara_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "putatara_conch_shell_mouthpiece_canonical",
+          "default": true,
+          "name": "Conch-shell trumpet with wooden mouthpiece (canonical Aotearoa signaling)",
+          "descriptors": [
+            "conch-shell-mouthpiece-canonical-aotearoa-signaling"
+          ],
+          "match_tokens": [
+            "wind",
+            "maori-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "putatara_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "putatara_karanga_powhiri_canonical",
+          "default": true,
+          "name": "Karanga and pōwhiri ceremonial calling (canonical)",
+          "descriptors": [
+            "karanga-powhiri-ceremonial-calling-canonical-maori"
+          ],
+          "match_tokens": [
+            "wind",
+            "maori-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

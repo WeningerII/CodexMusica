@@ -1,0 +1,85 @@
+{
+  "id": "aguinaldo_puertorican",
+  "name": "Aguinaldo (Puerto Rican Christmas)",
+  "family": "global",
+  "lineage": "Puerto Rican Christmas-and-Three-Kings-Day song tradition performed during canonical Christmas season at parrandas door-to-door musical-visits. Cuatro puerto-rico (ten-string-paired Puerto Rican lute), acoustic-guitar, güiro scraper, percussion, voice. Repertoire spans religious-devotional Christmas content, picaresque parranda material, and patriotic-cultural Puerto-Rican content. Décima ten-line stanza characteristic of jíbaro music.",
+  "recipe": "classic modern aguinaldo, ritual Devotional, spirituals branch, Latin am troubadour ballad poetry twoubadou milonga. thick, declaimed, pure, ornamental. parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 390,
+  "score": 95.102,
+  "config": {
+    "traditions": [
+      "aguinaldo_puertorican",
+      "twoubadou_haitian",
+      "milonga"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 4.095000000000001,
+          "voice_quality": 10.627499999999998,
+          "voice_vibrato": 1.0525,
+          "voice_articulation": 3.75,
+          "voice_microtone": 0.24,
+          "voice_tradition": 3.7,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 3.5500000000000007,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 6.899999999999999,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 0.675
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 0.8949999999999999,
+          "string_tuning": 1.56,
+          "top_wood_parlor": 0.8575000000000002,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.8575000000000002
+        }
+      }
+    ],
+    "room": "mexico_bolero_xochimilco_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

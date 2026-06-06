@@ -1,0 +1,85 @@
+{
+  "id": "tuvan_kargyraa",
+  "name": "Tuvan kargyraa subharmonic throat-singing",
+  "family": "global",
+  "lineage": "Tuvan kargyraa subharmonic throat-singing tradition of the Republic of Tuva (southern Siberia, Russian Federation, bordering northwestern Mongolia). Kargyraa technique produces a fundamental pitched a full octave below the singer's normal speaking range through false-vocal-fold (ventricular) co-oscillation: the true vocal folds vibrate at one frequency while the ventricular folds vibrate at half that frequency, producing a rumbling subharmonic. Over this fundamental the singer shapes upper-partial overtone melodies. Two named regional variants: dag kargyraa (\"mountain kargyraa,\" more open and resonant, associated with the Yenisei river valley) and khovu kargyraa (\"steppe kargyraa,\" more compressed and growling, associated with the dry-steppe lowlands). Performance contexts span solo pastoral, hunters' contexts (the throat-singing reproducing animal-call and natural-sound mimesis), and contemporary international concert circuit. Often accompanied by igil (the two-string upright fiddle that is the Tuvan parallel to Mongolian morin khuur). Ted Levin's Where Rivers and Mountains Sing (Indiana UP 2006) is the principal English-language scholarly documentation; Zoya Kyrgys's The Mystery of Tuvan Khoomei (2002) the principal Tuvan-language reference; Smithsonian Folkways SFW40017 Tuva: Voices from the Center of Asia (1990, Levin/Hunt) the canonical Western-distributed recording. Distinguished from Mongolian kharkhiraa by Tuvan-Tyva dialect-specific technique nomenclature and characteristic dag-vs-khovu regional variants; distinguished from Tibetan yang chant by Tuvan kargyraa's solo-secular (vs ensemble-monastic-liturgical) framework; distinguished from sygyt by kargyraa's low-subharmonic (vs sygyt's high-overtone) register.",
+  "recipe": "classic mid-2000s tuvan kargyraa subharmonic throat-singing, drone Modal, overtone branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. kargyraa, false fold engaged, overtone rich sustained, unrestrained. wood larch canonical tuvan pastoral solo igil. taiga natural reverb. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 424,
+  "score": 417,
+  "config": {
+    "traditions": [
+      "tuvan_kargyraa",
+      "sami_northern_luohti",
+      "sami_southern_vuelie"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "khoomei_tuvan_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 48.21000000000001,
+          "voice_quality": 60.960000000000036,
+          "voice_vibrato": 3.875,
+          "voice_articulation": 1.25,
+          "voice_microtone": 22.014999999999997,
+          "voice_tradition": 31.989999999999995,
+          "voice_mechanism_compound": 41.730000000000004,
+          "voice_estill_quality": 5.3950000000000005,
+          "voice_speech_song": 10.205,
+          "voice_ensemble_config": 13.519999999999998,
+          "voice_ornament_system": 2.495,
+          "voice_pitch_organization": 34.574999999999996,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 5.9799999999999995
+        }
+      },
+      {
+        "id": "igil",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "igil_body": "igil_carved_horsehead",
+          "igil_string": "igil_horsehair_two",
+          "igil_body_wood": "igil_larch_canonical",
+          "igil_tradition": "igil_pastoral_solo"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "igil_body": 11.18,
+          "igil_string": 0,
+          "igil_body_wood": 9.515,
+          "igil_tradition": 5.2
+        }
+      }
+    ],
+    "room": "taiga_natural_reverb",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_pentatonic_long_song",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "id": "renaissance_sacred_polyphony",
+  "name": "Renaissance sacred polyphony (1450-1600)",
+  "family": "classical",
+  "lineage": "Renaissance European sacred-music tradition c.1450-1600, the mass-cycle and motet repertoire of the Franco-Flemish and Italian schools. Canonical compositional features: imitative counterpoint with successive voice-entries on the same melodic subject; smooth melodic voice-leading with stepwise motion and small leaps; controlled dissonance through suspension-and-resolution; modal scales transitioning gradually into tonal practice; a cappella ideal with optional organ accompaniment for liturgical performance. Canonical composers: Josquin des Prez (Franco-Flemish, c.1450-1521, founding figure of the imitative-mass tradition); Giovanni Pierluigi da Palestrina (Roman, 1525-1594, Missa Papae Marcelli 1567 the Counter-Reformation touchstone for the smoothness-and-clarity ideal); Thomas Tallis (English, c.1505-1585, the forty-voice motet Spem in alium c.1570); William Byrd (English, c.1543-1623, Mass for Four Voices); Orlande de Lassus (Flemish, 1532-1594); Tomás Luis de Victoria (Spanish, 1548-1611). Geographical centers: Cambrai, Antwerp, Rome (Cappella Sistina), Venice (San Marco), London (Chapel Royal). Distinguished from medieval organum by full imitative counterpoint and tempered-meantone tuning vocabulary; distinguished from Baroque sacred polyphony by absence of basso continuo and absence of operatic-aria stylistic vocabulary; distinguished from Orthodox liturgical chant by Latin-text Roman-rite (vs Slavonic / Greek Orthodox-rite) liturgical framework",
+  "recipe": "classic North American renaissance sacred polyphony, art Music, western early branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, mid renaissance English Spanish ayre and lieder yew ribs Italian brescian lute renaissance. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 871,
+  "score": 244.346,
+  "config": {
+    "traditions": [
+      "renaissance_sacred_polyphony",
+      "anglican_choral_evensong"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.9995,
+          "voice_quality": 3.859500000000001,
+          "voice_vibrato": 3.3149999999999995,
+          "voice_articulation": 1.9179999999999997,
+          "voice_microtone": 5.265000000000001,
+          "voice_tradition": 8.34975,
+          "voice_mechanism_compound": 6.601374999999999,
+          "voice_estill_quality": 7.41,
+          "voice_speech_song": 11.765,
+          "voice_ensemble_config": 21.45,
+          "voice_ornament_system": 5.7,
+          "voice_pitch_organization": 11.7,
+          "voice_processing_chain": 5.069999999999999,
+          "voice_multitrack_stack": 3.0994999999999995
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 6.759999999999999,
+          "choir_polyphonic_configuration": 10.139999999999999,
+          "choir_regional_canonical_configuration": 5.9799999999999995,
+          "choir_ensemble_repertoire": 8.3845
+        }
+      },
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
+          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
+          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
+          "pipe_organ_action": "pipe_organ_mechanical_tracker"
+        },
+        "scores": {
+          "keyboard_technique": 2.545,
+          "pipe_organ_class": 1.69,
+          "pipe_organ_context": 8.969999999999999,
+          "pipe_organ_voicing_school": 7.02,
+          "pipe_organ_pipe_alloy": 3.3799999999999994,
+          "pipe_organ_temperament": 11.7,
+          "pipe_organ_action": 5.069999999999999
+        }
+      },
+      {
+        "id": "lute_renaissance",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "lute_courses": "lute_7_courses",
+          "lute_renaissance_context": "lute_renaissance_song",
+          "lute_renaissance_ribs": "lute_yew_ribs",
+          "lute_renaissance_soundboard": "lute_alpine_spruce",
+          "lute_renaissance_strings": "lute_pistoy_bass_gut"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.5315,
+          "lute_courses": 7.605499999999999,
+          "lute_renaissance_context": 11.830000000000002,
+          "lute_renaissance_ribs": 4.8805,
+          "lute_renaissance_soundboard": 4.8805,
+          "lute_renaissance_strings": 3.3149999999999995
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "meantone",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "id": "irish_rebel_song",
+  "name": "Irish rebel song",
+  "family": "global",
+  "lineage": "Irish rebel-song tradition continuous from 18th-century 1798-United-Irishmen rebellion songs (\"The Wearing of the Green\" \"Bold Robert Emmet\") through 19th-century Young Ireland and Fenian songbook through 1916 Easter Rising era through Northern-Irish Troubles 1968-1998 era continuous into modern Irish-traditional-music repertoire",
+  "recipe": "classic late-1790s irish rebel song, protest Song, European branch, anglo American protest song, Celtic balladic ballad poetry, Celtic traditional improv on frame newfoundland outport balladry child ballad revival. thick, incomplete closure resting, melodic, continuous-phonation. dadgad tuning fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base fiddle, African blackwood boxwood premium pre modern melodic tin whistle. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 581,
+  "score": 206.79,
+  "config": {
+    "traditions": [
+      "irish_rebel_song",
+      "newfoundland_outport",
+      "child_ballad_revival"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 2.295,
+          "voice_quality": 3.575,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.1249999999999996,
+          "voice_microtone": 1.7000000000000002,
+          "voice_tradition": 8.319999999999999,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.39,
+          "voice_speech_song": 10.985,
+          "voice_ensemble_config": 5.459999999999999,
+          "voice_ornament_system": 7.3500000000000005,
+          "voice_pitch_organization": 3.1249999999999996,
+          "voice_processing_chain": 0.44999999999999996,
+          "voice_multitrack_stack": 1.0399999999999991
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "dadgad",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 4.185,
+          "string_tuning": 6.3999999999999995,
+          "top_wood": 0.745,
+          "back_sides": 0.745,
+          "string_acoustic": 0.39,
+          "acoustic_om_technique": 4.185
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 3.4949999999999997,
+          "fiddle_strings": 1.69,
+          "fiddle_bow": 3.88,
+          "fiddle_mute": 0.7,
+          "fiddle_articulation": 0.39
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "d_whistle",
+          "whistle_ornament": "cut_ornament",
+          "whistle_body_material": "whistle_wood_premium"
+        },
+        "scores": {
+          "wind_articulation": 4.834999999999999,
+          "whistle_key": 13.899999999999997,
+          "whistle_ornament": 2.36,
+          "whistle_body_material": 2.015
+        }
+      }
+    ],
+    "room": "irish_pub",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

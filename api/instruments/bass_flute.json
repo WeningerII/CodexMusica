@@ -1,0 +1,279 @@
+{
+  "id": "bass_flute",
+  "name": "Bass flute (in C, octave below concert)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "bass flute",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "bass_flute_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "bass_flute_c",
+          "default": true,
+          "name": "C bass (canonical)",
+          "descriptors": [
+            "standard",
+            "octave-below-concert",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bass_flute_contra_g",
+          "name": "Contrabass G",
+          "descriptors": [
+            "rare",
+            "extra-deep",
+            "specialty"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_flute_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "bass_flute_orch",
+          "name": "Orchestral",
+          "descriptors": [
+            "scored-rare",
+            "specialty",
+            "foundational-bass"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bass_flute_flute_choir",
+          "name": "Flute choir",
+          "descriptors": [
+            "bass",
+            "blending",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bass_flute_jazz",
+          "default": true,
+          "name": "Jazz / world-fusion",
+          "descriptors": [
+            "atmospheric",
+            "soloistic",
+            "modern"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bass_flute_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "bass_flute_c",
+          "default": true,
+          "name": "C bass (canonical)",
+          "descriptors": [
+            "standard",
+            "octave-below-concert",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bass_flute_contra_g",
+          "name": "Contrabass G",
+          "descriptors": [
+            "rare",
+            "extra-deep",
+            "specialty"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_flute_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "bass_flute_orch",
+          "name": "Orchestral",
+          "descriptors": [
+            "scored-rare",
+            "specialty",
+            "foundational-bass"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "bass_flute_flute_choir",
+          "name": "Flute choir",
+          "descriptors": [
+            "bass",
+            "blending",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bass_flute_jazz",
+          "default": true,
+          "name": "Jazz / world-fusion",
+          "descriptors": [
+            "atmospheric",
+            "soloistic",
+            "modern"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

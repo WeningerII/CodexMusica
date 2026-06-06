@@ -1,0 +1,109 @@
+{
+  "id": "hi_nrg",
+  "name": "Hi-NRG",
+  "family": "global",
+  "lineage": "Late-1970s through 1980s gay-club-derived electronic dance music characterized by 130+ bpm tempo, electronic-disco production (sequenced bass, mechanical hi-hat patterns), and intense emotionally-direct pop-vocal lead — codified through Patrick Cowley (Megatron Man 1981, the Sylvester collaborations), Bobby O, Lime, Hazell Dean, Divine (the 1980s Bobby O recordings), with the form serving as a precursor to acid-house and techno",
+  "recipe": "classic 1977-1979 hi-nrg, electronic Dance, eurodance branch, pop rock functional song new wave synthpop. thick, chest mix belt, pure, equal tempered. roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, singing lead digital subtractive, TR-909. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 382,
+  "score": 305.87,
+  "config": {
+    "traditions": [
+      "hi_nrg",
+      "new_wave",
+      "synthpop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 7.825000000000002,
+          "voice_quality": 7.285,
+          "voice_vibrato": 1.27,
+          "voice_articulation": 0.45,
+          "voice_microtone": 6.550000000000001,
+          "voice_tradition": 7.215,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 7.344999999999998,
+          "voice_ensemble_config": 6.369999999999998,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 0.54,
+          "voice_processing_chain": 19.355,
+          "voice_multitrack_stack": 9.555
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 6.91,
+          "poly_archetypes": 0.9099999999999999,
+          "poly_voices": 0.51,
+          "poly_maker_lineage": 1.625
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 6.91,
+          "va_archetypes": 0.39,
+          "digital_subtractive_context": 7.799999999999997
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 2.545,
+          "drum_machine_909_context": 1.9000000000000001,
+          "tr909_production_origin": 0.375
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "disco_overdub_orchestration",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

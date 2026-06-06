@@ -1,0 +1,1939 @@
+{
+  "id": "violin_orchestral",
+  "name": "Orchestral violin / viola / cello",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "orchestral bowed string",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_pizzicato",
+          "name": "Pizzicato (plucked)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "plucked",
+            "pizzicato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "bowed_spiccato_articulated",
+          "name": "Spiccato (bouncing)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "spiccato",
+            "articulated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "staccato"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_sul_ponticello",
+          "name": "Sul ponticello (near bridge)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "glassy",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "avant"
+          ]
+        },
+        {
+          "id": "bowed_sul_tasto",
+          "name": "Sul tasto (over fingerboard)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "airy",
+            "distant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_chopped_old_time",
+          "name": "Chopped / old-time",
+          "applies_to": [
+            "fiddle",
+            "violin_orchestral"
+          ],
+          "descriptors": [
+            "chopped",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "old-time",
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "bowed_bluegrass_double_stops",
+          "name": "Bluegrass / fiddle-tradition double-stops",
+          "applies_to": [
+            "fiddle",
+            "violin_orchestral"
+          ],
+          "descriptors": [
+            "double-stops"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "bluegrass",
+            "fiddle",
+            "old-time",
+            "country",
+            "western-swing"
+          ]
+        },
+        {
+          "id": "bowed_klezmer_ornamented",
+          "name": "Klezmer ornament-heavy",
+          "applies_to": [
+            "fiddle",
+            "violin_orchestral",
+            "viola_classical",
+            "violin_carnatic"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ornament-heavy"
+          ],
+          "canonical_tags": [
+            "klezmer",
+            "eastern-european"
+          ]
+        },
+        {
+          "id": "bowed_celtic_session",
+          "name": "Celtic session-fiddle",
+          "applies_to": [
+            "fiddle",
+            "violin_orchestral"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "orch_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "gut_strings_orch",
+          "name": "Gut",
+          "descriptors": [
+            "overtone-rich",
+            "gut"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_violin",
+          "name": "Plain sheep gut (unsplit, twisted)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_violin",
+          "name": "Plain lamb gut (Aquila HU, whole-lamb method)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "short-sustain",
+            "organic"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_beef_gut_violin",
+          "name": "Plain beef gut (Aquila HV, varnished)",
+          "descriptors": [
+            "plain-gut",
+            "beef-gut",
+            "varnished",
+            "standardized",
+            "dimensionally-stable"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "rectified_gut_violin",
+          "name": "Rectified gut (machine-polished)",
+          "descriptors": [
+            "rectified",
+            "cylindrically-true",
+            "machine-polished",
+            "dimensionally-accurate"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "half_rectified_gut_violin",
+          "name": "Half-rectified gut (Aquila HU semi-polished)",
+          "descriptors": [
+            "half-rectified",
+            "partial-polish",
+            "fiber-preserved",
+            "climate-stable"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "silver_wound_lamb_gut_violin",
+          "name": "Silver-wound on lamb gut (Aquila FU, Pirastro Eudoxa)",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "late-baroque",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "copper_wound_gut_violin",
+          "name": "Copper-wound on gut (Pirastro Gold Label)",
+          "descriptors": [
+            "copper-wound",
+            "dark-warm",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "late-baroque"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "aluminum_wound_gut_violin",
+          "name": "Aluminum-wound on gut (baroque A/D standard)",
+          "descriptors": [
+            "aluminum-wound",
+            "bright-clear",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "synthetic_orch",
+          "default": true,
+          "name": "Synthetic core",
+          "descriptors": [
+            "balanced",
+            "standard",
+            "stable",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "orchestral",
+            "bowed"
+          ]
+        },
+        {
+          "id": "steel_orch",
+          "name": "Steel core",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "soloistic",
+            "steel"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_top_wood",
+      "surface": false,
+      "name": "Top wood (table / belly)",
+      "variants": [
+        {
+          "id": "norway_spruce_alpine_violin",
+          "default": true,
+          "name": "Norway spruce / European alpine (Picea abies)",
+          "descriptors": [
+            "norway-spruce",
+            "european-alpine",
+            "low-altitude-growth",
+            "quartersawn",
+            "fine-grain"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "italian_alpine_spruce_violin",
+          "name": "Italian alpine spruce (Val di Fiemme)",
+          "descriptors": [
+            "italian-alpine-spruce",
+            "val-di-fiemme",
+            "low-altitude-growth",
+            "quartersawn"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "sitka_spruce_violin_top",
+          "name": "Sitka spruce (Picea sitchensis)",
+          "descriptors": [
+            "sitka-spruce",
+            "quartersawn",
+            "high-stiffness-to-weight"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "engelmann_spruce_violin",
+          "name": "Engelmann spruce (Picea engelmannii)",
+          "descriptors": [
+            "engelmann-spruce",
+            "softer-grain"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "carpathian_spruce_violin",
+          "name": "Carpathian spruce",
+          "descriptors": [
+            "carpathian-spruce",
+            "eastern-european-source",
+            "fine-grain"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_back_wood",
+      "surface": false,
+      "name": "Back / rib / neck wood",
+      "variants": [
+        {
+          "id": "bosnian_flamed_maple_violin",
+          "default": true,
+          "name": "Bosnian/Yugoslavian flamed European maple",
+          "descriptors": [
+            "european-maple",
+            "acer-pseudoplatanus",
+            "bosnian-source",
+            "flamed-figure"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "european_maple_general_violin",
+          "name": "European maple (general source)",
+          "descriptors": [
+            "european-maple",
+            "sycamore-maple",
+            "standard-flamed"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "hard_rock_maple_violin_back",
+          "name": "Hard rock maple (Acer saccharum)",
+          "descriptors": [
+            "hard-rock-maple",
+            "acer-saccharum",
+            "denser-than-european"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "bigleaf_western_maple_violin",
+          "name": "Bigleaf / Western maple",
+          "descriptors": [
+            "bigleaf-maple",
+            "western-maple",
+            "softer-figured"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_varnish",
+      "surface": false,
+      "name": "Varnish system",
+      "variants": [
+        {
+          "id": "cremonese_pre_1750_varnish_violin",
+          "name": "Cremonese pre-1750 four-layer ground+varnish",
+          "descriptors": [
+            "cremonese-pre-1750",
+            "ground-impregnation",
+            "pickling-pore-filling",
+            "oil-base-coat",
+            "lake-color-coat",
+            "mineral-pigment-lake",
+            "salmon-uv-fluorescence",
+            "four-layer-system"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "cremonese_post_1740_varnish_violin",
+          "name": "Cremonese post-1740 (degraded recipe)",
+          "descriptors": [
+            "cremonese-post-1740",
+            "transitional",
+            "softer-varnish"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "oil_amber_varnish_violin",
+          "default": true,
+          "name": "Oil-based amber varnish",
+          "descriptors": [
+            "oil-varnish",
+            "amber-tinted",
+            "larch-turpentine",
+            "linseed-base"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "spirit_varnish_violin",
+          "name": "Spirit varnish (shellac + alcohol)",
+          "descriptors": [
+            "spirit-varnish",
+            "shellac-alcohol",
+            "thinner-coat"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "french_polish_violin",
+          "name": "French polish (shellac pad-applied)",
+          "descriptors": [
+            "french-polish",
+            "shellac-pad",
+            "pumice",
+            "high-gloss"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "modern_synthetic_varnish_violin",
+          "name": "Modern synthetic (polyurethane/acrylic)",
+          "descriptors": [
+            "synthetic-varnish",
+            "polyurethane",
+            "mass-production"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_setup_period",
+      "surface": false,
+      "name": "Setup period (baroque vs modern)",
+      "variants": [
+        {
+          "id": "modern_setup_violin",
+          "default": true,
+          "name": "Modern (post-1850): longer neck, heavier bass-bar",
+          "descriptors": [
+            "modern-setup",
+            "longer-neck",
+            "longer-fingerboard",
+            "heavier-bass-bar",
+            "chinrest-fitted"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "baroque_setup_violin",
+          "name": "Baroque (pre-1850): short neck, light bass-bar, short fingerboard",
+          "descriptors": [
+            "baroque-setup",
+            "short-neck",
+            "shorter-fingerboard",
+            "lighter-bass-bar",
+            "no-chinrest",
+            "lower-tension"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_bow",
+      "name": "Bow tradition",
+      "variants": [
+        {
+          "id": "baroque_bow",
+          "name": "Baroque (convex)",
+          "descriptors": [
+            "articulate",
+            "period",
+            "dance-like"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "modern_bow",
+          "default": true,
+          "name": "Modern (concave)",
+          "descriptors": [
+            "sustaining",
+            "expressive",
+            "romantic"
+          ],
+          "match_tokens": [
+            "modern",
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_bow_stick",
+      "surface": false,
+      "name": "Bow stick wood / material",
+      "variants": [
+        {
+          "id": "pernambuco_stick_orch",
+          "default": true,
+          "name": "Pernambuco (Paubrasilia echinata, traditional canon)",
+          "descriptors": [
+            "pernambuco",
+            "paubrasilia-echinata",
+            "tournée-friendly",
+            "classical-canon"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "snakewood_stick_orch",
+          "name": "Snakewood (Brosimum guianense, baroque-era canon)",
+          "descriptors": [
+            "snakewood",
+            "brosimum-guianense",
+            "dense-dark",
+            "pre-1800-canon"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "brazilwood_stick_orch",
+          "name": "Brazilwood (student / intermediate)",
+          "descriptors": [
+            "brazilwood",
+            "student-tier",
+            "commercial"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "carbon_fiber_stick_orch",
+          "name": "Carbon-fiber composite (modern alternative)",
+          "descriptors": [
+            "carbon-fiber",
+            "composite",
+            "humidity-stable",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ipe_stick_orch",
+          "name": "Ipê / Brazilian walnut (post-CITES alternative)",
+          "descriptors": [
+            "ipe",
+            "brazilian-walnut",
+            "pernambuco-alternative",
+            "modern-cites-friendly"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_articulation",
+      "surface": false,
+      "name": "Articulation",
+      "variants": [
+        {
+          "id": "arco_orch",
+          "default": true,
+          "name": "Arco",
+          "descriptors": [
+            "sustaining",
+            "melodic",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pizz_orch",
+          "name": "Pizzicato",
+          "descriptors": [
+            "plucky",
+            "percussive",
+            "dry"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "tremolo_orch",
+          "name": "Tremolo (rapid bow)",
+          "descriptors": [
+            "shimmering",
+            "urgent",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "rapid-tremolo",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "sul_pont_orch",
+          "name": "Sul ponticello",
+          "descriptors": [
+            "glassy",
+            "overtone-driven"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_rosin",
+      "surface": false,
+      "name": "Rosin",
+      "variants": [
+        {
+          "id": "pirastro_gold_rosin_orch",
+          "default": true,
+          "name": "Pirastro Gold / Schwarz (modern balanced)",
+          "descriptors": [
+            "modern-rosin",
+            "pirastro",
+            "balanced-grip"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "galeazzi_1791_baroque_rosin_orch",
+          "name": "Galeazzi 1791 Italian-recipe (Aquila baroque reconstruction)",
+          "descriptors": [
+            "galeazzi-1791",
+            "baroque-recipe",
+            "period-rosin",
+            "italian-recipe"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "bernardel_rosin_orch",
+          "name": "Bernardel (French traditional)",
+          "descriptors": [
+            "bernardel",
+            "french-traditional",
+            "medium-grip"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "liebenzeller_metal_rosin_orch",
+          "name": "Liebenzeller (metal-infused gold/silver/copper)",
+          "descriptors": [
+            "liebenzeller",
+            "metal-infused",
+            "specialty-grip"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "magic_rosin_orch",
+          "name": "Magic Rosin (modern acrylic-base, art-printed)",
+          "descriptors": [
+            "magic-rosin",
+            "modern-acrylic-base",
+            "art-printed"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "orch_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "gut_strings_orch",
+          "name": "Gut",
+          "descriptors": [
+            "overtone-rich",
+            "gut"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_violin",
+          "name": "Plain sheep gut (unsplit, twisted)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_violin",
+          "name": "Plain lamb gut (Aquila HU, whole-lamb method)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "short-sustain",
+            "organic"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_beef_gut_violin",
+          "name": "Plain beef gut (Aquila HV, varnished)",
+          "descriptors": [
+            "plain-gut",
+            "beef-gut",
+            "varnished",
+            "standardized",
+            "dimensionally-stable"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "rectified_gut_violin",
+          "name": "Rectified gut (machine-polished)",
+          "descriptors": [
+            "rectified",
+            "cylindrically-true",
+            "machine-polished",
+            "dimensionally-accurate"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "half_rectified_gut_violin",
+          "name": "Half-rectified gut (Aquila HU semi-polished)",
+          "descriptors": [
+            "half-rectified",
+            "partial-polish",
+            "fiber-preserved",
+            "climate-stable"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "silver_wound_lamb_gut_violin",
+          "name": "Silver-wound on lamb gut (Aquila FU, Pirastro Eudoxa)",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "late-baroque",
+            "modern-gut-revival"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "copper_wound_gut_violin",
+          "name": "Copper-wound on gut (Pirastro Gold Label)",
+          "descriptors": [
+            "copper-wound",
+            "dark-warm",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "late-baroque"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "aluminum_wound_gut_violin",
+          "name": "Aluminum-wound on gut (baroque A/D standard)",
+          "descriptors": [
+            "aluminum-wound",
+            "bright-clear",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "synthetic_orch",
+          "default": true,
+          "name": "Synthetic core",
+          "descriptors": [
+            "balanced",
+            "standard",
+            "stable",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "orchestral",
+            "bowed"
+          ]
+        },
+        {
+          "id": "steel_orch",
+          "name": "Steel core",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "soloistic",
+            "steel"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_top_wood",
+      "surface": false,
+      "name": "Top wood (table / belly)",
+      "variants": [
+        {
+          "id": "norway_spruce_alpine_violin",
+          "default": true,
+          "name": "Norway spruce / European alpine (Picea abies)",
+          "descriptors": [
+            "norway-spruce",
+            "european-alpine",
+            "low-altitude-growth",
+            "quartersawn",
+            "fine-grain"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "italian_alpine_spruce_violin",
+          "name": "Italian alpine spruce (Val di Fiemme)",
+          "descriptors": [
+            "italian-alpine-spruce",
+            "val-di-fiemme",
+            "low-altitude-growth",
+            "quartersawn"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "sitka_spruce_violin_top",
+          "name": "Sitka spruce (Picea sitchensis)",
+          "descriptors": [
+            "sitka-spruce",
+            "quartersawn",
+            "high-stiffness-to-weight"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "engelmann_spruce_violin",
+          "name": "Engelmann spruce (Picea engelmannii)",
+          "descriptors": [
+            "engelmann-spruce",
+            "softer-grain"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "carpathian_spruce_violin",
+          "name": "Carpathian spruce",
+          "descriptors": [
+            "carpathian-spruce",
+            "eastern-european-source",
+            "fine-grain"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_back_wood",
+      "surface": false,
+      "name": "Back / rib / neck wood",
+      "variants": [
+        {
+          "id": "bosnian_flamed_maple_violin",
+          "default": true,
+          "name": "Bosnian/Yugoslavian flamed European maple",
+          "descriptors": [
+            "european-maple",
+            "acer-pseudoplatanus",
+            "bosnian-source",
+            "flamed-figure"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "european_maple_general_violin",
+          "name": "European maple (general source)",
+          "descriptors": [
+            "european-maple",
+            "sycamore-maple",
+            "standard-flamed"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "hard_rock_maple_violin_back",
+          "name": "Hard rock maple (Acer saccharum)",
+          "descriptors": [
+            "hard-rock-maple",
+            "acer-saccharum",
+            "denser-than-european"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "bigleaf_western_maple_violin",
+          "name": "Bigleaf / Western maple",
+          "descriptors": [
+            "bigleaf-maple",
+            "western-maple",
+            "softer-figured"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_varnish",
+      "surface": false,
+      "name": "Varnish system",
+      "variants": [
+        {
+          "id": "cremonese_pre_1750_varnish_violin",
+          "name": "Cremonese pre-1750 four-layer ground+varnish",
+          "descriptors": [
+            "cremonese-pre-1750",
+            "ground-impregnation",
+            "pickling-pore-filling",
+            "oil-base-coat",
+            "lake-color-coat",
+            "mineral-pigment-lake",
+            "salmon-uv-fluorescence",
+            "four-layer-system"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "cremonese_post_1740_varnish_violin",
+          "name": "Cremonese post-1740 (degraded recipe)",
+          "descriptors": [
+            "cremonese-post-1740",
+            "transitional",
+            "softer-varnish"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque"
+          ]
+        },
+        {
+          "id": "oil_amber_varnish_violin",
+          "default": true,
+          "name": "Oil-based amber varnish",
+          "descriptors": [
+            "oil-varnish",
+            "amber-tinted",
+            "larch-turpentine",
+            "linseed-base"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "spirit_varnish_violin",
+          "name": "Spirit varnish (shellac + alcohol)",
+          "descriptors": [
+            "spirit-varnish",
+            "shellac-alcohol",
+            "thinner-coat"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "french_polish_violin",
+          "name": "French polish (shellac pad-applied)",
+          "descriptors": [
+            "french-polish",
+            "shellac-pad",
+            "pumice",
+            "high-gloss"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "modern_synthetic_varnish_violin",
+          "name": "Modern synthetic (polyurethane/acrylic)",
+          "descriptors": [
+            "synthetic-varnish",
+            "polyurethane",
+            "mass-production"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_setup_period",
+      "surface": false,
+      "name": "Setup period (baroque vs modern)",
+      "variants": [
+        {
+          "id": "modern_setup_violin",
+          "default": true,
+          "name": "Modern (post-1850): longer neck, heavier bass-bar",
+          "descriptors": [
+            "modern-setup",
+            "longer-neck",
+            "longer-fingerboard",
+            "heavier-bass-bar",
+            "chinrest-fitted"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "baroque_setup_violin",
+          "name": "Baroque (pre-1850): short neck, light bass-bar, short fingerboard",
+          "descriptors": [
+            "baroque-setup",
+            "short-neck",
+            "shorter-fingerboard",
+            "lighter-bass-bar",
+            "no-chinrest",
+            "lower-tension"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_bow",
+      "name": "Bow tradition",
+      "variants": [
+        {
+          "id": "baroque_bow",
+          "name": "Baroque (convex)",
+          "descriptors": [
+            "articulate",
+            "period",
+            "dance-like"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "modern_bow",
+          "default": true,
+          "name": "Modern (concave)",
+          "descriptors": [
+            "sustaining",
+            "expressive",
+            "romantic"
+          ],
+          "match_tokens": [
+            "modern",
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_bow_stick",
+      "surface": false,
+      "name": "Bow stick wood / material",
+      "variants": [
+        {
+          "id": "pernambuco_stick_orch",
+          "default": true,
+          "name": "Pernambuco (Paubrasilia echinata, traditional canon)",
+          "descriptors": [
+            "pernambuco",
+            "paubrasilia-echinata",
+            "tournée-friendly",
+            "classical-canon"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "snakewood_stick_orch",
+          "name": "Snakewood (Brosimum guianense, baroque-era canon)",
+          "descriptors": [
+            "snakewood",
+            "brosimum-guianense",
+            "dense-dark",
+            "pre-1800-canon"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "brazilwood_stick_orch",
+          "name": "Brazilwood (student / intermediate)",
+          "descriptors": [
+            "brazilwood",
+            "student-tier",
+            "commercial"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "carbon_fiber_stick_orch",
+          "name": "Carbon-fiber composite (modern alternative)",
+          "descriptors": [
+            "carbon-fiber",
+            "composite",
+            "humidity-stable",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "ipe_stick_orch",
+          "name": "Ipê / Brazilian walnut (post-CITES alternative)",
+          "descriptors": [
+            "ipe",
+            "brazilian-walnut",
+            "pernambuco-alternative",
+            "modern-cites-friendly"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_articulation",
+      "surface": false,
+      "name": "Articulation",
+      "variants": [
+        {
+          "id": "arco_orch",
+          "default": true,
+          "name": "Arco",
+          "descriptors": [
+            "sustaining",
+            "melodic",
+            "full"
+          ],
+          "match_tokens": [
+            "bowed",
+            "orchestral",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pizz_orch",
+          "name": "Pizzicato",
+          "descriptors": [
+            "plucky",
+            "percussive",
+            "dry"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "tremolo_orch",
+          "name": "Tremolo (rapid bow)",
+          "descriptors": [
+            "shimmering",
+            "urgent",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "rapid-tremolo",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "sul_pont_orch",
+          "name": "Sul ponticello",
+          "descriptors": [
+            "glassy",
+            "overtone-driven"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orch_rosin",
+      "surface": false,
+      "name": "Rosin",
+      "variants": [
+        {
+          "id": "pirastro_gold_rosin_orch",
+          "default": true,
+          "name": "Pirastro Gold / Schwarz (modern balanced)",
+          "descriptors": [
+            "modern-rosin",
+            "pirastro",
+            "balanced-grip"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "galeazzi_1791_baroque_rosin_orch",
+          "name": "Galeazzi 1791 Italian-recipe (Aquila baroque reconstruction)",
+          "descriptors": [
+            "galeazzi-1791",
+            "baroque-recipe",
+            "period-rosin",
+            "italian-recipe"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "period-performance",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "bernardel_rosin_orch",
+          "name": "Bernardel (French traditional)",
+          "descriptors": [
+            "bernardel",
+            "french-traditional",
+            "medium-grip"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "liebenzeller_metal_rosin_orch",
+          "name": "Liebenzeller (metal-infused gold/silver/copper)",
+          "descriptors": [
+            "liebenzeller",
+            "metal-infused",
+            "specialty-grip"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "magic_rosin_orch",
+          "name": "Magic Rosin (modern acrylic-base, art-printed)",
+          "descriptors": [
+            "magic-rosin",
+            "modern-acrylic-base",
+            "art-printed"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

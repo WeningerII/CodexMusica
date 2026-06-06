@@ -1,0 +1,180 @@
+{
+  "id": "morna",
+  "name": "Morna",
+  "family": "global",
+  "lineage": "Cape Verdean Lusophone-archipelago melancholic ballad tradition — codified through the late-19th-century Brava and São Vicente island repertoire and through Cesária Évora’s international career from the 1990s onward (Miss Perfumado 1992), characterized by Crioulo-language poetic-confessional lyrics on themes of saudade and emigration, accompanied by cavaquinho, violão, violin, and clarinet ensemble in slow 2/4 meter",
+  "recipe": "classic North American mid-1990s morna, ballad Poetry, morna branch, chanson fado fado lisboa, iberian functional song, vocal drone modal galician kantautor and folk-pop. thick, lament wail, chest resonance low mid, unrestrained. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, extended range reentrant tuning steel cape verdean cavaquinho, modern setup longer neck longer fingerboard heavier bass bar pernambuco violin orchestral, grenadilla African blackwood traditional clarinet, accordion, treble-extended sustaining steel upright bass. intimate paris small studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 746,
+  "score": 222.602,
+  "config": {
+    "traditions": [
+      "morna",
+      "fado",
+      "galician_kantautor"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 11.909999999999998,
+          "voice_vibrato": 1.1174999999999997,
+          "voice_articulation": 0.75,
+          "voice_microtone": 0.3,
+          "voice_tradition": 8.254999999999999,
+          "voice_mechanism_compound": 2.0799999999999996,
+          "voice_estill_quality": 1.3,
+          "voice_speech_song": 13.845,
+          "voice_ensemble_config": 13.65,
+          "voice_ornament_system": 2.2099999999999995,
+          "voice_pitch_organization": 2.925000000000001,
+          "voice_processing_chain": 6.338749999999999,
+          "voice_multitrack_stack": 2.08
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 5.74,
+          "string_tuning": 0,
+          "top_wood_classical": 3.25,
+          "bracing_classical": 1.2674999999999998,
+          "string_classical": 1.3649999999999998,
+          "attack_technique_cl": 0.975
+        }
+      },
+      {
+        "id": "cape_verdean_cavaquinho",
+        "slots": {
+          "cv_cavaquinho_construction": "cv_cavaquinho_modern",
+          "cv_cavaquinho_strings": "cv_cavaquinho_steel_reentrant",
+          "cv_cavaquinho_wood": "cv_cavaquinho_mahogany",
+          "cv_cavaquinho_technique": "cv_cavaquinho_strummed_arpeggio"
+        },
+        "scores": {
+          "cv_cavaquinho_construction": 1.17,
+          "cv_cavaquinho_strings": 1.55625,
+          "cv_cavaquinho_wood": 0.7275,
+          "cv_cavaquinho_technique": 3.5912499999999996
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_sul_tasto",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.80625,
+          "orch_strings": 0.78,
+          "orch_top_wood": 0.975,
+          "orch_back_wood": 0.9099999999999999,
+          "orch_varnish": 0.7,
+          "orch_setup_period": 1.6899999999999997,
+          "orch_bow": 0.39,
+          "orch_bow_stick": 1.6249999999999998,
+          "orch_articulation": 0.74625,
+          "orch_rosin": 0.975
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.7899999999999999,
+          "clarinet_body": 1.95,
+          "clarinet_size": 0.39,
+          "clarinet_reed": 0.3,
+          "clarinet_articulation": 0.38999999999999996
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 2.3949999999999996,
+          "accordion_reed_material": 0.78,
+          "musette_offset": 0.75,
+          "reed_config": 0.21,
+          "bellows": 0.225,
+          "voicing_chamber": 0.27749999999999997,
+          "accordion_maker_school": 0.885
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "steel_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "acoustic_technique": 0.5499999999999999,
+          "upright_strings": 1.2224999999999997,
+          "upright_play": 0.39
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

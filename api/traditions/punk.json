@@ -1,0 +1,153 @@
+{
+  "id": "punk",
+  "name": "Punk",
+  "family": "rock_punk",
+  "lineage": "Mid-1970s underground rock movement reasserting amateur three-chord rock against progressive-rock complexity, with simplified song-form, aggressive vocal delivery, and anti-establishment thematic content — codified through the New York scene (Ramones, Television, Patti Smith, the Voidoids) and the UK scene (Sex Pistols Never Mind the Bollocks 1977, The Clash 1977, Buzzcocks, The Damned), spreading worldwide through the late-1970s as a distinct underground commercial-and-DIY scene",
+  "recipe": "classic North American 1974-1976 punk, distorted Rock, punk branch, classic distorted rock garage rock hard rock. thick, blues-shouter, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb boss DS-1.",
+  "recipe_chars": 619,
+  "score": 556.271,
+  "config": {
+    "traditions": [
+      "punk",
+      "garage_rock",
+      "hard_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 19.547249999999995,
+          "voice_quality": 1.1049999999999998,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 0.03599999999999999,
+          "voice_microtone": 19.549999999999997,
+          "voice_tradition": 2.7950000000000004,
+          "voice_mechanism_compound": 3.7050000000000005,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 10.984999999999996,
+          "voice_ensemble_config": 10.370375,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 2.2350000000000003,
+          "voice_processing_chain": 7.67,
+          "voice_multitrack_stack": 6.65625
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 7.699999999999999,
+          "amp_make": 20.019999999999996,
+          "body_wood": 1.3,
+          "neck_wood": 1.3,
+          "fretboard": 1.2349999999999999,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 1.3,
+          "bridge": 0,
+          "scale_length": 1.3,
+          "finish": 0.46499999999999997,
+          "string_tuning": 11.18
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 8.146249999999998,
+          "amp_make": 10.464999999999998,
+          "body_wood": 1.3,
+          "pickup_config": 0,
+          "string_type": 23.725,
+          "scale_length_b": 1.3,
+          "fretted_or_not": 0.03599999999999999,
+          "bass_technique": 26.446249999999996
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "double_coated",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 9.229999999999997,
+          "shell_wood": 0.40625,
+          "shell_thickness": 0,
+          "bearing_edges": 1.3,
+          "drumhead": 1.5437499999999997,
+          "snare_wires": 1.3,
+          "cymbal_alloy": 26.088749999999997,
+          "cymbal_hammering": 19.8625,
+          "cymbal_lathing": 19.79375,
+          "cymbal_finish": 0.195,
+          "drum_technique": 18.34375
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_british_high_gain",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_boss_ds1"
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "id": "neoclassicism_interwar",
+  "name": "Neoclassicism (interwar tonal-return movement)",
+  "family": "classical",
+  "lineage": "Interwar compositional movement (c.1920-1950) characterized by return to clear textures, balanced forms, and reference to pre-Romantic models (Bach, Haydn, Stravinsky himself looking back to his Russian-folk past), combined with extended chromatic and rhythmic vocabulary. Stravinsky's Pulcinella (1920), Octet (1923), and Symphony of Psalms (1930) are the canonical type-specimens. Distinguished from Romantic by neoclassicism's anti-emotional-excess aesthetic and from Second Viennese serialism by retention of tonal-modal centers.",
+  "recipe": "classic North American early-1920s neoclassicism, art Music, western modern branch, western common practice art music the mighty handful early romantic. thick, rap, chest resonance low mid, narrative. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 527,
+  "score": 277.257,
+  "config": {
+    "traditions": [
+      "neoclassicism_interwar",
+      "russian_five",
+      "early_romantic_19c"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 6.6000000000000005,
+          "voice_quality": 1.2,
+          "voice_vibrato": 1.495,
+          "voice_articulation": 1.3,
+          "voice_microtone": 7.475000000000001,
+          "voice_tradition": 6.11,
+          "voice_mechanism_compound": 3.3375000000000004,
+          "voice_estill_quality": 7.0375,
+          "voice_speech_song": 8.709999999999999,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 3.745,
+          "voice_pitch_organization": 2.5900000000000007,
+          "voice_processing_chain": 5.069999999999999,
+          "voice_multitrack_stack": 1.3900000000000001
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 0.9099999999999999,
+          "grand_piano_brand": 5.069999999999999,
+          "piano_hammer": 8.125,
+          "piano_rim": 8.095,
+          "piano_soundboard": 6.25,
+          "piano_pinblock": 6.4,
+          "piano_plate": 6.34,
+          "piano_pitch_standard": 7.692500000000001
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "orch_strings": 2.6,
+          "orch_top_wood": 8.2975,
+          "orch_back_wood": 7.735,
+          "orch_varnish": 6.25,
+          "orch_setup_period": 5.4875,
+          "orch_bow": 3.3799999999999994,
+          "orch_bow_stick": 8.06,
+          "orch_articulation": 0.9099999999999999,
+          "orch_rosin": 6.9375
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

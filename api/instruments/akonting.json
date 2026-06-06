@@ -1,0 +1,308 @@
+{
+  "id": "akonting",
+  "name": "Akonting (Senegambian banjo ancestor)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "akonting",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_call_and_response",
+          "name": "Call-and-response",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "akonting",
+            "banjo_5_string",
+            "sintir",
+            "xalam"
+          ],
+          "descriptors": [
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "call-response",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "griot",
+            "west-african"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "akonting_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "gourd_neck_akonting",
+          "default": true,
+          "name": "Gourd body, long stick neck",
+          "descriptors": [
+            "archaic",
+            "folk",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "akonting_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "akonting_clawhammer",
+          "default": true,
+          "name": "Down-stroke / clawhammer (Senegambian ancestor of banjo clawhammer)",
+          "descriptors": [
+            "archaic",
+            "percussive",
+            "pre-banjo-clawhammer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "akonting_top_skin",
+      "surface": false,
+      "name": "Top skin",
+      "variants": [
+        {
+          "id": "akonting_goat_skin",
+          "default": true,
+          "name": "Goat-skin (canonical Jola)",
+          "descriptors": [
+            "goat-skin",
+            "canonical-jola"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "akonting_cowhide",
+          "name": "Cowhide (regional alternative)",
+          "descriptors": [
+            "cowhide-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "akonting_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "akonting_nylon_fishing_line",
+          "default": true,
+          "name": "Nylon fishing line (modern Jola canonical)",
+          "descriptors": [
+            "nylon-fishing-line",
+            "modern-jola"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "akonting_gut_historical",
+          "name": "Gut (pre-1950s historical)",
+          "descriptors": [
+            "gut-pre-1950s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_fingerpicked"
+    },
+    {
+      "id": "akonting_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "gourd_neck_akonting",
+          "default": true,
+          "name": "Gourd body, long stick neck",
+          "descriptors": [
+            "archaic",
+            "folk",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "akonting_play",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "akonting_clawhammer",
+          "default": true,
+          "name": "Down-stroke / clawhammer (Senegambian ancestor of banjo clawhammer)",
+          "descriptors": [
+            "archaic",
+            "percussive",
+            "pre-banjo-clawhammer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "akonting_top_skin",
+      "surface": false,
+      "name": "Top skin",
+      "variants": [
+        {
+          "id": "akonting_goat_skin",
+          "default": true,
+          "name": "Goat-skin (canonical Jola)",
+          "descriptors": [
+            "goat-skin",
+            "canonical-jola"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "akonting_cowhide",
+          "name": "Cowhide (regional alternative)",
+          "descriptors": [
+            "cowhide-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "akonting_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "akonting_nylon_fishing_line",
+          "default": true,
+          "name": "Nylon fishing line (modern Jola canonical)",
+          "descriptors": [
+            "nylon-fishing-line",
+            "modern-jola"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "akonting_gut_historical",
+          "name": "Gut (pre-1950s historical)",
+          "descriptors": [
+            "gut-pre-1950s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "gaval",
+  "name": "Gaval (Azerbaijani frame-drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gaval",
+  "parts": [
+    {
+      "id": "gaval_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "gaval_wooden_frame_internal_jingles_canonical",
+          "default": true,
+          "name": "Wooden frame with internal jingles, held against chest by singer (canonical)",
+          "descriptors": [
+            "wooden-frame-internal-jingles-canonical-azerbaijani"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "mugham-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaval_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "gaval_khananda_canonical",
+          "default": true,
+          "name": "Khananda singer-held canonical position (Garabagh school)",
+          "descriptors": [
+            "khananda-held-canonical-garabagh-school"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "mugham-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gaval_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "gaval_wooden_frame_internal_jingles_canonical",
+          "default": true,
+          "name": "Wooden frame with internal jingles, held against chest by singer (canonical)",
+          "descriptors": [
+            "wooden-frame-internal-jingles-canonical-azerbaijani"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "mugham-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaval_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "gaval_khananda_canonical",
+          "default": true,
+          "name": "Khananda singer-held canonical position (Garabagh school)",
+          "descriptors": [
+            "khananda-held-canonical-garabagh-school"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "mugham-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

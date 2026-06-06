@@ -1,0 +1,85 @@
+{
+  "id": "bahraini_fjiri",
+  "name": "Bahraini fjiri (pearl-divers' song)",
+  "family": "global",
+  "lineage": "Bahraini fjiri pearl-divers' work-song tradition, performed by the all-male crews of dhow boats conducting the annual ghaws pearl-diving season in the Persian Gulf during the pre-petroleum era (eighteenth-mid-twentieth centuries). Repertoire structured around the diving voyage cycle: departure songs, anchor-hauling songs, noon-prayer-pause songs, diver-hauling songs, homeward-return songs. Architecture features male lead singer (nahham) with chorus response, hand-clapping, tar frame-drum, and jahla clay-jar percussion. The 1930s-1950s closure of natural-pearl industry terminated functional context.",
+  "recipe": "classic mid-1930s bahraini fjiri, ballad Poetry, work song branch, med east poetic ballad poetry pontic greek music cypriot tsiattista. thick, worn fold, chest resonance low mid, narrative. walnut bent frame canonical Iranian tar frame drum. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 393,
+  "score": 101.258,
+  "config": {
+    "traditions": [
+      "bahraini_fjiri",
+      "pontic_greek",
+      "cypriot_tsiattista"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.2950000000000013,
+          "voice_quality": 2.045,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.6899999999999997,
+          "voice_microtone": 1.95,
+          "voice_tradition": 4.095000000000001,
+          "voice_mechanism_compound": 3.1500000000000004,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 6.5649999999999995,
+          "voice_ensemble_config": 2.5364999999999993,
+          "voice_ornament_system": 3.5400000000000005,
+          "voice_pitch_organization": 3.5400000000000005,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 2.2845
+        }
+      },
+      {
+        "id": "tar_frame_drum",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "tar_size": "tar_small",
+          "tar_frame_drum_context": "tar_frame_drum_art",
+          "tar_frame_shell_wood": "tar_frame_walnut",
+          "tar_frame_head": "tar_frame_goat_skin"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "tar_size": 0.495,
+          "tar_frame_drum_context": 0.885,
+          "tar_frame_shell_wood": 1.69,
+          "tar_frame_head": 0.63
+        }
+      }
+    ],
+    "room": "qat_chew_majlis_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

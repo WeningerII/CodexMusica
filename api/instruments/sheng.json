@@ -1,0 +1,288 @@
+{
+  "id": "sheng",
+  "name": "Sheng (Chinese mouth organ)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sheng",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sheng_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "sheng_traditional_17",
+          "default": true,
+          "name": "17-pipe traditional",
+          "descriptors": [
+            "classical",
+            "jiangnan-suited",
+            "traditional"
+          ],
+          "match_tokens": [
+            "folk-tradition",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sheng_modern_36",
+          "name": "36-pipe modern",
+          "descriptors": [
+            "extended",
+            "orchestral",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "modern",
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sheng_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "sheng_orchestra",
+          "name": "Chinese orchestra",
+          "descriptors": [
+            "modern",
+            "middle-voice",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sheng_court",
+          "default": true,
+          "name": "Traditional (court / wind ensemble)",
+          "descriptors": [
+            "historical",
+            "ceremonial",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sheng_virtuoso",
+          "name": "Solo concert / virtuoso",
+          "descriptors": [
+            "twenty-first-century",
+            "composed-tradition",
+            "art-music"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sheng_pipe_material",
+      "surface": false,
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "sheng_bamboo_canonical",
+          "default": true,
+          "name": "Bamboo pipes with copper/brass free-reeds (canonical Chinese)",
+          "descriptors": [
+            "bamboo-pipes-copper-brass-free-reeds-canonical-chinese"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sheng_metal_modern",
+          "name": "Metal pipes (modern orchestral 36-pipe)",
+          "descriptors": [
+            "metal-pipes-modern-orchestral-36-pipe"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sheng_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "sheng_traditional_17",
+          "default": true,
+          "name": "17-pipe traditional",
+          "descriptors": [
+            "classical",
+            "jiangnan-suited",
+            "traditional"
+          ],
+          "match_tokens": [
+            "folk-tradition",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sheng_modern_36",
+          "name": "36-pipe modern",
+          "descriptors": [
+            "extended",
+            "orchestral",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "modern",
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sheng_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "sheng_orchestra",
+          "name": "Chinese orchestra",
+          "descriptors": [
+            "modern",
+            "middle-voice",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sheng_court",
+          "default": true,
+          "name": "Traditional (court / wind ensemble)",
+          "descriptors": [
+            "historical",
+            "ceremonial",
+            "pre-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sheng_virtuoso",
+          "name": "Solo concert / virtuoso",
+          "descriptors": [
+            "twenty-first-century",
+            "composed-tradition",
+            "art-music"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sheng_pipe_material",
+      "surface": false,
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "sheng_bamboo_canonical",
+          "default": true,
+          "name": "Bamboo pipes with copper/brass free-reeds (canonical Chinese)",
+          "descriptors": [
+            "bamboo-pipes-copper-brass-free-reeds-canonical-chinese"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sheng_metal_modern",
+          "name": "Metal pipes (modern orchestral 36-pipe)",
+          "descriptors": [
+            "metal-pipes-modern-orchestral-36-pipe"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

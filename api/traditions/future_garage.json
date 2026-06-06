@@ -1,0 +1,98 @@
+{
+  "id": "future_garage",
+  "name": "Future garage",
+  "family": "electronic",
+  "lineage": "Late-2000s and early-2010s UK electronic subgenre integrating UK garage 2-step rhythmic foundation with deep-bass production, atmospheric pads, and melodic-emotional content. Burial's Untrue (2007) inaugurated the canonical sound; Mount Kimbie, James Blake (early-career), and the broader Hyperdub label roster extended the genre into broader UK-electronic-cultural visibility.",
+  "recipe": "classic British 2007-2009 future garage, bass System, uk soundsystem branch, ambient experimental electric outrun / synthwave vaporwave aesthetic. extended whistle, rap, nervy, punctuated. TR-808, ambient pad like analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 446,
+  "score": 121.997,
+  "config": {
+    "traditions": [
+      "future_garage",
+      "outrun_synthwave",
+      "vapor_aesthetic"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.56,
+          "voice_quality": 1.29,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.3900000000000001,
+          "voice_microtone": 1.0999999999999999,
+          "voice_tradition": 3.965,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 1.695,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 9.475,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 2.84,
+          "drum_machine_808_context": 3.1950000000000003,
+          "tr808_production_origin": 0.15
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 2.785,
+          "oscillator": 2.8899999999999997,
+          "filter_topology": 3.4299999999999997,
+          "envelope": 1.3900000000000001,
+          "modulation": 0.045
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,322 @@
+{
+  "id": "dholak",
+  "name": "Dholak (North Indian double-headed)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dholak",
+  "parts": [
+    {
+      "id": "dholak_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "dholak_wedding",
+          "name": "Wedding / bhajan / qawwali",
+          "descriptors": [
+            "rural",
+            "foundational",
+            "accessible"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "dholak_classical",
+          "default": true,
+          "name": "Semi-classical / thumri accompaniment",
+          "descriptors": [
+            "supporting",
+            "versatile",
+            "melodic"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dholak_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "dholak_mango",
+          "default": true,
+          "name": "Mango / sheesham wood (canonical)",
+          "descriptors": [
+            "traditional",
+            "low-fundamental-tuning",
+            "authentic",
+            "sheesham",
+            "rosewood",
+            "mango"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "dholak_synthetic",
+          "name": "Synthetic shell",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "dholak_large",
+          "name": "Larger concert variant",
+          "descriptors": [
+            "extended-low",
+            "projecting",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dholak_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "dholak_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin both heads with syahi tuning paste on bass (canonical)",
+          "descriptors": [
+            "goat-skin-syahi-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "dholak_synthetic_head",
+          "name": "Synthetic Remo (modern stable)",
+          "descriptors": [
+            "synthetic-remo-modern-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dholak_tensioning",
+      "surface": false,
+      "name": "Tensioning system",
+      "variants": [
+        {
+          "id": "dholak_rope_tuning",
+          "default": true,
+          "name": "Rope-laced + steel-ring tuning (canonical North Indian)",
+          "descriptors": [
+            "rope-laced-steel-ring-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "dholak_bolt_tuned",
+          "name": "Bolt-tuned (modern concert stable)",
+          "descriptors": [
+            "bolt-tuned-modern-concert-stable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dholak_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "dholak_wedding",
+          "name": "Wedding / bhajan / qawwali",
+          "descriptors": [
+            "rural",
+            "foundational",
+            "accessible"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "dholak_classical",
+          "default": true,
+          "name": "Semi-classical / thumri accompaniment",
+          "descriptors": [
+            "supporting",
+            "versatile",
+            "melodic"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dholak_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "dholak_mango",
+          "default": true,
+          "name": "Mango / sheesham wood (canonical)",
+          "descriptors": [
+            "traditional",
+            "low-fundamental-tuning",
+            "authentic",
+            "sheesham",
+            "rosewood",
+            "mango"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "dholak_synthetic",
+          "name": "Synthetic shell",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "dholak_large",
+          "name": "Larger concert variant",
+          "descriptors": [
+            "extended-low",
+            "projecting",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dholak_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "dholak_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin both heads with syahi tuning paste on bass (canonical)",
+          "descriptors": [
+            "goat-skin-syahi-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "dholak_synthetic_head",
+          "name": "Synthetic Remo (modern stable)",
+          "descriptors": [
+            "synthetic-remo-modern-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dholak_tensioning",
+      "surface": false,
+      "name": "Tensioning system",
+      "variants": [
+        {
+          "id": "dholak_rope_tuning",
+          "default": true,
+          "name": "Rope-laced + steel-ring tuning (canonical North Indian)",
+          "descriptors": [
+            "rope-laced-steel-ring-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "dholak_bolt_tuned",
+          "name": "Bolt-tuned (modern concert stable)",
+          "descriptors": [
+            "bolt-tuned-modern-concert-stable"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}
