@@ -70,6 +70,7 @@ function main() {
   // ---- traditions ----
   const traditions = C.TRADITIONS.slice(0, LIMIT);
   const tindex = [];
+  const bundle = [];
   let ok = 0,
     fail = 0;
   for (const t of traditions) {
@@ -85,10 +86,28 @@ function main() {
     }
     writeJson(path.join(OUT, 'traditions', `${t.id}.json`), rec);
     tindex.push({ id: t.id, name: t.name, family: t.family, href: `traditions/${t.id}.json` });
+    bundle.push({
+      id: rec.id,
+      name: rec.name,
+      family: rec.family,
+      recipe: rec.recipe,
+      recipe_chars: rec.recipe_chars,
+    });
     ok++;
     if (ok % 100 === 0) process.stderr.write(`  ...${ok} traditions\n`);
   }
   writeJson(path.join(OUT, 'traditions', 'index.json'), { count: tindex.length, items: tindex });
+
+  // ---- all.json: every recipe in ONE fetch (the universal "paste one link" payload) ----
+  writeJson(path.join(OUT, 'all.json'), {
+    name: 'Codex Musica — all recipes',
+    description:
+      'Every tradition with its compressed recording recipe, in one file. ' +
+      'For full structured arrangements per tradition, fetch traditions/{id}.json.',
+    generated: new Date().toISOString().slice(0, 10),
+    count: bundle.length,
+    items: bundle,
+  });
 
   // ---- instruments (no compute; straight from catalog) ----
   const iindex = [];

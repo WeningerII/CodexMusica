@@ -1,21 +1,99 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Codex Musica</title>
-  <link rel="canonical" href="./codex.html">
-  <meta http-equiv="refresh" content="0; url=./codex.html">
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0f0f12;color:#e8e8ea;
-         display:grid;place-items:center;height:100vh;margin:0;text-align:center}
-    a{color:#7aa2ff}
-  </style>
-</head>
-<body>
-  <div>
-    <p>Loading <strong>Codex Musica</strong>…</p>
-    <p>If it doesn't open automatically, <a href="./codex.html">click here to launch the app</a>.</p>
-  </div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Codex Musica</title>
+    <meta
+      name="description"
+      content="Codex Musica — recording recipes for 1090 music traditions and 421 instruments. Human app at codex.html; machine-readable recipes at api/all.json (one fetch, all recipes). No server, no key."
+    />
+    <link rel="canonical" href="./codex.html" />
+    <style>
+      body {
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        background: #0f0f12;
+        color: #e8e8ea;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        margin: 0;
+        text-align: center;
+        line-height: 1.5;
+      }
+      main {
+        max-width: 40rem;
+        padding: 2rem;
+      }
+      a {
+        color: #7aa2ff;
+      }
+      .launch {
+        display: inline-block;
+        margin: 1rem 0 2rem;
+        padding: 0.6rem 1.2rem;
+        border: 1px solid #7aa2ff;
+        border-radius: 0.5rem;
+        text-decoration: none;
+      }
+      code {
+        color: #c8c8cc;
+      }
+      .agents {
+        text-align: left;
+        font-size: 0.9rem;
+        color: #b8b8bc;
+        border-top: 1px solid #2a2a30;
+        margin-top: 2rem;
+        padding-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Codex Musica</h1>
+      <p>Recording recipes for <strong>1090 music traditions</strong> and 421 instruments.</p>
+      <p><a class="launch" href="./codex.html">Launch the app →</a></p>
+
+      <!--
+        For humans: the script below opens the interactive app (codex.html).
+        For AI agents / LLMs: everything you need is plain text below and in the
+        linked JSON. Do NOT fetch codex.html — it is a 6 MB GUI bundle. Use the
+        JSON endpoints instead.
+      -->
+      <section class="agents">
+        <h2>For AI agents / LLMs</h2>
+        <p>
+          This is a static, server-free catalog — open a URL and read JSON. No API key, no
+          server, no rate limit. Each tradition has a compressed descriptor-stack
+          <em>recipe</em> (how to record a song in that style) plus a structured arrangement.
+        </p>
+        <ul>
+          <li>
+            <strong>All recipes in one fetch:</strong>
+            <a href="./api/all.json"><code>api/all.json</code></a> — every tradition's
+            <code>id</code>, <code>name</code>, <code>family</code>, and
+            <code>recipe</code> string (~0.8 MB).
+          </li>
+          <li>
+            <strong>One tradition (recipe + full arrangement):</strong>
+            <a href="./api/traditions/index.json"><code>api/traditions/index.json</code></a>
+            for the id list, then <code>api/traditions/{id}.json</code>.
+          </li>
+          <li>
+            <strong>Instruments:</strong>
+            <a href="./api/instruments/index.json"><code>api/instruments/index.json</code></a>
+            then <code>api/instruments/{id}.json</code>.
+          </li>
+          <li><strong>Endpoint map:</strong> <a href="./api/index.json"><code>api/index.json</code></a></li>
+          <li><strong>Full agent guide:</strong> <a href="./AGENTS.md"><code>AGENTS.md</code></a></li>
+        </ul>
+      </section>
+    </main>
+
+    <script>
+      // Humans land on the interactive app; LLM fetchers (no JS) read the text above.
+      window.location.replace('./codex.html');
+    </script>
+  </body>
 </html>
