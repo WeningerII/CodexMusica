@@ -47,9 +47,14 @@ Every operation is an `npm run` script (see `package.json`):
 which GitHub Pages serves as-is — no server, no key, no per-call cost. An agent (or a
 deep-research LLM) fetches a URL and reads the recipe:
 
+- `api/all.json` — **every recipe in one fetch** (the universal "paste one link" payload)
 - `api/index.json` — endpoint map + counts
 - `api/traditions/index.json` → `api/traditions/{id}.json` — recipe + arrangement per tradition
 - `api/instruments/index.json` → `api/instruments/{id}.json` — instrument data
+
+The site root (`index.html`) is dual-purpose: human browsers redirect to the app; LLM
+fetchers read an inline agent guide pointing at `api/all.json`. So one link —
+the root URL — serves both audiences.
 
 Discovery surface: root `llms.txt`, `sitemap.xml`, and `AGENTS.md` (the agent guide).
 All compute happens at build time; see `scripts/build_static_api.js`.

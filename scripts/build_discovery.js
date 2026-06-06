@@ -40,6 +40,7 @@ const llms = `# Codex Musica
 > static files — open a URL and read it. No API key, no server, no rate limit.
 
 ## How to use (for agents)
+- ALL recipes in one fetch (start here): ${BASE}/api/all.json
 - List of traditions: ${BASE}/api/traditions/index.json
 - One tradition (recipe + arrangement): ${BASE}/api/traditions/{id}.json
 - List of instruments: ${BASE}/api/instruments/index.json
@@ -51,6 +52,7 @@ recipe_chars, score, and config (the structured arrangement). Fetch the index to
 every {id}, then fetch the per-id file you need.
 
 ## Catalog
+- [All recipes (one file)](${BASE}/api/all.json)
 - [Catalog index](${BASE}/api/index.json)
 - [Traditions index](${BASE}/api/traditions/index.json)
 - [Instruments index](${BASE}/api/instruments/index.json)
@@ -63,6 +65,7 @@ const urls = [
   `${BASE}/`,
   `${BASE}/AGENTS.md`,
   `${BASE}/api/index.json`,
+  `${BASE}/api/all.json`,
   `${BASE}/api/traditions/index.json`,
   `${BASE}/api/instruments/index.json`,
   ...tindex.items.map((t) => `${BASE}/api/${t.href}`),
