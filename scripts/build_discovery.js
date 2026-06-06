@@ -9,6 +9,7 @@
 //
 // Usage:
 //   node scripts/build_discovery.js [--base=https://weningerii.github.io/CodexMusica]
+//   node scripts/build_discovery.js --api=_dist/api --out=_dist   # CI staging dir
 
 const fs = require('fs');
 const path = require('path');
@@ -23,13 +24,11 @@ for (const a of process.argv.slice(2)) {
   }
 }
 const BASE = (flags.base || 'https://weningerii.github.io/CodexMusica').replace(/\/$/, '');
+const API_DIR = flags.api ? path.resolve(ROOT, flags.api) : path.join(ROOT, 'api');
+const OUT_DIR = flags.out ? path.resolve(ROOT, flags.out) : ROOT;
 
-const tindex = JSON.parse(
-  fs.readFileSync(path.join(ROOT, 'api', 'traditions', 'index.json'), 'utf8')
-);
-const iindex = JSON.parse(
-  fs.readFileSync(path.join(ROOT, 'api', 'instruments', 'index.json'), 'utf8')
-);
+const tindex = JSON.parse(fs.readFileSync(path.join(API_DIR, 'traditions', 'index.json'), 'utf8'));
+const iindex = JSON.parse(fs.readFileSync(path.join(API_DIR, 'instruments', 'index.json'), 'utf8'));
 
 // ---- llms.txt ----
 const llms = `# Codex Musica
@@ -57,7 +56,7 @@ every {id}, then fetch the per-id file you need.
 - [Instruments index](${BASE}/api/instruments/index.json)
 - [Agent guide](${BASE}/AGENTS.md)
 `;
-fs.writeFileSync(path.join(ROOT, 'llms.txt'), llms);
+fs.writeFileSync(path.join(OUT_DIR, 'llms.txt'), llms);
 
 // ---- sitemap.xml ----
 const urls = [
@@ -77,6 +76,8 @@ const xml =
     .map((u) => `  <url><loc>${u.replace(/&/g, '&amp;')}</loc><lastmod>${today}</lastmod></url>`)
     .join('\n') +
   '\n</urlset>\n';
-fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), xml);
+fs.writeFileSync(path.join(OUT_DIR, 'sitemap.xml'), xml);
 
-process.stderr.write(`Wrote llms.txt and sitemap.xml (${urls.length} urls), base=${BASE}\n`);
+process.stderr.write(
+  `Wrote llms.txt and sitemap.xml (${urls.length} urls) to ${OUT_DIR}, base=${BASE}\n`
+);

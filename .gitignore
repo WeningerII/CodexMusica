@@ -4,3 +4,5 @@ node_modules/
 /tmp/
 *.local
 codex.zip
+/_dist
+/_dist_test
