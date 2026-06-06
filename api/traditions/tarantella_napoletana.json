@@ -1,0 +1,119 @@
+{
+  "id": "tarantella_napoletana",
+  "name": "Tarantella napoletana (Neapolitan)",
+  "family": "global",
+  "lineage": "Tarantella napoletana Southern Italian folk-dance-and-song tradition of the Naples region (Campania), characterized by fast 6/8 meter (or compound-duple), virtuoso mandolin-and-acoustic-guitar instrumental lead, and tambourine percussion (the tammorra and tamburello). Historically connected to the tarantismo ritual-healing dance-cure tradition of southern Italian rural communities (the dance ostensibly cured tarantism, the psychosomatic illness attributed to tarantula-bite). Performance contexts span village-festival celebrations, weddings, and the canonical Neapolitan urban-popular concertina contexts. Distinguished from pizzica salentina by tarantella napoletana's Campanian regional cadential-conventions and the broader Neapolitan canzone connection.",
+  "recipe": "classic modern tarantella napoletana, ballad Poetry, Mediterranean ballad branch, Brazilian groove percussion, iberian functional song catalan sardana canzone napoletana. thick, pure, continuous-phonation, Mediterranean demotic vocal. bowl back Italian Italian alpine spruce brescian calace x brace modern mandolin mandolin, tambourine orch, fingerpicked parlor acoustic guitar. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 599,
+  "score": 176.095,
+  "config": {
+    "traditions": [
+      "tarantella_napoletana",
+      "catalan_sardana",
+      "canzone_napoletana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 2.750000000000001,
+          "voice_quality": 0.21,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.3,
+          "voice_microtone": 0.045,
+          "voice_tradition": 12.284999999999998,
+          "voice_mechanism_compound": 2.4299999999999993,
+          "voice_estill_quality": 10.545,
+          "voice_speech_song": 12.674999999999997,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 6.3999999999999995,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "italian_alpine_spruce_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_x_brace",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "mandolin_shape": 4.034999999999999,
+          "mandolin_top": 2.8999999999999995,
+          "mandolin_back": 0.93,
+          "mandolin_bracing": 1.495,
+          "mandolin_strings": 1.625,
+          "mandolin_fingerboard": 1.69,
+          "mandolin_pickup": 11.83
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.045,
+          "tambourine_orch_context": 0.045
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "eb_standard",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 5.3500000000000005,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.24,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.24
+        }
+      }
+    ],
+    "room": "naples_canzone_napoletana_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

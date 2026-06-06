@@ -1,0 +1,127 @@
+{
+  "id": "sato",
+  "name": "Sato (bowed tanbur, Central Asian)",
+  "family": "bowed",
+  "class": "bowed",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sato",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sato_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "sato_mulberry_pear_long_neck",
+          "default": true,
+          "name": "Mulberry pear-body long-neck (tanbur silhouette, bowed)",
+          "descriptors": [
+            "mulberry-pear-body-long-neck-bowed-tanbur"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "shashmaqam-tradition",
+            "central-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sato_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "sato_shashmaqam_canonical",
+          "default": true,
+          "name": "Shashmaqam canonical (Bukhara-Samarkand classical)",
+          "descriptors": [
+            "shashmaqam-canonical-bukhara-samarkand-classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "shashmaqam-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sato_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "sato_mulberry_pear_long_neck",
+          "default": true,
+          "name": "Mulberry pear-body long-neck (tanbur silhouette, bowed)",
+          "descriptors": [
+            "mulberry-pear-body-long-neck-bowed-tanbur"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "shashmaqam-tradition",
+            "central-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sato_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "sato_shashmaqam_canonical",
+          "default": true,
+          "name": "Shashmaqam canonical (Bukhara-Samarkand classical)",
+          "descriptors": [
+            "shashmaqam-canonical-bukhara-samarkand-classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "shashmaqam-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

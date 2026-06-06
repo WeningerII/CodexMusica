@@ -1,0 +1,291 @@
+{
+  "id": "tin_whistle_low",
+  "name": "Low whistle (Irish)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "low whistle",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ],
+          "default": true
+        },
+        {
+          "id": "wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "uilleann_pipes",
+            "biniou",
+            "highland_bagpipes",
+            "bombarde",
+            "recorder",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "shawm",
+            "zurna",
+            "mizmar",
+            "ghaita",
+            "ciaramella",
+            "duduk",
+            "mey"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tin_whistle_low_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "tin_whistle_low_low_d",
+          "default": true,
+          "name": "Low D (canonical)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "irish"
+          ]
+        },
+        {
+          "id": "tin_whistle_low_low_bb",
+          "name": "Low B♭",
+          "descriptors": [
+            "darker",
+            "specialty",
+            "sean-nós-aligned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "tin_whistle_low_low_g",
+          "name": "Low G",
+          "descriptors": [
+            "extra-deep",
+            "rare",
+            "specialty"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tin_whistle_low_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tin_whistle_low_trad",
+          "default": true,
+          "name": "Irish traditional",
+          "descriptors": [
+            "session"
+          ],
+          "match_tokens": [
+            "traditional",
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "tin_whistle_low_celtic_fusion",
+          "name": "Celtic-fusion / world",
+          "descriptors": [
+            "contemporary",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "tin_whistle_low_film",
+          "name": "Film score",
+          "descriptors": [
+            "atmospheric",
+            "pastoral",
+            "cinematic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wind_articulation",
+      "default_variant": "wind_folk_melodic"
+    },
+    {
+      "id": "tin_whistle_low_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "tin_whistle_low_low_d",
+          "default": true,
+          "name": "Low D (canonical)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "irish"
+          ]
+        },
+        {
+          "id": "tin_whistle_low_low_bb",
+          "name": "Low B♭",
+          "descriptors": [
+            "darker",
+            "specialty",
+            "sean-nós-aligned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "tin_whistle_low_low_g",
+          "name": "Low G",
+          "descriptors": [
+            "extra-deep",
+            "rare",
+            "specialty"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tin_whistle_low_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tin_whistle_low_trad",
+          "default": true,
+          "name": "Irish traditional",
+          "descriptors": [
+            "session"
+          ],
+          "match_tokens": [
+            "traditional",
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "tin_whistle_low_celtic_fusion",
+          "name": "Celtic-fusion / world",
+          "descriptors": [
+            "contemporary",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "tin_whistle_low_film",
+          "name": "Film score",
+          "descriptors": [
+            "atmospheric",
+            "pastoral",
+            "cinematic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

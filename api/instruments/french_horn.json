@@ -1,0 +1,245 @@
+{
+  "id": "french_horn",
+  "name": "French horn (orchestral)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "french horn",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "french_horn_bore",
+      "name": "Bore profile",
+      "variants": [
+        {
+          "id": "french_horn_full",
+          "default": true,
+          "name": "Full double (F/Bb)",
+          "descriptors": [
+            "standard",
+            "versatile",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "french_horn_descant",
+          "name": "Triple (with high F)",
+          "descriptors": [
+            "high-register",
+            "virtuoso",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "french_horn_metal",
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "horn_yellow_brass",
+          "default": true,
+          "name": "Yellow brass",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "standard",
+            "brass"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "horn_nickel_silver",
+          "name": "Nickel silver",
+          "descriptors": [
+            "focused",
+            "articulate-low-distortion",
+            "soloistic",
+            "nickel-silver",
+            "nickel",
+            "silver"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "french_horn_bore",
+      "name": "Bore profile",
+      "variants": [
+        {
+          "id": "french_horn_full",
+          "default": true,
+          "name": "Full double (F/Bb)",
+          "descriptors": [
+            "standard",
+            "versatile",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "french_horn_descant",
+          "name": "Triple (with high F)",
+          "descriptors": [
+            "high-register",
+            "virtuoso",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "french_horn_metal",
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "horn_yellow_brass",
+          "default": true,
+          "name": "Yellow brass",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "standard",
+            "brass"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "horn_nickel_silver",
+          "name": "Nickel silver",
+          "descriptors": [
+            "focused",
+            "articulate-low-distortion",
+            "soloistic",
+            "nickel-silver",
+            "nickel",
+            "silver"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

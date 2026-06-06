@@ -1,0 +1,128 @@
+{
+  "id": "bengali_baul",
+  "name": "Bengali baul (mystic-itinerant song)",
+  "family": "global",
+  "lineage": "Lalon-Shah-lineage Bengali mystic-itinerant tradition (Lalon Fakir, c. 1774-1890, the foundational figure) — codified through the Kenduli Mela annual Baul gathering, the Bardhaman district teaching lineages, and the 20th-century preservation work of Purna Das Baul; characterized by ektara-or-dotara-and-khamak accompaniment, Sufi-Vaishnav-Tantric syncretic philosophy, and the wandering-mendicant performance context",
+  "recipe": "classic North American early-1770s bengali baul, ballad Poetry, indian bard branch, Sufi ritual devotional, med east poetic ballad poetry sufi inshad qawwali. vocal fry, declaimed, chest resonance low mid, maqam neutral step. dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ektara, baul pitch bending wood goat skin canonical bengali gut canonical bengali baul khamak, tun indian cedar gut pre modern bengali sikh esraj. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 609,
+  "score": 228.562,
+  "config": {
+    "traditions": [
+      "bengali_baul",
+      "sufi_inshad_egyptian",
+      "qawwali"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.68,
+          "voice_quality": 2.7300000000000004,
+          "voice_vibrato": 1.32,
+          "voice_articulation": 0.045,
+          "voice_microtone": 0.5499999999999999,
+          "voice_tradition": 7.735,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.705,
+          "voice_speech_song": 8.644999999999998,
+          "voice_ensemble_config": 6.889999999999999,
+          "voice_ornament_system": 2.4,
+          "voice_pitch_organization": 0.9750000000000001,
+          "voice_processing_chain": 2.08,
+          "voice_multitrack_stack": 1.8749999999999998
+        }
+      },
+      {
+        "id": "dotara",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "dotara_strings": "dotara_4",
+          "dotara_context": "dotara_folk"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.26,
+          "dotara_strings": 0.39,
+          "dotara_context": 6.239999999999998
+        }
+      },
+      {
+        "id": "ektara",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "ektara_use": "ektara_baul",
+          "ektara_body": "ektara_gourd_bamboo",
+          "ektara_string": "ektara_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.25,
+          "ektara_use": 10.894999999999998,
+          "ektara_body": 3.3799999999999994,
+          "ektara_string": 2.8949999999999996
+        }
+      },
+      {
+        "id": "khamak",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "khamak_use": "khamak_baul",
+          "khamak_body": "khamak_wood_skin",
+          "khamak_string": "khamak_gut_canonical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.25,
+          "khamak_use": 11.104999999999999,
+          "khamak_body": 3.3799999999999994,
+          "khamak_string": 7.2749999999999995
+        }
+      },
+      {
+        "id": "esraj",
+        "slots": {
+          "bowed_technique": "bowed_microtonal_inflected",
+          "esraj_strings": "esraj_15_taraf",
+          "esraj_use": "esraj_kirtan",
+          "esraj_body_wood": "esraj_tun",
+          "esraj_main_strings": "esraj_gut_historical"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "esraj_strings": 0,
+          "esraj_use": 1.3,
+          "esraj_body_wood": 1.95,
+          "esraj_main_strings": 2.6999999999999997
+        }
+      }
+    ],
+    "room": "adobe_room",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

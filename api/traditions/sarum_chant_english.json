@@ -1,0 +1,83 @@
+{
+  "id": "sarum_chant_english",
+  "name": "Sarum chant (English medieval rite)",
+  "family": "classical",
+  "lineage": "Medieval English liturgical chant tradition of the Sarum rite (Use of Salisbury), the dominant English liturgical-use from the eleventh century through the 1549 Reformation imposition of the Book of Common Prayer. Distinguished from broader Roman-rite Gregorian repertoire by Sarum-specific propers, sequences (the canonical Salve mater misericordie Marian sequence), and the elaborate Procession-and-Station liturgical-choreography. Modern liturgical reconstruction by the Cambridge Sarum Group and Anglican-and-Anglo-Catholic communities in England.",
+  "recipe": "classic North American late-1540s sarum chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 526,
+  "score": 175.028,
+  "config": {
+    "traditions": [
+      "sarum_chant_english",
+      "ars_antiqua_organum",
+      "renaissance_sacred_polyphony"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 5.735,
+          "voice_quality": 7.540000000000001,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.99,
+          "voice_microtone": 3.3799999999999994,
+          "voice_tradition": 4.8100000000000005,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 3.5500000000000007,
+          "voice_speech_song": 8.709999999999999,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 2.745,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 4.031999999999999,
+          "choir_polyphonic_configuration": 2.7749999999999995,
+          "choir_regional_canonical_configuration": 4.095,
+          "choir_ensemble_repertoire": 6.759999999999999
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

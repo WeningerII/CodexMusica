@@ -1,0 +1,96 @@
+{
+  "id": "sopele",
+  "name": "Sopele (Croatian Istrian paired double-reed shawms)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sopele",
+  "parts": [
+    {
+      "id": "sopele_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "sopele_paired_large_small_canonical",
+          "default": true,
+          "name": "Paired large + small conical-bore double-reed shawms (canonical Istrian scale)",
+          "descriptors": [
+            "paired-large-small-conical-bore-canonical-istrian-scale"
+          ],
+          "match_tokens": [
+            "wind",
+            "croatian-istrian-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sopele_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "sopele_istrian_diaphonic_canonical",
+          "default": true,
+          "name": "Istrian diaphonic two-part performance (canonical)",
+          "descriptors": [
+            "istrian-diaphonic-two-part-canonical-croatian"
+          ],
+          "match_tokens": [
+            "wind",
+            "croatian-istrian-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sopele_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "sopele_paired_large_small_canonical",
+          "default": true,
+          "name": "Paired large + small conical-bore double-reed shawms (canonical Istrian scale)",
+          "descriptors": [
+            "paired-large-small-conical-bore-canonical-istrian-scale"
+          ],
+          "match_tokens": [
+            "wind",
+            "croatian-istrian-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sopele_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "sopele_istrian_diaphonic_canonical",
+          "default": true,
+          "name": "Istrian diaphonic two-part performance (canonical)",
+          "descriptors": [
+            "istrian-diaphonic-two-part-canonical-croatian"
+          ],
+          "match_tokens": [
+            "wind",
+            "croatian-istrian-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

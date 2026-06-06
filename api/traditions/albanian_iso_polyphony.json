@@ -1,0 +1,68 @@
+{
+  "id": "albanian_iso_polyphony",
+  "name": "Albanian iso-polyphony (UNESCO 2008)",
+  "family": "global",
+  "lineage": "Albanian iso-polyphony of the Toskëria and Labëria regions of southern Albania, recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2005 and inscribed on the Representative List 2008. Drone-based polyphony with named voice-parts marrës (the lead-taker who initiates each verse), kthyes (the turner who answers and counters), and in the four-voice Lab variant the hedhës (the thrower who launches contrapuntal interjections), all sustained over an iso choral drone group. Tosk iso is continuous and sung on the syllable \"e\" with staggered breathing; Lab iso is sometimes rhythmically articulated to text and supports a four-voice complement against the three-voice Tosk standard. The 1920s-1930s Neço Muko field recordings in Vlorë and Tirana established the four-voice canon. Heartland villages of Gjirokastër, Përmet, Tepelenë, Vlorë, and Korçë sustain transmission lineages. Distinguished from Sardinian cantu a tenore by absence of guttural-ventricular bass and continuous \"e\" syllable iso; distinguished from Corsican paghjella by iso-drone foundation; distinguished from Bulgarian diaphonic women's choir by male-voice configuration and southern-Albanian regional dialect-specific cadential conventions",
+  "recipe": "classic albanian iso-polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. vocal fry, false fold engaged, overtone rich sustained, hocket articulation. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 396,
+  "score": 242.83,
+  "config": {
+    "traditions": [
+      "albanian_iso_polyphony",
+      "sardinian_traditional",
+      "croatian_klapa_dalmatian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.95,
+          "voice_quality": 9.349999999999998,
+          "voice_vibrato": 1.45,
+          "voice_articulation": 3.7,
+          "voice_microtone": 0.15,
+          "voice_tradition": 10.205,
+          "voice_mechanism_compound": 5.329999999999999,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 18.52500000000001,
+          "voice_ensemble_config": 40.95000000000001,
+          "voice_ornament_system": 8.84,
+          "voice_pitch_organization": 6.27,
+          "voice_processing_chain": 8.79,
+          "voice_multitrack_stack": 1.95
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

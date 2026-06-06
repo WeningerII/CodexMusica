@@ -1,0 +1,361 @@
+{
+  "id": "cuica",
+  "name": "Cuíca (Brazilian friction drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cuíca",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_hands_layered",
+          "default": true,
+          "name": "Hand percussion layered",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "pandeiro",
+            "tar_frame_drum",
+            "timbales",
+            "darbuka",
+            "cuica"
+          ],
+          "descriptors": [
+            "hands",
+            "layered"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "cuica_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "cuica_small",
+          "name": "Small (high cry)",
+          "descriptors": [
+            "sharp",
+            "high-frequency"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_medium",
+          "default": true,
+          "name": "Medium (canonical)",
+          "descriptors": [
+            "standard",
+            "samba-batería",
+            "characteristic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_large",
+          "name": "Large (deep cry)",
+          "descriptors": [
+            "deep",
+            "marching-bateria",
+            "projecting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuica_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "cuica_bateria",
+          "name": "Samba batería",
+          "descriptors": [
+            "carnival",
+            "characteristic-cry",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_choro",
+          "default": true,
+          "name": "Choro group",
+          "descriptors": [
+            "ornamental",
+            "subtle"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_mpb",
+          "name": "Modern MPB / pop",
+          "descriptors": [
+            "textural",
+            "colour-instrument",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuica_shell_material",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "cuica_metal_canonical",
+          "default": true,
+          "name": "Metal shell (canonical modern Brazilian samba)",
+          "descriptors": [
+            "metal-shell-canonical-modern-brazilian-samba"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_wood_pre_modern",
+          "name": "Wood shell (pre-modern traditional)",
+          "descriptors": [
+            "wood-shell-pre-modern-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuica_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "cuica_calfskin_canonical",
+          "default": true,
+          "name": "Calfskin with internal bamboo friction rod (canonical Brazilian)",
+          "descriptors": [
+            "calfskin-internal-bamboo-friction-rod-canonical-brazilian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_synthetic_modern",
+          "name": "Synthetic head (modern stable)",
+          "descriptors": [
+            "synthetic-head-modern-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cuica_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "cuica_small",
+          "name": "Small (high cry)",
+          "descriptors": [
+            "sharp",
+            "high-frequency"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_medium",
+          "default": true,
+          "name": "Medium (canonical)",
+          "descriptors": [
+            "standard",
+            "samba-batería",
+            "characteristic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_large",
+          "name": "Large (deep cry)",
+          "descriptors": [
+            "deep",
+            "marching-bateria",
+            "projecting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuica_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "cuica_bateria",
+          "name": "Samba batería",
+          "descriptors": [
+            "carnival",
+            "characteristic-cry",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_choro",
+          "default": true,
+          "name": "Choro group",
+          "descriptors": [
+            "ornamental",
+            "subtle"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_mpb",
+          "name": "Modern MPB / pop",
+          "descriptors": [
+            "textural",
+            "colour-instrument",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuica_shell_material",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "cuica_metal_canonical",
+          "default": true,
+          "name": "Metal shell (canonical modern Brazilian samba)",
+          "descriptors": [
+            "metal-shell-canonical-modern-brazilian-samba"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_wood_pre_modern",
+          "name": "Wood shell (pre-modern traditional)",
+          "descriptors": [
+            "wood-shell-pre-modern-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuica_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "cuica_calfskin_canonical",
+          "default": true,
+          "name": "Calfskin with internal bamboo friction rod (canonical Brazilian)",
+          "descriptors": [
+            "calfskin-internal-bamboo-friction-rod-canonical-brazilian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "cuica_synthetic_modern",
+          "name": "Synthetic head (modern stable)",
+          "descriptors": [
+            "synthetic-head-modern-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    }
+  ]
+}

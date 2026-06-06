@@ -1,0 +1,121 @@
+{
+  "id": "macedonian_kafana_drinking",
+  "name": "Macedonian-Serbian kafana drinking song",
+  "family": "global",
+  "lineage": "Macedonian-Serbian-and-broader-Balkan kafana (tavern) drinking-song tradition continuous from Ottoman-era kafana-cafe-tavern song-tradition through 20th-century Balkan-Yugoslav continuous performance into modern Serbian-Macedonian-and-Balkan-diaspora kafana-practice; the kafana is the documented Balkan-Slavic tavern-context where extended drinking-songs span multi-hour evening performance",
+  "recipe": "classic modern macedonian-serbian kafana drinking song, drinking Song, balkan branch, European drinking song, European wedding, iberian functional song spanish canción pop galician kantautor and folk-pop. thick, lament wail, tasteful, continuous-phonation. steel castagnari Italian premium folk music accordion, synthetic magic rosin modern acrylic base fiddle, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 617,
+  "score": 181.471,
+  "config": {
+    "traditions": [
+      "macedonian_kafana_drinking",
+      "spanish_cancion_pop",
+      "galician_kantautor"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.2506249999999999,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0,
+          "voice_tradition": 28.1965,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.78,
+          "voice_speech_song": 14.494999999999997,
+          "voice_ensemble_config": 5.589999999999998,
+          "voice_ornament_system": 1.6999999999999997,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.6499999999999999,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 0.325,
+          "accordion_reed_material": 1.3,
+          "musette_offset": 1.3,
+          "reed_config": 1.26,
+          "bellows": 0,
+          "voicing_chamber": 1.3,
+          "accordion_maker_school": 5.027249999999999
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 0.9006249999999999,
+          "fiddle_strings": 1.69,
+          "fiddle_bow": 4.225,
+          "fiddle_mute": 0.9099999999999999,
+          "fiddle_articulation": 0.39
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "darbuka_material": "darbuka_clay_traditional",
+          "darbuka_skin": "darbuka_fish_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "darbuka_material": 1.69,
+          "darbuka_skin": 1.69,
+          "darbuka_regional_style": 1.5262499999999997
+        }
+      }
+    ],
+    "room": "irish_pub",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "balkan_odd_meter_aksak",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

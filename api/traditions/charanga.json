@@ -1,0 +1,189 @@
+{
+  "id": "charanga",
+  "name": "Charanga",
+  "family": "global",
+  "lineage": "Cuban orquesta-charanga light-flute-and-violin orchestral-dance ensemble derived from danzón-orquesta-típica modernization 1920s-onward, codified into the canonical charanga-francesa instrumentation by 1930s. The ensemble: solo wooden five-key flute, two-to-four violins, piano, contrabass, timbales, congas, and güiro. Initially attached to danzón-cubano repertoire, charanga expanded into danzonete, cha-cha-chá, mambo-charanga, and pachanga (Eduardo Davidson 1959 innovation) as the genre absorbed son-cubano-and-mambo influences. The charanga-soneando style 1960s-onward incorporated trombone-and-trumpet-and-saxophone via the salsa-Nuyorican charanga-orquesta hybridization. Modern charanga revival 1990s-onward foregrounds the flute-violin texture as the canonical timba alternative-to-brass.",
+  "recipe": "classic tropical mid-1920s charanga, groove Percussion, charanga danza branch, son salsa Cuban son cubano guaracha. extended whistle, full chest belt, nervy, punctuated. yamaha modern Japanese mid to premium flute, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, no chemical hardener t rivet beech laminated maple laminated European tradition grand piano, upright bass, pre modern classic salsa brass timbales, guiro, mule hide canonical Cuban premium oak staved canonical Cuban congas. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 705,
+  "score": 206.488,
+  "config": {
+    "traditions": [
+      "charanga",
+      "son_cubano",
+      "guaracha"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 4.16,
+          "voice_quality": 12.879999999999994,
+          "voice_vibrato": 0.91,
+          "voice_articulation": 1.3389999999999997,
+          "voice_microtone": 0.0315,
+          "voice_tradition": 4.095000000000001,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 3.7050000000000005,
+          "voice_speech_song": 8.905,
+          "voice_ensemble_config": 10.14,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 2.6,
+          "voice_processing_chain": 2.405,
+          "voice_multitrack_stack": 3.575
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "piccolo_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "flute_size": 0.91,
+          "flute_material": 0,
+          "flute_technique": 0.65,
+          "flute_maker_school": 3.9
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.45,
+          "orch_strings": 0.91,
+          "orch_top_wood": 6.65,
+          "orch_back_wood": 2.969,
+          "orch_varnish": 2.59,
+          "orch_setup_period": 1.625,
+          "orch_bow": 1.69,
+          "orch_bow_stick": 3.2275,
+          "orch_articulation": 0.39,
+          "orch_rosin": 2.45
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "abel_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 1,
+          "grand_piano_brand": 1.1849999999999998,
+          "piano_hammer": 3.45,
+          "piano_rim": 2.9175,
+          "piano_soundboard": 2.7875,
+          "piano_pinblock": 2.8,
+          "piano_plate": 2.76,
+          "piano_pitch_standard": 3.58
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "steel_upright",
+          "upright_play": "slap_upright"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "upright_strings": 0.91,
+          "upright_play": 1.3389999999999997
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "timbales_shell": 3.77,
+          "timbales_context": 4.29
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_wood"
+        },
+        "scores": {
+          "guiro_origin": 0.09,
+          "guiro_striker": 0.4275
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "conga_proper",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "conga_set": 0.43875,
+          "conga_skin": 8.06,
+          "conga_shell_wood": 8.06
+        }
+      }
+    ],
+    "room": "estudios_areito_havana",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "son_clave_3_2",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

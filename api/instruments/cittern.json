@@ -1,0 +1,487 @@
+{
+  "id": "cittern",
+  "name": "Cittern (Renaissance / British folk)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cittern",
+  "parts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "acoustic_resonator_steel",
+            "mountain_dulcimer",
+            "cittern"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "narrative"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "singer-songwriter",
+            "folk",
+            "folk-revival",
+            "confessional",
+            "ballad-poetry"
+          ]
+        },
+        {
+          "id": "acoustic_flatpicked",
+          "name": "Flatpicked single-note",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mandolin",
+            "mandola",
+            "cittern",
+            "acoustic_guitar_parlor",
+            "upright_bass"
+          ],
+          "descriptors": [
+            "flatpicked",
+            "articulated"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "bluegrass",
+            "old-time"
+          ]
+        },
+        {
+          "id": "acoustic_strummed_ringing",
+          "default": true,
+          "name": "Open-chord strumming (ringing)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "mandolin",
+            "mandola",
+            "autoharp",
+            "celtic_harp",
+            "cittern"
+          ],
+          "descriptors": [
+            "strummed",
+            "open-chord-ringing-overtones"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "folk-revival",
+            "pop"
+          ]
+        },
+        {
+          "id": "acoustic_drone_modal",
+          "name": "Drop-tuned drone",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mandolin",
+            "mandola",
+            "mountain_dulcimer",
+            "cittern",
+            "autoharp"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "britfolk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "cittern_config",
+      "name": "Course count",
+      "variants": [
+        {
+          "id": "cittern_five_course",
+          "default": true,
+          "name": "Five-course",
+          "descriptors": [
+            "renaissance",
+            "standard",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_six_course",
+          "name": "Six-course",
+          "descriptors": [
+            "extended-Renaissance",
+            "baroque-leaning",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_nine_course",
+          "name": "Nine-course (extended)",
+          "descriptors": [
+            "rare",
+            "specialist",
+            "late-period"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cittern_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "cittern_renaissance",
+          "default": true,
+          "name": "Renaissance art-music",
+          "descriptors": [
+            "historical"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_british_folk",
+          "name": "British folk revival",
+          "descriptors": [
+            "twentieth-century",
+            "session",
+            "ballad-accompaniment"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "plucked"
+          ]
+        },
+        {
+          "id": "cittern_celtic",
+          "name": "Celtic-fusion modern",
+          "descriptors": [
+            "contemporary",
+            "world-folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cittern_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cittern_pear_renaissance",
+          "default": true,
+          "name": "Pear (canonical Renaissance Italian/English)",
+          "descriptors": [
+            "pear-canonical-renaissance"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_maple_modern",
+          "name": "Maple (modern British folk)",
+          "descriptors": [
+            "maple-modern-british-folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_walnut",
+          "name": "Walnut (premium)",
+          "descriptors": [
+            "walnut-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cittern_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cittern_brass_wire_renaissance",
+          "default": true,
+          "name": "Brass wire strung (canonical Renaissance)",
+          "descriptors": [
+            "brass-wire-canonical-renaissance"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "plucked",
+            "strummed",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "cittern_steel_modern",
+          "name": "Steel (modern British folk)",
+          "descriptors": [
+            "steel-modern-british-folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_phosphor_bronze",
+          "name": "Phosphor bronze (modern alternative)",
+          "descriptors": [
+            "phosphor-bronze-modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cittern_config",
+      "name": "Course count",
+      "variants": [
+        {
+          "id": "cittern_five_course",
+          "default": true,
+          "name": "Five-course",
+          "descriptors": [
+            "renaissance",
+            "standard",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_six_course",
+          "name": "Six-course",
+          "descriptors": [
+            "extended-Renaissance",
+            "baroque-leaning",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_nine_course",
+          "name": "Nine-course (extended)",
+          "descriptors": [
+            "rare",
+            "specialist",
+            "late-period"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cittern_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "cittern_renaissance",
+          "default": true,
+          "name": "Renaissance art-music",
+          "descriptors": [
+            "historical"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_british_folk",
+          "name": "British folk revival",
+          "descriptors": [
+            "twentieth-century",
+            "session",
+            "ballad-accompaniment"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "plucked"
+          ]
+        },
+        {
+          "id": "cittern_celtic",
+          "name": "Celtic-fusion modern",
+          "descriptors": [
+            "contemporary",
+            "world-folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cittern_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cittern_pear_renaissance",
+          "default": true,
+          "name": "Pear (canonical Renaissance Italian/English)",
+          "descriptors": [
+            "pear-canonical-renaissance"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_maple_modern",
+          "name": "Maple (modern British folk)",
+          "descriptors": [
+            "maple-modern-british-folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_walnut",
+          "name": "Walnut (premium)",
+          "descriptors": [
+            "walnut-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cittern_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cittern_brass_wire_renaissance",
+          "default": true,
+          "name": "Brass wire strung (canonical Renaissance)",
+          "descriptors": [
+            "brass-wire-canonical-renaissance"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "plucked",
+            "strummed",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "cittern_steel_modern",
+          "name": "Steel (modern British folk)",
+          "descriptors": [
+            "steel-modern-british-folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "cittern_phosphor_bronze",
+          "name": "Phosphor bronze (modern alternative)",
+          "descriptors": [
+            "phosphor-bronze-modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ]
+}

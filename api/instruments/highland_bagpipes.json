@@ -1,0 +1,405 @@
+{
+  "id": "highland_bagpipes",
+  "name": "Great Highland bagpipes",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "highland pipes",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        },
+        {
+          "id": "wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "uilleann_pipes",
+            "biniou",
+            "highland_bagpipes",
+            "bombarde",
+            "recorder",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "shawm",
+            "zurna",
+            "mizmar",
+            "ghaita",
+            "ciaramella",
+            "duduk",
+            "mey"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ],
+          "default": true
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "highland_drones",
+      "name": "Drone configuration",
+      "variants": [
+        {
+          "id": "highland_3_drones",
+          "default": true,
+          "name": "Three drones (2 tenor + 1 bass)",
+          "descriptors": [
+            "outdoor",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highland_chanter",
+      "name": "Chanter material",
+      "variants": [
+        {
+          "id": "highland_blackwood",
+          "default": true,
+          "name": "African blackwood / grenadilla (canonical Scottish)",
+          "descriptors": [
+            "african-blackwood-grenadilla-canonical-scottish"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "highland_polypenco",
+          "name": "Polypenco (synthetic)",
+          "descriptors": [
+            "stable",
+            "modern",
+            "consistent",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "highland_cocobolo",
+          "name": "Cocobolo (premium alternative)",
+          "descriptors": [
+            "cocobolo-premium-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highland_drone_reeds",
+      "surface": false,
+      "name": "Drone reeds",
+      "variants": [
+        {
+          "id": "highland_synthetic_drone_reeds",
+          "default": true,
+          "name": "Synthetic drone reeds (modern canonical — Ezeedrone / Selbie)",
+          "descriptors": [
+            "synthetic-drone-reeds-ezeedrone-selbie-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "highland_cane_drone_reeds",
+          "name": "Cane drone reeds (traditional Arundo donax)",
+          "descriptors": [
+            "cane-drone-reeds-traditional-arundo-donax"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highland_chanter_reed",
+      "surface": false,
+      "name": "Chanter reed",
+      "variants": [
+        {
+          "id": "highland_cane_chanter_reed",
+          "default": true,
+          "name": "Cane double-reed (canonical Arundo donax)",
+          "descriptors": [
+            "cane-double-reed-canonical-arundo-donax"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highland_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "highland_synthetic_bag",
+          "default": true,
+          "name": "Synthetic moisture-controlled bag (Bannatyne / Ross canonical modern)",
+          "descriptors": [
+            "synthetic-bannatyne-ross-canonical-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "highland_hide_bag",
+          "name": "Sheepskin or cowhide (traditional pre-modern)",
+          "descriptors": [
+            "sheepskin-cowhide-traditional-pre-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wind_articulation",
+      "default_variant": "wind_ornament_heavy"
+    },
+    {
+      "id": "highland_drones",
+      "name": "Drone configuration",
+      "variants": [
+        {
+          "id": "highland_3_drones",
+          "default": true,
+          "name": "Three drones (2 tenor + 1 bass)",
+          "descriptors": [
+            "outdoor",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highland_chanter",
+      "name": "Chanter material",
+      "variants": [
+        {
+          "id": "highland_blackwood",
+          "default": true,
+          "name": "African blackwood / grenadilla (canonical Scottish)",
+          "descriptors": [
+            "african-blackwood-grenadilla-canonical-scottish"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "highland_polypenco",
+          "name": "Polypenco (synthetic)",
+          "descriptors": [
+            "stable",
+            "modern",
+            "consistent",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "highland_cocobolo",
+          "name": "Cocobolo (premium alternative)",
+          "descriptors": [
+            "cocobolo-premium-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highland_drone_reeds",
+      "surface": false,
+      "name": "Drone reeds",
+      "variants": [
+        {
+          "id": "highland_synthetic_drone_reeds",
+          "default": true,
+          "name": "Synthetic drone reeds (modern canonical — Ezeedrone / Selbie)",
+          "descriptors": [
+            "synthetic-drone-reeds-ezeedrone-selbie-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "highland_cane_drone_reeds",
+          "name": "Cane drone reeds (traditional Arundo donax)",
+          "descriptors": [
+            "cane-drone-reeds-traditional-arundo-donax"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highland_chanter_reed",
+      "surface": false,
+      "name": "Chanter reed",
+      "variants": [
+        {
+          "id": "highland_cane_chanter_reed",
+          "default": true,
+          "name": "Cane double-reed (canonical Arundo donax)",
+          "descriptors": [
+            "cane-double-reed-canonical-arundo-donax"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highland_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "highland_synthetic_bag",
+          "default": true,
+          "name": "Synthetic moisture-controlled bag (Bannatyne / Ross canonical modern)",
+          "descriptors": [
+            "synthetic-bannatyne-ross-canonical-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "highland_hide_bag",
+          "name": "Sheepskin or cowhide (traditional pre-modern)",
+          "descriptors": [
+            "sheepskin-cowhide-traditional-pre-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "id": "chinese_xiqing_wedding",
+  "name": "Chinese xǐqìng (喜慶) wedding music",
+  "family": "global",
+  "lineage": "Chinese wedding-music tradition continuous from imperial-era Chinese ceremonial-music practice through Republican-period and post-1949 evolution into modern Chinese-Mandarin-speaking domestic practice across mainland China, Taiwan, and Chinese-diaspora communities; the suona (Chinese shawm) is the canonical wedding-music instrument though here represented by sheng-and-dizi-and-erhu substitute ensemble",
+  "recipe": "classic late-1940s chinese xǐqìng (喜慶) wedding music, wedding, east Asian branch, south Asian wedding, east Asian art music, carnival processional beijing opera tibetan ache lhamo opera. thick, melodic, continuous-phonation, equal tempered. traditional bamboo pipes copper brass free reeds canonical Chinese sheng, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou bangdi northern sharp opera percussive dizi, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, boxwood canonical renaissance European arundo donax wooden pirouette canonical renaissance shawm. shanghai emi pathe 1930s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 792,
+  "score": 321.484,
+  "config": {
+    "traditions": [
+      "chinese_xiqing_wedding",
+      "beijing_opera",
+      "tibetan_ache_lhamo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.7875,
+          "voice_quality": 0.325,
+          "voice_vibrato": 2.405,
+          "voice_articulation": 1.69,
+          "voice_microtone": 1.8050000000000002,
+          "voice_tradition": 33.345,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.72,
+          "voice_speech_song": 7.864999999999998,
+          "voice_ensemble_config": 7.799999999999999,
+          "voice_ornament_system": 4.460000000000001,
+          "voice_pitch_organization": 4.703750000000001,
+          "voice_processing_chain": 1.8445,
+          "voice_multitrack_stack": 1.10775
+        }
+      },
+      {
+        "id": "sheng",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "sheng_size": "sheng_traditional_17",
+          "sheng_context": "sheng_virtuoso",
+          "sheng_pipe_material": "sheng_bamboo_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 0.585,
+          "sheng_size": 1.9107499999999997,
+          "sheng_context": 9.879999999999999,
+          "sheng_pipe_material": 12.219999999999999
+        }
+      },
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "dizi_membrane": "dizi_without",
+          "dizi_pitch": "dizi_cd",
+          "dizi_body_material": "dizi_bitter_bamboo",
+          "dizi_regional_style": "dizi_bangdi_northern"
+        },
+        "scores": {
+          "wind_articulation": 1.56,
+          "dizi_membrane": 2.5887499999999997,
+          "dizi_pitch": 0.9450000000000002,
+          "dizi_body_material": 2.08,
+          "dizi_regional_style": 2.08
+        }
+      },
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_jiangnan",
+          "erhu_body_wood": "erhu_red_sandalwood",
+          "erhu_strings": "erhu_steel_modern",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "erhu_skin": 2.9764999999999993,
+          "erhu_use": 2.08,
+          "erhu_body_wood": 2.015,
+          "erhu_strings": 3.7700000000000005,
+          "erhu_bow": 2.08
+        }
+      },
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_modern_frets",
+          "pipa_strings": "pipa_silk",
+          "pipa_pick": "pipa_fingernail",
+          "pipa_body_wood": "pipa_red_sandalwood"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "pipa_frets": 0.195,
+          "pipa_strings": 3.216499999999999,
+          "pipa_pick": 0.195,
+          "pipa_body_wood": 2.015
+        }
+      },
+      {
+        "id": "shawm",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "shawm_pitch": "shawm_treble",
+          "shawm_context": "shawm_alta_capella",
+          "shawm_body_wood": "shawm_boxwood_canonical",
+          "shawm_reed": "shawm_arundo_pirouette"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000001,
+          "shawm_pitch": 0.39,
+          "shawm_context": 2.08,
+          "shawm_body_wood": 1.9945,
+          "shawm_reed": 2.0395000000000003
+        }
+      }
+    ],
+    "room": "shanghai_emi_pathe_1930s",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

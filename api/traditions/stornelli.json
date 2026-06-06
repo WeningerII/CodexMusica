@@ -1,0 +1,68 @@
+{
+  "id": "stornelli",
+  "name": "Stornelli (Italian improvised rural couplets)",
+  "family": "global",
+  "lineage": "Italian stornelli improvised-couplet folk-song tradition of central Italy (Tuscany, Umbria, Lazio, Marche, Abruzzo) and adjacent regions, in which singer-poets improvise short rhymed verse-couplets (typically tripartite three-line stanzas) on assigned topics, often in competitive dialogic-exchange between two singers. Performance: unaccompanied or minimally-accompanied solo voice, with the canonical poetic-meter conventions strictly governing the improvisation. The genre survived the twentieth-century rural-urbanization period as a vestigial folk practice and entered the post-1970s Italian folk-revival under researchers Roberto Leydi and Diego Carpitella. Distinguished from broader Italian regional-folk-song by stornelli's specifically-improvisational structural framework.",
+  "recipe": "classic mid-1970s stornelli, ballad Poetry, Mediterranean ballad branch, med east poetic ballad poetry cypriot tsiattista basque bertsolaritza. thick, declaimed, melodic, blues inflected. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 408,
+  "score": 144.231,
+  "config": {
+    "traditions": [
+      "stornelli",
+      "cypriot_tsiattista",
+      "basque_bertsolaritza"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 12.544999999999996,
+          "voice_quality": 1.75,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 0.03899999999999999,
+          "voice_microtone": 1.405,
+          "voice_tradition": 23.269999999999996,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 14.428749999999999,
+          "voice_speech_song": 10.075,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 12.149999999999999,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 3.1500000000000004,
+          "voice_multitrack_stack": 2.029
+        }
+      }
+    ],
+    "room": "naples_canzone_napoletana_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

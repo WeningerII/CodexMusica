@@ -1,0 +1,413 @@
+{
+  "id": "hurdy_gurdy",
+  "name": "Hurdy-gurdy (vielle à roue)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "hurdy-gurdy",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "hurdy_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "hurdy_4_string",
+          "default": true,
+          "name": "Four-string traditional",
+          "descriptors": [
+            "drone-like",
+            "medieval",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "hurdy_6_string",
+          "name": "Six-string virtuoso",
+          "descriptors": [
+            "extended",
+            "bal-folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hurdy_buzz",
+      "name": "Buzzing bridge (chien)",
+      "variants": [
+        {
+          "id": "chien_active",
+          "default": true,
+          "name": "Active buzzing chien (canonical French bal-folk)",
+          "descriptors": [
+            "percussive",
+            "rhythmic",
+            "french-trad"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "chien_off",
+          "name": "Buzzing off",
+          "descriptors": [
+            "drone-only",
+            "meditative",
+            "medieval"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hurdy_wheel_rosin",
+      "surface": false,
+      "name": "Wheel rosin",
+      "variants": [
+        {
+          "id": "hurdy_petromax_rosin",
+          "default": true,
+          "name": "Petromax / Pignol-recipe rosin (canonical French)",
+          "descriptors": [
+            "petromax-pignol-rosin-canonical-french"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "hurdy_traditional_pine_rosin",
+          "name": "Traditional pine resin (historical recipe)",
+          "descriptors": [
+            "traditional-pine-resin-historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hurdy_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "hurdy_gut_canonical",
+          "default": true,
+          "name": "Gut (canonical melody + drones, pre-modern historical)",
+          "descriptors": [
+            "gut-canonical-melody-drones-pre-modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "hurdy_steel_modern",
+          "name": "Steel (modern bal-folk alternative)",
+          "descriptors": [
+            "steel-modern-bal-folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "hurdy_nylon_synthetic",
+          "name": "Nylon / synthetic (durable modern)",
+          "descriptors": [
+            "nylon-synthetic-durable-modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hurdy_tradition",
+      "surface": false,
+      "name": "Tradition / lineage",
+      "variants": [
+        {
+          "id": "hurdy_french_bal_folk",
+          "default": true,
+          "name": "French bal-folk (Pignol / Tritonik luthier canon)",
+          "descriptors": [
+            "french-bal-folk-pignol-tritonik"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "hurdy_medieval_reconstruction",
+          "name": "Medieval reconstruction (vielle à roue, pre-1500 canon)",
+          "descriptors": [
+            "medieval-reconstruction-pre-1500"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "hurdy_hungarian_tekero",
+          "name": "Hungarian tekerő variant",
+          "descriptors": [
+            "hungarian-tekero-variant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hurdy_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "hurdy_4_string",
+          "default": true,
+          "name": "Four-string traditional",
+          "descriptors": [
+            "drone-like",
+            "medieval",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "hurdy_6_string",
+          "name": "Six-string virtuoso",
+          "descriptors": [
+            "extended",
+            "bal-folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hurdy_buzz",
+      "name": "Buzzing bridge (chien)",
+      "variants": [
+        {
+          "id": "chien_active",
+          "default": true,
+          "name": "Active buzzing chien (canonical French bal-folk)",
+          "descriptors": [
+            "percussive",
+            "rhythmic",
+            "french-trad"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "chien_off",
+          "name": "Buzzing off",
+          "descriptors": [
+            "drone-only",
+            "meditative",
+            "medieval"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hurdy_wheel_rosin",
+      "surface": false,
+      "name": "Wheel rosin",
+      "variants": [
+        {
+          "id": "hurdy_petromax_rosin",
+          "default": true,
+          "name": "Petromax / Pignol-recipe rosin (canonical French)",
+          "descriptors": [
+            "petromax-pignol-rosin-canonical-french"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "hurdy_traditional_pine_rosin",
+          "name": "Traditional pine resin (historical recipe)",
+          "descriptors": [
+            "traditional-pine-resin-historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hurdy_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "hurdy_gut_canonical",
+          "default": true,
+          "name": "Gut (canonical melody + drones, pre-modern historical)",
+          "descriptors": [
+            "gut-canonical-melody-drones-pre-modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "hurdy_steel_modern",
+          "name": "Steel (modern bal-folk alternative)",
+          "descriptors": [
+            "steel-modern-bal-folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "hurdy_nylon_synthetic",
+          "name": "Nylon / synthetic (durable modern)",
+          "descriptors": [
+            "nylon-synthetic-durable-modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hurdy_tradition",
+      "surface": false,
+      "name": "Tradition / lineage",
+      "variants": [
+        {
+          "id": "hurdy_french_bal_folk",
+          "default": true,
+          "name": "French bal-folk (Pignol / Tritonik luthier canon)",
+          "descriptors": [
+            "french-bal-folk-pignol-tritonik"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "hurdy_medieval_reconstruction",
+          "name": "Medieval reconstruction (vielle à roue, pre-1500 canon)",
+          "descriptors": [
+            "medieval-reconstruction-pre-1500"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "hurdy_hungarian_tekero",
+          "name": "Hungarian tekerő variant",
+          "descriptors": [
+            "hungarian-tekero-variant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

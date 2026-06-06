@@ -1,0 +1,208 @@
+{
+  "id": "turkish_makam",
+  "name": "Turkish makam (classical)",
+  "family": "classical",
+  "lineage": "Ottoman-Turkish classical music tradition (Klasik Türk müziği) descended from the Ottoman court tradition and Mevlevi (Sufi whirling-dervish) ceremonial repertoire, organized through the makam modal system (~600 documented makams, ~150 in active use) and the usul (rhythmic-cycle) system; figures: Itri (1640-1712), Hammamizade İsmail Dede Efendi (1778-1846), and the modern recording-era voices Münir Nurettin Selçuk, Safiye Ayla, Zeki Müren",
+  "recipe": "classic North American early-1640s turkish makam, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. vocal fry, low dynamic level, chest resonance low mid, punctuated. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks maple body Turkish school qanun, arundo donax cane canonical Persian nine segment mevlevi Sufi konya tradition Turkish ney continuous-airflow legato ney, plum walnut ottoman legato kemence, continuous-airflow legato mey, apricot canonical anatolian ottoman arundo donax metal staple canonical ottoman zurna, kanun kanun, tanbur persian. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 865,
+  "score": 642.105,
+  "config": {
+    "traditions": [
+      "turkish_makam",
+      "arab_tarab",
+      "malhun_maghrebi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.7499999999999996,
+          "voice_quality": 1.5,
+          "voice_vibrato": 8.579999999999998,
+          "voice_articulation": 1.6,
+          "voice_microtone": 13.833999999999996,
+          "voice_tradition": 31.459999999999994,
+          "voice_mechanism_compound": 22.257999999999996,
+          "voice_estill_quality": 18.213499999999996,
+          "voice_speech_song": 16.507999999999996,
+          "voice_ensemble_config": 7.669999999999998,
+          "voice_ornament_system": 24.317499999999995,
+          "voice_pitch_organization": 25.7545,
+          "voice_processing_chain": 1.95,
+          "voice_multitrack_stack": 3.6399999999999997
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_horn",
+          "oud_body_wood": "oud_rosewood_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 16.499999999999996,
+          "oud_school": 3.970999999999999,
+          "oud_strings": 8.579999999999998,
+          "oud_pick": 0.39,
+          "oud_body_wood": 5.264999999999999,
+          "oud_soundboard_wood": 1.95,
+          "oud_string_material": 5.020999999999999
+        }
+      },
+      {
+        "id": "qanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "qanun_strings": "qanun_arab_72",
+          "qanun_levers": "mandal_brass",
+          "qanun_pick": "qanun_finger_picks",
+          "qanun_body_wood": "qanun_maple_body",
+          "qanun_bridge_skin": "qanun_goat_skin_bridge",
+          "qanun_string_material": "qanun_fluorocarbon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 16.499999999999996,
+          "qanun_strings": 8.579999999999998,
+          "qanun_levers": -0.35,
+          "qanun_pick": 8.969999999999999,
+          "qanun_body_wood": 5.329999999999998,
+          "qanun_bridge_skin": 0.5594999999999999,
+          "qanun_string_material": 0
+        }
+      },
+      {
+        "id": "ney",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "ney_use": "ney_persian_classical",
+          "ney_pitch": "ney_kerdaniye",
+          "ney_body_material": "ney_arundo_canonical",
+          "ney_lineage": "ney_sufi_mevlevi"
+        },
+        "scores": {
+          "wind_articulation": 16.781499999999998,
+          "ney_use": 2.34,
+          "ney_pitch": 8.579999999999998,
+          "ney_body_material": 1.69,
+          "ney_lineage": 12.089999999999998
+        }
+      },
+      {
+        "id": "kemence",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kemence_type": "classical_kemence",
+          "kemence_context": "kemence_classical",
+          "kemence_body_wood": "kemence_plum_walnut",
+          "kemence_strings": "kemence_goat_gut_historical"
+        },
+        "scores": {
+          "bowed_technique": 16.499999999999996,
+          "kemence_type": 7.799999999999999,
+          "kemence_context": 11.440000000000001,
+          "kemence_body_wood": 2.9449999999999994,
+          "kemence_strings": -0.35
+        }
+      },
+      {
+        "id": "mey",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "mey_size": "orta_mey",
+          "mey_context": "mey_art",
+          "mey_body_wood": "mey_plum_canonical",
+          "mey_reed": "mey_arundo_large_canonical"
+        },
+        "scores": {
+          "wind_articulation": 16.781499999999998,
+          "mey_size": 1.95,
+          "mey_context": 8.579999999999998,
+          "mey_body_wood": 0.831,
+          "mey_reed": 0.9810000000000001
+        }
+      },
+      {
+        "id": "zurna",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "zurna_size": "zurna_orta",
+          "zurna_context": "zurna_mehter",
+          "zurna_body_wood": "zurna_apricot_canonical",
+          "zurna_reed": "zurna_arundo_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.15000000000000002,
+          "zurna_size": 0.39,
+          "zurna_context": 8.25,
+          "zurna_body_wood": 3.769999999999999,
+          "zurna_reed": 3.549499999999999
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "kanun_school": "kanun_turkish",
+          "kanun_articulation": "kanun_tortoiseshell_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": 16.499999999999996,
+          "kanun_school": 18.912999999999997,
+          "kanun_articulation": 0.325
+        }
+      },
+      {
+        "id": "tanbur_persian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "tanbur_use": "tanbur_yarsan",
+          "tanbur_persian_strings": "tanbur_persian_three",
+          "tanbur_persian_body_wood": "tanbur_mulberry_body",
+          "tanbur_persian_string_material": "tanbur_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 16.499999999999996,
+          "tanbur_use": 1.255,
+          "tanbur_persian_strings": 4.159999999999999,
+          "tanbur_persian_body_wood": 0.7695000000000001,
+          "tanbur_persian_string_material": -0.35
+        }
+      }
+    ],
+    "room": "istanbul_makam_kilic_ali_pasha_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

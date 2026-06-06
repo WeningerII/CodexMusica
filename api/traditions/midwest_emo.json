@@ -1,0 +1,154 @@
+{
+  "id": "midwest_emo",
+  "name": "Midwest emo (90s)",
+  "family": "rock_punk",
+  "lineage": "Mid-1990s American emo subgenre developed in the American Midwest (Champaign-Urbana, Kinsella-family-related Chicago, Milwaukee, and St. Louis) characterized by intricate twinkly-guitar arpeggios, math-rock-derived rhythmic complexity, and confessional-emotional vocal-delivery. Cap'n Jazz (1989-1995, Chicago) inaugurated the style; American Football (1997, Champaign-Urbana, Mike Kinsella), the Promise Ring, Mineral, and Sunny Day Real Estate (Pacific Northwest cognate) constitute the canonical roster.",
+  "recipe": "classic North American mid-1990s midwest emo, distorted Rock, emo branch, alternative distorted rock modern indie rock slacker rock. thick, incomplete closure resting, chest resonance low mid, punctuated. marshall plexi amp British rock amp mahogany rosewood arpeggiated single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, mahogany fiberskyn synthetic calf hot rolled annealed drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix deluxe memory man.",
+  "recipe_chars": 672,
+  "score": 418.277,
+  "config": {
+    "traditions": [
+      "midwest_emo",
+      "modern_indie_rock_2010s",
+      "slacker_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 13.629999999999994,
+          "voice_quality": 5.475,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.69,
+          "voice_microtone": 11.799999999999997,
+          "voice_tradition": 3.25,
+          "voice_mechanism_compound": 2.665000000000001,
+          "voice_estill_quality": 0.21,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 3.2,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 5.330000000000001,
+          "amp_make": 4.8100000000000005,
+          "body_wood": 1.69,
+          "neck_wood": 1.69,
+          "fretboard": 1.625,
+          "pickup_magnet": 0.195,
+          "string_material": 0.15,
+          "string_gauge": 1.69,
+          "bridge": 0.345,
+          "scale_length": 1.69,
+          "finish": 0,
+          "string_tuning": 6.24
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 1.9500000000000002,
+          "amp_make": 7.41,
+          "body_wood": 1.69,
+          "pickup_config": 0.9712500000000001,
+          "string_type": 11.375,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.105,
+          "bass_technique": 8.7
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "fiberskyn_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 6.629999999999999,
+          "shell_wood": 1.02,
+          "shell_thickness": 0.43499999999999994,
+          "bearing_edges": 1.69,
+          "drumhead": 3.35,
+          "snare_wires": 1.69,
+          "cymbal_alloy": 9.09,
+          "cymbal_hammering": 8.694999999999999,
+          "cymbal_lathing": 8.844999999999999,
+          "cymbal_finish": 0.38999999999999996,
+          "drum_technique": 8.75
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_memory_man_delay",
+      "fx_chorus_pedal"
+    ]
+  }
+}

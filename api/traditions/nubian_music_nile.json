@@ -1,0 +1,121 @@
+{
+  "id": "nubian_music_nile",
+  "name": "Nubian music (Egyptian-Sudanese Nile Valley)",
+  "family": "global",
+  "lineage": "Nubian music of the Mahas and Kunuz communities of the Nile Valley between Aswan and Dongola, with post-1964 Aswan High Dam relocation extending diaspora to Cairo and Khartoum. Performance integrates Nubian-language responsorial chorus with tar frame-drum and darbuka, plus twentieth-century urban-oud incorporation. Modal vocabulary draws on Nile Valley pentatonic-leaning tradition with distinct Nubian intervals. The post-1964 diaspora produced an exile-mourning lyric corpus addressing the loss of villages submerged by Lake Nasser. The aragid wedding-dance repertoire constitutes the core ceremonial layer.",
+  "recipe": "classic mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, chest resonance low mid, rhythmic. mahogany modern alternative oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, walnut bent frame canonical Iranian tar frame drum. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 609,
+  "score": 152.156,
+  "config": {
+    "traditions": [
+      "nubian_music_nile",
+      "indonesian_jaipongan",
+      "fuji"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.6102499999999997,
+          "voice_quality": 4.8900000000000015,
+          "voice_vibrato": 0.8250000000000001,
+          "voice_articulation": 0.885,
+          "voice_microtone": 2.35,
+          "voice_tradition": 18.134999999999998,
+          "voice_mechanism_compound": 6.759999999999999,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 2.4050000000000002,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 2.545,
+          "voice_multitrack_stack": 2.0752499999999996
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_thirteen",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_mahogany_body",
+          "oud_soundboard_wood": "oud_western_red_cedar_face",
+          "oud_string_material": "oud_brass_wound_bass"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.3852499999999999,
+          "oud_school": 2.1854999999999998,
+          "oud_strings": 1.26,
+          "oud_pick": 1.20525,
+          "oud_body_wood": 1,
+          "oud_soundboard_wood": 0.63,
+          "oud_string_material": 0.9899999999999999
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_clay_traditional",
+          "darbuka_skin": "darbuka_fish_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": 1.56,
+          "darbuka_material": 1.195,
+          "darbuka_skin": 1.3,
+          "darbuka_regional_style": 1.45
+        }
+      },
+      {
+        "id": "tar_frame_drum",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "tar_size": "tar_large",
+          "tar_frame_drum_context": "tar_frame_drum_sufi",
+          "tar_frame_shell_wood": "tar_frame_walnut",
+          "tar_frame_head": "tar_frame_calfskin"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "tar_size": 1.495,
+          "tar_frame_drum_context": 0.21,
+          "tar_frame_shell_wood": 1.69,
+          "tar_frame_head": 0.24
+        }
+      }
+    ],
+    "room": "cairo_studio_misr_umm_kulthum_era",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "id": "ocarina",
+  "name": "Ocarina",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ocarina",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ocarina_chamber",
+      "name": "Chamber configuration",
+      "variants": [
+        {
+          "id": "ocarina_single",
+          "name": "Single chamber",
+          "descriptors": [
+            "simple",
+            "folk",
+            "accessible"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "ocarina_triple",
+          "default": true,
+          "name": "Triple chamber (extended range)",
+          "descriptors": [
+            "virtuoso",
+            "modern",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ocarina_material",
+      "surface": false,
+      "name": "Material",
+      "variants": [
+        {
+          "id": "ocarina_ceramic",
+          "default": true,
+          "name": "Ceramic (canonical)",
+          "descriptors": [
+            "traditional",
+            "standard",
+            "historical",
+            "ceramic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "ocarina_plastic",
+          "name": "Plastic (mass-market)",
+          "descriptors": [
+            "affordable",
+            "durable",
+            "plastic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "ocarina_wood_metal",
+          "name": "Wood / metal (specialty)",
+          "descriptors": [
+            "craft-built",
+            "unusual"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ocarina_chamber",
+      "name": "Chamber configuration",
+      "variants": [
+        {
+          "id": "ocarina_single",
+          "name": "Single chamber",
+          "descriptors": [
+            "simple",
+            "folk",
+            "accessible"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "ocarina_triple",
+          "default": true,
+          "name": "Triple chamber (extended range)",
+          "descriptors": [
+            "virtuoso",
+            "modern",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ocarina_material",
+      "surface": false,
+      "name": "Material",
+      "variants": [
+        {
+          "id": "ocarina_ceramic",
+          "default": true,
+          "name": "Ceramic (canonical)",
+          "descriptors": [
+            "traditional",
+            "standard",
+            "historical",
+            "ceramic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "ocarina_plastic",
+          "name": "Plastic (mass-market)",
+          "descriptors": [
+            "affordable",
+            "durable",
+            "plastic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "ocarina_wood_metal",
+          "name": "Wood / metal (specialty)",
+          "descriptors": [
+            "craft-built",
+            "unusual"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ]
+}

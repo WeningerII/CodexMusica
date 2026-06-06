@@ -1,0 +1,142 @@
+{
+  "id": "corrido",
+  "name": "Corrido",
+  "family": "vernacular",
+  "lineage": "Mexican narrative-ballad song-form documented mid-19th-century onward, descended from Spanish-romance medieval narrative-poetic-tradition and re-rooted in the Mexican-revolutionary-era (1910-1920) as the canonical journalistic-historical-record song-form of Mexican rural-popular consciousness. The canonical corrido structure: 4-line octosyllabic-rhyming verses, typically 8-15 verses long, narrating a single historical-event (battles, bandit-exploits, assassinations, romantic-tragedies, social-injustice). Performed solo (guitar-and-voice) or with mariachi-conjunto, the corrido emphasizes textual-narrative-clarity over musical-elaboration (simple I-IV-V harmonic-progression, often unchanged across all verses). The modern narco-corrido subgenre 1970s-onward chronicles drug-trafficking-figures, replacing the revolutionary-era revolutionary-hero subject-matter with contemporary cartel-leadership.",
+  "recipe": "classic North American mid-1910s corrido, functional Song, corrido branch, tejano border ranchera, Latin am troubadour ballad poetry milonga. thick, full chest belt, chest resonance low mid, narrative. cedar nylon fingerpicked classical nylon-string guitar, castagnari Italian premium folk music chordal accordion, cedar nickel wound modern tejano strummed bajo sexto, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 666,
+  "score": 259.982,
+  "config": {
+    "traditions": [
+      "corrido",
+      "ranchera",
+      "milonga"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 2.983125,
+          "voice_quality": 9.219999999999995,
+          "voice_vibrato": 2.08,
+          "voice_articulation": 5.934999999999999,
+          "voice_microtone": 0.30374999999999996,
+          "voice_tradition": 7.539999999999998,
+          "voice_mechanism_compound": 3.769999999999999,
+          "voice_estill_quality": 4.19,
+          "voice_speech_song": 14.234999999999994,
+          "voice_ensemble_config": 9.619999999999997,
+          "voice_ornament_system": 1.17,
+          "voice_pitch_organization": 2.6,
+          "voice_processing_chain": 5.449375000000001,
+          "voice_multitrack_stack": 3.445625
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 9.784999999999995,
+          "string_tuning": 0,
+          "top_wood_classical": 3.38,
+          "bracing_classical": 1.69,
+          "string_classical": 2.015,
+          "attack_technique_cl": 2.08
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 6.560625,
+          "accordion_reed_material": 2.08,
+          "musette_offset": 1,
+          "reed_config": 0.195,
+          "bellows": 0.495,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 4.16
+        }
+      },
+      {
+        "id": "bajo_sexto",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bajo_courses": "twelve_string_bajo",
+          "bajo_top": "cedar_bj",
+          "bajo_strings": "bajo_nickel_wound",
+          "bajo_back_wood": "bajo_mahogany_back"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.094999999999999,
+          "bajo_courses": 5.790625,
+          "bajo_top": 2.08,
+          "bajo_strings": 2.6,
+          "bajo_back_wood": 0
+        }
+      },
+      {
+        "id": "guitarron_mexicano",
+        "slots": {
+          "guitarron_body": "guitarron_deep_round_back",
+          "guitarron_body_wood": "guitarron_cedar_paracho",
+          "guitarron_strings": "guitarron_six_string_nylon_steel",
+          "guitarron_string_material": "guitarron_nylon_steel_modern",
+          "guitarron_technique": "guitarron_octave_pair_plucking"
+        },
+        "scores": {
+          "guitarron_body": 0.39,
+          "guitarron_body_wood": 5.07,
+          "guitarron_strings": 1.17,
+          "guitarron_string_material": 2.73,
+          "guitarron_technique": 5.720000000000001
+        }
+      }
+    ],
+    "room": "mexico_peerless_musart_50s_60s",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

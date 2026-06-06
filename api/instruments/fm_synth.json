@@ -1,0 +1,531 @@
+{
+  "id": "fm_synth",
+  "name": "FM synthesizer (operator-based)",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "FM synth",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_pad_drone",
+          "default": true,
+          "name": "Pad / drone",
+          "applies_to": [
+            "analog_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "string_machine",
+            "granular_synth",
+            "ondes_martenot",
+            "modular_synth",
+            "eurorack_modular"
+          ],
+          "descriptors": [
+            "sustained",
+            "pad"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-and-pad",
+            "drone-like",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "shoegaze"
+          ]
+        },
+        {
+          "id": "electronic_arpeggiated",
+          "name": "Arpeggiated sequence",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "monosynth_acid_bass"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "arpeggio-decoration"
+          ],
+          "canonical_tags": [
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_lead_line",
+          "name": "Lead synth line",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth",
+            "ondes_martenot",
+            "theremin"
+          ],
+          "descriptors": [
+            "lead",
+            "singing"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "pop",
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_bass_sub",
+          "name": "Sub-bass",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "monosynth_acid_bass",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "digital_subtractive"
+          ],
+          "descriptors": [
+            "sub-bass",
+            "low"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "trap",
+            "dubstep"
+          ]
+        },
+        {
+          "id": "electronic_pluck_short",
+          "name": "Pluck / short envelope",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth"
+          ],
+          "descriptors": [
+            "plucked",
+            "short-envelope"
+          ],
+          "match_tokens": [
+            "electronic",
+            "string-attack"
+          ],
+          "canonical_tags": [
+            "pop",
+            "edm"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "fm_algorithm",
+      "name": "Algorithm complexity",
+      "variants": [
+        {
+          "id": "fm_simple",
+          "name": "Simple (2-operator)",
+          "descriptors": [
+            "glassy",
+            "clean"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "fm_classic",
+          "default": true,
+          "name": "4–6 operator",
+          "descriptors": [
+            "percussive",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "digital"
+          ]
+        },
+        {
+          "id": "fm_complex",
+          "name": "Dense (8+ operator)",
+          "descriptors": [
+            "evolving",
+            "layered",
+            "sound-design-rich"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fm_modulator_ratio",
+      "name": "Modulator ratio",
+      "variants": [
+        {
+          "id": "fm_harmonic",
+          "default": true,
+          "name": "Harmonic (integer ratio)",
+          "descriptors": [
+            "pitched",
+            "musical",
+            "articulate-low-distortion"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "fm_inharmonic",
+          "name": "Inharmonic (non-integer)",
+          "descriptors": [
+            "metallic",
+            "clangy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "fm_extreme",
+          "name": "Extreme detuning",
+          "descriptors": [
+            "noisy",
+            "dissonant"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fm_polyphony",
+      "name": "Polyphony",
+      "variants": [
+        {
+          "id": "fm_mono",
+          "default": true,
+          "name": "Monophonic",
+          "descriptors": [
+            "solo",
+            "expressive",
+            "lead"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "fm_poly",
+          "name": "Polyphonic",
+          "descriptors": [
+            "chordal",
+            "full"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fm_model_lineage",
+      "surface": false,
+      "name": "FM model lineage",
+      "variants": [
+        {
+          "id": "fm_yamaha_dx7",
+          "default": true,
+          "name": "Yamaha DX7 (canonical 1983-1989 — Chowning Stanford FM patent, 6-operator, mid-1980s pop ubiquity)",
+          "descriptors": [
+            "yamaha-dx7-canonical-1983-1989-chowning-stanford-fm-patent-6-operator-mid-1980s-pop-ubiquity"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "fm_yamaha_dx21_dx100",
+          "name": "Yamaha DX21 / DX100 (4-operator portable — 1985-1987 budget alternative)",
+          "descriptors": [
+            "yamaha-dx21-dx100-4-operator-portable-1985-1987-budget"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "fm_yamaha_tx81z",
+          "name": "Yamaha TX81Z (canonical 1987 — Lately Bass canon, rack-mount 4-operator)",
+          "descriptors": [
+            "yamaha-tx81z-canonical-1987-lately-bass-canon-rack-mount-4-operator"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "fm_native_instruments_fm8",
+          "name": "Native Instruments FM8 (modern software 8-operator)",
+          "descriptors": [
+            "native-instruments-fm8-modern-software-8-operator"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "fm_algorithm",
+      "name": "Algorithm complexity",
+      "variants": [
+        {
+          "id": "fm_simple",
+          "name": "Simple (2-operator)",
+          "descriptors": [
+            "glassy",
+            "clean"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "fm_classic",
+          "default": true,
+          "name": "4–6 operator",
+          "descriptors": [
+            "percussive",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "digital"
+          ]
+        },
+        {
+          "id": "fm_complex",
+          "name": "Dense (8+ operator)",
+          "descriptors": [
+            "evolving",
+            "layered",
+            "sound-design-rich"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fm_modulator_ratio",
+      "name": "Modulator ratio",
+      "variants": [
+        {
+          "id": "fm_harmonic",
+          "default": true,
+          "name": "Harmonic (integer ratio)",
+          "descriptors": [
+            "pitched",
+            "musical",
+            "articulate-low-distortion"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "fm_inharmonic",
+          "name": "Inharmonic (non-integer)",
+          "descriptors": [
+            "metallic",
+            "clangy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "fm_extreme",
+          "name": "Extreme detuning",
+          "descriptors": [
+            "noisy",
+            "dissonant"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fm_polyphony",
+      "name": "Polyphony",
+      "variants": [
+        {
+          "id": "fm_mono",
+          "default": true,
+          "name": "Monophonic",
+          "descriptors": [
+            "solo",
+            "expressive",
+            "lead"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "fm_poly",
+          "name": "Polyphonic",
+          "descriptors": [
+            "chordal",
+            "full"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fm_model_lineage",
+      "surface": false,
+      "name": "FM model lineage",
+      "variants": [
+        {
+          "id": "fm_yamaha_dx7",
+          "default": true,
+          "name": "Yamaha DX7 (canonical 1983-1989 — Chowning Stanford FM patent, 6-operator, mid-1980s pop ubiquity)",
+          "descriptors": [
+            "yamaha-dx7-canonical-1983-1989-chowning-stanford-fm-patent-6-operator-mid-1980s-pop-ubiquity"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "fm_yamaha_dx21_dx100",
+          "name": "Yamaha DX21 / DX100 (4-operator portable — 1985-1987 budget alternative)",
+          "descriptors": [
+            "yamaha-dx21-dx100-4-operator-portable-1985-1987-budget"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "fm_yamaha_tx81z",
+          "name": "Yamaha TX81Z (canonical 1987 — Lately Bass canon, rack-mount 4-operator)",
+          "descriptors": [
+            "yamaha-tx81z-canonical-1987-lately-bass-canon-rack-mount-4-operator"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "fm_native_instruments_fm8",
+          "name": "Native Instruments FM8 (modern software 8-operator)",
+          "descriptors": [
+            "native-instruments-fm8-modern-software-8-operator"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    }
+  ]
+}

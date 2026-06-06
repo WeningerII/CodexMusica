@@ -1,0 +1,764 @@
+{
+  "id": "classical_nylon_string_guitar",
+  "name": "Classical / nylon-string guitar",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "classical / nylon-string guitar",
+  "parts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "acoustic_resonator_steel",
+            "mountain_dulcimer",
+            "cittern"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "narrative"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "singer-songwriter",
+            "folk",
+            "folk-revival",
+            "confessional",
+            "ballad-poetry"
+          ]
+        },
+        {
+          "id": "acoustic_strummed_ringing",
+          "default": true,
+          "name": "Open-chord strumming (ringing)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "mandolin",
+            "mandola",
+            "autoharp",
+            "celtic_harp",
+            "cittern"
+          ],
+          "descriptors": [
+            "strummed",
+            "open-chord-ringing-overtones"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "folk-revival",
+            "pop"
+          ]
+        },
+        {
+          "id": "acoustic_travis_picking",
+          "name": "Travis picking",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar"
+          ],
+          "descriptors": [
+            "travis-picked",
+            "alternating-thumb"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "picked"
+          ],
+          "canonical_tags": [
+            "country",
+            "folk"
+          ]
+        },
+        {
+          "id": "acoustic_chord_melody",
+          "name": "Chord-melody",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "mandolin",
+            "upright_bass"
+          ],
+          "descriptors": [
+            "chord-melody"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "chordal",
+            "block-chord",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "string_tuning",
+      "name": "String tuning",
+      "variants": [
+        {
+          "id": "standard_tuning",
+          "default": true,
+          "name": "Standard (EADGBE)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "acoustic_resonator_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "acoustic-only",
+            "standard-tuned"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "top_wood_classical",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "cedar_cl",
+          "default": true,
+          "name": "Cedar",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "broken-in-fast",
+            "soft-attack",
+            "cedar"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "spruce_cl",
+          "name": "European spruce",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "dynamic-range-wide",
+            "spruce"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "redwood_cl",
+          "name": "Redwood",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "thick",
+            "midrange-forward",
+            "redwood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bracing_classical",
+      "name": "Top bracing",
+      "variants": [
+        {
+          "id": "fan_torres_cl",
+          "default": true,
+          "name": "Fan-bracing (Torres-school)",
+          "descriptors": [
+            "traditional",
+            "overtone-rich",
+            "singing-sustain"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "lattice_cl",
+          "name": "Lattice-bracing (modern)",
+          "descriptors": [
+            "projecting",
+            "concert-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "double_top_cl",
+          "name": "Double-top (Nomex sandwich)",
+          "descriptors": [
+            "louder-still",
+            "projecting",
+            "contemporary-classical"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_classical",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "nylon_normal_cl",
+          "name": "Normal-tension nylon",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "pliable",
+            "nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "fingerstyle"
+          ]
+        },
+        {
+          "id": "nylon_high_cl",
+          "name": "High-tension nylon",
+          "descriptors": [
+            "snappier",
+            "projection-prioritized",
+            "nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "carbon_cl",
+          "default": true,
+          "name": "Carbon-fiber treble",
+          "descriptors": [
+            "brighter",
+            "cutting",
+            "modern-classical",
+            "carbon-fiber"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "gut_cl",
+          "name": "Sheep-gut (period)",
+          "descriptors": [
+            "low-tension-strings",
+            "short-sustain",
+            "pre-1940-period",
+            "gut"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_classical_guitar",
+          "name": "Plain sheep gut (unsplit, Aquila HU)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_classical_guitar",
+          "name": "Plain lamb gut (Aquila HU, whole-lamb method)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "organic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "varnished_gut_classical_guitar",
+          "name": "Varnished gut (surface-sealed)",
+          "descriptors": [
+            "varnished",
+            "sealed",
+            "humidity-resistant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "attack_technique_cl",
+      "surface": false,
+      "name": "Right-hand attack",
+      "variants": [
+        {
+          "id": "apoyando_cl",
+          "default": true,
+          "name": "Apoyando (rest stroke)",
+          "descriptors": [
+            "full",
+            "percussive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "tirando_cl",
+          "name": "Tirando (free stroke)",
+          "descriptors": [
+            "delicate",
+            "flamenco-classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "rasgueado_cl",
+          "name": "Rasgueado (flamenco strum)",
+          "descriptors": [
+            "percussive",
+            "fan-strum"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "flamenco"
+          ]
+        },
+        {
+          "id": "thumb_attack_cl",
+          "name": "Thumb-on-bass with finger-on-treble (bossa)",
+          "descriptors": [],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "bossa"
+          ]
+        },
+        {
+          "id": "fingertip_only_cl",
+          "name": "Fingertip pad (no nail)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "top_wood_classical",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "cedar_cl",
+          "default": true,
+          "name": "Cedar",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "broken-in-fast",
+            "soft-attack",
+            "cedar"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "spruce_cl",
+          "name": "European spruce",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "dynamic-range-wide",
+            "spruce"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "redwood_cl",
+          "name": "Redwood",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "thick",
+            "midrange-forward",
+            "redwood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bracing_classical",
+      "name": "Top bracing",
+      "variants": [
+        {
+          "id": "fan_torres_cl",
+          "default": true,
+          "name": "Fan-bracing (Torres-school)",
+          "descriptors": [
+            "traditional",
+            "overtone-rich",
+            "singing-sustain"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "lattice_cl",
+          "name": "Lattice-bracing (modern)",
+          "descriptors": [
+            "projecting",
+            "concert-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "double_top_cl",
+          "name": "Double-top (Nomex sandwich)",
+          "descriptors": [
+            "louder-still",
+            "projecting",
+            "contemporary-classical"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_classical",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "nylon_normal_cl",
+          "name": "Normal-tension nylon",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "pliable",
+            "nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "fingerstyle"
+          ]
+        },
+        {
+          "id": "nylon_high_cl",
+          "name": "High-tension nylon",
+          "descriptors": [
+            "snappier",
+            "projection-prioritized",
+            "nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "carbon_cl",
+          "default": true,
+          "name": "Carbon-fiber treble",
+          "descriptors": [
+            "brighter",
+            "cutting",
+            "modern-classical",
+            "carbon-fiber"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "gut_cl",
+          "name": "Sheep-gut (period)",
+          "descriptors": [
+            "low-tension-strings",
+            "short-sustain",
+            "pre-1940-period",
+            "gut"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_classical_guitar",
+          "name": "Plain sheep gut (unsplit, Aquila HU)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_classical_guitar",
+          "name": "Plain lamb gut (Aquila HU, whole-lamb method)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "organic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "varnished_gut_classical_guitar",
+          "name": "Varnished gut (surface-sealed)",
+          "descriptors": [
+            "varnished",
+            "sealed",
+            "humidity-resistant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "attack_technique_cl",
+      "surface": false,
+      "name": "Right-hand attack",
+      "variants": [
+        {
+          "id": "apoyando_cl",
+          "default": true,
+          "name": "Apoyando (rest stroke)",
+          "descriptors": [
+            "full",
+            "percussive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "tirando_cl",
+          "name": "Tirando (free stroke)",
+          "descriptors": [
+            "delicate",
+            "flamenco-classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "rasgueado_cl",
+          "name": "Rasgueado (flamenco strum)",
+          "descriptors": [
+            "percussive",
+            "fan-strum"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "flamenco"
+          ]
+        },
+        {
+          "id": "thumb_attack_cl",
+          "name": "Thumb-on-bass with finger-on-treble (bossa)",
+          "descriptors": [],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "bossa"
+          ]
+        },
+        {
+          "id": "fingertip_only_cl",
+          "name": "Fingertip pad (no nail)",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

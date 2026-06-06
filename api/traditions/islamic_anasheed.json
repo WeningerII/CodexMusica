@@ -1,0 +1,100 @@
+{
+  "id": "islamic_anasheed",
+  "name": "Anāshīd (Islamic vocal-only devotional)",
+  "family": "global",
+  "lineage": "Islamic instrument-free devotional vocal tradition (nashīd plural anāshīd: \"hymns\") characterized by male-chorus a cappella or daff frame-drum accompaniment — codified through Sami Yusuf\\u2019s 2003 Al-Mu\\u2019allim record, Maher Zain, and Mesut Kurtis as canonical late-twentieth-century English-Arabic-bilingual exponents",
+  "recipe": "classic early-2000s anāshīd, ritual Devotional, islamic branch, Sufi ritual devotional qawwali sufi inshad. vocal fry, declaimed, chest resonance low mid, maqam neutral step. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 585,
+  "score": 198.837,
+  "config": {
+    "traditions": [
+      "islamic_anasheed",
+      "qawwali",
+      "sufi_inshad_egyptian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.450375,
+          "voice_quality": 10.960624999999999,
+          "voice_vibrato": 0.7,
+          "voice_articulation": 0.25,
+          "voice_microtone": 3.3580000000000005,
+          "voice_tradition": 8.06,
+          "voice_mechanism_compound": 1.2052500000000002,
+          "voice_estill_quality": 0.444,
+          "voice_speech_song": 2.4050000000000002,
+          "voice_ensemble_config": 2.4699999999999998,
+          "voice_ornament_system": 14.6495,
+          "voice_pitch_organization": 3.5760000000000005,
+          "voice_processing_chain": 2.3503749999999997,
+          "voice_multitrack_stack": 3.1838749999999996
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 3.3799999999999994,
+          "choir_polyphonic_configuration": 2.450375,
+          "choir_regional_canonical_configuration": 1.2349999999999999,
+          "choir_ensemble_repertoire": 2.6
+        }
+      },
+      {
+        "id": "daf",
+        "slots": {
+          "daf_rings": "daf_with_rings",
+          "daf_context": "daf_classical",
+          "daf_shell_wood": "daf_walnut_canonical",
+          "daf_head_material": "daf_goat_skin_canonical",
+          "daf_jingle_metal": "daf_brass_rings"
+        },
+        "scores": {
+          "daf_rings": 0.9099999999999999,
+          "daf_context": 1.0799999999999998,
+          "daf_shell_wood": 2.9899999999999998,
+          "daf_head_material": 1.3,
+          "daf_jingle_metal": 1.3
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

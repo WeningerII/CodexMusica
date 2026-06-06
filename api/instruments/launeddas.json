@@ -1,0 +1,252 @@
+{
+  "id": "launeddas",
+  "name": "Launeddas (Sardinian triple pipe)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "launeddas",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ],
+          "default": true
+        },
+        {
+          "id": "wind_circular_breathing_drone",
+          "name": "Circular-breathing drone",
+          "applies_to": [
+            "didgeridoo",
+            "didgeridoo",
+            "duduk",
+            "mey",
+            "launeddas"
+          ],
+          "descriptors": [
+            "drone-like",
+            "circular-breathing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "didgeridoo"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "launeddas_pipes",
+      "name": "Pipe configuration",
+      "variants": [
+        {
+          "id": "launeddas_3",
+          "default": true,
+          "name": "Three-pipe (drone + two melody)",
+          "descriptors": [
+            "archaic",
+            "sardinian",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "launeddas_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "launeddas_circular",
+          "default": true,
+          "name": "Circular breathing",
+          "descriptors": [
+            "continuous",
+            "meditative",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "launeddas_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "launeddas_cane_canonical",
+          "default": true,
+          "name": "Reed cane Arundo donax for all three pipes (canonical Sardinian archaic)",
+          "descriptors": [
+            "cane-arundo-donax-three-pipes-canonical-sardinian-archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "launeddas_reed",
+      "surface": false,
+      "name": "Single-reed (idioglottic)",
+      "variants": [
+        {
+          "id": "launeddas_idioglot_canonical",
+          "default": true,
+          "name": "Idioglottic single-reeds (cut from same cane as pipe — canonical Sardinian)",
+          "descriptors": [
+            "idioglottic-single-reeds-canonical-sardinian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wind_articulation",
+      "default_variant": "wind_folk_melodic"
+    },
+    {
+      "id": "launeddas_pipes",
+      "name": "Pipe configuration",
+      "variants": [
+        {
+          "id": "launeddas_3",
+          "default": true,
+          "name": "Three-pipe (drone + two melody)",
+          "descriptors": [
+            "archaic",
+            "sardinian",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "launeddas_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "launeddas_circular",
+          "default": true,
+          "name": "Circular breathing",
+          "descriptors": [
+            "continuous",
+            "meditative",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "launeddas_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "launeddas_cane_canonical",
+          "default": true,
+          "name": "Reed cane Arundo donax for all three pipes (canonical Sardinian archaic)",
+          "descriptors": [
+            "cane-arundo-donax-three-pipes-canonical-sardinian-archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "launeddas_reed",
+      "surface": false,
+      "name": "Single-reed (idioglottic)",
+      "variants": [
+        {
+          "id": "launeddas_idioglot_canonical",
+          "default": true,
+          "name": "Idioglottic single-reeds (cut from same cane as pipe — canonical Sardinian)",
+          "descriptors": [
+            "idioglottic-single-reeds-canonical-sardinian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

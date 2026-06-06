@@ -1,0 +1,121 @@
+{
+  "id": "contemporary_rb_2010s_alt",
+  "name": "Contemporary alt-R&B (2010s)",
+  "family": "pop",
+  "lineage": "2010s R&B subgenre developed in the wake of Frank Ocean's 2011 Nostalgia, Ultra mixtape and 2012 Channel Orange album, characterized by electronic-production-and-traditional-R&B-hybrid aesthetic, intimate-confessional lyrical content, atmospheric-and-spacious arrangements, and explicit indie-rock-meets-R&B cross-genre orientation. The Weeknd's 2011 House of Balloons-Thursday-Echoes of Silence mixtape trilogy, Miguel's Kaleidoscope Dream (2012), and the broader OVO Sound and XO Records label rosters anchor the canonical sound.",
+  "recipe": "classic contemporary alt-r&b, functional Song, soul R&B branch, us hip hop MC rhythm conscious hip-hop west coast hip-hop. thick, rap, chest resonance low mid, narrative. analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 495,
+  "score": 258.255,
+  "config": {
+    "traditions": [
+      "contemporary_rb_2010s_alt",
+      "conscious_hip_hop",
+      "west_coast_hip_hop_classic"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 9.294999999999998,
+          "voice_quality": 3.150000000000002,
+          "voice_vibrato": 0.57,
+          "voice_articulation": 5.404999999999999,
+          "voice_microtone": 5.550000000000001,
+          "voice_tradition": 4.17,
+          "voice_mechanism_compound": 1.5599999999999996,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 12.024999999999999,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 4.12,
+          "voice_multitrack_stack": 6.285
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "square_pulse",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 2.795,
+          "oscillator": 0.69,
+          "filter_topology": 1.63,
+          "envelope": 0.5399999999999999,
+          "modulation": 0.105
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 1.3649999999999998,
+          "drum_machine_808_context": 1.69,
+          "tr808_production_origin": 0.525
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 3.6500000000000004,
+          "amp_make": 4.680000000000001,
+          "body_wood": 0.9600000000000002,
+          "pickup_config": 0.87,
+          "string_type": 4.8100000000000005,
+          "scale_length_b": 1.1849999999999998,
+          "fretted_or_not": 0.21,
+          "bass_technique": 3.65
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

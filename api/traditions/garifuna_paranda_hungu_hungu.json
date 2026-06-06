@@ -1,0 +1,92 @@
+{
+  "id": "garifuna_paranda_hungu_hungu",
+  "name": "Garifuna paranda and hungu-hungu (UNESCO 2008)",
+  "family": "global",
+  "lineage": "Garifuna paranda and hungu-hungu Afro-Indigenous-Caribbean song traditions of the Garifuna (Garinagu) community of the Central American Caribbean coast — Belize (Stann Creek and Toledo districts), Honduras (Atlántida and Colón departments), Guatemala (Izabal department), and Nicaragua (Caribbean coast). Garifuna culture, language, and music recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2001 and inscribed on the Representative List 2008. The Garifuna are descended from West African Black-Carib peoples deported from St. Vincent by British colonial authorities in 1797 to the Honduran Caribbean coast and subsequently spread along the Central American littoral; the Garifuna language is a unique Arawakan-with-African-and-Spanish-French-substrate hybrid. Paranda is the canonical Garifuna song-form: solo-or-small-group voice accompanied by acoustic guitar, atabaque-style barrel-drums (the primero/segunda paired drum configuration in Garifuna nomenclature), sisera gourd-shaker, and characteristic male tenor-and-falsetto-alternation vocal style. Hungu-hungu is the parallel drum-rhythm cycle (in a characteristic 3/4-against-6/8 polyrhythm) that anchors much Garifuna sacred-and-secular repertoire. Andy Palacio (1960-2008) and the Stonetree Records Paranda Project (1990s, recording elderly first-generation parandero performers) brought paranda to international attention. Aurelio Martínez (born 1969) continues the post-Palacio paranda lineage. Distinguished from Trinidadian calypso by Garifuna-language repertoire and characteristic 3/4-against-6/8 hungu-hungu polyrhythmic foundation; distinguished from Honduran-mestizo punta rock by paranda's acoustic-and-traditional (vs electric-pop) instrumentation; distinguished from Afro-Brazilian samba de roda by Garifuna's Central-American-Caribbean specific Afro-Indigenous-hybrid linguistic-cultural identity.",
+  "recipe": "classic garifuna paranda and hungu-hungu, functional Song, tropical song branch, Caribbean groove percussion zydeco cadence-lypso. thick, forward-resonance, punctuated, equal tempered. cowhide canonical candomble jacaranda canonical bahian candomble atabaque, gourd seeds hardwood handle canonical garifuna paranda accompaniment canonical garifuna sisera. garifuna beach hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 506,
+  "score": 186.915,
+  "config": {
+    "traditions": [
+      "garifuna_paranda_hungu_hungu",
+      "zydeco",
+      "cadence_lypso"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "twang_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 4.985000000000001,
+          "voice_quality": 2.2500000000000004,
+          "voice_vibrato": 0.345,
+          "voice_articulation": 0.765,
+          "voice_microtone": 4.800000000000001,
+          "voice_tradition": 16.894999999999996,
+          "voice_mechanism_compound": 6.949999999999999,
+          "voice_estill_quality": 5.065,
+          "voice_speech_song": 30.355000000000008,
+          "voice_ensemble_config": 24.700000000000003,
+          "voice_ornament_system": 1.56,
+          "voice_pitch_organization": 3.6350000000000007,
+          "voice_processing_chain": 7.279999999999999,
+          "voice_multitrack_stack": 2.84
+        }
+      },
+      {
+        "id": "atabaque",
+        "slots": {
+          "atabaque_role": "atabaque_rum",
+          "atabaque_skin": "atabaque_cowhide",
+          "atabaque_shell_wood": "atabaque_jacaranda"
+        },
+        "scores": {
+          "atabaque_role": 0.24,
+          "atabaque_skin": 2.3,
+          "atabaque_shell_wood": 1.25
+        }
+      },
+      {
+        "id": "sisera",
+        "slots": {
+          "sisera_body": "sisera_gourd_seeds_hardwood_handle_canonical",
+          "sisera_tradition": "sisera_paranda_canonical"
+        },
+        "scores": {
+          "sisera_body": 15.100000000000003,
+          "sisera_tradition": 21.640000000000004
+        }
+      }
+    ],
+    "room": "garifuna_beach_hall",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "riddim_dubstep",
+  "name": "Riddim dubstep (mid-2010s American minimal-bass dubstep)",
+  "family": "electronic",
+  "lineage": "Mid-2010s American dubstep subgenre characterized by stripped-back minimal production focused on repetitive percussion-and-bass riddim, mechanical synth-bass-line designs, and minimal melodic content. Infekt, PhaseOne, Eptic, Virtual Riot, and the broader Disciple, Bassrush, and Never Say Die Records rosters anchor the canonical sound.",
+  "recipe": "classic riddim dubstep, bass System, bass descendants branch, thrash metal. TR-808, fast decay focused low sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion low-gain overdrive.",
+  "recipe_chars": 363,
+  "score": 60.727,
+  "config": {
+    "traditions": [
+      "riddim_dubstep"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 8.515,
+          "drum_machine_808_context": 8.58,
+          "tr808_production_origin": 0.2415
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 19.175,
+          "oscillator": 8.58,
+          "filter_topology": 11.569999999999999,
+          "envelope": 1.69,
+          "modulation": 0
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "distortion_high",
+      "overdrive_low"
+    ]
+  }
+}

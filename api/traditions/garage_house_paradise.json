@@ -1,0 +1,138 @@
+{
+  "id": "garage_house_paradise",
+  "name": "Garage house",
+  "family": "global",
+  "lineage": "NYC Paradise-Garage house lineage named for the Larry Levan-resident Paradise Garage nightclub (1977-1987) — codified through Larry Levan, Frankie Knuckles (before his Chicago move), and the Salsoul / West End / Prelude labels; characterized by gospel-vocal-led songs, four-on-the-floor 120 BPM tempo, and live-instrument production retaining disco-era warmth",
+  "recipe": "classic mid-1980s garage house, electronic Dance, garage house u s branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, nervy, narrative. Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum slow chorale tonewheel organ, birch laminated maple laminated wet sand cast cast iron modern mass production grand piano, digital subtractive, TR-909. jazz club. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 497,
+  "score": 273.227,
+  "config": {
+    "traditions": [
+      "garage_house_paradise",
+      "doo_wop",
+      "alt_rnb"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 9.575,
+          "voice_quality": 7.250000000000002,
+          "voice_vibrato": 0.6,
+          "voice_articulation": 4.75,
+          "voice_microtone": 0.75,
+          "voice_tradition": 11.27,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 9.695,
+          "voice_speech_song": 7.734999999999998,
+          "voice_ensemble_config": 8.839999999999996,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 1.26,
+          "voice_processing_chain": 5.375,
+          "voice_multitrack_stack": 2.47
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "slow_chorale",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 10.385,
+          "drawbar_setting": 4.75,
+          "rotary_speed": 4.8950000000000005,
+          "percussion_setting": 0.36,
+          "tonewheel_model": 3.4450000000000003,
+          "leslie_cabinet_model": 0.325
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 10.385,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 0.825,
+          "piano_hammer": 0.325,
+          "piano_rim": 1.17,
+          "piano_soundboard": 0.2,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.17,
+          "piano_pitch_standard": 0.325
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "va_archetypes": 0.24,
+          "digital_subtractive_context": 6.889999999999997
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 16.249999999999996,
+          "drum_machine_909_context": 2.38,
+          "tr909_production_origin": 0.8999999999999999
+        }
+      }
+    ],
+    "room": "jazz_club",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

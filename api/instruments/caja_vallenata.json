@@ -1,0 +1,288 @@
+{
+  "id": "caja_vallenata",
+  "name": "Caja vallenata (Colombian single-headed drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "caja",
+  "parts": [
+    {
+      "id": "caja_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "caja_carved_wood_single_head",
+          "default": true,
+          "name": "Carved-wood single-head (Caribbean coast tradition)",
+          "descriptors": [
+            "traditional",
+            "wood",
+            "hide",
+            "vallenato-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "vallenato-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caja_pattern",
+      "name": "Vallenato air pattern",
+      "variants": [
+        {
+          "id": "caja_paseo",
+          "default": true,
+          "name": "Paseo (slow vallenato air)",
+          "descriptors": [
+            "slow-paseo"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caja_merengue_vallenato",
+          "name": "Merengue (fast vallenato air, not Dominican)",
+          "descriptors": [
+            "fast-merengue"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caja_son_vallenato",
+          "name": "Son (medium vallenato air)",
+          "descriptors": [
+            "medium-son"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caja_puya",
+          "name": "Puya (fastest vallenato air)",
+          "descriptors": [
+            "fastest-puya"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caja_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "caja_carreto_canonical",
+          "default": true,
+          "name": "Carreto (canonical Colombian Caribbean coast)",
+          "descriptors": [
+            "carreto-canonical-colombian-caribbean-coast"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "vallenato-tradition"
+          ]
+        },
+        {
+          "id": "caja_balso",
+          "name": "Balso (lighter alternative)",
+          "descriptors": [
+            "balso-lighter-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "vallenato-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caja_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "caja_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin (canonical vallenato)",
+          "descriptors": [
+            "goat-skin-canonical-vallenato"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "vallenato-tradition"
+          ]
+        },
+        {
+          "id": "caja_synthetic_modern",
+          "name": "Synthetic (modern alternative)",
+          "descriptors": [
+            "synthetic-modern-alternative"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "caja_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "caja_carved_wood_single_head",
+          "default": true,
+          "name": "Carved-wood single-head (Caribbean coast tradition)",
+          "descriptors": [
+            "traditional",
+            "wood",
+            "hide",
+            "vallenato-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "vallenato-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caja_pattern",
+      "name": "Vallenato air pattern",
+      "variants": [
+        {
+          "id": "caja_paseo",
+          "default": true,
+          "name": "Paseo (slow vallenato air)",
+          "descriptors": [
+            "slow-paseo"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caja_merengue_vallenato",
+          "name": "Merengue (fast vallenato air, not Dominican)",
+          "descriptors": [
+            "fast-merengue"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caja_son_vallenato",
+          "name": "Son (medium vallenato air)",
+          "descriptors": [
+            "medium-son"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "caja_puya",
+          "name": "Puya (fastest vallenato air)",
+          "descriptors": [
+            "fastest-puya"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caja_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "caja_carreto_canonical",
+          "default": true,
+          "name": "Carreto (canonical Colombian Caribbean coast)",
+          "descriptors": [
+            "carreto-canonical-colombian-caribbean-coast"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "vallenato-tradition"
+          ]
+        },
+        {
+          "id": "caja_balso",
+          "name": "Balso (lighter alternative)",
+          "descriptors": [
+            "balso-lighter-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "vallenato-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caja_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "caja_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin (canonical vallenato)",
+          "descriptors": [
+            "goat-skin-canonical-vallenato"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "vallenato-tradition"
+          ]
+        },
+        {
+          "id": "caja_synthetic_modern",
+          "name": "Synthetic (modern alternative)",
+          "descriptors": [
+            "synthetic-modern-alternative"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

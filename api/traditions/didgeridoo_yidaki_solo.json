@@ -1,0 +1,48 @@
+{
+  "id": "didgeridoo_yidaki_solo",
+  "name": "Yidaki solo (Aboriginal Australian)",
+  "family": "global",
+  "lineage": "Northeast Arnhem Land Yolŋu ceremonial trumpet tradition — the yidaki (the Yolŋu Matha language name for the instrument that English speakers call didgeridoo) is the Aboriginal Australian ceremonial pipe, played through continuous circular breathing with vocalizations and tongue articulations producing complex polyrhythmic textures; deeply tied to Yolŋu manikay ceremonial song tradition and the broader Aboriginal Australian songline cosmology — 20th-century preservation through Djalu Gurruwiwi (the yidaki master and ceremonial-knowledge holder), Mark Atkins, the Yothu Yindi yidaki tradition extended into popular-music context",
+  "recipe": "classic modern yidaki solo, drone Modal, wind pipe branch, indigenous ritual devotional aboriginal didgeridoo solo songlines shipibo-conibo icaros healing songs. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo. arctic arnhem indigenous outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 419,
+  "score": 63.896,
+  "config": {
+    "traditions": [
+      "didgeridoo_yidaki_solo",
+      "australian_didgeridoo_yidaki_extended",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "didgeridoo",
+        "slots": {
+          "wind_articulation": "wind_circular_breathing_drone",
+          "didj_material": "eucalyptus_tetrodonta_yidaki",
+          "didj_mouthpiece": "sugarbag_beeswax_mouthpiece",
+          "didj_technique": "circular_breathing"
+        },
+        "scores": {
+          "wind_articulation": 7.940833333333334,
+          "didj_material": 14.499999999999998,
+          "didj_mouthpiece": 12.32,
+          "didj_technique": 5.885
+        }
+      }
+    ],
+    "room": "arctic_arnhem_indigenous_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

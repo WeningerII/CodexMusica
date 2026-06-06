@@ -1,0 +1,166 @@
+{
+  "id": "chimurenga",
+  "name": "Chimurenga",
+  "family": "global",
+  "lineage": "Zimbabwean liberation-struggle music genre codified by Thomas Mapfumo from 1973 onward (chimurenga is the Shona word for struggle, used to refer to the Second Chimurenga liberation war 1966-1979 against Rhodesian white minority rule); built on translating Shona mbira interlocking-cycle repertoire (kushaura and kutsinhira patterns from the religious mbira dzavadzimu tradition) into the electric-band context with electric guitars playing the mbira parts",
+  "recipe": "classic West African mid-1970s chimurenga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, string drone modal bomba huayno. thick, forward-resonance, punctuated, Yoruba tonal vocal. sustaining wood hardwood mbira, open string slide resonance single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows pin lathed tonal groove drum kit. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 644,
+  "score": 160.018,
+  "config": {
+    "traditions": [
+      "chimurenga",
+      "bomba_puertorican",
+      "andean_huayno"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "twang_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.1049999999999993,
+          "voice_quality": 1.8449999999999998,
+          "voice_vibrato": 0.325,
+          "voice_articulation": 0.69,
+          "voice_microtone": 0.49999999999999983,
+          "voice_tradition": 9.165000000000001,
+          "voice_mechanism_compound": 3.7700000000000005,
+          "voice_estill_quality": 2.405,
+          "voice_speech_song": 4.744999999999999,
+          "voice_ensemble_config": 4.29,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 2.2,
+          "voice_processing_chain": 3.400625,
+          "voice_multitrack_stack": 0.78
+        }
+      },
+      {
+        "id": "mbira",
+        "slots": {
+          "tine_material": "iron_forged",
+          "mbira_board": "mubvamaropa",
+          "mbira_resonator": "deze_calabash",
+          "mbira_buzz": "bottle_caps"
+        },
+        "scores": {
+          "tine_material": 0.6956249999999999,
+          "mbira_board": 1.5656249999999996,
+          "mbira_resonator": 0.39,
+          "mbira_buzz": 0.650625
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_soldano_slo100",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 0.7,
+          "amp_make": 0.585,
+          "body_wood": 0.3,
+          "neck_wood": 0.3,
+          "fretboard": 0.40874999999999995,
+          "pickup_magnet": 0.15,
+          "string_material": 0,
+          "string_gauge": 0.3,
+          "bridge": 0.40874999999999995,
+          "scale_length": 0.6,
+          "finish": 0,
+          "string_tuning": 1.3
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_walking",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 0.7149999999999999,
+          "body_wood": 0.6,
+          "pickup_config": 0.25875,
+          "string_type": 0.6499999999999999,
+          "scale_length_b": 0.35062499999999996,
+          "fretted_or_not": 0.18562499999999998,
+          "bass_technique": -0.035
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "nickel_silver_cymbal",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "traditional_finish",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 4.29,
+          "shell_wood": 0.500625,
+          "shell_thickness": 0,
+          "bearing_edges": 0.44999999999999996,
+          "drumhead": 0.9099999999999999,
+          "snare_wires": 0.3,
+          "cymbal_alloy": 0.9099999999999999,
+          "cymbal_hammering": 1.2349999999999999,
+          "cymbal_lathing": 1.8199999999999998,
+          "cymbal_finish": 0,
+          "drum_technique": 4.29
+        }
+      }
+    ],
+    "room": "harare_zimbabwean_chimurenga_studio",
+    "archetype": "arch_emi_lagos_african_70s",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "mbira_seven_tone",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

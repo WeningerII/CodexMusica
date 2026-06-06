@@ -1,0 +1,67 @@
+{
+  "id": "faroese_kvaedi",
+  "name": "Faroese kvæði (ballad chain-dance)",
+  "family": "global",
+  "lineage": "Faroese kvæði Faroe Islands ballad-and-chain-dance tradition, the canonical surviving medieval-Scandinavian narrative-ballad chain-dance form that has persisted in continuous practice on the Faroes since the medieval period. Performance configuration: a circle of dancers holding hands, moving in characteristic slow-stepping pattern, with the lead-singer (skipari) singing the narrative-stanzas while the dancer-chorus responds with refrain-lines. Repertoire centers on long narrative-cycles including the Sjúrðar kvæði (Sigurd-the-dragon-slayer cycle, the canonical Faroese epic, 200+ stanzas), and other historical, mythological, and ballad-narrative cycles in classical Faroese language. The post-1948 Faroese cultural-autonomy period under the Føroya Fróðskaparfelag (Faroese Society) consolidated institutional preservation.",
+  "recipe": "classic late-1940s faroese kvæði, ballad Poetry, Celtic balladic branch, Celtic balladic Scottish ballad child ballad revival. melodic, narrative, Scottish Gaelic vocal, tahrir tekye chain mechanism. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 346,
+  "score": 89.067,
+  "config": {
+    "traditions": [
+      "faroese_kvaedi",
+      "child_ballad_revival"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0.40950000000000003,
+          "voice_quality": 0.0315,
+          "voice_vibrato": 2.73675,
+          "voice_articulation": 5.89475,
+          "voice_microtone": 0.40950000000000003,
+          "voice_tradition": 11.309999999999999,
+          "voice_mechanism_compound": 6.75,
+          "voice_estill_quality": 4.813000000000001,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 6.1275,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 3.185,
+          "voice_multitrack_stack": 1.663
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

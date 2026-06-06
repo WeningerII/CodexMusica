@@ -1,0 +1,81 @@
+{
+  "id": "flamenco_buleria",
+  "name": "Bulería (flamenco festive fast palo)",
+  "family": "global",
+  "lineage": "Andalusian bulería flamenco palo, the fast-tempo festive-celebratory form developed in late-nineteenth-century Jerez de la Frontera from the older soleá tradition. Characterized by the canonical twelve-beat bulería compás (accents shifted from soleá to beats 12, 3, 6, 8, 10 with characteristic rhythmic-displacement-and-suspension play), fast tempo, and improvisational-virtuosic vocal-and-guitar-and-palmas (hand-clapping) interplay. Lyric content spans humorous, romantic, and celebratory themes — much lighter than the cante jondo deep-songs. The bulería closes most flamenco performance sets as the festive-final palo. Distinguished from soleá by bulería's faster tempo, lighter emotional register, and the canonical Jerez-rhythmic-displacement-and-virtuosity practice.",
+  "recipe": "classic North American mid-1970s bulería, ballad Poetry, Mediterranean ballad branch, west African groove percussion fújì indonesian jaipongan. vocal fry, nasal, chest resonance low mid, rhythmic. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 536,
+  "score": 180.983,
+  "config": {
+    "traditions": [
+      "flamenco_buleria",
+      "fuji",
+      "indonesian_jaipongan"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "nasal_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 9.045,
+          "voice_vibrato": 0.8400000000000002,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 9,
+          "voice_tradition": 15.233999999999998,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 12.491249999999999,
+          "voice_speech_song": 11.765,
+          "voice_ensemble_config": 11.7,
+          "voice_ornament_system": 9.556375,
+          "voice_pitch_organization": 3.3503749999999997,
+          "voice_processing_chain": 4.26675,
+          "voice_multitrack_stack": 5.069999999999999
+        }
+      },
+      {
+        "id": "flamenco_guitar",
+        "slots": {
+          "flamenco_body": "flamenco_blanca_cypress",
+          "flamenco_features": "flamenco_low_action_golpe_plate",
+          "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
+        },
+        "scores": {
+          "flamenco_body": 10.375375,
+          "flamenco_features": 0.9099999999999999,
+          "flamenco_technique": 4.641375
+        }
+      }
+    ],
+    "room": "casablanca_chaabi_moroccan_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "flamenco_compas_12_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

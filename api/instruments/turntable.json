@@ -1,0 +1,147 @@
+{
+  "id": "turntable",
+  "name": "Turntable (DJ vinyl deck)",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -1,
+    "dynamics": 0
+  },
+  "short": "turntable",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_sample_chopped",
+          "name": "Sample chopped",
+          "applies_to": [
+            "sampler_classic",
+            "sampler_drum_machine",
+            "turntable"
+          ],
+          "descriptors": [
+            "chopped",
+            "sampled"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "plunderphonics"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "turntable_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "turntable_scratch",
+          "default": true,
+          "name": "Scratching (hip-hop DJ technique)",
+          "descriptors": [
+            "scratched",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "east-coast"
+          ]
+        },
+        {
+          "id": "turntable_chirp_baby",
+          "name": "Chirp / baby-scratch",
+          "descriptors": [
+            "ornamental",
+            "percussive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "turntable_backspin",
+          "name": "Backspin / break-juggling",
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "hip-hop"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "turntable_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "turntable_scratch",
+          "default": true,
+          "name": "Scratching (hip-hop DJ technique)",
+          "descriptors": [
+            "scratched",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "east-coast"
+          ]
+        },
+        {
+          "id": "turntable_chirp_baby",
+          "name": "Chirp / baby-scratch",
+          "descriptors": [
+            "ornamental",
+            "percussive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "turntable_backspin",
+          "name": "Backspin / break-juggling",
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sample-based"
+          ],
+          "canonical_tags": [
+            "hip-hop"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "id": "thai_luk_krung",
+  "name": "Thai lûk krung (\"child of the city,\" urban song)",
+  "family": "pop",
+  "lineage": "Thai lûk krung (\"child of the city\") urban-popular song genre emerging in 1930s-1940s Bangkok from the synthesis of Thai melodic-and-poetic-vocabulary with Western-jazz harmonic-instrumentation framework. Performance: solo voice with Western jazz-orchestra accompaniment (piano, double-bass, drum-kit, brass section), in smooth, romantic register addressing urban Bangkok middle-class concerns. Sunthraporn ensemble (founded 1939 by Eua Sunthornsanan) consolidated the canonical sound; the parallel post-war Suchin Phaisarnyaphirom and Charin Nantanakorn lineages extended the repertoire. Distinguished from lûk thûng by lûk krung's urban-Bangkok (vs rural-migrant) cultural orientation and Western-jazz-harmonic (vs Thai-folk-pentatonic) musical framework.",
+  "recipe": "classic North American mid-1930s thai lûk krung, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, lament wail, melodic, punctuated. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, growly gut upright bass, steel fiberskyn synthetic calf bronze bell bronze drum kit. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 614,
+  "score": 366.453,
+  "config": {
+    "traditions": [
+      "thai_luk_krung",
+      "cape_verdean_batuko",
+      "greek_entechno"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 18.894999999999996,
+          "voice_quality": 2.2749999999999995,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 0.7349999999999999,
+          "voice_microtone": 20.04949999999999,
+          "voice_tradition": 10.359,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 9.945,
+          "voice_ensemble_config": 6.759999999999999,
+          "voice_ornament_system": 2.6750000000000003,
+          "voice_pitch_organization": 13.164499999999999,
+          "voice_processing_chain": 4.5714999999999995,
+          "voice_multitrack_stack": 2.1630000000000003
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 6.245,
+          "grand_piano_size": 0.54,
+          "grand_piano_brand": 2.9765,
+          "piano_hammer": 5.4815000000000005,
+          "piano_rim": 8.06,
+          "piano_soundboard": 7.8575,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": 2.04,
+          "upright_strings": 9.75,
+          "upright_play": 9.75
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "fiberskyn_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "hand_lathed_pit_retaining",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 10.009999999999998,
+          "shell_wood": 1.585,
+          "shell_thickness": 0,
+          "bearing_edges": 0.63,
+          "drumhead": 10.5625,
+          "snare_wires": 0.54,
+          "cymbal_alloy": 10.944999999999997,
+          "cymbal_hammering": 11.786499999999998,
+          "cymbal_lathing": 10.524999999999999,
+          "cymbal_finish": 1.45,
+          "drum_technique": 10.009999999999998
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "equal_heptatonic_thai_khmer",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

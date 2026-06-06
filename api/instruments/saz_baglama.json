@@ -1,0 +1,662 @@
+{
+  "id": "saz_baglama",
+  "name": "Saz / bağlama (Turkish long-neck lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "saz",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "saz_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "cura_saz",
+          "name": "Cura (smallest)",
+          "descriptors": [
+            "treble-extended",
+            "treble",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglama_med",
+          "default": true,
+          "name": "Bağlama (medium)",
+          "descriptors": [
+            "versatile",
+            "aşık-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "divan_sazi",
+          "name": "Divan sazı (largest)",
+          "descriptors": [
+            "deep",
+            "grounding"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saz_frets",
+      "name": "Frets",
+      "variants": [
+        {
+          "id": "saz_microtonal_frets",
+          "default": true,
+          "name": "Microtonal (extra perde for makam)",
+          "descriptors": [
+            "traditional",
+            "makam-correct",
+            "authentic"
+          ],
+          "match_tokens": [
+            "microtonal",
+            "microtonal-bend",
+            "plucked"
+          ]
+        },
+        {
+          "id": "saz_chromatic_frets",
+          "name": "Chromatic only",
+          "descriptors": [
+            "simplified",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saz_body_wood",
+      "surface": false,
+      "name": "Body / bowl wood",
+      "variants": [
+        {
+          "id": "saz_mulberry_body",
+          "default": true,
+          "name": "Mulberry (canonical Anatolian)",
+          "descriptors": [
+            "mulberry-bowl",
+            "canonical-anatolian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_walnut_body",
+          "name": "Walnut (premium urban)",
+          "descriptors": [
+            "walnut-bowl",
+            "premium-urban"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_juniper_body",
+          "name": "Juniper (eastern Anatolian)",
+          "descriptors": [
+            "juniper-bowl",
+            "eastern-anatolian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_chestnut_body",
+          "name": "Chestnut (regional alternative)",
+          "descriptors": [
+            "chestnut-bowl"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saz_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saz_steel_modern",
+          "default": true,
+          "name": "Steel (canonical modern)",
+          "descriptors": [
+            "steel-canonical-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_nylon_cura",
+          "name": "Nylon (cura saz, softer)",
+          "descriptors": [
+            "nylon",
+            "cura-saz-softer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saz_tradition",
+      "surface": false,
+      "name": "Tradition / canon",
+      "variants": [
+        {
+          "id": "saz_asik_tradition",
+          "default": true,
+          "name": "Aşık (wandering bardic tradition)",
+          "descriptors": [
+            "asik",
+            "wandering-bardic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_alevi_cem",
+          "name": "Alevi cem (devotional)",
+          "descriptors": [
+            "alevi-cem",
+            "devotional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_modern_concert",
+          "name": "Modern concert (Arif Sağ / Erkan Oğur lineage)",
+          "descriptors": [
+            "modern-concert",
+            "arif-sag-erkan-ogur"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saz_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "cura_saz",
+          "name": "Cura (smallest)",
+          "descriptors": [
+            "treble-extended",
+            "treble",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "baglama_med",
+          "default": true,
+          "name": "Bağlama (medium)",
+          "descriptors": [
+            "versatile",
+            "aşık-suited"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "divan_sazi",
+          "name": "Divan sazı (largest)",
+          "descriptors": [
+            "deep",
+            "grounding"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saz_frets",
+      "name": "Frets",
+      "variants": [
+        {
+          "id": "saz_microtonal_frets",
+          "default": true,
+          "name": "Microtonal (extra perde for makam)",
+          "descriptors": [
+            "traditional",
+            "makam-correct",
+            "authentic"
+          ],
+          "match_tokens": [
+            "microtonal",
+            "microtonal-bend",
+            "plucked"
+          ]
+        },
+        {
+          "id": "saz_chromatic_frets",
+          "name": "Chromatic only",
+          "descriptors": [
+            "simplified",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saz_body_wood",
+      "surface": false,
+      "name": "Body / bowl wood",
+      "variants": [
+        {
+          "id": "saz_mulberry_body",
+          "default": true,
+          "name": "Mulberry (canonical Anatolian)",
+          "descriptors": [
+            "mulberry-bowl",
+            "canonical-anatolian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_walnut_body",
+          "name": "Walnut (premium urban)",
+          "descriptors": [
+            "walnut-bowl",
+            "premium-urban"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_juniper_body",
+          "name": "Juniper (eastern Anatolian)",
+          "descriptors": [
+            "juniper-bowl",
+            "eastern-anatolian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_chestnut_body",
+          "name": "Chestnut (regional alternative)",
+          "descriptors": [
+            "chestnut-bowl"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saz_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saz_steel_modern",
+          "default": true,
+          "name": "Steel (canonical modern)",
+          "descriptors": [
+            "steel-canonical-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_nylon_cura",
+          "name": "Nylon (cura saz, softer)",
+          "descriptors": [
+            "nylon",
+            "cura-saz-softer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saz_tradition",
+      "surface": false,
+      "name": "Tradition / canon",
+      "variants": [
+        {
+          "id": "saz_asik_tradition",
+          "default": true,
+          "name": "Aşık (wandering bardic tradition)",
+          "descriptors": [
+            "asik",
+            "wandering-bardic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_alevi_cem",
+          "name": "Alevi cem (devotional)",
+          "descriptors": [
+            "alevi-cem",
+            "devotional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "saz_modern_concert",
+          "name": "Modern concert (Arif Sağ / Erkan Oğur lineage)",
+          "descriptors": [
+            "modern-concert",
+            "arif-sag-erkan-ogur"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

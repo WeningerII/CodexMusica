@@ -1,0 +1,233 @@
+{
+  "id": "salsa_nuyorican",
+  "name": "Salsa (Nuyorican)",
+  "family": "global",
+  "lineage": "New York Puerto Rican-Cuban-Latin diaspora dance-music codified through the Fania All-Stars canon (1968-1977) with Hector Lavoe, Willie Colón, Celia Cruz, Eddie Palmieri, Rubén Blades",
+  "recipe": "classic tropical mid-1970s salsa, groove Percussion, son salsa branch, American jazz bop cool jazz / west coast bebop. thick, declaimed, punctuated, equal tempered. grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, jazz balance trumpet, student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, claves. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 807,
+  "score": 316.325,
+  "config": {
+    "traditions": [
+      "salsa_nuyorican",
+      "cool_jazz_west_coast",
+      "bebop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.169000000000001,
+          "voice_quality": 0.7799999999999996,
+          "voice_vibrato": 0.3505,
+          "voice_articulation": 0.5595,
+          "voice_microtone": 2.2500000000000004,
+          "voice_tradition": 3.6399999999999997,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 0.864,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.847,
+          "voice_processing_chain": 1.542,
+          "voice_multitrack_stack": 0.696
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.27299999999999996,
+          "grand_piano_brand": 0.6509999999999999,
+          "piano_hammer": 0.8449999999999999,
+          "piano_rim": 0.8449999999999999,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_walking",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 0.6499999999999998,
+          "body_wood": 0.5459999999999999,
+          "pickup_config": 0.1815,
+          "string_type": 3.25,
+          "scale_length_b": 0.27299999999999996,
+          "fretted_or_not": 0,
+          "bass_technique": 2.5
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "tumba",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 3.513,
+          "conga_set": 0.1815,
+          "conga_skin": 3.25,
+          "conga_shell_wood": 3.25
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_bronze",
+          "timbales_context": "timbales_descarga"
+        },
+        "scores": {
+          "percussion_technique": 3.513,
+          "timbales_shell": 1.3,
+          "timbales_context": 0.39
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_descarga",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 3.513,
+          "bongos_skin": 9.1,
+          "bongos_context": 0.24,
+          "bongos_shell_wood": 3.25
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 0.9749999999999996,
+          "brass_size": 0.3505,
+          "trumpet_mouthpiece": 3.25,
+          "brass_mute": 0.8249999999999998,
+          "trumpet_technique": 0.9749999999999996,
+          "trumpet_bell_metal": 0.742,
+          "trumpet_maker_school": 0.9099999999999999
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 0.9749999999999996,
+          "trombone_type": 2.5,
+          "trombone_mouthpiece": 2.6915,
+          "trombone_mute": 0,
+          "trombone_technique": 1.02,
+          "trombone_bell_metal": 0.742,
+          "trombone_maker_school": 0.9099999999999999
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 0.9749999999999996,
+          "sax_size": 0.27299999999999996,
+          "sax_reed": 0.3505,
+          "sax_body_alloy": 2.545,
+          "sax_mouthpiece": 0.3505,
+          "sax_technique": 2.5,
+          "sax_maker_school": 3.185
+        }
+      },
+      {
+        "id": "claves",
+        "slots": {
+          "claves_pattern": "claves_son_2_3",
+          "claves_wood": "claves_cuban_hardwood"
+        },
+        "scores": {
+          "claves_pattern": 3.25,
+          "claves_wood": 0.2415
+        }
+      }
+    ],
+    "room": "fania_la_tierra_studios_ny",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_api_525",
+      "eq": "eq_api_550",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_30ips"
+    },
+    "tuning": "son_clave_2_3",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

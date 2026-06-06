@@ -1,0 +1,298 @@
+{
+  "id": "bombo_andino",
+  "name": "Bombo (Andean bass drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bombo",
+  "parts": [
+    {
+      "id": "bombo_andino_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "bombo_andino_leguero",
+          "default": true,
+          "name": "Legüero (hollowed tree-trunk)",
+          "descriptors": [
+            "traditional",
+            "rural-Argentine"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_stave",
+          "name": "Stave-built (urban)",
+          "descriptors": [
+            "standardized",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_shell",
+          "name": "Modern composite shell",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "commercial",
+            "composite-material"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bombo_andino_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "bombo_andino_llama",
+          "name": "Llama or vicuña hide",
+          "descriptors": [
+            "highland",
+            "traditional",
+            "distinctive",
+            "vicuña-hide",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_goat",
+          "name": "Goat skin",
+          "descriptors": [
+            "regional",
+            "classic",
+            "flexible",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_cow",
+          "default": true,
+          "name": "Cowhide",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "mestizo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bombo_andino_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "bombo_andino_ceibo",
+          "default": true,
+          "name": "Ceibo (canonical Argentine legüero — single hollowed trunk)",
+          "descriptors": [
+            "ceibo-canonical-argentine-leguero-hollowed-trunk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_algarrobo",
+          "name": "Algarrobo (alternative northern Argentine)",
+          "descriptors": [
+            "algarrobo-alternative-northern-argentine"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_quebracho",
+          "name": "Quebracho (premium dense)",
+          "descriptors": [
+            "quebracho-premium-dense"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bombo_andino_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "bombo_andino_leguero",
+          "default": true,
+          "name": "Legüero (hollowed tree-trunk)",
+          "descriptors": [
+            "traditional",
+            "rural-Argentine"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_stave",
+          "name": "Stave-built (urban)",
+          "descriptors": [
+            "standardized",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_shell",
+          "name": "Modern composite shell",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "commercial",
+            "composite-material"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bombo_andino_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "bombo_andino_llama",
+          "name": "Llama or vicuña hide",
+          "descriptors": [
+            "highland",
+            "traditional",
+            "distinctive",
+            "vicuña-hide",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_goat",
+          "name": "Goat skin",
+          "descriptors": [
+            "regional",
+            "classic",
+            "flexible",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_cow",
+          "default": true,
+          "name": "Cowhide",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "mestizo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bombo_andino_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "bombo_andino_ceibo",
+          "default": true,
+          "name": "Ceibo (canonical Argentine legüero — single hollowed trunk)",
+          "descriptors": [
+            "ceibo-canonical-argentine-leguero-hollowed-trunk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_algarrobo",
+          "name": "Algarrobo (alternative northern Argentine)",
+          "descriptors": [
+            "algarrobo-alternative-northern-argentine"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        },
+        {
+          "id": "bombo_andino_quebracho",
+          "name": "Quebracho (premium dense)",
+          "descriptors": [
+            "quebracho-premium-dense"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

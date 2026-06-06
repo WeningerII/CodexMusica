@@ -1,0 +1,168 @@
+{
+  "id": "garage_punk_60s",
+  "name": "Garage punk (60s American)",
+  "family": "rock_punk",
+  "lineage": "Mid-1960s American amateur-and-semi-professional rock style characterized by deliberately raw production, simple three-chord structure, fuzz-and-distortion guitar tone, and snarling vocal aggression. The Nuggets compilation (1972, edited by Lenny Kaye) canonized the canonical 1965-1968 American garage-punk recordings; The Sonics, ? and the Mysterians, the Standells, the Seeds, and Count Five constitute the canonical roster. Direct precursor of late-1970s punk rock.",
+  "recipe": "classic North American 1965-1968 garage punk, distorted Rock, punk branch, regional distorted rock aussie pub rock greek rock. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 753,
+  "score": 514.293,
+  "config": {
+    "traditions": [
+      "garage_punk_60s",
+      "aussie_pub_rock",
+      "greek_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 11.499999999999993,
+          "voice_quality": 1.255,
+          "voice_vibrato": 1.405,
+          "voice_articulation": 0.24,
+          "voice_microtone": 12.094999999999997,
+          "voice_tradition": 3.0550000000000015,
+          "voice_mechanism_compound": 2.665000000000001,
+          "voice_estill_quality": 0.09,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 14.4215,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 2.9899999999999998,
+          "voice_processing_chain": 3.9000000000000004,
+          "voice_multitrack_stack": 5.850000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 12.7,
+          "amp_make": 22.619999999999997,
+          "body_wood": 1.405,
+          "neck_wood": 1.405,
+          "fretboard": 1.355,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 1.405,
+          "bridge": 0,
+          "scale_length": 1.51,
+          "finish": 1.3,
+          "string_tuning": 11.309999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 16.726499999999998,
+          "amp_make": 6.175,
+          "body_wood": 1.51,
+          "pickup_config": 0,
+          "string_type": 15.6,
+          "scale_length_b": 1.405,
+          "fretted_or_not": 0.195,
+          "bass_technique": 24.8265
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "double_coated",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 12.75,
+          "shell_wood": 0.39,
+          "shell_thickness": 0.09,
+          "bearing_edges": 1.405,
+          "drumhead": 1.51,
+          "snare_wires": 1.405,
+          "cymbal_alloy": 25.089999999999996,
+          "cymbal_hammering": 12.094999999999999,
+          "cymbal_lathing": 11.989999999999998,
+          "cymbal_finish": 0.39,
+          "drum_technique": 12.75
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_combo_compact_deluxe",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_selmer"
+        },
+        "scores": {
+          "keyboard_technique": 1.3365,
+          "combo_organ_model": 1.5,
+          "combo_organ_voicing": 2.355,
+          "combo_organ_context": 6.24,
+          "amp_make": 2.3352500000000003
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_american_tweed",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "tea_chest_bass",
+  "name": "Tea-chest bass (UK skiffle homemade bass)",
+  "family": "acoustic_strings",
+  "class": "bass",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tea chest bass",
+  "parts": [
+    {
+      "id": "tea_chest_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "tea_chest_single_string",
+          "default": true,
+          "name": "Tea chest + broom-handle + single string (canonical)",
+          "descriptors": [],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "skiffle",
+            "uk-1950s"
+          ]
+        },
+        {
+          "id": "tea_chest_three_string",
+          "name": "Tea chest 3-string variant",
+          "descriptors": [
+            "extended",
+            "rare"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tea_chest_construction",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "tea_chest_single_string",
+          "default": true,
+          "name": "Tea chest + broom-handle + single string (canonical)",
+          "descriptors": [],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "skiffle",
+            "uk-1950s"
+          ]
+        },
+        {
+          "id": "tea_chest_three_string",
+          "name": "Tea chest 3-string variant",
+          "descriptors": [
+            "extended",
+            "rare"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

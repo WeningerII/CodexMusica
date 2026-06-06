@@ -1,0 +1,190 @@
+{
+  "id": "sertanejo",
+  "name": "Sertanejo",
+  "family": "global",
+  "lineage": "Brazilian rural-country pop tradition with two principal eras — sertanejo raiz (rural-roots, 1930s-1960s acoustic duos with double-vocal harmony) and sertanejo universitário (2000s-onward urban-pop crossover) codified through Leandro and Leonardo, Chitãozinho and Xororó (raiz canon), then Michel Teló, Luan Santana, and Marília Mendonça (post-2010 universitário)",
+  "recipe": "classic tropical mid-1930s sertanejo, groove Percussion, Brazilian branch, country functional song country rock nashville sound. thick, conversational, melodic, equal tempered. travis picked classical nylon-string guitar, steel straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, banda sinaloense, pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira. live tracking. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 654,
+  "score": 475.307,
+  "config": {
+    "traditions": [
+      "sertanejo",
+      "country_rock",
+      "nashville_sound"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "speech_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 12.589999999999995,
+          "voice_quality": 0.7899999999999999,
+          "voice_vibrato": 5.84375,
+          "voice_articulation": 0.26999999999999996,
+          "voice_microtone": 7.3100000000000005,
+          "voice_tradition": 6.89,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 8.97,
+          "voice_speech_song": 7.215,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 0.525,
+          "voice_pitch_organization": 0.6,
+          "voice_processing_chain": 3.0875000000000004,
+          "voice_multitrack_stack": 4.485
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "plain_lamb_gut_classical_guitar",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 5.744999999999999,
+          "string_tuning": 0,
+          "top_wood_classical": 0.525,
+          "bracing_classical": 0.39,
+          "string_classical": 0.045,
+          "attack_technique_cl": 0.38999999999999996
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "demi_swing",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 5.833749999999999,
+          "accordion_reed_material": 1.155,
+          "musette_offset": 0.7,
+          "reed_config": 0.6299999999999999,
+          "bellows": 0.048749999999999995,
+          "voicing_chamber": 0.045,
+          "accordion_maker_school": 0.78
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 6.132499999999999,
+          "body_wood": 0.6300000000000001,
+          "pickup_config": 0,
+          "string_type": 2.275,
+          "scale_length_b": 0.4924999999999999,
+          "fretted_or_not": 0.39,
+          "bass_technique": 5.945
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 6.24,
+          "shell_wood": 1.05,
+          "shell_thickness": 0.045,
+          "bearing_edges": 0.24,
+          "drumhead": 7.295,
+          "snare_wires": 0.24,
+          "cymbal_alloy": 6.545,
+          "cymbal_hammering": 7.55,
+          "cymbal_lathing": 7.34,
+          "cymbal_finish": 0.28500000000000003,
+          "drum_technique": 6.24
+        }
+      },
+      {
+        "id": "banda_sinaloense",
+        "slots": {
+          "sections": "banda_trumpets",
+          "banda_sinaloense_context": "banda_sinaloense_norteno"
+        },
+        "scores": {
+          "sections": 0.6187500000000001,
+          "banda_sinaloense_context": 1.3
+        }
+      },
+      {
+        "id": "viola_caipira",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "viola_caipira_courses": "viola_cebolão",
+          "viola_caipira_context": "viola_caipira_caipira",
+          "viola_caipira_top_wood": "viola_caipira_pinho_brasil",
+          "viola_caipira_back_wood": "viola_caipira_imbuia",
+          "viola_caipira_strings": "viola_caipira_steel_doubled"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "viola_caipira_courses": 5.779999999999999,
+          "viola_caipira_context": 8.319999999999999,
+          "viola_caipira_top_wood": 3.1487499999999997,
+          "viola_caipira_back_wood": 3.2499999999999996,
+          "viola_caipira_strings": 1.8224999999999998
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

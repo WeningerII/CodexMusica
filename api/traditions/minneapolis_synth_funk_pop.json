@@ -1,0 +1,186 @@
+{
+  "id": "minneapolis_synth_funk_pop",
+  "name": "Minneapolis synth-funk-pop",
+  "family": "vernacular",
+  "lineage": "1980s Minneapolis funk-pop hybrid centered on the Paisley Park studio aesthetic — codified through Prince (1999 1982, Purple Rain 1984, Sign O the Times 1987), the Time (the Morris Day vehicle, What Time Is It 1982), Sheila E (The Glamorous Life 1984), Jesse Johnson, the Family — characterized by drum-machine-led groove construction, dirty-funk synth-bass, falsetto vocal lead, and explicit sexual-and-spiritual thematic mixing",
+  "recipe": "classic North American mid-1980s minneapolis synth-funk-pop, groove Percussion, funk percussive branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, narrative, equal tempered. linn lm 1 1980 1982 earliest sample based drum machine 5000 production only linndrum, low sub bass analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity sub bass fm synth, Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, la bella flats Detroit soul bass canon pocket fingerstyle locked electric bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 903,
+  "score": 378.211,
+  "config": {
+    "traditions": [
+      "minneapolis_synth_funk_pop",
+      "conscious_hip_hop",
+      "gangsta_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 6.794999999999999,
+          "voice_quality": 2.2099999999999995,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 1.8131249999999999,
+          "voice_microtone": 6.25,
+          "voice_tradition": 8.469999999999999,
+          "voice_mechanism_compound": 1.5656249999999998,
+          "voice_estill_quality": 1,
+          "voice_speech_song": 2.925,
+          "voice_ensemble_config": 2.4699999999999998,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 16.49,
+          "voice_multitrack_stack": 4.225
+        }
+      },
+      {
+        "id": "linndrum",
+        "slots": {
+          "linndrum_voice": "linndrum_hat_perc",
+          "linndrum_context": "linndrum_rb",
+          "linndrum_production_origin": "linndrum_lm_1_earlier"
+        },
+        "scores": {
+          "linndrum_voice": 3.25,
+          "linndrum_context": 2.9899999999999998,
+          "linndrum_production_origin": 5.525
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 7.794999999999999,
+          "poly_archetypes": 0.609375,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 12.790624999999999,
+          "amp_make": 13.179999999999998,
+          "body_wood": 0.4724999999999999,
+          "neck_wood": 1.768125,
+          "fretboard": 1.95,
+          "pickup_magnet": 0.40874999999999995,
+          "string_material": 0.15,
+          "string_gauge": 0.39,
+          "bridge": 1.723125,
+          "scale_length": 0.39,
+          "finish": 0.045,
+          "string_tuning": 1.321875
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 14.473125,
+          "amp_make": 1.625,
+          "body_wood": 0.39,
+          "pickup_config": 0.8887499999999999,
+          "string_type": 1.95,
+          "scale_length_b": 1.24125,
+          "fretted_or_not": 1.723125,
+          "bass_technique": 14.473125
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 12.7,
+          "rhodes_model": 0.39,
+          "rhodes_use": 2.08,
+          "rhodes_tine_material": 0.195,
+          "rhodes_hammer_tip": -1.225,
+          "rhodes_pickup_position": 1.3956250000000001
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 7.794999999999999,
+          "fm_algorithm": 1.8231249999999999,
+          "fm_modulator_ratio": 0.54375,
+          "fm_polyphony": 1.3,
+          "fm_model_lineage": 5.71375
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "industrial",
+  "name": "Industrial",
+  "family": "electronic",
+  "lineage": "Late-1970s onward experimental-electronic genre using harsh noise textures, found-sound and concrete materials, deconstructed song-form, and explicitly transgressive thematic content — codified through Throbbing Gristle (Second Annual Report 1977, the founding industrial recording), Cabaret Voltaire, Einstürzende Neubauten, SPK, and continuing through the post-industrial commercial breakthrough (Ministry — Land of Rape and Honey 1988, Nine Inch Nails — Pretty Hate Machine 1989)",
+  "recipe": "classic European 1977-1979 industrial, experimental Elec, industrial noise branch, experimental distorted rock krautrock post-rock. thick, equal tempered, 31 tet, false fold distorted phonation. drum machine analog, analog synth, vocoder. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo high-gain distortion plate reverb.",
+  "recipe_chars": 379,
+  "score": 133.261,
+  "config": {
+    "traditions": [
+      "industrial",
+      "krautrock",
+      "post_rock_extended"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.39,
+          "snare_voice": 0.12,
+          "hat_voice": 0.01875,
+          "shuffle_quantize": 0.325
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "oscillator": 0.560625,
+          "filter_topology": 0.67575,
+          "envelope": 0.4515,
+          "modulation": 0.195
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_many_bands",
+          "voc_carrier": "voc_saw_carrier",
+          "voc_modulator": "voc_drum_mod"
+        },
+        "scores": {
+          "voc_band_count": 0.12375,
+          "voc_carrier": 0.4124999999999999,
+          "voc_modulator": 0.11925000000000001
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fry_bleed_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.6213749999999993,
+          "voice_quality": 0.325,
+          "voice_vibrato": 0.48450000000000004,
+          "voice_articulation": 0.39,
+          "voice_microtone": 1.6049999999999995,
+          "voice_tradition": 10.274750000000001,
+          "voice_mechanism_compound": 9.1,
+          "voice_estill_quality": 0.24,
+          "voice_speech_song": 10.334999999999997,
+          "voice_ensemble_config": 8.969999999999999,
+          "voice_ornament_system": 0.057374999999999995,
+          "voice_pitch_organization": 0.9367500000000001,
+          "voice_processing_chain": 9.76875,
+          "voice_multitrack_stack": 3.82025
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "isolation_post_punk_aesthetic",
+    "arrangement": null,
+    "fx_extras": [
+      "distortion_high",
+      "plate_reverb"
+    ]
+  }
+}

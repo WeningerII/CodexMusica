@@ -1,0 +1,427 @@
+{
+  "id": "clavinet",
+  "name": "Clavinet (Hohner D6)",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "clavinet",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        },
+        {
+          "id": "keyboard_ostinato_groove",
+          "name": "Ostinato groove",
+          "applies_to": [
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "electric_piano_tine",
+            "clavinet",
+            "tonewheel_organ"
+          ],
+          "descriptors": [
+            "ostinato",
+            "pocket"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "soul",
+            "funk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "clavinet_pickup",
+      "surface": false,
+      "name": "Pickup mode",
+      "variants": [
+        {
+          "id": "clavinet_brilliant",
+          "name": "Brilliant (treble)",
+          "descriptors": [
+            "cutting",
+            "funky",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "clavinet_medium",
+          "default": true,
+          "name": "Medium",
+          "descriptors": [
+            "funky",
+            "foundational"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "clavinet_soft",
+          "name": "Soft",
+          "descriptors": [
+            "hammer-low-mid-emphasis",
+            "muted",
+            "vintage"
+          ],
+          "match_tokens": [
+            "soft-attack",
+            "electric",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clavinet_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "clavinet_funk",
+          "default": true,
+          "name": "Funk session (canonical)",
+          "descriptors": [
+            "percussive-attack"
+          ],
+          "match_tokens": [
+            "funky",
+            "electric"
+          ]
+        },
+        {
+          "id": "clavinet_reggae",
+          "name": "Reggae / dub",
+          "descriptors": [
+            "regional",
+            "characteristic"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ]
+        },
+        {
+          "id": "clavinet_disco",
+          "name": "Disco / R&B",
+          "descriptors": [
+            "urban",
+            "commercial"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clavinet_model",
+      "surface": false,
+      "name": "Model",
+      "variants": [
+        {
+          "id": "clavinet_d6_canonical",
+          "default": true,
+          "name": "Hohner D6 (canonical 1971-1981 funk era)",
+          "descriptors": [
+            "hohner-d6-canonical-1971-1981-funk-era"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "clavinet_e7_premium",
+          "name": "Hohner E7 (premium late-1970s — cleaner-sounding)",
+          "descriptors": [
+            "hohner-e7-premium-late-1970s-cleaner-sounding"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "clavinet_l_clavinet_lyre",
+          "name": "Hohner Clavinet L (lyre-shaped 1967-1971 — earliest production)",
+          "descriptors": [
+            "hohner-clavinet-l-lyre-shaped-1967-1971-earliest-production"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "clavinet_duo_pianet",
+          "name": "Hohner Clavinet/Pianet Duo (combo instrument)",
+          "descriptors": [
+            "hohner-clavinet-pianet-duo-combo-instrument"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clavinet_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "clavinet_steel_string_canonical",
+          "default": true,
+          "name": "Plain steel strings (canonical Hohner D6 wound-with-rubber-tangent)",
+          "descriptors": [
+            "plain-steel-canonical-hohner-d6-wound-rubber-tangent"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "clavinet_pickup",
+      "surface": false,
+      "name": "Pickup mode",
+      "variants": [
+        {
+          "id": "clavinet_brilliant",
+          "name": "Brilliant (treble)",
+          "descriptors": [
+            "cutting",
+            "funky",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "clavinet_medium",
+          "default": true,
+          "name": "Medium",
+          "descriptors": [
+            "funky",
+            "foundational"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "clavinet_soft",
+          "name": "Soft",
+          "descriptors": [
+            "hammer-low-mid-emphasis",
+            "muted",
+            "vintage"
+          ],
+          "match_tokens": [
+            "soft-attack",
+            "electric",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clavinet_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "clavinet_funk",
+          "default": true,
+          "name": "Funk session (canonical)",
+          "descriptors": [
+            "percussive-attack"
+          ],
+          "match_tokens": [
+            "funky",
+            "electric"
+          ]
+        },
+        {
+          "id": "clavinet_reggae",
+          "name": "Reggae / dub",
+          "descriptors": [
+            "regional",
+            "characteristic"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ]
+        },
+        {
+          "id": "clavinet_disco",
+          "name": "Disco / R&B",
+          "descriptors": [
+            "urban",
+            "commercial"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clavinet_model",
+      "surface": false,
+      "name": "Model",
+      "variants": [
+        {
+          "id": "clavinet_d6_canonical",
+          "default": true,
+          "name": "Hohner D6 (canonical 1971-1981 funk era)",
+          "descriptors": [
+            "hohner-d6-canonical-1971-1981-funk-era"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "clavinet_e7_premium",
+          "name": "Hohner E7 (premium late-1970s — cleaner-sounding)",
+          "descriptors": [
+            "hohner-e7-premium-late-1970s-cleaner-sounding"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "clavinet_l_clavinet_lyre",
+          "name": "Hohner Clavinet L (lyre-shaped 1967-1971 — earliest production)",
+          "descriptors": [
+            "hohner-clavinet-l-lyre-shaped-1967-1971-earliest-production"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "clavinet_duo_pianet",
+          "name": "Hohner Clavinet/Pianet Duo (combo instrument)",
+          "descriptors": [
+            "hohner-clavinet-pianet-duo-combo-instrument"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clavinet_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "clavinet_steel_string_canonical",
+          "default": true,
+          "name": "Plain steel strings (canonical Hohner D6 wound-with-rubber-tangent)",
+          "descriptors": [
+            "plain-steel-canonical-hohner-d6-wound-rubber-tangent"
+          ],
+          "match_tokens": [
+            "electric",
+            "percussive-attack",
+            "funky"
+          ]
+        }
+      ]
+    }
+  ]
+}

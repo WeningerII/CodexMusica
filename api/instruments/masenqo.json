@@ -1,0 +1,231 @@
+{
+  "id": "masenqo",
+  "name": "Masenqo (Ethiopian spike fiddle)",
+  "family": "bowed",
+  "class": "bowed",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "masenqo",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "masenqo_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "masenqo_diamond_parchment",
+          "default": true,
+          "name": "Diamond box with parchment",
+          "descriptors": [
+            "traditional",
+            "nasal",
+            "mid-strong",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "azmari-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "masenqo_string",
+      "name": "String",
+      "variants": [
+        {
+          "id": "masenqo_horsehair_single",
+          "default": true,
+          "name": "Single horsehair bundle",
+          "descriptors": [
+            "authentic",
+            "horsehair"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "masenqo_bow",
+      "surface": false,
+      "name": "Bow",
+      "variants": [
+        {
+          "id": "masenqo_horsehair_curved_bow",
+          "default": true,
+          "name": "Curved horsehair bow (canonical Ethiopian)",
+          "descriptors": [
+            "curved-horsehair-bow-canonical-ethiopian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "azmari-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "masenqo_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "masenqo_azmari",
+          "default": true,
+          "name": "Azmari (canonical Ethiopian minstrel)",
+          "descriptors": [
+            "azmari-canonical-ethiopian-minstrel"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "azmari-tradition"
+          ]
+        },
+        {
+          "id": "masenqo_orthodox_liturgical",
+          "name": "Orthodox liturgical (rare ceremonial)",
+          "descriptors": [
+            "orthodox-liturgical-rare-ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "masenqo_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "masenqo_diamond_parchment",
+          "default": true,
+          "name": "Diamond box with parchment",
+          "descriptors": [
+            "traditional",
+            "nasal",
+            "mid-strong",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "azmari-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "masenqo_string",
+      "name": "String",
+      "variants": [
+        {
+          "id": "masenqo_horsehair_single",
+          "default": true,
+          "name": "Single horsehair bundle",
+          "descriptors": [
+            "authentic",
+            "horsehair"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "masenqo_bow",
+      "surface": false,
+      "name": "Bow",
+      "variants": [
+        {
+          "id": "masenqo_horsehair_curved_bow",
+          "default": true,
+          "name": "Curved horsehair bow (canonical Ethiopian)",
+          "descriptors": [
+            "curved-horsehair-bow-canonical-ethiopian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "azmari-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "masenqo_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "masenqo_azmari",
+          "default": true,
+          "name": "Azmari (canonical Ethiopian minstrel)",
+          "descriptors": [
+            "azmari-canonical-ethiopian-minstrel"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "azmari-tradition"
+          ]
+        },
+        {
+          "id": "masenqo_orthodox_liturgical",
+          "name": "Orthodox liturgical (rare ceremonial)",
+          "descriptors": [
+            "orthodox-liturgical-rare-ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

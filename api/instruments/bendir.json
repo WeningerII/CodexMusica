@@ -1,0 +1,342 @@
+{
+  "id": "bendir",
+  "name": "Bendir (Maghrebi frame drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bendir",
+  "parts": [
+    {
+      "id": "bendir_snares",
+      "name": "Snare configuration",
+      "variants": [
+        {
+          "id": "bendir_with_snares",
+          "default": true,
+          "name": "With internal snares (gut)",
+          "descriptors": [
+            "traditional",
+            "rasping",
+            "ceremonial",
+            "gut"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        },
+        {
+          "id": "bendir_no_snares",
+          "name": "Without snares",
+          "descriptors": [
+            "clean",
+            "frame-drum",
+            "meditative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bendir_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "bendir_sufi",
+          "default": true,
+          "name": "Sufi dhikr",
+          "descriptors": [
+            "meditative",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        },
+        {
+          "id": "bendir_folk",
+          "name": "Maghrebi folk",
+          "descriptors": [
+            "communal",
+            "celebratory",
+            "regional"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "bendir_world",
+          "name": "Modern world-music",
+          "descriptors": [
+            "concert",
+            "session"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bendir_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "bendir_juniper_canonical",
+          "default": true,
+          "name": "Juniper bent frame (canonical Maghrebi)",
+          "descriptors": [
+            "juniper-bent-frame-canonical-maghrebi"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        },
+        {
+          "id": "bendir_walnut",
+          "name": "Walnut bent frame (premium alternative)",
+          "descriptors": [
+            "walnut-bent-frame-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        },
+        {
+          "id": "bendir_beech",
+          "name": "Beech (mass-produced modern)",
+          "descriptors": [
+            "beech-mass-produced-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bendir_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "bendir_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin tacked (canonical Sufi)",
+          "descriptors": [
+            "goat-skin-tacked-canonical-sufi"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        },
+        {
+          "id": "bendir_synthetic_modern",
+          "name": "Synthetic Remo (modern world-music)",
+          "descriptors": [
+            "synthetic-remo-modern-world-music"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bendir_snares",
+      "name": "Snare configuration",
+      "variants": [
+        {
+          "id": "bendir_with_snares",
+          "default": true,
+          "name": "With internal snares (gut)",
+          "descriptors": [
+            "traditional",
+            "rasping",
+            "ceremonial",
+            "gut"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        },
+        {
+          "id": "bendir_no_snares",
+          "name": "Without snares",
+          "descriptors": [
+            "clean",
+            "frame-drum",
+            "meditative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bendir_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "bendir_sufi",
+          "default": true,
+          "name": "Sufi dhikr",
+          "descriptors": [
+            "meditative",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        },
+        {
+          "id": "bendir_folk",
+          "name": "Maghrebi folk",
+          "descriptors": [
+            "communal",
+            "celebratory",
+            "regional"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "bendir_world",
+          "name": "Modern world-music",
+          "descriptors": [
+            "concert",
+            "session"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bendir_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "bendir_juniper_canonical",
+          "default": true,
+          "name": "Juniper bent frame (canonical Maghrebi)",
+          "descriptors": [
+            "juniper-bent-frame-canonical-maghrebi"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        },
+        {
+          "id": "bendir_walnut",
+          "name": "Walnut bent frame (premium alternative)",
+          "descriptors": [
+            "walnut-bent-frame-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        },
+        {
+          "id": "bendir_beech",
+          "name": "Beech (mass-produced modern)",
+          "descriptors": [
+            "beech-mass-produced-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bendir_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "bendir_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin tacked (canonical Sufi)",
+          "descriptors": [
+            "goat-skin-tacked-canonical-sufi"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "devotional"
+          ]
+        },
+        {
+          "id": "bendir_synthetic_modern",
+          "name": "Synthetic Remo (modern world-music)",
+          "descriptors": [
+            "synthetic-remo-modern-world-music"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "yiddish_vigndlid",
+  "name": "Yiddish vigndlid (cradle song)",
+  "family": "global",
+  "lineage": "Yiddish-Ashkenazi cradle-song tradition continuous from medieval-and-early-modern shtetl domestic practice through 19th-and-20th-century Yiddish-theater and Klezmer-vocal-music intersection",
+  "recipe": "classic modern yiddish vigndlid, lullaby, European branch, middle eastern lullaby, Jewish ritual devotional, chanson fado ballad poetry persian lālā'ī arabic tahwidah. vocal fry, declaimed, tasteful, continuous-phonation. klezmer ensemble. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 387,
+  "score": 149.57,
+  "config": {
+    "traditions": [
+      "yiddish_vigndlid",
+      "persian_lalai",
+      "arabic_tahwidah"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.8400000000000003,
+          "voice_quality": 2.2749999999999995,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.585,
+          "voice_microtone": 1.85,
+          "voice_tradition": 4.16,
+          "voice_mechanism_compound": 0.9949999999999998,
+          "voice_estill_quality": 0.39,
+          "voice_speech_song": 9.165,
+          "voice_ensemble_config": 6.109999999999999,
+          "voice_ornament_system": 2.7499999999999996,
+          "voice_pitch_organization": 1.84,
+          "voice_processing_chain": 1.56,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "klezmer_ensemble",
+        "slots": {
+          "sections": "klez_violin_lead",
+          "rhythm_section": "klez_accordion"
+        },
+        "scores": {
+          "sections": 0.045,
+          "rhythm_section": 0.345
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "klezmer_freygish_ahava_raba_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

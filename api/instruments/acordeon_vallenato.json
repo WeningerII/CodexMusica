@@ -1,0 +1,128 @@
+{
+  "id": "acordeon_vallenato",
+  "name": "Acordeón vallenato (Hohner button accordion)",
+  "family": "wind",
+  "class": "free-reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "acordeón",
+  "parts": [
+    {
+      "id": "acordeon_vallenato_make",
+      "name": "Make/model",
+      "variants": [
+        {
+          "id": "acordeon_hohner_3_filas",
+          "default": true,
+          "name": "Hohner Corona III (three-row button, F-Bb-Eb or G-C-F)",
+          "descriptors": [
+            "vallenato-standard",
+            "button-accordion",
+            "three-row",
+            "hohner"
+          ],
+          "match_tokens": [
+            "accordion",
+            "vallenato-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acordeon_vallenato_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "acordeon_paseo_legato",
+          "default": true,
+          "name": "Paseo (legato cantabile)",
+          "descriptors": [
+            "legato",
+            "vallenato-tradition"
+          ],
+          "match_tokens": [
+            "accordion",
+            "vallenato-tradition"
+          ]
+        },
+        {
+          "id": "acordeon_puya_rapid",
+          "name": "Puya (rapid staccato)",
+          "descriptors": [
+            "rapid",
+            "staccato",
+            "vallenato-tradition"
+          ],
+          "match_tokens": [
+            "accordion",
+            "vallenato-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "acordeon_vallenato_make",
+      "name": "Make/model",
+      "variants": [
+        {
+          "id": "acordeon_hohner_3_filas",
+          "default": true,
+          "name": "Hohner Corona III (three-row button, F-Bb-Eb or G-C-F)",
+          "descriptors": [
+            "vallenato-standard",
+            "button-accordion",
+            "three-row",
+            "hohner"
+          ],
+          "match_tokens": [
+            "accordion",
+            "vallenato-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acordeon_vallenato_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "acordeon_paseo_legato",
+          "default": true,
+          "name": "Paseo (legato cantabile)",
+          "descriptors": [
+            "legato",
+            "vallenato-tradition"
+          ],
+          "match_tokens": [
+            "accordion",
+            "vallenato-tradition"
+          ]
+        },
+        {
+          "id": "acordeon_puya_rapid",
+          "name": "Puya (rapid staccato)",
+          "descriptors": [
+            "rapid",
+            "staccato",
+            "vallenato-tradition"
+          ],
+          "match_tokens": [
+            "accordion",
+            "vallenato-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

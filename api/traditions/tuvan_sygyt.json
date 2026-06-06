@@ -1,0 +1,85 @@
+{
+  "id": "tuvan_sygyt",
+  "name": "Tuvan sygyt high-whistle overtone",
+  "family": "global",
+  "lineage": "Tuvan sygyt high-whistle overtone-singing tradition of the Republic of Tuva. The sygyt technique produces a clear, piercing whistle-tone in the upper harmonic-series range (typically the eighth through twelfth partials above the fundamental) by tightly constricting the lips and tongue to filter a single overtone out of the harmonic spectrum of a sustained low-register fundamental. The result is a whistle-melody floating two-to-three octaves above the singer's chest-register fundamental drone. Sygyt is the most virtuosic and technically demanding of the Tuvan overtone techniques — masters can sustain a continuous fundamental while producing rapid melodic figures in the whistle-overtone, sometimes with secondary mid-register overtones flickering simultaneously. Performance contexts span solo pastoral, contest contexts at the annual Khoomei-in-the-Center-of-Asia festival in Kyzyl, and international touring. Igil (two-string upright fiddle) or doshpuluur (long-necked plucked lute) sometimes accompany. Anatoli Kuular is among the canonical twentieth-century sygyt masters. Ted Levin's Where Rivers and Mountains Sing (Indiana UP 2006) and Smithsonian Folkways SFW40017 are the principal documentary anchors. Distinguished from Mongolian iisgerekh by Tuvan-Tyva dialect-specific technique nomenclature; distinguished from kargyraa by sygyt's high-overtone (vs kargyraa's subharmonic) register; distinguished from Mongolian khoomei \"narrow\" technique by Tuvan sygyt's more piercing and precisely-pitched whistle-tone configuration.",
+  "recipe": "classic mid-2000s tuvan sygyt high-whistle overtone, drone Modal, overtone branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. sygyt, false fold engaged, overtone rich sustained, unrestrained. wood larch canonical tuvan khoomei accompaniment igil. taiga natural reverb. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 421,
+  "score": 380.695,
+  "config": {
+    "traditions": [
+      "tuvan_sygyt",
+      "sami_northern_luohti",
+      "sami_southern_vuelie"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "khoomei_tuvan_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 52.18000000000001,
+          "voice_quality": 29.60999999999999,
+          "voice_vibrato": 10.375000000000002,
+          "voice_articulation": 1.69,
+          "voice_microtone": 14.464999999999998,
+          "voice_tradition": 31.939999999999998,
+          "voice_mechanism_compound": 31.334999999999997,
+          "voice_estill_quality": 6.5649999999999995,
+          "voice_speech_song": 8.515,
+          "voice_ensemble_config": 9.75,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 40.725,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 3.9
+        }
+      },
+      {
+        "id": "igil",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "igil_body": "igil_carved_horsehead",
+          "igil_string": "igil_horsehair_two",
+          "igil_body_wood": "igil_larch_canonical",
+          "igil_tradition": "igil_khoomei_accompaniment"
+        },
+        "scores": {
+          "bowed_technique": 1.625,
+          "igil_body": 11.959999999999999,
+          "igil_string": 0,
+          "igil_body_wood": 7.8149999999999995,
+          "igil_tradition": 3.9
+        }
+      }
+    ],
+    "room": "taiga_natural_reverb",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_pentatonic_long_song",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

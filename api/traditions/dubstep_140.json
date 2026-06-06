@@ -1,0 +1,102 @@
+{
+  "id": "dubstep_140",
+  "name": "Dubstep (140 bass-music)",
+  "family": "global",
+  "lineage": "Mid-2000s south London electronic-dance genre evolved from UK garage through tempo deceleration to 140 bpm and the introduction of the dubstep half-step rhythmic feel — codified through Skream (Skream! 2006), Benga, Burial (Burial 2006, Untrue 2007), Mala, Coki, Loefah, Plastician, and the FWD>> club and DMZ night which served as the genre's incubator",
+  "recipe": "classic 2004-2006 dubstep, bass System, uk soundsystem branch, intl hip hop MC rhythm uk grime korean hip-hop. chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion hall reverb.",
+  "recipe_chars": 431,
+  "score": 116.1,
+  "config": {
+    "traditions": [
+      "dubstep_140",
+      "uk_grime_classic",
+      "korean_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 1.0314999999999999,
+          "sampler_archetypes": 1.8199999999999998,
+          "sampler_bit_depth": 1.455,
+          "sampler_workflow": 1.323,
+          "sampler_classic_context": 11.179999999999996
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 2.535,
+          "tr909_production_origin": 0.15
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 12.704499999999998,
+          "va_archetypes": 0.3,
+          "digital_subtractive_context": 7.409999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "electric_technique": 0.7,
+          "amp_make": 5.719999999999999,
+          "body_wood": 1.6,
+          "pickup_config": 0.39,
+          "string_type": 6.699999999999999,
+          "scale_length_b": 2.75,
+          "fretted_or_not": 0,
+          "bass_technique": 0.7
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "distortion_high",
+      "hall_reverb"
+    ]
+  }
+}

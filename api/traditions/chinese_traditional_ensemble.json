@@ -1,0 +1,228 @@
+{
+  "id": "chinese_traditional_ensemble",
+  "name": "Chinese conservatory traditional ensemble (民乐 minyue)",
+  "family": "global",
+  "lineage": "20th-century-codified Chinese national-music conservatory ensemble form anchored at the Central Conservatory Beijing and Shanghai Conservatory",
+  "recipe": "classic modern chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music sinhala vannama telugu kirtana. balanced, declaimed, carnatic, tahrir tekye chain mechanism. bamboo silk steel modern erhu, pipa, shell wutong paulownia guzheng, nylon steel wound ruan, silk canonical traditional sanxian, qudi southern jiangnan kunqu canonical lyrical dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 655,
+  "score": 281.517,
+  "config": {
+    "traditions": [
+      "chinese_traditional_ensemble",
+      "sinhala_vannama",
+      "telugu_kirtana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "mix_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 0.7629999999999999,
+          "voice_quality": 1.885,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.3315,
+          "voice_microtone": 0.46799999999999997,
+          "voice_tradition": 10.724999999999998,
+          "voice_mechanism_compound": 1.3815000000000002,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 2.4050000000000002,
+          "voice_ensemble_config": 2.7300000000000004,
+          "voice_ornament_system": 2.8595,
+          "voice_pitch_organization": 2.0024999999999995,
+          "voice_processing_chain": 1.575,
+          "voice_multitrack_stack": 1.119
+        }
+      },
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_jiangnan",
+          "erhu_body_wood": "erhu_red_sandalwood",
+          "erhu_strings": "erhu_steel_modern",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "erhu_skin": 0.39,
+          "erhu_use": 4.159999999999999,
+          "erhu_body_wood": 0.39,
+          "erhu_strings": 2.2649999999999997,
+          "erhu_bow": 0.39
+        }
+      },
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_modern_frets",
+          "pipa_strings": "pipa_silk",
+          "pipa_pick": "pipa_fingernail",
+          "pipa_body_wood": "pipa_red_sandalwood"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "pipa_frets": 0.78,
+          "pipa_strings": 0.39,
+          "pipa_pick": 0.1365,
+          "pipa_body_wood": 0.39
+        }
+      },
+      {
+        "id": "guzheng",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "guzheng_strings": "guzheng_21",
+          "guzheng_picks": "guzheng_tortoise",
+          "guzheng_top_wood": "guzheng_wutong_paulownia",
+          "guzheng_frame": "guzheng_rosewood_frame",
+          "guzheng_string_material": "guzheng_steel_wound_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "guzheng_strings": 0.39,
+          "guzheng_picks": 1.4809999999999999,
+          "guzheng_top_wood": 2.0024999999999995,
+          "guzheng_frame": 0.39,
+          "guzheng_string_material": 0.78
+        }
+      },
+      {
+        "id": "ruan",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "ruan_size": "zhongruan",
+          "ruan_context": "ruan_chamber",
+          "ruan_body_wood": "ruan_padauk",
+          "ruan_strings": "ruan_nylon_steel_wound"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "ruan_size": 4.123999999999999,
+          "ruan_context": 8.19,
+          "ruan_body_wood": 0,
+          "ruan_strings": 2.433
+        }
+      },
+      {
+        "id": "sanxian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sanxian_size": "sanxian_xiao",
+          "sanxian_context": "sanxian_composed",
+          "sanxian_head": "sanxian_python_skin",
+          "sanxian_strings": "sanxian_silk_traditional",
+          "sanxian_body_wood": "sanxian_padauk"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "sanxian_size": 0.39,
+          "sanxian_context": 2.4699999999999998,
+          "sanxian_head": 0,
+          "sanxian_strings": 1.3,
+          "sanxian_body_wood": 0.39
+        }
+      },
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "dizi_membrane": "dizi_without",
+          "dizi_pitch": "dizi_ga",
+          "dizi_body_material": "dizi_bitter_bamboo",
+          "dizi_regional_style": "dizi_qudi_southern"
+        },
+        "scores": {
+          "wind_articulation": 0.9099999999999999,
+          "dizi_membrane": 0.39,
+          "dizi_pitch": 1.6124999999999998,
+          "dizi_body_material": 0.39,
+          "dizi_regional_style": 3.09
+        }
+      },
+      {
+        "id": "sheng",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "sheng_size": "sheng_traditional_17",
+          "sheng_context": "sheng_virtuoso",
+          "sheng_pipe_material": "sheng_bamboo_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 0.8449999999999999,
+          "sheng_size": 1.3,
+          "sheng_context": 9.88,
+          "sheng_pipe_material": 3.3799999999999994
+        }
+      },
+      {
+        "id": "yangqin",
+        "slots": {
+          "yangqin_courses": "yangqin_402_modern",
+          "yangqin_technique": "yangqin_bamboo_mallets"
+        },
+        "scores": {
+          "yangqin_courses": 1.0945,
+          "yangqin_technique": 1.69
+        }
+      },
+      {
+        "id": "bawu",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "bawu_pitch": "bawu_bb",
+          "bawu_context": "bawu_yi"
+        },
+        "scores": {
+          "free_reed_technique": 0.8449999999999999,
+          "bawu_pitch": 0.39,
+          "bawu_context": 5.85
+        }
+      },
+      {
+        "id": "hulusi",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "hulusi_config": "hulusi_three_pipe",
+          "hulusi_context": "hulusi_yunnan"
+        },
+        "scores": {
+          "free_reed_technique": 0.8449999999999999,
+          "hulusi_config": 1.621,
+          "hulusi_context": 5.85
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

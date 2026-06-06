@@ -1,0 +1,110 @@
+{
+  "id": "lambada_carimbo",
+  "name": "Lambada and carimbó (Amazonian Pará)",
+  "family": "global",
+  "lineage": "Brazilian carimbó traditional Afro-Pará dance-music of the Amazonian Pará state, descended from West-African enslaved-population cultural memory. Lambada is the 1980s commercial-pop derivative of carimbó that achieved international fame through Kaoma's 1989 hit \"Chorando se Foi\" and the Brazilian Lambada dance-craze. Distinguished from broader Brazilian samba-and-forró by carimbó's Amazonian-Pará regional base and characteristic ass-jiggling tribal-rhythmic-pulse.",
+  "recipe": "classic mid-1980s lambada and carimbó, functional Song, Brazilian song branch, Brazilian groove percussion pagode baião. extended whistle, intimate aspirated, punctuated, equal tempered. clean strummed single coil electric guitar, traditional mellow brass tambourine orch. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 428,
+  "score": 108.595,
+  "config": {
+    "traditions": [
+      "lambada_carimbo",
+      "pagode",
+      "baiao"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 4.16,
+          "voice_quality": 3.045000000000001,
+          "voice_vibrato": 0.38999999999999996,
+          "voice_articulation": 1.69,
+          "voice_microtone": 3.150000000000001,
+          "voice_tradition": 8.385,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 10.205,
+          "voice_ensemble_config": 6.24,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.75,
+          "voice_processing_chain": 3.785,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_roland_jc120",
+          "body_wood": "pine",
+          "neck_wood": "roasted_maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 3.2,
+          "amp_make": 1.2799999999999998,
+          "body_wood": 0.21,
+          "neck_wood": 0.195,
+          "fretboard": 0.69,
+          "pickup_magnet": 0.15,
+          "string_material": 0.15,
+          "string_gauge": 0.21,
+          "bridge": 0.84,
+          "scale_length": 0.39,
+          "finish": 0,
+          "string_tuning": 2.0249999999999995
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 1.58,
+          "tambourine_orch_context": 3.3150000000000004
+        }
+      }
+    ],
+    "room": "estudio_rozenblit_recife",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "baiao_2_4_beat_one_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

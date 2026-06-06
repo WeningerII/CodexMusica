@@ -1,0 +1,332 @@
+{
+  "id": "donso_ngoni",
+  "name": "Donso ngoni (Mande hunters' harp-lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "donso ngoni",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_call_and_response",
+          "name": "Call-and-response",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "akonting",
+            "banjo_5_string",
+            "sintir",
+            "xalam"
+          ],
+          "descriptors": [
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "call-response",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "griot",
+            "west-african"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "donso_ngoni_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "donso_ngoni_six",
+          "default": true,
+          "name": "Six-string hunter tuning",
+          "descriptors": [
+            "donso",
+            "hunters",
+            "pre-modern",
+            "pentatonic-rooted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "mali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donso_ngoni_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "donso_brotherhood",
+          "default": true,
+          "name": "Donsoke brotherhood ritual",
+          "descriptors": [
+            "donso",
+            "ritual",
+            "invocational",
+            "pre-islamic-rooted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "mali"
+          ]
+        },
+        {
+          "id": "donso_concert_revival",
+          "name": "Concert revival contemporary",
+          "descriptors": [
+            "donso",
+            "concert",
+            "modern-revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "mali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donso_ngoni_resonator",
+      "surface": false,
+      "name": "Resonator gourd",
+      "variants": [
+        {
+          "id": "donso_calabash_large",
+          "default": true,
+          "name": "Large calabash (canonical Mande)",
+          "descriptors": [
+            "large-calabash",
+            "mande-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donso_ngoni_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "donso_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "donso_gut_historical",
+          "name": "Gut (pre-modern hunters-canon historical)",
+          "descriptors": [
+            "gut-pre-modern-hunters"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_fingerpicked"
+    },
+    {
+      "id": "donso_ngoni_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "donso_ngoni_six",
+          "default": true,
+          "name": "Six-string hunter tuning",
+          "descriptors": [
+            "donso",
+            "hunters",
+            "pre-modern",
+            "pentatonic-rooted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "mali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donso_ngoni_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "donso_brotherhood",
+          "default": true,
+          "name": "Donsoke brotherhood ritual",
+          "descriptors": [
+            "donso",
+            "ritual",
+            "invocational",
+            "pre-islamic-rooted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "mali"
+          ]
+        },
+        {
+          "id": "donso_concert_revival",
+          "name": "Concert revival contemporary",
+          "descriptors": [
+            "donso",
+            "concert",
+            "modern-revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "mali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donso_ngoni_resonator",
+      "surface": false,
+      "name": "Resonator gourd",
+      "variants": [
+        {
+          "id": "donso_calabash_large",
+          "default": true,
+          "name": "Large calabash (canonical Mande)",
+          "descriptors": [
+            "large-calabash",
+            "mande-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donso_ngoni_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "donso_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "donso_gut_historical",
+          "name": "Gut (pre-modern hunters-canon historical)",
+          "descriptors": [
+            "gut-pre-modern-hunters"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

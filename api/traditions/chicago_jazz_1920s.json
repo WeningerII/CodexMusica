@@ -1,0 +1,158 @@
+{
+  "id": "chicago_jazz_1920s",
+  "name": "Chicago jazz (1920s)",
+  "family": "jazz",
+  "lineage": "Late-1920s jazz style developed in Chicago by young white musicians influenced by the New Orleans tradition transplanted to Chicago through the 1917 closure of Storyville. Characterized by greater solo-improvisation emphasis (vs Dixieland collective-improvisation), introduction of tenor saxophone, four-beat-to-the-bar rhythm (vs Dixieland's two-beat), and harder-edged \"Chicago bite\" articulation. The Austin High Gang (Bud Freeman, Frank Teschemacher, Jimmy McPartland) is the canonical Chicago school.",
+  "recipe": "classic chicago jazz, improv On Frame, early branch, American jazz pre jazz ragtime. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, ebonite hard rubber klezmer tradition front line clarinet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 657,
+  "score": 384.946,
+  "config": {
+    "traditions": [
+      "chicago_jazz_1920s",
+      "ragtime"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 8.915,
+          "brass_size": 0.065,
+          "trumpet_mouthpiece": 19.40475,
+          "brass_mute": 0,
+          "trumpet_technique": 8.915,
+          "trumpet_bell_metal": 1.69,
+          "trumpet_maker_school": 6.469499999999999
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "contra_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 8.915,
+          "clarinet_body": 1.56,
+          "clarinet_size": 0.1825,
+          "clarinet_reed": 0.065,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 1.9000000000000001,
+          "sax_size": 1.15,
+          "sax_reed": 0.065,
+          "sax_body_alloy": 15.545,
+          "sax_mouthpiece": 0.1425,
+          "sax_technique": 15.5,
+          "sax_maker_school": 18.88875
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 1.9500000000000002,
+          "grand_piano_size": 1.4365,
+          "grand_piano_brand": 1.4365,
+          "piano_hammer": 2.7950000000000004,
+          "piano_rim": 4.485,
+          "piano_soundboard": 1.625,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": 2.04,
+          "upright_strings": 15.5,
+          "upright_play": 15.5
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "hand_lathed_pit_retaining",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_jazz"
+        },
+        "scores": {
+          "percussion_technique": 9.620000000000001,
+          "shell_wood": 0.318,
+          "shell_thickness": 0,
+          "bearing_edges": 0,
+          "drumhead": 19.37975,
+          "snare_wires": 0,
+          "cymbal_alloy": 15.381499999999997,
+          "cymbal_hammering": 16.03925,
+          "cymbal_lathing": 15.7275,
+          "cymbal_finish": 0.0765,
+          "drum_technique": 15.5
+        }
+      }
+    ],
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_acoustic_horn_pre1925",
+    "inline_chain": {
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

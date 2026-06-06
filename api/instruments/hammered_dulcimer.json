@@ -1,0 +1,298 @@
+{
+  "id": "hammered_dulcimer",
+  "name": "Hammered dulcimer",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "hammered dulcimer",
+  "parts": [
+    {
+      "id": "hammer_dulcimer_courses",
+      "name": "Course count",
+      "variants": [
+        {
+          "id": "hd_15_15",
+          "default": true,
+          "name": "15/14 standard",
+          "descriptors": [
+            "folk",
+            "versatile",
+            "accessible"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        },
+        {
+          "id": "hd_extended",
+          "name": "Extended-range concert",
+          "descriptors": [
+            "orchestral",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hammer_material",
+      "surface": false,
+      "name": "Hammer covering",
+      "variants": [
+        {
+          "id": "leather_covered",
+          "default": true,
+          "name": "Leather-covered hammers",
+          "descriptors": [
+            "mellow",
+            "traditional",
+            "leather"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        },
+        {
+          "id": "wood_bare",
+          "name": "Bare wood hammers",
+          "descriptors": [
+            "articulate",
+            "treble-extended",
+            "folk"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hammered_dulcimer_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "hd_walnut_canonical",
+          "default": true,
+          "name": "Walnut + spruce (canonical Appalachian)",
+          "descriptors": [
+            "walnut-spruce-canonical-appalachian"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        },
+        {
+          "id": "hd_cherry_alternative",
+          "name": "Cherry top (sweeter alternative)",
+          "descriptors": [
+            "cherry-sweeter-alternative"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        },
+        {
+          "id": "hd_maple_modern",
+          "name": "Maple (modern concert)",
+          "descriptors": [
+            "maple-modern-concert"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hammered_dulcimer_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "hd_steel_bronze_modern",
+          "default": true,
+          "name": "Steel treble + bronze bass (modern canonical)",
+          "descriptors": [
+            "steel-bronze-modern-canonical"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        },
+        {
+          "id": "hd_phosphor_bronze",
+          "name": "Phosphor bronze (warmer alternative)",
+          "descriptors": [
+            "phosphor-bronze-warmer"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hammer_dulcimer_courses",
+      "name": "Course count",
+      "variants": [
+        {
+          "id": "hd_15_15",
+          "default": true,
+          "name": "15/14 standard",
+          "descriptors": [
+            "folk",
+            "versatile",
+            "accessible"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        },
+        {
+          "id": "hd_extended",
+          "name": "Extended-range concert",
+          "descriptors": [
+            "orchestral",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hammer_material",
+      "surface": false,
+      "name": "Hammer covering",
+      "variants": [
+        {
+          "id": "leather_covered",
+          "default": true,
+          "name": "Leather-covered hammers",
+          "descriptors": [
+            "mellow",
+            "traditional",
+            "leather"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        },
+        {
+          "id": "wood_bare",
+          "name": "Bare wood hammers",
+          "descriptors": [
+            "articulate",
+            "treble-extended",
+            "folk"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hammered_dulcimer_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "hd_walnut_canonical",
+          "default": true,
+          "name": "Walnut + spruce (canonical Appalachian)",
+          "descriptors": [
+            "walnut-spruce-canonical-appalachian"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        },
+        {
+          "id": "hd_cherry_alternative",
+          "name": "Cherry top (sweeter alternative)",
+          "descriptors": [
+            "cherry-sweeter-alternative"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        },
+        {
+          "id": "hd_maple_modern",
+          "name": "Maple (modern concert)",
+          "descriptors": [
+            "maple-modern-concert"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hammered_dulcimer_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "hd_steel_bronze_modern",
+          "default": true,
+          "name": "Steel treble + bronze bass (modern canonical)",
+          "descriptors": [
+            "steel-bronze-modern-canonical"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        },
+        {
+          "id": "hd_phosphor_bronze",
+          "name": "Phosphor bronze (warmer alternative)",
+          "descriptors": [
+            "phosphor-bronze-warmer"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ringing"
+          ]
+        }
+      ]
+    }
+  ]
+}

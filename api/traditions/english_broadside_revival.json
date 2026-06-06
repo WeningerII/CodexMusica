@@ -1,0 +1,120 @@
+{
+  "id": "english_broadside_revival",
+  "name": "English broadside ballad",
+  "family": "global",
+  "lineage": "English topical-narrative balladry tradition — printed cheap as broadside sheets in the 16th-19th centuries, collected by Cecil Sharp and the late-19th-century English folk-revival, revived through the post-WWII folk-club circuit (the Watersons family, Martin Carthy, A.L. Lloyd, Ewan MacColl, June Tabor, Peter Bellamy)",
+  "recipe": "classic North American mid-1970s english broadside ballad, ballad Poetry, English broadside branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, narrative, Scottish Gaelic vocal. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, melodic straight concertina anglo. uk folk revival club 60s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 485,
+  "score": 141.604,
+  "config": {
+    "traditions": [
+      "english_broadside_revival",
+      "britfolk_revival"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 4.505625,
+          "voice_quality": 3.8874999999999997,
+          "voice_vibrato": 0.01125,
+          "voice_articulation": 1.2331249999999998,
+          "voice_microtone": 0.050624999999999996,
+          "voice_tradition": 12.115625000000001,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 2.145,
+          "voice_ensemble_config": 1.17,
+          "voice_ornament_system": 3.6612500000000003,
+          "voice_pitch_organization": 0.056249999999999994,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0.9874999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "dadgad",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 11.622499999999999,
+          "string_tuning": 5.745,
+          "top_wood": 0.01125,
+          "back_sides": 0.01125,
+          "string_acoustic": 1.204375,
+          "acoustic_om_technique": 11.622499999999999
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 4.9875,
+          "fiddle_strings": 0.005625,
+          "fiddle_bow": 0.005625,
+          "fiddle_mute": 0.01125,
+          "fiddle_articulation": 0.09
+        }
+      },
+      {
+        "id": "concertina_anglo",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "concertina_anglo_config": "concertina_anglo_30",
+          "concertina_anglo_context": "concertina_anglo_boer",
+          "concertina_anglo_maker_school": "concertina_irish_made_modern",
+          "concertina_anglo_reed": "concertina_anglo_steel_reeds"
+        },
+        "scores": {
+          "free_reed_technique": 4.99,
+          "concertina_anglo_config": 0.10124999999999999,
+          "concertina_anglo_context": 1.075,
+          "concertina_anglo_maker_school": -0.13999999999999996,
+          "concertina_anglo_reed": 0.9099999999999999
+        }
+      }
+    ],
+    "room": "uk_folk_revival_club_60s",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

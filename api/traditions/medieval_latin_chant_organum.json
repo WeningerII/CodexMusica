@@ -1,0 +1,103 @@
+{
+  "id": "medieval_latin_chant_organum",
+  "name": "Medieval Latin chant and Notre Dame organum",
+  "family": "classical",
+  "lineage": "Medieval Western European liturgical music tradition spanning monophonic Gregorian chant (canonized late ninth century, eight church modes, Latin liturgical text) and the early-polyphonic organum that emerged from it. Ninth-century parallel organum (the chant doubled at the fifth or fourth, with optional octave doubling); twelfth-century melismatic organum (the chant slowed to drone-tone in the lower voice while the upper voice elaborates ornamentally over each chant pitch). The Notre Dame school, Paris, c.1160-1250, codified the rhythmic-modes system and expanded to three-and-four-voice organum: Léonin (c.1135-1201), credited with the Magnus Liber Organi (the great book of organum), set the two-voice canonical repertoire; Pérotin (fl. c.1200), expanded to three and four voices and composed canonical large-scale organum-quadruplum settings of Viderunt omnes (1198) and Sederunt principes. Cantus firmus practice: the chant melody remains in one voice (typically the tenor) while the other voices counterpoint above. Anonymous IV (English theorist, c.1270s, his treatise survives in a thirteenth-century Bury St Edmunds manuscript) preserves the attribution of these works to Léonin and Pérotin. Distinguished from Renaissance sacred polyphony by limited-voice-count and modal-not-tonal harmonic vocabulary; distinguished from Byzantine chant by Latin-language and Roman-rite cantus-firmus framing; distinguished from Old Roman chant by Frankish-redacted melodic-formulae lineage",
+  "recipe": "classic early-1160s medieval latin chant and notre dame organum, art Music, western early branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 730,
+  "score": 267.023,
+  "config": {
+    "traditions": [
+      "medieval_latin_chant_organum",
+      "anglican_choral_evensong"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
+        },
+        "scores": {
+          "voice_register": 2.9995,
+          "voice_quality": 6.0865,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 1.9179999999999997,
+          "voice_microtone": 5.265000000000001,
+          "voice_tradition": 12.222285714285716,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 9.04,
+          "voice_speech_song": 18.13500000000001,
+          "voice_ensemble_config": 31.590000000000003,
+          "voice_ornament_system": 8.424285714285713,
+          "voice_pitch_organization": 8.709999999999999,
+          "voice_processing_chain": 10.183785714285714,
+          "voice_multitrack_stack": 2.9495
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 9.678214285714285,
+          "choir_polyphonic_configuration": 16.683071428571427,
+          "choir_regional_canonical_configuration": 15.603285714285713,
+          "choir_ensemble_repertoire": 7.3999999999999995
+        }
+      },
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
+          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
+          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
+          "pipe_organ_action": "pipe_organ_pneumatic"
+        },
+        "scores": {
+          "keyboard_technique": 2.545,
+          "pipe_organ_class": 0.9694285714285713,
+          "pipe_organ_context": 8.969999999999999,
+          "pipe_organ_voicing_school": 13.779999999999998,
+          "pipe_organ_pipe_alloy": 11.998357142857142,
+          "pipe_organ_temperament": 8.709999999999999,
+          "pipe_organ_action": 10.698357142857141
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

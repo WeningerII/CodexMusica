@@ -1,0 +1,79 @@
+{
+  "id": "jongo_brasileiro",
+  "name": "Jongo (Afro-Brazilian Vale do Paraíba)",
+  "family": "global",
+  "lineage": "Afro-Brazilian jongo song-and-dance tradition of the Vale do Paraíba region (between São Paulo and Rio de Janeiro), descended from the Bantu-speaking enslaved population brought to the colonial-period coffee plantations. Performance: large frame-drum tambu and smaller candongueiro drum-pair, with male lead-singer-improvisor exchanging encoded ponto verses with the dancers in the surrounding circle. The encoded jongo language uses metaphorical references and indirection (originally as resistance-code under slavery). UNESCO consideration since 2005 as Brazilian intangible-cultural-heritage.",
+  "recipe": "classic mid-2000s jongo, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode embolada. vocal fry, intimate aspirated, melodic, punctuated. tambourine orch. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 331,
+  "score": 82.275,
+  "config": {
+    "traditions": [
+      "jongo_brasileiro",
+      "pagode",
+      "embolada"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 3.4850000000000003,
+          "voice_vibrato": 1.445,
+          "voice_articulation": 0.9299999999999999,
+          "voice_microtone": 1.345,
+          "voice_tradition": 3.185000000000001,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 10.075,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 1.2899999999999998,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.045,
+          "tambourine_orch_context": 0.045
+        }
+      }
+    ],
+    "room": "estudios_scatena_sp",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "rumba_clave_3_2",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

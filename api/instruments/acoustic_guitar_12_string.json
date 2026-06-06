@@ -1,0 +1,322 @@
+{
+  "id": "acoustic_guitar_12_string",
+  "name": "Twelve-string acoustic guitar (steel-string)",
+  "family": "acoustic_strings",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "12-string acoustic",
+  "parts": [
+    {
+      "id": "twelve_string_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "twelve_string_jumbo_steel",
+          "default": true,
+          "name": "Jumbo steel-string body (Gibson J-200 / Guild F-512 class)",
+          "descriptors": [
+            "octave-doubled-courses",
+            "chime-shimmer",
+            "wide-frequency",
+            "jumbo-projection"
+          ],
+          "match_tokens": [
+            "plucked",
+            "twelve-string",
+            "leo-kottke-vocabulary",
+            "american-primitive-tradition"
+          ]
+        },
+        {
+          "id": "twelve_string_dreadnought_steel",
+          "name": "Dreadnought steel-string 12-string",
+          "descriptors": [
+            "octave-doubled-courses",
+            "chime-shimmer",
+            "dreadnought-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "twelve-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twelve_string_tuning",
+      "name": "Tuning approach",
+      "variants": [
+        {
+          "id": "twelve_string_standard_pairs",
+          "default": true,
+          "name": "Standard EADGBE with octave-doubled lower four courses, unison upper two",
+          "descriptors": [
+            "octave-doubled",
+            "natural-chorus"
+          ],
+          "match_tokens": [
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "twelve_string_open_tunings",
+          "name": "Open-tuning 12-string (CGCGCD, DADGAD-doubled, etc.)",
+          "descriptors": [
+            "open-tuning-12-string",
+            "extended-drone",
+            "raga-adapted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "twelve-string",
+            "open-tuning",
+            "american-primitive-tradition",
+            "basho-vocabulary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twelve_string_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "phosphor_12",
+          "default": true,
+          "name": "Phosphor bronze (light gauge)",
+          "descriptors": [
+            "phosphor-bronze",
+            "balanced",
+            "light-gauge"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "eighty_twenty_12",
+          "name": "80/20 bronze (brighter)",
+          "descriptors": [
+            "80-20-cu-zn",
+            "snappy",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "silk_steel_12",
+          "name": "Silk-and-steel (eased pull)",
+          "descriptors": [
+            "low-tension-strings",
+            "mellow",
+            "silk",
+            "steel"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "martin_12_set",
+          "name": "Martin 12-string acoustic set (medium)",
+          "descriptors": [
+            "martin",
+            "phosphor-bronze",
+            "medium"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "coated_nano_12",
+          "name": "Coated (Elixir Nanoweb 12-set)",
+          "descriptors": [
+            "coated",
+            "nanoweb",
+            "long-life"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "twelve-string"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "twelve_string_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "twelve_string_jumbo_steel",
+          "default": true,
+          "name": "Jumbo steel-string body (Gibson J-200 / Guild F-512 class)",
+          "descriptors": [
+            "octave-doubled-courses",
+            "chime-shimmer",
+            "wide-frequency",
+            "jumbo-projection"
+          ],
+          "match_tokens": [
+            "plucked",
+            "twelve-string",
+            "leo-kottke-vocabulary",
+            "american-primitive-tradition"
+          ]
+        },
+        {
+          "id": "twelve_string_dreadnought_steel",
+          "name": "Dreadnought steel-string 12-string",
+          "descriptors": [
+            "octave-doubled-courses",
+            "chime-shimmer",
+            "dreadnought-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "twelve-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twelve_string_tuning",
+      "name": "Tuning approach",
+      "variants": [
+        {
+          "id": "twelve_string_standard_pairs",
+          "default": true,
+          "name": "Standard EADGBE with octave-doubled lower four courses, unison upper two",
+          "descriptors": [
+            "octave-doubled",
+            "natural-chorus"
+          ],
+          "match_tokens": [
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "twelve_string_open_tunings",
+          "name": "Open-tuning 12-string (CGCGCD, DADGAD-doubled, etc.)",
+          "descriptors": [
+            "open-tuning-12-string",
+            "extended-drone",
+            "raga-adapted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "twelve-string",
+            "open-tuning",
+            "american-primitive-tradition",
+            "basho-vocabulary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twelve_string_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "phosphor_12",
+          "default": true,
+          "name": "Phosphor bronze (light gauge)",
+          "descriptors": [
+            "phosphor-bronze",
+            "balanced",
+            "light-gauge"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "eighty_twenty_12",
+          "name": "80/20 bronze (brighter)",
+          "descriptors": [
+            "80-20-cu-zn",
+            "snappy",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "silk_steel_12",
+          "name": "Silk-and-steel (eased pull)",
+          "descriptors": [
+            "low-tension-strings",
+            "mellow",
+            "silk",
+            "steel"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "martin_12_set",
+          "name": "Martin 12-string acoustic set (medium)",
+          "descriptors": [
+            "martin",
+            "phosphor-bronze",
+            "medium"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "coated_nano_12",
+          "name": "Coated (Elixir Nanoweb 12-set)",
+          "descriptors": [
+            "coated",
+            "nanoweb",
+            "long-life"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "twelve-string"
+          ]
+        }
+      ]
+    }
+  ]
+}

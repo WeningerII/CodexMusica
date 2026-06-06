@@ -1,0 +1,68 @@
+{
+  "id": "yoruba_omo_iya",
+  "name": "Yoruba ọmọ-iya nursery and play-song",
+  "family": "global",
+  "lineage": "Yoruba children's play-song tradition continuous from pre-colonial Yoruba family-and-community-rearing practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora childhood-practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora",
+  "recipe": "classic modern yoruba ọmọ-iya nursery and play-song, nursery Rhyme, sub saharan African branch, sub saharan African praise song, americas nursery rhyme zulu izibongo mande jeli / griot praise-song. thick, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 386,
+  "score": 217.586,
+  "config": {
+    "traditions": [
+      "yoruba_omo_iya",
+      "zulu_izibongo",
+      "mande_jeli_praise"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 2.145000000000001,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.045,
+          "voice_tradition": 36.66,
+          "voice_mechanism_compound": 1.185,
+          "voice_estill_quality": 0.39,
+          "voice_speech_song": 12.934999999999997,
+          "voice_ensemble_config": 8.189999999999998,
+          "voice_ornament_system": 17.354999999999997,
+          "voice_pitch_organization": 20.660625,
+          "voice_processing_chain": 0.78,
+          "voice_multitrack_stack": 1.17
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

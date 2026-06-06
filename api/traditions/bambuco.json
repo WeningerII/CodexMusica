@@ -1,0 +1,115 @@
+{
+  "id": "bambuco",
+  "name": "Bambuco",
+  "family": "global",
+  "lineage": "Colombian national rhythm and song-form in characteristic 6/8 meter with three-against-two syncopation — codified through the late-19th-century Andean Colombian school (Pedro Morales Pino, the bandola virtuoso who systematized the trio andino instrumentation), 20th-century anchors Garzón y Collazos (the post-WWII bambuco-trio voice, El Camino de la Vida 1951), Silva y Villalba, the modern Gustavo Adolfo Renjifo and Carranguero-tradition Jorge Velosa extensions; performed by the trio andino of tiple, bandola andina, and classical guitar with vocal duet or trio",
+  "recipe": "classic tropical early-1950s bambuco, ballad Poetry, Latin am troubadour branch, crooners functional song american barbershop quartet great american songbook. thick, forward-resonance, chest resonance low mid, Chinese classical vocal. cedar canonical andean tiple, fingerpicked acoustic guitar, bandola andina. bogota colombian andean studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 452,
+  "score": 132.852,
+  "config": {
+    "traditions": [
+      "bambuco",
+      "barbershop_quartet",
+      "great_american_songbook"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "twang_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.3,
+          "voice_quality": 6.1000000000000005,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 0.39,
+          "voice_microtone": 0.06862499999999999,
+          "voice_tradition": 7.345000000000001,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 4.695,
+          "voice_speech_song": 11.179999999999996,
+          "voice_ensemble_config": 8.189999999999998,
+          "voice_ornament_system": 6.2002500000000005,
+          "voice_pitch_organization": 2.4000000000000004,
+          "voice_processing_chain": 1.95,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "tiple",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "tiple_region": "tiple_colombian",
+          "tiple_context": "tiple_bambuco",
+          "tiple_body_wood": "tiple_cedar_canonical",
+          "tiple_strings": "tiple_steel_triple_octave"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.625,
+          "tiple_region": 6.1129999999999995,
+          "tiple_context": 4.605,
+          "tiple_body_wood": 2.173,
+          "tiple_strings": 0.27299999999999996
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "drop_d",
+          "top_wood": "cedar_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "thomastik_flat_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 2.1264999999999996,
+          "string_tuning": 0,
+          "top_wood": 0.8265,
+          "back_sides": 0.8265,
+          "string_acoustic": 0.8265,
+          "acoustic_om_technique": 2.1264999999999996
+        }
+      },
+      {
+        "id": "bandola_andina",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bandola_andina_use": "bandola_bambuco"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.625,
+          "bandola_andina_use": 17
+        }
+      }
+    ],
+    "room": "bogota_colombian_andean_studio",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "andean_colombian_bambuco_6_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "id": "shawm",
+  "name": "Shawm (renaissance double reed)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "shawm",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "uilleann_pipes",
+            "biniou",
+            "highland_bagpipes",
+            "bombarde",
+            "recorder",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "shawm",
+            "zurna",
+            "mizmar",
+            "ghaita",
+            "ciaramella",
+            "duduk",
+            "mey"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "shawm_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "shawm_treble",
+          "default": true,
+          "name": "Treble shawm",
+          "descriptors": [
+            "piercing",
+            "outdoor",
+            "medieval"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "shawm_bass",
+          "name": "Bass shawm (pommer)",
+          "descriptors": [
+            "deep",
+            "outdoor",
+            "renaissance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shawm_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "shawm_renaissance_consort",
+          "default": true,
+          "name": "Renaissance consort",
+          "descriptors": [
+            "pre-baroque",
+            "historical"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "shawm_alta_capella",
+          "name": "Outdoor procession (alta capella)",
+          "descriptors": [
+            "medieval",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "shawm_hip_revival",
+          "name": "Modern early-music revival",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shawm_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "shawm_boxwood_canonical",
+          "default": true,
+          "name": "Boxwood (canonical Renaissance European)",
+          "descriptors": [
+            "boxwood-canonical-renaissance-european"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "shawm_maple_alternative",
+          "name": "Maple (alternative German)",
+          "descriptors": [
+            "maple-alternative-german"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shawm_reed",
+      "surface": false,
+      "name": "Reed (double-reed pirouette)",
+      "variants": [
+        {
+          "id": "shawm_arundo_pirouette",
+          "default": true,
+          "name": "Arundo donax with wooden pirouette lip-rest (canonical Renaissance)",
+          "descriptors": [
+            "arundo-donax-wooden-pirouette-canonical-renaissance"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shawm_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "shawm_treble",
+          "default": true,
+          "name": "Treble shawm",
+          "descriptors": [
+            "piercing",
+            "outdoor",
+            "medieval"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "shawm_bass",
+          "name": "Bass shawm (pommer)",
+          "descriptors": [
+            "deep",
+            "outdoor",
+            "renaissance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shawm_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "shawm_renaissance_consort",
+          "default": true,
+          "name": "Renaissance consort",
+          "descriptors": [
+            "pre-baroque",
+            "historical"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "shawm_alta_capella",
+          "name": "Outdoor procession (alta capella)",
+          "descriptors": [
+            "medieval",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "shawm_hip_revival",
+          "name": "Modern early-music revival",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shawm_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "shawm_boxwood_canonical",
+          "default": true,
+          "name": "Boxwood (canonical Renaissance European)",
+          "descriptors": [
+            "boxwood-canonical-renaissance-european"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "shawm_maple_alternative",
+          "name": "Maple (alternative German)",
+          "descriptors": [
+            "maple-alternative-german"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shawm_reed",
+      "surface": false,
+      "name": "Reed (double-reed pirouette)",
+      "variants": [
+        {
+          "id": "shawm_arundo_pirouette",
+          "default": true,
+          "name": "Arundo donax with wooden pirouette lip-rest (canonical Renaissance)",
+          "descriptors": [
+            "arundo-donax-wooden-pirouette-canonical-renaissance"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "wind-driven",
+            "reed-driven",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ]
+}

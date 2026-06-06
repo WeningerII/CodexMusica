@@ -1,0 +1,162 @@
+{
+  "id": "mandopop_modern",
+  "name": "Mandopop modern (2000s-onward Taiwan-Mainland Mandarin R&B-influenced)",
+  "family": "pop",
+  "lineage": "Modern Mandarin Chinese popular music developed from 2000s onward through Jay Chou's post-2000 commercial peak and the broader Taiwanese and Mainland Chinese market. Characterized by sophisticated R&B-and-hip-hop-influenced production, romantic-ballad emphasis, and contemporary Mandarin-pop commercial-radio aesthetic. Jay Chou, JJ Lin, Eason Chan (Cantopop crossover), G.E.M., and the contemporary Mainland Chinese reality-show winners constitute the canonical contemporary mandopop roster.",
+  "recipe": "classic mandopop modern, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, chest mix belt, tasteful, punctuated. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, mahogany stainless steel roundwound sub heavy electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog synth. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 641,
+  "score": 446.335,
+  "config": {
+    "traditions": [
+      "mandopop_modern",
+      "cape_verdean_batuko",
+      "greek_entechno"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 11.044999999999993,
+          "voice_quality": 5.970000000000001,
+          "voice_vibrato": 2.84,
+          "voice_articulation": 1.8450000000000002,
+          "voice_microtone": 11.599499999999997,
+          "voice_tradition": 23.275499999999997,
+          "voice_mechanism_compound": 2.6579999999999995,
+          "voice_estill_quality": 0.645,
+          "voice_speech_song": 10.334999999999999,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 2.6750000000000003,
+          "voice_pitch_organization": 9.914499999999997,
+          "voice_processing_chain": 11.715,
+          "voice_multitrack_stack": 12.074499999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 9.495,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 4.289999999999999,
+          "piano_hammer": 16.0315,
+          "piano_rim": 17.413,
+          "piano_soundboard": 16.9075,
+          "piano_pinblock": 5.9399999999999995,
+          "piano_plate": 7.6765,
+          "piano_pitch_standard": 7.445
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_s",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 2.74,
+          "body_wood": 1.08,
+          "pickup_config": 2.84,
+          "string_type": 2.9899999999999998,
+          "scale_length_b": 2.84,
+          "fretted_or_not": 0.345,
+          "bass_technique": 5.75
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 8.319999999999999,
+          "shell_wood": 0.28500000000000003,
+          "shell_thickness": 0,
+          "bearing_edges": 2.9899999999999998,
+          "drumhead": 15.658,
+          "snare_wires": 0.54,
+          "cymbal_alloy": 9.645,
+          "cymbal_hammering": 15.3365,
+          "cymbal_lathing": 15.381499999999999,
+          "cymbal_finish": 0.15,
+          "drum_technique": 8.319999999999999
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "noise_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 10.2165,
+          "oscillator": 0.6599999999999999,
+          "filter_topology": 1.3215000000000001,
+          "envelope": 0.39,
+          "modulation": 0.045
+        }
+      }
+    ],
+    "room": "hong_kong_cantopop_studio_80s",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

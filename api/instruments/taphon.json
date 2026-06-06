@@ -1,0 +1,160 @@
+{
+  "id": "taphon",
+  "name": "Taphon (Thai two-headed barrel drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "taphon",
+  "parts": [
+    {
+      "id": "taphon_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "taphon_hand_struck",
+          "default": true,
+          "name": "Hand-struck (piphat)",
+          "descriptors": [],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "piphat",
+            "thai"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taphon_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "taphon_jackwood_canonical",
+          "default": true,
+          "name": "Jackwood barrel (canonical Thai piphat)",
+          "descriptors": [
+            "jackwood-barrel-canonical-thai-piphat"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "taphon_teak",
+          "name": "Teak (alternative)",
+          "descriptors": [
+            "teak-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taphon_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "taphon_calfskin_canonical",
+          "default": true,
+          "name": "Calfskin both heads with khao-suk tuning paste (canonical)",
+          "descriptors": [
+            "calfskin-khao-suk-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "taphon_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "taphon_hand_struck",
+          "default": true,
+          "name": "Hand-struck (piphat)",
+          "descriptors": [],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ],
+          "canonical_tags": [
+            "piphat",
+            "thai"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taphon_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "taphon_jackwood_canonical",
+          "default": true,
+          "name": "Jackwood barrel (canonical Thai piphat)",
+          "descriptors": [
+            "jackwood-barrel-canonical-thai-piphat"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "taphon_teak",
+          "name": "Teak (alternative)",
+          "descriptors": [
+            "teak-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taphon_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "taphon_calfskin_canonical",
+          "default": true,
+          "name": "Calfskin both heads with khao-suk tuning paste (canonical)",
+          "descriptors": [
+            "calfskin-khao-suk-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

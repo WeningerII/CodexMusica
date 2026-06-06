@@ -1,0 +1,68 @@
+{
+  "id": "tibetan_thodrol_lama_praise",
+  "name": "Tibetan thödröl praise-recitation",
+  "family": "global",
+  "lineage": "Tibetan-Buddhist praise-recitation tradition continuous from 8th-9th century Indo-Tibetan-Buddhist-foundation era through 11th-14th century Sarma-school monastery-formalization era into modern Tibetan-Buddhist-monastic and Tibetan-Buddhist-diaspora practice; thödröl (\"liberation through hearing\") and broader lama-praise repertoires constitute the praise-vocabulary",
+  "recipe": "classic modern tibetan thödröl praise-recitation, praise Song, indian subcontinent branch, buddhist ritual devotional, overtone drone modal, east Asian Tibetan ritual khöömii tuvan kargyraa subharmonic throat-singing. sygyt, false fold engaged, overtone rich sustained, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 430,
+  "score": 251.875,
+  "config": {
+    "traditions": [
+      "tibetan_thodrol_lama_praise",
+      "mongolian_xoomii",
+      "tuvan_kargyraa"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "khoomei_tuvan_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.12,
+          "voice_quality": 21.86999999999999,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 1.345,
+          "voice_microtone": 1.0399999999999998,
+          "voice_tradition": 12.154999999999998,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 4.809999999999999,
+          "voice_ornament_system": 2.4,
+          "voice_pitch_organization": 4.42,
+          "voice_processing_chain": 0.765,
+          "voice_multitrack_stack": 1.905
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "tibetan_chant_multiphonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

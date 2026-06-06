@@ -1,0 +1,68 @@
+{
+  "id": "french_comptines",
+  "name": "French comptines (counting-out and play-song rhymes)",
+  "family": "global",
+  "lineage": "French-language children's play-song and counting-out-rhyme tradition continuous from medieval-and-early-modern French folk-play-song origins through 19th-century French-Republic school-curriculum codification into modern continuous French-and-French-Canadian-and-Francophone-African childhood-practice",
+  "recipe": "classic modern french comptines, nursery Rhyme, European branch, americas nursery rhyme, European lullaby, chanson fado ballad poetry morna cape verdean batuko of santiago island. thick, lament wail, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 370,
+  "score": 138.85,
+  "config": {
+    "traditions": [
+      "french_comptines",
+      "morna",
+      "cape_verdean_batuko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 3.680000000000001,
+          "voice_quality": 1.7949999999999997,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.045,
+          "voice_tradition": 8.255,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 13.454999999999997,
+          "voice_ensemble_config": 8.709999999999999,
+          "voice_ornament_system": 0.32999999999999996,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.78,
+          "voice_multitrack_stack": 0.5325
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

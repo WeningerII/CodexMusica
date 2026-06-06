@@ -1,0 +1,85 @@
+{
+  "id": "singaporean_xinyao",
+  "name": "Singaporean xinyao (Mandarin youth folk)",
+  "family": "global",
+  "lineage": "Singaporean xinyao (\"Singapore songs\") Mandarin-language singer-songwriter youth-folk movement emerging in early-1980s Singapore among ethnic-Chinese tertiary-education students at the National University of Singapore, Nanyang Technological Institute, and the major junior colleges. The form developed as a youth-cultural alternative to Cantopop and Mandopop commercial-pop dominance, with simple acoustic-guitar-accompanied original Mandarin-language compositions addressing youth concerns, campus life, and Singaporean identity. The Liang Wern Fook ensemble and Singapore Youth Festival 1983-1985 xinyao competitions consolidated institutional visibility. Distinguished from Taiwan campus-folk min-ge yundong (1970s) by Singaporean specific cultural-context and Singlish-inflected Mandarin register.",
+  "recipe": "classic North American 1983-1985 singaporean xinyao, ballad Poetry, anglo singer song branch, east Asian pop functional song enka j-indie. thick, chest mix belt, melodic, equal tempered. coated nanoweb strummed open chord ringing overtones parlor acoustic guitar. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 479,
+  "score": 215.53,
+  "config": {
+    "traditions": [
+      "singaporean_xinyao",
+      "enka",
+      "j_indie"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 13.699999999999998,
+          "voice_quality": 4.530000000000001,
+          "voice_vibrato": 0.585,
+          "voice_articulation": 0.045,
+          "voice_microtone": 5.545000000000001,
+          "voice_tradition": 15.275,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 4.325,
+          "voice_speech_song": 11.244999999999997,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 3.75,
+          "voice_pitch_organization": 16.299999999999994,
+          "voice_processing_chain": 7.155,
+          "voice_multitrack_stack": 4.225
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "rosewood_bs_p",
+          "string_acoustic_parlor": "coated_nano_p"
+        },
+        "scores": {
+          "acoustic_technique": 13.204999999999998,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.33,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 1.3900000000000001
+        }
+      }
+    ],
+    "room": "hong_kong_cantopop_studio_80s",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

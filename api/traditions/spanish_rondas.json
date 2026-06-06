@@ -1,0 +1,68 @@
+{
+  "id": "spanish_rondas",
+  "name": "Spanish and Latin American rondas (children's circle-songs)",
+  "family": "global",
+  "lineage": "Spanish-language children's circle-song (ronda) tradition continuous from medieval-and-early-modern Spanish folk-play-song origins through colonial-period transmission to Latin America and continuous practice across the Spanish-speaking Americas into modern Mexican-and-Latin-American childhood-practice",
+  "recipe": "classic modern spanish and latin american rondas, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, americas wedding andean matrimonio huayno english nursery rhyme. thick, forward-resonance, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 385,
+  "score": 124.462,
+  "config": {
+    "traditions": [
+      "spanish_rondas",
+      "andean_matrimonio_huayno",
+      "english_nursery_rhyme"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "twang_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.8850000000000007,
+          "voice_quality": 0.6499999999999998,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0,
+          "voice_tradition": 8.384999999999998,
+          "voice_mechanism_compound": 0.7725,
+          "voice_estill_quality": 1.4349999999999998,
+          "voice_speech_song": 11.244999999999997,
+          "voice_ensemble_config": 7.799999999999999,
+          "voice_ornament_system": 0.8125,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.39
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "id": "brega_tecnobrega",
+  "name": "Brega and tecnobrega (Belém-Pará)",
+  "family": "global",
+  "lineage": "Brega and tecnobrega Brazilian popular-music genres of the northern Brazilian Amazonian Pará state (especially Belém). Brega (\"kitsch\") originated as a mid-late-twentieth-century commercial sentimental-popular music; tecnobrega is its 2000s-onward electronic-DIY remix-and-production reformulation, with characteristic synthesizer-and-808-drum-machine production, fast tempo, and an outdoor-aparelhagem sound-system street-party performance context. Distinguished from sertanejo by brega's northern-Amazonian-Brazilian regional base.",
+  "recipe": "classic mid-2000s brega and tecnobrega, functional Song, Brazilian song branch, reggaeton MC rhythm moombahton. thick, rap, chest resonance low mid, unrestrained. TR-808, fast decay focused low analog synth, basswood mahogany rosewood alnico lower tension down tuning humbucker electric guitar. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 450,
+  "score": 119.757,
+  "config": {
+    "traditions": [
+      "brega_tecnobrega",
+      "moombahton",
+      "reggaeton"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.6667499999999998,
+          "voice_quality": 2.876750000000001,
+          "voice_vibrato": 1.4852500000000002,
+          "voice_articulation": 1.34,
+          "voice_microtone": 0.09,
+          "voice_tradition": 2.2315,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 11.894999999999998,
+          "voice_ensemble_config": 7.93,
+          "voice_ornament_system": 2.1500000000000004,
+          "voice_pitch_organization": 0.9532499999999998,
+          "voice_processing_chain": 4.773000000000001,
+          "voice_multitrack_stack": 5.4517500000000005
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 0.04875,
+          "drum_machine_808_context": 6.198249999999999,
+          "tr808_production_origin": 0.18525000000000003
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "oscillator": 0.5895,
+          "filter_topology": 1.69,
+          "envelope": 1.3,
+          "modulation": 0.21
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_roland_jc120",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 1.6999999999999997,
+          "amp_make": 1.4949999999999999,
+          "body_wood": 1.69,
+          "neck_wood": 1.4852500000000002,
+          "fretboard": 1.43525,
+          "pickup_magnet": 1.4365,
+          "pickup_winding": 0.1365,
+          "string_material": 0.0315,
+          "bridge": 1.51,
+          "scale_length": 1.6705,
+          "string_gauge": 1.69,
+          "finish": 0,
+          "string_tuning": 1.14825
+        }
+      }
+    ],
+    "room": "estudio_rozenblit_recife",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

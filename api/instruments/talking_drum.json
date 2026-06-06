@@ -1,0 +1,306 @@
+{
+  "id": "talking_drum",
+  "name": "Talking drum (West African pressure drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "talking drum",
+  "parts": [
+    {
+      "id": "talking_drum_origin",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "tama_senegal",
+          "default": true,
+          "name": "Tama (Senegambian, smaller)",
+          "descriptors": [
+            "high-pitched",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "mbalax"
+          ]
+        },
+        {
+          "id": "gangan_yoruba",
+          "name": "Gangan / dùndún (Yoruba)",
+          "descriptors": [
+            "speech-mimicking",
+            "virtuoso",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "talking_drum_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "talking_drum_praise",
+          "default": true,
+          "name": "Praise / griot",
+          "descriptors": [
+            "traditional",
+            "oral-history",
+            "speech-mimicry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talking_drum_juju",
+          "name": "Modern Yoruba pop (jùjú)",
+          "descriptors": [
+            "twentieth-century",
+            "urban",
+            "electric-fusion"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talking_drum_world",
+          "name": "World-music session",
+          "descriptors": [
+            "concert",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "talking_drum_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "talking_drum_omo_canonical",
+          "default": true,
+          "name": "Omo / cedrela odorata (canonical Yoruba dùndún)",
+          "descriptors": [
+            "omo-cedrela-odorata-canonical-yoruba-dundun"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talking_drum_iroko_alt",
+          "name": "Iroko (alternative West African)",
+          "descriptors": [
+            "iroko-alternative-west-african"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "talking_drum_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "talking_drum_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin both heads with leather tension-cords (canonical pressure-bend)",
+          "descriptors": [
+            "goat-skin-leather-tension-cords-canonical-pressure-bend"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talking_drum_antelope",
+          "name": "Antelope-hide (premium Senegambian tama)",
+          "descriptors": [
+            "antelope-hide-premium-senegambian-tama"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "talking_drum_origin",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "tama_senegal",
+          "default": true,
+          "name": "Tama (Senegambian, smaller)",
+          "descriptors": [
+            "high-pitched",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ],
+          "canonical_tags": [
+            "mbalax"
+          ]
+        },
+        {
+          "id": "gangan_yoruba",
+          "name": "Gangan / dùndún (Yoruba)",
+          "descriptors": [
+            "speech-mimicking",
+            "virtuoso",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "talking_drum_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "talking_drum_praise",
+          "default": true,
+          "name": "Praise / griot",
+          "descriptors": [
+            "traditional",
+            "oral-history",
+            "speech-mimicry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talking_drum_juju",
+          "name": "Modern Yoruba pop (jùjú)",
+          "descriptors": [
+            "twentieth-century",
+            "urban",
+            "electric-fusion"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talking_drum_world",
+          "name": "World-music session",
+          "descriptors": [
+            "concert",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "talking_drum_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "talking_drum_omo_canonical",
+          "default": true,
+          "name": "Omo / cedrela odorata (canonical Yoruba dùndún)",
+          "descriptors": [
+            "omo-cedrela-odorata-canonical-yoruba-dundun"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talking_drum_iroko_alt",
+          "name": "Iroko (alternative West African)",
+          "descriptors": [
+            "iroko-alternative-west-african"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "talking_drum_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "talking_drum_goat_skin_canonical",
+          "default": true,
+          "name": "Goat-skin both heads with leather tension-cords (canonical pressure-bend)",
+          "descriptors": [
+            "goat-skin-leather-tension-cords-canonical-pressure-bend"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "talking_drum_antelope",
+          "name": "Antelope-hide (premium Senegambian tama)",
+          "descriptors": [
+            "antelope-hide-premium-senegambian-tama"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    }
+  ]
+}

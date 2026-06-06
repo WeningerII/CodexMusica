@@ -1,0 +1,106 @@
+{
+  "id": "chanson_realiste",
+  "name": "Chanson réaliste (Parisian working-class song)",
+  "family": "global",
+  "lineage": "French chanson réaliste working-class-life-and-loss song genre emerging in turn-of-the-twentieth-century Parisian cabaret-and-music-hall as a Naturalist-literary parallel to the urban-realist novel of Émile Zola. Characterized by dramatically delivered ballad-form solo-vocal narratives addressing prostitution, working-class poverty, doomed romance, and street-life themes, with simple piano-or-accordion accompaniment. The mid-twentieth-century crystallization through Édith Piaf consolidated the international visibility; the parallel Damia and Fréhel lineages anchored the canonical interwar register. Distinguished from later existentialist Rive-Gauche chanson by chanson réaliste's working-class-explicit (vs intellectual-philosophical) thematic orientation.",
+  "recipe": "classic tropical mid-1950s chanson réaliste, ballad Poetry, classic chanson branch, europop functional song hungarian magyar nóta tyrolean schuhplattler. thick, low dynamic level, chest resonance low mid, punctuated. piano accordion, cold pressed weikert felt a 441 Japanese orchestral grand piano. intimate paris small studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 437,
+  "score": 112.745,
+  "config": {
+    "traditions": [
+      "chanson_realiste",
+      "hungarian_magyar_nota",
+      "tyrolean_schuhplattler"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 4.875,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.585,
+          "voice_microtone": 0.195,
+          "voice_tradition": 3.185000000000001,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 10.594999999999999,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_french_chanson"
+        },
+        "scores": {
+          "free_reed_technique": 0,
+          "pa_size": 2.0550000000000006,
+          "pa_use": 2.585
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_weikert_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 1.625,
+          "piano_rim": -0.035,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 1.625
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "id": "andalusi_nuba",
+  "name": "Andalusī nūba",
+  "family": "classical",
+  "lineage": "Moroccan-Maghrebi Andalusi classical music tradition (al-ala / musique andalouse) descended from the 11-12th century cultural heritage of Muslim-ruled Iberian Andalusia, brought to North Africa with the post-1492 Iberian Muslim and Jewish expulsion and preserved in Fez, Tetouan, Tangier, Rabat — codified through 11 surviving nūba multi-section suites in the Moroccan corpus (sister lineages: Algerian gharnati, Tunisian malouf)",
+  "recipe": "classic North American early-1490s andalusī nūba, art Music, middle eastern classical branch, vocal drone modal. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks walnut body canonical decorative goat skin bridge plate qanun, carved hardwood canonical javanese goat skin canonical javanese legato rebab, darbuka, riq, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. fez andalusi palace riad. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 682,
+  "score": 181.635,
+  "config": {
+    "traditions": [
+      "andalusi_nuba"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "arabic_maqam_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_parallel_fifths",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.3,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 4.7749999999999995,
+          "voice_articulation": 0.615,
+          "voice_microtone": 3.245,
+          "voice_tradition": 16.794999999999998,
+          "voice_mechanism_compound": 12.584999999999999,
+          "voice_estill_quality": 13.699999999999998,
+          "voice_speech_song": 10.839999999999996,
+          "voice_ensemble_config": 5.55,
+          "voice_ornament_system": 12.945,
+          "voice_pitch_organization": 13.485,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 1.7850000000000001
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 10.82,
+          "oud_school": 1.69,
+          "oud_strings": 4.7299999999999995,
+          "oud_pick": 0.7650000000000001,
+          "oud_body_wood": 1.3649999999999998,
+          "oud_soundboard_wood": 1.95,
+          "oud_string_material": 1.755
+        }
+      },
+      {
+        "id": "qanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "qanun_strings": "qanun_arab_72",
+          "qanun_levers": "mandal_brass",
+          "qanun_pick": "qanun_finger_picks",
+          "qanun_body_wood": "qanun_walnut_body",
+          "qanun_bridge_skin": "qanun_goat_skin_bridge",
+          "qanun_string_material": "qanun_fluorocarbon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 10.82,
+          "qanun_strings": 4.475,
+          "qanun_levers": -1.05,
+          "qanun_pick": 4.34,
+          "qanun_body_wood": 1.2149999999999996,
+          "qanun_bridge_skin": 1.2149999999999996,
+          "qanun_string_material": 0
+        }
+      },
+      {
+        "id": "rebab",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "rebab_region": "rebab_yemeni",
+          "rebab_context": "rebab_solo",
+          "rebab_body": "rebab_wood_carved",
+          "rebab_skin": "rebab_goat_skin",
+          "rebab_strings": "rebab_steel_modern"
+        },
+        "scores": {
+          "bowed_technique": 10.625,
+          "rebab_region": 2.47,
+          "rebab_context": 2.34,
+          "rebab_body": 1.2149999999999996,
+          "rebab_skin": 1.2149999999999996,
+          "rebab_strings": -1.05
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "darbuka_material": 0.39,
+          "darbuka_skin": 0.39,
+          "darbuka_regional_style": 0.39
+        }
+      },
+      {
+        "id": "riq",
+        "slots": {
+          "riq_size": "riq_medium",
+          "riq_context": "riq_sufi",
+          "riq_shell_wood": "riq_rosewood_inlaid",
+          "riq_head_material": "riq_fish_skin_canonical",
+          "riq_jingles": "riq_brass_jingles"
+        },
+        "scores": {
+          "riq_size": 4.9399999999999995,
+          "riq_context": 0.78,
+          "riq_shell_wood": 0.7149999999999999,
+          "riq_head_material": 0.39,
+          "riq_jingles": 0.39
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_no_snares",
+          "bendir_context": "bendir_folk",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_synthetic_modern"
+        },
+        "scores": {
+          "bendir_snares": 0.69,
+          "bendir_context": 1.5299999999999998,
+          "bendir_shell_wood": 2.47,
+          "bendir_head": 1.6899999999999997
+        }
+      }
+    ],
+    "room": "fez_andalusi_palace_riad",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "andalusi_nuba_eleven_mode_cycle",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

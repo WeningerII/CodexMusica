@@ -1,0 +1,451 @@
+{
+  "id": "duduk",
+  "name": "Duduk (Armenian apricot-wood reed)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "duduk",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "uilleann_pipes",
+            "biniou",
+            "highland_bagpipes",
+            "bombarde",
+            "recorder",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "shawm",
+            "zurna",
+            "mizmar",
+            "ghaita",
+            "ciaramella",
+            "duduk",
+            "mey"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "wind_circular_breathing_drone",
+          "name": "Circular-breathing drone",
+          "applies_to": [
+            "didgeridoo",
+            "didgeridoo",
+            "duduk",
+            "mey",
+            "launeddas"
+          ],
+          "descriptors": [
+            "drone-like",
+            "circular-breathing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "didgeridoo"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "duduk_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "duduk_solo",
+          "default": true,
+          "name": "Solo lament / dirge",
+          "descriptors": [
+            "vocal-imitating",
+            "meditative"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "duduk_dam_drone",
+          "name": "Dam (drone) accompaniment",
+          "descriptors": [
+            "supporting",
+            "sustained",
+            "foundational"
+          ],
+          "match_tokens": [
+            "drone-like",
+            "drone-foundation",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduk_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "duduk_a",
+          "default": true,
+          "name": "A (canonical)",
+          "descriptors": [
+            "standard",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "duduk_gf",
+          "name": "G / F (low)",
+          "descriptors": [
+            "darker",
+            "lament-leaning",
+            "expressive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "duduk_high",
+          "name": "High-pitched (rare)",
+          "descriptors": [
+            "lead",
+            "sharp",
+            "specialty"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduk_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "duduk_apricot_canonical",
+          "default": true,
+          "name": "Apricot wood (canonical Armenian — Prunus armeniaca)",
+          "descriptors": [
+            "apricot-canonical-armenian-prunus-armeniaca"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "duduk_plum",
+          "name": "Plum wood (alternative)",
+          "descriptors": [
+            "plum-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduk_reed",
+      "surface": false,
+      "name": "Reed (ghamish double-reed)",
+      "variants": [
+        {
+          "id": "duduk_arundo_canonical",
+          "default": true,
+          "name": "Arundo donax double-reed (ghamish — canonical Armenian Areni-valley cane)",
+          "descriptors": [
+            "arundo-donax-ghamish-canonical-armenian-areni-valley"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduk_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "duduk_djivan_gasparyan",
+          "default": true,
+          "name": "Djivan Gasparyan lineage (canonical 20th-century Armenian)",
+          "descriptors": [
+            "djivan-gasparyan-canonical-20th-century-armenian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "duduk_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "duduk_solo",
+          "default": true,
+          "name": "Solo lament / dirge",
+          "descriptors": [
+            "vocal-imitating",
+            "meditative"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "duduk_dam_drone",
+          "name": "Dam (drone) accompaniment",
+          "descriptors": [
+            "supporting",
+            "sustained",
+            "foundational"
+          ],
+          "match_tokens": [
+            "drone-like",
+            "drone-foundation",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduk_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "duduk_a",
+          "default": true,
+          "name": "A (canonical)",
+          "descriptors": [
+            "standard",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "duduk_gf",
+          "name": "G / F (low)",
+          "descriptors": [
+            "darker",
+            "lament-leaning",
+            "expressive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "duduk_high",
+          "name": "High-pitched (rare)",
+          "descriptors": [
+            "lead",
+            "sharp",
+            "specialty"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduk_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "duduk_apricot_canonical",
+          "default": true,
+          "name": "Apricot wood (canonical Armenian — Prunus armeniaca)",
+          "descriptors": [
+            "apricot-canonical-armenian-prunus-armeniaca"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "duduk_plum",
+          "name": "Plum wood (alternative)",
+          "descriptors": [
+            "plum-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduk_reed",
+      "surface": false,
+      "name": "Reed (ghamish double-reed)",
+      "variants": [
+        {
+          "id": "duduk_arundo_canonical",
+          "default": true,
+          "name": "Arundo donax double-reed (ghamish — canonical Armenian Areni-valley cane)",
+          "descriptors": [
+            "arundo-donax-ghamish-canonical-armenian-areni-valley"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duduk_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "duduk_djivan_gasparyan",
+          "default": true,
+          "name": "Djivan Gasparyan lineage (canonical 20th-century Armenian)",
+          "descriptors": [
+            "djivan-gasparyan-canonical-20th-century-armenian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ]
+}

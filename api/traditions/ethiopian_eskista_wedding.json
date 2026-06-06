@@ -1,0 +1,128 @@
+{
+  "id": "ethiopian_eskista_wedding",
+  "name": "Ethiopian eskista (እስክስታ) wedding music",
+  "family": "global",
+  "lineage": "Ethiopian wedding-music tradition continuous from medieval Ethiopian Orthodox-Christian-and-Amhara cultural practice through 19th-20th century continuous performance into modern Ethiopian-and-Ethiopian-diaspora domestic practice; the eskista is the canonical Ethiopian shoulder-dance music",
+  "recipe": "classic modern ethiopian eskista (እስክስታ) wedding music, wedding, African diasporic branch, African pop functional song, west African groove percussion, American jazz improv on frame hard bop latin jazz. thick, intimate aspirated, tasteful, rhythmic. curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero, castagnari Italian premium folk music accordion, washint. addis radio clandestine studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 668,
+  "score": 265.353,
+  "config": {
+    "traditions": [
+      "ethiopian_eskista_wedding",
+      "hard_bop",
+      "latin_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 5.545000000000001,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 2.08,
+          "voice_articulation": 2.5999999999999996,
+          "voice_microtone": 6.335,
+          "voice_tradition": 14.105000000000002,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 6.564999999999999,
+          "voice_ensemble_config": 5.589999999999998,
+          "voice_ornament_system": 0.09,
+          "voice_pitch_organization": 20.589999999999996,
+          "voice_processing_chain": 2.64,
+          "voice_multitrack_stack": 1.5450000000000002
+        }
+      },
+      {
+        "id": "masenqo",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "masenqo_body": "masenqo_diamond_parchment",
+          "masenqo_string": "masenqo_horsehair_single",
+          "masenqo_bow": "masenqo_horsehair_curved_bow",
+          "masenqo_tradition": "masenqo_azmari"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "masenqo_body": 0.39,
+          "masenqo_string": 0,
+          "masenqo_bow": 10.075000000000001,
+          "masenqo_tradition": 9.88
+        }
+      },
+      {
+        "id": "kebero",
+        "slots": {
+          "kebero_skin": "kebero_calfskin",
+          "kebero_shell_wood": "kebero_olive_canonical",
+          "kebero_tradition": "kebero_orthodox_tewahedo"
+        },
+        "scores": {
+          "kebero_skin": 11.180000000000001,
+          "kebero_shell_wood": 9.88,
+          "kebero_tradition": 2.99
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chromatic_jazz",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 1.3649999999999998,
+          "accordion_reed_material": 0.63,
+          "musette_offset": 0.39,
+          "reed_config": 0.9099999999999999,
+          "bellows": 0.39,
+          "voicing_chamber": 0.195,
+          "accordion_maker_school": 5.9799999999999995
+        }
+      },
+      {
+        "id": "washint",
+        "slots": {
+          "washint_body": "washint_bamboo"
+        },
+        "scores": {
+          "washint_body": 0
+        }
+      }
+    ],
+    "room": "addis_radio_clandestine_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "ethio_qenet_unified",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

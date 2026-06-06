@@ -1,0 +1,385 @@
+{
+  "id": "xiao",
+  "name": "Xiao (Chinese end-blown bamboo flute)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "xiao",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "xiao_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "xiao_f",
+          "default": true,
+          "name": "F (literati)",
+          "descriptors": [
+            "standard",
+            "classical",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_g",
+          "name": "G (high)",
+          "descriptors": [
+            "brighter",
+            "pop-leaning",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_d",
+          "name": "D (low)",
+          "descriptors": [
+            "deep",
+            "spacious",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xiao_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "xiao_literati",
+          "default": true,
+          "name": "Literati / qin-flute duet",
+          "descriptors": [
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_chamber",
+          "name": "Chamber jiangnan-sizhu",
+          "descriptors": [
+            "ensemble",
+            "silk-and-bamboo",
+            "regional"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_contemporary",
+          "name": "Modern composition",
+          "descriptors": [
+            "concert",
+            "cross-genre",
+            "film"
+          ],
+          "match_tokens": [
+            "contemporary",
+            "contemporary-classical",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xiao_body_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "xiao_purple_bamboo",
+          "default": true,
+          "name": "Purple bamboo Phyllostachys (canonical literati premium)",
+          "descriptors": [
+            "purple-bamboo-phyllostachys-canonical-literati-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_bitter_bamboo",
+          "name": "Bitter bamboo (alternative)",
+          "descriptors": [
+            "bitter-bamboo-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_jade_premium",
+          "name": "Jade (ultra-premium ceremonial — rare)",
+          "descriptors": [
+            "jade-ultra-premium-ceremonial-rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "xiao_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "xiao_f",
+          "default": true,
+          "name": "F (literati)",
+          "descriptors": [
+            "standard",
+            "classical",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_g",
+          "name": "G (high)",
+          "descriptors": [
+            "brighter",
+            "pop-leaning",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_d",
+          "name": "D (low)",
+          "descriptors": [
+            "deep",
+            "spacious",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xiao_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "xiao_literati",
+          "default": true,
+          "name": "Literati / qin-flute duet",
+          "descriptors": [
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_chamber",
+          "name": "Chamber jiangnan-sizhu",
+          "descriptors": [
+            "ensemble",
+            "silk-and-bamboo",
+            "regional"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_contemporary",
+          "name": "Modern composition",
+          "descriptors": [
+            "concert",
+            "cross-genre",
+            "film"
+          ],
+          "match_tokens": [
+            "contemporary",
+            "contemporary-classical",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xiao_body_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "xiao_purple_bamboo",
+          "default": true,
+          "name": "Purple bamboo Phyllostachys (canonical literati premium)",
+          "descriptors": [
+            "purple-bamboo-phyllostachys-canonical-literati-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_bitter_bamboo",
+          "name": "Bitter bamboo (alternative)",
+          "descriptors": [
+            "bitter-bamboo-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "xiao_jade_premium",
+          "name": "Jade (ultra-premium ceremonial — rare)",
+          "descriptors": [
+            "jade-ultra-premium-ceremonial-rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ]
+}

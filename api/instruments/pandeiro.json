@@ -1,0 +1,441 @@
+{
+  "id": "pandeiro",
+  "name": "Pandeiro (Brazilian frame drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "pandeiro",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_hands_layered",
+          "default": true,
+          "name": "Hand percussion layered",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "pandeiro",
+            "tar_frame_drum",
+            "timbales",
+            "darbuka",
+            "cuica"
+          ],
+          "descriptors": [
+            "hands",
+            "layered"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pandeiro_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "pandeiro_pequeno",
+          "name": "Pequeno (10\")",
+          "descriptors": [
+            "sharp",
+            "modern-virtuosic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_medio",
+          "default": true,
+          "name": "Médio (11\")",
+          "descriptors": [
+            "samba-standard",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_grande",
+          "name": "Grande (12\"+)",
+          "descriptors": [
+            "deep",
+            "marching-bateria",
+            "projecting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pandeiro_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "pandeiro_samba",
+          "default": true,
+          "name": "Samba (canonical)",
+          "descriptors": [
+            "carnival-batería",
+            "foundational",
+            "rhythm-driver"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_choro",
+          "name": "Choro",
+          "descriptors": [
+            "ornamental",
+            "subtle-virtuosity"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_capoeira",
+          "name": "Capoeira",
+          "descriptors": [
+            "rhythmic-support",
+            "roda",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pandeiro_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "pandeiro_goatskin_canonical",
+          "default": true,
+          "name": "Goatskin (canonical Brazilian premium)",
+          "descriptors": [
+            "goatskin-canonical-brazilian-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_synthetic_modern",
+          "name": "Synthetic Remo (modern weather-stable)",
+          "descriptors": [
+            "synthetic-remo-modern-weather-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_calfskin",
+          "name": "Calfskin (rare alternative)",
+          "descriptors": [
+            "calfskin-rare-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pandeiro_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "pandeiro_eucalyptus",
+          "default": true,
+          "name": "Eucalyptus or imbuia (canonical Brazilian luthier)",
+          "descriptors": [
+            "eucalyptus-imbuia-canonical-brazilian-luthier"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_maple",
+          "name": "Maple ply (modern alternative)",
+          "descriptors": [
+            "maple-ply-modern-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pandeiro_jingles",
+      "surface": false,
+      "name": "Platinela jingles",
+      "variants": [
+        {
+          "id": "pandeiro_brass_platinelas",
+          "default": true,
+          "name": "Brass platinelas (canonical Brazilian)",
+          "descriptors": [
+            "brass-platinelas-canonical-brazilian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_steel_platinelas",
+          "name": "Steel platinelas (brighter)",
+          "descriptors": [
+            "steel-platinelas-brighter"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pandeiro_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "pandeiro_pequeno",
+          "name": "Pequeno (10\")",
+          "descriptors": [
+            "sharp",
+            "modern-virtuosic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_medio",
+          "default": true,
+          "name": "Médio (11\")",
+          "descriptors": [
+            "samba-standard",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_grande",
+          "name": "Grande (12\"+)",
+          "descriptors": [
+            "deep",
+            "marching-bateria",
+            "projecting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pandeiro_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "pandeiro_samba",
+          "default": true,
+          "name": "Samba (canonical)",
+          "descriptors": [
+            "carnival-batería",
+            "foundational",
+            "rhythm-driver"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_choro",
+          "name": "Choro",
+          "descriptors": [
+            "ornamental",
+            "subtle-virtuosity"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_capoeira",
+          "name": "Capoeira",
+          "descriptors": [
+            "rhythmic-support",
+            "roda",
+            "communal"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pandeiro_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "pandeiro_goatskin_canonical",
+          "default": true,
+          "name": "Goatskin (canonical Brazilian premium)",
+          "descriptors": [
+            "goatskin-canonical-brazilian-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_synthetic_modern",
+          "name": "Synthetic Remo (modern weather-stable)",
+          "descriptors": [
+            "synthetic-remo-modern-weather-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_calfskin",
+          "name": "Calfskin (rare alternative)",
+          "descriptors": [
+            "calfskin-rare-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pandeiro_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "pandeiro_eucalyptus",
+          "default": true,
+          "name": "Eucalyptus or imbuia (canonical Brazilian luthier)",
+          "descriptors": [
+            "eucalyptus-imbuia-canonical-brazilian-luthier"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_maple",
+          "name": "Maple ply (modern alternative)",
+          "descriptors": [
+            "maple-ply-modern-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pandeiro_jingles",
+      "surface": false,
+      "name": "Platinela jingles",
+      "variants": [
+        {
+          "id": "pandeiro_brass_platinelas",
+          "default": true,
+          "name": "Brass platinelas (canonical Brazilian)",
+          "descriptors": [
+            "brass-platinelas-canonical-brazilian"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "pandeiro_steel_platinelas",
+          "name": "Steel platinelas (brighter)",
+          "descriptors": [
+            "steel-platinelas-brighter"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

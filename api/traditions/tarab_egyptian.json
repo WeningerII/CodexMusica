@@ -1,0 +1,197 @@
+{
+  "id": "tarab_egyptian",
+  "name": "Tarab (Egyptian classical)",
+  "family": "global",
+  "lineage": "The specifically Egyptian branch of the broader Arab tarab tradition — built on the takht ensemble (oud, qanun, ney, riq, kamancheh) plus the 20th-century Egyptian innovation of adding a large Western violin section for the Umm Kulthum / Mohammed Abdel Wahab era recordings; pre-WWII figures Sayed Darwish, Mohammed al-Qasabgi, Zakariya Ahmed, then the post-WWII Golden Age anchored by Umm Kulthum (1898-1975), Mohammed Abdel Wahab (1902-1991), Abdel Halim Hafez (1929-1977)",
+  "recipe": "classic North American early-1890s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, Sufi ritual devotional armenian liturgical and folk andalusī nūba. thick, low dynamic level, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, brass nickel silver Egyptian modern hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, tun cedar legato sarangi, court tradition pre twentieth century takht arab, traditional kanun kanun, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 963,
+  "score": 410.507,
+  "config": {
+    "traditions": [
+      "tarab_egyptian",
+      "armenian_traditional",
+      "andalusi_nuba"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1,
+          "voice_quality": 1.885,
+          "voice_vibrato": 2.9899999999999998,
+          "voice_articulation": 0.39,
+          "voice_microtone": 12.805,
+          "voice_tradition": 13.129999999999999,
+          "voice_mechanism_compound": 10.235000000000001,
+          "voice_estill_quality": 8.06,
+          "voice_speech_song": 5.035,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 12.23,
+          "voice_pitch_organization": 12.74,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 1.3
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_padauk_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5,
+          "oud_school": 3.77,
+          "oud_strings": 2.6,
+          "oud_pick": 0.39,
+          "oud_body_wood": 3.795,
+          "oud_soundboard_wood": 2.0549999999999997,
+          "oud_string_material": 3.25
+        }
+      },
+      {
+        "id": "qanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "qanun_strings": "qanun_arab_72",
+          "qanun_levers": "mandal_brass",
+          "qanun_pick": "qanun_finger_picks",
+          "qanun_body_wood": "qanun_rosewood_body",
+          "qanun_bridge_skin": "qanun_goat_skin_bridge",
+          "qanun_string_material": "qanun_fluorocarbon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5,
+          "qanun_strings": 2.6,
+          "qanun_levers": -1.05,
+          "qanun_pick": 2.6,
+          "qanun_body_wood": 3.185,
+          "qanun_bridge_skin": 2.3999999999999995,
+          "qanun_string_material": 0
+        }
+      },
+      {
+        "id": "ney",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "ney_use": "ney_arab",
+          "ney_pitch": "ney_kerdaniye",
+          "ney_body_material": "ney_metal_brass",
+          "ney_lineage": "ney_hassan_kassai"
+        },
+        "scores": {
+          "wind_articulation": 5.04,
+          "ney_use": 2.195,
+          "ney_pitch": 2.6,
+          "ney_body_material": 2.34,
+          "ney_lineage": 5.329999999999999
+        }
+      },
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_40_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "sarangi_gut_main",
+          "sarangi_body_wood": "sarangi_tun_body"
+        },
+        "scores": {
+          "bowed_technique": 5,
+          "sarangi_belly": 1.17,
+          "sarangi_taraf": 0.24,
+          "sarangi_bow": 0.39,
+          "sarangi_main_strings": 0.7149999999999999,
+          "sarangi_body_wood": 2.0549999999999997
+        }
+      },
+      {
+        "id": "takht_arab",
+        "slots": {
+          "members": "takht_oud",
+          "takht_arab_era": "takht_arab_classical"
+        },
+        "scores": {
+          "members": 0.24,
+          "takht_arab_era": 5.07
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "kanun_school": "kanun_armenian",
+          "kanun_articulation": "kanun_tortoiseshell_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5,
+          "kanun_school": 5.79,
+          "kanun_articulation": 0.325
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "half_rectified_gut_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 5.430000000000001,
+          "orch_strings": 0.39,
+          "orch_top_wood": 7.41,
+          "orch_back_wood": 5.445,
+          "orch_varnish": 5.640000000000001,
+          "orch_setup_period": 4.335,
+          "orch_bow": 0.39,
+          "orch_bow_stick": 6.37,
+          "orch_articulation": 0.135,
+          "orch_rosin": 5.1450000000000005
+        }
+      }
+    ],
+    "room": "cairo_studio_misr_umm_kulthum_era",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

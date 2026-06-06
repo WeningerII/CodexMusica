@@ -1,0 +1,234 @@
+{
+  "id": "arpa_llanera",
+  "name": "Arpa llanera (Venezuelan/Colombian plains harp)",
+  "family": "acoustic_strings",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "arpa llanera",
+  "parts": [
+    {
+      "id": "arpa_llanera_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "arpa_llanera_32",
+          "default": true,
+          "name": "32-string diatonic (joropo standard)",
+          "descriptors": [
+            "diatonic-only",
+            "joropo-tradition",
+            "fast-arpeggio",
+            "gut-or-nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition",
+            "llanos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_llanera_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "arpa_llanera_cedar",
+          "default": true,
+          "name": "Cedar (canonical Llanos)",
+          "descriptors": [
+            "cedar-canonical-llanos"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition"
+          ]
+        },
+        {
+          "id": "arpa_llanera_mahogany",
+          "name": "Mahogany (premium)",
+          "descriptors": [
+            "mahogany-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_llanera_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "arpa_llanera_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical Llanos)",
+          "descriptors": [
+            "nylon-modern-canonical-llanos"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition"
+          ]
+        },
+        {
+          "id": "arpa_llanera_gut_historical",
+          "name": "Gut (pre-modern joropo historical)",
+          "descriptors": [
+            "gut-pre-modern-joropo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_llanera_role",
+      "name": "Functional role",
+      "variants": [
+        {
+          "id": "arpa_llanera_bass_and_treble",
+          "default": true,
+          "name": "Bordón bass + tiple treble runs",
+          "descriptors": [
+            "virtuosic",
+            "fast-runs",
+            "joropo-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "arpa_llanera_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "arpa_llanera_32",
+          "default": true,
+          "name": "32-string diatonic (joropo standard)",
+          "descriptors": [
+            "diatonic-only",
+            "joropo-tradition",
+            "fast-arpeggio",
+            "gut-or-nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition",
+            "llanos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_llanera_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "arpa_llanera_cedar",
+          "default": true,
+          "name": "Cedar (canonical Llanos)",
+          "descriptors": [
+            "cedar-canonical-llanos"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition"
+          ]
+        },
+        {
+          "id": "arpa_llanera_mahogany",
+          "name": "Mahogany (premium)",
+          "descriptors": [
+            "mahogany-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_llanera_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "arpa_llanera_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical Llanos)",
+          "descriptors": [
+            "nylon-modern-canonical-llanos"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition"
+          ]
+        },
+        {
+          "id": "arpa_llanera_gut_historical",
+          "name": "Gut (pre-modern joropo historical)",
+          "descriptors": [
+            "gut-pre-modern-joropo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_llanera_role",
+      "name": "Functional role",
+      "variants": [
+        {
+          "id": "arpa_llanera_bass_and_treble",
+          "default": true,
+          "name": "Bordón bass + tiple treble runs",
+          "descriptors": [
+            "virtuosic",
+            "fast-runs",
+            "joropo-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "joropo-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

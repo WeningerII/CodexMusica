@@ -1,0 +1,71 @@
+{
+  "id": "stride_piano",
+  "name": "Stride piano",
+  "family": "jazz",
+  "lineage": "1920s-1940s Harlem virtuoso solo-piano tradition extending ragtime through dramatic ten-finger leaps in the left hand alternating bass-note and chord — codified through James P. Johnson (Carolina Shout 1921), Willie The Lion Smith, Fats Waller (Ain't Misbehavin' 1929) and Art Tatum, with later inheritors including Erroll Garner and Thelonious Monk drawing directly on the stride harmonic language",
+  "recipe": "classic mid-1920s stride piano, improv On Frame, stride piano branch, American jazz pre jazz ragtime, American jazz early new orleans jazz. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright piano. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 379,
+  "score": 52.682,
+  "config": {
+    "traditions": [
+      "stride_piano",
+      "ragtime",
+      "new_orleans"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 7.192499999999999,
+          "grand_piano_size": 0.78,
+          "grand_piano_brand": 0.78,
+          "piano_hammer": 4.095000000000001,
+          "piano_rim": 6.565000000000001,
+          "piano_soundboard": 2.4050000000000002,
+          "piano_pinblock": -0.035,
+          "piano_plate": 0.2525,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 7.192499999999999,
+          "upright_use": 0.78,
+          "upright_piano_size": 0.16083333333333333
+        }
+      }
+    ],
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

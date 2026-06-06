@@ -1,0 +1,68 @@
+{
+  "id": "andean_quechua_spinning",
+  "name": "Andean Quechua-Aymara spinning song",
+  "family": "global",
+  "lineage": "Andean Quechua-and-Aymara spinning-and-weaving song tradition continuous from pre-Hispanic Andean-textile labor practice through Spanish-colonial-era continuous performance into modern Quechua-and-Aymara-speaking Andean-rural continuous practice across Bolivia, Peru, and Ecuador",
+  "recipe": "classic modern andean quechua-aymara spinning song, domestic Rhythm, south Asian branch, sub saharan African domestic rhythm, European lullaby, andean field work andean huayno-de-trabajo wolof-senegambian grain-grinding women's song. forward-resonance, tasteful, continuous-phonation, andean quechua vocal. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 462,
+  "score": 232.83,
+  "config": {
+    "traditions": [
+      "andean_quechua_spinning",
+      "andean_huayno_trabajo",
+      "wolof_grain_grinding"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "twang_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 16.949999999999992,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0.045,
+          "voice_tradition": 37.34,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 16.149999999999995,
+          "voice_speech_song": 12.414999999999996,
+          "voice_ensemble_config": 16.284999999999997,
+          "voice_ornament_system": 23.999999999999996,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.39
+        }
+      }
+    ],
+    "room": "andean_altiplano_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "huayno_2_4_andean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

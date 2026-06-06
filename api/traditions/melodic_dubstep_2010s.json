@@ -1,0 +1,126 @@
+{
+  "id": "melodic_dubstep_2010s",
+  "name": "Melodic dubstep",
+  "family": "electronic",
+  "lineage": "Early-2010s dubstep subgenre emphasizing emotional-melodic content, female-vocal-feature presentation, atmospheric-pad textures, and broader pop-crossover-friendly arrangement. Seven Lions, Au5, Crystal Skies, and the broader Monstercat and Ophelia Records label rosters anchored the canonical sound. The 2013-2018 \"EDM melodic\" era extended melodic dubstep into festival-mainstream commercial circulation.",
+  "recipe": "classic mid-2010s melodic dubstep, bass System, bass descendants branch, house electronic dance jackin' house melodic house. extended whistle, melodic, equal tempered, modern pop training. TR-808, pad like sub bass analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 525,
+  "score": 138.67,
+  "config": {
+    "traditions": [
+      "melodic_dubstep_2010s",
+      "jackin_house",
+      "melodic_house"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.995000000000001,
+          "voice_quality": 0.21,
+          "voice_vibrato": 5.074999999999999,
+          "voice_articulation": 0.345,
+          "voice_microtone": 3.000000000000001,
+          "voice_tradition": 4.695000000000001,
+          "voice_mechanism_compound": 1.1099999999999999,
+          "voice_estill_quality": 1.285,
+          "voice_speech_song": 5.169999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 1.545,
+          "voice_pitch_organization": 3.14,
+          "voice_processing_chain": 4.965,
+          "voice_multitrack_stack": 8.059999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 3.6550000000000002,
+          "drum_machine_808_context": 3.75,
+          "tr808_production_origin": 0.375
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "sample_hold"
+        },
+        "scores": {
+          "electronic_technique": 12.604999999999999,
+          "oscillator": 3.705,
+          "filter_topology": 3.9,
+          "envelope": 1.525,
+          "modulation": 0.15
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 3.575,
+          "grand_piano_size": 0.37499999999999994,
+          "grand_piano_brand": 1.525,
+          "piano_hammer": 3.2,
+          "piano_rim": 3.35,
+          "piano_soundboard": 3.29,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": -0.035
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "hall_reverb",
+      "digital_delay"
+    ]
+  }
+}

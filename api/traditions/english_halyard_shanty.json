@@ -1,0 +1,81 @@
+{
+  "id": "english_halyard_shanty",
+  "name": "English halyard shanty (Atlantic merchant-marine work-song)",
+  "family": "global",
+  "lineage": "English-Anglo-American halyard-shanty tradition continuous from 18th-19th-century Atlantic-merchant-marine work-song practice through the great-age-of-sail 1830s-1880s peak-shanty-period continuous into 20th-century revival (the Stan Hugill Shanties from the Seven Seas 1961 canonical scholarly-documentation) into modern Anglosphere folk-revival continuous practice; foundational repertoire includes \"Drunken Sailor,\" \"Blow the Man Down,\" \"Haul Away Joe\"",
+  "recipe": "classic mid-1830s english halyard shanty, sea Shanty, atlantic branch, American south field work, European drinking song, anglo singer song ballad poetry indie folk freak folk. thick, low dynamic level, melodic, continuous-phonation. Celtic Irish straight concertina. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 406,
+  "score": 161.386,
+  "config": {
+    "traditions": [
+      "english_halyard_shanty",
+      "indie_folk_2000s",
+      "freak_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.500000000000001,
+          "voice_quality": 3.185,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0.24,
+          "voice_tradition": 7.540000000000001,
+          "voice_mechanism_compound": 1.0499999999999998,
+          "voice_estill_quality": 0.7149999999999997,
+          "voice_speech_song": 7.085,
+          "voice_ensemble_config": 2.600000000000001,
+          "voice_ornament_system": 1.770625,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 2.665000000000001,
+          "voice_multitrack_stack": 1.3
+        }
+      },
+      {
+        "id": "concertina",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "concertina_type": "anglo_concertina",
+          "concertina_reed_grade": "concertina_hybrid_accordion_reed"
+        },
+        "scores": {
+          "free_reed_technique": 4.035,
+          "concertina_type": 13,
+          "concertina_reed_grade": 1.69
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

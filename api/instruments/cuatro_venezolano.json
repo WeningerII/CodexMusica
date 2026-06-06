@@ -1,0 +1,409 @@
+{
+  "id": "cuatro_venezolano",
+  "name": "Cuatro venezolano",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cuatro venezolano",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_tremolo",
+          "name": "Tremolo (mandolin-style)",
+          "applies_to": [
+            "baglamas",
+            "bouzouki",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "tiple",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "leona",
+            "vihuela_mexicana",
+            "domra"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "rapid-tremolo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "mandolin",
+            "mediterranean"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "cuatro_venezolano_tuning",
+      "surface": false,
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "cuatro_venezolano_reentrant",
+          "default": true,
+          "name": "Reentrant (la-re-fa#-si)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_venezolano_octave",
+          "name": "Octave (lower variant)",
+          "descriptors": [
+            "regional",
+            "specific-genres",
+            "alternative"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_venezolano_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "cuatro_venezolano_rasgueo",
+          "default": true,
+          "name": "Rasgueo (strummed)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_venezolano_picado",
+          "name": "Picado (fingerpicked)",
+          "descriptors": [
+            "lead-melodic",
+            "virtuosic",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_venezolano_hybrid",
+          "name": "Hybrid",
+          "descriptors": [
+            "contemporary",
+            "flexible",
+            "arrangement-dependent"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_venezolano_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cuatro_venezolano_cedar",
+          "default": true,
+          "name": "Cedar (canonical Venezuelan)",
+          "descriptors": [
+            "cedar-canonical-venezuelan"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_venezolano_mahogany",
+          "name": "Mahogany (premium)",
+          "descriptors": [
+            "mahogany-premium"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_venezolano_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cuatro_venezolano_nylon",
+          "default": true,
+          "name": "Nylon (canonical)",
+          "descriptors": [
+            "nylon-canonical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_venezolano_gut_historical",
+          "name": "Gut (pre-modern historical)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "cuatro_venezolano_tuning",
+      "surface": false,
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "cuatro_venezolano_reentrant",
+          "default": true,
+          "name": "Reentrant (la-re-fa#-si)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_venezolano_octave",
+          "name": "Octave (lower variant)",
+          "descriptors": [
+            "regional",
+            "specific-genres",
+            "alternative"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_venezolano_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "cuatro_venezolano_rasgueo",
+          "default": true,
+          "name": "Rasgueo (strummed)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_venezolano_picado",
+          "name": "Picado (fingerpicked)",
+          "descriptors": [
+            "lead-melodic",
+            "virtuosic",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_venezolano_hybrid",
+          "name": "Hybrid",
+          "descriptors": [
+            "contemporary",
+            "flexible",
+            "arrangement-dependent"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_venezolano_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cuatro_venezolano_cedar",
+          "default": true,
+          "name": "Cedar (canonical Venezuelan)",
+          "descriptors": [
+            "cedar-canonical-venezuelan"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_venezolano_mahogany",
+          "name": "Mahogany (premium)",
+          "descriptors": [
+            "mahogany-premium"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cuatro_venezolano_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cuatro_venezolano_nylon",
+          "default": true,
+          "name": "Nylon (canonical)",
+          "descriptors": [
+            "nylon-canonical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cuatro_venezolano_gut_historical",
+          "name": "Gut (pre-modern historical)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

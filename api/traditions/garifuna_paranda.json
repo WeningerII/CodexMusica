@@ -1,0 +1,98 @@
+{
+  "id": "garifuna_paranda",
+  "name": "Paranda (Garifuna)",
+  "family": "global",
+  "lineage": "Garifuna (Black-Carib) Spanish-Latin-influenced ballad tradition performed across the Garifuna diaspora in Belize, Honduras, Guatemala, Nicaragua, and the Garifuna emigrant communities in New York and Los Angeles — codified through Andy Palacio (the Belizean Garifuna paranda voice, 2007 Wátina album, his death in 2008 marking the end of the second-generation paranda era), Aurelio Martinez, the broader Stonetree Records catalog",
+  "recipe": "classic late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, declaimed, tasteful, Yoruba tonal vocal. low mid rich spectrum cedar classical nylon-string guitar, maracas. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 411,
+  "score": 94.981,
+  "config": {
+    "traditions": [
+      "garifuna_paranda",
+      "hausa_court_music",
+      "wassoulou"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.9750000000000001,
+          "voice_quality": 5.93,
+          "voice_vibrato": 0.585,
+          "voice_articulation": 0.045,
+          "voice_microtone": 0.345,
+          "voice_tradition": 6.5649999999999995,
+          "voice_mechanism_compound": 3.5414999999999988,
+          "voice_estill_quality": 0.63,
+          "voice_speech_song": 3.7049999999999996,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 0.44999999999999996,
+          "voice_processing_chain": 1.665,
+          "voice_multitrack_stack": 1.56
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.8499999999999999,
+          "string_tuning": 0,
+          "top_wood_classical": 3.9,
+          "bracing_classical": 0.5700000000000001,
+          "string_classical": 0.525,
+          "attack_technique_cl": 0.195
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_plastic",
+          "maracas_filling": "maracas_beads"
+        },
+        "scores": {
+          "maracas_construction": 0.72,
+          "maracas_filling": 0.5700000000000001
+        }
+      }
+    ],
+    "room": "trinidad_calypso_panyard_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "trinidad_calypso_soca_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

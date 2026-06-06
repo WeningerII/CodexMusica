@@ -1,0 +1,96 @@
+{
+  "id": "muthallath",
+  "name": "Muthallath (Coptic metal triangle)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "muthallath",
+  "parts": [
+    {
+      "id": "muthallath_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "muthallath_metal_triangle_rod_canonical",
+          "default": true,
+          "name": "Metal triangle struck with rod (canonical Coptic liturgical use)",
+          "descriptors": [
+            "metal-triangle-struck-rod-canonical-coptic-liturgical"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "coptic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muthallath_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "muthallath_coptic_specific_hymn_canonical",
+          "default": true,
+          "name": "Specific Coptic Orthodox hymn accompaniment (canonical)",
+          "descriptors": [
+            "coptic-specific-hymn-canonical-egyptian-orthodox"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "coptic-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "muthallath_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "muthallath_metal_triangle_rod_canonical",
+          "default": true,
+          "name": "Metal triangle struck with rod (canonical Coptic liturgical use)",
+          "descriptors": [
+            "metal-triangle-struck-rod-canonical-coptic-liturgical"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "coptic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muthallath_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "muthallath_coptic_specific_hymn_canonical",
+          "default": true,
+          "name": "Specific Coptic Orthodox hymn accompaniment (canonical)",
+          "descriptors": [
+            "coptic-specific-hymn-canonical-egyptian-orthodox"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "coptic-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

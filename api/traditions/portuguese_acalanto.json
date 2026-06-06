@@ -1,0 +1,68 @@
+{
+  "id": "portuguese_acalanto",
+  "name": "Portuguese acalanto (cradle song)",
+  "family": "global",
+  "lineage": "Portuguese cradle-song tradition continuous from medieval-and-early-modern Iberian cradle-song practice through 19th-century Romantic folksong collection and into modern Lusophone domestic practice in Portugal and Lusophone Africa",
+  "recipe": "classic modern portuguese acalanto, lullaby, European branch, Mediterranean ballad ballad poetry, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, lament wail, tasteful, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 399,
+  "score": 134.673,
+  "config": {
+    "traditions": [
+      "portuguese_acalanto",
+      "morna",
+      "cape_verdean_batuko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 1.1099999999999999,
+          "voice_quality": 3.685,
+          "voice_vibrato": 2.8999999999999995,
+          "voice_articulation": 1.6300000000000001,
+          "voice_microtone": 0.15,
+          "voice_tradition": 7.334999999999999,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 12.154999999999998,
+          "voice_ensemble_config": 6.889999999999999,
+          "voice_ornament_system": 5.699999999999999,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 1.17,
+          "voice_multitrack_stack": 1.815
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

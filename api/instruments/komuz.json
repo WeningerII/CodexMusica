@@ -1,0 +1,120 @@
+{
+  "id": "komuz",
+  "name": "Komuz (Kyrgyz three-string fretless lute)",
+  "family": "plucked_traditional",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "komuz",
+  "parts": [
+    {
+      "id": "komuz_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "komuz_apricot_three_string_canonical",
+          "default": true,
+          "name": "Apricot or juniper wood, three gut strings (canonical Kyrgyz)",
+          "descriptors": [
+            "apricot-juniper-wood-three-gut-strings-canonical-kyrgyz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "kyrgyz-tradition",
+            "central-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "komuz_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "komuz_akyn_kuy_canonical",
+          "default": true,
+          "name": "Akyn küü solo (canonical Kyrgyz instrumental narrative)",
+          "descriptors": [
+            "akyn-kuu-solo-canonical-kyrgyz-instrumental-narrative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "kyrgyz-tradition"
+          ]
+        },
+        {
+          "id": "komuz_song_accompaniment",
+          "name": "Song-accompaniment style",
+          "descriptors": [
+            "song-accompaniment-secondary-epic-tellers"
+          ],
+          "match_tokens": [
+            "plucked",
+            "kyrgyz-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "komuz_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "komuz_apricot_three_string_canonical",
+          "default": true,
+          "name": "Apricot or juniper wood, three gut strings (canonical Kyrgyz)",
+          "descriptors": [
+            "apricot-juniper-wood-three-gut-strings-canonical-kyrgyz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "kyrgyz-tradition",
+            "central-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "komuz_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "komuz_akyn_kuy_canonical",
+          "default": true,
+          "name": "Akyn küü solo (canonical Kyrgyz instrumental narrative)",
+          "descriptors": [
+            "akyn-kuu-solo-canonical-kyrgyz-instrumental-narrative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "kyrgyz-tradition"
+          ]
+        },
+        {
+          "id": "komuz_song_accompaniment",
+          "name": "Song-accompaniment style",
+          "descriptors": [
+            "song-accompaniment-secondary-epic-tellers"
+          ],
+          "match_tokens": [
+            "plucked",
+            "kyrgyz-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

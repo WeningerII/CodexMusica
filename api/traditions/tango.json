@@ -1,0 +1,163 @@
+{
+  "id": "tango",
+  "name": "Tango",
+  "family": "global",
+  "lineage": "Argentine bandoneón-and-violin orquesta-típica tradition codified through the Buenos Aires studio canon from Carlos Gardel onward",
+  "recipe": "classic mid-1930s tango, ballad Poetry, Latin am troubadour branch, tropical song functional song garifuna paranda and hungu-hungu bolero. thick, melodic, Yoruba tonal vocal, ingressive egressive paired breath. tango virtuoso premier German tango premium alternative bellows articulated bandoneon, violin orchestral, upright piano, upright bass, cello. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 488,
+  "score": 123.755,
+  "config": {
+    "traditions": [
+      "tango",
+      "garifuna_paranda_hungu_hungu",
+      "tropical_bolero"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.585,
+          "voice_quality": 0.345,
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 0.39,
+          "voice_microtone": 0.39,
+          "voice_tradition": 2.34,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.9749999999999996,
+          "voice_speech_song": 8.514999999999999,
+          "voice_ensemble_config": 5.849999999999999,
+          "voice_ornament_system": 0.75,
+          "voice_pitch_organization": 0.9299999999999998,
+          "voice_processing_chain": 3.575,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "bandoneon",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "bandoneon_action": "bandoneon_bisonoric",
+          "bandoneon_use": "bandoneon_orquesta",
+          "bandoneon_maker_school": "bandoneon_premier",
+          "bandoneon_reed_material": "bandoneon_steel_reeds_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 7.699999999999999,
+          "bandoneon_action": 3.0999999999999996,
+          "bandoneon_use": 3.7899999999999996,
+          "bandoneon_maker_school": 3.2449999999999997,
+          "bandoneon_reed_material": 0.9299999999999998
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_chopped_old_time",
+          "orch_strings": "plain_sheep_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.26,
+          "orch_strings": 0.435,
+          "orch_top_wood": 0.2,
+          "orch_back_wood": -0.035,
+          "orch_varnish": -0.035,
+          "orch_setup_period": 0.6499999999999999,
+          "orch_bow": 0.78,
+          "orch_bow_stick": 0.9999999999999999,
+          "orch_articulation": 0.78,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "upright_use": 0.63,
+          "upright_piano_size": 1
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "upright_strings": 0.435,
+          "upright_play": 0.39
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_sul_ponticello",
+          "cello_strings": "venice_catlin_cello",
+          "cello_top_wood": "italian_alpine_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_setup_period": "baroque_setup_cello",
+          "cello_bow_grip": "german_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "cello_strings": 0.435,
+          "cello_top_wood": 0.2,
+          "cello_back_wood": -0.035,
+          "cello_varnish": -0.035,
+          "cello_setup_period": 0.6499999999999999,
+          "cello_bow_grip": 0.195,
+          "cello_rosin": 0.9499999999999998,
+          "cello_bow_stick": 0.9999999999999999
+        }
+      }
+    ],
+    "room": "odeon_rca_buenos_aires",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "tango_4_4_with_compas",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

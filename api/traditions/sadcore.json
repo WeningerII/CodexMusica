@@ -1,0 +1,153 @@
+{
+  "id": "sadcore",
+  "name": "Sadcore (early-1990s American melancholic confessional indie)",
+  "family": "rock_punk",
+  "lineage": "Early-1990s American indie subgenre adjacent-to-slowcore, with greater compositional-and-melodic-development and confessional-personal lyrical content. Red House Painters (1989-2001, Mark Kozelek), American Music Club, and (later) Kozelek's Sun Kil Moon project constitute the canonical roster. Distinguished from slowcore by sadcore's emphasis on songwriter-confessional content (vs slowcore's sound-texture-and-mood focus).",
+  "recipe": "classic North American sadcore, distorted Rock, alternative branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, melodic, equal tempered. Fender blackface amp American 60s amp spring reverb bright basswood arpeggiated humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 741,
+  "score": 189.39,
+  "config": {
+    "traditions": [
+      "sadcore",
+      "interior_confessional_60s",
+      "greenwich_village_confessional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 3.841000000000002,
+          "voice_quality": 10.687499999999998,
+          "voice_vibrato": 1.4809999999999999,
+          "voice_articulation": 0.40950000000000003,
+          "voice_microtone": 3.500000000000001,
+          "voice_tradition": 1.4949999999999999,
+          "voice_mechanism_compound": 1.755,
+          "voice_estill_quality": 2.405,
+          "voice_speech_song": 7.6049999999999995,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 0.7149999999999997,
+          "voice_pitch_organization": 4.68,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 5.818,
+          "amp_make": 4.42,
+          "body_wood": 1.69,
+          "neck_wood": 0.5947499999999999,
+          "fretboard": 0.25875,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.8114999999999999,
+          "string_material": 0.195,
+          "bridge": 0.5947499999999999,
+          "scale_length": 1.69,
+          "string_gauge": 0.5947499999999999,
+          "finish": 0,
+          "string_tuning": 3.6399999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 1.9000000000000001,
+          "amp_make": 4.42,
+          "body_wood": 1.1894999999999998,
+          "pickup_config": 0.378,
+          "string_type": 4.875,
+          "scale_length_b": 0.5947499999999999,
+          "fretted_or_not": 0.1185,
+          "bass_technique": 3.7
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 6.629999999999999,
+          "shell_wood": 0.9614999999999999,
+          "shell_thickness": 0.3045,
+          "bearing_edges": 0.7799999999999999,
+          "drumhead": 0.6682499999999999,
+          "snare_wires": 0.8677499999999998,
+          "cymbal_alloy": 3.9730000000000003,
+          "cymbal_hammering": 3.6815,
+          "cymbal_lathing": 3.8765000000000005,
+          "cymbal_finish": 0.27299999999999996,
+          "drum_technique": 6.629999999999999
+        }
+      }
+    ],
+    "room": "studio_pacnw_commercial_indie",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

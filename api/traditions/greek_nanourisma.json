@@ -1,0 +1,85 @@
+{
+  "id": "greek_nanourisma",
+  "name": "Greek nanourisma (νανούρισμα, cradle song)",
+  "family": "global",
+  "lineage": "Greek cradle-song tradition continuous from Byzantine-era cradle-song practice through Ottoman-period folksong survival into modern Greek domestic practice",
+  "recipe": "classic modern greek nanourisma, lullaby, European branch, middle eastern lullaby, Mediterranean ballad ballad poetry, christian gospel ritual devotional gospel quartet black gospel. thick, declaimed, tasteful, ornamental. mulberry canonical cretan gut pre modern cretan cretan lyra. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 431,
+  "score": 211.755,
+  "config": {
+    "traditions": [
+      "greek_nanourisma",
+      "gospel_quartet_male",
+      "black_gospel_choir"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.65,
+          "voice_quality": 4.365000000000001,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.8399999999999999,
+          "voice_microtone": 1.1699999999999995,
+          "voice_tradition": 19.954999999999995,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 1.5949999999999995,
+          "voice_speech_song": 5.785,
+          "voice_ensemble_config": 2.76,
+          "voice_ornament_system": 2.7499999999999996,
+          "voice_pitch_organization": 2.02,
+          "voice_processing_chain": 0.99,
+          "voice_multitrack_stack": 2.1149999999999998
+        }
+      },
+      {
+        "id": "cretan_lyra",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "lyra_strings": "lyra_3",
+          "lyra_use": "lyra_dance",
+          "lyra_body_wood": "lyra_mulberry",
+          "lyra_string_material": "lyra_gut_historical"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "lyra_strings": 0.375,
+          "lyra_use": 0.5249999999999999,
+          "lyra_body_wood": 1.17,
+          "lyra_string_material": 2.7950000000000004
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,1383 @@
+{
+  "id": "trumpet",
+  "name": "Trumpet / cornet / flugelhorn",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "trumpet",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_honking_attack",
+          "name": "Honking attack",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone"
+          ],
+          "descriptors": [
+            "honking",
+            "attack"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "honking-attack",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "r&b",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "wind_punchy_ensemble",
+          "name": "Punchy ensemble",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone"
+          ],
+          "descriptors": [
+            "fast-attack-transient",
+            "ensemble",
+            "horn-section"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "punchy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "r&b",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "wind_bebop_runs",
+          "name": "Bebop fast runs",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "cornet"
+          ],
+          "descriptors": [
+            "angular"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bebop-derived",
+            "jazz-trained",
+            "bebop-runs",
+            "gospel-runs"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "wind_cool_lyrical",
+          "name": "Cool lyrical",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "cornet",
+            "flugelhorn"
+          ],
+          "descriptors": [
+            "cool",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "cool-lyrical",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "wind_multiphonic_avant",
+          "name": "Multiphonic / avant-garde",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "oboe"
+          ],
+          "descriptors": [
+            "multiphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "avant-garde",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "avant",
+            "noise",
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "wind_split_tone_overblown",
+          "name": "Split-tone / overblown",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet"
+          ],
+          "descriptors": [
+            "split-tone",
+            "overblown"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "wind_breath_quiet",
+          "name": "Breath-tone, low dynamic",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "clarinet",
+            "cornet",
+            "flugelhorn",
+            "shakuhachi",
+            "ney"
+          ],
+          "descriptors": [
+            "breath-tone-airy",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "breathing",
+            "quiet"
+          ],
+          "canonical_tags": [
+            "lounge",
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_dixieland_lead",
+          "name": "Dixieland front-line",
+          "applies_to": [
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "cornet"
+          ],
+          "descriptors": [
+            "front-line"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "lead-melody",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "dixieland",
+            "new-orleans"
+          ]
+        },
+        {
+          "id": "wind_mariachi_unison",
+          "name": "Mariachi unison",
+          "applies_to": [
+            "trumpet"
+          ],
+          "descriptors": [
+            "unison"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "unison-doubled",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "mariachi"
+          ]
+        },
+        {
+          "id": "wind_ska_skank_stab",
+          "name": "Ska skank stab",
+          "applies_to": [
+            "trumpet",
+            "trombone",
+            "saxophone"
+          ],
+          "descriptors": [
+            "short"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "ska",
+            "rocksteady"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "brass_size",
+      "surface": false,
+      "name": "Variant",
+      "variants": [
+        {
+          "id": "trumpet_b_flat",
+          "name": "Trumpet (B♭)",
+          "descriptors": [
+            "treble-extended",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cornet",
+          "default": true,
+          "name": "Cornet",
+          "descriptors": [
+            "mellow",
+            "round"
+          ]
+        },
+        {
+          "id": "flugelhorn",
+          "name": "Flugelhorn",
+          "descriptors": [
+            "mellow",
+            "round",
+            "singing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trumpet_mouthpiece",
+      "surface": false,
+      "name": "Mouthpiece (cup × rim × backbore)",
+      "variants": [
+        {
+          "id": "bach_trumpet_mp_7c",
+          "default": true,
+          "name": "Bach 7C (student standard, 16.20mm)",
+          "descriptors": [
+            "medium-cup",
+            "narrower-rim",
+            "student-friendly"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "bach_trumpet_mp_3c",
+          "name": "Bach 3C (orchestral standard, 16.30mm)",
+          "descriptors": [
+            "medium-cup",
+            "standard-rim",
+            "orchestral-balance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "bach_trumpet_mp_5c",
+          "name": "Bach 5C (medium-large)",
+          "descriptors": [
+            "medium-cup",
+            "medium-large-rim"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trumpet_mp_1c",
+          "name": "Bach 1C (large-cup orchestral)",
+          "descriptors": [
+            "large-cup",
+            "large-rim",
+            "orchestral-bottom-heavy",
+            "big-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trumpet_mp_10half_c",
+          "name": "Bach 10½C (shallow lead)",
+          "descriptors": [
+            "shallow-cup",
+            "lead-trumpet",
+            "bright-high-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "big-band"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "schilke_trumpet_mp_14a4a",
+          "name": "Schilke 14A4a (Buchtel lead signature)",
+          "descriptors": [
+            "shallow-cup",
+            "tight-backbore",
+            "lead-trumpet",
+            "high-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "big-band"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "schilke_trumpet_mp_13a4a",
+          "name": "Schilke 13A4a (lead, slightly narrower)",
+          "descriptors": [
+            "shallow-cup",
+            "tight-backbore",
+            "lead-trumpet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "big-band"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "yamaha_bobby_shew_lead_mp",
+          "name": "Yamaha Bobby Shew Lead",
+          "descriptors": [
+            "shallow-cup",
+            "tight-backbore",
+            "lead-trumpet",
+            "high-register-easy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "big-band"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "yamaha_bobby_shew_jazz_mp",
+          "name": "Yamaha Bobby Shew Jazz",
+          "descriptors": [
+            "medium-cup",
+            "jazz-balance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "monette_unity_b1_mp",
+          "name": "Monette Unity B1 (heavy one-piece)",
+          "descriptors": [
+            "heavy-one-piece",
+            "matched-to-monette-horn",
+            "boutique"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brass_mute",
+      "surface": false,
+      "name": "Mute",
+      "variants": [
+        {
+          "id": "no_mute_brass",
+          "surface": false,
+          "name": "No mute",
+          "descriptors": [
+            "direct",
+            "undamped-resonance",
+            "full"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "straight_mute",
+          "surface": false,
+          "name": "Straight mute",
+          "descriptors": [
+            "shrill",
+            "piercing"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "cup_mute",
+          "default": true,
+          "surface": false,
+          "name": "Cup mute",
+          "descriptors": [
+            "subdued",
+            "mellow"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "harmon_in",
+          "name": "Harmon (stem in)",
+          "descriptors": [
+            "metallic",
+            "nasal",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "harmon_out",
+          "name": "Harmon (stem out)",
+          "descriptors": [
+            "hollow",
+            "mysterious",
+            "cool"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "plunger",
+          "name": "Plunger",
+          "descriptors": [
+            "talking",
+            "growly"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "bucket_mute",
+          "surface": false,
+          "name": "Bucket",
+          "descriptors": [
+            "muffled",
+            "low-overtone-rich-spectrum"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trumpet_technique",
+      "surface": false,
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "trumpet_punchy_ensemble",
+          "name": "Punchy ensemble",
+          "descriptors": [
+            "fast-attack-transient",
+            "ensemble",
+            "horn-section"
+          ],
+          "match_tokens": [
+            "punchy",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "r&b",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "trumpet_bebop_lines",
+          "name": "Bebop single-line",
+          "descriptors": [
+            "angular"
+          ],
+          "match_tokens": [
+            "bebop-derived",
+            "jazz-trained",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "trumpet_mariachi_unison",
+          "name": "Mariachi unison",
+          "descriptors": [
+            "unison"
+          ],
+          "match_tokens": [
+            "unison-doubled",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "mariachi"
+          ]
+        },
+        {
+          "id": "trumpet_ska_skank",
+          "name": "Ska skank stab",
+          "descriptors": [
+            "stabbed"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "ska",
+            "rocksteady"
+          ]
+        },
+        {
+          "id": "trumpet_classical_legato",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "sustained-tone",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "trumpet_dixieland_lead",
+          "name": "Dixieland lead",
+          "descriptors": [
+            "front-line"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "dixieland",
+            "new-orleans"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trumpet_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "trumpet_yellow_brass",
+          "default": true,
+          "name": "Yellow brass (canonical 70:30 Cu:Zn — Bach Stradivarius standard)",
+          "descriptors": [
+            "yellow-brass-canonical-70-30-bach-stradivarius"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_gold_brass",
+          "name": "Gold brass (85:15 Cu:Zn — warmer)",
+          "descriptors": [
+            "gold-brass-85-15-warmer"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_red_brass",
+          "name": "Red brass (90:10 Cu:Zn — darkest)",
+          "descriptors": [
+            "red-brass-90-10-darkest"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_sterling_silver_bell",
+          "name": "Sterling silver bell (premium projecting)",
+          "descriptors": [
+            "sterling-silver-bell-premium-projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trumpet_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "trumpet_bach_stradivarius",
+          "default": true,
+          "name": "Bach Stradivarius 180 (canonical American orchestral)",
+          "descriptors": [
+            "bach-stradivarius-180-canonical-american-orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_yamaha_xeno",
+          "name": "Yamaha Xeno (modern Japanese)",
+          "descriptors": [
+            "yamaha-xeno-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_schilke",
+          "name": "Schilke (Chicago — lead-bright)",
+          "descriptors": [
+            "schilke-chicago-lead-bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_monette",
+          "name": "Monette (boutique heavy)",
+          "descriptors": [
+            "monette-boutique-heavy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "brass_size",
+      "surface": false,
+      "name": "Variant",
+      "variants": [
+        {
+          "id": "trumpet_b_flat",
+          "name": "Trumpet (B♭)",
+          "descriptors": [
+            "treble-extended",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "cornet",
+          "default": true,
+          "name": "Cornet",
+          "descriptors": [
+            "mellow",
+            "round"
+          ]
+        },
+        {
+          "id": "flugelhorn",
+          "name": "Flugelhorn",
+          "descriptors": [
+            "mellow",
+            "round",
+            "singing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trumpet_mouthpiece",
+      "surface": false,
+      "name": "Mouthpiece (cup × rim × backbore)",
+      "variants": [
+        {
+          "id": "bach_trumpet_mp_7c",
+          "default": true,
+          "name": "Bach 7C (student standard, 16.20mm)",
+          "descriptors": [
+            "medium-cup",
+            "narrower-rim",
+            "student-friendly"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "bach_trumpet_mp_3c",
+          "name": "Bach 3C (orchestral standard, 16.30mm)",
+          "descriptors": [
+            "medium-cup",
+            "standard-rim",
+            "orchestral-balance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "bach_trumpet_mp_5c",
+          "name": "Bach 5C (medium-large)",
+          "descriptors": [
+            "medium-cup",
+            "medium-large-rim"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trumpet_mp_1c",
+          "name": "Bach 1C (large-cup orchestral)",
+          "descriptors": [
+            "large-cup",
+            "large-rim",
+            "orchestral-bottom-heavy",
+            "big-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bach_trumpet_mp_10half_c",
+          "name": "Bach 10½C (shallow lead)",
+          "descriptors": [
+            "shallow-cup",
+            "lead-trumpet",
+            "bright-high-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "big-band"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "schilke_trumpet_mp_14a4a",
+          "name": "Schilke 14A4a (Buchtel lead signature)",
+          "descriptors": [
+            "shallow-cup",
+            "tight-backbore",
+            "lead-trumpet",
+            "high-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "big-band"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "schilke_trumpet_mp_13a4a",
+          "name": "Schilke 13A4a (lead, slightly narrower)",
+          "descriptors": [
+            "shallow-cup",
+            "tight-backbore",
+            "lead-trumpet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "big-band"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "yamaha_bobby_shew_lead_mp",
+          "name": "Yamaha Bobby Shew Lead",
+          "descriptors": [
+            "shallow-cup",
+            "tight-backbore",
+            "lead-trumpet",
+            "high-register-easy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "lead",
+            "big-band"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "yamaha_bobby_shew_jazz_mp",
+          "name": "Yamaha Bobby Shew Jazz",
+          "descriptors": [
+            "medium-cup",
+            "jazz-balance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "monette_unity_b1_mp",
+          "name": "Monette Unity B1 (heavy one-piece)",
+          "descriptors": [
+            "heavy-one-piece",
+            "matched-to-monette-horn",
+            "boutique"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained",
+            "classical"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brass_mute",
+      "surface": false,
+      "name": "Mute",
+      "variants": [
+        {
+          "id": "no_mute_brass",
+          "surface": false,
+          "name": "No mute",
+          "descriptors": [
+            "direct",
+            "undamped-resonance",
+            "full"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "straight_mute",
+          "surface": false,
+          "name": "Straight mute",
+          "descriptors": [
+            "shrill",
+            "piercing"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "cup_mute",
+          "default": true,
+          "surface": false,
+          "name": "Cup mute",
+          "descriptors": [
+            "subdued",
+            "mellow"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "harmon_in",
+          "name": "Harmon (stem in)",
+          "descriptors": [
+            "metallic",
+            "nasal",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "harmon_out",
+          "name": "Harmon (stem out)",
+          "descriptors": [
+            "hollow",
+            "mysterious",
+            "cool"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "plunger",
+          "name": "Plunger",
+          "descriptors": [
+            "talking",
+            "growly"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "bucket_mute",
+          "surface": false,
+          "name": "Bucket",
+          "descriptors": [
+            "muffled",
+            "low-overtone-rich-spectrum"
+          ],
+          "match_tokens": [
+            "muted",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trumpet_technique",
+      "surface": false,
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "trumpet_punchy_ensemble",
+          "name": "Punchy ensemble",
+          "descriptors": [
+            "fast-attack-transient",
+            "ensemble",
+            "horn-section"
+          ],
+          "match_tokens": [
+            "punchy",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "r&b",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "trumpet_bebop_lines",
+          "name": "Bebop single-line",
+          "descriptors": [
+            "angular"
+          ],
+          "match_tokens": [
+            "bebop-derived",
+            "jazz-trained",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "trumpet_mariachi_unison",
+          "name": "Mariachi unison",
+          "descriptors": [
+            "unison"
+          ],
+          "match_tokens": [
+            "unison-doubled",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "mariachi"
+          ]
+        },
+        {
+          "id": "trumpet_ska_skank",
+          "name": "Ska skank stab",
+          "descriptors": [
+            "stabbed"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "ska",
+            "rocksteady"
+          ]
+        },
+        {
+          "id": "trumpet_classical_legato",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "sustained-tone",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "trumpet_dixieland_lead",
+          "name": "Dixieland lead",
+          "descriptors": [
+            "front-line"
+          ],
+          "match_tokens": [
+            "lead",
+            "lead-melody",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "dixieland",
+            "new-orleans"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trumpet_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "trumpet_yellow_brass",
+          "default": true,
+          "name": "Yellow brass (canonical 70:30 Cu:Zn — Bach Stradivarius standard)",
+          "descriptors": [
+            "yellow-brass-canonical-70-30-bach-stradivarius"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_gold_brass",
+          "name": "Gold brass (85:15 Cu:Zn — warmer)",
+          "descriptors": [
+            "gold-brass-85-15-warmer"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_red_brass",
+          "name": "Red brass (90:10 Cu:Zn — darkest)",
+          "descriptors": [
+            "red-brass-90-10-darkest"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_sterling_silver_bell",
+          "name": "Sterling silver bell (premium projecting)",
+          "descriptors": [
+            "sterling-silver-bell-premium-projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trumpet_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "trumpet_bach_stradivarius",
+          "default": true,
+          "name": "Bach Stradivarius 180 (canonical American orchestral)",
+          "descriptors": [
+            "bach-stradivarius-180-canonical-american-orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_yamaha_xeno",
+          "name": "Yamaha Xeno (modern Japanese)",
+          "descriptors": [
+            "yamaha-xeno-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_schilke",
+          "name": "Schilke (Chicago — lead-bright)",
+          "descriptors": [
+            "schilke-chicago-lead-bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "trumpet_monette",
+          "name": "Monette (boutique heavy)",
+          "descriptors": [
+            "monette-boutique-heavy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

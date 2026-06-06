@@ -1,0 +1,440 @@
+{
+  "id": "violin_carnatic",
+  "name": "Violin (Carnatic tuning)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "carnatic violin",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_klezmer_ornamented",
+          "name": "Klezmer ornament-heavy",
+          "applies_to": [
+            "fiddle",
+            "violin_orchestral",
+            "viola_classical",
+            "violin_carnatic"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ornament-heavy"
+          ],
+          "canonical_tags": [
+            "klezmer",
+            "eastern-european"
+          ]
+        },
+        {
+          "id": "bowed_microtonal_inflected",
+          "name": "Microtonal-inflected",
+          "applies_to": [
+            "kamancheh",
+            "rebab",
+            "sarangi",
+            "esraj",
+            "violin_carnatic",
+            "morin_khuur",
+            "erhu",
+            "jinghu",
+            "haegeum"
+          ],
+          "descriptors": [
+            "microtonal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "microtonal-bend",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "maqam",
+            "arabic",
+            "hindustani"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "violin_carnatic_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "violin_carnatic_carnatic",
+          "default": true,
+          "name": "Carnatic (S-P-S-P)",
+          "descriptors": [
+            "fifths-and-octaves",
+            "south-Indian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "violin_carnatic_hindustani_cross",
+          "name": "Hindustani crossover",
+          "descriptors": [
+            "rare",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violin_carnatic_posture",
+      "surface": false,
+      "name": "Performance posture",
+      "variants": [
+        {
+          "id": "violin_carnatic_seated_south",
+          "default": true,
+          "name": "Seated south-Indian (canonical)",
+          "descriptors": [
+            "traditional",
+            "cross-legged",
+            "scroll-on-foot"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "violin_carnatic_seated_western",
+          "name": "Seated western (modern)",
+          "descriptors": [
+            "concert-stage",
+            "standard-stand",
+            "crossover"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "violin_carnatic_standing",
+          "name": "Standing (rare)",
+          "descriptors": [
+            "unconventional",
+            "modern-only",
+            "fusion-context"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violin_carnatic_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "violin_carnatic_synthetic",
+          "default": true,
+          "name": "Synthetic core (modern canonical)",
+          "descriptors": [
+            "synthetic-core-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "violin_carnatic_gut_historical",
+          "name": "Gut (pre-1900 south-Indian historical)",
+          "descriptors": [
+            "gut-pre-1900-south-indian-historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "violin_carnatic_steel",
+          "name": "Steel (projecting modern concert)",
+          "descriptors": [
+            "steel-projecting-modern-concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violin_carnatic_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "violin_carnatic_lalgudi",
+          "default": true,
+          "name": "Lalgudi lineage (Carnatic violin canonical)",
+          "descriptors": [
+            "lalgudi-lineage-carnatic-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "violin_carnatic_chowdiah_seven_string",
+          "name": "Chowdiah seven-string variant (extended-range)",
+          "descriptors": [
+            "chowdiah-seven-string-extended-range"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "violin_carnatic_hindustani_crossover",
+          "name": "Hindustani crossover lineage",
+          "descriptors": [
+            "hindustani-crossover-lineage"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "violin_carnatic_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "violin_carnatic_carnatic",
+          "default": true,
+          "name": "Carnatic (S-P-S-P)",
+          "descriptors": [
+            "fifths-and-octaves",
+            "south-Indian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "violin_carnatic_hindustani_cross",
+          "name": "Hindustani crossover",
+          "descriptors": [
+            "rare",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violin_carnatic_posture",
+      "surface": false,
+      "name": "Performance posture",
+      "variants": [
+        {
+          "id": "violin_carnatic_seated_south",
+          "default": true,
+          "name": "Seated south-Indian (canonical)",
+          "descriptors": [
+            "traditional",
+            "cross-legged",
+            "scroll-on-foot"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "violin_carnatic_seated_western",
+          "name": "Seated western (modern)",
+          "descriptors": [
+            "concert-stage",
+            "standard-stand",
+            "crossover"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "violin_carnatic_standing",
+          "name": "Standing (rare)",
+          "descriptors": [
+            "unconventional",
+            "modern-only",
+            "fusion-context"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violin_carnatic_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "violin_carnatic_synthetic",
+          "default": true,
+          "name": "Synthetic core (modern canonical)",
+          "descriptors": [
+            "synthetic-core-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "violin_carnatic_gut_historical",
+          "name": "Gut (pre-1900 south-Indian historical)",
+          "descriptors": [
+            "gut-pre-1900-south-indian-historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "violin_carnatic_steel",
+          "name": "Steel (projecting modern concert)",
+          "descriptors": [
+            "steel-projecting-modern-concert"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violin_carnatic_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "violin_carnatic_lalgudi",
+          "default": true,
+          "name": "Lalgudi lineage (Carnatic violin canonical)",
+          "descriptors": [
+            "lalgudi-lineage-carnatic-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "violin_carnatic_chowdiah_seven_string",
+          "name": "Chowdiah seven-string variant (extended-range)",
+          "descriptors": [
+            "chowdiah-seven-string-extended-range"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "violin_carnatic_hindustani_crossover",
+          "name": "Hindustani crossover lineage",
+          "descriptors": [
+            "hindustani-crossover-lineage"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    }
+  ]
+}

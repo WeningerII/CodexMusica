@@ -1,0 +1,150 @@
+{
+  "id": "chanson_classique",
+  "name": "Chanson classique",
+  "family": "global",
+  "lineage": "Mid-twentieth-century French chanson canon centered on the Left Bank Paris cabaret scene — codified through Édith Piaf, Charles Trenet, Yves Montand, Jacques Brel (Belgian-Flemish but Paris-resident), Georges Brassens, and Léo Ferré; characterized by literary-poetic lyrical register, music-hall accompaniment, and the chanteuse / chansonnier solo performer tradition",
+  "recipe": "classic North American mid-1950s chanson classique, ballad Poetry, classic chanson branch, anglo singer song ballad poetry indie folk freak folk. thick, lament wail, chest resonance low mid, equal tempered. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, castagnari Italian premium folk music accordion, cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, ebonite hard rubber klezmer tradition clarinet. jazz club. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 566,
+  "score": 260.997,
+  "config": {
+    "traditions": [
+      "chanson_classique",
+      "indie_folk_2000s",
+      "freak_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 2.8600000000000003,
+          "voice_quality": 3.75,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.39,
+          "voice_microtone": 2.605000000000001,
+          "voice_tradition": 2.2749999999999995,
+          "voice_mechanism_compound": 1.18,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 6.954999999999998,
+          "voice_ensemble_config": 5.979999999999999,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 0.78,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 4.355
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_415_baroque"
+        },
+        "scores": {
+          "keyboard_technique": 3.195,
+          "grand_piano_size": 1.63,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 1.5449999999999997,
+          "piano_rim": 5.2,
+          "piano_soundboard": 3,
+          "piano_pinblock": 0.85,
+          "piano_plate": 0.975,
+          "piano_pitch_standard": 0.975
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "french_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 1.2406249999999999,
+          "accordion_reed_material": 1.585,
+          "musette_offset": 5.75,
+          "reed_config": 1.9000000000000001,
+          "bellows": 0.225,
+          "voicing_chamber": 0.37499999999999994,
+          "accordion_maker_school": 1.69
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "drop_d",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 5.23125,
+          "string_tuning": 0,
+          "top_wood": 1.63,
+          "back_sides": 2.02,
+          "string_acoustic": 1.585,
+          "acoustic_om_technique": 5.23125
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "hard_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "clarinet_body": 1.17,
+          "clarinet_size": 4.747499999999999,
+          "clarinet_reed": 0.38999999999999996,
+          "clarinet_articulation": 0.09
+        }
+      }
+    ],
+    "room": "jazz_club",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "id": "tovshuur",
+  "name": "Tovshuur (Mongolian / Tuvan plucked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tovshuur",
+  "parts": [
+    {
+      "id": "tovshuur_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "tovshuur_two",
+          "default": true,
+          "name": "Two-string (Tuvan/Altai standard)",
+          "descriptors": [
+            "traditional",
+            "mongolian-tuvan-tradition"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tovshuur_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "tovshuur_carved_wood_hide",
+          "default": true,
+          "name": "Carved wood with hide soundboard",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "wood",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_fingerpicked"
+    },
+    {
+      "id": "tovshuur_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "tovshuur_two",
+          "default": true,
+          "name": "Two-string (Tuvan/Altai standard)",
+          "descriptors": [
+            "traditional",
+            "mongolian-tuvan-tradition"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tovshuur_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "tovshuur_carved_wood_hide",
+          "default": true,
+          "name": "Carved wood with hide soundboard",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "wood",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

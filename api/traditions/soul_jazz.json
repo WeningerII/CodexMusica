@@ -1,0 +1,156 @@
+{
+  "id": "soul_jazz",
+  "name": "Soul jazz",
+  "family": "jazz",
+  "lineage": "1955-1975 jazz subgenre built on tonewheel-organ trio (organ-guitar-drums) with R&B / gospel-rooted melodic vocabulary — Jimmy Smith, Jack McDuff, Jimmy McGriff, Lonnie Smith, Big John Patton, the Blue Note organ-trio canon",
+  "recipe": "classic North American mid-1960s soul jazz, improv On Frame, soul jazz branch, American jazz bop, soul R&B functional song bebop modal jazz. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs slow chorale tonewheel organ, Fender blackface amp American 60s amp spring reverb bright chicken-scratch humbucker electric guitar, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 875,
+  "score": 631.799,
+  "config": {
+    "traditions": [
+      "soul_jazz",
+      "bebop",
+      "modal_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "slow_chorale",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 15.185625,
+          "drawbar_setting": 24.430000000000003,
+          "rotary_speed": 9.45,
+          "percussion_setting": 23.500000000000007,
+          "tonewheel_model": 33.939375000000005,
+          "leslie_cabinet_model": 2.0349999999999997
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 11.34,
+          "amp_make": 15.956249999999997,
+          "body_wood": 0.78,
+          "neck_wood": 0.78,
+          "fretboard": 0.7149999999999999,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.39,
+          "string_material": 0.39,
+          "bridge": 0.78,
+          "scale_length": 0.78,
+          "string_gauge": 0.78,
+          "finish": 0.3,
+          "string_tuning": 1.17
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "fourteen_step_hammering",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_jazz"
+        },
+        "scores": {
+          "percussion_technique": 19.5,
+          "shell_wood": 0.78,
+          "shell_thickness": 0,
+          "bearing_edges": 0.78,
+          "drumhead": 27.690000000000005,
+          "snare_wires": 0.78,
+          "cymbal_alloy": 25.845000000000006,
+          "cymbal_hammering": 24.289375000000007,
+          "cymbal_lathing": 24.725000000000005,
+          "cymbal_finish": 0.39,
+          "drum_technique": 23.500000000000007
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 11.2975,
+          "sax_size": 9.399999999999999,
+          "sax_reed": 0.39,
+          "sax_body_alloy": 23.550625000000007,
+          "sax_mouthpiece": 0.39,
+          "sax_technique": 23.500000000000007,
+          "sax_maker_school": 24.780000000000005
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 11.2975,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 26.290000000000006,
+          "brass_mute": 0.39,
+          "trumpet_technique": 11.2975,
+          "trumpet_bell_metal": 0.33,
+          "trumpet_maker_school": 4.029999999999999
+        }
+      }
+    ],
+    "room": "van_gelder_englewood_cliffs",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "bebop_complex_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

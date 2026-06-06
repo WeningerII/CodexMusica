@@ -1,0 +1,136 @@
+{
+  "id": "juju",
+  "name": "Jùjú",
+  "family": "global",
+  "lineage": "Yoruba Nigerian popular music genre codified through Tunde King (1930s palm-wine-derived early juju), Ayinde Bakare (1940s commercial founder), IK Dairo (1960s-1970s Decca West African phase), and King Sunny Adé (1976-onward international breakthrough through Island Records and the 1982 album Juju Music) — built on Yoruba dundun talking-drum battery, electric-guitar interlocking patterns, and Yoruba-language praise-singing for celebrations",
+  "recipe": "classic West African modern jùjú, groove Percussion, west African branch, African pop functional song congolese rumba afrobeats. thick, declaimed, melodic, narrative. single coil electric guitar, iroko alternative west African talking drum, shekere, agogo. large tropical 1965-1985 mid-major EMI. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 438,
+  "score": 227.513,
+  "config": {
+    "traditions": [
+      "juju",
+      "congolese_rumba",
+      "afrobeats_naija"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 2.5999999999999996,
+          "voice_quality": 3.195000000000001,
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 1.17,
+          "voice_microtone": 1.9499999999999993,
+          "voice_tradition": 37.699999999999996,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 8.254999999999999,
+          "voice_ensemble_config": 6.889999999999999,
+          "voice_ornament_system": 5.654999999999999,
+          "voice_pitch_organization": 13.399999999999997,
+          "voice_processing_chain": 6.1499999999999995,
+          "voice_multitrack_stack": 4.550000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_soldano_slo100",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 1.7449999999999997,
+          "amp_make": 1.1949999999999998,
+          "body_wood": 0.375,
+          "neck_wood": 0.375,
+          "fretboard": 0.435,
+          "pickup_magnet": 0.3,
+          "string_material": 0.6,
+          "string_gauge": 0.375,
+          "bridge": 0.24,
+          "scale_length": 0.75,
+          "finish": 0,
+          "string_tuning": 0.78
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 0.15,
+          "talking_drum_context": 2.08,
+          "talking_drum_shell_wood": 7.539999999999998,
+          "talking_drum_head": 0.585
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_medium",
+          "shekere_beads": "shekere_cowrie"
+        },
+        "scores": {
+          "shekere_size": 1.3199999999999998,
+          "shekere_beads": 11.384999999999996
+        }
+      },
+      {
+        "id": "agogo",
+        "slots": {
+          "agogo_bell": "agogo_single",
+          "agogo_context": "agogo_bateria"
+        },
+        "scores": {
+          "agogo_bell": 2.6,
+          "agogo_context": 0.825
+        }
+      }
+    ],
+    "room": "studio_emi_lagos_african",
+    "archetype": "arch_emi_lagos_african_70s",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

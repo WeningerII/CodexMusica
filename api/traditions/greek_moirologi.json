@@ -1,0 +1,85 @@
+{
+  "id": "greek_moirologi",
+  "name": "Greek moirológi (μοιρολόγι, lament)",
+  "family": "global",
+  "lineage": "Greek mourning-song tradition continuous from ancient-Greek thrēnos through Byzantine-and-Ottoman period continuous performance into modern Greek funeral practice; particularly preserved in Mani peninsula (Peloponnese), Crete, Epirus, and Pontic-Greek diaspora",
+  "recipe": "classic modern greek moirológi, funeral Lament, European branch, middle eastern funeral lament, Mediterranean ballad ballad poetry, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, tasteful, ornamental. gut pre modern cretan cretan lyra. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 431,
+  "score": 204.506,
+  "config": {
+    "traditions": [
+      "greek_moirologi",
+      "bluegrass_gospel",
+      "southern_gospel_quartet"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.2949999999999995,
+          "voice_quality": 4.485,
+          "voice_vibrato": 1.65625,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 1.1024999999999996,
+          "voice_tradition": 30.614999999999995,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 1.5949999999999995,
+          "voice_speech_song": 6.954999999999998,
+          "voice_ensemble_config": 5.199999999999999,
+          "voice_ornament_system": 2.7499999999999996,
+          "voice_pitch_organization": 3.769999999999999,
+          "voice_processing_chain": 0.78,
+          "voice_multitrack_stack": 1.4249999999999998
+        }
+      },
+      {
+        "id": "cretan_lyra",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "lyra_strings": "lyra_3",
+          "lyra_use": "lyra_dance",
+          "lyra_body_wood": "lyra_mulberry",
+          "lyra_string_material": "lyra_gut_historical"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "lyra_strings": 0.375,
+          "lyra_use": 0.375,
+          "lyra_body_wood": 0.39,
+          "lyra_string_material": 2.015
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "byzantine_oktoechos_eight_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

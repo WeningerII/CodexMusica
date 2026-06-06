@@ -1,0 +1,68 @@
+{
+  "id": "maori_haka_taparahi",
+  "name": "Māori haka taparahi",
+  "family": "global",
+  "lineage": "Māori haka taparahi war-and-ceremonial-chant tradition of Aotearoa New Zealand. Haka is a general category encompassing several sub-types: haka taparahi (ceremonial-without-weapons, the most commonly performed contemporary form), haka peruperu (with-weapons war-haka, performed before battle in pre-contact context), ngeri (vigorous-spontaneous response-haka), and tūtūngārahu (rehearsal-haka before peruperu). Performance involves a male (or sometimes mixed-gender) group in characteristic posture — feet planted shoulder-width, knees bent, body lowered into a slight crouch — performing a vigorous percussive-chant with characteristic facial expression (pukana eye-bulging, whetero tongue-protrusion in male haka), stamping-and-slapping-the-body rhythmic percussion (the performers' own thighs and chests producing the percussion-track), and shouted-rhythmic verse-text alternating between solo-leader verses and choral group response. The most internationally famous haka, Ka Mate Ka Mate (composed c.1820 by Ngāti Toa chief Te Rauparaha), now in worldwide circulation through the All Blacks rugby team's pre-match performance, illustrates the form. The verse-text is poetic-narrative and often connects to ancestor-praise, war-history, or current-ceremonial-occasion. Performance contexts include marae welcoming and farewell ceremonies, tangihanga funeral concluding rites, sports-team pre-match rituals, school and university kapa haka performance, and the Te Matatini National Kapa Haka Festival (held biennially since 1972, the premier competitive haka venue). Mervyn McLean's Maori Music (Auckland University Press 1996) is the canonical scholarly documentation. Distinguished from karanga-and-pōwhiri by haka's vigorous-percussive-stance-with-shouted-text (vs sustained-high-call) configuration; distinguished from Tongan lakalaka and Samoan sasa by haka's characteristic Māori-language verse-text and pukana-whetero facial-expression vocabulary.",
+  "recipe": "classic early-1820s māori haka taparahi, ritual Devotional, indigenous branch, east Asian groove percussion samul nori japanese kumi-daiko. thick, declaimed, tasteful, punctuated. marae forecourt. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 326,
+  "score": 140.493,
+  "config": {
+    "traditions": [
+      "maori_haka_taparahi",
+      "samul_nori",
+      "japanese_taiko_ensemble"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.0655,
+          "voice_quality": 8.8285,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 5.8854999999999995,
+          "voice_microtone": 1.2919999999999998,
+          "voice_tradition": 13,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 4.485,
+          "voice_speech_song": 19.305,
+          "voice_ensemble_config": 17.94,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 3.0974999999999993
+        }
+      }
+    ],
+    "room": "marae_forecourt",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

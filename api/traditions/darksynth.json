@@ -1,0 +1,96 @@
+{
+  "id": "darksynth",
+  "name": "Darksynth (mid-2010s horror-cinematic synthwave)",
+  "family": "electronic",
+  "lineage": "Mid-2010s outrun/synthwave subgenre emphasizing aggressive, dark, horror-cinematic atmospheric register over the broader synthwave's nostalgic-cheerful aesthetic. Perturbator (James Kent, French producer) inaugurated the canonical darksynth sound through Dangerous Days (2014) and The Uncanny Valley (2016); Carpenter Brut, GosT, Dance with the Dead, and the broader Blood Music label roster extended the genre.",
+  "recipe": "classic darksynth, experimental Elec, ambient branch, thrash metal djent groove metal. pad like arpeggiated analog synth, TR-808, mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 458,
+  "score": 155.139,
+  "config": {
+    "traditions": [
+      "darksynth",
+      "djent",
+      "groove_metal"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 9,
+          "oscillator": 1.69,
+          "filter_topology": 2.9899999999999998,
+          "envelope": 1.95,
+          "modulation": 0.0315
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_cowbell",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 0.195,
+          "drum_machine_808_context": 1.625,
+          "tr808_production_origin": 0.21
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 4.549999999999999,
+          "amp_make": 3.7050000000000005,
+          "body_wood": 5.59,
+          "neck_wood": 2.9899999999999998,
+          "fretboard": 2.925,
+          "pickup_magnet": 0.645,
+          "pickup_winding": 0.21,
+          "string_material": 1.6315,
+          "bridge": 2.9899999999999998,
+          "scale_length": 4.29,
+          "string_gauge": 2.9899999999999998,
+          "finish": 0,
+          "string_tuning": 5.9799999999999995
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

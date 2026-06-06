@@ -1,0 +1,138 @@
+{
+  "id": "punk_jazz_70s_80s",
+  "name": "Punk jazz / no-wave jazz",
+  "family": "jazz",
+  "lineage": "Late-1970s-1980s convergence of free-jazz improvisational practice with punk-rock-and-no-wave aesthetic, emerging from the New York Downtown scene. James Chance and the Contortions, James Blood Ulmer (with his harmolodic system), and the Lounge Lizards constituted the canonical core; the Knitting Factory NYC venue (founded 1987) anchored the institutional infrastructure for subsequent jazz-and-experimental development.",
+  "recipe": "classic North American 1977-1979 punk jazz / no-wave jazz, improv On Frame, avant branch, noise rock distorted rock. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow legato saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, ampeg svt amp rock bass amp thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric over hammered post lathe strikes pin lathed drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 723,
+  "score": 308.645,
+  "config": {
+    "traditions": [
+      "punk_jazz_70s_80s",
+      "noise_rock"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 7.45,
+          "sax_size": 0.045,
+          "sax_reed": 0.1725,
+          "sax_body_alloy": 17.75,
+          "sax_mouthpiece": 0.1725,
+          "sax_technique": 17.75,
+          "sax_maker_school": 19.643
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "poly_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 5.699999999999999,
+          "amp_make": 9.71375,
+          "body_wood": 0.045,
+          "neck_wood": 0.1725,
+          "fretboard": 0.1725,
+          "pickup_magnet": 0.06937499999999999,
+          "pickup_winding": 2.3,
+          "string_material": 0.1725,
+          "bridge": 0.045,
+          "scale_length": 0.09,
+          "string_gauge": 0.045,
+          "finish": 0.0195,
+          "string_tuning": 5.2
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 7.769374999999999,
+          "amp_make": 4.200374999999999,
+          "body_wood": 0.09,
+          "pickup_config": 0,
+          "string_type": 20.16875,
+          "scale_length_b": 0.045,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 17.75
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 15.859999999999996,
+          "shell_wood": 0.1725,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 0.09,
+          "drumhead": 20.11875,
+          "snare_wires": 0.045,
+          "cymbal_alloy": 17.767999999999997,
+          "cymbal_hammering": 17.97425,
+          "cymbal_lathing": 19.160499999999995,
+          "cymbal_finish": 0.213,
+          "drum_technique": 17.75
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "free_jazz_no_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

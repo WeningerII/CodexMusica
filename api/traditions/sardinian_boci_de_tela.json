@@ -1,0 +1,68 @@
+{
+  "id": "sardinian_boci_de_tela",
+  "name": "Sardinian boci de tela (weaving songs)",
+  "family": "global",
+  "lineage": "Sardinian boci de tela (\"weaving songs\") and broader Sardinian women's-domestic-textile-labor song tradition continuous from medieval-Sardinian-rural domestic-textile labor practice through 19th-20th century continuous performance into modern Sardinian-folk-revival",
+  "recipe": "classic modern sardinian boci de tela, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, European funeral lament romanian cântece de tors albanian vajtim. thick, false fold engaged, tasteful, continuous-phonation. sardinian outdoor a tenore polyphony. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 422,
+  "score": 122.483,
+  "config": {
+    "traditions": [
+      "sardinian_boci_de_tela",
+      "romanian_cantece_de_tors",
+      "albanian_vajtim"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.8850000000000007,
+          "voice_quality": 19.999999999999993,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0,
+          "voice_tradition": 32.00999999999999,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 0.78,
+          "voice_speech_song": 6.045,
+          "voice_ensemble_config": 4.16,
+          "voice_ornament_system": 4.2275,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.6499999999999999,
+          "voice_multitrack_stack": 0.78
+        }
+      }
+    ],
+    "room": "sardinian_outdoor_a_tenore_polyphony",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

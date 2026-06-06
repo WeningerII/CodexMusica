@@ -1,0 +1,395 @@
+{
+  "id": "dizi",
+  "name": "Dizi (Chinese transverse bamboo)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dizi",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dizi_membrane",
+      "surface": false,
+      "name": "Membrane (mokong)",
+      "variants": [
+        {
+          "id": "dizi_with_membrane",
+          "default": true,
+          "name": "Mokong (rice-paper buzz)",
+          "descriptors": [
+            "reedy",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "dizi_without",
+          "name": "Without membrane (kunqu / soft)",
+          "descriptors": [
+            "no-membrane-buzz",
+            "flute-like",
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dizi_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "dizi_f",
+          "default": true,
+          "name": "F (mid-range)",
+          "descriptors": [
+            "standard",
+            "common",
+            "general-purpose"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "dizi_cd",
+          "name": "C / D (high)",
+          "descriptors": [
+            "lead-melodic",
+            "treble-extended",
+            "opera-context"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "dizi_ga",
+          "name": "G / A (low)",
+          "descriptors": [
+            "mellow",
+            "literati-leaning",
+            "specific-pieces"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dizi_body_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "dizi_bitter_bamboo",
+          "default": true,
+          "name": "Bitter bamboo (Phyllostachys nigra — canonical Jiangnan/Suzhou)",
+          "descriptors": [
+            "bitter-bamboo-phyllostachys-nigra-canonical-jiangnan-suzhou"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "dizi_purple_bamboo",
+          "name": "Purple bamboo (premium northern style)",
+          "descriptors": [
+            "purple-bamboo-premium-northern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dizi_regional_style",
+      "surface": false,
+      "name": "Regional style",
+      "variants": [
+        {
+          "id": "dizi_qudi_southern",
+          "default": true,
+          "name": "Qudi southern style (Jiangnan kunqu canonical, lyrical)",
+          "descriptors": [
+            "qudi-southern-jiangnan-kunqu-canonical-lyrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "dizi_bangdi_northern",
+          "name": "Bangdi northern style (sharp, opera-percussive)",
+          "descriptors": [
+            "bangdi-northern-sharp-opera-percussive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dizi_membrane",
+      "surface": false,
+      "name": "Membrane (mokong)",
+      "variants": [
+        {
+          "id": "dizi_with_membrane",
+          "default": true,
+          "name": "Mokong (rice-paper buzz)",
+          "descriptors": [
+            "reedy",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "dizi_without",
+          "name": "Without membrane (kunqu / soft)",
+          "descriptors": [
+            "no-membrane-buzz",
+            "flute-like",
+            "classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dizi_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "dizi_f",
+          "default": true,
+          "name": "F (mid-range)",
+          "descriptors": [
+            "standard",
+            "common",
+            "general-purpose"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "dizi_cd",
+          "name": "C / D (high)",
+          "descriptors": [
+            "lead-melodic",
+            "treble-extended",
+            "opera-context"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "dizi_ga",
+          "name": "G / A (low)",
+          "descriptors": [
+            "mellow",
+            "literati-leaning",
+            "specific-pieces"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dizi_body_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "dizi_bitter_bamboo",
+          "default": true,
+          "name": "Bitter bamboo (Phyllostachys nigra — canonical Jiangnan/Suzhou)",
+          "descriptors": [
+            "bitter-bamboo-phyllostachys-nigra-canonical-jiangnan-suzhou"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "dizi_purple_bamboo",
+          "name": "Purple bamboo (premium northern style)",
+          "descriptors": [
+            "purple-bamboo-premium-northern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dizi_regional_style",
+      "surface": false,
+      "name": "Regional style",
+      "variants": [
+        {
+          "id": "dizi_qudi_southern",
+          "default": true,
+          "name": "Qudi southern style (Jiangnan kunqu canonical, lyrical)",
+          "descriptors": [
+            "qudi-southern-jiangnan-kunqu-canonical-lyrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "dizi_bangdi_northern",
+          "name": "Bangdi northern style (sharp, opera-percussive)",
+          "descriptors": [
+            "bangdi-northern-sharp-opera-percussive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "qinqiang_shaanxi",
+  "name": "Qinqiang (Shaanxi opera, \"the ancestor of bangzi\")",
+  "family": "classical",
+  "lineage": "Qinqiang Northwest Chinese regional opera tradition of Shaanxi province, considered the ancestor of the broader bangzi (wooden-clapper) opera family that includes jin opera (Shanxi), yu opera (Henan), and Hebei bangzi. Origin traced to the Qin and Han dynasty court music of the Wei River basin. Performance features powerful declamatory vocal projection (characteristically loud and emotionally intense, reflecting the Loess Plateau aesthetic), the bangzi wooden-clapper as principal percussion-pulse keeper, and pi-pa accompanied martial-arts and historical-warrior repertoire. The post-1949 Shaanxi Provincial Qinqiang Theatre and the Yi Su She troupe (founded 1912 in Xi'an) anchor institutional transmission.",
+  "recipe": "classic North American late-1940s qinqiang, art Music, east Asian branch, east Asian Cantonese opera. vocal fry, pressed, chest resonance low mid, narrative. silk canonical traditional sanxian, composite material janggu. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 372,
+  "score": 197.976,
+  "config": {
+    "traditions": [
+      "qinqiang_shaanxi",
+      "cantonese_opera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 2.8,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 1.4299999999999997,
+          "voice_microtone": 0.273,
+          "voice_tradition": 16.835,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 24.342499999999998,
+          "voice_speech_song": 21.777,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 19.805,
+          "voice_pitch_organization": 2.9355,
+          "voice_processing_chain": 1.8907500000000002,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "sanxian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sanxian_size": "sanxian_xiao",
+          "sanxian_context": "sanxian_composed",
+          "sanxian_head": "sanxian_synthetic_python",
+          "sanxian_strings": "sanxian_silk_traditional",
+          "sanxian_body_wood": "sanxian_padauk"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.563,
+          "sanxian_size": 1.2955000000000003,
+          "sanxian_context": 2.43325,
+          "sanxian_head": 0,
+          "sanxian_strings": 1.17325,
+          "sanxian_body_wood": 0.4305
+        }
+      },
+      {
+        "id": "janggu",
+        "slots": {
+          "janggu_use": "janggu_pansori",
+          "janggu_construction": "janggu_composite",
+          "janggu_shell_wood": "janggu_paulownia_canonical",
+          "janggu_head": "janggu_horse_dog_asymmetric",
+          "janggu_lineage": "janggu_pansori_godo"
+        },
+        "scores": {
+          "janggu_use": 1.3,
+          "janggu_construction": 2.125,
+          "janggu_shell_wood": 0.9842499999999998,
+          "janggu_head": 0.8792499999999999,
+          "janggu_lineage": 0.7742499999999999
+        }
+      }
+    ],
+    "room": "wooden_pagoda_hall",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

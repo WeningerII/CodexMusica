@@ -1,0 +1,151 @@
+{
+  "id": "catalan_sardana",
+  "name": "Catalan sardana (national-folk circle-dance)",
+  "family": "global",
+  "lineage": "Catalan sardana circle-dance-and-music tradition of Catalonia (Spain), the canonical Catalan national-folk-dance form. Performance configuration: a cobla ensemble of eleven musicians playing tenora (Catalan oboe), tible (smaller oboe), trumpets, fiscorn (flugelhorn-like brass), trombone, contrabass, and the flabiol-and-tambori one-handed flute-and-drum combination played simultaneously by a single musician. Dancers stand in a circle holding hands, performing the precise counting-of-steps Catalan choreographic vocabulary. The sardana became politically significant during the Franco-period (1939-1975) suppression of Catalan culture, and post-1975 democratic-Catalonia consolidation. Distinguished from other Iberian circle-dance forms by sardana's eleven-instrument-cobla and precise-counted-step structural conventions.",
+  "recipe": "classic early-1930s catalan sardana, functional Song, iberian branch, west African groove percussion indonesian jaipongan palm-wine guitar. thick, melodic, rhythmic, equal tempered. silver powell boston canonical American orchestral flute, traditional mellow brass tambourine orch, boxwood canonical renaissance European arundo donax wooden pirouette canonical renaissance shawm, brass rose brass warmer canonical couesnon flugelhorn, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 783,
+  "score": 148.89,
+  "config": {
+    "traditions": [
+      "catalan_sardana",
+      "indonesian_jaipongan",
+      "palm_wine"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 5.6715,
+          "voice_quality": 0.25649999999999995,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 0.9165,
+          "voice_microtone": 1.0999999999999999,
+          "voice_tradition": 14.105,
+          "voice_mechanism_compound": 1.8809999999999998,
+          "voice_estill_quality": 1.44,
+          "voice_speech_song": 12.024999999999999,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 6.949999999999999,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 2.5999999999999996
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "flute_size": "piccolo_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "flute_size": 0.8250000000000001,
+          "flute_material": 1.3245,
+          "flute_technique": 2.271,
+          "flute_maker_school": 1.54
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 1.625,
+          "tambourine_orch_context": 0.045
+        }
+      },
+      {
+        "id": "shawm",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "shawm_pitch": "shawm_treble",
+          "shawm_context": "shawm_hip_revival",
+          "shawm_body_wood": "shawm_boxwood_canonical",
+          "shawm_reed": "shawm_arundo_pirouette"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000002,
+          "shawm_pitch": 0.15,
+          "shawm_context": 0.345,
+          "shawm_body_wood": 1.69,
+          "shawm_reed": 1.495
+        }
+      },
+      {
+        "id": "flugelhorn",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "flugel_use": "flugel_brass_band",
+          "flugelhorn_pitch": "flugelhorn_c",
+          "flugelhorn_bell_metal": "flugelhorn_rose_brass",
+          "flugelhorn_maker_school": "flugelhorn_yamaha"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "flugel_use": 3.38,
+          "flugelhorn_pitch": 0.49949999999999994,
+          "flugelhorn_bell_metal": 3.12,
+          "flugelhorn_maker_school": 0.49949999999999994
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "valve_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "plunger_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 1.4949999999999999,
+          "trombone_type": 0.15,
+          "trombone_mouthpiece": 1.625,
+          "trombone_mute": 0.435,
+          "trombone_technique": 1.23,
+          "trombone_bell_metal": 2.975,
+          "trombone_maker_school": 1.54
+        }
+      }
+    ],
+    "room": "casablanca_chaabi_moroccan_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

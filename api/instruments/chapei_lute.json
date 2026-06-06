@@ -1,0 +1,96 @@
+{
+  "id": "chapei_lute",
+  "name": "Chapei dang veng (Cambodian two-string lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "chapei",
+  "parts": [
+    {
+      "id": "chapei_lute_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "chapei_lute_two_string_long_neck_canonical",
+          "default": true,
+          "name": "Two-string long-neck fretted wooden body (canonical Khmer narrative-song build)",
+          "descriptors": [
+            "two-string-long-neck-fretted-canonical-khmer-narrative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cambodian-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapei_lute_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "chapei_lute_dang_veng_canonical",
+          "default": true,
+          "name": "Chapei dang veng narrative-singing accompaniment (canonical)",
+          "descriptors": [
+            "dang-veng-narrative-singing-canonical-cambodian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cambodian-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chapei_lute_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "chapei_lute_two_string_long_neck_canonical",
+          "default": true,
+          "name": "Two-string long-neck fretted wooden body (canonical Khmer narrative-song build)",
+          "descriptors": [
+            "two-string-long-neck-fretted-canonical-khmer-narrative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cambodian-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapei_lute_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "chapei_lute_dang_veng_canonical",
+          "default": true,
+          "name": "Chapei dang veng narrative-singing accompaniment (canonical)",
+          "descriptors": [
+            "dang-veng-narrative-singing-canonical-cambodian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cambodian-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "id": "lofi_house_aesthetic",
+  "name": "Lo-fi house",
+  "family": "global",
+  "lineage": "2010s deliberately-degraded-aesthetic house revival codified through Mall Grab, Ross from Friends, DJ Boring, and the broader Soundcloud-and-Bandcamp ecosystem — characterized by tape-saturation simulation, sample-noise foregrounded, vintage-drum-machine reverence, and post-vaporwave nostalgic-aesthetic posture",
+  "recipe": "classic mid-2010s lo-fi house, electronic Dance, lofi house branch, lofi experimental electric vaporwave chillwave. sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, digital subtractive, mark 7 modern tine post 2007 reissue rhodes electric. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 393,
+  "score": 119.607,
+  "config": {
+    "traditions": [
+      "lofi_house_aesthetic",
+      "vaporwave",
+      "chillwave"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.9999999999999998,
+          "sampler_archetypes": 3.185,
+          "sampler_bit_depth": 1.6625,
+          "sampler_workflow": 2.0287499999999996,
+          "sampler_classic_context": 31.485249999999994
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 17,
+          "drum_machine_909_context": 0.7149999999999999,
+          "tr909_production_origin": 1.3
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "va_archetypes": 1.568875,
+          "digital_subtractive_context": 7.799999999999997
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "rhodes_model": 0.2625,
+          "rhodes_use": 0.78,
+          "rhodes_tine_material": 1.17925,
+          "rhodes_hammer_tip": 0.93875,
+          "rhodes_pickup_position": 0.39
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "lofi_deliberate",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

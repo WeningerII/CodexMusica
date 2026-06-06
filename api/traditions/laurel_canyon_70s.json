@@ -1,0 +1,230 @@
+{
+  "id": "laurel_canyon_70s",
+  "name": "70s Laurel Canyon",
+  "family": "global",
+  "lineage": "Early-1970s Laurel Canyon (Los Angeles hill-neighborhood) singer-songwriter scene centered around Joni Mitchell, Crosby Stills Nash and Young, Jackson Browne, the Eagles, Linda Ronstadt, Carole King — codified through the A and M / Sunset Sound / Wally Heider studio canon",
+  "recipe": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country. thick, incomplete closure resting, expressive, equal tempered. travis picked fingerpicked acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state supertramp canon block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood.",
+  "recipe_chars": 923,
+  "score": 216.755,
+  "config": {
+    "traditions": [
+      "laurel_canyon_70s",
+      "outlaw_country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 8.926249999999998,
+          "voice_quality": 4.050000000000001,
+          "voice_vibrato": 3.25,
+          "voice_articulation": 0.007499999999999999,
+          "voice_microtone": 3.5500000000000007,
+          "voice_tradition": 3.9074999999999993,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 4.353750000000001,
+          "voice_speech_song": 8.224999999999998,
+          "voice_ensemble_config": 5.424999999999999,
+          "voice_ornament_system": 3.12875,
+          "voice_pitch_organization": 1.6,
+          "voice_processing_chain": 4.0575,
+          "voice_multitrack_stack": 3.5625
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 8.405,
+          "string_tuning": 0,
+          "top_wood": 0.39,
+          "back_sides": 0.39,
+          "string_acoustic": 0.39,
+          "acoustic_om_technique": 8.405
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 3.1500000000000004,
+          "grand_piano_size": 0.6,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 1.5425,
+          "piano_rim": 1.3649999999999998,
+          "piano_soundboard": 0.7,
+          "piano_pinblock": 0.25,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": 1.60625
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 3.305,
+          "amp_make": 3.1487500000000006,
+          "body_wood": 0.39,
+          "neck_wood": 0.39,
+          "fretboard": 0.325,
+          "pickup_magnet": 0.3075,
+          "string_material": 0.39,
+          "string_gauge": 0.39,
+          "bridge": 0,
+          "scale_length": 0.39,
+          "finish": 0,
+          "string_tuning": 1.66875
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 3.1487500000000006,
+          "body_wood": 0.39,
+          "pickup_config": 0,
+          "string_type": 4.1425,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": 3.305
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "double_coated",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 5.167499999999999,
+          "shell_wood": 0.3525,
+          "shell_thickness": 0,
+          "bearing_edges": 0.39,
+          "drumhead": 0.9574999999999999,
+          "snare_wires": 0.39,
+          "cymbal_alloy": 3.76125,
+          "cymbal_hammering": 3.7,
+          "cymbal_lathing": 3.7,
+          "cymbal_finish": 0.3075,
+          "drum_technique": 5.167499999999999
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "rhodes_model": "rhodes_suitcase",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_raymac_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 3.1500000000000004,
+          "rhodes_model": 0.39,
+          "rhodes_use": 0.78,
+          "rhodes_tine_material": 1.61375,
+          "rhodes_hammer_tip": 2.3874999999999997,
+          "rhodes_pickup_position": 1.6625
+        }
+      },
+      {
+        "id": "wurlitzer_ep",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "wurlitzer_use": "wurlitzer_supertramp",
+          "wurlitzer_ep_voice": "wurlitzer_ep_overdrive",
+          "wurlitzer_model": "wurlitzer_200a_canonical",
+          "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 3.1500000000000004,
+          "wurlitzer_use": 0.022499999999999996,
+          "wurlitzer_ep_voice": 1.3425,
+          "wurlitzer_model": 1.725,
+          "wurlitzer_reed_material": 0.345
+        }
+      }
+    ],
+    "room": "a_and_m_studios_hollywood",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_marshall_plexi_1959",
+      "medium": "tape_15ips"
+    },
+    "tuning": "open_tuning_singer_songwriter",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

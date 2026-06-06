@@ -1,0 +1,270 @@
+{
+  "id": "timbales",
+  "name": "Timbales (Cuban metal-shell)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "timbales",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_hands_layered",
+          "default": true,
+          "name": "Hand percussion layered",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "pandeiro",
+            "tar_frame_drum",
+            "timbales",
+            "darbuka",
+            "cuica"
+          ],
+          "descriptors": [
+            "hands",
+            "layered"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        },
+        {
+          "id": "percussion_open_slap",
+          "name": "Open / slap (hand-drum)",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "darbuka",
+            "timbales"
+          ],
+          "descriptors": [
+            "open-slap",
+            "hand-drum"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "slappy",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "timbales_shell",
+      "name": "Shell metal",
+      "variants": [
+        {
+          "id": "timbales_brass",
+          "name": "Brass (warm, vintage)",
+          "descriptors": [
+            "pre-modern",
+            "classic-salsa",
+            "mellow",
+            "brass"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_steel",
+          "default": true,
+          "name": "Steel (sharp, canonical)",
+          "descriptors": [
+            "standard",
+            "cutting",
+            "professional",
+            "steel"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_bronze",
+          "name": "Bronze (variant)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "alternative",
+            "jazz-leaning",
+            "bronze"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbales_context",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "timbales_son",
+          "default": true,
+          "name": "Son montuno traditional",
+          "descriptors": [
+            "paila-pattern",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_salsa",
+          "name": "Salsa big-band",
+          "descriptors": [
+            "driving",
+            "mambo-bell-emphasis",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_descarga",
+          "name": "Latin jazz / descarga",
+          "descriptors": [
+            "virtuosic",
+            "soloistic",
+            "jam"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "timbales_shell",
+      "name": "Shell metal",
+      "variants": [
+        {
+          "id": "timbales_brass",
+          "name": "Brass (warm, vintage)",
+          "descriptors": [
+            "pre-modern",
+            "classic-salsa",
+            "mellow",
+            "brass"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_steel",
+          "default": true,
+          "name": "Steel (sharp, canonical)",
+          "descriptors": [
+            "standard",
+            "cutting",
+            "professional",
+            "steel"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_bronze",
+          "name": "Bronze (variant)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "alternative",
+            "jazz-leaning",
+            "bronze"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbales_context",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "timbales_son",
+          "default": true,
+          "name": "Son montuno traditional",
+          "descriptors": [
+            "paila-pattern",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_salsa",
+          "name": "Salsa big-band",
+          "descriptors": [
+            "driving",
+            "mambo-bell-emphasis",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_descarga",
+          "name": "Latin jazz / descarga",
+          "descriptors": [
+            "virtuosic",
+            "soloistic",
+            "jam"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    }
+  ]
+}

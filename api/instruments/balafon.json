@@ -1,0 +1,220 @@
+{
+  "id": "balafon",
+  "name": "Balafon (West African pentatonic marimba)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "balafon",
+  "parts": [
+    {
+      "id": "balafon_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "balafon_mandinka",
+          "name": "Mandinka equiheptatonic",
+          "descriptors": [
+            "Senegambian",
+            "seven-tone"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ],
+          "canonical_tags": [
+            "griot"
+          ]
+        },
+        {
+          "id": "balafon_susu",
+          "default": true,
+          "name": "Susu pentatonic",
+          "descriptors": [
+            "Guinea-coastal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "balafon_sosso_bala",
+          "name": "Sosso-bala (sacred archaic)",
+          "descriptors": [
+            "oldest",
+            "ceremonial",
+            "Mande-foundational"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balafon_resonator",
+      "name": "Resonator construction",
+      "variants": [
+        {
+          "id": "balafon_gourd",
+          "default": true,
+          "name": "Calabash gourds (canonical)",
+          "descriptors": [
+            "buzzy",
+            "natural-material-resonance",
+            "traditional",
+            "calabash",
+            "gourd"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "balafon_box",
+          "name": "Wooden box (modern concert)",
+          "descriptors": [
+            "stable",
+            "urban",
+            "projecting",
+            "wood"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "balafon_synth",
+          "name": "Synthetic / hybrid",
+          "descriptors": [
+            "experimental",
+            "durable",
+            "contemporary",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "balafon_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "balafon_mandinka",
+          "name": "Mandinka equiheptatonic",
+          "descriptors": [
+            "Senegambian",
+            "seven-tone"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ],
+          "canonical_tags": [
+            "griot"
+          ]
+        },
+        {
+          "id": "balafon_susu",
+          "default": true,
+          "name": "Susu pentatonic",
+          "descriptors": [
+            "Guinea-coastal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "balafon_sosso_bala",
+          "name": "Sosso-bala (sacred archaic)",
+          "descriptors": [
+            "oldest",
+            "ceremonial",
+            "Mande-foundational"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balafon_resonator",
+      "name": "Resonator construction",
+      "variants": [
+        {
+          "id": "balafon_gourd",
+          "default": true,
+          "name": "Calabash gourds (canonical)",
+          "descriptors": [
+            "buzzy",
+            "natural-material-resonance",
+            "traditional",
+            "calabash",
+            "gourd"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "balafon_box",
+          "name": "Wooden box (modern concert)",
+          "descriptors": [
+            "stable",
+            "urban",
+            "projecting",
+            "wood"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "balafon_synth",
+          "name": "Synthetic / hybrid",
+          "descriptors": [
+            "experimental",
+            "durable",
+            "contemporary",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ]
+}

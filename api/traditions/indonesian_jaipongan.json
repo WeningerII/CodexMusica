@@ -1,0 +1,94 @@
+{
+  "id": "indonesian_jaipongan",
+  "name": "Indonesian jaipongan (Sundanese popular)",
+  "family": "global",
+  "lineage": "Indonesian jaipongan Sundanese popular-music genre developed in 1974 by Gugum Gumbira in Bandung (West Java) as a modernization of the older ketuk tilu Sundanese folk-dance-music. The form incorporates the traditional kendang Sundanese drum-set, gamelan degung metallophone framework, and Sundanese-language vocal repertoire, but with substantially energized faster-tempo rhythmic pulse and assertive female-singer-dancer presentation. The genre became culturally significant during the late-1970s Indonesian-cultural-nationalism period as an alternative to Western-influenced popular music. Distinguished from broader Sundanese gamelan by jaipongan's mid-1970s commercial-popular crystallization and the assertive vocal-and-dance performance register.",
+  "recipe": "classic 1977-1979 indonesian jaipongan, groove Percussion, west African branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. sygyt, declaimed, melodic, punctuated. gamelan sundanese mahogany mid tier modern cowhide modern alternative kendang indonesian, gamelan balinese full. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 557,
+  "score": 215.225,
+  "config": {
+    "traditions": [
+      "indonesian_jaipongan",
+      "shipibo_icaros",
+      "inuit_katajjaq_games"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 3.3799999999999994,
+          "voice_quality": 3.4450000000000003,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.69,
+          "voice_microtone": 1.2999999999999998,
+          "voice_tradition": 16.444999999999997,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 7.569999999999999,
+          "voice_ornament_system": 1.6649999999999998,
+          "voice_pitch_organization": 16.039999999999996,
+          "voice_processing_chain": 6.595,
+          "voice_multitrack_stack": 5.8999999999999995
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_sundanese",
+          "kendang_shell_wood": "kendang_mahogany",
+          "kendang_head": "kendang_cowhide_alternative"
+        },
+        "scores": {
+          "kendang_size": 4.515,
+          "kendang_context": 10.099999999999998,
+          "kendang_shell_wood": 1.495,
+          "kendang_head": 1.495
+        }
+      },
+      {
+        "id": "gamelan_balinese_full",
+        "slots": {
+          "type": "gb_angklung",
+          "characteristic": "gb_kotekan"
+        },
+        "scores": {
+          "type": 0.39,
+          "characteristic": 0.44999999999999996
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "gamelan_pelog",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

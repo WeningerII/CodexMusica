@@ -1,0 +1,270 @@
+{
+  "id": "granular_synth",
+  "name": "Granular synthesizer",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "granular synth",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_pad_drone",
+          "default": true,
+          "name": "Pad / drone",
+          "applies_to": [
+            "analog_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "string_machine",
+            "granular_synth",
+            "ondes_martenot",
+            "modular_synth",
+            "eurorack_modular"
+          ],
+          "descriptors": [
+            "sustained",
+            "pad"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-and-pad",
+            "drone-like",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "shoegaze"
+          ]
+        },
+        {
+          "id": "electronic_modular_patch",
+          "name": "Modular patch evolution",
+          "applies_to": [
+            "modular_synth",
+            "eurorack_modular",
+            "granular_synth"
+          ],
+          "descriptors": [
+            "modular",
+            "evolving"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "experimental",
+            "idm"
+          ]
+        },
+        {
+          "id": "electronic_glitch_textural",
+          "name": "Glitch / textural",
+          "applies_to": [
+            "granular_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "sampler_classic",
+            "wavetable_synth"
+          ],
+          "descriptors": [
+            "glitched",
+            "textural"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "idm",
+            "experimental"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "granular_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "granular_ambient",
+          "default": true,
+          "name": "Ambient / drone",
+          "descriptors": [
+            "textural",
+            "meditative",
+            "contemplative"
+          ],
+          "match_tokens": [
+            "ambient",
+            "lush-ambient",
+            "electronic"
+          ]
+        },
+        {
+          "id": "granular_idm",
+          "name": "IDM / glitch",
+          "descriptors": [
+            "chopped",
+            "articulate",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "electronic",
+            "granular-texture"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "granular_synth_source",
+      "name": "Source material",
+      "variants": [
+        {
+          "id": "granular_synth_field",
+          "default": true,
+          "name": "Field recordings",
+          "descriptors": [
+            "natural-material-resonance",
+            "environmental",
+            "experimental"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "electronic",
+            "granular-texture"
+          ]
+        },
+        {
+          "id": "granular_synth_sampled",
+          "name": "Sampled instruments",
+          "descriptors": [
+            "acoustic-derived",
+            "transformative",
+            "hybrid"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "electronic",
+            "granular-texture"
+          ]
+        },
+        {
+          "id": "granular_synth_synthesized",
+          "name": "Synthesized waveforms",
+          "descriptors": [
+            "pure-electronic",
+            "controlled",
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "electronic",
+            "granular-texture"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "granular_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "granular_ambient",
+          "default": true,
+          "name": "Ambient / drone",
+          "descriptors": [
+            "textural",
+            "meditative",
+            "contemplative"
+          ],
+          "match_tokens": [
+            "ambient",
+            "lush-ambient",
+            "electronic"
+          ]
+        },
+        {
+          "id": "granular_idm",
+          "name": "IDM / glitch",
+          "descriptors": [
+            "chopped",
+            "articulate",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "electronic",
+            "granular-texture"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "granular_synth_source",
+      "name": "Source material",
+      "variants": [
+        {
+          "id": "granular_synth_field",
+          "default": true,
+          "name": "Field recordings",
+          "descriptors": [
+            "natural-material-resonance",
+            "environmental",
+            "experimental"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "electronic",
+            "granular-texture"
+          ]
+        },
+        {
+          "id": "granular_synth_sampled",
+          "name": "Sampled instruments",
+          "descriptors": [
+            "acoustic-derived",
+            "transformative",
+            "hybrid"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "electronic",
+            "granular-texture"
+          ]
+        },
+        {
+          "id": "granular_synth_synthesized",
+          "name": "Synthesized waveforms",
+          "descriptors": [
+            "pure-electronic",
+            "controlled",
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "electronic",
+            "granular-texture"
+          ]
+        }
+      ]
+    }
+  ]
+}

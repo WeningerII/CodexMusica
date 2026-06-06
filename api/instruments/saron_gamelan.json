@@ -1,0 +1,158 @@
+{
+  "id": "saron_gamelan",
+  "name": "Saron (gamelan metallophone)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "saron",
+  "parts": [
+    {
+      "id": "saron_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "saron_demung",
+          "default": true,
+          "name": "Saron demung (low, foundational)",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "metallophone"
+          ]
+        },
+        {
+          "id": "saron_barung",
+          "name": "Saron barung (mid)",
+          "descriptors": [
+            "middle-melody"
+          ],
+          "match_tokens": [
+            "metallophone"
+          ]
+        },
+        {
+          "id": "saron_panerus",
+          "name": "Saron panerus / peking (high, doubled)",
+          "descriptors": [
+            "high-elaboration"
+          ],
+          "match_tokens": [
+            "metallophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saron_tuning_system",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "saron_slendro",
+          "default": true,
+          "name": "Slendro (5-tone)",
+          "descriptors": [
+            "slendro-tuning",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "slendro"
+          ]
+        },
+        {
+          "id": "saron_pelog",
+          "name": "Pelog (7-tone)",
+          "descriptors": [
+            "pelog-tuning",
+            "heptatonic"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "pelog"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saron_size",
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "saron_demung",
+          "default": true,
+          "name": "Saron demung (low, foundational)",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "metallophone"
+          ]
+        },
+        {
+          "id": "saron_barung",
+          "name": "Saron barung (mid)",
+          "descriptors": [
+            "middle-melody"
+          ],
+          "match_tokens": [
+            "metallophone"
+          ]
+        },
+        {
+          "id": "saron_panerus",
+          "name": "Saron panerus / peking (high, doubled)",
+          "descriptors": [
+            "high-elaboration"
+          ],
+          "match_tokens": [
+            "metallophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saron_tuning_system",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "saron_slendro",
+          "default": true,
+          "name": "Slendro (5-tone)",
+          "descriptors": [
+            "slendro-tuning",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "slendro"
+          ]
+        },
+        {
+          "id": "saron_pelog",
+          "name": "Pelog (7-tone)",
+          "descriptors": [
+            "pelog-tuning",
+            "heptatonic"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "pelog"
+          ]
+        }
+      ]
+    }
+  ]
+}

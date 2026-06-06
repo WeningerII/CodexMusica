@@ -1,0 +1,218 @@
+{
+  "id": "jam_band",
+  "name": "Jam band",
+  "family": "global",
+  "lineage": "Late-1960s onward improvisational rock tradition with extended-form live solos and audience-tape-trading culture — Grateful Dead, Allman Brothers, Phish, Widespread Panic, Dave Matthews Band, String Cheese Incident",
+  "recipe": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock early rock-and-roll garage-rock revival. thick, nervy, equal tempered, sean nos. basswood maple pau ferro nickel plated steel nickel humbucker electric maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, mahogany ernie ball slinky electric bass, birch oil filled machine hammered symmetric pattern organized rows drum kit, fast tremolo tonewheel organ, congas. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 711,
+  "score": 388.395,
+  "config": {
+    "traditions": [
+      "jam_band",
+      "early_rock_and_roll_50s",
+      "garage_rock_revival_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 4.695000000000002,
+          "voice_quality": 0,
+          "voice_vibrato": 1.5715000000000001,
+          "voice_articulation": 0,
+          "voice_microtone": 4.750000000000001,
+          "voice_tradition": 3.5100000000000002,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 3.185,
+          "voice_ensemble_config": 2.34,
+          "voice_ornament_system": 1.4215,
+          "voice_pitch_organization": 2.115,
+          "voice_processing_chain": 3.315000000000001,
+          "voice_multitrack_stack": 1.2349999999999999
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 0.7799999999999998,
+          "amp_make": 2.4699999999999998,
+          "body_wood": 2.0100000000000002,
+          "neck_wood": 1.5715000000000001,
+          "fretboard": 1.5715000000000001,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.9099999999999999,
+          "string_material": 1.5715000000000001,
+          "bridge": 0.885,
+          "scale_length": 1.7700000000000002,
+          "string_gauge": 0.885,
+          "finish": 0.435,
+          "string_tuning": 4.29
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 0.7799999999999998,
+          "amp_make": 2.4699999999999998,
+          "body_wood": 0.885,
+          "neck_wood": 1.5715000000000001,
+          "fretboard": 1.5715000000000001,
+          "pickup_magnet": 1.5715000000000001,
+          "string_material": 1.5715000000000001,
+          "string_gauge": 0.885,
+          "bridge": 0,
+          "scale_length": 1.7700000000000002,
+          "finish": 0.435,
+          "string_tuning": 4.29
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 2.925,
+          "body_wood": 1.7700000000000002,
+          "pickup_config": 0.045,
+          "string_type": 6.5,
+          "scale_length_b": 0.885,
+          "fretted_or_not": 0,
+          "bass_technique": 5.085
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "hydraulic",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 2.34,
+          "shell_wood": 1.5715000000000001,
+          "shell_thickness": 0,
+          "bearing_edges": 1.5715000000000001,
+          "drumhead": 1.5715000000000001,
+          "snare_wires": 0.885,
+          "cymbal_alloy": 6.4715,
+          "cymbal_hammering": 5.050000000000001,
+          "cymbal_lathing": 4.99,
+          "cymbal_finish": 1.5715000000000001,
+          "drum_technique": 5.09
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "drawbar_setting": 5.135,
+          "rotary_speed": 4.95,
+          "percussion_setting": 2.6,
+          "tonewheel_model": -0.035,
+          "leslie_cabinet_model": -0.035
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "tumba",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "conga_set": 0.195,
+          "conga_skin": 0.9749999999999999,
+          "conga_shell_wood": 0.9749999999999999
+        }
+      }
+    ],
+    "room": "wally_heider_studios_sf",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
+    },
+    "tuning": "open_tuning_singer_songwriter",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

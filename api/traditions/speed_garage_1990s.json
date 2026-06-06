@@ -1,0 +1,121 @@
+{
+  "id": "speed_garage_1990s",
+  "name": "Speed garage (UK 90s)",
+  "family": "electronic",
+  "lineage": "Late-1990s UK garage subgenre developed in London integrating Jamaican ragga-and-dancehall vocal-sampling and bass-line aesthetic with US deep-house production framework. Characterized by chopped-vocal samples, prominent rolling-bass, and the canonical Tuff Jam-Dreem Teem-MJ Cole DJ-and-production lineage. Direct precursor of 2-step UK garage and (through 2-step) UK grime, dubstep, and future garage.",
+  "recipe": "classic British 1997-1999 speed garage, bass System, uk soundsystem branch, Jamaican bass system jamaican dancehall reggae roots. vocal fry, pure, punctuated, maqam neutral step. TR-808, low sub bass analog synth, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 520,
+  "score": 171.14,
+  "config": {
+    "traditions": [
+      "speed_garage_1990s",
+      "jamaican_dancehall",
+      "reggae_roots"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 3.3799999999999994,
+          "voice_quality": 0.0765,
+          "voice_vibrato": 1.5715,
+          "voice_articulation": 0.52575,
+          "voice_microtone": 3.0090000000000003,
+          "voice_tradition": 4.875,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 10.075,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 2.8600000000000003,
+          "voice_pitch_organization": 3.154,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 5.069999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 6.175,
+          "drum_machine_808_context": 6.24,
+          "tr808_production_origin": 0.76875
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 10.335,
+          "oscillator": 6.24,
+          "filter_topology": 6.24,
+          "envelope": 0.4995,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 6.175,
+          "body_wood": 0.9360000000000002,
+          "pickup_config": 0.15,
+          "string_type": 6.11,
+          "scale_length_b": 0.6495,
+          "fretted_or_not": 0.11624999999999999,
+          "bass_technique": -0.035
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

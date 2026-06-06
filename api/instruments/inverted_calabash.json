@@ -1,0 +1,190 @@
+{
+  "id": "inverted_calabash",
+  "name": "Inverted half-calabash (Saharan ground percussion)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "inverted-calabash",
+  "parts": [
+    {
+      "id": "inverted_calabash_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "inverted_calabash_large",
+          "default": true,
+          "name": "Large (deep-bass)",
+          "descriptors": [
+            "deep",
+            "foundational",
+            "low-fundamental-tuning",
+            "gourd",
+            "calabash"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "desert-traditional"
+          ]
+        },
+        {
+          "id": "inverted_calabash_medium",
+          "name": "Medium (mid-tone)",
+          "descriptors": [
+            "focused",
+            "mid-strong",
+            "gourd",
+            "calabash"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "desert-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inverted_calabash_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "inverted_calabash_hands",
+          "default": true,
+          "name": "Bare-hands struck",
+          "descriptors": [
+            "thump",
+            "organic-tone",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "inverted_calabash_finger_rings",
+          "name": "With finger rings",
+          "descriptors": [
+            "snappier",
+            "metallic-overtones",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "metallic-attack"
+          ]
+        },
+        {
+          "id": "inverted_calabash_cloth_sticks",
+          "name": "Cloth-wrapped sticks",
+          "descriptors": [
+            "softer",
+            "sustained-onset",
+            "regional"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "inverted_calabash_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "inverted_calabash_large",
+          "default": true,
+          "name": "Large (deep-bass)",
+          "descriptors": [
+            "deep",
+            "foundational",
+            "low-fundamental-tuning",
+            "gourd",
+            "calabash"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "desert-traditional"
+          ]
+        },
+        {
+          "id": "inverted_calabash_medium",
+          "name": "Medium (mid-tone)",
+          "descriptors": [
+            "focused",
+            "mid-strong",
+            "gourd",
+            "calabash"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "desert-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inverted_calabash_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "inverted_calabash_hands",
+          "default": true,
+          "name": "Bare-hands struck",
+          "descriptors": [
+            "thump",
+            "organic-tone",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "inverted_calabash_finger_rings",
+          "name": "With finger rings",
+          "descriptors": [
+            "snappier",
+            "metallic-overtones",
+            "traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands",
+            "metallic-attack"
+          ]
+        },
+        {
+          "id": "inverted_calabash_cloth_sticks",
+          "name": "Cloth-wrapped sticks",
+          "descriptors": [
+            "softer",
+            "sustained-onset",
+            "regional"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "id": "bandoneon",
+  "name": "Bandoneón (Argentine tango concertina)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bandoneón",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_bellows_articulated",
+          "name": "Bellows-articulated phrasing",
+          "applies_to": [
+            "bandoneon",
+            "accordion",
+            "piano_accordion",
+            "concertina_anglo",
+            "concertina_english"
+          ],
+          "descriptors": [
+            "bellows-articulated",
+            "phrased"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "tango",
+            "klezmer"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "bandoneon_action",
+      "name": "Action type",
+      "variants": [
+        {
+          "id": "bandoneon_bisonoric",
+          "default": true,
+          "name": "Bisonoric (different notes push/pull)",
+          "descriptors": [
+            "tango-classical",
+            "tango-suited"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bandoneon_chromatic",
+          "name": "Chromatic (same notes either way)",
+          "descriptors": [
+            "simplified",
+            "contemporary",
+            "crossover"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandoneon_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "bandoneon_tango",
+          "default": true,
+          "name": "Argentine tango",
+          "descriptors": [],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bandoneon_orquesta",
+          "name": "Tango orquesta típica",
+          "descriptors": [
+            "ensemble",
+            "foundational",
+            "tango-virtuoso"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandoneon_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "bandoneon_alfred_arnold_aa",
+          "default": true,
+          "name": "Alfred Arnold AA (canonical pre-1949 Carlsfeld Saxony — sacred tango instrument)",
+          "descriptors": [
+            "alfred-arnold-aa-canonical-pre-1949-carlsfeld-saxony"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "bandoneon_premier",
+          "name": "Premier (German tango premium alternative)",
+          "descriptors": [
+            "premier-german-tango-premium-alternative"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "bandoneon_argentine_made",
+          "name": "Modern Argentine-made (post-1990 revival)",
+          "descriptors": [
+            "modern-argentine-post-1990-revival"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandoneon_reed_material",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "bandoneon_steel_reeds_canonical",
+          "default": true,
+          "name": "Steel reeds (canonical AA pre-1949 voicing)",
+          "descriptors": [
+            "steel-reeds-canonical-aa-pre-1949-voicing"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bandoneon_action",
+      "name": "Action type",
+      "variants": [
+        {
+          "id": "bandoneon_bisonoric",
+          "default": true,
+          "name": "Bisonoric (different notes push/pull)",
+          "descriptors": [
+            "tango-classical",
+            "tango-suited"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bandoneon_chromatic",
+          "name": "Chromatic (same notes either way)",
+          "descriptors": [
+            "simplified",
+            "contemporary",
+            "crossover"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandoneon_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "bandoneon_tango",
+          "default": true,
+          "name": "Argentine tango",
+          "descriptors": [],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bandoneon_orquesta",
+          "name": "Tango orquesta típica",
+          "descriptors": [
+            "ensemble",
+            "foundational",
+            "tango-virtuoso"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandoneon_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "bandoneon_alfred_arnold_aa",
+          "default": true,
+          "name": "Alfred Arnold AA (canonical pre-1949 Carlsfeld Saxony — sacred tango instrument)",
+          "descriptors": [
+            "alfred-arnold-aa-canonical-pre-1949-carlsfeld-saxony"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "bandoneon_premier",
+          "name": "Premier (German tango premium alternative)",
+          "descriptors": [
+            "premier-german-tango-premium-alternative"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "bandoneon_argentine_made",
+          "name": "Modern Argentine-made (post-1990 revival)",
+          "descriptors": [
+            "modern-argentine-post-1990-revival"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandoneon_reed_material",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "bandoneon_steel_reeds_canonical",
+          "default": true,
+          "name": "Steel reeds (canonical AA pre-1949 voicing)",
+          "descriptors": [
+            "steel-reeds-canonical-aa-pre-1949-voicing"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

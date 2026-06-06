@@ -1,0 +1,68 @@
+{
+  "id": "albanian_vajtim",
+  "name": "Albanian vajtim (lament)",
+  "family": "global",
+  "lineage": "Albanian mourning-song tradition continuous from medieval Albanian rural practice through 19th-20th century continuous performance; particularly preserved in Northern Albanian highland zones (Mirdita, Dukagjin) and in Albanian-language Kosovo and South-Italian Arbëresh diaspora communities",
+  "recipe": "classic modern albanian vajtim, funeral Lament, European branch, middle eastern funeral lament, vocal drone modal, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas sevdalinka. vocal fry, false fold engaged, melodic, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 401,
+  "score": 117.852,
+  "config": {
+    "traditions": [
+      "albanian_vajtim",
+      "sardinian_traditional",
+      "sevdalinka"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 4.83,
+          "voice_vibrato": 0.63,
+          "voice_articulation": 3.3649999999999998,
+          "voice_microtone": 1.0349999999999997,
+          "voice_tradition": 13.714999999999998,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 4.095000000000001,
+          "voice_speech_song": 5.784999999999999,
+          "voice_ensemble_config": 4.809999999999999,
+          "voice_ornament_system": 3.1500000000000004,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 1.56,
+          "voice_multitrack_stack": 2.08
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

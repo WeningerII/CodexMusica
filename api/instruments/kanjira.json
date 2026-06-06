@@ -1,0 +1,316 @@
+{
+  "id": "kanjira",
+  "name": "Kanjira (South Indian frame drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kanjira",
+  "parts": [
+    {
+      "id": "kanjira_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "kanjira_goat",
+          "default": true,
+          "name": "Goat skin (modern canonical)",
+          "descriptors": [
+            "standard",
+            "consistent",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kanjira_lizard",
+          "name": "Monitor lizard (banned, archaic)",
+          "descriptors": [
+            "historical",
+            "forbidden"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kanjira_synthetic",
+          "name": "Synthetic",
+          "descriptors": [
+            "durable",
+            "climate-resistant",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanjira_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "kanjira_carnatic",
+          "default": true,
+          "name": "Carnatic concert",
+          "descriptors": [
+            "tani-avartanam",
+            "soloistic",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kanjira_film",
+          "name": "Film score",
+          "descriptors": [
+            "textural",
+            "rhythmic-color",
+            "commercial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kanjira_fusion",
+          "name": "World-fusion / ensemble",
+          "descriptors": [
+            "session",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanjira_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "kanjira_jackwood_canonical",
+          "default": true,
+          "name": "Jackwood frame (canonical Carnatic)",
+          "descriptors": [
+            "jackwood-frame-canonical-carnatic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kanjira_rosewood",
+          "name": "Rosewood frame (premium)",
+          "descriptors": [
+            "rosewood-frame-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanjira_jingle",
+      "surface": false,
+      "name": "Jingle metal (single pair)",
+      "variants": [
+        {
+          "id": "kanjira_brass_jingle",
+          "default": true,
+          "name": "Brass jingle pair (canonical)",
+          "descriptors": [
+            "brass-jingle-pair-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kanjira_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "kanjira_goat",
+          "default": true,
+          "name": "Goat skin (modern canonical)",
+          "descriptors": [
+            "standard",
+            "consistent",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kanjira_lizard",
+          "name": "Monitor lizard (banned, archaic)",
+          "descriptors": [
+            "historical",
+            "forbidden"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kanjira_synthetic",
+          "name": "Synthetic",
+          "descriptors": [
+            "durable",
+            "climate-resistant",
+            "modern",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanjira_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "kanjira_carnatic",
+          "default": true,
+          "name": "Carnatic concert",
+          "descriptors": [
+            "tani-avartanam",
+            "soloistic",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kanjira_film",
+          "name": "Film score",
+          "descriptors": [
+            "textural",
+            "rhythmic-color",
+            "commercial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kanjira_fusion",
+          "name": "World-fusion / ensemble",
+          "descriptors": [
+            "session",
+            "modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanjira_shell_wood",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "kanjira_jackwood_canonical",
+          "default": true,
+          "name": "Jackwood frame (canonical Carnatic)",
+          "descriptors": [
+            "jackwood-frame-canonical-carnatic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "kanjira_rosewood",
+          "name": "Rosewood frame (premium)",
+          "descriptors": [
+            "rosewood-frame-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanjira_jingle",
+      "surface": false,
+      "name": "Jingle metal (single pair)",
+      "variants": [
+        {
+          "id": "kanjira_brass_jingle",
+          "default": true,
+          "name": "Brass jingle pair (canonical)",
+          "descriptors": [
+            "brass-jingle-pair-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

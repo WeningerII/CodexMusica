@@ -1,0 +1,118 @@
+{
+  "id": "drone_metal_sustained",
+  "name": "Drone metal (1990s extreme-deceleration sustained-tone metal)",
+  "family": "rock_punk",
+  "lineage": "1990s heavy-metal subgenre developed from doom metal's extreme deceleration, characterized by extreme-down-tuned distorted-guitar drone textures, glacial tempi (often single notes sustained 30-90 seconds), heavy amplifier-and-feedback emphasis, and minimal-to-absent traditional rhythmic-or-vocal content. Earth's Earth 2 (1993, Dylan Carlson) inaugurated the canonical sound; Sunn O))) (Stephen O'Malley and Greg Anderson, founded 1998), Boris, and the broader Southern Lord Records label roster anchor the canonical drone metal aesthetic.",
+  "recipe": "classic drone metal, distorted Rock, doom branch, ambient experimental electric dark ambient darksynth. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, walnut kevlar aramid extreme tension machine hammered drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 498,
+  "score": 202.835,
+  "config": {
+    "traditions": [
+      "drone_metal_sustained",
+      "dark_ambient_industrial",
+      "darksynth"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_orange",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 23.759999999999998,
+          "amp_make": 10.229999999999999,
+          "body_wood": 12.893928571428571,
+          "neck_wood": 0.585,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.15,
+          "pickup_winding": 0.15,
+          "string_material": 0.39,
+          "bridge": 0.585,
+          "scale_length": 12.78892857142857,
+          "string_gauge": 0.6299999999999999,
+          "finish": 0,
+          "string_tuning": 14.30392857142857
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 6.949999999999999,
+          "amp_make": 10.229999999999999,
+          "body_wood": 1.17,
+          "pickup_config": 0.15,
+          "string_type": 4.26,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0,
+          "bass_technique": 3.7
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "kevlar_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "lathing_raw_unlathed",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 6.629999999999999,
+          "shell_wood": 2.6899999999999995,
+          "shell_thickness": 0,
+          "bearing_edges": 0.6299999999999999,
+          "drumhead": 3.55,
+          "snare_wires": 0.585,
+          "cymbal_alloy": 22.59,
+          "cymbal_hammering": 3.74,
+          "cymbal_lathing": 3.845,
+          "cymbal_finish": 1.4935714285714283,
+          "drum_technique": 6.629999999999999
+        }
+      }
+    ],
+    "room": "stoner_doom_garage_amplifier_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_british_orange_dirty",
+      "medium": "digital_high"
+    },
+    "tuning": "doom_sabbath_tritone_diminished",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

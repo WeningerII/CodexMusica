@@ -1,0 +1,213 @@
+{
+  "id": "baroque_period",
+  "name": "Baroque period-instrument",
+  "family": "classical",
+  "lineage": "1600-1750 European art-music period encompassing the development of opera (Monteverdi Orfeo 1607), the concerto grosso (Corelli), the cantata and fugue (Bach), the oratorio (Handel), and the harpsichord and early-fortepiano keyboard repertoire — characterized by figured-bass continuo practice, contrapuntal compositional technique, ornamental melodic style, and the moderate-pitch (A=415 Hz typical) tuning convention",
+  "recipe": "classic early-1600s baroque period-instrument, art Music, western early branch, christian gospel anglican choral anglican choral evensong. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, flemish ruckers antwerp canonical late 16th 17th century bach era reference quarter comma meantone canonical renaissance early Baroque legato harpsichord, gut norway spruce European alpine European maple bosnian source cello, yew ribs Italian Baroque pistoy bass gut plain gut treble historical canonical Baroque theorbo, pistoy silver wound gut treble canonical bass viol snakewood underhand grip viola da gamba, boxwood canonical Baroque classical pre 1850 loree paris canonical American school legato oboe, ayre and lieder pistoy bass gut plain gut treble lute renaissance, boxwood canonical renaissance European shawm, controlled legato bassoon. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
+  "recipe_chars": 969,
+  "score": 283.69,
+  "config": {
+    "traditions": [
+      "baroque_period",
+      "anglican_choral_evensong"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "snakewood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "orch_strings": 0.39,
+          "orch_top_wood": 10.009500000000001,
+          "orch_back_wood": 10.177500000000002,
+          "orch_varnish": 8.269,
+          "orch_setup_period": 14.94892857142857,
+          "orch_bow": 3.6159285714285705,
+          "orch_bow_stick": 10.115714285714287,
+          "orch_articulation": 3.5100000000000002,
+          "orch_rosin": 11.016499999999999
+        }
+      },
+      {
+        "id": "harpsichord",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "harpsichord_register": "harpsi_8_foot",
+          "harpsichord_context": "harpsichord_solo",
+          "harpsichord_maker_school": "harpsichord_flemish_ruckers",
+          "harpsichord_plectrum": "harpsichord_quill_canonical",
+          "harpsichord_temperament": "harpsichord_meantone_quarter"
+        },
+        "scores": {
+          "keyboard_technique": 3.295,
+          "harpsichord_register": 1.69,
+          "harpsichord_context": 8.059999999999999,
+          "harpsichord_maker_school": 3.494999999999999,
+          "harpsichord_plectrum": 0.819,
+          "harpsichord_temperament": 6.5
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_gut",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
+          "cello_setup_period": "baroque_setup_cello",
+          "cello_bow_grip": "german_bow_grip",
+          "cello_rosin": "galeazzi_1791_baroque_rosin_cello",
+          "cello_bow_stick": "snakewood_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "cello_strings": 3.6094999999999993,
+          "cello_top_wood": 10.009500000000001,
+          "cello_back_wood": 10.177500000000002,
+          "cello_varnish": 8.269,
+          "cello_setup_period": 14.94892857142857,
+          "cello_bow_grip": 2.47,
+          "cello_rosin": 10.0655,
+          "cello_bow_stick": 12
+        }
+      },
+      {
+        "id": "theorbo",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "theorbo_config": "theorbo_14_course",
+          "theorbo_context": "theorbo_continuo",
+          "theorbo_ribs": "theorbo_yew_ribs",
+          "theorbo_soundboard": "theorbo_alpine_spruce",
+          "theorbo_strings": "theorbo_pistoy_bass_gut"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.5500000000000003,
+          "theorbo_config": 2.47,
+          "theorbo_context": 2.47,
+          "theorbo_ribs": 2.8600000000000003,
+          "theorbo_soundboard": 0.39,
+          "theorbo_strings": 5.655000000000001
+        }
+      },
+      {
+        "id": "viola_da_gamba",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "gamba_size": "gamba_bass",
+          "viola_da_gamba_context": "viola_da_gamba_basse",
+          "gamba_strings": "gamba_pistoy_silver_wound",
+          "gamba_frets": "gamba_gut_tied_frets",
+          "gamba_bow_stick": "gamba_snakewood_underhand",
+          "gamba_lineage": "gamba_marais_french_baroque"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "gamba_size": 2.0365,
+          "viola_da_gamba_context": 8.839999999999998,
+          "gamba_strings": 4.094999999999999,
+          "gamba_frets": 0.7149999999999999,
+          "gamba_bow_stick": 13.7385,
+          "gamba_lineage": 2.8600000000000003
+        }
+      },
+      {
+        "id": "oboe",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "oboe_reed": "oboe_european_scrape",
+          "oboe_class": "oboe_modern",
+          "oboe_body_wood": "oboe_boxwood_baroque",
+          "oboe_maker_school": "oboe_loree_paris"
+        },
+        "scores": {
+          "wind_articulation": 3.3865,
+          "oboe_reed": 0.39,
+          "oboe_class": 0.2265,
+          "oboe_body_wood": 1.5600000000000003,
+          "oboe_maker_school": 1.8512142857142855
+        }
+      },
+      {
+        "id": "lute_renaissance",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "lute_courses": "lute_10_courses",
+          "lute_renaissance_context": "lute_renaissance_song",
+          "lute_renaissance_ribs": "lute_yew_ribs",
+          "lute_renaissance_soundboard": "lute_alpine_spruce",
+          "lute_renaissance_strings": "lute_pistoy_bass_gut"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.5500000000000003,
+          "lute_courses": 2.0532142857142857,
+          "lute_renaissance_context": 9.099999999999998,
+          "lute_renaissance_ribs": 0.39,
+          "lute_renaissance_soundboard": 0.39,
+          "lute_renaissance_strings": 3.185
+        }
+      },
+      {
+        "id": "shawm",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "shawm_pitch": "shawm_treble",
+          "shawm_context": "shawm_renaissance_consort",
+          "shawm_body_wood": "shawm_boxwood_canonical",
+          "shawm_reed": "shawm_arundo_pirouette"
+        },
+        "scores": {
+          "wind_articulation": 0.15000000000000002,
+          "shawm_pitch": 0.483,
+          "shawm_context": 2.47,
+          "shawm_body_wood": 2.47,
+          "shawm_reed": 0.39
+        }
+      },
+      {
+        "id": "bassoon",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "bassoon_school": "bassoon_heckel",
+          "bassoon_body_wood": "bassoon_maple_canonical",
+          "bassoon_reed": "bassoon_glotin_cane",
+          "bassoon_context": "bassoon_orch"
+        },
+        "scores": {
+          "wind_articulation": 3.3865,
+          "bassoon_school": 0.9099999999999999,
+          "bassoon_body_wood": 0.6824999999999999,
+          "bassoon_reed": 0.39,
+          "bassoon_context": 2.1646428571428573
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "well_temperament_late_baroque_italian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

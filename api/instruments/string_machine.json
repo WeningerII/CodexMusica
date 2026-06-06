@@ -1,0 +1,332 @@
+{
+  "id": "string_machine",
+  "name": "Analog string machine",
+  "family": "electronic",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "short": "string machine",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_pad_drone",
+          "default": true,
+          "name": "Pad / drone",
+          "applies_to": [
+            "analog_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "string_machine",
+            "granular_synth",
+            "ondes_martenot",
+            "modular_synth",
+            "eurorack_modular"
+          ],
+          "descriptors": [
+            "sustained",
+            "pad"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-and-pad",
+            "drone-like",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "shoegaze"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sm_voice_count",
+      "surface": false,
+      "name": "Voice count",
+      "variants": [
+        {
+          "id": "sm_full_poly",
+          "default": true,
+          "name": "Full polyphonic (top-octave divider)",
+          "descriptors": [
+            "paraphonic",
+            "swimming",
+            "vintage-electronic"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sm_chorus",
+      "name": "Built-in chorus / ensemble",
+      "variants": [
+        {
+          "id": "sm_chorus_off",
+          "name": "Off",
+          "descriptors": [
+            "flat",
+            "direct",
+            "hollow"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "sm_chorus_subtle",
+          "default": true,
+          "name": "Subtle",
+          "descriptors": [
+            "sweetened",
+            "warmed",
+            "classic"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "sm_chorus_lush",
+          "name": "Lush / full ensemble",
+          "descriptors": [
+            "swirling",
+            "wide",
+            "string-machine"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sm_voicing",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "sm_violins",
+          "default": true,
+          "name": "Violins",
+          "descriptors": [
+            "high",
+            "overtone-rich-sustained",
+            "soaring"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "sm_cellos",
+          "name": "Cellos",
+          "descriptors": [
+            "low",
+            "singing",
+            "foundational"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "sm_brass",
+          "name": "Brass",
+          "descriptors": [
+            "noble",
+            "wide",
+            "horn-like",
+            "brass"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "sm_choir",
+          "name": "Choir",
+          "descriptors": [
+            "wordless",
+            "swelling",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sm_voice_count",
+      "surface": false,
+      "name": "Voice count",
+      "variants": [
+        {
+          "id": "sm_full_poly",
+          "default": true,
+          "name": "Full polyphonic (top-octave divider)",
+          "descriptors": [
+            "paraphonic",
+            "swimming",
+            "vintage-electronic"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sm_chorus",
+      "name": "Built-in chorus / ensemble",
+      "variants": [
+        {
+          "id": "sm_chorus_off",
+          "name": "Off",
+          "descriptors": [
+            "flat",
+            "direct",
+            "hollow"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "sm_chorus_subtle",
+          "default": true,
+          "name": "Subtle",
+          "descriptors": [
+            "sweetened",
+            "warmed",
+            "classic"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "sm_chorus_lush",
+          "name": "Lush / full ensemble",
+          "descriptors": [
+            "swirling",
+            "wide",
+            "string-machine"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sm_voicing",
+      "surface": false,
+      "name": "Voicing",
+      "variants": [
+        {
+          "id": "sm_violins",
+          "default": true,
+          "name": "Violins",
+          "descriptors": [
+            "high",
+            "overtone-rich-sustained",
+            "soaring"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "sm_cellos",
+          "name": "Cellos",
+          "descriptors": [
+            "low",
+            "singing",
+            "foundational"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "sm_brass",
+          "name": "Brass",
+          "descriptors": [
+            "noble",
+            "wide",
+            "horn-like",
+            "brass"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "sm_choir",
+          "name": "Choir",
+          "descriptors": [
+            "wordless",
+            "swelling",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "electric",
+            "synthesized",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

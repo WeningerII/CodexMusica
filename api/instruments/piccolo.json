@@ -1,0 +1,291 @@
+{
+  "id": "piccolo",
+  "name": "Piccolo",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 2,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "piccolo",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "piccolo_material",
+      "surface": false,
+      "name": "Material",
+      "variants": [
+        {
+          "id": "piccolo_wood",
+          "default": true,
+          "name": "Grenadilla wood",
+          "descriptors": [
+            "low-overtone-rich",
+            "orchestral",
+            "traditional",
+            "grenadilla"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "piccolo_metal",
+          "name": "Silver / nickel-silver",
+          "descriptors": [
+            "piercing",
+            "outdoor",
+            "marching",
+            "nickel-silver",
+            "nickel",
+            "silver"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "piccolo_orch",
+          "default": true,
+          "name": "Orchestral",
+          "descriptors": [
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "piccolo_marching",
+          "name": "Marching band",
+          "descriptors": [
+            "outdoor",
+            "piercing",
+            "tradition-deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "piccolo_solo",
+          "name": "Chamber / solo",
+          "descriptors": [
+            "featured",
+            "virtuosic",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "piccolo_material",
+      "surface": false,
+      "name": "Material",
+      "variants": [
+        {
+          "id": "piccolo_wood",
+          "default": true,
+          "name": "Grenadilla wood",
+          "descriptors": [
+            "low-overtone-rich",
+            "orchestral",
+            "traditional",
+            "grenadilla"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "piccolo_metal",
+          "name": "Silver / nickel-silver",
+          "descriptors": [
+            "piercing",
+            "outdoor",
+            "marching",
+            "nickel-silver",
+            "nickel",
+            "silver"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "piccolo_orch",
+          "default": true,
+          "name": "Orchestral",
+          "descriptors": [
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "piccolo_marching",
+          "name": "Marching band",
+          "descriptors": [
+            "outdoor",
+            "piercing",
+            "tradition-deep"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "piccolo_solo",
+          "name": "Chamber / solo",
+          "descriptors": [
+            "featured",
+            "virtuosic",
+            "composed-tradition"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    }
+  ]
+}

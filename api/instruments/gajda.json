@@ -1,0 +1,120 @@
+{
+  "id": "gajda",
+  "name": "Gajda (Balkan bagpipe)",
+  "family": "wind",
+  "class": "reed-bagpipe",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "gajda",
+  "parts": [
+    {
+      "id": "gajda_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "gajda_double_reed_chanter_drone_pipe_canonical",
+          "default": true,
+          "name": "Bagpipe with double-reed chanter and drone-pipe (canonical Balkan herder)",
+          "descriptors": [
+            "bagpipe-double-reed-chanter-drone-pipe-canonical-balkan"
+          ],
+          "match_tokens": [
+            "wind",
+            "macedonian-tradition",
+            "bulgarian-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gajda_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "gajda_macedonian_glasoechko_canonical",
+          "default": true,
+          "name": "Macedonian Glasoechko and pastoral-dance accompaniment (canonical)",
+          "descriptors": [
+            "macedonian-glasoechko-pastoral-dance-canonical"
+          ],
+          "match_tokens": [
+            "wind",
+            "macedonian-tradition"
+          ]
+        },
+        {
+          "id": "gajda_bulgarian_alt",
+          "name": "Bulgarian pastoral-dance variant",
+          "descriptors": [
+            "bulgarian-pastoral-dance-variant"
+          ],
+          "match_tokens": [
+            "wind",
+            "bulgarian-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gajda_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "gajda_double_reed_chanter_drone_pipe_canonical",
+          "default": true,
+          "name": "Bagpipe with double-reed chanter and drone-pipe (canonical Balkan herder)",
+          "descriptors": [
+            "bagpipe-double-reed-chanter-drone-pipe-canonical-balkan"
+          ],
+          "match_tokens": [
+            "wind",
+            "macedonian-tradition",
+            "bulgarian-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gajda_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "gajda_macedonian_glasoechko_canonical",
+          "default": true,
+          "name": "Macedonian Glasoechko and pastoral-dance accompaniment (canonical)",
+          "descriptors": [
+            "macedonian-glasoechko-pastoral-dance-canonical"
+          ],
+          "match_tokens": [
+            "wind",
+            "macedonian-tradition"
+          ]
+        },
+        {
+          "id": "gajda_bulgarian_alt",
+          "name": "Bulgarian pastoral-dance variant",
+          "descriptors": [
+            "bulgarian-pastoral-dance-variant"
+          ],
+          "match_tokens": [
+            "wind",
+            "bulgarian-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

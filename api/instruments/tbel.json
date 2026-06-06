@@ -1,0 +1,108 @@
+{
+  "id": "tbel",
+  "name": "Tbel (Gnawa processional double-headed drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tbel",
+  "parts": [
+    {
+      "id": "tbel_skin",
+      "name": "Heads",
+      "variants": [
+        {
+          "id": "tbel_goatskin",
+          "default": true,
+          "name": "Goatskin (traditional)",
+          "descriptors": [
+            "traditional",
+            "authentic",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "processional",
+            "aada"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tbel_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tbel_curved_sticks",
+          "default": true,
+          "name": "Curved sticks (aâda procession)",
+          "descriptors": [
+            "driving",
+            "outdoor",
+            "processional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tbel_skin",
+      "name": "Heads",
+      "variants": [
+        {
+          "id": "tbel_goatskin",
+          "default": true,
+          "name": "Goatskin (traditional)",
+          "descriptors": [
+            "traditional",
+            "authentic",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "processional",
+            "aada"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tbel_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tbel_curved_sticks",
+          "default": true,
+          "name": "Curved sticks (aâda procession)",
+          "descriptors": [
+            "driving",
+            "outdoor",
+            "processional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    }
+  ]
+}

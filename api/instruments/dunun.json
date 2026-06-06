@@ -1,0 +1,374 @@
+{
+  "id": "dunun",
+  "name": "Dunun family (West African bass drums)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "dunun",
+  "parts": [
+    {
+      "id": "dunun_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "kenkeni",
+          "name": "Kenkeni (smallest, leading)",
+          "descriptors": [
+            "high-pitched",
+            "melodic",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sangban",
+          "default": true,
+          "name": "Sangban (mid)",
+          "descriptors": [
+            "foundational",
+            "melodic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dununba",
+          "name": "Dununba (largest)",
+          "descriptors": [
+            "deep",
+            "foundational",
+            "grounding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dunun_bell",
+      "name": "Bell configuration",
+      "variants": [
+        {
+          "id": "dunun_no_bell",
+          "name": "Without bell (older)",
+          "descriptors": [
+            "traditional",
+            "pure-drum",
+            "archaic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dunun_single_bell",
+          "name": "With single bell",
+          "descriptors": [
+            "paired-rhythm",
+            "bell-on-shell"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "mande"
+          ]
+        },
+        {
+          "id": "dunun_double_bell",
+          "default": true,
+          "name": "With double bell (modern)",
+          "descriptors": [
+            "modern-revival",
+            "extended",
+            "concert"
+          ],
+          "match_tokens": [
+            "doubled",
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dunun_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "dunun_lenke_canonical",
+          "default": true,
+          "name": "Lenké (canonical Mande Guinea/Mali)",
+          "descriptors": [
+            "lenke-canonical-mande-guinea-mali"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dunun_mahogany",
+          "name": "Mahogany (alternative)",
+          "descriptors": [
+            "mahogany-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dunun_iroko",
+          "name": "Iroko (West African premium)",
+          "descriptors": [
+            "iroko-west-african-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dunun_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "dunun_cowhide_canonical",
+          "default": true,
+          "name": "Cowhide both heads with rope lacing (canonical Mande)",
+          "descriptors": [
+            "cowhide-rope-lacing-canonical-mande"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dunun_goat_skin_alt",
+          "name": "Goat-skin (lighter alternative)",
+          "descriptors": [
+            "goat-skin-lighter-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dunun_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "kenkeni",
+          "name": "Kenkeni (smallest, leading)",
+          "descriptors": [
+            "high-pitched",
+            "melodic",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sangban",
+          "default": true,
+          "name": "Sangban (mid)",
+          "descriptors": [
+            "foundational",
+            "melodic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dununba",
+          "name": "Dununba (largest)",
+          "descriptors": [
+            "deep",
+            "foundational",
+            "grounding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dunun_bell",
+      "name": "Bell configuration",
+      "variants": [
+        {
+          "id": "dunun_no_bell",
+          "name": "Without bell (older)",
+          "descriptors": [
+            "traditional",
+            "pure-drum",
+            "archaic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dunun_single_bell",
+          "name": "With single bell",
+          "descriptors": [
+            "paired-rhythm",
+            "bell-on-shell"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "mande"
+          ]
+        },
+        {
+          "id": "dunun_double_bell",
+          "default": true,
+          "name": "With double bell (modern)",
+          "descriptors": [
+            "modern-revival",
+            "extended",
+            "concert"
+          ],
+          "match_tokens": [
+            "doubled",
+            "percussive-attack",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dunun_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "dunun_lenke_canonical",
+          "default": true,
+          "name": "Lenké (canonical Mande Guinea/Mali)",
+          "descriptors": [
+            "lenke-canonical-mande-guinea-mali"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dunun_mahogany",
+          "name": "Mahogany (alternative)",
+          "descriptors": [
+            "mahogany-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dunun_iroko",
+          "name": "Iroko (West African premium)",
+          "descriptors": [
+            "iroko-west-african-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dunun_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "dunun_cowhide_canonical",
+          "default": true,
+          "name": "Cowhide both heads with rope lacing (canonical Mande)",
+          "descriptors": [
+            "cowhide-rope-lacing-canonical-mande"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "dunun_goat_skin_alt",
+          "name": "Goat-skin (lighter alternative)",
+          "descriptors": [
+            "goat-skin-lighter-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

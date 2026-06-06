@@ -1,0 +1,259 @@
+{
+  "id": "xylophone",
+  "name": "Xylophone (orchestral)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "xylophone",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_mallets_orchestral",
+          "default": true,
+          "name": "Mallets orchestral",
+          "applies_to": [
+            "marimba_orchestral",
+            "vibraphone",
+            "xylophone",
+            "glockenspiel",
+            "timpani"
+          ],
+          "descriptors": [
+            "mallets"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "xylophone_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "xylophone_orch_35",
+          "default": true,
+          "name": "3.5-octave (orchestral)",
+          "descriptors": [
+            "standard",
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "xylophone_orch_4",
+          "name": "4-octave (extended)",
+          "descriptors": [
+            "expanded-range",
+            "modern",
+            "professional"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack",
+            "mallets"
+          ]
+        },
+        {
+          "id": "xylophone_grand",
+          "name": "Concert grand",
+          "descriptors": [
+            "full-range",
+            "showcase",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xylophone_bar",
+      "name": "Bar material",
+      "variants": [
+        {
+          "id": "xylophone_rosewood",
+          "default": true,
+          "name": "Rosewood (canonical)",
+          "descriptors": [
+            "traditional",
+            "standard",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "xylophone_padauk",
+          "name": "Padauk",
+          "descriptors": [
+            "sharp",
+            "treble-extended",
+            "alternative",
+            "padauk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "xylophone_synth",
+          "name": "Synthetic Kelon",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "projecting",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "percussive-attack",
+            "mallets"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "xylophone_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "xylophone_orch_35",
+          "default": true,
+          "name": "3.5-octave (orchestral)",
+          "descriptors": [
+            "standard",
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "xylophone_orch_4",
+          "name": "4-octave (extended)",
+          "descriptors": [
+            "expanded-range",
+            "modern",
+            "professional"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack",
+            "mallets"
+          ]
+        },
+        {
+          "id": "xylophone_grand",
+          "name": "Concert grand",
+          "descriptors": [
+            "full-range",
+            "showcase",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xylophone_bar",
+      "name": "Bar material",
+      "variants": [
+        {
+          "id": "xylophone_rosewood",
+          "default": true,
+          "name": "Rosewood (canonical)",
+          "descriptors": [
+            "traditional",
+            "standard",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "xylophone_padauk",
+          "name": "Padauk",
+          "descriptors": [
+            "sharp",
+            "treble-extended",
+            "alternative",
+            "padauk"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "xylophone_synth",
+          "name": "Synthetic Kelon",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "projecting",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthesized",
+            "percussive-attack",
+            "mallets"
+          ]
+        }
+      ]
+    }
+  ]
+}

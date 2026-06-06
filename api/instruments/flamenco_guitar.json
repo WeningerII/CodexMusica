@@ -1,0 +1,182 @@
+{
+  "id": "flamenco_guitar",
+  "name": "Flamenco guitar (cypress-body Spanish)",
+  "family": "acoustic_strings",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "flamenco guitar",
+  "parts": [
+    {
+      "id": "flamenco_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "flamenco_blanca_cypress",
+          "default": true,
+          "name": "Blanca (cypress back/sides — brighter, percussive)",
+          "descriptors": [
+            "cypress-body",
+            "percussive-attack-strong",
+            "low-sustain-fast-decay",
+            "flamenco-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "flamenco-tradition",
+            "spanish-andalusian"
+          ]
+        },
+        {
+          "id": "flamenco_negra_rosewood",
+          "name": "Negra (rosewood back/sides — warmer, more sustain, often used for cante)",
+          "descriptors": [
+            "rosewood-body",
+            "warmer-sustain",
+            "flamenco-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "flamenco-tradition",
+            "spanish-andalusian"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flamenco_features",
+      "name": "Distinguishing features",
+      "variants": [
+        {
+          "id": "flamenco_low_action_golpe_plate",
+          "default": true,
+          "name": "Low string action + golpe plate (tap-plate on top)",
+          "descriptors": [
+            "low-action",
+            "golpe-tap-plate",
+            "percussion-amenable-construction"
+          ],
+          "match_tokens": [
+            "plucked",
+            "flamenco-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flamenco_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "flamenco_rasgueado_picado_alzapua",
+          "default": true,
+          "name": "Rasgueado strum + picado scale + alzapúa thumb",
+          "descriptors": [
+            "rasgueado-strum",
+            "picado-scale-runs",
+            "alzapua-thumb",
+            "flamenco-vocabulary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "flamenco-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "flamenco_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "flamenco_blanca_cypress",
+          "default": true,
+          "name": "Blanca (cypress back/sides — brighter, percussive)",
+          "descriptors": [
+            "cypress-body",
+            "percussive-attack-strong",
+            "low-sustain-fast-decay",
+            "flamenco-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "flamenco-tradition",
+            "spanish-andalusian"
+          ]
+        },
+        {
+          "id": "flamenco_negra_rosewood",
+          "name": "Negra (rosewood back/sides — warmer, more sustain, often used for cante)",
+          "descriptors": [
+            "rosewood-body",
+            "warmer-sustain",
+            "flamenco-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "flamenco-tradition",
+            "spanish-andalusian"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flamenco_features",
+      "name": "Distinguishing features",
+      "variants": [
+        {
+          "id": "flamenco_low_action_golpe_plate",
+          "default": true,
+          "name": "Low string action + golpe plate (tap-plate on top)",
+          "descriptors": [
+            "low-action",
+            "golpe-tap-plate",
+            "percussion-amenable-construction"
+          ],
+          "match_tokens": [
+            "plucked",
+            "flamenco-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flamenco_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "flamenco_rasgueado_picado_alzapua",
+          "default": true,
+          "name": "Rasgueado strum + picado scale + alzapúa thumb",
+          "descriptors": [
+            "rasgueado-strum",
+            "picado-scale-runs",
+            "alzapua-thumb",
+            "flamenco-vocabulary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "flamenco-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

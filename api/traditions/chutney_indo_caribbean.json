@@ -1,0 +1,109 @@
+{
+  "id": "chutney_indo_caribbean",
+  "name": "Chutney (Indo-Caribbean)",
+  "family": "global",
+  "lineage": "Indo-Caribbean Trinidadian-and-Guyanese popular-music developed in late-twentieth-century Trinidad from synthesis of Bhojpuri-Hindi folk-song of the post-1845 Indian-indentured-laborer community with Trinidadian calypso-and-soca. Voice (often female), dholak, dhantal, tassa, electric-instruments. Sundar Popo's 1968 \"Nana and Nani\" is the canonical foundational chutney recording.",
+  "recipe": "classic mid-1840s chutney, functional Song, south Asian pop branch, tropical song functional song garifuna punta-rock champeta. thick, full chest belt, punctuated, equal tempered. goat skin syahi rope laced steel ring dholak, indian rosewood rosewood clay tabla, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival hindu wedding tassa indo Caribbean tassa drum. port of spain community studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 554,
+  "score": 147.395,
+  "config": {
+    "traditions": [
+      "chutney_indo_caribbean",
+      "garifuna_punta_rock",
+      "champeta_cartagenera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 6.985000000000001,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 0.495,
+          "voice_articulation": 0.675,
+          "voice_microtone": 3.500000000000001,
+          "voice_tradition": 6.5,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 10.464999999999998,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 2.585,
+          "voice_pitch_organization": 2.245,
+          "voice_processing_chain": 2.07,
+          "voice_multitrack_stack": 1.935
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_wedding",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 1.69,
+          "dholak_construction": 3.185,
+          "dholak_head": 1.69,
+          "dholak_tensioning": 1.69
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "clay_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 1.4,
+          "tabla_bayan": 1.3,
+          "tabla_syahi": 1.69
+        }
+      },
+      {
+        "id": "tassa_drum",
+        "slots": {
+          "tassa_skin": "tassa_goatskin",
+          "tassa_shell": "tassa_metal",
+          "tassa_lineage": "tassa_hindu_wedding"
+        },
+        "scores": {
+          "tassa_skin": 13.129999999999997,
+          "tassa_shell": 2.9899999999999998,
+          "tassa_lineage": 7.534999999999999
+        }
+      }
+    ],
+    "room": "port_of_spain_community_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "shruti_22",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

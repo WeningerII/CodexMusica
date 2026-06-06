@@ -1,0 +1,272 @@
+{
+  "id": "claves",
+  "name": "Claves (Cuban hardwood sticks)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "claves",
+  "parts": [
+    {
+      "id": "claves_pattern",
+      "surface": false,
+      "name": "Pattern",
+      "variants": [
+        {
+          "id": "claves_son_3_2",
+          "default": true,
+          "name": "Son clave 3-2",
+          "descriptors": [
+            "foundational",
+            "displaced-three-side"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        },
+        {
+          "id": "claves_son_2_3",
+          "name": "Son clave 2-3",
+          "descriptors": [
+            "turnaround",
+            "jazz-influenced",
+            "reverse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        },
+        {
+          "id": "claves_rumba",
+          "name": "Rumba clave 3-2",
+          "descriptors": [
+            "Afro-Cuban",
+            "late-three-side"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        },
+        {
+          "id": "claves_bembe",
+          "name": "6/8 bembé clave",
+          "descriptors": [
+            "compound-meter",
+            "ceremonial",
+            "African-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "claves_wood",
+      "surface": false,
+      "name": "Wood type",
+      "variants": [
+        {
+          "id": "claves_rosewood",
+          "default": true,
+          "name": "Rosewood",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "dense",
+            "standard",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "claves_ebony",
+          "name": "Ebony",
+          "descriptors": [
+            "sharp",
+            "dense",
+            "premium",
+            "ebony"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        },
+        {
+          "id": "claves_cuban_hardwood",
+          "name": "Cuban hardwood",
+          "descriptors": [
+            "regional",
+            "historical",
+            "authentic",
+            "hardwood",
+            "wood"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        },
+        {
+          "id": "claves_hollowed",
+          "name": "Modern hollowed (resonant)",
+          "descriptors": [
+            "projecting",
+            "amplified-tone",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "claves_pattern",
+      "surface": false,
+      "name": "Pattern",
+      "variants": [
+        {
+          "id": "claves_son_3_2",
+          "default": true,
+          "name": "Son clave 3-2",
+          "descriptors": [
+            "foundational",
+            "displaced-three-side"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        },
+        {
+          "id": "claves_son_2_3",
+          "name": "Son clave 2-3",
+          "descriptors": [
+            "turnaround",
+            "jazz-influenced",
+            "reverse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        },
+        {
+          "id": "claves_rumba",
+          "name": "Rumba clave 3-2",
+          "descriptors": [
+            "Afro-Cuban",
+            "late-three-side"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        },
+        {
+          "id": "claves_bembe",
+          "name": "6/8 bembé clave",
+          "descriptors": [
+            "compound-meter",
+            "ceremonial",
+            "African-traditional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "claves_wood",
+      "surface": false,
+      "name": "Wood type",
+      "variants": [
+        {
+          "id": "claves_rosewood",
+          "default": true,
+          "name": "Rosewood",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "dense",
+            "standard",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "claves_ebony",
+          "name": "Ebony",
+          "descriptors": [
+            "sharp",
+            "dense",
+            "premium",
+            "ebony"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        },
+        {
+          "id": "claves_cuban_hardwood",
+          "name": "Cuban hardwood",
+          "descriptors": [
+            "regional",
+            "historical",
+            "authentic",
+            "hardwood",
+            "wood"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        },
+        {
+          "id": "claves_hollowed",
+          "name": "Modern hollowed (resonant)",
+          "descriptors": [
+            "projecting",
+            "amplified-tone",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ]
+}

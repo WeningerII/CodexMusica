@@ -1,0 +1,84 @@
+{
+  "id": "kenong",
+  "name": "Kenong (gamelan large-pot gong)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kenong",
+  "parts": [
+    {
+      "id": "kenong_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "kenong_slendro",
+          "default": true,
+          "name": "Slendro set",
+          "descriptors": [
+            "slendro-tuning",
+            "colotomic-marker"
+          ],
+          "match_tokens": [
+            "gong",
+            "slendro"
+          ]
+        },
+        {
+          "id": "kenong_pelog",
+          "name": "Pelog set",
+          "descriptors": [
+            "pelog-tuning",
+            "colotomic-marker"
+          ],
+          "match_tokens": [
+            "gong",
+            "pelog"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kenong_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "kenong_slendro",
+          "default": true,
+          "name": "Slendro set",
+          "descriptors": [
+            "slendro-tuning",
+            "colotomic-marker"
+          ],
+          "match_tokens": [
+            "gong",
+            "slendro"
+          ]
+        },
+        {
+          "id": "kenong_pelog",
+          "name": "Pelog set",
+          "descriptors": [
+            "pelog-tuning",
+            "colotomic-marker"
+          ],
+          "match_tokens": [
+            "gong",
+            "pelog"
+          ]
+        }
+      ]
+    }
+  ]
+}

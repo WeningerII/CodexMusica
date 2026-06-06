@@ -1,0 +1,378 @@
+{
+  "id": "drum_machine_analog",
+  "name": "Analog drum machine (synthesized voices)",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "analog drum machine",
+  "parts": [
+    {
+      "id": "kick_voice",
+      "name": "Kick voice generation",
+      "variants": [
+        {
+          "id": "bridged_t_kick",
+          "surface": false,
+          "name": "Bridged-T resonator kick",
+          "descriptors": [
+            "deep",
+            "decay-tunable",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "sine_burst_kick",
+          "default": true,
+          "name": "Sine burst with envelope",
+          "descriptors": [
+            "analog-drift-character",
+            "subby",
+            "classic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "fm_pair_kick",
+          "name": "FM pair kick",
+          "descriptors": [
+            "clicky",
+            "modern",
+            "transient-sharp"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snare_voice",
+      "surface": false,
+      "name": "Snare voice generation",
+      "variants": [
+        {
+          "id": "tone_noise_snare",
+          "name": "Tone + filtered noise",
+          "descriptors": [
+            "snappy",
+            "synthesized",
+            "classic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "noise_only_snare",
+          "name": "Filtered noise only",
+          "descriptors": [
+            "airy",
+            "hissy",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "two_oscillator_snare",
+          "default": true,
+          "surface": false,
+          "name": "Two-oscillator snare",
+          "descriptors": [
+            "clappy",
+            "unusual",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hat_voice",
+      "surface": false,
+      "name": "Hi-hat voice generation",
+      "variants": [
+        {
+          "id": "square_summed_hat",
+          "default": true,
+          "name": "Summed square waves through HP",
+          "descriptors": [
+            "metallic",
+            "classic",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "noise_hat",
+          "name": "Filtered white noise",
+          "descriptors": [
+            "hissy",
+            "sterile",
+            "simple"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shuffle_quantize",
+      "name": "Quantize / shuffle",
+      "variants": [
+        {
+          "id": "straight_quantize",
+          "name": "Straight 16ths",
+          "descriptors": [
+            "rigid",
+            "mechanical"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "club"
+          ]
+        },
+        {
+          "id": "shuffle_low",
+          "default": true,
+          "name": "Low shuffle (~54%)",
+          "descriptors": [
+            "subtle-swing",
+            "modern",
+            "flexible"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "shuffle_high",
+          "name": "Heavy shuffle (~62%)",
+          "descriptors": [
+            "swung",
+            "jazz-leaning",
+            "human"
+          ],
+          "match_tokens": [
+            "subtle-swing",
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kick_voice",
+      "name": "Kick voice generation",
+      "variants": [
+        {
+          "id": "bridged_t_kick",
+          "surface": false,
+          "name": "Bridged-T resonator kick",
+          "descriptors": [
+            "deep",
+            "decay-tunable",
+            "body-rich"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "sine_burst_kick",
+          "default": true,
+          "name": "Sine burst with envelope",
+          "descriptors": [
+            "analog-drift-character",
+            "subby",
+            "classic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "fm_pair_kick",
+          "name": "FM pair kick",
+          "descriptors": [
+            "clicky",
+            "modern",
+            "transient-sharp"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snare_voice",
+      "surface": false,
+      "name": "Snare voice generation",
+      "variants": [
+        {
+          "id": "tone_noise_snare",
+          "name": "Tone + filtered noise",
+          "descriptors": [
+            "snappy",
+            "synthesized",
+            "classic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "noise_only_snare",
+          "name": "Filtered noise only",
+          "descriptors": [
+            "airy",
+            "hissy",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "two_oscillator_snare",
+          "default": true,
+          "surface": false,
+          "name": "Two-oscillator snare",
+          "descriptors": [
+            "clappy",
+            "unusual",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hat_voice",
+      "surface": false,
+      "name": "Hi-hat voice generation",
+      "variants": [
+        {
+          "id": "square_summed_hat",
+          "default": true,
+          "name": "Summed square waves through HP",
+          "descriptors": [
+            "metallic",
+            "classic",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "noise_hat",
+          "name": "Filtered white noise",
+          "descriptors": [
+            "hissy",
+            "sterile",
+            "simple"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shuffle_quantize",
+      "name": "Quantize / shuffle",
+      "variants": [
+        {
+          "id": "straight_quantize",
+          "name": "Straight 16ths",
+          "descriptors": [
+            "rigid",
+            "mechanical"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "club"
+          ]
+        },
+        {
+          "id": "shuffle_low",
+          "default": true,
+          "name": "Low shuffle (~54%)",
+          "descriptors": [
+            "subtle-swing",
+            "modern",
+            "flexible"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "shuffle_high",
+          "name": "Heavy shuffle (~62%)",
+          "descriptors": [
+            "swung",
+            "jazz-leaning",
+            "human"
+          ],
+          "match_tokens": [
+            "subtle-swing",
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    }
+  ]
+}

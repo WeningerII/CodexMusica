@@ -1,0 +1,143 @@
+{
+  "id": "sacred_steel",
+  "name": "Sacred steel",
+  "family": "blues_gospel",
+  "lineage": "Black Pentecostal pedal-and-lap-steel-guitar gospel tradition developed in the House of God and Church of the Living God Pentecostal denominations from the 1930s onward — the pedal steel guitar functions as the foreground praise-and-worship instrument substituting for the tonewheel organ standard in most Black Pentecostal churches; codified through Aubrey Ghent, Sonny Treadway, Calvin Cooke, the modern Robert Randolph and the Family Band post-2000s extension",
+  "recipe": "classic North American mid-1930s sacred steel, ritual Devotional, sacred steel branch, christian gospel black gospel gospel quartet. thick, declaimed, melodic, ornamental. steel zum steel modern boutique single neck e9 only pedal steel, stainless steel roundwound sub heavy electric bass, steel pre muffled edge muffled fx9 manganese bronze drum kit. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 518,
+  "score": 440.297,
+  "config": {
+    "traditions": [
+      "sacred_steel",
+      "black_gospel_choir",
+      "gospel_quartet_male"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 15.906249999999996,
+          "voice_quality": 21.572499999999994,
+          "voice_vibrato": 1.0574999999999999,
+          "voice_articulation": 13.5,
+          "voice_microtone": 1.17,
+          "voice_tradition": 23.83625,
+          "voice_mechanism_compound": 1.0075,
+          "voice_estill_quality": 13.312499999999996,
+          "voice_speech_song": 10.204999999999997,
+          "voice_ensemble_config": 13.772499999999997,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 0.3,
+          "voice_processing_chain": 2.3737500000000002,
+          "voice_multitrack_stack": 2.3102500000000004
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "c6",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "zum_steel_modern",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 13.649999999999997,
+          "amp_make": 2.1449999999999996,
+          "pickup_steel": 0.32625,
+          "string_setup": 0.3525,
+          "bar_material": 7.244999999999998,
+          "pedal_steel_brand": 7.048749999999999,
+          "pedal_steel_neck_config": 1.7575,
+          "pedal_steel_strings": 1.76125
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "electric_technique": -0.046250000000000006,
+          "amp_make": 1.56,
+          "body_wood": 0.3525,
+          "pickup_config": 0,
+          "string_type": 7.093749999999998,
+          "scale_length_b": 1.00375,
+          "fretted_or_not": 1.00375,
+          "bass_technique": 2.5
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "meinl_fx9",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 9.749999999999998,
+          "shell_wood": 7.244999999999998,
+          "shell_thickness": 1.00375,
+          "bearing_edges": 0.32625,
+          "drumhead": 2.6037500000000002,
+          "snare_wires": 0.32625,
+          "cymbal_alloy": 1.3624999999999996,
+          "cymbal_hammering": 2.4524999999999997,
+          "cymbal_lathing": 3.45625,
+          "cymbal_finish": 0.045,
+          "drum_technique": 9.749999999999998
+        }
+      }
+    ],
+    "room": "southern_black_church_gospel_choir",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "id": "drumline_hbcu",
+  "name": "HBCU show-style drumline",
+  "family": "ensemble",
+  "class": "drum_kit",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 1,
+    "harmonicity": -2,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "HBCU drumline",
+  "parts": [
+    {
+      "id": "section",
+      "surface": false,
+      "name": "Section",
+      "variants": [
+        {
+          "id": "snare_line",
+          "default": true,
+          "name": "Snare line",
+          "descriptors": [
+            "lead",
+            "virtuoso",
+            "swung"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "tenor_line",
+          "name": "Tenor / quad line",
+          "descriptors": [
+            "melodic-toms",
+            "arc-pattern",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "bass_line",
+          "name": "Bass line (split-bass)",
+          "descriptors": [
+            "split-tonal",
+            "foundational",
+            "choreographed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "cymbal_line",
+          "name": "Cymbal line",
+          "descriptors": [
+            "accent",
+            "choreographed",
+            "flashy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_style",
+      "surface": false,
+      "name": "School style",
+      "variants": [
+        {
+          "id": "hbcu_show_band",
+          "name": "HBCU show-band style",
+          "descriptors": [
+            "athletic",
+            "funk-derived",
+            "swung"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "second_line_derived",
+          "default": true,
+          "name": "Second-line-derived",
+          "descriptors": [
+            "NOLA-derived",
+            "swung"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "funk"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "section",
+      "surface": false,
+      "name": "Section",
+      "variants": [
+        {
+          "id": "snare_line",
+          "default": true,
+          "name": "Snare line",
+          "descriptors": [
+            "lead",
+            "virtuoso",
+            "swung"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "tenor_line",
+          "name": "Tenor / quad line",
+          "descriptors": [
+            "melodic-toms",
+            "arc-pattern",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "bass_line",
+          "name": "Bass line (split-bass)",
+          "descriptors": [
+            "split-tonal",
+            "foundational",
+            "choreographed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "cymbal_line",
+          "name": "Cymbal line",
+          "descriptors": [
+            "accent",
+            "choreographed",
+            "flashy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school_style",
+      "surface": false,
+      "name": "School style",
+      "variants": [
+        {
+          "id": "hbcu_show_band",
+          "name": "HBCU show-band style",
+          "descriptors": [
+            "athletic",
+            "funk-derived",
+            "swung"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "second_line_derived",
+          "default": true,
+          "name": "Second-line-derived",
+          "descriptors": [
+            "NOLA-derived",
+            "swung"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "ensemble",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "funk"
+          ]
+        }
+      ]
+    }
+  ]
+}

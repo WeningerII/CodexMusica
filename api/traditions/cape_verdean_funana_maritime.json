@@ -1,0 +1,125 @@
+{
+  "id": "cape_verdean_funana_maritime",
+  "name": "Cape Verdean funaná (maritime-and-island work-song)",
+  "family": "global",
+  "lineage": "Cape Verdean Atlantic-island music tradition with maritime-and-emigration thematic integration; the broader Cape Verdean musical tradition (morna, coladeira, funaná, batuque) developed across 16th-onward Portuguese-colonial-era through post-1975 independent-Cape-Verdean continuous practice; the Cape Verdean maritime-emigration culture integrates extensive maritime-and-port-departure-lament repertoire",
+  "recipe": "classic mid-1970s cape verdean funaná, sea Shanty, atlantic branch, americas drinking song, iberian Latin protest song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, lament wail, chest resonance low mid, continuous-phonation. classical nylon-string guitar, jacaranda rosewood canonical Portuguese gut pre modern Portuguese cavaquinho, castagnari Italian premium folk music accordion. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 560,
+  "score": 186.9,
+  "config": {
+    "traditions": [
+      "cape_verdean_funana_maritime",
+      "morna",
+      "cape_verdean_batuko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 0.72,
+          "voice_quality": 3.635,
+          "voice_vibrato": 0.7350000000000001,
+          "voice_articulation": 1.69,
+          "voice_microtone": 0.045,
+          "voice_tradition": 4.225,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 3.575000000000001,
+          "voice_speech_song": 9.294999999999998,
+          "voice_ensemble_config": 6.499999999999999,
+          "voice_ornament_system": 1.7449999999999997,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 1.56,
+          "voice_multitrack_stack": 1.5299999999999998
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.9849999999999999,
+          "string_tuning": 0,
+          "top_wood_classical": 0.54,
+          "bracing_classical": 0.7350000000000001,
+          "string_classical": 0.39,
+          "attack_technique_cl": 0.75
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_portuguese",
+          "cavaquinho_context": "cavaquinho_choro",
+          "cavaquinho_body_wood": "cavaquinho_jacaranda",
+          "cavaquinho_strings": "cavaquinho_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "cavaquinho_origin": 1.005,
+          "cavaquinho_context": 6.239999999999998,
+          "cavaquinho_body_wood": 2.015,
+          "cavaquinho_strings": 2.015
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "italian_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 0.975,
+          "accordion_reed_material": 0.54,
+          "musette_offset": 0.285,
+          "reed_config": 0.43500000000000005,
+          "bellows": 0.195,
+          "voicing_chamber": 0.21,
+          "accordion_maker_school": 1.69
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

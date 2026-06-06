@@ -1,0 +1,300 @@
+{
+  "id": "haegeum",
+  "name": "Haegeum (Korean two-string fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "haegeum",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_microtonal_inflected",
+          "name": "Microtonal-inflected",
+          "applies_to": [
+            "kamancheh",
+            "rebab",
+            "sarangi",
+            "esraj",
+            "violin_carnatic",
+            "morin_khuur",
+            "erhu",
+            "jinghu",
+            "haegeum"
+          ],
+          "descriptors": [
+            "microtonal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "microtonal-bend",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "maqam",
+            "arabic",
+            "hindustani"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "haegeum_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "haegeum_court",
+          "default": true,
+          "name": "Court ensemble",
+          "descriptors": [
+            "refined",
+            "sustained",
+            "classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "haegeum_folk",
+          "name": "Folk and shamanic",
+          "descriptors": [
+            "ornamented",
+            "expressive",
+            "rural"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "haegeum_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "haegeum_silk",
+          "default": true,
+          "name": "Silk strings (canonical Korean court)",
+          "descriptors": [
+            "silk-canonical-korean-court"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "haegeum_steel",
+          "name": "Steel strings (modern)",
+          "descriptors": [
+            "concert-grade",
+            "projecting",
+            "twentieth-century",
+            "steel"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "haegeum_synthetic",
+          "name": "Synthetic / standardized",
+          "descriptors": [
+            "institutional",
+            "consistent",
+            "twenty-first-century",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "haegeum_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "haegeum_paulownia_body",
+          "default": true,
+          "name": "Paulownia (canonical Korean)",
+          "descriptors": [
+            "paulownia-canonical-korean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "haegeum_zelkova_body",
+          "name": "Zelkova (alternative regional)",
+          "descriptors": [
+            "zelkova"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "haegeum_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "haegeum_court",
+          "default": true,
+          "name": "Court ensemble",
+          "descriptors": [
+            "refined",
+            "sustained",
+            "classical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "haegeum_folk",
+          "name": "Folk and shamanic",
+          "descriptors": [
+            "ornamented",
+            "expressive",
+            "rural"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "haegeum_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "haegeum_silk",
+          "default": true,
+          "name": "Silk strings (canonical Korean court)",
+          "descriptors": [
+            "silk-canonical-korean-court"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "haegeum_steel",
+          "name": "Steel strings (modern)",
+          "descriptors": [
+            "concert-grade",
+            "projecting",
+            "twentieth-century",
+            "steel"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "haegeum_synthetic",
+          "name": "Synthetic / standardized",
+          "descriptors": [
+            "institutional",
+            "consistent",
+            "twenty-first-century",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "haegeum_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "haegeum_paulownia_body",
+          "default": true,
+          "name": "Paulownia (canonical Korean)",
+          "descriptors": [
+            "paulownia-canonical-korean"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "haegeum_zelkova_body",
+          "name": "Zelkova (alternative regional)",
+          "descriptors": [
+            "zelkova"
+          ],
+          "match_tokens": [
+            "bowed",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    }
+  ]
+}

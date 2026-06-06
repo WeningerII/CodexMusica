@@ -1,0 +1,63 @@
+{
+  "id": "acid_house",
+  "name": "Acid house",
+  "family": "electronic",
+  "lineage": "Late-1980s Chicago and UK club-music genre built on the squelchy resonant filter sweep of the Roland TB-303 bass-synth (originally a 1981 commercial failure rediscovered by DJ Pierre and Phuture) — codified through Phuture (Acid Tracks 1987), Sleezy D (I've Lost Control 1986), the UK Second Summer of Love rave-scene breakthrough (1988-1989), 808 State, A Guy Called Gerald (Voodoo Ray 1988)",
+  "recipe": "classic 1988-1989 acid house, electronic Dance, chicago house branch, idm glitch experimental electric breakcore idm and experimental electronic. drum machine analog, squelching classic acid monosynth acid bass. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 323,
+  "score": 33.85,
+  "config": {
+    "traditions": [
+      "acid_house",
+      "breakcore",
+      "idm"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.0045,
+          "snare_voice": 0,
+          "hat_voice": 0.03525,
+          "shuffle_quantize": 2.51125
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 11.049999999999997,
+          "wave_acid": 0.03899999999999999,
+          "filter_acid": 3.6908749999999992,
+          "accent_acid": 9.443999999999999
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

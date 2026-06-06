@@ -1,0 +1,654 @@
+{
+  "id": "twelve_string_electric",
+  "name": "Twelve-string electric guitar",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "12-string electric",
+  "parts": [
+    {
+      "id": "electric_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "electric_clean_strummed",
+          "default": true,
+          "name": "Clean strummed",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "twelve_string_electric",
+            "archtop_jazz",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "clean",
+            "strummed"
+          ],
+          "match_tokens": [
+            "electric",
+            "open-chord-ringing-overtones",
+            "picked"
+          ],
+          "canonical_tags": [
+            "pop",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "electric_arpeggiated_clean",
+          "name": "Arpeggiated clean",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "twelve_string_electric",
+            "archtop_jazz",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "arpeggio-decoration",
+            "picked"
+          ],
+          "canonical_tags": [
+            "shoegaze",
+            "post-punk",
+            "indie"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "amp_make",
+      "name": "Amplifier archetype",
+      "variants": [
+        {
+          "id": "amp_unspecified",
+          "default": true,
+          "name": "Unspecified",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass",
+            "pedal_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "amp_british_60s_selmer",
+          "name": "Selmer (Twin Selectortone, Truvoice — British 60s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "selmer-amp",
+            "british-60s-amp",
+            "midrange-honk",
+            "push-button-tone-select"
+          ],
+          "match_tokens": [
+            "electric",
+            "midrange-forward",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "british-beat-boom-canonical"
+          ]
+        },
+        {
+          "id": "amp_british_60s_vox_ac",
+          "name": "Vox AC15 / AC30 / Top Boost (British 60s chime)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric"
+          ],
+          "descriptors": [
+            "vox-ac-amp",
+            "british-60s-amp",
+            "top-boost-chime",
+            "blue-alnico-speaker"
+          ],
+          "match_tokens": [
+            "electric",
+            "chimey",
+            "top-end-extension",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "british-beat-boom-canonical",
+            "jangle-pop"
+          ]
+        },
+        {
+          "id": "amp_american_fender_blackface",
+          "name": "Fender Blackface (Twin / Deluxe Reverb — American 60s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "pedal_steel"
+          ],
+          "descriptors": [
+            "fender-blackface-amp",
+            "american-60s-amp",
+            "spring-reverb-bright",
+            "scooped-clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-with-reverb",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "surf",
+            "country",
+            "soul",
+            "funk",
+            "rhythm-and-blues"
+          ]
+        },
+        {
+          "id": "amp_modern_modeling",
+          "name": "Modeling amplifier (Kemper / Fractal / Katana)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "modeled-amp",
+            "digital-amplification",
+            "profile-based",
+            "modern-rig"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "djent",
+            "modern-metal"
+          ]
+        },
+        {
+          "id": "amp_roland_jc120",
+          "name": "Roland JC-120 Jazz Chorus (Japanese solid-state stereo, 1975)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric"
+          ],
+          "descriptors": [
+            "roland-jc120-amp",
+            "solid-state-stereo-chorus",
+            "pristine-clean",
+            "transistor-clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-chorused",
+            "solid-state-amplification"
+          ],
+          "canonical_tags": [
+            "post-punk",
+            "dream-pop",
+            "jazz-fusion",
+            "new-wave"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "twelve_string_electric_model",
+      "surface": false,
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "twelve_string_electric_rick_360",
+          "default": true,
+          "name": "Rickenbacker 360/12",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_fender_xii",
+          "name": "Fender Electric XII",
+          "descriptors": [
+            "late-sixties",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "alternative"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_modern",
+          "name": "Modern reissue / boutique",
+          "descriptors": [
+            "versatile",
+            "contemporary",
+            "session"
+          ],
+          "match_tokens": [
+            "electric",
+            "modern",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twelve_string_electric_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "twelve_string_electric_jangle",
+          "default": true,
+          "name": "Jangle / folk-rock",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_neo_psych",
+          "name": "Neo-psych / dream-pop",
+          "descriptors": [
+            "atmospheric",
+            "shoegaze-adjacent",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_arena",
+          "name": "Arena rock layering",
+          "descriptors": [
+            "textural",
+            "big-production",
+            "eighties-and-after"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twelve_string_electric_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "twelve_string_electric_nickel_plated",
+          "default": true,
+          "name": "Nickel-plated 12-string (light gauge)",
+          "descriptors": [
+            "nickel-plated-steel",
+            "light-gauge",
+            "jangly"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_pure_nickel",
+          "name": "Pure nickel (vintage Rick canon)",
+          "descriptors": [
+            "pure-nickel",
+            "vintage",
+            "mellow-warm"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "vintage"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_rotosound",
+          "name": "Rotosound 12-string custom",
+          "descriptors": [
+            "rotosound",
+            "british-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twelve_string_electric_pickup",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "twelve_string_toaster_rick",
+          "default": true,
+          "name": "Toaster (Rickenbacker)",
+          "descriptors": [
+            "toaster",
+            "rickenbacker-canon",
+            "chimey"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "twelve_string_hi_gain_rick",
+          "name": "Hi-Gain (Rickenbacker post-1971)",
+          "descriptors": [
+            "hi-gain",
+            "rickenbacker-modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "twelve_string_fender_xii_split",
+          "name": "Fender XII split-coil",
+          "descriptors": [
+            "split-coil",
+            "fender-xii"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "twelve_string_electric_model",
+      "surface": false,
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "twelve_string_electric_rick_360",
+          "default": true,
+          "name": "Rickenbacker 360/12",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_fender_xii",
+          "name": "Fender Electric XII",
+          "descriptors": [
+            "late-sixties",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "alternative"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_modern",
+          "name": "Modern reissue / boutique",
+          "descriptors": [
+            "versatile",
+            "contemporary",
+            "session"
+          ],
+          "match_tokens": [
+            "electric",
+            "modern",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twelve_string_electric_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "twelve_string_electric_jangle",
+          "default": true,
+          "name": "Jangle / folk-rock",
+          "descriptors": [],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_neo_psych",
+          "name": "Neo-psych / dream-pop",
+          "descriptors": [
+            "atmospheric",
+            "shoegaze-adjacent",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_arena",
+          "name": "Arena rock layering",
+          "descriptors": [
+            "textural",
+            "big-production",
+            "eighties-and-after"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twelve_string_electric_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "twelve_string_electric_nickel_plated",
+          "default": true,
+          "name": "Nickel-plated 12-string (light gauge)",
+          "descriptors": [
+            "nickel-plated-steel",
+            "light-gauge",
+            "jangly"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_pure_nickel",
+          "name": "Pure nickel (vintage Rick canon)",
+          "descriptors": [
+            "pure-nickel",
+            "vintage",
+            "mellow-warm"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "vintage"
+          ]
+        },
+        {
+          "id": "twelve_string_electric_rotosound",
+          "name": "Rotosound 12-string custom",
+          "descriptors": [
+            "rotosound",
+            "british-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twelve_string_electric_pickup",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "twelve_string_toaster_rick",
+          "default": true,
+          "name": "Toaster (Rickenbacker)",
+          "descriptors": [
+            "toaster",
+            "rickenbacker-canon",
+            "chimey"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "twelve_string_hi_gain_rick",
+          "name": "Hi-Gain (Rickenbacker post-1971)",
+          "descriptors": [
+            "hi-gain",
+            "rickenbacker-modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "twelve_string_fender_xii_split",
+          "name": "Fender XII split-coil",
+          "descriptors": [
+            "split-coil",
+            "fender-xii"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

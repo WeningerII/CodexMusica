@@ -1,0 +1,111 @@
+{
+  "id": "apala_yoruba",
+  "name": "Apàlà (Yoruba Muslim percussion-song)",
+  "family": "global",
+  "lineage": "Yoruba apàlà percussion-and-vocal genre originating in 1930s-1940s Ibadan as a Muslim-Yoruba devotional-and-praise music for post-Ramadan ìdí-l-Fitr celebrations. Performance centers on male lead singer with a battery of dùndún talking-drums (iyaalu mother-drum plus gangan pressure-drums), agogo bell, sekere shaker, and chorus response. The talking-drum lineage carries percussive-and-melodic-allusion content through standardized Yoruba drum-language. Distinguished from sákárà by apàlà's dùndún-talking-drum (vs sákárà's frame-drum-with-shawm) instrumental signature. Direct ancestor of later fuji genre.",
+  "recipe": "classic mid-1930s apàlà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, pure, punctuated. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, agogo, shawm. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 494,
+  "score": 184.67,
+  "config": {
+    "traditions": [
+      "apala_yoruba",
+      "indonesian_jaipongan",
+      "fuji"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.8100000000000005,
+          "voice_quality": 6.3900000000000015,
+          "voice_vibrato": 2.69,
+          "voice_articulation": 1.69,
+          "voice_microtone": 3.6950000000000007,
+          "voice_tradition": 32.11,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 9.945,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 6.175,
+          "voice_pitch_organization": 14.594999999999999,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_omo_canonical",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 0.24,
+          "talking_drum_context": 2.3055,
+          "talking_drum_shell_wood": 6.369999999999999,
+          "talking_drum_head": 1.54
+        }
+      },
+      {
+        "id": "agogo",
+        "slots": {
+          "agogo_bell": "agogo_single",
+          "agogo_context": "agogo_candomble"
+        },
+        "scores": {
+          "agogo_bell": 1.95,
+          "agogo_context": 1.69
+        }
+      },
+      {
+        "id": "shawm",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "shawm_pitch": "shawm_treble",
+          "shawm_context": "shawm_renaissance_consort",
+          "shawm_body_wood": "shawm_maple_alternative",
+          "shawm_reed": "shawm_arundo_pirouette"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000002,
+          "shawm_pitch": 0.15,
+          "shawm_context": 0.345,
+          "shawm_body_wood": 0.39,
+          "shawm_reed": 0.195
+        }
+      }
+    ],
+    "room": "lagos_decca_west_african_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

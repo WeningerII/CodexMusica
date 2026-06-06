@@ -1,0 +1,187 @@
+{
+  "id": "kompa_song_form",
+  "name": "Kompa (song-form)",
+  "family": "global",
+  "lineage": "Haitian kompa in its song-form (chanson-format) presentation — distinct from the dance-floor instrumental kompa-direkt by foregrounding the song-form vocal-and-harmonic structure over the dance-rhythm groove; figures include the later Tabou Combo lineage where song-form kompa became dominant alongside dance-floor instrumental kompa",
+  "recipe": "classic tropical mid-1950s kompa, functional Song, tropical song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, full chest belt, pure, narrative. clean strummed single coil electric guitar, accordion, pocket fingerstyle locked electric bass, cowhide mid tier oak staved canonical Cuban congas, over hammered post lathe strikes pin lathed tonal groove brushes-and-sticks drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 612,
+  "score": 201.212,
+  "config": {
+    "traditions": [
+      "kompa_song_form",
+      "afrobeat",
+      "kompa"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.08,
+          "voice_quality": 17.499999999999996,
+          "voice_vibrato": 2.6899999999999995,
+          "voice_articulation": 0.9999999999999998,
+          "voice_microtone": 0.49999999999999983,
+          "voice_tradition": 5.8305,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.9749999999999996,
+          "voice_speech_song": 15.014999999999999,
+          "voice_ensemble_config": 3.9,
+          "voice_ornament_system": 0.105,
+          "voice_pitch_organization": 1.0314999999999999,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 2.47
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 3.2815,
+          "amp_make": 0.13000000000000003,
+          "body_wood": 0.39,
+          "neck_wood": 0.5129999999999999,
+          "fretboard": 0.5129999999999999,
+          "pickup_magnet": 0.5129999999999999,
+          "string_material": 0.5129999999999999,
+          "string_gauge": 0.39,
+          "bridge": 0.0765,
+          "scale_length": 0.39,
+          "finish": 0,
+          "string_tuning": 1.8735
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 1.1049999999999998,
+          "accordion_reed_material": 0.5129999999999999,
+          "musette_offset": 0.8459999999999999,
+          "reed_config": 1.095,
+          "bellows": 0.8459999999999999,
+          "voicing_chamber": 0.39,
+          "accordion_maker_school": 0.78
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 0.325,
+          "body_wood": 0.39,
+          "pickup_config": 0.0765,
+          "string_type": 0.6499999999999999,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": 1.15
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 2.5774999999999997,
+          "conga_set": 0.39,
+          "conga_skin": 1.059,
+          "conga_shell_wood": 1.059
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 3.9,
+          "shell_wood": 0.5129999999999999,
+          "shell_thickness": 0,
+          "bearing_edges": 0.39,
+          "drumhead": 0.7,
+          "snare_wires": 0.39,
+          "cymbal_alloy": 0.7,
+          "cymbal_hammering": 1.958,
+          "cymbal_lathing": 2.0799999999999996,
+          "cymbal_finish": 0.5129999999999999,
+          "drum_technique": 3.9
+        }
+      }
+    ],
+    "room": "port_au_prince_haitian_kompa_studio",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "haitian_kompa_meringue",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

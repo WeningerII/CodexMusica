@@ -1,0 +1,170 @@
+{
+  "id": "spanish_cancion_pop",
+  "name": "Spanish canción pop",
+  "family": "global",
+  "lineage": "Spanish-language mainstream song tradition centered on Iberian and Latin American crossover — codified through Mecano, Joaquín Sabina, Alejandro Sanz, and Rosalía bringing flamenco-pop and electronic-pop fusions into the international mainstream from the 1980s through 2020s",
+  "recipe": "classic mid-1980s spanish canción pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, lament wail, tasteful, punctuated. strummed open chord ringing overtones fingerpicked acoustic clean strummed single coil electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 568,
+  "score": 373.613,
+  "config": {
+    "traditions": [
+      "spanish_cancion_pop",
+      "cape_verdean_batuko",
+      "morna"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 18.318999999999992,
+          "voice_quality": 4,
+          "voice_vibrato": 0.9750000000000001,
+          "voice_articulation": 0.7349999999999999,
+          "voice_microtone": 17.94999999999999,
+          "voice_tradition": 19.692249999999994,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 6.240000000000001,
+          "voice_speech_song": 10.594999999999999,
+          "voice_ensemble_config": 6.499999999999999,
+          "voice_ornament_system": 12.545,
+          "voice_pitch_organization": 2.925000000000001,
+          "voice_processing_chain": 6.44775,
+          "voice_multitrack_stack": 1.5950000000000002
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "open_d",
+          "top_wood": "cedar_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 17.394999999999996,
+          "string_tuning": 0,
+          "top_wood": 0.54,
+          "back_sides": 0.585,
+          "string_acoustic": 0.54,
+          "acoustic_om_technique": 1.1949999999999998
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_12",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 17.999999999999993,
+          "amp_make": 1.7449999999999999,
+          "body_wood": 0.54,
+          "neck_wood": 0.54,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.15,
+          "string_material": 0.41999999999999993,
+          "string_gauge": 0.8250000000000002,
+          "bridge": 0.9532499999999999,
+          "scale_length": 1.08,
+          "finish": 0,
+          "string_tuning": 1.875
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "half_round",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 2.177750000000001,
+          "body_wood": 1.08,
+          "pickup_config": 0.9532499999999999,
+          "string_type": 1.2382499999999999,
+          "scale_length_b": 0.9532499999999999,
+          "fretted_or_not": 0.345,
+          "bass_technique": 0.7
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 6.499999999999999,
+          "shell_wood": 0.28500000000000003,
+          "shell_thickness": 0,
+          "bearing_edges": 1.1032499999999998,
+          "drumhead": 17.334999999999997,
+          "snare_wires": 0.54,
+          "cymbal_alloy": 18.194999999999993,
+          "cymbal_hammering": 17.949999999999992,
+          "cymbal_lathing": 17.994999999999994,
+          "cymbal_finish": 0.15,
+          "drum_technique": 6.499999999999999
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "id": "takht_arab",
+  "name": "Takht (Arab classical chamber ensemble)",
+  "family": "ensemble",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "takht",
+  "parts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "takht_oud",
+          "default": true,
+          "name": "Oud (lead)",
+          "descriptors": [
+            "melismatic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_qanun",
+          "name": "Qanun (chord-and-melody)",
+          "descriptors": [],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_violin",
+          "name": "Violin / kamancheh (bowed lead)",
+          "descriptors": [
+            "lyrical"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_ney",
+          "name": "Ney (breathy melody)",
+          "descriptors": [
+            "breathy",
+            "meditative"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_riq",
+          "name": "Riq / darbuka (percussion)",
+          "descriptors": [
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_singer",
+          "name": "Lead singer (mutrib)",
+          "descriptors": [
+            "melismatic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "takht_arab_era",
+      "surface": false,
+      "name": "Era / period",
+      "variants": [
+        {
+          "id": "takht_arab_classical",
+          "default": true,
+          "name": "Pre-modern / classical",
+          "descriptors": [
+            "pre-twentieth-century",
+            "court-tradition"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_arab_nahda",
+          "name": "Nahda / golden age",
+          "descriptors": [
+            "twentieth-century-Egypt",
+            "recorded-canon"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ],
+          "canonical_tags": [
+            "wasla"
+          ]
+        },
+        {
+          "id": "takht_arab_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "preservationist",
+            "concert",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "members",
+      "surface": false,
+      "name": "Member roles",
+      "variants": [
+        {
+          "id": "takht_oud",
+          "default": true,
+          "name": "Oud (lead)",
+          "descriptors": [
+            "melismatic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_qanun",
+          "name": "Qanun (chord-and-melody)",
+          "descriptors": [],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_violin",
+          "name": "Violin / kamancheh (bowed lead)",
+          "descriptors": [
+            "lyrical"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_ney",
+          "name": "Ney (breathy melody)",
+          "descriptors": [
+            "breathy",
+            "meditative"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_riq",
+          "name": "Riq / darbuka (percussion)",
+          "descriptors": [
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_singer",
+          "name": "Lead singer (mutrib)",
+          "descriptors": [
+            "melismatic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "takht_arab_era",
+      "surface": false,
+      "name": "Era / period",
+      "variants": [
+        {
+          "id": "takht_arab_classical",
+          "default": true,
+          "name": "Pre-modern / classical",
+          "descriptors": [
+            "pre-twentieth-century",
+            "court-tradition"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "ensemble",
+            "tarab-suited"
+          ]
+        },
+        {
+          "id": "takht_arab_nahda",
+          "name": "Nahda / golden age",
+          "descriptors": [
+            "twentieth-century-Egypt",
+            "recorded-canon"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ],
+          "canonical_tags": [
+            "wasla"
+          ]
+        },
+        {
+          "id": "takht_arab_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "preservationist",
+            "concert",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "tarab-suited"
+          ]
+        }
+      ]
+    }
+  ]
+}

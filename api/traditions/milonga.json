@@ -1,0 +1,144 @@
+{
+  "id": "milonga",
+  "name": "Milonga",
+  "family": "global",
+  "lineage": "Argentine-Uruguayan rural-pampas tango-precursor and parallel folk genre 1870s-onward with habanera-derived dotted-eighth-sixteenth ostinato bass and characteristic 2/4 milonga-clave. Originated in Rio-de-la-Plata gaucho-payada improvisatory-sung-poetry combined with Afro-Cuban habanera rhythm imported via 19th-century maritime ship-traffic between Buenos Aires and Havana. The milonga-campera rural form remains payada-derived (guitar-accompanied gaucho ballads), while the milonga-ciudadana urban form 1920s-onward fed directly into orquesta-típica tango via the 6/8-against-2/4 polyrhythmic dance variant played at faster tempo than mainline tango.",
+  "recipe": "classic mid-1870s milonga, ballad Poetry, milonga branch, tropical song functional song garifuna paranda and hungu-hungu bachata. thick, full chest belt, chest resonance low mid, rhythmic. cedar fingerpicked classical nylon-string guitar, tango virtuoso premier German tango premium alternative bellows articulated bandoneon, hard rock maple acer saccharum modern setup longer neck longer fingerboard violin orchestral, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 569,
+  "score": 202.04,
+  "config": {
+    "traditions": [
+      "milonga",
+      "garifuna_paranda_hungu_hungu",
+      "bachata"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 6.985,
+          "voice_quality": 2.9350000000000005,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 0.78,
+          "voice_microtone": 1.15,
+          "voice_tradition": 9.780000000000001,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.575,
+          "voice_speech_song": 13.974999999999994,
+          "voice_ensemble_config": 10.399999999999997,
+          "voice_ornament_system": 0.8449999999999999,
+          "voice_pitch_organization": 0.6499999999999999,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 1.6500000000000001
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 7.98,
+          "string_tuning": 0,
+          "top_wood_classical": 2.08,
+          "bracing_classical": 1.0799999999999998,
+          "string_classical": 0.7149999999999999,
+          "attack_technique_cl": 0.78
+        }
+      },
+      {
+        "id": "bandoneon",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "bandoneon_action": "bandoneon_bisonoric",
+          "bandoneon_use": "bandoneon_orquesta",
+          "bandoneon_maker_school": "bandoneon_premier",
+          "bandoneon_reed_material": "bandoneon_steel_reeds_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 14.949999999999994,
+          "bandoneon_action": 6.299999999999998,
+          "bandoneon_use": 6.389999999999998,
+          "bandoneon_maker_school": 6.144999999999999,
+          "bandoneon_reed_material": 0.39
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.75,
+          "orch_strings": 0.435,
+          "orch_top_wood": 0.75,
+          "orch_back_wood": 1.625,
+          "orch_varnish": 0.7,
+          "orch_setup_period": 1.17,
+          "orch_bow": 1.69,
+          "orch_bow_stick": 0.7999999999999999,
+          "orch_articulation": 0.24,
+          "orch_rosin": 0.975
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "steel_upright",
+          "upright_play": "slap_upright"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "upright_strings": 0.435,
+          "upright_play": 0.39
+        }
+      }
+    ],
+    "room": "odeon_rca_buenos_aires",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "milonga_2_4_ostinato",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

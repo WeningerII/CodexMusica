@@ -1,0 +1,377 @@
+{
+  "id": "tin_whistle",
+  "name": "Tin whistle / penny whistle",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tin whistle",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_folk_melodic",
+          "name": "Folk melodic",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "recorder",
+            "ocarina",
+            "quena",
+            "kaval",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "bombarde",
+            "biniou",
+            "uilleann_pipes",
+            "highland_bagpipes",
+            "launeddas",
+            "zampogna",
+            "suling",
+            "bansuri",
+            "dizi",
+            "xiao"
+          ],
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ],
+          "default": true
+        },
+        {
+          "id": "wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "uilleann_pipes",
+            "biniou",
+            "highland_bagpipes",
+            "bombarde",
+            "recorder",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "shawm",
+            "zurna",
+            "mizmar",
+            "ghaita",
+            "ciaramella",
+            "duduk",
+            "mey"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "whistle_key",
+      "name": "Key",
+      "variants": [
+        {
+          "id": "d_whistle",
+          "default": true,
+          "name": "D",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "irish"
+          ]
+        },
+        {
+          "id": "c_whistle",
+          "name": "C",
+          "descriptors": [
+            "mellower",
+            "session-alternate",
+            "low-overtone-rich"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "low_d_whistle",
+          "name": "Low D",
+          "descriptors": [
+            "breathy",
+            "airy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whistle_ornament",
+      "name": "Ornamentation",
+      "variants": [
+        {
+          "id": "cut_ornament",
+          "default": true,
+          "name": "Cuts and rolls",
+          "descriptors": [
+            "ornamental",
+            "traditional"
+          ],
+          "match_tokens": [
+            "ornamented",
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "no_ornament",
+          "name": "Plain melody",
+          "descriptors": [
+            "simple",
+            "folk",
+            "direct"
+          ],
+          "match_tokens": [
+            "ornamented",
+            "wind-driven",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whistle_body_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "whistle_brass_canonical",
+          "default": true,
+          "name": "Brass tube with plastic fipple (canonical Generation / Feadóg / Clarke)",
+          "descriptors": [
+            "brass-tube-plastic-fipple-canonical-generation-feadog-clarke"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "whistle_nickel_plated",
+          "name": "Nickel-plated brass (brighter alternative)",
+          "descriptors": [
+            "nickel-plated-brass-brighter"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "whistle_aluminum_anodized",
+          "name": "Aluminum anodized (modern Burke / Goldie premium)",
+          "descriptors": [
+            "aluminum-anodized-modern-burke-goldie-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "whistle_wood_premium",
+          "name": "African blackwood / boxwood (premium pre-modern)",
+          "descriptors": [
+            "african-blackwood-boxwood-premium-pre-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wind_articulation",
+      "default_variant": "wind_folk_melodic"
+    },
+    {
+      "id": "whistle_key",
+      "name": "Key",
+      "variants": [
+        {
+          "id": "d_whistle",
+          "default": true,
+          "name": "D",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "irish"
+          ]
+        },
+        {
+          "id": "c_whistle",
+          "name": "C",
+          "descriptors": [
+            "mellower",
+            "session-alternate",
+            "low-overtone-rich"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "low_d_whistle",
+          "name": "Low D",
+          "descriptors": [
+            "breathy",
+            "airy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whistle_ornament",
+      "name": "Ornamentation",
+      "variants": [
+        {
+          "id": "cut_ornament",
+          "default": true,
+          "name": "Cuts and rolls",
+          "descriptors": [
+            "ornamental",
+            "traditional"
+          ],
+          "match_tokens": [
+            "ornamented",
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "no_ornament",
+          "name": "Plain melody",
+          "descriptors": [
+            "simple",
+            "folk",
+            "direct"
+          ],
+          "match_tokens": [
+            "ornamented",
+            "wind-driven",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whistle_body_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "whistle_brass_canonical",
+          "default": true,
+          "name": "Brass tube with plastic fipple (canonical Generation / Feadóg / Clarke)",
+          "descriptors": [
+            "brass-tube-plastic-fipple-canonical-generation-feadog-clarke"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "whistle_nickel_plated",
+          "name": "Nickel-plated brass (brighter alternative)",
+          "descriptors": [
+            "nickel-plated-brass-brighter"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "whistle_aluminum_anodized",
+          "name": "Aluminum anodized (modern Burke / Goldie premium)",
+          "descriptors": [
+            "aluminum-anodized-modern-burke-goldie-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "whistle_wood_premium",
+          "name": "African blackwood / boxwood (premium pre-modern)",
+          "descriptors": [
+            "african-blackwood-boxwood-premium-pre-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ]
+}

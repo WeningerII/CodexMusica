@@ -1,0 +1,115 @@
+{
+  "id": "dadra",
+  "name": "Dadra (Hindustani semi-classical light-vocal)",
+  "family": "global",
+  "lineage": "Hindustani semi-classical light-vocal genre cast in the dadra tala (six-beat rhythmic cycle, 3+3 grouping) — typically performed at the end of a thumri concert as a lighter-mood companion piece, with romantic-and-devotional Brij Bhasha and Awadhi lyrical content",
+  "recipe": "classic North American mid-1970s dadra, improv On Frame, indian classical improv branch, hindu ritual devotional javali kriti. light, declaimed, chest resonance low mid, punctuated. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 476,
+  "score": 251.097,
+  "config": {
+    "traditions": [
+      "dadra",
+      "javali",
+      "kriti"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "head_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.9899999999999998,
+          "voice_quality": 5.144500000000001,
+          "voice_vibrato": 4.9399999999999995,
+          "voice_articulation": 1.3,
+          "voice_microtone": 0.8925000000000001,
+          "voice_tradition": 15.209999999999999,
+          "voice_mechanism_compound": 9.399999999999999,
+          "voice_estill_quality": 13.299999999999999,
+          "voice_speech_song": 9.399999999999999,
+          "voice_ensemble_config": 4.029999999999999,
+          "voice_ornament_system": 14.744,
+          "voice_pitch_organization": 12.131999999999998,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 4.29
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 7.215,
+          "tabla_bayan": 4.9399999999999995,
+          "tabla_syahi": 1.69
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 0.8449999999999999,
+          "harmonium_action": 2.9899999999999998,
+          "harmonium_voicing": 2.9899999999999998,
+          "harmonium_use": 7.93
+        }
+      },
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_40_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "sarangi_gut_main",
+          "sarangi_body_wood": "sarangi_tun_body"
+        },
+        "scores": {
+          "bowed_technique": 9.5,
+          "sarangi_belly": 2.9899999999999998,
+          "sarangi_taraf": 0.195,
+          "sarangi_bow": 0,
+          "sarangi_main_strings": 5.525,
+          "sarangi_body_wood": 0.78
+        }
+      }
+    ],
+    "room": "varanasi_benares_gharana_baithak",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

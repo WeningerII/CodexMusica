@@ -1,0 +1,67 @@
+{
+  "id": "detroit_techno",
+  "name": "Detroit techno",
+  "family": "electronic",
+  "lineage": "Mid-1980s Detroit electronic dance music genre developed by the Belleville Three (Juan Atkins, Derrick May, Kevin Saunderson) drawing on Kraftwerk's electronic vocabulary, Parliament-Funkadelic's Afrofuturist aesthetic, and Chicago house's rhythmic foundation — codified through Cybotron (Clear 1983), Model 500, Rhythim Is Rhythim (Strings of Life 1987), Inner City (Big Fun 1988), and the labels Metroplex, Transmat, KMS",
+  "recipe": "classic 1984-1986 detroit techno, electronic Dance, techno branch, idm glitch experimental electric idm and experimental electronic drill'n'bass. drum machine analog, analog synth. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 292,
+  "score": 21.005,
+  "config": {
+    "traditions": [
+      "detroit_techno",
+      "idm",
+      "drill_n_bass"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.7149999999999999
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "sample_hold"
+        },
+        "scores": {
+          "electronic_technique": 0.245,
+          "oscillator": 0.39,
+          "filter_topology": 1.69,
+          "envelope": 1.3,
+          "modulation": 0.15
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "colored",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_tape_echo"
+    ]
+  }
+}

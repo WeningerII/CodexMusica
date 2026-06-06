@@ -1,0 +1,355 @@
+{
+  "id": "nyckelharpa",
+  "name": "Nyckelharpa (Swedish keyed fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "nyckelharpa",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "nyckel_keys",
+      "name": "Key configuration",
+      "variants": [
+        {
+          "id": "modern_chromatic_nyckel",
+          "name": "Modern chromatic 16-key",
+          "descriptors": [
+            "versatile",
+            "contemporary",
+            "folk"
+          ],
+          "match_tokens": [
+            "modern",
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "traditional_silverbas",
+          "default": true,
+          "name": "Silverbas (older diatonic)",
+          "descriptors": [
+            "archaic",
+            "traditional",
+            "swedish"
+          ],
+          "match_tokens": [
+            "folk-tradition",
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyckel_strings",
+      "name": "Sympathetic strings",
+      "variants": [
+        {
+          "id": "nyckel_12_sympathetic",
+          "default": true,
+          "name": "12 sympathetic strings",
+          "descriptors": [
+            "halo",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyckel_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "nyckel_spruce_maple",
+          "default": true,
+          "name": "Spruce top + maple back (canonical Swedish)",
+          "descriptors": [
+            "spruce-maple-canonical-swedish"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "nyckel_birch_alder",
+          "name": "Birch / alder (regional historical)",
+          "descriptors": [
+            "birch-alder-regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyckel_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "nyckel_steel_modern",
+          "default": true,
+          "name": "Steel melody + sympathetics (modern canonical)",
+          "descriptors": [
+            "steel-melody-sympathetics-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "nyckel_gut_historical",
+          "name": "Gut (pre-modern Swedish historical)",
+          "descriptors": [
+            "gut-pre-modern-swedish"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyckel_mechanism",
+      "surface": false,
+      "name": "Key mechanism",
+      "variants": [
+        {
+          "id": "nyckel_3_row_chromatic",
+          "default": true,
+          "name": "3-row chromatic (canonical Eric Sahlström modernized 1925)",
+          "descriptors": [
+            "3-row-chromatic",
+            "sahlstrom-modernized-1925"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "nyckel_2_row_diatonic_silverbas",
+          "name": "2-row diatonic silverbas (pre-1925 historical)",
+          "descriptors": [
+            "2-row-silverbas",
+            "pre-1925-historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nyckel_keys",
+      "name": "Key configuration",
+      "variants": [
+        {
+          "id": "modern_chromatic_nyckel",
+          "name": "Modern chromatic 16-key",
+          "descriptors": [
+            "versatile",
+            "contemporary",
+            "folk"
+          ],
+          "match_tokens": [
+            "modern",
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "traditional_silverbas",
+          "default": true,
+          "name": "Silverbas (older diatonic)",
+          "descriptors": [
+            "archaic",
+            "traditional",
+            "swedish"
+          ],
+          "match_tokens": [
+            "folk-tradition",
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyckel_strings",
+      "name": "Sympathetic strings",
+      "variants": [
+        {
+          "id": "nyckel_12_sympathetic",
+          "default": true,
+          "name": "12 sympathetic strings",
+          "descriptors": [
+            "halo",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyckel_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "nyckel_spruce_maple",
+          "default": true,
+          "name": "Spruce top + maple back (canonical Swedish)",
+          "descriptors": [
+            "spruce-maple-canonical-swedish"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "nyckel_birch_alder",
+          "name": "Birch / alder (regional historical)",
+          "descriptors": [
+            "birch-alder-regional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyckel_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "nyckel_steel_modern",
+          "default": true,
+          "name": "Steel melody + sympathetics (modern canonical)",
+          "descriptors": [
+            "steel-melody-sympathetics-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "nyckel_gut_historical",
+          "name": "Gut (pre-modern Swedish historical)",
+          "descriptors": [
+            "gut-pre-modern-swedish"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyckel_mechanism",
+      "surface": false,
+      "name": "Key mechanism",
+      "variants": [
+        {
+          "id": "nyckel_3_row_chromatic",
+          "default": true,
+          "name": "3-row chromatic (canonical Eric Sahlström modernized 1925)",
+          "descriptors": [
+            "3-row-chromatic",
+            "sahlstrom-modernized-1925"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant"
+          ]
+        },
+        {
+          "id": "nyckel_2_row_diatonic_silverbas",
+          "name": "2-row diatonic silverbas (pre-1925 historical)",
+          "descriptors": [
+            "2-row-silverbas",
+            "pre-1925-historical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-resonant",
+            "period-performance"
+          ]
+        }
+      ]
+    }
+  ]
+}

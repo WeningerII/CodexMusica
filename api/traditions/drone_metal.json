@@ -1,0 +1,139 @@
+{
+  "id": "drone_metal",
+  "name": "Drone metal",
+  "family": "rock",
+  "lineage": "extreme-minimalist sustained-tone metal — guitar-as-feedback-and-pure-overtone genre established by Earth (Earth 2 1993, Pentastar 1996) and Sunn O))) (the Earth-tribute project become canon through ØØ Void 2000, Black One 2005, Monoliths and Dimensions 2009), with Boris (drone-era), Khanate, and Nadja in the broader continuum — distinct from doom metal by abandonment of riff-progression-as-song-form in favor of sustained-distorted-chord-as-event compositional approach",
+  "recipe": "classic early-1990s drone metal, distorted Rock, drone branch, doom metal, ambient experimental electric funeral doom. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky riff driven electric bass, mahogany kevlar aramid extreme tension machine hammered drum kit. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 575,
+  "score": 499.855,
+  "config": {
+    "traditions": [
+      "drone_metal",
+      "funeral_doom",
+      "doom"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_orange",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 24.159772727272724,
+          "amp_make": 8.125,
+          "body_wood": 8.319999999999999,
+          "neck_wood": 0.5700000000000001,
+          "fretboard": 0.5700000000000001,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.33204545454545453,
+          "string_material": 0.5700000000000001,
+          "bridge": 0.3770454545454545,
+          "scale_length": 8.319999999999999,
+          "string_gauge": 1.1440909090909093,
+          "finish": 0,
+          "string_tuning": 14.559999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 6.475,
+          "amp_make": 6.955000000000001,
+          "body_wood": 0.7090909090909092,
+          "pickup_config": 0.39,
+          "string_type": 11.7,
+          "scale_length_b": 0.5611363636363635,
+          "fretted_or_not": 0.045,
+          "bass_technique": 8.145
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "kevlar_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 8.189999999999998,
+          "shell_wood": 2.194090909090909,
+          "shell_thickness": 0.045,
+          "bearing_edges": 0.7200000000000001,
+          "drumhead": 1.625,
+          "snare_wires": 0.3770454545454546,
+          "cymbal_alloy": 24.52,
+          "cymbal_hammering": 7.992045454545455,
+          "cymbal_lathing": 8.44,
+          "cymbal_finish": 0.5700000000000001,
+          "drum_technique": 8.189999999999998
+        }
+      },
+      {
+        "id": "baritone_electric",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_orange",
+          "baritone_use": "baritone_surf",
+          "baritone_electric_tuning": "baritone_electric_drop_a",
+          "baritone_electric_scale": "baritone_30_scale",
+          "baritone_electric_strings": "baritone_stainless_heavy",
+          "baritone_electric_pickup": "baritone_dual_humbucker"
+        },
+        "scores": {
+          "electric_technique": 17.18,
+          "amp_make": 8.125,
+          "baritone_use": 0.13704545454545453,
+          "baritone_electric_tuning": 9.099999999999998,
+          "baritone_electric_scale": 8.319999999999999,
+          "baritone_electric_strings": 18.4,
+          "baritone_electric_pickup": 16.195
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_british_high_gain",
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

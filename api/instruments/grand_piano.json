@@ -1,0 +1,1619 @@
+{
+  "id": "grand_piano",
+  "name": "Grand piano (acoustic)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "grand piano",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "harpsichord",
+            "pipe_organ",
+            "pump_organ_harmonium",
+            "celesta"
+          ],
+          "descriptors": [
+            "legato",
+            "pedal-resonant"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "sustained-tone",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "keyboard_jazz_comping",
+          "name": "Jazz comping",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "electric_piano_tine"
+          ],
+          "descriptors": [
+            "comped",
+            "voice-leading"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "comping",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "keyboard_stride_left_hand",
+          "name": "Stride / boogie left-hand",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "tack_piano"
+          ],
+          "descriptors": [
+            "stride"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "boogie",
+            "pre-war-jazz"
+          ]
+        },
+        {
+          "id": "keyboard_gospel_chord_runs",
+          "name": "Gospel chord-runs",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "rhodes_electric",
+            "wurlitzer_ep",
+            "tonewheel_organ",
+            "electric_piano_tine"
+          ],
+          "descriptors": [
+            "gospel-runs"
+          ],
+          "match_tokens": [
+            "gospel-rooted",
+            "chordal",
+            "block-chord",
+            "bebop-runs"
+          ],
+          "canonical_tags": [
+            "gospel",
+            "soul"
+          ]
+        },
+        {
+          "id": "keyboard_minimalist_repeated",
+          "name": "Minimalist / repeated cells",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "electric_piano_tine",
+            "celesta",
+            "rhodes_electric"
+          ],
+          "descriptors": [
+            "repeated",
+            "cellular"
+          ],
+          "match_tokens": [
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "minimalist"
+          ]
+        },
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        },
+        {
+          "id": "keyboard_arpeggio_sustain_rich",
+          "name": "Arpeggiated sustain-rich",
+          "applies_to": [
+            "grand_piano",
+            "rhodes_electric",
+            "mellotron",
+            "electric_piano_tine",
+            "tape_replay_keyboard",
+            "pipe_organ"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sustain-rich-overtones"
+          ],
+          "match_tokens": [
+            "arpeggio-decoration",
+            "sustained",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "shoegaze"
+          ]
+        },
+        {
+          "id": "keyboard_avant_prepared",
+          "name": "Avant / prepared",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "harpsichord"
+          ],
+          "descriptors": [
+            "prepared"
+          ],
+          "match_tokens": [
+            "avant-garde",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "avant",
+            "experimental"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "grand_piano_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "grand_5_foot",
+          "name": "Baby grand (5-6')",
+          "descriptors": [
+            "low-dynamic-level",
+            "parlor",
+            "versatile"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "grand_7_foot",
+          "default": true,
+          "name": "Semi-concert (7')",
+          "descriptors": [
+            "recital",
+            "hammer-low-mid-emphasis"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "grand_9_foot",
+          "name": "Concert grand (9')",
+          "descriptors": [
+            "orchestral",
+            "full",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grand_piano_brand",
+      "surface": false,
+      "name": "Tonal school",
+      "variants": [
+        {
+          "id": "steinway_d",
+          "default": true,
+          "name": "Steinway D (American school)",
+          "descriptors": [
+            "singing",
+            "romantic-orchestra"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bosendorfer",
+          "name": "Bösendorfer Imperial",
+          "descriptors": [
+            "hammer-low-mid-emphasis",
+            "viennese",
+            "dark-romantic"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "fazioli",
+          "name": "Fazioli",
+          "descriptors": [
+            "low-coloration-balanced",
+            "italian",
+            "contemporary-suited"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "yamaha_cfx",
+          "name": "Yamaha CFX",
+          "descriptors": [
+            "treble-extended",
+            "articulate"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_hammer",
+      "surface": false,
+      "name": "Hammer (brand / felt / press)",
+      "variants": [
+        {
+          "id": "steinway_original_hammer",
+          "default": true,
+          "name": "Steinway original (soft felt, lacquer-voiced)",
+          "descriptors": [
+            "soft-felt",
+            "lacquer-voiced",
+            "requires-voicing",
+            "hard-rock-maple-molding"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "renner_blue_hammer",
+          "name": "Renner Blue (modern weight-matched Steinway-replacement)",
+          "descriptors": [
+            "hot-pressed",
+            "wurzen-felt",
+            "dense-felt",
+            "modern-bright",
+            "european-hornbeam-molding"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "renner_standard_hammer",
+          "name": "Renner standard (Bösendorfer factory)",
+          "descriptors": [
+            "hot-pressed",
+            "wurzen-felt",
+            "dense-felt",
+            "european-classical-tone"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "abel_hammer",
+          "name": "Abel (no chemical hardeners, T-rivet tensioner)",
+          "descriptors": [
+            "no-chemical-hardener",
+            "t-rivet",
+            "mahogany-molding",
+            "naturally-balanced"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "imadegawa_e_type_hammer",
+          "name": "Imadegawa E-Type (Nippon felt, medium-bright)",
+          "descriptors": [
+            "hot-pressed",
+            "nippon-felt",
+            "medium-bright",
+            "projects-well"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "ronsen_wurzen_hammer",
+          "name": "Ronsen Wurzen felt cold-pressed",
+          "descriptors": [
+            "cold-pressed",
+            "wurzen-felt",
+            "boutique-american",
+            "voice-up"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "ronsen_bacon_hammer",
+          "name": "Ronsen Bacon felt cold-pressed (softest)",
+          "descriptors": [
+            "cold-pressed",
+            "bacon-felt",
+            "softest-felt",
+            "mellow-warm"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "ronsen_weikert_hammer",
+          "name": "Ronsen Weikert felt cold-pressed",
+          "descriptors": [
+            "cold-pressed",
+            "weikert-felt",
+            "balanced-mid"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "ronsen_royal_george_hammer",
+          "name": "Ronsen Royal George felt cold-pressed",
+          "descriptors": [
+            "cold-pressed",
+            "royal-george-felt",
+            "bright-clear"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "vintage_steinway_pre_war_hammer",
+          "name": "Vintage Steinway pre-WWII (compression-wired wool)",
+          "descriptors": [
+            "vintage-steinway",
+            "pre-war",
+            "compression-wired",
+            "aged-felt",
+            "characterful-uneven"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "classical"
+          ]
+        },
+        {
+          "id": "japanese_1980s_hammer",
+          "name": "Japanese 1980s OEM (Yamaha/Kawai factory)",
+          "descriptors": [
+            "hot-pressed",
+            "firm-felt",
+            "bright-modern",
+            "japanese-factory"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "pop"
+          ]
+        },
+        {
+          "id": "felt_piano_practice_hammer",
+          "name": "Practice hammers (cold-pressed light felt)",
+          "descriptors": [
+            "cold-pressed",
+            "light-felt",
+            "practice-grade"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "student-tier"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_rim",
+      "surface": false,
+      "name": "Rim construction",
+      "variants": [
+        {
+          "id": "steinway_17_ply_hard_rock_maple_rim",
+          "default": true,
+          "name": "17-ply hard rock maple (current Steinway)",
+          "descriptors": [
+            "17-ply",
+            "hard-rock-maple",
+            "continuous-bent",
+            "one-piece",
+            "3.25-inch-thick"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "steinway_18_ply_hard_rock_maple_rim",
+          "name": "18-ply hard rock maple (vintage Steinway)",
+          "descriptors": [
+            "18-ply",
+            "hard-rock-maple",
+            "continuous-bent",
+            "one-piece",
+            "vintage-production"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "classical"
+          ]
+        },
+        {
+          "id": "mason_hamlin_oversize_rim",
+          "name": "Mason & Hamlin (oversize maple, tension resonator)",
+          "descriptors": [
+            "oversize-maple",
+            "thick-laminated",
+            "tension-resonator",
+            "american-tradition"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "european_laminated_rim_beech_maple",
+          "name": "European laminated (beech + maple)",
+          "descriptors": [
+            "beech-laminated",
+            "maple-laminated",
+            "european-tradition"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "asian_laminated_rim_birch_maple",
+          "name": "Asian laminated (birch + maple, Yamaha/Kawai)",
+          "descriptors": [
+            "birch-laminated",
+            "maple-laminated",
+            "japanese-tradition"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_soundboard",
+      "surface": false,
+      "name": "Soundboard wood + grain",
+      "variants": [
+        {
+          "id": "sitka_spruce_diaphragmatic",
+          "default": true,
+          "name": "Sitka spruce diaphragmatic (9mm→6mm taper, Steinway canon)",
+          "descriptors": [
+            "sitka-spruce",
+            "quartersawn",
+            "9mm-center",
+            "6mm-rim",
+            "double-crowned",
+            "diaphragmatic",
+            "8-12-rings-per-inch"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "sitka_spruce_solid_quartersawn",
+          "name": "Sitka spruce solid quartersawn (general)",
+          "descriptors": [
+            "sitka-spruce",
+            "quartersawn",
+            "solid",
+            "8-12-rings-per-inch"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "european_spruce_soundboard",
+          "name": "European spruce (Bösendorfer, Bechstein)",
+          "descriptors": [
+            "european-spruce",
+            "norway-spruce",
+            "quartersawn",
+            "european-tradition"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "asian_spruce_soundboard",
+          "name": "Hokkaido / Asian spruce (Yamaha CFX, Kawai SK)",
+          "descriptors": [
+            "asian-spruce",
+            "hokkaido-source",
+            "quartersawn"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_pinblock",
+      "surface": false,
+      "name": "Pinblock (wrest-plank)",
+      "variants": [
+        {
+          "id": "hexagrip_7_ply_quartersawn_maple",
+          "default": true,
+          "name": "Hexagrip 7-ply quartersawn maple (Steinway canon)",
+          "descriptors": [
+            "7-ply",
+            "quartersawn-maple",
+            "cross-grained-45-90",
+            "tuning-stability"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "standard_multi_laminate_pinblock",
+          "name": "Standard multi-laminate (5-7 ply)",
+          "descriptors": [
+            "multi-laminate",
+            "quartersawn-maple",
+            "cross-grained"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "asian_multi_laminate_pinblock",
+          "name": "Asian multi-laminate (Bolduc / Delignit)",
+          "descriptors": [
+            "multi-laminate",
+            "bolduc-laminate",
+            "delignit-laminate",
+            "beech-laminated"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_plate",
+      "surface": false,
+      "name": "Cast iron plate",
+      "variants": [
+        {
+          "id": "gray_iron_full_perimeter_plate",
+          "default": true,
+          "name": "Gray iron full-perimeter (Steinway canon)",
+          "descriptors": [
+            "gray-iron",
+            "cast-plate",
+            "full-perimeter",
+            "cnc-milled",
+            "bronzed-lacquered"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "wet_sand_cast_plate",
+          "name": "Wet-sand cast plate (modern standard)",
+          "descriptors": [
+            "wet-sand-cast",
+            "cast-iron",
+            "modern-mass-production"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "v_pro_vacuum_cast_plate",
+          "name": "V-Pro vacuum cast (Yamaha CFX, premium Asian)",
+          "descriptors": [
+            "v-pro-vacuum-cast",
+            "cast-iron",
+            "low-impurity"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_pitch_standard",
+      "surface": false,
+      "name": "Tuning standard",
+      "variants": [
+        {
+          "id": "a_440_modern",
+          "default": true,
+          "name": "A=440 Hz (US/modern standard)",
+          "descriptors": [
+            "a-440",
+            "modern-pitch",
+            "us-standard"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "a_442_european",
+          "name": "A=442 Hz (European orchestral)",
+          "descriptors": [
+            "a-442",
+            "european-orchestral"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "a_441_japanese",
+          "name": "A=441 Hz (Japanese orchestral)",
+          "descriptors": [
+            "a-441",
+            "japanese-orchestral"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "a_415_baroque",
+          "name": "A=415 Hz (baroque pitch)",
+          "descriptors": [
+            "a-415",
+            "baroque-pitch"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "a_432_alternative",
+          "name": "A=432 Hz (alternative-pitch, Verdi pitch)",
+          "descriptors": [
+            "a-432",
+            "alternative-pitch",
+            "verdi-pitch"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "grand_piano_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "grand_5_foot",
+          "name": "Baby grand (5-6')",
+          "descriptors": [
+            "low-dynamic-level",
+            "parlor",
+            "versatile"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "grand_7_foot",
+          "default": true,
+          "name": "Semi-concert (7')",
+          "descriptors": [
+            "recital",
+            "hammer-low-mid-emphasis"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "grand_9_foot",
+          "name": "Concert grand (9')",
+          "descriptors": [
+            "orchestral",
+            "full",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grand_piano_brand",
+      "surface": false,
+      "name": "Tonal school",
+      "variants": [
+        {
+          "id": "steinway_d",
+          "default": true,
+          "name": "Steinway D (American school)",
+          "descriptors": [
+            "singing",
+            "romantic-orchestra"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "bosendorfer",
+          "name": "Bösendorfer Imperial",
+          "descriptors": [
+            "hammer-low-mid-emphasis",
+            "viennese",
+            "dark-romantic"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "fazioli",
+          "name": "Fazioli",
+          "descriptors": [
+            "low-coloration-balanced",
+            "italian",
+            "contemporary-suited"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "yamaha_cfx",
+          "name": "Yamaha CFX",
+          "descriptors": [
+            "treble-extended",
+            "articulate"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_hammer",
+      "surface": false,
+      "name": "Hammer (brand / felt / press)",
+      "variants": [
+        {
+          "id": "steinway_original_hammer",
+          "default": true,
+          "name": "Steinway original (soft felt, lacquer-voiced)",
+          "descriptors": [
+            "soft-felt",
+            "lacquer-voiced",
+            "requires-voicing",
+            "hard-rock-maple-molding"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "renner_blue_hammer",
+          "name": "Renner Blue (modern weight-matched Steinway-replacement)",
+          "descriptors": [
+            "hot-pressed",
+            "wurzen-felt",
+            "dense-felt",
+            "modern-bright",
+            "european-hornbeam-molding"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "renner_standard_hammer",
+          "name": "Renner standard (Bösendorfer factory)",
+          "descriptors": [
+            "hot-pressed",
+            "wurzen-felt",
+            "dense-felt",
+            "european-classical-tone"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "abel_hammer",
+          "name": "Abel (no chemical hardeners, T-rivet tensioner)",
+          "descriptors": [
+            "no-chemical-hardener",
+            "t-rivet",
+            "mahogany-molding",
+            "naturally-balanced"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "imadegawa_e_type_hammer",
+          "name": "Imadegawa E-Type (Nippon felt, medium-bright)",
+          "descriptors": [
+            "hot-pressed",
+            "nippon-felt",
+            "medium-bright",
+            "projects-well"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "ronsen_wurzen_hammer",
+          "name": "Ronsen Wurzen felt cold-pressed",
+          "descriptors": [
+            "cold-pressed",
+            "wurzen-felt",
+            "boutique-american",
+            "voice-up"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "ronsen_bacon_hammer",
+          "name": "Ronsen Bacon felt cold-pressed (softest)",
+          "descriptors": [
+            "cold-pressed",
+            "bacon-felt",
+            "softest-felt",
+            "mellow-warm"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "ronsen_weikert_hammer",
+          "name": "Ronsen Weikert felt cold-pressed",
+          "descriptors": [
+            "cold-pressed",
+            "weikert-felt",
+            "balanced-mid"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "ronsen_royal_george_hammer",
+          "name": "Ronsen Royal George felt cold-pressed",
+          "descriptors": [
+            "cold-pressed",
+            "royal-george-felt",
+            "bright-clear"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "vintage_steinway_pre_war_hammer",
+          "name": "Vintage Steinway pre-WWII (compression-wired wool)",
+          "descriptors": [
+            "vintage-steinway",
+            "pre-war",
+            "compression-wired",
+            "aged-felt",
+            "characterful-uneven"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "classical"
+          ]
+        },
+        {
+          "id": "japanese_1980s_hammer",
+          "name": "Japanese 1980s OEM (Yamaha/Kawai factory)",
+          "descriptors": [
+            "hot-pressed",
+            "firm-felt",
+            "bright-modern",
+            "japanese-factory"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "pop"
+          ]
+        },
+        {
+          "id": "felt_piano_practice_hammer",
+          "name": "Practice hammers (cold-pressed light felt)",
+          "descriptors": [
+            "cold-pressed",
+            "light-felt",
+            "practice-grade"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "student-tier"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_rim",
+      "surface": false,
+      "name": "Rim construction",
+      "variants": [
+        {
+          "id": "steinway_17_ply_hard_rock_maple_rim",
+          "default": true,
+          "name": "17-ply hard rock maple (current Steinway)",
+          "descriptors": [
+            "17-ply",
+            "hard-rock-maple",
+            "continuous-bent",
+            "one-piece",
+            "3.25-inch-thick"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "steinway_18_ply_hard_rock_maple_rim",
+          "name": "18-ply hard rock maple (vintage Steinway)",
+          "descriptors": [
+            "18-ply",
+            "hard-rock-maple",
+            "continuous-bent",
+            "one-piece",
+            "vintage-production"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "classical"
+          ]
+        },
+        {
+          "id": "mason_hamlin_oversize_rim",
+          "name": "Mason & Hamlin (oversize maple, tension resonator)",
+          "descriptors": [
+            "oversize-maple",
+            "thick-laminated",
+            "tension-resonator",
+            "american-tradition"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "european_laminated_rim_beech_maple",
+          "name": "European laminated (beech + maple)",
+          "descriptors": [
+            "beech-laminated",
+            "maple-laminated",
+            "european-tradition"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "asian_laminated_rim_birch_maple",
+          "name": "Asian laminated (birch + maple, Yamaha/Kawai)",
+          "descriptors": [
+            "birch-laminated",
+            "maple-laminated",
+            "japanese-tradition"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_soundboard",
+      "surface": false,
+      "name": "Soundboard wood + grain",
+      "variants": [
+        {
+          "id": "sitka_spruce_diaphragmatic",
+          "default": true,
+          "name": "Sitka spruce diaphragmatic (9mm→6mm taper, Steinway canon)",
+          "descriptors": [
+            "sitka-spruce",
+            "quartersawn",
+            "9mm-center",
+            "6mm-rim",
+            "double-crowned",
+            "diaphragmatic",
+            "8-12-rings-per-inch"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "sitka_spruce_solid_quartersawn",
+          "name": "Sitka spruce solid quartersawn (general)",
+          "descriptors": [
+            "sitka-spruce",
+            "quartersawn",
+            "solid",
+            "8-12-rings-per-inch"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "european_spruce_soundboard",
+          "name": "European spruce (Bösendorfer, Bechstein)",
+          "descriptors": [
+            "european-spruce",
+            "norway-spruce",
+            "quartersawn",
+            "european-tradition"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "asian_spruce_soundboard",
+          "name": "Hokkaido / Asian spruce (Yamaha CFX, Kawai SK)",
+          "descriptors": [
+            "asian-spruce",
+            "hokkaido-source",
+            "quartersawn"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern",
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_pinblock",
+      "surface": false,
+      "name": "Pinblock (wrest-plank)",
+      "variants": [
+        {
+          "id": "hexagrip_7_ply_quartersawn_maple",
+          "default": true,
+          "name": "Hexagrip 7-ply quartersawn maple (Steinway canon)",
+          "descriptors": [
+            "7-ply",
+            "quartersawn-maple",
+            "cross-grained-45-90",
+            "tuning-stability"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "standard_multi_laminate_pinblock",
+          "name": "Standard multi-laminate (5-7 ply)",
+          "descriptors": [
+            "multi-laminate",
+            "quartersawn-maple",
+            "cross-grained"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "asian_multi_laminate_pinblock",
+          "name": "Asian multi-laminate (Bolduc / Delignit)",
+          "descriptors": [
+            "multi-laminate",
+            "bolduc-laminate",
+            "delignit-laminate",
+            "beech-laminated"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_plate",
+      "surface": false,
+      "name": "Cast iron plate",
+      "variants": [
+        {
+          "id": "gray_iron_full_perimeter_plate",
+          "default": true,
+          "name": "Gray iron full-perimeter (Steinway canon)",
+          "descriptors": [
+            "gray-iron",
+            "cast-plate",
+            "full-perimeter",
+            "cnc-milled",
+            "bronzed-lacquered"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "wet_sand_cast_plate",
+          "name": "Wet-sand cast plate (modern standard)",
+          "descriptors": [
+            "wet-sand-cast",
+            "cast-iron",
+            "modern-mass-production"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "v_pro_vacuum_cast_plate",
+          "name": "V-Pro vacuum cast (Yamaha CFX, premium Asian)",
+          "descriptors": [
+            "v-pro-vacuum-cast",
+            "cast-iron",
+            "low-impurity"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piano_pitch_standard",
+      "surface": false,
+      "name": "Tuning standard",
+      "variants": [
+        {
+          "id": "a_440_modern",
+          "default": true,
+          "name": "A=440 Hz (US/modern standard)",
+          "descriptors": [
+            "a-440",
+            "modern-pitch",
+            "us-standard"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "a_442_european",
+          "name": "A=442 Hz (European orchestral)",
+          "descriptors": [
+            "a-442",
+            "european-orchestral"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "a_441_japanese",
+          "name": "A=441 Hz (Japanese orchestral)",
+          "descriptors": [
+            "a-441",
+            "japanese-orchestral"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "a_415_baroque",
+          "name": "A=415 Hz (baroque pitch)",
+          "descriptors": [
+            "a-415",
+            "baroque-pitch"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "a_432_alternative",
+          "name": "A=432 Hz (alternative-pitch, Verdi pitch)",
+          "descriptors": [
+            "a-432",
+            "alternative-pitch",
+            "verdi-pitch"
+          ],
+          "match_tokens": [
+            "sustained-tone",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    }
+  ]
+}

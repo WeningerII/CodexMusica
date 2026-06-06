@@ -1,0 +1,121 @@
+{
+  "id": "south_african_kwaito",
+  "name": "South African kwaito",
+  "family": "hip_hop",
+  "lineage": "South African house-and-hip-hop hybrid genre emerging in mid-1990s post-apartheid Johannesburg as a celebration of newly-democratic South African cultural identity. Characterized by slowed-down house tempo (90-110 BPM), Zulu-Xhosa-Sesotho-English vocal delivery, dub-and-reggae-influenced bass-and-keyboard production, and explicit South African township cultural lyrical content. Boom Shaka, Arthur Mafokate, Mandoza, Brenda Fassie (transitional), and TKZee consolidated the canonical 1990s-2000s commercial sound.",
+  "recipe": "classic 1994-1996 south african kwaito, mc Rhythm, Afro-diasporic branch, house electronic dance, Jamaican bass system jamaican dancehall. vocal fry, rap, chest resonance low mid, narrative. TR-808, sub bass analog synth, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 513,
+  "score": 154.645,
+  "config": {
+    "traditions": [
+      "south_african_kwaito",
+      "jamaican_dancehall",
+      "dub"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 3.7,
+          "voice_vibrato": 1.675,
+          "voice_articulation": 1.8000000000000003,
+          "voice_microtone": 0.09,
+          "voice_tradition": 17.11,
+          "voice_mechanism_compound": 1.14,
+          "voice_estill_quality": 0.9599999999999997,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 1.4349999999999998,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 4.74,
+          "voice_multitrack_stack": 3.725
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 4.655,
+          "drum_machine_808_context": 3.38,
+          "tr808_production_origin": 0.375
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "sample_hold"
+        },
+        "scores": {
+          "electronic_technique": 4.555000000000001,
+          "oscillator": 2.6,
+          "filter_topology": 4.245,
+          "envelope": 0.3,
+          "modulation": 0.15
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "electric_technique": 6.5,
+          "amp_make": 2.37,
+          "body_wood": 1.69,
+          "pickup_config": 0.42,
+          "string_type": 4.1450000000000005,
+          "scale_length_b": 1.63,
+          "fretted_or_not": 0.135,
+          "bass_technique": 6.5
+        }
+      }
+    ],
+    "room": "lagos_decca_west_african_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

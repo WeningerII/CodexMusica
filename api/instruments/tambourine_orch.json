@@ -1,0 +1,220 @@
+{
+  "id": "tambourine_orch",
+  "name": "Tambourine (orchestral)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tambourine",
+  "parts": [
+    {
+      "id": "tambourine_orch_jingle",
+      "name": "Jingle material",
+      "variants": [
+        {
+          "id": "tambourine_orch_brass",
+          "default": true,
+          "name": "Brass (warm)",
+          "descriptors": [
+            "traditional",
+            "mellow",
+            "brass"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "tambourine_orch_nickel",
+          "name": "Nickel-silver (bright)",
+          "descriptors": [
+            "sharp",
+            "concert",
+            "projecting",
+            "nickel-silver",
+            "nickel",
+            "silver"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "tambourine_orch_mixed",
+          "name": "Mixed",
+          "descriptors": [
+            "versatile",
+            "session",
+            "flexible"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambourine_orch_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tambourine_orch_orch",
+          "default": true,
+          "name": "Orchestral",
+          "descriptors": [
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "tambourine_orch_pop",
+          "name": "Pop session",
+          "descriptors": [
+            "rhythmic-color",
+            "commercial"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "overdub"
+          ]
+        },
+        {
+          "id": "tambourine_orch_film",
+          "name": "Cinematic / film",
+          "descriptors": [
+            "scored",
+            "textural",
+            "project-defining"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tambourine_orch_jingle",
+      "name": "Jingle material",
+      "variants": [
+        {
+          "id": "tambourine_orch_brass",
+          "default": true,
+          "name": "Brass (warm)",
+          "descriptors": [
+            "traditional",
+            "mellow",
+            "brass"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "tambourine_orch_nickel",
+          "name": "Nickel-silver (bright)",
+          "descriptors": [
+            "sharp",
+            "concert",
+            "projecting",
+            "nickel-silver",
+            "nickel",
+            "silver"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "tambourine_orch_mixed",
+          "name": "Mixed",
+          "descriptors": [
+            "versatile",
+            "session",
+            "flexible"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambourine_orch_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tambourine_orch_orch",
+          "default": true,
+          "name": "Orchestral",
+          "descriptors": [
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "tambourine_orch_pop",
+          "name": "Pop session",
+          "descriptors": [
+            "rhythmic-color",
+            "commercial"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "overdub"
+          ]
+        },
+        {
+          "id": "tambourine_orch_film",
+          "name": "Cinematic / film",
+          "descriptors": [
+            "scored",
+            "textural",
+            "project-defining"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "id": "tibetan_dungchen",
+  "name": "Dungchen (Tibetan long horn)",
+  "family": "wind",
+  "class": "brass",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "dungchen",
+  "parts": [
+    {
+      "id": "dungchen_length",
+      "name": "Length",
+      "variants": [
+        {
+          "id": "dungchen_extended",
+          "default": true,
+          "name": "Extended ceremonial (3-4m, telescoping)",
+          "descriptors": [
+            "drone-sustained",
+            "low-fundamental-tuning",
+            "ceremonial",
+            "brass",
+            "tibetan-buddhist"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dungchen_body_metal",
+      "surface": false,
+      "name": "Body metal",
+      "variants": [
+        {
+          "id": "dungchen_copper_brass_canonical",
+          "default": true,
+          "name": "Hammered copper-brass telescoping sections (canonical Tibetan)",
+          "descriptors": [
+            "hammered-copper-brass-telescoping-canonical-tibetan"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        },
+        {
+          "id": "dungchen_silver_ornament",
+          "name": "Silver-ornamented sections (premium monastic)",
+          "descriptors": [
+            "silver-ornamented-premium-monastic"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dungchen_lineage",
+      "surface": false,
+      "name": "Monastic tradition",
+      "variants": [
+        {
+          "id": "dungchen_gelug_canonical",
+          "default": true,
+          "name": "Gelug monastic (canonical Tibetan Buddhist liturgy)",
+          "descriptors": [
+            "gelug-canonical-tibetan-buddhist-liturgy"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        },
+        {
+          "id": "dungchen_kagyu",
+          "name": "Kagyu monastic",
+          "descriptors": [
+            "kagyu-monastic"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        },
+        {
+          "id": "dungchen_nyingma",
+          "name": "Nyingma monastic",
+          "descriptors": [
+            "nyingma-monastic"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dungchen_length",
+      "name": "Length",
+      "variants": [
+        {
+          "id": "dungchen_extended",
+          "default": true,
+          "name": "Extended ceremonial (3-4m, telescoping)",
+          "descriptors": [
+            "drone-sustained",
+            "low-fundamental-tuning",
+            "ceremonial",
+            "brass",
+            "tibetan-buddhist"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dungchen_body_metal",
+      "surface": false,
+      "name": "Body metal",
+      "variants": [
+        {
+          "id": "dungchen_copper_brass_canonical",
+          "default": true,
+          "name": "Hammered copper-brass telescoping sections (canonical Tibetan)",
+          "descriptors": [
+            "hammered-copper-brass-telescoping-canonical-tibetan"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        },
+        {
+          "id": "dungchen_silver_ornament",
+          "name": "Silver-ornamented sections (premium monastic)",
+          "descriptors": [
+            "silver-ornamented-premium-monastic"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dungchen_lineage",
+      "surface": false,
+      "name": "Monastic tradition",
+      "variants": [
+        {
+          "id": "dungchen_gelug_canonical",
+          "default": true,
+          "name": "Gelug monastic (canonical Tibetan Buddhist liturgy)",
+          "descriptors": [
+            "gelug-canonical-tibetan-buddhist-liturgy"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        },
+        {
+          "id": "dungchen_kagyu",
+          "name": "Kagyu monastic",
+          "descriptors": [
+            "kagyu-monastic"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        },
+        {
+          "id": "dungchen_nyingma",
+          "name": "Nyingma monastic",
+          "descriptors": [
+            "nyingma-monastic"
+          ],
+          "match_tokens": [
+            "long-horn",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    }
+  ]
+}

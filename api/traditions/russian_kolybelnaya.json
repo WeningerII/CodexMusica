@@ -1,0 +1,68 @@
+{
+  "id": "russian_kolybelnaya",
+  "name": "Russian kolybelnaya (колыбельная, cradle song)",
+  "family": "global",
+  "lineage": "Russian cradle-song tradition continuous from peasant-folksong rural practice through 19th-century romance art-song setting (Mussorgsky, Tchaikovsky) into Soviet-era and post-Soviet domestic practice",
+  "recipe": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song schlager chanson pop. low dynamic level, continuous-phonation, equal tempered, modern pop training. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 386,
+  "score": 78.86,
+  "config": {
+    "traditions": [
+      "russian_kolybelnaya",
+      "schlager_german",
+      "chanson_pop_modern"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.435,
+          "voice_quality": 1.885,
+          "voice_vibrato": 0.325,
+          "voice_articulation": 1.69,
+          "voice_microtone": 0.5049999999999999,
+          "voice_tradition": 2.145,
+          "voice_mechanism_compound": 1.8,
+          "voice_estill_quality": 0.345,
+          "voice_speech_song": 9.165,
+          "voice_ensemble_config": 3.1200000000000006,
+          "voice_ornament_system": 0.795,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 1.56,
+          "voice_multitrack_stack": 0.825
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "russian_minor_estrada_chanson",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

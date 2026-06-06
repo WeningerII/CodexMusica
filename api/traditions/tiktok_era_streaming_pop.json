@@ -1,0 +1,112 @@
+{
+  "id": "tiktok_era_streaming_pop",
+  "name": "TikTok-era streaming pop",
+  "family": "vernacular",
+  "lineage": "2020s short-form-platform-native pop crafted for algorithmic discovery on TikTok and Instagram Reels — characterized by hook-foregrounded sub-thirty-second song structures, mid-song genre-and-tempo pivots, viral-dance-and-challenge-targeted composition, and rapid-iteration release cycles — exemplars include Olivia Rodrigo (SOUR 2021), Lil Nas X (Old Town Road 2019), Doja Cat, PinkPantheress, Ice Spice, with the form representing a structural shift from album-era pop construction",
+  "recipe": "classic mid-2020s tiktok-era streaming pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, low dynamic level, chest resonance low mid, equal tempered. field textural sampler, TR-808, plucked short envelope analog poly synth. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 417,
+  "score": 193.994,
+  "config": {
+    "traditions": [
+      "tiktok_era_streaming_pop",
+      "hyperpop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 17.81,
+          "voice_quality": 1.1049999999999998,
+          "voice_vibrato": 1.273,
+          "voice_articulation": 0.325,
+          "voice_microtone": 17.299999999999997,
+          "voice_tradition": 17.81,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 10.464999999999998,
+          "voice_ensemble_config": 5.46,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 1.3315000000000001,
+          "voice_processing_chain": 4.5045,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_pop_production"
+        },
+        "scores": {
+          "electronic_technique": 3.481499999999999,
+          "sampler_archetypes": 0.399,
+          "sampler_bit_depth": 1.17,
+          "sampler_workflow": 4.023,
+          "sampler_classic_context": 13.9915
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 1.2815,
+          "drum_machine_808_context": 1.69,
+          "tr808_production_origin": 0.2415
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 15,
+          "poly_archetypes": 1.95,
+          "poly_voices": 0.4725,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "maximalist_streaming_pop",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

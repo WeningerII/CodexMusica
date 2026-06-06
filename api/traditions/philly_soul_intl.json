@@ -1,0 +1,300 @@
+{
+  "id": "philly_soul_intl",
+  "name": "Philadelphia International soul",
+  "family": "blues_gospel",
+  "lineage": "Lush orchestral soul codified at Sigma Sound Studios Philadelphia 1971-1980 under Kenny Gamble and Leon Huffs Philadelphia International Records label with the MFSB rhythm section (Mother Father Sister Brother) as house band — The OJays Backstabbers and Love Train, Harold Melvin and the Blue Notes If You Dont Know Me by Now, MFSB TSOP, Spinners, Three Degrees, Patti LaBelle",
+  "recipe": "classic North American mid-1970s philadelphia international soul, functional Song, soul R&B branch, pop rock functional song, continental electronic dance new wave yacht rock. thick, blues-shouter, chest resonance low mid, narrative. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, block chord rhodes electric, block chord fast tremolo tonewheel organ, plucked pizzicato violin orchestral, tenor ensemble honking attack saxophone, bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet, mallets vibraphone. philadelphia 212 north 12th street 1968-2003 mid tier sigma sound studios philadelphia.",
+  "recipe_chars": 956,
+  "score": 833.231,
+  "config": {
+    "traditions": [
+      "philly_soul_intl",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "korina",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 9.899499999999998,
+          "amp_make": 10.429499999999997,
+          "body_wood": 1.5724999999999998,
+          "neck_wood": 1.1825,
+          "fretboard": 0.4094999999999999,
+          "pickup_magnet": 0.28500000000000003,
+          "pickup_winding": 0.24,
+          "string_material": 0.37349999999999994,
+          "bridge": 1.1825,
+          "scale_length": 2.185,
+          "string_gauge": 1.2425000000000002,
+          "finish": 0.09,
+          "string_tuning": 0.9099999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 9.399999999999999,
+          "amp_make": 12.678999999999997,
+          "body_wood": 2.185,
+          "pickup_config": 0.384,
+          "string_type": 12.928999999999998,
+          "scale_length_b": 1.2574999999999998,
+          "fretted_or_not": 0.045,
+          "bass_technique": 9.399999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 11,
+          "shell_wood": 0.693,
+          "shell_thickness": 0.048749999999999995,
+          "bearing_edges": 1.0925,
+          "drumhead": 2.045,
+          "snare_wires": 1.0925,
+          "cymbal_alloy": 3.6844999999999994,
+          "cymbal_hammering": 4.35,
+          "cymbal_lathing": 3.7245,
+          "cymbal_finish": 0.375,
+          "drum_technique": 11
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 9.495,
+          "grand_piano_size": 2.0035,
+          "grand_piano_brand": 1.5619999999999998,
+          "piano_hammer": 2.03,
+          "piano_rim": 2.2099999999999995,
+          "piano_soundboard": 1.7449999999999997,
+          "piano_pinblock": -0.035,
+          "piano_plate": 0.26,
+          "piano_pitch_standard": 2.015
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_close_bark"
+        },
+        "scores": {
+          "keyboard_technique": 9.495,
+          "rhodes_model": 1.277,
+          "rhodes_use": 3.41975,
+          "rhodes_tine_material": -1.4,
+          "rhodes_hammer_tip": -0.1049999999999999,
+          "rhodes_pickup_position": 0.78
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 9.495,
+          "drawbar_setting": 1.8399999999999999,
+          "rotary_speed": 9.45,
+          "percussion_setting": 0.9099999999999999,
+          "tonewheel_model": -0.035,
+          "leslie_cabinet_model": -0.035
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "rectified_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "tremolo_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.95,
+          "orch_strings": 0.3285,
+          "orch_top_wood": -0.035,
+          "orch_back_wood": 0.8449999999999999,
+          "orch_varnish": 0.325,
+          "orch_setup_period": 0.26,
+          "orch_bow": 0.9099999999999999,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.3345,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 12.0635,
+          "sax_size": 9.399999999999999,
+          "sax_reed": 0.2835,
+          "sax_body_alloy": -0.035,
+          "sax_mouthpiece": 0.2835,
+          "sax_technique": 9.399999999999999,
+          "sax_maker_school": 0.28500000000000003
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
+          "brass_mute": "plunger",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_sterling_silver_bell",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 12.0635,
+          "brass_size": 0.2835,
+          "trumpet_mouthpiece": 2.015,
+          "brass_mute": 0.375,
+          "trumpet_technique": 12.0635,
+          "trumpet_bell_metal": 0.3,
+          "trumpet_maker_school": 2.08
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_slow",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": 4,
+          "vibe_motor": 0,
+          "vibe_mallets": 0.693
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 12.929999999999998,
+          "voice_quality": 9.184999999999992,
+          "voice_vibrato": 1.2875,
+          "voice_articulation": 9.499999999999998,
+          "voice_microtone": 3.3000000000000003,
+          "voice_tradition": 9.7395,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 9.479999999999997,
+          "voice_speech_song": 9.814999999999998,
+          "voice_ensemble_config": 7.2799999999999985,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 1.17,
+          "voice_processing_chain": 3.965,
+          "voice_multitrack_stack": 2.37525
+        }
+      }
+    ],
+    "room": "sigma_sound_studios_philadelphia",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_api_525",
+      "eq": "eq_api_550",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
+    },
+    "tuning": "motown_four_on_floor_tambourine",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_aphex_aural_exciter"
+    ]
+  }
+}

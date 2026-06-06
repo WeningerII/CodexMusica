@@ -1,0 +1,431 @@
+{
+  "id": "domra",
+  "name": "Domra (Russian round-body lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "domra",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_tremolo",
+          "name": "Tremolo (mandolin-style)",
+          "applies_to": [
+            "baglamas",
+            "bouzouki",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "tiple",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "leona",
+            "vihuela_mexicana",
+            "domra"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "rapid-tremolo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "mandolin",
+            "mediterranean"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "domra_courses",
+      "name": "Course configuration",
+      "variants": [
+        {
+          "id": "three_string_domra",
+          "default": true,
+          "name": "Three-string Russian",
+          "descriptors": [
+            "traditional",
+            "folk-orchestra",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "four_string_domra",
+          "name": "Four-string Mussorgsky-era",
+          "descriptors": [
+            "extended-range",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domra_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "domra_prima",
+          "default": true,
+          "name": "Prima (high, lead)",
+          "descriptors": [
+            "soprano",
+            "orchestral-lead"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "domra_mezzo",
+          "name": "Mezzo (mid)",
+          "descriptors": [
+            "middle-voice",
+            "standard",
+            "orchestral-fill"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "domra_bass",
+          "name": "Bass (low, rare)",
+          "descriptors": [
+            "orchestral-bass",
+            "rare",
+            "support"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domra_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "domra_spruce_maple",
+          "default": true,
+          "name": "Spruce top + maple back (Andreyev orchestra canonical)",
+          "descriptors": [
+            "spruce-maple-andreyev"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "domra_cedar_top",
+          "name": "Cedar top (warmer alternative)",
+          "descriptors": [
+            "cedar-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domra_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "domra_steel_modern",
+          "default": true,
+          "name": "Steel (modern Russian canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "domra_gut_historical",
+          "name": "Gut (pre-Andreyev historical)",
+          "descriptors": [
+            "gut-pre-andreyev-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_tremolo"
+    },
+    {
+      "id": "domra_courses",
+      "name": "Course configuration",
+      "variants": [
+        {
+          "id": "three_string_domra",
+          "default": true,
+          "name": "Three-string Russian",
+          "descriptors": [
+            "traditional",
+            "folk-orchestra",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "four_string_domra",
+          "name": "Four-string Mussorgsky-era",
+          "descriptors": [
+            "extended-range",
+            "virtuoso",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domra_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "domra_prima",
+          "default": true,
+          "name": "Prima (high, lead)",
+          "descriptors": [
+            "soprano",
+            "orchestral-lead"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "domra_mezzo",
+          "name": "Mezzo (mid)",
+          "descriptors": [
+            "middle-voice",
+            "standard",
+            "orchestral-fill"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "domra_bass",
+          "name": "Bass (low, rare)",
+          "descriptors": [
+            "orchestral-bass",
+            "rare",
+            "support"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domra_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "domra_spruce_maple",
+          "default": true,
+          "name": "Spruce top + maple back (Andreyev orchestra canonical)",
+          "descriptors": [
+            "spruce-maple-andreyev"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "domra_cedar_top",
+          "name": "Cedar top (warmer alternative)",
+          "descriptors": [
+            "cedar-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domra_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "domra_steel_modern",
+          "default": true,
+          "name": "Steel (modern Russian canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "domra_gut_historical",
+          "name": "Gut (pre-Andreyev historical)",
+          "descriptors": [
+            "gut-pre-andreyev-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

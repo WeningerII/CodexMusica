@@ -1,0 +1,406 @@
+{
+  "id": "mbira",
+  "name": "Mbira (lamellophone)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "mbira",
+  "parts": [
+    {
+      "id": "tine_material",
+      "surface": false,
+      "name": "Tine material",
+      "variants": [
+        {
+          "id": "iron_forged",
+          "default": true,
+          "name": "Iron forged",
+          "descriptors": [
+            "traditional",
+            "sustaining",
+            "iron"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "spring_steel",
+          "name": "Spring steel",
+          "descriptors": [
+            "treble-extended",
+            "modern",
+            "projecting",
+            "steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "recycled_metal",
+          "name": "Recycled scrap metal",
+          "descriptors": [
+            "variegated",
+            "natural-material-resonance",
+            "raw"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "plucked",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbira_board",
+      "surface": false,
+      "name": "Soundboard",
+      "variants": [
+        {
+          "id": "mubvamaropa",
+          "name": "Mubvamaropa hardwood",
+          "descriptors": [
+            "dense",
+            "sustaining",
+            "ceremonial",
+            "hardwood",
+            "wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "mahogany_kalimba",
+          "name": "Mahogany (kalimba)",
+          "descriptors": [
+            "woody",
+            "simple",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "maple_kalimba",
+          "default": true,
+          "name": "Maple (kalimba)",
+          "descriptors": [
+            "treble-extended",
+            "modern",
+            "maple"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbira_resonator",
+      "surface": false,
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "deze_calabash",
+          "name": "Calabash deze",
+          "descriptors": [
+            "wind-like",
+            "ceremonial",
+            "calabash",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "box_resonator",
+          "default": true,
+          "name": "Wooden box",
+          "descriptors": [
+            "focused",
+            "modern",
+            "wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "no_resonator",
+          "name": "None",
+          "descriptors": [
+            "low-dynamic-level",
+            "quiet",
+            "dry"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbira_buzz",
+      "surface": false,
+      "name": "Buzzers (machachara)",
+      "variants": [
+        {
+          "id": "bottle_caps",
+          "default": true,
+          "name": "Bottle caps",
+          "descriptors": [
+            "whispering",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "metal_beads",
+          "name": "Metal beads on wires",
+          "descriptors": [
+            "fast-decay-focused-low",
+            "modern-buzz",
+            "controlled"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "no_buzz",
+          "name": "None (kalimba-style)",
+          "descriptors": [
+            "pure-tone",
+            "clean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tine_material",
+      "surface": false,
+      "name": "Tine material",
+      "variants": [
+        {
+          "id": "iron_forged",
+          "default": true,
+          "name": "Iron forged",
+          "descriptors": [
+            "traditional",
+            "sustaining",
+            "iron"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "spring_steel",
+          "name": "Spring steel",
+          "descriptors": [
+            "treble-extended",
+            "modern",
+            "projecting",
+            "steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "recycled_metal",
+          "name": "Recycled scrap metal",
+          "descriptors": [
+            "variegated",
+            "natural-material-resonance",
+            "raw"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "plucked",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbira_board",
+      "surface": false,
+      "name": "Soundboard",
+      "variants": [
+        {
+          "id": "mubvamaropa",
+          "name": "Mubvamaropa hardwood",
+          "descriptors": [
+            "dense",
+            "sustaining",
+            "ceremonial",
+            "hardwood",
+            "wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "mahogany_kalimba",
+          "name": "Mahogany (kalimba)",
+          "descriptors": [
+            "woody",
+            "simple",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "maple_kalimba",
+          "default": true,
+          "name": "Maple (kalimba)",
+          "descriptors": [
+            "treble-extended",
+            "modern",
+            "maple"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbira_resonator",
+      "surface": false,
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "deze_calabash",
+          "name": "Calabash deze",
+          "descriptors": [
+            "wind-like",
+            "ceremonial",
+            "calabash",
+            "gourd"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "box_resonator",
+          "default": true,
+          "name": "Wooden box",
+          "descriptors": [
+            "focused",
+            "modern",
+            "wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "no_resonator",
+          "name": "None",
+          "descriptors": [
+            "low-dynamic-level",
+            "quiet",
+            "dry"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbira_buzz",
+      "surface": false,
+      "name": "Buzzers (machachara)",
+      "variants": [
+        {
+          "id": "bottle_caps",
+          "default": true,
+          "name": "Bottle caps",
+          "descriptors": [
+            "whispering",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "metal_beads",
+          "name": "Metal beads on wires",
+          "descriptors": [
+            "fast-decay-focused-low",
+            "modern-buzz",
+            "controlled"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "plucked",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "no_buzz",
+          "name": "None (kalimba-style)",
+          "descriptors": [
+            "pure-tone",
+            "clean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato"
+          ]
+        }
+      ]
+    }
+  ]
+}

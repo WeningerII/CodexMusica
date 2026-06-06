@@ -1,0 +1,79 @@
+{
+  "id": "sardinian_polyphony",
+  "name": "Sardinian polyphony (cantu a tenore)",
+  "family": "global",
+  "lineage": "Sardinian a cappella four-voice polyphonic tradition — cantu a tenore (male four-voice with bassu, contra, mesa voche, and boche solo lead) and cantu a chiterra (vocal-with-guitar shepherd song), preserved through the village traditions of Bitti, Nuoro, and Logudoro, with the Tenores di Bitti Mialinu Pira ensemble as the canonical late-twentieth-century preservation lineage",
+  "recipe": "classic modern sardinian polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian cantu a tenore and launeddas. vocal fry, false fold engaged, hocket articulation, filtered throat. a tenores quartet. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 409,
+  "score": 229.37,
+  "config": {
+    "traditions": [
+      "sardinian_polyphony",
+      "croatian_klapa_dalmatian",
+      "sardinian_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 4.809999999999999,
+          "voice_quality": 20.999999999999993,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 1.9500000000000002,
+          "voice_microtone": 0.8949999999999999,
+          "voice_tradition": 26.97499999999999,
+          "voice_mechanism_compound": 7.409999999999999,
+          "voice_estill_quality": 5.654999999999999,
+          "voice_speech_song": 8.254999999999999,
+          "voice_ensemble_config": 19.499999999999996,
+          "voice_ornament_system": 4.809999999999999,
+          "voice_pitch_organization": 1.755,
+          "voice_processing_chain": 4.789999999999999,
+          "voice_multitrack_stack": 5.199999999999999
+        }
+      },
+      {
+        "id": "a_tenores_quartet",
+        "slots": {
+          "voices": "contra_voice",
+          "a_tenores_quartet_context": "a_tenores_quartet_revival"
+        },
+        "scores": {
+          "voices": 0.78,
+          "a_tenores_quartet_context": 3.9
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

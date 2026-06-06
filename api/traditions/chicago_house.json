@@ -1,0 +1,63 @@
+{
+  "id": "chicago_house",
+  "name": "Chicago house",
+  "family": "electronic",
+  "lineage": "Mid-1980s Chicago club-music genre developed at the Warehouse and Music Box clubs through Frankie Knuckles, Ron Hardy, and the early Trax Records and DJ International record-label catalogs — characterized by 120-128 bpm four-on-the-floor kick, drum-machine programming, sampled-and-looped disco-and-soul vocal hooks, and the form's explicit Black-and-Latino-queer-club origins (1984-1988)",
+  "recipe": "classic 1984-1988 chicago house, electronic Dance, chicago house branch, christian gospel black gospel. drum machine analog, monosynth acid bass. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette lexicon 224 / 480L.",
+  "recipe_chars": 276,
+  "score": 17.208,
+  "config": {
+    "traditions": [
+      "chicago_house"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.345,
+          "snare_voice": 0.345,
+          "hat_voice": 0.3,
+          "shuffle_quantize": 5.759
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 1.7702499999999999,
+          "wave_acid": 0.35624999999999996,
+          "filter_acid": 0.39,
+          "accent_acid": 0.8674999999999999
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "colored",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_lexicon_224"
+    ]
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "id": "tibetan_yang_chant",
+  "name": "Tibetan multiphonic yang chant",
+  "family": "classical",
+  "lineage": "Tibetan Buddhist monastic multiphonic yang chant tradition of the Gelug-school tantric colleges Gyuto and Gyume (founded 1474 and 1485, respectively, by Sherab Sengge, a direct disciple of Tsongkhapa). The yang chant technique produces a chest-register-pitched fundamental enriched with audible upper-partial overtones such that a single voice produces what sounds like a chord — the third, fifth, and sometimes higher partials being amplified into clearly audible voice-leading register. Multiple monks chanting in unison produce a thick texture of fundamental-plus-overtones across the assembly. Repertoire centers on the Lama Chöpa (Guru Puja), the Yamantaka tantric cycles, the Guhyasamaja tantric cycles, and the Chakrasamvara tantric cycles. Accompaniment by the canonical monastic-ensemble percussion: rolmo large paired cymbals, dril-bu small hand-bell, damaru double-headed hand-drum, dung-chen long telescoping copper-or-brass trumpet (the four-meter-long ceremonial instrument, played in pairs, capable of producing the very-low subharmonic that anchors the ensemble), rgya-gling double-reed oboe (the melodic-leading instrument when wind voices are present), and kangling thigh-bone trumpet (for specific wrathful-deity cycles). Huston Smith's 1967 Music of Tibet recordings (GemsTone GT1003-CD reissue 2005) and David Lewiston's 1971 Nonesuch Explorer H-72071 Tibetan Ritual Music constitute the principal Western-distributed documentation. Distinguished from Mongolian khoomei by Tibetan yang chant's ensemble (vs solo) and liturgical (vs secular) framework; distinguished from Sakya-school chant by Gelug-specific tantric-cycle repertoire; distinguished from Bön pre-Buddhist Tibetan chant by Buddhist tantric-text base.",
+  "recipe": "classic mid-1470s tibetan multiphonic yang chant, ritual Devotional, buddhist branch, overtone drone modal, east Asian Tibetan ritual tibetan ache lhamo opera khöömii. sygyt, false fold engaged, chest resonance low mid, unrestrained. large paired bronze cymbals canonical Tibetan monastic yang chant ensemble canonical gelug monastic rolmo, conical bore double reed canonical Tibetan monastic gelug monastic ceremonial canonical Tibetan rgya gling, copper brass telescoping silver inlay canonical Tibetan build gelug monastic yang chant ritual dung chen, double headed cord pellets rotated canonical Tibetan gelug monastic ritual canonical Tibetan damaru, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet. tibetan gompa assembly hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 971,
+  "score": 461.626,
+  "config": {
+    "traditions": [
+      "tibetan_yang_chant",
+      "tibetan_ache_lhamo",
+      "mongolian_xoomii"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "khoomei_tuvan_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 5.85,
+          "voice_quality": 7.3450000000000015,
+          "voice_vibrato": 4.29,
+          "voice_articulation": 1.625,
+          "voice_microtone": 2.7,
+          "voice_tradition": 11.634999999999994,
+          "voice_mechanism_compound": 13.715,
+          "voice_estill_quality": 4.485,
+          "voice_speech_song": 11.569999999999999,
+          "voice_ensemble_config": 14.819999999999999,
+          "voice_ornament_system": 4.16,
+          "voice_pitch_organization": 6.369999999999999,
+          "voice_processing_chain": 7.279999999999999,
+          "voice_multitrack_stack": 6.309624999999999
+        }
+      },
+      {
+        "id": "rolmo",
+        "slots": {
+          "rolmo_body": "rolmo_large_paired_cymbals_canonical",
+          "rolmo_tradition": "rolmo_yang_chant_ensemble_canonical"
+        },
+        "scores": {
+          "rolmo_body": 17.819249999999997,
+          "rolmo_tradition": 25.5281875
+        }
+      },
+      {
+        "id": "rgya_gling",
+        "slots": {
+          "rgya_gling_body": "rgya_gling_conical_bore_double_reed_canonical",
+          "rgya_gling_tradition": "rgya_gling_monastic_ceremonial_canonical"
+        },
+        "scores": {
+          "rgya_gling_body": 17.808562499999997,
+          "rgya_gling_tradition": 17.222749999999998
+        }
+      },
+      {
+        "id": "dung_chen",
+        "slots": {
+          "dung_chen_body": "dung_chen_copper_brass_silver_inlay_canonical",
+          "dung_chen_tradition": "dung_chen_gelug_yang_chant_canonical"
+        },
+        "scores": {
+          "dung_chen_body": 14.133062499999998,
+          "dung_chen_tradition": 25.634625
+        }
+      },
+      {
+        "id": "damaru",
+        "slots": {
+          "damaru_body": "damaru_double_headed_cord_pellets_canonical",
+          "damaru_tradition": "damaru_gelug_ritual_canonical"
+        },
+        "scores": {
+          "damaru_body": 14.502999999999998,
+          "damaru_tradition": 20.02
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "bucket_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 4.095000000000001,
+          "brass_size": 2.55,
+          "trumpet_mouthpiece": 5.915,
+          "brass_mute": 2.8449999999999998,
+          "trumpet_technique": 4.095000000000001,
+          "trumpet_bell_metal": 3.38,
+          "trumpet_maker_school": 1.69
+        }
+      }
+    ],
+    "room": "tibetan_gompa_assembly_hall",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

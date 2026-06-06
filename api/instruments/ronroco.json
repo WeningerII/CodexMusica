@@ -1,0 +1,383 @@
+{
+  "id": "ronroco",
+  "name": "Ronroco (large charango)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ronroco",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ronroco_config",
+      "name": "Course configuration",
+      "variants": [
+        {
+          "id": "ronroco_five_double",
+          "default": true,
+          "name": "Five doubled courses (canonical)",
+          "descriptors": [
+            "standard",
+            "foundational"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked"
+          ]
+        },
+        {
+          "id": "ronroco_five_single",
+          "name": "Five-string single-strung",
+          "descriptors": [
+            "rare",
+            "modern-variant",
+            "simplified"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ronroco_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "ronroco_nueva_cancion",
+          "default": true,
+          "name": "Nueva canción",
+          "descriptors": [
+            "Andean-revival",
+            "protest-folk"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "ronroco_andean_fusion",
+          "name": "Andean fusion",
+          "descriptors": [
+            "contemporary",
+            "concert"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "ronroco_film",
+          "name": "Film score",
+          "descriptors": [
+            "atmospheric",
+            "modern",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ronroco_body_wood",
+      "surface": false,
+      "name": "Back / body wood",
+      "variants": [
+        {
+          "id": "ronroco_naranjillo",
+          "default": true,
+          "name": "Naranjillo (Bolivian / Peruvian canonical)",
+          "descriptors": [
+            "naranjillo",
+            "bolivian-peruvian-canonical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "ronroco_wood_carved",
+          "name": "Carved hardwood (modern luthier)",
+          "descriptors": [
+            "carved-hardwood",
+            "modern-luthier"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ronroco_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ronroco_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "ronroco_gut_historical",
+          "name": "Gut (pre-modern Andean)",
+          "descriptors": [
+            "gut-pre-modern-andean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "ronroco_config",
+      "name": "Course configuration",
+      "variants": [
+        {
+          "id": "ronroco_five_double",
+          "default": true,
+          "name": "Five doubled courses (canonical)",
+          "descriptors": [
+            "standard",
+            "foundational"
+          ],
+          "match_tokens": [
+            "doubled",
+            "plucked"
+          ]
+        },
+        {
+          "id": "ronroco_five_single",
+          "name": "Five-string single-strung",
+          "descriptors": [
+            "rare",
+            "modern-variant",
+            "simplified"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ronroco_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "ronroco_nueva_cancion",
+          "default": true,
+          "name": "Nueva canción",
+          "descriptors": [
+            "Andean-revival",
+            "protest-folk"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "ronroco_andean_fusion",
+          "name": "Andean fusion",
+          "descriptors": [
+            "contemporary",
+            "concert"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "ronroco_film",
+          "name": "Film score",
+          "descriptors": [
+            "atmospheric",
+            "modern",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ronroco_body_wood",
+      "surface": false,
+      "name": "Back / body wood",
+      "variants": [
+        {
+          "id": "ronroco_naranjillo",
+          "default": true,
+          "name": "Naranjillo (Bolivian / Peruvian canonical)",
+          "descriptors": [
+            "naranjillo",
+            "bolivian-peruvian-canonical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "ronroco_wood_carved",
+          "name": "Carved hardwood (modern luthier)",
+          "descriptors": [
+            "carved-hardwood",
+            "modern-luthier"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ronroco_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ronroco_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "ronroco_gut_historical",
+          "name": "Gut (pre-modern Andean)",
+          "descriptors": [
+            "gut-pre-modern-andean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

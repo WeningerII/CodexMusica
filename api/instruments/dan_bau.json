@@ -1,0 +1,186 @@
+{
+  "id": "dan_bau",
+  "name": "Đàn bầu (Vietnamese monochord)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "short": "đàn bầu",
+  "parts": [
+    {
+      "id": "dan_bau_amplification",
+      "surface": false,
+      "name": "Amplification",
+      "variants": [
+        {
+          "id": "dan_bau_acoustic",
+          "name": "Acoustic gourd-resonator (archaic)",
+          "descriptors": [
+            "traditional",
+            "quiet",
+            "pre-modernized",
+            "gourd"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "dan_bau_electric",
+          "default": true,
+          "name": "Electric pickup (modern)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_bau_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "dan_bau_canonical",
+          "default": true,
+          "name": "Harmonic-pluck-with-bend (canonical)",
+          "descriptors": [
+            "standard",
+            "pitch-bending",
+            "expressive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "dan_bau_lever_only",
+          "name": "Lever-bend exclusive",
+          "descriptors": [
+            "simplified",
+            "pop-context",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "dan_bau_extended",
+          "name": "Extended techniques",
+          "descriptors": [
+            "contemporary",
+            "concert",
+            "experimental"
+          ],
+          "match_tokens": [
+            "plucked",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dan_bau_amplification",
+      "surface": false,
+      "name": "Amplification",
+      "variants": [
+        {
+          "id": "dan_bau_acoustic",
+          "name": "Acoustic gourd-resonator (archaic)",
+          "descriptors": [
+            "traditional",
+            "quiet",
+            "pre-modernized",
+            "gourd"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "dan_bau_electric",
+          "default": true,
+          "name": "Electric pickup (modern)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_bau_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "dan_bau_canonical",
+          "default": true,
+          "name": "Harmonic-pluck-with-bend (canonical)",
+          "descriptors": [
+            "standard",
+            "pitch-bending",
+            "expressive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "dan_bau_lever_only",
+          "name": "Lever-bend exclusive",
+          "descriptors": [
+            "simplified",
+            "pop-context",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "microtonal-bend"
+          ]
+        },
+        {
+          "id": "dan_bau_extended",
+          "name": "Extended techniques",
+          "descriptors": [
+            "contemporary",
+            "concert",
+            "experimental"
+          ],
+          "match_tokens": [
+            "plucked",
+            "microtonal-bend"
+          ]
+        }
+      ]
+    }
+  ]
+}

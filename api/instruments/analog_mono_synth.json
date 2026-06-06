@@ -1,0 +1,588 @@
+{
+  "id": "analog_mono_synth",
+  "name": "Analog monophonic synthesizer",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "analog mono synth",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_arpeggiated",
+          "name": "Arpeggiated sequence",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "monosynth_acid_bass"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "arpeggio-decoration"
+          ],
+          "canonical_tags": [
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_lead_line",
+          "name": "Lead synth line",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth",
+            "ondes_martenot",
+            "theremin"
+          ],
+          "descriptors": [
+            "lead",
+            "singing"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "pop",
+            "synthwave"
+          ],
+          "default": true
+        },
+        {
+          "id": "electronic_bass_sub",
+          "name": "Sub-bass",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "monosynth_acid_bass",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "digital_subtractive"
+          ],
+          "descriptors": [
+            "sub-bass",
+            "low"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "trap",
+            "dubstep"
+          ]
+        },
+        {
+          "id": "electronic_acid_squelch",
+          "name": "Acid squelch (303-style)",
+          "applies_to": [
+            "monosynth_acid_bass",
+            "analog_mono_synth",
+            "modular_synth"
+          ],
+          "descriptors": [
+            "squelchy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "electronic",
+            "classic-acid"
+          ],
+          "canonical_tags": [
+            "acid",
+            "techno"
+          ]
+        },
+        {
+          "id": "electronic_pluck_short",
+          "name": "Pluck / short envelope",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth"
+          ],
+          "descriptors": [
+            "plucked",
+            "short-envelope"
+          ],
+          "match_tokens": [
+            "electronic",
+            "string-attack"
+          ],
+          "canonical_tags": [
+            "pop",
+            "edm"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "mono_oscillator",
+      "surface": false,
+      "name": "Oscillator class",
+      "variants": [
+        {
+          "id": "mono_voltage_controlled",
+          "default": true,
+          "name": "Voltage-controlled (VCO)",
+          "descriptors": [
+            "analog-drift-character",
+            "drift",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "mono_digitally_controlled",
+          "name": "Digitally-controlled (DCO)",
+          "descriptors": [
+            "stable",
+            "modern",
+            "consistent"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mono_filter",
+      "name": "Filter type",
+      "variants": [
+        {
+          "id": "moog_ladder",
+          "default": true,
+          "name": "Moog ladder (4-pole LP)",
+          "descriptors": [
+            "analog-drift-character",
+            "low-mid-thick"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "arp_2600_filter",
+          "name": "ARP 2600 (4-pole LP)",
+          "descriptors": [
+            "edgy",
+            "articulate",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "sem_filter",
+          "name": "Oberheim SEM (multimode)",
+          "descriptors": [
+            "versatile",
+            "analog-drift-character",
+            "character"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mono_archetypes",
+      "surface": false,
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "minimoog",
+          "default": true,
+          "name": "Minimoog Model D",
+          "descriptors": [
+            "low-mid-thick",
+            "lead"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "arp_odyssey",
+          "name": "ARP Odyssey",
+          "descriptors": [
+            "edgy",
+            "duophonic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "tb_303",
+          "name": "Roland TB-303",
+          "descriptors": [
+            "squelchy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "acid-house"
+          ]
+        },
+        {
+          "id": "sh_101",
+          "name": "Roland SH-101",
+          "descriptors": [
+            "fast-attack-transient",
+            "simple",
+            "versatile"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mono_maker_lineage",
+      "surface": false,
+      "name": "Maker lineage",
+      "variants": [
+        {
+          "id": "mono_moog_robert",
+          "default": true,
+          "name": "Moog Robert Moog lineage (canonical Minimoog 1970 — Trumansburg NY)",
+          "descriptors": [
+            "moog-robert-moog-lineage-canonical-minimoog-1970-trumansburg-ny"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mono_arp_pearlman",
+          "name": "ARP Alan R. Pearlman lineage (canonical 2600 1971 — Lexington MA)",
+          "descriptors": [
+            "arp-alan-pearlman-lineage-canonical-2600-1971-lexington-ma"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mono_roland_kakehashi",
+          "name": "Roland Ikutaro Kakehashi lineage (canonical SH-101 / TB-303 1982-1984 — Osaka Japan)",
+          "descriptors": [
+            "roland-ikutaro-kakehashi-lineage-canonical-sh-101-tb-303-1982-1984-osaka"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mono_korg_kato",
+          "name": "Korg Tsutomu Katoh lineage (canonical MS-20 1978 — Tokyo Japan)",
+          "descriptors": [
+            "korg-tsutomu-katoh-lineage-canonical-ms-20-1978-tokyo"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electronic_technique",
+      "default_variant": "electronic_lead_line"
+    },
+    {
+      "id": "mono_oscillator",
+      "surface": false,
+      "name": "Oscillator class",
+      "variants": [
+        {
+          "id": "mono_voltage_controlled",
+          "default": true,
+          "name": "Voltage-controlled (VCO)",
+          "descriptors": [
+            "analog-drift-character",
+            "drift",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "mono_digitally_controlled",
+          "name": "Digitally-controlled (DCO)",
+          "descriptors": [
+            "stable",
+            "modern",
+            "consistent"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mono_filter",
+      "name": "Filter type",
+      "variants": [
+        {
+          "id": "moog_ladder",
+          "default": true,
+          "name": "Moog ladder (4-pole LP)",
+          "descriptors": [
+            "analog-drift-character",
+            "low-mid-thick"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "arp_2600_filter",
+          "name": "ARP 2600 (4-pole LP)",
+          "descriptors": [
+            "edgy",
+            "articulate",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "sem_filter",
+          "name": "Oberheim SEM (multimode)",
+          "descriptors": [
+            "versatile",
+            "analog-drift-character",
+            "character"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mono_archetypes",
+      "surface": false,
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "minimoog",
+          "default": true,
+          "name": "Minimoog Model D",
+          "descriptors": [
+            "low-mid-thick",
+            "lead"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "arp_odyssey",
+          "name": "ARP Odyssey",
+          "descriptors": [
+            "edgy",
+            "duophonic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "tb_303",
+          "name": "Roland TB-303",
+          "descriptors": [
+            "squelchy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "acid-house"
+          ]
+        },
+        {
+          "id": "sh_101",
+          "name": "Roland SH-101",
+          "descriptors": [
+            "fast-attack-transient",
+            "simple",
+            "versatile"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mono_maker_lineage",
+      "surface": false,
+      "name": "Maker lineage",
+      "variants": [
+        {
+          "id": "mono_moog_robert",
+          "default": true,
+          "name": "Moog Robert Moog lineage (canonical Minimoog 1970 — Trumansburg NY)",
+          "descriptors": [
+            "moog-robert-moog-lineage-canonical-minimoog-1970-trumansburg-ny"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mono_arp_pearlman",
+          "name": "ARP Alan R. Pearlman lineage (canonical 2600 1971 — Lexington MA)",
+          "descriptors": [
+            "arp-alan-pearlman-lineage-canonical-2600-1971-lexington-ma"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mono_roland_kakehashi",
+          "name": "Roland Ikutaro Kakehashi lineage (canonical SH-101 / TB-303 1982-1984 — Osaka Japan)",
+          "descriptors": [
+            "roland-ikutaro-kakehashi-lineage-canonical-sh-101-tb-303-1982-1984-osaka"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "mono_korg_kato",
+          "name": "Korg Tsutomu Katoh lineage (canonical MS-20 1978 — Tokyo Japan)",
+          "descriptors": [
+            "korg-tsutomu-katoh-lineage-canonical-ms-20-1978-tokyo"
+          ],
+          "match_tokens": [
+            "electronic",
+            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    }
+  ]
+}

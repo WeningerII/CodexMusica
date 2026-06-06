@@ -1,0 +1,46 @@
+{
+  "id": "kazakh_kuy",
+  "name": "Kazakh küy (instrumental dombyra art)",
+  "family": "classical",
+  "lineage": "Kazakh küy classical instrumental art-music tradition of Kazakhstan, performed on dombyra two-string long-necked fretted plucked lute as solo virtuoso narrative-programmatic compositions. Each küy narrates a historical-mythological story through purely instrumental means: the canonical \"Aksak Kulan\" tells of a son's death announced through dombyra after no one dared speak the news. Two regional schools: Western tökpe (more rhythmically vigorous) and Eastern shertpe (more lyrical-contemplative). Kurmangazy Sagyrbayuly (1818-1889) and Tattimbet Kazangapuly (1815-1862) are canonical composers.",
+  "recipe": "classic early-1810s kazakh küy, art Music, middle eastern classical branch, Slavic bard ballad poetry icelandic rímur kyrgyz manas epic-recital. turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 428,
+  "score": 29.495,
+  "config": {
+    "traditions": [
+      "kazakh_kuy",
+      "icelandic_rimur",
+      "kyrgyz_manaschi_epic"
+    ],
+    "instruments": [
+      {
+        "id": "dutar",
+        "slots": {
+          "dutar_body": "dutar_turkmen_long",
+          "dutar_strings": "dutar_silk_traditional",
+          "dutar_tradition": "dutar_shashmaqam_bukharan"
+        },
+        "scores": {
+          "dutar_body": 5.07,
+          "dutar_strings": 3.3799999999999994,
+          "dutar_tradition": 7.329999999999999
+        }
+      }
+    ],
+    "room": "open_steppe_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_pentatonic_long_song",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

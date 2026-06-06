@@ -1,0 +1,115 @@
+{
+  "id": "hindustani_sarod",
+  "name": "Hindustani classical (sarod-led)",
+  "family": "classical",
+  "lineage": "North Indian sarod tradition centered on the Maihar gharana of Allauddin Khan (1862-1972, the patriarch who taught both his son Ali Akbar Khan and his son-in-law Ravi Shankar) and the Senia Bangash gharana of the Bangash family (Hafiz Ali Khan, Amjad Ali Khan) — the sarod is the fretless metal-fingerboard plucked-lute derivation of the Afghan rabab brought to Hindustani classical from the 18th-19th centuries",
+  "recipe": "classic North American early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. coconut shell shell tun indian cedar maihar gharana sarod, indian rosewood rosewood copper tabla, suited to female vocal gourd body canonical traditional tanpura, open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 591,
+  "score": 173.851,
+  "config": {
+    "traditions": [
+      "hindustani_sarod",
+      "telugu_kirtana",
+      "sinhala_vannama"
+    ],
+    "instruments": [
+      {
+        "id": "sarod",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sarod_fingerboard": "polished_steel",
+          "sarod_belly": "goat_skin_belly",
+          "sarod_pluck": "coconut_shell_pick",
+          "sarod_taraf": "taraf_eleven",
+          "sarod_body_wood": "sarod_tun_body",
+          "sarod_strings": "sarod_phosphor_bronze",
+          "sarod_gharana": "sarod_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 12.584999999999999,
+          "sarod_fingerboard": 0.78,
+          "sarod_belly": 0.9993749999999999,
+          "sarod_pluck": 6.449999999999999,
+          "sarod_taraf": 6.3149999999999995,
+          "sarod_body_wood": 2.5,
+          "sarod_strings": 0,
+          "sarod_gharana": 16.48875
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 8.18,
+          "tabla_bayan": 6.074999999999999,
+          "tabla_syahi": 1.69
+        }
+      },
+      {
+        "id": "tanpura",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "tanpura_size": "female_size",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "five_string_chitra",
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_gourd_body"
+        },
+        "scores": {
+          "plucked_traditional_technique": 12.584999999999999,
+          "tanpura_size": 2.21,
+          "tanpura_jawari": 12,
+          "tanpura_strings": 1.69,
+          "tanpura_string_material": 0.93,
+          "tanpura_body_wood": 1.35
+        }
+      },
+      {
+        "id": "sitar",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sitar_neck": "teak",
+          "sitar_resonator": "single_kaddu",
+          "sitar_jawari": "camel_bone",
+          "sitar_taraf": "taraf_11",
+          "sitar_frets": "tied_gut_parda",
+          "sitar_pluck": "wire_mizrab",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_jawari_style": "sitar_jawari_open",
+          "sitar_gharana": "sitar_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 12.584999999999999,
+          "sitar_neck": 0.864375,
+          "sitar_resonator": 0.6,
+          "sitar_jawari": 0.42000000000000004,
+          "sitar_taraf": 0.42000000000000004,
+          "sitar_frets": 0.46499999999999997,
+          "sitar_pluck": 5.775,
+          "sitar_main_strings": -1.05,
+          "sitar_jawari_style": 5.679999999999999,
+          "sitar_gharana": 13.58875
+        }
+      }
+    ],
+    "room": "varanasi_benares_gharana_baithak",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

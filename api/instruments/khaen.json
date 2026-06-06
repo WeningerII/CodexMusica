@@ -1,0 +1,216 @@
+{
+  "id": "khaen",
+  "name": "Khaen (Lao mouth organ)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "khaen",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "khaen_size",
+      "surface": false,
+      "name": "Pipe count",
+      "variants": [
+        {
+          "id": "khaen_jet",
+          "name": "Jet (7-pipe)",
+          "descriptors": [
+            "archaic",
+            "folk",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "khaen_paet",
+          "default": true,
+          "name": "Paet (8-pipe most common)",
+          "descriptors": [
+            "mor-lam",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khaen_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "khaen_mor_lam",
+          "default": true,
+          "name": "Lao folk / mor lam",
+          "descriptors": [
+            "song-accompaniment",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "khaen_isan",
+          "name": "Northeast Thai (Isan)",
+          "descriptors": [
+            "regional-variant",
+            "cross-border"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "khaen_fusion",
+          "name": "Modern stage / fusion",
+          "descriptors": [
+            "twenty-first-century",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "khaen_size",
+      "surface": false,
+      "name": "Pipe count",
+      "variants": [
+        {
+          "id": "khaen_jet",
+          "name": "Jet (7-pipe)",
+          "descriptors": [
+            "archaic",
+            "folk",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "khaen_paet",
+          "default": true,
+          "name": "Paet (8-pipe most common)",
+          "descriptors": [
+            "mor-lam",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khaen_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "khaen_mor_lam",
+          "default": true,
+          "name": "Lao folk / mor lam",
+          "descriptors": [
+            "song-accompaniment",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "khaen_isan",
+          "name": "Northeast Thai (Isan)",
+          "descriptors": [
+            "regional-variant",
+            "cross-border"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "khaen_fusion",
+          "name": "Modern stage / fusion",
+          "descriptors": [
+            "twenty-first-century",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

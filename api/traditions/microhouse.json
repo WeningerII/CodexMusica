@@ -1,0 +1,76 @@
+{
+  "id": "microhouse",
+  "name": "Microhouse",
+  "family": "electronic",
+  "lineage": "Berlin-and-Cologne minimal-techno genre extending Chicago-house's rhythmic foundation through clicks-and-cuts micro-detail textural aesthetic and Kompakt-label-associated restrained-palette arrangement — codified through Akufen (My Way 2002), Matthew Herbert, Ricardo Villalobos (Alcachofa 2003, Fizheuer Zieheuer 2006), Luciano, Magda, with the genre serving as the early-2000s Cologne-Berlin minimal-aesthetic mainstream",
+  "recipe": "classic 2000-2003 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric idm and experimental electronic breakcore. digital subtractive, TR-909, glitched textural sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 343,
+  "score": 104.664,
+  "config": {
+    "traditions": [
+      "microhouse",
+      "idm",
+      "breakcore"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 0.5449999999999999,
+          "va_archetypes": 0.003214285714285714,
+          "digital_subtractive_context": 8.189999999999998
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 10.434999999999997,
+          "drum_machine_909_context": 2.4909375,
+          "tr909_production_origin": 0.3589285714285714
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 4.695,
+          "sampler_archetypes": 0.013125,
+          "sampler_bit_depth": 0.26,
+          "sampler_workflow": 5.1315,
+          "sampler_classic_context": 23.334999999999994
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "cologne_techno_aesthetic",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

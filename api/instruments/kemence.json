@@ -1,0 +1,335 @@
+{
+  "id": "kemence",
+  "name": "Kemençe (Black Sea / Constantinople bowed)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kemençe",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kemence_type",
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "pontic_kemence",
+          "name": "Karadeniz kemençe (Pontic)",
+          "descriptors": [
+            "piercing",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "classical_kemence",
+          "default": true,
+          "name": "Classical Ottoman kemençe",
+          "descriptors": [
+            "vocal-imitating",
+            "court",
+            "makam-suited"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kemence_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "kemence_horon",
+          "default": true,
+          "name": "Pontic dance (Black Sea)",
+          "descriptors": [
+            "horon-foundational",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "kemence_classical",
+          "name": "Ottoman classical",
+          "descriptors": [
+            "art-music",
+            "court-tradition",
+            "sophisticated"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bowed"
+          ]
+        },
+        {
+          "id": "kemence_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "twenty-first-century",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kemence_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kemence_mulberry",
+          "default": true,
+          "name": "Mulberry (canonical Black Sea)",
+          "descriptors": [
+            "mulberry-canonical-black-sea"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "kemence_plum_walnut",
+          "name": "Plum / walnut (Ottoman classical)",
+          "descriptors": [
+            "plum-walnut-ottoman"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kemence_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kemence_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "kemence_goat_gut_historical",
+          "name": "Goat-gut (pre-modern Black Sea historical)",
+          "descriptors": [
+            "goat-gut-pre-modern-black-sea"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kemence_type",
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "pontic_kemence",
+          "name": "Karadeniz kemençe (Pontic)",
+          "descriptors": [
+            "piercing",
+            "folk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "classical_kemence",
+          "default": true,
+          "name": "Classical Ottoman kemençe",
+          "descriptors": [
+            "vocal-imitating",
+            "court",
+            "makam-suited"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kemence_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "kemence_horon",
+          "default": true,
+          "name": "Pontic dance (Black Sea)",
+          "descriptors": [
+            "horon-foundational",
+            "communal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "kemence_classical",
+          "name": "Ottoman classical",
+          "descriptors": [
+            "art-music",
+            "court-tradition",
+            "sophisticated"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "bowed"
+          ]
+        },
+        {
+          "id": "kemence_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "twenty-first-century",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kemence_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kemence_mulberry",
+          "default": true,
+          "name": "Mulberry (canonical Black Sea)",
+          "descriptors": [
+            "mulberry-canonical-black-sea"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "kemence_plum_walnut",
+          "name": "Plum / walnut (Ottoman classical)",
+          "descriptors": [
+            "plum-walnut-ottoman"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kemence_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kemence_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "kemence_goat_gut_historical",
+          "name": "Goat-gut (pre-modern Black Sea historical)",
+          "descriptors": [
+            "goat-gut-pre-modern-black-sea"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

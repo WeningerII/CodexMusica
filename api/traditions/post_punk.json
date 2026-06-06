@@ -1,0 +1,192 @@
+{
+  "id": "post_punk",
+  "name": "Post-punk",
+  "family": "rock_punk",
+  "lineage": "Late-1970s through early-1980s underground rock movement extending punk's rejection of rock-tradition conventions through more harmonic-and-rhythmic experimentation, dub-and-disco bass-and-rhythm sensibility, and intellectualized lyrical content — codified through Wire (Pink Flag 1977), Joy Division (Unknown Pleasures 1979), Gang of Four (Entertainment! 1979), The Fall, Public Image Ltd (Metal Box 1979), Magazine, Talking Heads (Remain in Light 1980)",
+  "recipe": "classic British 1977-1979 post-punk, distorted Rock, punk branch, alternative distorted rock math rock and post-rock. thick, incomplete closure resting, pure, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled machine hammered symmetric pattern organized rows drum kit, ambient pad like analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb boss DS-1.",
+  "recipe_chars": 833,
+  "score": 745.025,
+  "config": {
+    "traditions": [
+      "post_punk",
+      "alternative_rock",
+      "math_rock_post_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 13.829999999999993,
+          "voice_quality": 1.17,
+          "voice_vibrato": 0.9750000000000001,
+          "voice_articulation": 1.3,
+          "voice_microtone": 13.299999999999997,
+          "voice_tradition": 2.2,
+          "voice_mechanism_compound": 5.98,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 10.984999999999996,
+          "voice_ensemble_config": 16.659999999999997,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 5.445,
+          "voice_multitrack_stack": 4.55
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "alder",
+          "neck_wood": "roasted_maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 17.354999999999997,
+          "amp_make": 25.609999999999992,
+          "body_wood": 0.9750000000000001,
+          "neck_wood": 0.9750000000000001,
+          "fretboard": 0.75,
+          "pickup_magnet": 0.75,
+          "string_material": 0.75,
+          "string_gauge": 0.9750000000000001,
+          "bridge": 0.195,
+          "scale_length": 1.9500000000000002,
+          "finish": 0,
+          "string_tuning": 8.19
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 14.699999999999996,
+          "amp_make": 8.645,
+          "body_wood": 1.9500000000000002,
+          "pickup_config": 0,
+          "string_type": 16.575,
+          "scale_length_b": 0.9750000000000001,
+          "fretted_or_not": 0.105,
+          "bass_technique": 27.499999999999996
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "oak_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 14.749999999999996,
+          "shell_wood": 0.78,
+          "shell_thickness": 0.43499999999999994,
+          "bearing_edges": 1.17,
+          "drumhead": 1.08,
+          "snare_wires": 1.365,
+          "cymbal_alloy": 30.749999999999993,
+          "cymbal_hammering": 13.495,
+          "cymbal_lathing": 13.645,
+          "cymbal_finish": 0.75,
+          "drum_technique": 14.749999999999996
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 1.885,
+          "oscillator": 2.08,
+          "filter_topology": 2.08,
+          "envelope": 1.3,
+          "modulation": 0.105
+        }
+      },
+      {
+        "id": "baritone_electric",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "baritone_use": "baritone_surf",
+          "baritone_electric_tuning": "baritone_electric_drop_a",
+          "baritone_electric_scale": "baritone_28_scale",
+          "baritone_electric_strings": "baritone_stainless_heavy",
+          "baritone_electric_pickup": "baritone_single_coil_jaguar"
+        },
+        "scores": {
+          "electric_technique": 17.354999999999997,
+          "amp_make": 25.609999999999992,
+          "baritone_use": 0.195,
+          "baritone_electric_tuning": 1.69,
+          "baritone_electric_scale": 2.08,
+          "baritone_electric_strings": 3.4299999999999997,
+          "baritone_electric_pickup": 2.695
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_roland_jc120",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "isolation_post_punk_aesthetic",
+    "arrangement": null,
+    "fx_extras": [
+      "fx_chorus_pedal",
+      "fx_boss_ds1"
+    ]
+  }
+}

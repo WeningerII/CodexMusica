@@ -1,0 +1,114 @@
+{
+  "id": "rage_rap",
+  "name": "Rage (rap)",
+  "family": "global",
+  "lineage": "Late-2010s onward Atlanta-and-Memphis trap-derived hip-hop subgenre characterized by aggressive 808-bass-driven instrumentals, screamed-and-rasping vocal delivery, mosh-pit-targeted live-show energy, and explicit punk-and-metal cross-pollination — codified through Trippie Redd, Lil Uzi Vert, Playboi Carti (Whole Lotta Red 2020, the genre's definitive statement), Ken Carson, Destroy Lonely",
+  "recipe": "classic Southern American 2017-2019 rage, mc Rhythm, experimental branch, punk distorted rock crust punk d-beat. thick, rap, chest resonance low mid, narrative. sub bass digital subtractive, TR-808, field textural sampler. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay eventide harmonizer.",
+  "recipe_chars": 383,
+  "score": 192.255,
+  "config": {
+    "traditions": [
+      "rage_rap",
+      "crust_punk",
+      "d_beat_swedish"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.6400000000000015,
+          "voice_quality": 8.950000000000001,
+          "voice_vibrato": 0.585,
+          "voice_articulation": 1.35,
+          "voice_microtone": 1.4999999999999996,
+          "voice_tradition": 3.84,
+          "voice_mechanism_compound": 6.5,
+          "voice_estill_quality": 0.5399999999999999,
+          "voice_speech_song": 8.84,
+          "voice_ensemble_config": 8.189999999999998,
+          "voice_ornament_system": 0.44999999999999996,
+          "voice_pitch_organization": 1.62,
+          "voice_processing_chain": 6.995,
+          "voice_multitrack_stack": 4.725
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 8.73,
+          "va_archetypes": 0.645,
+          "digital_subtractive_context": 8.709999999999997
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 4.03,
+          "drum_machine_808_context": 2.4699999999999998,
+          "tr808_production_origin": 0.195
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.7,
+          "sampler_archetypes": 1.95,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 3.895,
+          "sampler_classic_context": 15.989999999999998
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_atlanta_trap_2010s",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "autotune_aesthetic",
+      "fx_eventide_harmonizer"
+    ]
+  }
+}

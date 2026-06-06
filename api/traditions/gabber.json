@@ -1,0 +1,76 @@
+{
+  "id": "gabber",
+  "name": "Gabber",
+  "family": "electronic",
+  "lineage": "Mid-1990s Rotterdam hard-electronic-dance subgenre characterized by 180-200 bpm distorted-kick-drum dominance, aggressive sub-bass, and explicit working-class-Rotterdam subcultural identity — codified through DJ Paul Elstak, Rob Gee, Neophyte, the Rotterdam Records label, and the genre's explicit anti-Amsterdam-house cultural posture",
+  "recipe": "classic 1994-1996 gabber, electronic Dance, hardstyle branch, techno electronic dance peak-time techno detroit techno. digital subtractive, TR-909, sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 301,
+  "score": 66.139,
+  "config": {
+    "traditions": [
+      "gabber",
+      "peak_techno",
+      "detroit_techno"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 2.7950000000000004,
+          "va_archetypes": 0.07199999999999998,
+          "digital_subtractive_context": 6.109999999999998
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 3.49,
+          "drum_machine_909_context": 1.625,
+          "tr909_production_origin": 0.735
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 0.325,
+          "sampler_bit_depth": 1.17,
+          "sampler_workflow": 0.75,
+          "sampler_classic_context": 12.739999999999997
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

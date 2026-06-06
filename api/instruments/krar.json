@@ -1,0 +1,188 @@
+{
+  "id": "krar",
+  "name": "Krar (Ethiopian bowl lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "krar",
+  "parts": [
+    {
+      "id": "krar_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "krar_five",
+          "default": true,
+          "name": "Five-string",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "krar_six",
+          "name": "Six-string",
+          "descriptors": [
+            "modal-extension",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krar_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "krar_wood_skin",
+          "default": true,
+          "name": "Wooden bowl with cowhide",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "wood",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-mid-rich-spectrum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krar_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "krar_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "krar_gut_historical",
+          "name": "Gut (Ethiopian historical)",
+          "descriptors": [
+            "gut-ethiopian-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_fingerpicked"
+    },
+    {
+      "id": "krar_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "krar_five",
+          "default": true,
+          "name": "Five-string",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "krar_six",
+          "name": "Six-string",
+          "descriptors": [
+            "modal-extension",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krar_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "krar_wood_skin",
+          "default": true,
+          "name": "Wooden bowl with cowhide",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "wood",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-mid-rich-spectrum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krar_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "krar_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "krar_gut_historical",
+          "name": "Gut (Ethiopian historical)",
+          "descriptors": [
+            "gut-ethiopian-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "id": "vocoder",
+  "name": "Vocoder (analysis / synthesis)",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "short": "vocoder",
+  "parts": [
+    {
+      "id": "voc_band_count",
+      "name": "Band count",
+      "variants": [
+        {
+          "id": "voc_few_bands",
+          "default": true,
+          "name": "8–10 bands",
+          "descriptors": [
+            "vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "voc_many_bands",
+          "name": "20+ bands",
+          "descriptors": [
+            "high-resolution",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voc_carrier",
+      "name": "Carrier source",
+      "variants": [
+        {
+          "id": "voc_saw_carrier",
+          "default": true,
+          "name": "Saw / harmonic-rich",
+          "descriptors": [
+            "classic",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "voc_pad_carrier",
+          "name": "Soft pad",
+          "descriptors": [
+            "ethereal",
+            "floating",
+            "choral"
+          ],
+          "match_tokens": [
+            "pad",
+            "lead-and-pad",
+            "electronic"
+          ]
+        },
+        {
+          "id": "voc_noise_carrier",
+          "name": "Noise",
+          "descriptors": [
+            "whispered",
+            "breathy",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voc_modulator",
+      "name": "Modulator source",
+      "variants": [
+        {
+          "id": "voc_voice_mod",
+          "default": true,
+          "surface": false,
+          "name": "Voice",
+          "descriptors": [],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "voc_drum_mod",
+          "name": "Drum pattern",
+          "descriptors": [
+            "rhythmic",
+            "formant-shifting",
+            "funky"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "voc_band_count",
+      "name": "Band count",
+      "variants": [
+        {
+          "id": "voc_few_bands",
+          "default": true,
+          "name": "8–10 bands",
+          "descriptors": [
+            "vintage"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "voc_many_bands",
+          "name": "20+ bands",
+          "descriptors": [
+            "high-resolution",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voc_carrier",
+      "name": "Carrier source",
+      "variants": [
+        {
+          "id": "voc_saw_carrier",
+          "default": true,
+          "name": "Saw / harmonic-rich",
+          "descriptors": [
+            "classic",
+            "treble-extended"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "voc_pad_carrier",
+          "name": "Soft pad",
+          "descriptors": [
+            "ethereal",
+            "floating",
+            "choral"
+          ],
+          "match_tokens": [
+            "pad",
+            "lead-and-pad",
+            "electronic"
+          ]
+        },
+        {
+          "id": "voc_noise_carrier",
+          "name": "Noise",
+          "descriptors": [
+            "whispered",
+            "breathy",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voc_modulator",
+      "name": "Modulator source",
+      "variants": [
+        {
+          "id": "voc_voice_mod",
+          "default": true,
+          "surface": false,
+          "name": "Voice",
+          "descriptors": [],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        },
+        {
+          "id": "voc_drum_mod",
+          "name": "Drum pattern",
+          "descriptors": [
+            "rhythmic",
+            "formant-shifting",
+            "funky"
+          ],
+          "match_tokens": [
+            "electronic",
+            "vocal-imitating"
+          ]
+        }
+      ]
+    }
+  ]
+}

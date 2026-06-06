@@ -1,0 +1,692 @@
+{
+  "id": "shamisen",
+  "name": "Shamisen (Japanese three-string)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "shamisen",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "shamisen_size",
+      "surface": false,
+      "name": "Size class (sao)",
+      "variants": [
+        {
+          "id": "hosozao",
+          "name": "Hosozao (thin neck)",
+          "descriptors": [
+            "nagauta",
+            "delicate",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "chuzao",
+          "default": true,
+          "name": "Chūzao (medium)",
+          "descriptors": [
+            "versatile",
+            "geisha",
+            "jiuta"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "futozao",
+          "name": "Futozao (thick neck)",
+          "descriptors": [
+            "tsugaru",
+            "virtuoso",
+            "high-gain-saturation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shamisen_skin",
+      "surface": false,
+      "name": "Skin",
+      "variants": [
+        {
+          "id": "shamisen_cat",
+          "name": "Cat skin (traditional)",
+          "descriptors": [
+            "classical",
+            "authentic",
+            "rare",
+            "cat-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_dog",
+          "default": true,
+          "name": "Dog skin (rugged)",
+          "descriptors": [
+            "durable",
+            "tsugaru-suited",
+            "traditional",
+            "dog-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_synthetic",
+          "name": "Synthetic skin",
+          "descriptors": [
+            "stable",
+            "contemporary",
+            "consistent",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shamisen_pick",
+      "surface": false,
+      "name": "Plectrum (bachi)",
+      "variants": [
+        {
+          "id": "bachi_ivory",
+          "default": true,
+          "name": "Ivory bachi (vintage)",
+          "descriptors": [
+            "classical",
+            "low-mid-rich-spectrum",
+            "rare",
+            "ivory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "bachi_tortoise",
+          "name": "Tortoise-shell bachi",
+          "descriptors": [
+            "premium",
+            "sustaining",
+            "classical",
+            "tortoiseshell",
+            "shell"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "bachi_acrylic",
+          "name": "Acrylic bachi",
+          "descriptors": [
+            "modern",
+            "consistent",
+            "tsugaru",
+            "acrylic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shamisen_neck_wood",
+      "surface": false,
+      "name": "Neck wood (sao)",
+      "variants": [
+        {
+          "id": "shamisen_red_sandalwood",
+          "default": true,
+          "name": "Red sandalwood / kōki (premium canonical)",
+          "descriptors": [
+            "red-sandalwood",
+            "koki",
+            "premium-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "shamisen_mulberry",
+          "name": "Mulberry / kuwa (mid-tier traditional)",
+          "descriptors": [
+            "mulberry-kuwa",
+            "mid-tier-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_quince",
+          "name": "Quince / karin (student-tier)",
+          "descriptors": [
+            "quince-karin",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shamisen_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "shamisen_silk_traditional",
+          "default": true,
+          "name": "Silk (canonical for nagauta / jiuta)",
+          "descriptors": [
+            "silk-canonical",
+            "nagauta-jiuta"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_nylon_tsugaru",
+          "name": "Nylon (modern tsugaru / jpop)",
+          "descriptors": [
+            "nylon",
+            "modern-tsugaru"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_tetron",
+          "name": "Tetron (durable modern)",
+          "descriptors": [
+            "tetron",
+            "durable-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shamisen_tradition",
+      "surface": false,
+      "name": "Tradition / repertoire",
+      "variants": [
+        {
+          "id": "shamisen_nagauta",
+          "default": true,
+          "name": "Nagauta (kabuki ensemble canon)",
+          "descriptors": [
+            "nagauta",
+            "kabuki-ensemble-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "shamisen_jiuta",
+          "name": "Jiuta (chamber / blind-musician canon)",
+          "descriptors": [
+            "jiuta",
+            "chamber-blind-musician-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_tsugaru",
+          "name": "Tsugaru (Aomori folk solo virtuoso)",
+          "descriptors": [
+            "tsugaru",
+            "aomori-folk-virtuoso"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_min_yo",
+          "name": "Min'yō (folk song accompaniment)",
+          "descriptors": [
+            "min-yo",
+            "folk-song-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shamisen_size",
+      "surface": false,
+      "name": "Size class (sao)",
+      "variants": [
+        {
+          "id": "hosozao",
+          "name": "Hosozao (thin neck)",
+          "descriptors": [
+            "nagauta",
+            "delicate",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "chuzao",
+          "default": true,
+          "name": "Chūzao (medium)",
+          "descriptors": [
+            "versatile",
+            "geisha",
+            "jiuta"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "futozao",
+          "name": "Futozao (thick neck)",
+          "descriptors": [
+            "tsugaru",
+            "virtuoso",
+            "high-gain-saturation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shamisen_skin",
+      "surface": false,
+      "name": "Skin",
+      "variants": [
+        {
+          "id": "shamisen_cat",
+          "name": "Cat skin (traditional)",
+          "descriptors": [
+            "classical",
+            "authentic",
+            "rare",
+            "cat-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_dog",
+          "default": true,
+          "name": "Dog skin (rugged)",
+          "descriptors": [
+            "durable",
+            "tsugaru-suited",
+            "traditional",
+            "dog-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_synthetic",
+          "name": "Synthetic skin",
+          "descriptors": [
+            "stable",
+            "contemporary",
+            "consistent",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shamisen_pick",
+      "surface": false,
+      "name": "Plectrum (bachi)",
+      "variants": [
+        {
+          "id": "bachi_ivory",
+          "default": true,
+          "name": "Ivory bachi (vintage)",
+          "descriptors": [
+            "classical",
+            "low-mid-rich-spectrum",
+            "rare",
+            "ivory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "bachi_tortoise",
+          "name": "Tortoise-shell bachi",
+          "descriptors": [
+            "premium",
+            "sustaining",
+            "classical",
+            "tortoiseshell",
+            "shell"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "bachi_acrylic",
+          "name": "Acrylic bachi",
+          "descriptors": [
+            "modern",
+            "consistent",
+            "tsugaru",
+            "acrylic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shamisen_neck_wood",
+      "surface": false,
+      "name": "Neck wood (sao)",
+      "variants": [
+        {
+          "id": "shamisen_red_sandalwood",
+          "default": true,
+          "name": "Red sandalwood / kōki (premium canonical)",
+          "descriptors": [
+            "red-sandalwood",
+            "koki",
+            "premium-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "shamisen_mulberry",
+          "name": "Mulberry / kuwa (mid-tier traditional)",
+          "descriptors": [
+            "mulberry-kuwa",
+            "mid-tier-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_quince",
+          "name": "Quince / karin (student-tier)",
+          "descriptors": [
+            "quince-karin",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shamisen_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "shamisen_silk_traditional",
+          "default": true,
+          "name": "Silk (canonical for nagauta / jiuta)",
+          "descriptors": [
+            "silk-canonical",
+            "nagauta-jiuta"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_nylon_tsugaru",
+          "name": "Nylon (modern tsugaru / jpop)",
+          "descriptors": [
+            "nylon",
+            "modern-tsugaru"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_tetron",
+          "name": "Tetron (durable modern)",
+          "descriptors": [
+            "tetron",
+            "durable-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shamisen_tradition",
+      "surface": false,
+      "name": "Tradition / repertoire",
+      "variants": [
+        {
+          "id": "shamisen_nagauta",
+          "default": true,
+          "name": "Nagauta (kabuki ensemble canon)",
+          "descriptors": [
+            "nagauta",
+            "kabuki-ensemble-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "shamisen_jiuta",
+          "name": "Jiuta (chamber / blind-musician canon)",
+          "descriptors": [
+            "jiuta",
+            "chamber-blind-musician-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_tsugaru",
+          "name": "Tsugaru (Aomori folk solo virtuoso)",
+          "descriptors": [
+            "tsugaru",
+            "aomori-folk-virtuoso"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "shamisen_min_yo",
+          "name": "Min'yō (folk song accompaniment)",
+          "descriptors": [
+            "min-yo",
+            "folk-song-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

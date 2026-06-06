@@ -1,0 +1,298 @@
+{
+  "id": "guitarron_mexicano",
+  "name": "Guitarrón (Mexican mariachi bass guitar)",
+  "family": "acoustic_strings",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "guitarrón",
+  "parts": [
+    {
+      "id": "guitarron_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "guitarron_deep_round_back",
+          "default": true,
+          "name": "Deep round-back acoustic (mariachi standard)",
+          "descriptors": [
+            "bass-foundational",
+            "projection-strong",
+            "wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarron_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "guitarron_cedar_paracho",
+          "default": true,
+          "name": "Cedar top + caoba back (Paracho luthier canonical)",
+          "descriptors": [
+            "cedar-caoba-paracho",
+            "mariachi-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        },
+        {
+          "id": "guitarron_palo_escrito",
+          "name": "Palo escrito back (premium Mexican rosewood)",
+          "descriptors": [
+            "palo-escrito-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "guitarron_mahogany_back",
+          "name": "Mahogany back (mid-tier)",
+          "descriptors": [
+            "mahogany-back-mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarron_strings",
+      "name": "String set",
+      "variants": [
+        {
+          "id": "guitarron_six_string_nylon_steel",
+          "default": true,
+          "name": "Six-string A-D-G-C-E-A (nylon+steel mixed)",
+          "descriptors": [
+            "traditional",
+            "mixed-string-set"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarron_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "guitarron_nylon_steel_modern",
+          "default": true,
+          "name": "Nylon trebles + steel-wound basses (modern canonical)",
+          "descriptors": [
+            "nylon-treble-steel-bass",
+            "modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        },
+        {
+          "id": "guitarron_gut_historical",
+          "name": "Gut (pre-modern historical)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarron_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "guitarron_octave_pair_plucking",
+          "default": true,
+          "name": "Octave-paired plucking (root + octave simultaneously)",
+          "descriptors": [
+            "characteristic",
+            "mariachi-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "guitarron_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "guitarron_deep_round_back",
+          "default": true,
+          "name": "Deep round-back acoustic (mariachi standard)",
+          "descriptors": [
+            "bass-foundational",
+            "projection-strong",
+            "wood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarron_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "guitarron_cedar_paracho",
+          "default": true,
+          "name": "Cedar top + caoba back (Paracho luthier canonical)",
+          "descriptors": [
+            "cedar-caoba-paracho",
+            "mariachi-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        },
+        {
+          "id": "guitarron_palo_escrito",
+          "name": "Palo escrito back (premium Mexican rosewood)",
+          "descriptors": [
+            "palo-escrito-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "guitarron_mahogany_back",
+          "name": "Mahogany back (mid-tier)",
+          "descriptors": [
+            "mahogany-back-mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarron_strings",
+      "name": "String set",
+      "variants": [
+        {
+          "id": "guitarron_six_string_nylon_steel",
+          "default": true,
+          "name": "Six-string A-D-G-C-E-A (nylon+steel mixed)",
+          "descriptors": [
+            "traditional",
+            "mixed-string-set"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarron_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "guitarron_nylon_steel_modern",
+          "default": true,
+          "name": "Nylon trebles + steel-wound basses (modern canonical)",
+          "descriptors": [
+            "nylon-treble-steel-bass",
+            "modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        },
+        {
+          "id": "guitarron_gut_historical",
+          "name": "Gut (pre-modern historical)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarron_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "guitarron_octave_pair_plucking",
+          "default": true,
+          "name": "Octave-paired plucking (root + octave simultaneously)",
+          "descriptors": [
+            "characteristic",
+            "mariachi-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mariachi-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

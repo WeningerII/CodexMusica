@@ -1,0 +1,85 @@
+{
+  "id": "karelian_rune_singing",
+  "name": "Karelian rune-singing (Kalevala-meter)",
+  "family": "global",
+  "lineage": "Karelian rune-singing tradition of the Karelian (Karjala) ethno-linguistic region straddling the Finnish-Russian border (eastern Finland, Russian Karelia), comprising the canonical Finno-Karelian narrative-and-magical-incantation oral-poetic corpus from which Elias Lönnrot compiled the Kalevala national-epic (first edition 1835, expanded second edition 1849). Performance: solo or duo unaccompanied voice in strict Kalevala-meter (four-stress eight-syllable trochaic line), often performed antiphonally with one singer providing a low-register drone or echo to the other's melodic line. The Karelian-Finnish runo-singer historical tradition was nearly extinguished by twentieth-century Soviet-and-Finnish modernization; documentary collection by Lönnrot and subsequent collectors preserved approximately 200,000 verses. Distinguished from broader Finnic vocal-music by rune-singing's strict Kalevala-meter and oral-epic-narrative orientation.",
+  "recipe": "classic mid-1830s karelian rune-singing, ballad Poetry, Slavic bard branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, melodic, narrative. birch alder karelian steel modern concert kantele. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 412,
+  "score": 219.019,
+  "config": {
+    "traditions": [
+      "karelian_rune_singing",
+      "inuit_katajjaq_games",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.38,
+          "voice_quality": 3.4450000000000003,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.1200000000000006,
+          "voice_microtone": 0.40950000000000003,
+          "voice_tradition": 10.075,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 6.5649999999999995,
+          "voice_speech_song": 8.059999999999999,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 2.8400000000000003,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 5.069999999999999,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "kantele",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "kantele_strings": "kantele_36",
+          "kantele_context": "kantele_art",
+          "kantele_body_wood": "kantele_birch_alder",
+          "kantele_string_material": "kantele_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.05,
+          "kantele_strings": 0.195,
+          "kantele_context": 3.38,
+          "kantele_body_wood": 6.199999999999999,
+          "kantele_string_material": 1.69
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "lithuanian_sutartines_seconds",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

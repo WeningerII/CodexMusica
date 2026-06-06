@@ -1,0 +1,73 @@
+{
+  "id": "maya_marimba_guatemalteca",
+  "name": "Maya marimba (Guatemalan Highlands)",
+  "family": "global",
+  "lineage": "Guatemalan Highlands Maya marimba tradition (Quetzaltenango, Sololá, Huehuetenango departments) and adjacent Chiapas, featuring large wooden-resonator marimba ensembles played by three-to-four marimberos simultaneously (marimba doble or marimba grande). Instrument arrived through West-African enslaved-population introduction and was adopted as Guatemalan-cultural-marker. Repertoire spans son chapín nineteenth-and-twentieth-century Guatemalan national-popular forms, religious cofradía music, and contemporary dance-band material.",
+  "recipe": "classic modern maya marimba, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. marimba orchestral, large diameter venice catlin high twist renaissance bass double bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 410,
+  "score": 4.75,
+  "config": {
+    "traditions": [
+      "maya_marimba_guatemalteca",
+      "pagode",
+      "baiao"
+    ],
+    "instruments": [
+      {
+        "id": "marimba_orchestral",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "marimba_size": "marimba_4_octave",
+          "marimba_orchestral_bar": "marimba_orchestral_padauk"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "marimba_size": 0.15,
+          "marimba_orchestral_bar": 0.15
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "bass_size": 0,
+          "bass_strings": 1.625,
+          "bass_top_wood": -0.05,
+          "bass_back_wood": -0.05,
+          "bass_varnish": -0.05,
+          "bass_setup_period": -0.07,
+          "bass_play": 0.15,
+          "bass_rosin": -0.035,
+          "bass_bow_stick": -0.05
+        }
+      }
+    ],
+    "room": "mexico_bolero_xochimilco_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "powerviolence",
+  "name": "Powerviolence (US extreme hardcore)",
+  "family": "rock_punk",
+  "lineage": "Late-1980s-1990s American hardcore subgenre characterized by extreme tempo contrasts (alternating blast-beat-fast-sections with sludge-slow-sections), brief song durations (often under one minute), and explicit anti-musical aggression. Bay Area scene centered on Spazz, Crossed Out, Infest, and Man Is the Bastard. Distinguished from broader grindcore by powerviolence's slower-section-emphasis (vs grindcore's relentless-blast-beat) structural framework.",
+  "recipe": "classic North American 1987-1989 powerviolence, distorted Rock, punk branch, thrash metal groove metal djent. thick, larynx lowered, chest resonance low mid, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, kevlar aramid extreme tension machine hammered symmetric pattern drum kit. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT.",
+  "recipe_chars": 625,
+  "score": 349.856,
+  "config": {
+    "traditions": [
+      "powerviolence",
+      "groove_metal",
+      "djent"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "broadway_legit_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 5.525500000000003,
+          "voice_quality": 2.9500000000000006,
+          "voice_vibrato": 1.1905000000000001,
+          "voice_articulation": 0.885,
+          "voice_microtone": 5.355000000000002,
+          "voice_tradition": 1.5747499999999999,
+          "voice_mechanism_compound": 12.544999999999998,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 10.8245,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 1.2992499999999998,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 5.8740000000000006
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 6.49,
+          "amp_make": 11.959999999999999,
+          "body_wood": 1.2220000000000002,
+          "neck_wood": 1.1905000000000001,
+          "fretboard": 1.69,
+          "pickup_magnet": 1.69,
+          "pickup_winding": 0.105,
+          "string_material": 0.258,
+          "bridge": 1.69,
+          "scale_length": 2.381,
+          "string_gauge": 1.69,
+          "finish": 0,
+          "string_tuning": 3.7700000000000005
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 3.7315,
+          "amp_make": 4.030000000000001,
+          "body_wood": 2.381,
+          "pickup_config": 1.69,
+          "string_type": 7.15,
+          "scale_length_b": 1.1905000000000001,
+          "fretted_or_not": 0.195,
+          "bass_technique": 9.2815
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "kevlar_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 3.75,
+          "shell_wood": 0.6164999999999999,
+          "shell_thickness": 0,
+          "bearing_edges": 1.1905000000000001,
+          "drumhead": 2.7535,
+          "snare_wires": 1.1905000000000001,
+          "cymbal_alloy": 11.258,
+          "cymbal_hammering": 5.933,
+          "cymbal_lathing": 5.4,
+          "cymbal_finish": 0.258,
+          "drum_technique": 5.5
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": "amp_marshall_jcm800",
+      "medium": "cassette_medium"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_proco_rat"
+    ]
+  }
+}

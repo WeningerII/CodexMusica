@@ -1,0 +1,96 @@
+{
+  "id": "khmer_pinpeat",
+  "name": "Khmer pinpeat royal-court ensemble",
+  "family": "classical",
+  "lineage": "Khmer pinpeat ceremonial ensemble — the largest classical Cambodian instrumental tradition, accompanying the Royal Ballet of Cambodia (UNESCO 2008, originally proclaimed 2003) and Sbek Thom shadow-puppet (UNESCO 2008, originally proclaimed 2005). Pre-Angkor Khmer roots; royal court and wat temple ceremonial repertoire. Canonical instrumentation of nine-to-ten instruments dominated by wind and percussion: roneat ek high bamboo xylophone (twenty-one bars, boat-shaped resonator, melodic lead), roneat thung low bamboo xylophone (second voice, counterpoint to ek), sralai quadruple-reed conical-bore oboe (palm-leaf reed, sustained melodic lead), sampho double-headed barrel timekeeper drum (sets tempo and cadence — ensemble leader), skor thom large barrel drum pair (stick-struck bass), kong vong thom large gong circle (sixteen tuned bronze bossed gongs in rattan frame — melodic skeleton sustaining the harmonic foundation), ching small finger cymbals (time-keeping). Seven-equal-tempered tuning shared with Thai piphat. The Khmer Rouge era 1975-1979 nearly destroyed the tradition; post-1980 reconstruction led by surviving masters including Chum Ngek, with the Royal University of Fine Arts Phnom Penh restoring transmission infrastructure. Distinguished from Thai piphat by Khmer-language repertoire and dialect-specific cadential conventions; distinguished from Lao seb-noi by the larger pinpeat ensemble configuration and royal-court ceremonial repertoire base",
+  "recipe": "classic North American 1975-1979 khmer pinpeat royal-court ensemble, art Music, southeast Asian branch, southeast Asian Thai classical. twenty one bamboo bars boat resonator canonical pinpeat lead royal court pinpeat canonical pre 1975 lineage roneat ek, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung, palm leaf quadruple reed conical bore canonical khmer pinpeat melodic lead sustained voice sralai, double headed barrel tunable canonical pinpeat timekeeper pinpeat leader tempo cadence signal sampho, large barrel pair stick struck canonical pinpeat bass skor sixteen tuned bronze bossed gongs rattan frame canonical pinpeat melodic backbone pinpeat melodic skeleton sustains core under roneat elaboration kong vong thom. phnom penh royal pinpeat palace court. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 956,
+  "score": 196.323,
+  "config": {
+    "traditions": [
+      "khmer_pinpeat",
+      "thai_classical"
+    ],
+    "instruments": [
+      {
+        "id": "roneat_ek",
+        "slots": {
+          "roneat_ek_bars": "roneat_ek_bamboo_21_bar_canonical",
+          "roneat_ek_tradition": "roneat_ek_royal_court_canonical"
+        },
+        "scores": {
+          "roneat_ek_bars": 18.37,
+          "roneat_ek_tradition": 19.9895
+        }
+      },
+      {
+        "id": "roneat_thung",
+        "slots": {
+          "roneat_thung_bars": "roneat_thung_bamboo_canonical",
+          "roneat_thung_role": "roneat_thung_pinpeat_counter"
+        },
+        "scores": {
+          "roneat_thung_bars": 14.361999999999998,
+          "roneat_thung_role": 16.540499999999998
+        }
+      },
+      {
+        "id": "sralai",
+        "slots": {
+          "sralai_reed": "sralai_palm_leaf_quadruple",
+          "sralai_role": "sralai_pinpeat_lead_melodic"
+        },
+        "scores": {
+          "sralai_reed": 17.446,
+          "sralai_role": 13.915
+        }
+      },
+      {
+        "id": "sampho",
+        "slots": {
+          "sampho_construction": "sampho_double_headed_barrel",
+          "sampho_role": "sampho_leader_timekeeper"
+        },
+        "scores": {
+          "sampho_construction": 12.245999999999999,
+          "sampho_role": 8.01
+        }
+      },
+      {
+        "id": "skor_thom",
+        "slots": {
+          "skor_thom_construction": "skor_thom_large_pair_canonical"
+        },
+        "scores": {
+          "skor_thom_construction": 17.037000000000003
+        }
+      },
+      {
+        "id": "kong_vong_thom",
+        "slots": {
+          "kong_vong_thom_construction": "kong_vong_thom_sixteen_bronze_canonical",
+          "kong_vong_thom_role": "kong_vong_thom_pinpeat_melodic_skeleton"
+        },
+        "scores": {
+          "kong_vong_thom_construction": 21.1145,
+          "kong_vong_thom_role": 12.716999999999999
+        }
+      }
+    ],
+    "room": "phnom_penh_royal_pinpeat_palace_court",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "equal_heptatonic_thai_khmer",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

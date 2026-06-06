@@ -1,0 +1,159 @@
+{
+  "id": "mariachi_traditional",
+  "name": "Mariachi traditional",
+  "family": "global",
+  "lineage": "Pre-studio mariachi tradition (Jalisco rural origins, Plaza Garibaldi outdoor serenata) before the 20th-century studio standardization of trumpets and orquesta size",
+  "recipe": "classic tropical mid-1950s mariachi traditional, functional Song, Mexican branch, tejano border functional song, americas wedding ranchera mariachi. sygyt, full chest belt, chest resonance low mid, unrestrained. liebenzeller metal infused violin orchestral, low mid rich spectrum cedar classical nylon-string guitar, cedar caoba paracho mixed string set guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana, foundational rural mariachi full. plaza garibaldi outdoor mariachi. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 637,
+  "score": 205.587,
+  "config": {
+    "traditions": [
+      "mariachi_traditional",
+      "ranchera",
+      "mariachi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 0.585,
+          "voice_quality": 6.97625,
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 1.0865,
+          "voice_microtone": 0.49999999999999994,
+          "voice_tradition": 3.7050000000000005,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 1.2864999999999998,
+          "voice_speech_song": 7.215,
+          "voice_ensemble_config": 4.29,
+          "voice_ornament_system": 0.6499999999999999,
+          "voice_pitch_organization": 1.1505,
+          "voice_processing_chain": 5.53125,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "plain_beef_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.75,
+          "orch_strings": 0.14625,
+          "orch_top_wood": 0.9450000000000001,
+          "orch_back_wood": 0.9099999999999999,
+          "orch_varnish": 0.7,
+          "orch_setup_period": 0.26,
+          "orch_bow": 0.80475,
+          "orch_bow_stick": 0.7399999999999999,
+          "orch_articulation": 0.7012499999999999,
+          "orch_rosin": 2.35
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "string_tuning": 0,
+          "top_wood_classical": 1.95,
+          "bracing_classical": 1.6,
+          "string_classical": 0.325,
+          "attack_technique_cl": 0.85125
+        }
+      },
+      {
+        "id": "guitarron_mexicano",
+        "slots": {
+          "guitarron_body": "guitarron_deep_round_back",
+          "guitarron_body_wood": "guitarron_cedar_paracho",
+          "guitarron_strings": "guitarron_six_string_nylon_steel",
+          "guitarron_string_material": "guitarron_nylon_steel_modern",
+          "guitarron_technique": "guitarron_octave_pair_plucking"
+        },
+        "scores": {
+          "guitarron_body": 0.39,
+          "guitarron_body_wood": 3.3799999999999994,
+          "guitarron_strings": 2.89,
+          "guitarron_string_material": -0.385,
+          "guitarron_technique": 5.069999999999999
+        }
+      },
+      {
+        "id": "vihuela_mexicana",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "vihuela_mexicana_back": "vihuela_mexicana_arched",
+          "vihuela_mexicana_context": "vihuela_mexicana_huasteca",
+          "vihuela_mexicana_body_wood": "vihuela_mexicana_mahogany",
+          "vihuela_mexicana_strings": "vihuela_mexicana_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.325,
+          "vihuela_mexicana_back": 3.3799999999999994,
+          "vihuela_mexicana_context": 1.6,
+          "vihuela_mexicana_body_wood": 3.3799999999999994,
+          "vihuela_mexicana_strings": 3.769999999999999
+        }
+      },
+      {
+        "id": "mariachi_full",
+        "slots": {
+          "sections": "mariachi_violins",
+          "era": "mariachi_traditional"
+        },
+        "scores": {
+          "sections": 0.6,
+          "era": 1.3
+        }
+      }
+    ],
+    "room": "plaza_garibaldi_outdoor_mariachi",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_ela_m_251_telefunken",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mariachi_son_6_8_3_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

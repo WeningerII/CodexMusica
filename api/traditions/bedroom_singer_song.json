@@ -1,0 +1,133 @@
+{
+  "id": "bedroom_singer_song",
+  "name": "Bedroom singer-songwriter",
+  "family": "global",
+  "lineage": "2010s onward singer-songwriter genre with intimate DIY bedroom-DAW production and a confessional first-person lyrical register — codified through Phoebe Bridgers (Stranger in the Alps 2017, Punisher 2020), Julien Baker, Lucy Dacus, Soccer Mommy, Snail Mail (Lush 2018), Mitski, with the form representing the contemporary indie-singer-songwriter mainstream",
+  "recipe": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, incomplete closure resting, pure, equal tempered. fingerpicked acoustic soft down tuning clean strummed single coil electric guitar, analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 397,
+  "score": 187.579,
+  "config": {
+    "traditions": [
+      "bedroom_singer_song",
+      "bedroom_pop",
+      "hypnagogic_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.1137500000000005,
+          "voice_quality": 9.145,
+          "voice_vibrato": 0.78,
+          "voice_articulation": 0.10000000000000002,
+          "voice_microtone": 2.000000000000001,
+          "voice_tradition": 4.875,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 6.671250000000001,
+          "voice_speech_song": 9.814999999999998,
+          "voice_ensemble_config": 5.849999999999999,
+          "voice_ornament_system": 6.5062500000000005,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 1.56,
+          "voice_multitrack_stack": 5.850000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "eb_standard",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 13.549999999999997,
+          "string_tuning": 0,
+          "top_wood": 0.35124999999999995,
+          "back_sides": 0.45624999999999993,
+          "string_acoustic": 0.39,
+          "acoustic_om_technique": 13.549999999999997
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 3.1575,
+          "amp_make": 0.19500000000000003,
+          "body_wood": 0.29499999999999993,
+          "neck_wood": 0.29499999999999993,
+          "fretboard": 0.056249999999999994,
+          "pickup_magnet": 0.0525,
+          "string_material": 0.15000000000000002,
+          "string_gauge": 0.28124999999999994,
+          "bridge": 0.285,
+          "scale_length": 0.5649999999999998,
+          "finish": 0,
+          "string_tuning": 1.1987500000000002
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 2.245,
+          "poly_archetypes": 0.39,
+          "poly_voices": 1.13375,
+          "poly_maker_lineage": -1.4524999999999997
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "auteur_solo_multitrack",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

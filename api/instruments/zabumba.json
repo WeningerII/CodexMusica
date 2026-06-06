@@ -1,0 +1,112 @@
+{
+  "id": "zabumba",
+  "name": "Zabumba (Northeast Brazilian bass drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "zabumba",
+  "parts": [
+    {
+      "id": "zabumba_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "zabumba_wood_shallow",
+          "default": true,
+          "name": "Shallow wooden shell, shoulder-strap",
+          "descriptors": [
+            "traditional",
+            "mid-strong",
+            "wood",
+            "rope-or-rod-tensioned"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "forró-tradition",
+            "baião-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zabumba_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "zabumba_baiao_pattern",
+          "default": true,
+          "name": "Baião pattern (low stick + high bacalhau)",
+          "descriptors": [
+            "driving",
+            "baião-tradition",
+            "low-stick-with-high-bacalhau-buzz",
+            "forró-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "forró-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zabumba_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "zabumba_wood_shallow",
+          "default": true,
+          "name": "Shallow wooden shell, shoulder-strap",
+          "descriptors": [
+            "traditional",
+            "mid-strong",
+            "wood",
+            "rope-or-rod-tensioned"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "forró-tradition",
+            "baião-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zabumba_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "zabumba_baiao_pattern",
+          "default": true,
+          "name": "Baião pattern (low stick + high bacalhau)",
+          "descriptors": [
+            "driving",
+            "baião-tradition",
+            "low-stick-with-high-bacalhau-buzz",
+            "forró-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "forró-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

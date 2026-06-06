@@ -1,0 +1,490 @@
+{
+  "id": "guzheng",
+  "name": "Guzheng (Chinese long zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "guzheng",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "guzheng_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "guzheng_21",
+          "default": true,
+          "name": "21-string modern",
+          "descriptors": [
+            "standard",
+            "full-range",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guzheng_18",
+          "name": "18-string traditional",
+          "descriptors": [
+            "archaic",
+            "focused",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guzheng_picks",
+      "surface": false,
+      "name": "Picks",
+      "variants": [
+        {
+          "id": "guzheng_tortoise",
+          "default": true,
+          "name": "Tortoise-shell picks",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "authentic",
+            "tortoiseshell",
+            "shell"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "guzheng_plastic",
+          "name": "Plastic picks",
+          "descriptors": [
+            "treble-extended",
+            "consistent",
+            "modern",
+            "plastic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guzheng_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "guzheng_wutong_paulownia",
+          "default": true,
+          "name": "Wutong / paulownia (canonical)",
+          "descriptors": [
+            "wutong-paulownia",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guzheng_aged_wutong",
+          "name": "Aged wutong (premium, 20+ year seasoned)",
+          "descriptors": [
+            "aged-wutong",
+            "premium-seasoned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guzheng_frame",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "guzheng_rosewood_frame",
+          "default": true,
+          "name": "Rosewood frame (canonical decorative)",
+          "descriptors": [
+            "rosewood-frame",
+            "canonical-decorative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "guzheng_red_sandalwood_frame",
+          "name": "Red sandalwood (premium, restricted)",
+          "descriptors": [
+            "red-sandalwood",
+            "premium-restricted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "guzheng_padauk_frame",
+          "name": "Padauk (mid-tier)",
+          "descriptors": [
+            "padauk",
+            "mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guzheng_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "guzheng_nylon_steel_wound",
+          "default": true,
+          "name": "Nylon-steel-wound (modern canon)",
+          "descriptors": [
+            "nylon-steel-wound",
+            "modern-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guzheng_silk_historical",
+          "name": "Silk (pre-1950 historical canon)",
+          "descriptors": [
+            "silk",
+            "pre-1950-historical",
+            "softer-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "guzheng_steel_wound_modern",
+          "name": "Steel-wound (concert projection)",
+          "descriptors": [
+            "steel-wound",
+            "concert-projection"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "guzheng_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "guzheng_21",
+          "default": true,
+          "name": "21-string modern",
+          "descriptors": [
+            "standard",
+            "full-range",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guzheng_18",
+          "name": "18-string traditional",
+          "descriptors": [
+            "archaic",
+            "focused",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guzheng_picks",
+      "surface": false,
+      "name": "Picks",
+      "variants": [
+        {
+          "id": "guzheng_tortoise",
+          "default": true,
+          "name": "Tortoise-shell picks",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "authentic",
+            "tortoiseshell",
+            "shell"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "guzheng_plastic",
+          "name": "Plastic picks",
+          "descriptors": [
+            "treble-extended",
+            "consistent",
+            "modern",
+            "plastic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guzheng_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "guzheng_wutong_paulownia",
+          "default": true,
+          "name": "Wutong / paulownia (canonical)",
+          "descriptors": [
+            "wutong-paulownia",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guzheng_aged_wutong",
+          "name": "Aged wutong (premium, 20+ year seasoned)",
+          "descriptors": [
+            "aged-wutong",
+            "premium-seasoned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guzheng_frame",
+      "surface": false,
+      "name": "Frame wood",
+      "variants": [
+        {
+          "id": "guzheng_rosewood_frame",
+          "default": true,
+          "name": "Rosewood frame (canonical decorative)",
+          "descriptors": [
+            "rosewood-frame",
+            "canonical-decorative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "guzheng_red_sandalwood_frame",
+          "name": "Red sandalwood (premium, restricted)",
+          "descriptors": [
+            "red-sandalwood",
+            "premium-restricted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "guzheng_padauk_frame",
+          "name": "Padauk (mid-tier)",
+          "descriptors": [
+            "padauk",
+            "mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guzheng_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "guzheng_nylon_steel_wound",
+          "default": true,
+          "name": "Nylon-steel-wound (modern canon)",
+          "descriptors": [
+            "nylon-steel-wound",
+            "modern-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "guzheng_silk_historical",
+          "name": "Silk (pre-1950 historical canon)",
+          "descriptors": [
+            "silk",
+            "pre-1950-historical",
+            "softer-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "guzheng_steel_wound_modern",
+          "name": "Steel-wound (concert projection)",
+          "descriptors": [
+            "steel-wound",
+            "concert-projection"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

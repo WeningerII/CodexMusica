@@ -1,0 +1,68 @@
+{
+  "id": "english_nursery_rhyme",
+  "name": "English nursery rhyme",
+  "family": "global",
+  "lineage": "English-language nursery-rhyme tradition continuous from medieval and early-modern English play-song origins through 18th-century chapbook publication (Tommy Thumb's Pretty Song Book 1744 the earliest documented English nursery-rhyme collection) through Iona and Peter Opie's 20th-century Lore and Language of Schoolchildren ethnographic documentation",
+  "recipe": "classic mid-1740s english nursery rhyme, nursery Rhyme, European branch, americas nursery rhyme, European lullaby, Celtic balladic ballad poetry spanish and latin american rondas sean-nós solo singing. low dynamic level, tasteful, continuous-phonation, Scottish Gaelic vocal. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 414,
+  "score": 86.823,
+  "config": {
+    "traditions": [
+      "english_nursery_rhyme",
+      "spanish_rondas",
+      "sean_nos_solo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.4462499999999999,
+          "voice_quality": 3.185,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.69,
+          "voice_microtone": 0.045,
+          "voice_tradition": 5.654999999999999,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 0.43499999999999994,
+          "voice_speech_song": 9.554999999999998,
+          "voice_ensemble_config": 6.889999999999999,
+          "voice_ornament_system": 2.085,
+          "voice_pitch_organization": 3.5200000000000005,
+          "voice_processing_chain": 0.6849999999999999,
+          "voice_multitrack_stack": 0.78
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "id": "sanj",
+  "name": "Sanj (Coptic small hand-cymbals)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sanj",
+  "parts": [
+    {
+      "id": "sanj_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "sanj_paired_bronze_canonical",
+          "default": true,
+          "name": "Paired small bronze hand-cymbals (canonical Coptic Orthodox)",
+          "descriptors": [
+            "paired-bronze-small-canonical-coptic-orthodox"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "coptic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanj_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "sanj_coptic_liturgical_canonical",
+          "default": true,
+          "name": "Coptic Orthodox liturgical hymn accompaniment (canonical)",
+          "descriptors": [
+            "coptic-liturgical-hymn-canonical-egyptian-orthodox"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "coptic-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sanj_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "sanj_paired_bronze_canonical",
+          "default": true,
+          "name": "Paired small bronze hand-cymbals (canonical Coptic Orthodox)",
+          "descriptors": [
+            "paired-bronze-small-canonical-coptic-orthodox"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "coptic-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanj_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "sanj_coptic_liturgical_canonical",
+          "default": true,
+          "name": "Coptic Orthodox liturgical hymn accompaniment (canonical)",
+          "descriptors": [
+            "coptic-liturgical-hymn-canonical-egyptian-orthodox"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "coptic-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,455 @@
+{
+  "id": "tiple",
+  "name": "Tiple (Andean 12-string)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tiple",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_tremolo",
+          "name": "Tremolo (mandolin-style)",
+          "applies_to": [
+            "baglamas",
+            "bouzouki",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "tiple",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "leona",
+            "vihuela_mexicana",
+            "domra"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "rapid-tremolo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "mandolin",
+            "mediterranean"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tiple_region",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "tiple_colombian",
+          "default": true,
+          "name": "Colombian (canonical)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "bambuco"
+          ]
+        },
+        {
+          "id": "tiple_puerto_rican",
+          "name": "Puerto Rican",
+          "descriptors": [
+            "Caribbean-variant",
+            "jíbaro-context",
+            "distinct"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tiple_venezuelan",
+          "name": "Venezuelan",
+          "descriptors": [
+            "regional",
+            "joropo-context",
+            "variant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiple_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tiple_bambuco",
+          "default": true,
+          "name": "Bambuco / pasillo (canonical)",
+          "descriptors": [
+            "Andean-Colombian",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tiple_virtuoso",
+          "name": "Solo virtuoso",
+          "descriptors": [
+            "concert",
+            "modern-revival",
+            "showcase"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tiple_fusion",
+          "name": "Latin fusion",
+          "descriptors": [
+            "cross-genre",
+            "contemporary",
+            "arrangement-dependent"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiple_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tiple_cedar_canonical",
+          "default": true,
+          "name": "Cedar (canonical Andean)",
+          "descriptors": [
+            "cedar-canonical-andean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tiple_caoba_mahogany",
+          "name": "Caoba / mahogany (premium Colombian)",
+          "descriptors": [
+            "caoba-mahogany"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiple_strings",
+      "surface": false,
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "tiple_steel_triple_octave",
+          "default": true,
+          "name": "Steel 4-course triple (canonical Colombian — octave + 2 unison)",
+          "descriptors": [
+            "steel-4x3",
+            "octave-doubled-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tiple_nylon_alternative",
+          "name": "Nylon (warmer modern alternative)",
+          "descriptors": [
+            "nylon-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "tiple_region",
+      "surface": false,
+      "name": "Regional variant",
+      "variants": [
+        {
+          "id": "tiple_colombian",
+          "default": true,
+          "name": "Colombian (canonical)",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "bambuco"
+          ]
+        },
+        {
+          "id": "tiple_puerto_rican",
+          "name": "Puerto Rican",
+          "descriptors": [
+            "Caribbean-variant",
+            "jíbaro-context",
+            "distinct"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tiple_venezuelan",
+          "name": "Venezuelan",
+          "descriptors": [
+            "regional",
+            "joropo-context",
+            "variant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiple_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tiple_bambuco",
+          "default": true,
+          "name": "Bambuco / pasillo (canonical)",
+          "descriptors": [
+            "Andean-Colombian",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tiple_virtuoso",
+          "name": "Solo virtuoso",
+          "descriptors": [
+            "concert",
+            "modern-revival",
+            "showcase"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tiple_fusion",
+          "name": "Latin fusion",
+          "descriptors": [
+            "cross-genre",
+            "contemporary",
+            "arrangement-dependent"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiple_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tiple_cedar_canonical",
+          "default": true,
+          "name": "Cedar (canonical Andean)",
+          "descriptors": [
+            "cedar-canonical-andean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tiple_caoba_mahogany",
+          "name": "Caoba / mahogany (premium Colombian)",
+          "descriptors": [
+            "caoba-mahogany"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiple_strings",
+      "surface": false,
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "tiple_steel_triple_octave",
+          "default": true,
+          "name": "Steel 4-course triple (canonical Colombian — octave + 2 unison)",
+          "descriptors": [
+            "steel-4x3",
+            "octave-doubled-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tiple_nylon_alternative",
+          "name": "Nylon (warmer modern alternative)",
+          "descriptors": [
+            "nylon-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ]
+}

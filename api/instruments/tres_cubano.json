@@ -1,0 +1,433 @@
+{
+  "id": "tres_cubano",
+  "name": "Tres (Cuban three-course)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tres",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_tremolo",
+          "name": "Tremolo (mandolin-style)",
+          "applies_to": [
+            "baglamas",
+            "bouzouki",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "tiple",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "leona",
+            "vihuela_mexicana",
+            "domra"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "rapid-tremolo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "mandolin",
+            "mediterranean"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tres_courses",
+      "name": "Course setup",
+      "variants": [
+        {
+          "id": "tres_3x2",
+          "name": "Three doubled courses",
+          "descriptors": [
+            "octaves",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "son"
+          ]
+        },
+        {
+          "id": "tres_3x3",
+          "default": true,
+          "name": "Three tripled courses",
+          "descriptors": [
+            "guajira",
+            "overtone-rich-sustained",
+            "cuban-rural"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tres_cubano_context",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "tres_cubano_son",
+          "default": true,
+          "name": "Son cubano (canonical)",
+          "descriptors": [
+            "traditional",
+            "lead-melody",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tres_cubano_salsa",
+          "name": "Salsa / timba",
+          "descriptors": [
+            "modern",
+            "urban"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tres_cubano_latin_jazz",
+          "name": "Latin jazz",
+          "descriptors": [
+            "concert",
+            "soloistic",
+            "jazz-leaning"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tres_cubano_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tres_cubano_cedar",
+          "default": true,
+          "name": "Cedar (canonical Cuban)",
+          "descriptors": [
+            "cedar-canonical-cuban"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tres_cubano_mahogany",
+          "name": "Mahogany (premium)",
+          "descriptors": [
+            "mahogany-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tres_cubano_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tres_cubano_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical, Arsenio Rodríguez canon)",
+          "descriptors": [
+            "steel-modern",
+            "arsenio-rodriguez-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tres_cubano_octave_doubled",
+          "name": "Octave-doubled bronze + steel (rural traditional)",
+          "descriptors": [
+            "octave-doubled",
+            "bronze-steel",
+            "rural-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_folk_strummed"
+    },
+    {
+      "id": "tres_courses",
+      "name": "Course setup",
+      "variants": [
+        {
+          "id": "tres_3x2",
+          "name": "Three doubled courses",
+          "descriptors": [
+            "octaves",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "son"
+          ]
+        },
+        {
+          "id": "tres_3x3",
+          "default": true,
+          "name": "Three tripled courses",
+          "descriptors": [
+            "guajira",
+            "overtone-rich-sustained",
+            "cuban-rural"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tres_cubano_context",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "tres_cubano_son",
+          "default": true,
+          "name": "Son cubano (canonical)",
+          "descriptors": [
+            "traditional",
+            "lead-melody",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tres_cubano_salsa",
+          "name": "Salsa / timba",
+          "descriptors": [
+            "modern",
+            "urban"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tres_cubano_latin_jazz",
+          "name": "Latin jazz",
+          "descriptors": [
+            "concert",
+            "soloistic",
+            "jazz-leaning"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tres_cubano_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tres_cubano_cedar",
+          "default": true,
+          "name": "Cedar (canonical Cuban)",
+          "descriptors": [
+            "cedar-canonical-cuban"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tres_cubano_mahogany",
+          "name": "Mahogany (premium)",
+          "descriptors": [
+            "mahogany-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tres_cubano_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tres_cubano_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical, Arsenio Rodríguez canon)",
+          "descriptors": [
+            "steel-modern",
+            "arsenio-rodriguez-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "tres_cubano_octave_doubled",
+          "name": "Octave-doubled bronze + steel (rural traditional)",
+          "descriptors": [
+            "octave-doubled",
+            "bronze-steel",
+            "rural-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ]
+}

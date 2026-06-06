@@ -1,0 +1,96 @@
+{
+  "id": "phach",
+  "name": "Phách (Vietnamese bamboo clapper)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "phách",
+  "parts": [
+    {
+      "id": "phach_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "phach_bamboo_clapper_struck_hardwood_stick_canonical",
+          "default": true,
+          "name": "Bamboo clapper struck by ca trù singer with hardwood stick (canonical)",
+          "descriptors": [
+            "bamboo-clapper-struck-hardwood-stick-canonical-vietnamese"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "vietnamese-ca-tru-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phach_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "phach_ca_tru_canonical",
+          "default": true,
+          "name": "Ca trù singer-held cadence-keeping (canonical)",
+          "descriptors": [
+            "ca-tru-singer-held-cadence-canonical-vietnamese"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "vietnamese-ca-tru-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "phach_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "phach_bamboo_clapper_struck_hardwood_stick_canonical",
+          "default": true,
+          "name": "Bamboo clapper struck by ca trù singer with hardwood stick (canonical)",
+          "descriptors": [
+            "bamboo-clapper-struck-hardwood-stick-canonical-vietnamese"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "vietnamese-ca-tru-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phach_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "phach_ca_tru_canonical",
+          "default": true,
+          "name": "Ca trù singer-held cadence-keeping (canonical)",
+          "descriptors": [
+            "ca-tru-singer-held-cadence-canonical-vietnamese"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "vietnamese-ca-tru-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,557 @@
+{
+  "id": "tuba",
+  "name": "Tuba (orchestral / brass band)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tuba",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tuba_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "tuba_bbb",
+          "default": true,
+          "name": "BBb contrabass",
+          "descriptors": [
+            "foundational",
+            "standard",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_cc",
+          "name": "CC orchestral",
+          "descriptors": [
+            "articulate-low-distortion",
+            "American-orchestral",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_eb",
+          "name": "Eb bass",
+          "descriptors": [
+            "british-band",
+            "flexible",
+            "compact-tuba"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuba_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tuba_orch",
+          "default": true,
+          "name": "Orchestral",
+          "descriptors": [
+            "foundation-bass",
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_brass_band",
+          "name": "Brass band",
+          "descriptors": [
+            "British-tradition",
+            "ensemble-bass",
+            "standard",
+            "brass"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_concerto",
+          "name": "Solo concerto",
+          "descriptors": [
+            "twentieth-century",
+            "featured",
+            "modern-composed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuba_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "tuba_yellow_brass",
+          "default": true,
+          "name": "Yellow brass (canonical orchestral)",
+          "descriptors": [
+            "yellow-brass-canonical-orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_gold_brass",
+          "name": "Gold brass (warmer alternative)",
+          "descriptors": [
+            "gold-brass-warmer-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_red_brass",
+          "name": "Red brass (darkest)",
+          "descriptors": [
+            "red-brass-darkest"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuba_valve_system",
+      "surface": false,
+      "name": "Valve system",
+      "variants": [
+        {
+          "id": "tuba_rotary_german",
+          "default": true,
+          "name": "Rotary valves (canonical German orchestral)",
+          "descriptors": [
+            "rotary-valves-canonical-german-orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tuba_piston_american",
+          "name": "Piston valves (American-school)",
+          "descriptors": [
+            "piston-valves-american-school"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuba_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "tuba_miraphone_german",
+          "default": true,
+          "name": "Miraphone (canonical German orchestral)",
+          "descriptors": [
+            "miraphone-canonical-german-orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tuba_yamaha_xeno",
+          "name": "Yamaha YBB-841 (modern Japanese)",
+          "descriptors": [
+            "yamaha-ybb-841-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tuba_meinl_weston",
+          "name": "Meinl Weston (German premium)",
+          "descriptors": [
+            "meinl-weston-german-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tuba_besson_british",
+          "name": "Besson Sovereign (British brass-band canonical)",
+          "descriptors": [
+            "besson-sovereign-british-brass-band-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tuba_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "tuba_bbb",
+          "default": true,
+          "name": "BBb contrabass",
+          "descriptors": [
+            "foundational",
+            "standard",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_cc",
+          "name": "CC orchestral",
+          "descriptors": [
+            "articulate-low-distortion",
+            "American-orchestral",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_eb",
+          "name": "Eb bass",
+          "descriptors": [
+            "british-band",
+            "flexible",
+            "compact-tuba"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuba_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "tuba_orch",
+          "default": true,
+          "name": "Orchestral",
+          "descriptors": [
+            "foundation-bass",
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_brass_band",
+          "name": "Brass band",
+          "descriptors": [
+            "British-tradition",
+            "ensemble-bass",
+            "standard",
+            "brass"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_concerto",
+          "name": "Solo concerto",
+          "descriptors": [
+            "twentieth-century",
+            "featured",
+            "modern-composed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuba_bell_metal",
+      "surface": false,
+      "name": "Bell metal",
+      "variants": [
+        {
+          "id": "tuba_yellow_brass",
+          "default": true,
+          "name": "Yellow brass (canonical orchestral)",
+          "descriptors": [
+            "yellow-brass-canonical-orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_gold_brass",
+          "name": "Gold brass (warmer alternative)",
+          "descriptors": [
+            "gold-brass-warmer-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tuba_red_brass",
+          "name": "Red brass (darkest)",
+          "descriptors": [
+            "red-brass-darkest"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuba_valve_system",
+      "surface": false,
+      "name": "Valve system",
+      "variants": [
+        {
+          "id": "tuba_rotary_german",
+          "default": true,
+          "name": "Rotary valves (canonical German orchestral)",
+          "descriptors": [
+            "rotary-valves-canonical-german-orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tuba_piston_american",
+          "name": "Piston valves (American-school)",
+          "descriptors": [
+            "piston-valves-american-school"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuba_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "tuba_miraphone_german",
+          "default": true,
+          "name": "Miraphone (canonical German orchestral)",
+          "descriptors": [
+            "miraphone-canonical-german-orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tuba_yamaha_xeno",
+          "name": "Yamaha YBB-841 (modern Japanese)",
+          "descriptors": [
+            "yamaha-ybb-841-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tuba_meinl_weston",
+          "name": "Meinl Weston (German premium)",
+          "descriptors": [
+            "meinl-weston-german-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "tuba_besson_british",
+          "name": "Besson Sovereign (British brass-band canonical)",
+          "descriptors": [
+            "besson-sovereign-british-brass-band-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

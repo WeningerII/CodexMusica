@@ -1,0 +1,300 @@
+{
+  "id": "tambura_balkan",
+  "name": "Tambura (Balkan long-neck lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tambura",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_folk_strummed",
+          "name": "Folk strummed",
+          "applies_to": [
+            "balalaika",
+            "domra",
+            "bouzouki",
+            "baglamas",
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "bajo_sexto",
+            "banjo_5_string",
+            "tambura_balkan",
+            "saz_baglama",
+            "cumbus"
+          ],
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "folk",
+            "folk-tradition",
+            "open-chord-ringing-overtones"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "plucked_dance_pattern",
+          "name": "Dance accompaniment pattern",
+          "applies_to": [
+            "charango",
+            "ronroco",
+            "tiple",
+            "bandola_andina",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "viola_caipira",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "vihuela_mexicana",
+            "banjo_5_string",
+            "bouzouki",
+            "baglamas",
+            "saz_baglama",
+            "tambura_balkan",
+            "balalaika",
+            "domra"
+          ],
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "dance-driving",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tambura_balkan_school",
+      "surface": false,
+      "name": "Regional school",
+      "variants": [
+        {
+          "id": "tambura_macedonian",
+          "default": true,
+          "name": "Macedonian / North Macedonian school",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "tambura_bulgarian",
+          "name": "Bulgarian school",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambura_balkan_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "tambura_horo",
+          "default": true,
+          "name": "Horo dance accompaniment",
+          "descriptors": [
+            "horo",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "tambura_song",
+          "name": "Sevdalinka song accompaniment",
+          "descriptors": [
+            "lyrical",
+            "mournful"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "sevdalinka"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tambura_balkan_school",
+      "surface": false,
+      "name": "Regional school",
+      "variants": [
+        {
+          "id": "tambura_macedonian",
+          "default": true,
+          "name": "Macedonian / North Macedonian school",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "tambura_bulgarian",
+          "name": "Bulgarian school",
+          "descriptors": [
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambura_balkan_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "tambura_horo",
+          "default": true,
+          "name": "Horo dance accompaniment",
+          "descriptors": [
+            "horo",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "balkan"
+          ]
+        },
+        {
+          "id": "tambura_song",
+          "name": "Sevdalinka song accompaniment",
+          "descriptors": [
+            "lyrical",
+            "mournful"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "sevdalinka"
+          ]
+        }
+      ]
+    }
+  ]
+}

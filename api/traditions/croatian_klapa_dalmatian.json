@@ -1,0 +1,68 @@
+{
+  "id": "croatian_klapa_dalmatian",
+  "name": "Croatian klapa Dalmatian close-harmony (UNESCO 2012)",
+  "family": "global",
+  "lineage": "Croatian klapa Dalmatian close-harmony multipart-singing tradition of the Adriatic coastal region (Split, Šibenik, Zadar, Dubrovnik and the Adriatic islands), recognized as UNESCO Intangible Cultural Heritage 2012. The classical klapa configuration is a male a-cappella quartet or quintet: lead tenor (prvi tenor), second tenor (drugi tenor), baritone (bariton), and bass (bas), with the optional addition of a second bass voice for fuller texture. Vocal architecture features close-harmony chordal-block writing (almost always homophonic, with all voices moving together rhythmically), characteristic Mediterranean modal-tonal ambiguity (major-mode tonic with frequent flattened-seventh and minor-mode plagal cadences), and the canonical klapa \"Dalmatian\" intonation with slightly stretched intervals producing a bright, resonant ensemble sound when sung in stone-walled outdoor narrow-street alleys (the canonical performance acoustic). Repertoire spans the dramatic Mediterranean-coastal love-and-loss ballad cycles, the religious-procession-and-feast-day repertoire, sea-and-fishing lament cycles, and the contemporary klapa-festival-composed repertoire of newer pieces in the traditional style. Klapa Cambi, Klapa Šufit, and Klapa Sebenico among the canonical twentieth-century ensembles. The annual Omiš Festival of Dalmatian Klapa (founded 1967) constitutes the principal performance-and-competition venue. Distinguished from Sardinian cantu a tenore by Croatian klapa's close-harmony tonal-chord-block (vs Sardinian drone-and-overtone) architecture; distinguished from Corsican paghjella by Croatian's four-or-five-voice quartet-with-bass (vs Corsican's three-voice male-trio) configuration; distinguished from Albanian iso-polyphony by Croatian's tonal-chord-block (vs Albanian iso-drone) foundation.",
+  "recipe": "classic croatian klapa dalmatian close-harmony, ballad Poetry, Mediterranean ballad branch, vocal drone modal croatian istrian two-part-in-istrian-scale macedonian glasoechko male diaphonic. kargyraa, false fold engaged, overtone rich sustained, hocket articulation. dalmatian stone alley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 419,
+  "score": 262.933,
+  "config": {
+    "traditions": [
+      "croatian_klapa_dalmatian",
+      "croatian_istrian_diaphonic",
+      "macedonian_glasoechko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 3.12,
+          "voice_quality": 9.709999999999997,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.545,
+          "voice_microtone": 0.24,
+          "voice_tradition": 26.519999999999996,
+          "voice_mechanism_compound": 9.879999999999999,
+          "voice_estill_quality": 7.085,
+          "voice_speech_song": 17.355000000000008,
+          "voice_ensemble_config": 26.195000000000007,
+          "voice_ornament_system": 4.16,
+          "voice_pitch_organization": 6.630000000000001,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 7.669999999999999
+        }
+      }
+    ],
+    "room": "dalmatian_stone_alley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

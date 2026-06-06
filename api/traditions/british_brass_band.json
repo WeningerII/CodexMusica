@@ -1,0 +1,135 @@
+{
+  "id": "british_brass_band",
+  "name": "British brass band (Northern English)",
+  "family": "global",
+  "lineage": "Northern-English industrial working-class brass-band tradition codified through the 19th-century industrial-Lancashire and Yorkshire mining-and-mill working-class musician movement — bands include the Black Dyke Mills Band (founded 1855), the Brighouse and Rastrick Band, the Foden s Motor Works Band, Grimethorpe Colliery Band, Fairey Aviation Band; standard 25-30-musician ensemble of cornet section, flugelhorn, tenor horn, baritone horn, euphonium, trombone, tuba, percussion, performing at civic events, contests (the annual British Open and the National Brass Band Championships)",
+  "recipe": "classic North American mid-1850s british brass band, art Music, western common practice branch, western early art music burgundian school opera seria. brass band british, high register brass yellow brass canonical brass band besson sovereign canonical British brass band cornet, brass yellow brass flugelhorn, yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone. us uk civic amateur band hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 838,
+  "score": 218.114,
+  "config": {
+    "traditions": [
+      "british_brass_band",
+      "burgundian_school",
+      "opera_seria_baroque"
+    ],
+    "instruments": [
+      {
+        "id": "brass_band_british",
+        "slots": {
+          "sections": "baritones_section",
+          "context": "brass_band_competition"
+        },
+        "scores": {
+          "sections": 1.495,
+          "context": 0
+        }
+      },
+      {
+        "id": "cornet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "cornet_pitch": "cornet_eb_high",
+          "cornet_context": "cornet_brass_band",
+          "cornet_bell_metal": "cornet_yellow_brass",
+          "cornet_maker_school": "cornet_besson_british"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "cornet_pitch": 12.639500000000002,
+          "cornet_context": 6.269499999999999,
+          "cornet_bell_metal": 13.601,
+          "cornet_maker_school": 15.7195
+        }
+      },
+      {
+        "id": "flugelhorn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flugel_use": "flugel_brass_band",
+          "flugelhorn_pitch": "flugelhorn_bb",
+          "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+          "flugelhorn_maker_school": "flugelhorn_couesnon_vintage"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "flugel_use": 5.0545,
+          "flugelhorn_pitch": 1.3,
+          "flugelhorn_bell_metal": 4.68,
+          "flugelhorn_maker_school": 0.6
+        }
+      },
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "euph_use": "euph_orchestral",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_yellow_brass",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "euph_use": 8.694500000000001,
+          "euphonium_pitch": 16.0445,
+          "euphonium_bell_metal": 15.901,
+          "euphonium_maker_school": 15.7195
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "tuba_pitch": 12.563000000000002,
+          "tuba_context": 11.7275,
+          "tuba_bell_metal": 4.68,
+          "tuba_valve_system": 1.188,
+          "tuba_maker_school": 15.7195
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 4.7545,
+          "trombone_type": 0,
+          "trombone_mouthpiece": 2.6950000000000003,
+          "trombone_mute": 2.2889999999999997,
+          "trombone_technique": 1.3,
+          "trombone_bell_metal": 7.2965,
+          "trombone_maker_school": 2.4699999999999998
+        }
+      }
+    ],
+    "room": "us_uk_civic_amateur_band_hall",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

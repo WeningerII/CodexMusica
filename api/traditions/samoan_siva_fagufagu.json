@@ -1,0 +1,79 @@
+{
+  "id": "samoan_siva_fagufagu",
+  "name": "Samoan siva and fagufagu (Polynesian dance-song)",
+  "family": "global",
+  "lineage": "Samoan siva (formal dance) and fagufagu (drum-led collective dance) Polynesian-cultural-performance traditions of the Samoan archipelago (Independent State of Samoa and American Samoa). The siva manaia is the standard performance featuring a single dancer (often the daughter of the host family in a fa'alavelave ceremonial gathering) accompanied by sung verses and slit-drum (pate) and rolled-mat (papa) percussion. The taualuga formal high-chief's-dance is the culminating ceremonial-form. Vocal repertoire features distinct fa'aluga (verse) and fa'amalama (refrain) structural sections. The post-twentieth-century Pacific-festival circuit and Polynesian Cultural Center anchor international circulation.",
+  "recipe": "classic modern samoan siva and fagufagu, ritual Devotional, indigenous branch, vocal drone modal, blues narrative work song georgian three-voice polyphony corsican paghjella three-voice unaccompanied. vocal fry, declaimed, overtone rich sustained, narrative. log drum. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 493,
+  "score": 168.203,
+  "config": {
+    "traditions": [
+      "samoan_siva_fagufagu",
+      "georgian_three_voice_polyphony",
+      "corsican_paghjella"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.6,
+          "voice_quality": 6.045,
+          "voice_vibrato": 0.675,
+          "voice_articulation": 0.6499999999999998,
+          "voice_microtone": 0.9099999999999999,
+          "voice_tradition": 15.644999999999998,
+          "voice_mechanism_compound": 3.8449999999999998,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 13.584999999999999,
+          "voice_ensemble_config": 11.309999999999999,
+          "voice_ornament_system": 6.8,
+          "voice_pitch_organization": 1.2149999999999996,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 2.6
+        }
+      },
+      {
+        "id": "log_drum",
+        "slots": {
+          "log_drum_voice": "log_drum_sub",
+          "log_drum_context": "log_drum_amapiano"
+        },
+        "scores": {
+          "log_drum_voice": 0.285,
+          "log_drum_context": 0.9450000000000001
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

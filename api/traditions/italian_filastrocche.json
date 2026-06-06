@@ -1,0 +1,68 @@
+{
+  "id": "italian_filastrocche",
+  "name": "Italian filastrocche (nursery rhymes)",
+  "family": "global",
+  "lineage": "Italian-language children's play-song (filastrocche) tradition continuous from medieval-and-early-modern Italian folk-play-song origins through 19th-century Italian-unification-era folklore-collection context into modern continuous Italian-and-Italian-diaspora childhood-practice",
+  "recipe": "classic modern italian filastrocche, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, Mediterranean ballad ballad poetry brazilian cantigas de roda spanish and latin american rondas. thick, low dynamic level, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 404,
+  "score": 135.344,
+  "config": {
+    "traditions": [
+      "italian_filastrocche",
+      "brazilian_cantigas_de_roda",
+      "spanish_rondas"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "bel_canto_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.930000000000001,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.045,
+          "voice_tradition": 21.580000000000002,
+          "voice_mechanism_compound": 1.785,
+          "voice_estill_quality": 21.44,
+          "voice_speech_song": 7.474999999999999,
+          "voice_ensemble_config": 4.029999999999999,
+          "voice_ornament_system": 20.900000000000002,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.6187499999999999
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

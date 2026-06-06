@@ -1,0 +1,206 @@
+{
+  "id": "log_drum",
+  "name": "Log drum (amapiano)",
+  "family": "electronic",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "log drum",
+  "parts": [
+    {
+      "id": "log_drum_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "log_drum_sub",
+          "default": true,
+          "name": "Deep sub-bass roll",
+          "descriptors": [
+            "foundation",
+            "amapiano-signature"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "log_drum_mid",
+          "name": "Mid-percussive",
+          "descriptors": [
+            "rhythmic",
+            "pattern-defining",
+            "driving"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "log_drum_high",
+          "name": "High tonal",
+          "descriptors": [
+            "ornamental",
+            "colour",
+            "syncopation"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "log_drum_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "log_drum_amapiano",
+          "default": true,
+          "name": "Amapiano canonical",
+          "descriptors": [
+            "South-African",
+            "foundational-sub",
+            "late-2010s"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "log_drum_sa_house",
+          "name": "South African house",
+          "descriptors": [
+            "related-genres",
+            "Afro-tech"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "log_drum_afrobeats",
+          "name": "Afrobeats fusion",
+          "descriptors": [
+            "pan-African",
+            "crossover",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "log_drum_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "log_drum_sub",
+          "default": true,
+          "name": "Deep sub-bass roll",
+          "descriptors": [
+            "foundation",
+            "amapiano-signature"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "log_drum_mid",
+          "name": "Mid-percussive",
+          "descriptors": [
+            "rhythmic",
+            "pattern-defining",
+            "driving"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "log_drum_high",
+          "name": "High tonal",
+          "descriptors": [
+            "ornamental",
+            "colour",
+            "syncopation"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "log_drum_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "log_drum_amapiano",
+          "default": true,
+          "name": "Amapiano canonical",
+          "descriptors": [
+            "South-African",
+            "foundational-sub",
+            "late-2010s"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "log_drum_sa_house",
+          "name": "South African house",
+          "descriptors": [
+            "related-genres",
+            "Afro-tech"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "log_drum_afrobeats",
+          "name": "Afrobeats fusion",
+          "descriptors": [
+            "pan-African",
+            "crossover",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ]
+}

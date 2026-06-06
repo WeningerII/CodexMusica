@@ -1,0 +1,106 @@
+{
+  "id": "russian_zastolnaya",
+  "name": "Russian zastol'naya pesnya (table song / drinking song)",
+  "family": "global",
+  "lineage": "Russian zastol'naya pesnya (table-song / drinking-song) tradition continuous from medieval-Russian feast-and-tavern song-tradition through 19th-century Russian-Romantic-era Glinka-and-Mussorgsky-folk-collection through Soviet-era continuous performance into modern Russian-and-Russian-diaspora continuous feast-and-pub practice; foundational repertoire includes \"Калинка\" (Kalinka) and \"Подмосковные вечера\" (Moscow Nights — though both are more broadly folk-popular than strictly drinking-songs)",
+  "recipe": "classic modern russian zastol'naya pesnya, drinking Song, European branch, balkan drinking song, Slavic bard ballad poetry, European wedding sardinian wedding cantu and launeddas music georgian supra feast-singing. thick, false fold engaged, tasteful, continuous-phonation. castagnari Italian premium folk music straight accordion, prima nylon modern spruce maple andreyev concert orchestra canonical revival balalaika. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 560,
+  "score": 175.84,
+  "config": {
+    "traditions": [
+      "russian_zastolnaya",
+      "sardinian_wedding_cantu_launeddas",
+      "georgian_supra_drinking"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 6.5,
+          "voice_quality": 1.4949999999999999,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0.25999999999999995,
+          "voice_tradition": 14.3,
+          "voice_mechanism_compound": 1.395,
+          "voice_estill_quality": 0.48,
+          "voice_speech_song": 19.304999999999996,
+          "voice_ensemble_config": 9.62,
+          "voice_ornament_system": 0.69,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 1.3649999999999998,
+          "voice_multitrack_stack": 0.8999999999999999
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 6.924999999999999,
+          "accordion_reed_material": 0.39,
+          "musette_offset": 0.39,
+          "reed_config": 0.15,
+          "bellows": 0.045,
+          "voicing_chamber": 0.9099999999999999,
+          "accordion_maker_school": 5.329999999999999
+        }
+      },
+      {
+        "id": "balalaika",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "balalaika_size": "prima_balalaika",
+          "balalaika_strings": "nylon_balalaika",
+          "balalaika_body_wood": "balalaika_spruce_maple",
+          "balalaika_tradition": "balalaika_andreyev_concert"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.694999999999999,
+          "balalaika_size": 1.56,
+          "balalaika_strings": 3.25,
+          "balalaika_body_wood": 1.56,
+          "balalaika_tradition": 1.69
+        }
+      }
+    ],
+    "room": "irish_pub",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "russian_minor_estrada_chanson",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

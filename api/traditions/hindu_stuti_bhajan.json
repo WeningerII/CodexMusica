@@ -1,0 +1,115 @@
+{
+  "id": "hindu_stuti_bhajan",
+  "name": "Hindu stuti and bhajan (praise of deities)",
+  "family": "global",
+  "lineage": "Pan-Indian Hindu devotional praise-song tradition continuous from medieval Bhakti-movement era (12th-18th century North-and-South-Indian bhakti-saints including Kabir, Mirabai, Tulsidas, Surdas, Tyagaraja, Annamacharya) through 19th-20th century continuous performance into modern Hindu-and-Hindu-diaspora practice",
+  "recipe": "classic modern hindu stuti and bhajan, praise Song, indian subcontinent branch, middle east n African praise song, indian classical improv improv on frame, hindu ritual devotional sufi munajat and naat arabic madh and qasida. vocal fry, declaimed, chest resonance low mid, continuous-phonation. harmonium indian, pitched indian rosewood rosewood tabla, suited to female vocal wooden body miraj style tanpura. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 556,
+  "score": 260.26,
+  "config": {
+    "traditions": [
+      "hindu_stuti_bhajan",
+      "sufi_munajat_naat",
+      "arabic_madh_qasida"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 20.67899999999999,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.39,
+          "voice_tradition": 12.024999999999995,
+          "voice_mechanism_compound": 1.65,
+          "voice_estill_quality": 2.5349999999999997,
+          "voice_speech_song": 12.544999999999998,
+          "voice_ensemble_config": 6.499999999999999,
+          "voice_ornament_system": 5.6499999999999995,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.6499999999999999,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_female",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 0.19500000000000003,
+          "harmonium_action": 1.17,
+          "harmonium_voicing": 0.78,
+          "harmonium_use": 2.9899999999999998
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 7.085,
+          "tabla_bayan": 0.9099999999999999,
+          "tabla_syahi": 1.8345
+        }
+      },
+      {
+        "id": "tanpura",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "tanpura_size": "female_size",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "five_string_chitra",
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_wooden_body"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.2944999999999998,
+          "tanpura_size": 1.17,
+          "tanpura_jawari": 1.7499999999999998,
+          "tanpura_strings": 0.78,
+          "tanpura_string_material": 0.39,
+          "tanpura_body_wood": 1.69
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

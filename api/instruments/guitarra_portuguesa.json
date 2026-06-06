@@ -1,0 +1,354 @@
+{
+  "id": "guitarra_portuguesa",
+  "name": "Guitarra portuguesa (Portuguese pear-shaped 12-string)",
+  "family": "acoustic_strings",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "guitarra",
+  "parts": [
+    {
+      "id": "guitarra_tuning_school",
+      "name": "Tuning / school",
+      "variants": [
+        {
+          "id": "guitarra_lisboa_d_d_a_b_a",
+          "default": true,
+          "name": "Lisboa tuning (12-string in 6 paired courses, characteristic high-pitched fado-de-Lisboa sound)",
+          "descriptors": [
+            "twelve-string-paired-courses",
+            "high-pitched-ringing",
+            "fado-lisboa-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition",
+            "lisbon-school"
+          ]
+        },
+        {
+          "id": "guitarra_coimbra_lower_tuned",
+          "name": "Coimbra tuning (lower-tuned, used for fado de Coimbra university tradition)",
+          "descriptors": [
+            "lower-tuned",
+            "fado-coimbra-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition",
+            "coimbra-school"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarra_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "guitarra_jacaranda_body",
+          "default": true,
+          "name": "Jacarandá body (Portuguese rosewood — canonical Lisboa premium)",
+          "descriptors": [
+            "jacaranda-portuguese-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "guitarra_indian_rosewood_body",
+          "name": "Indian rosewood (modern alternative)",
+          "descriptors": [
+            "indian-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "guitarra_mahogany_body",
+          "name": "Mahogany (mid-tier)",
+          "descriptors": [
+            "mahogany-mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarra_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "guitarra_spruce_top",
+          "default": true,
+          "name": "Spruce top (canonical fado projection)",
+          "descriptors": [
+            "spruce-canonical-fado"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ]
+        },
+        {
+          "id": "guitarra_cedar_top",
+          "name": "Cedar top (warmer Coimbra)",
+          "descriptors": [
+            "cedar-warmer-coimbra"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarra_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "guitarra_steel_canonical",
+          "default": true,
+          "name": "Steel (canonical Portuguese)",
+          "descriptors": [
+            "steel-canonical-portuguese"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ]
+        },
+        {
+          "id": "guitarra_gut_historical",
+          "name": "Gut (pre-1900 historical)",
+          "descriptors": [
+            "gut-pre-1900-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarra_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "guitarra_pluck_with_metal_fingerpicks",
+          "default": true,
+          "name": "Plucked with metal fingerpicks (Portuguese unhas)",
+          "descriptors": [
+            "metal-fingerpicks",
+            "bright-attack",
+            "fado-vocabulary",
+            "ornamental-trills"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "guitarra_tuning_school",
+      "name": "Tuning / school",
+      "variants": [
+        {
+          "id": "guitarra_lisboa_d_d_a_b_a",
+          "default": true,
+          "name": "Lisboa tuning (12-string in 6 paired courses, characteristic high-pitched fado-de-Lisboa sound)",
+          "descriptors": [
+            "twelve-string-paired-courses",
+            "high-pitched-ringing",
+            "fado-lisboa-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition",
+            "lisbon-school"
+          ]
+        },
+        {
+          "id": "guitarra_coimbra_lower_tuned",
+          "name": "Coimbra tuning (lower-tuned, used for fado de Coimbra university tradition)",
+          "descriptors": [
+            "lower-tuned",
+            "fado-coimbra-tradition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition",
+            "coimbra-school"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarra_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "guitarra_jacaranda_body",
+          "default": true,
+          "name": "Jacarandá body (Portuguese rosewood — canonical Lisboa premium)",
+          "descriptors": [
+            "jacaranda-portuguese-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "guitarra_indian_rosewood_body",
+          "name": "Indian rosewood (modern alternative)",
+          "descriptors": [
+            "indian-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "guitarra_mahogany_body",
+          "name": "Mahogany (mid-tier)",
+          "descriptors": [
+            "mahogany-mid-tier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarra_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "guitarra_spruce_top",
+          "default": true,
+          "name": "Spruce top (canonical fado projection)",
+          "descriptors": [
+            "spruce-canonical-fado"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ]
+        },
+        {
+          "id": "guitarra_cedar_top",
+          "name": "Cedar top (warmer Coimbra)",
+          "descriptors": [
+            "cedar-warmer-coimbra"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarra_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "guitarra_steel_canonical",
+          "default": true,
+          "name": "Steel (canonical Portuguese)",
+          "descriptors": [
+            "steel-canonical-portuguese"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ]
+        },
+        {
+          "id": "guitarra_gut_historical",
+          "name": "Gut (pre-1900 historical)",
+          "descriptors": [
+            "gut-pre-1900-historical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guitarra_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "guitarra_pluck_with_metal_fingerpicks",
+          "default": true,
+          "name": "Plucked with metal fingerpicks (Portuguese unhas)",
+          "descriptors": [
+            "metal-fingerpicks",
+            "bright-attack",
+            "fado-vocabulary",
+            "ornamental-trills"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fado-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

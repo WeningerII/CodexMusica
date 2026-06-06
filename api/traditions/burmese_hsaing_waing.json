@@ -1,0 +1,60 @@
+{
+  "id": "burmese_hsaing_waing",
+  "name": "Burmese hsaing waing (drum-circle ensemble)",
+  "family": "global",
+  "lineage": "Burmese hsaing waing percussion-led ensemble tradition, the canonical Burmese folk-and-ceremonial instrumental form. The ensemble centers on the pat waing tuned-drum-circle (twenty-one tuned drums arranged in a horseshoe around the seated lead player) plus kyi waing tuned-gong-circle, hne double-reed shawm, chauk lon bat double-headed drum-pair, si small cymbals, and wa wooden-clappers. The pat waing drum-circle player is the de-facto ensemble leader, with the player simultaneously delivering melodic, rhythmic, and ensemble-cueing functions. Performance contexts span weddings, religious-festival celebrations, theatrical accompaniment (zat pwe), and the classical mahagita repertoire performance. Distinguished from neighboring Thai pi phat and Khmer pinpeat ensembles by Burmese hsaing waing's tuned-drum-circle (vs gong-circle-led) instrumental hierarchy.",
+  "recipe": "classic North American mid-1970s burmese hsaing waing, groove Percussion, east Asian branch, southeast Asian Thai classical. refined gamelan balinese full, boxwood canonical renaissance European arundo donax wooden pirouette canonical renaissance shawm. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 480,
+  "score": 33.9,
+  "config": {
+    "traditions": [
+      "burmese_hsaing_waing",
+      "thai_classical"
+    ],
+    "instruments": [
+      {
+        "id": "gamelan_balinese_full",
+        "slots": {
+          "type": "gb_semar_pegulingan",
+          "characteristic": "gb_kotekan"
+        },
+        "scores": {
+          "type": 2.6,
+          "characteristic": 0.04875
+        }
+      },
+      {
+        "id": "shawm",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "shawm_pitch": "shawm_treble",
+          "shawm_context": "shawm_alta_capella",
+          "shawm_body_wood": "shawm_boxwood_canonical",
+          "shawm_reed": "shawm_arundo_pirouette"
+        },
+        "scores": {
+          "wind_articulation": -0.15000000000000002,
+          "shawm_pitch": 0,
+          "shawm_context": 1.522857142857143,
+          "shawm_body_wood": 1.46625,
+          "shawm_reed": 2.7375000000000003
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "equal_heptatonic_thai_khmer",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

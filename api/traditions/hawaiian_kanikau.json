@@ -1,0 +1,68 @@
+{
+  "id": "hawaiian_kanikau",
+  "name": "Hawaiian kanikau (mele kanikau, mourning-chant)",
+  "family": "global",
+  "lineage": "Hawaiian mourning-chant tradition continuous from pre-contact Hawaiian ritual-practice through 19th-century Hawaiian-Kingdom-era continuous performance and publication (kanikau were published in Hawaiian-language newspapers from the 1830s-onward) into 20th-century Hawaiian-cultural-revival",
+  "recipe": "classic mid-1830s hawaiian kanikau, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, indian bard ballad poetry inuit katajjaq throat-singing game hawaiian mele oli sacred-chant. sygyt, declaimed, overtone rich sustained, continuous-phonation. hawaiian heiau outdoor lava stone temple. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 454,
+  "score": 180.73,
+  "config": {
+    "traditions": [
+      "hawaiian_kanikau",
+      "inuit_katajjaq_games",
+      "hawaiian_oli_mele"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.3,
+          "voice_quality": 3.185,
+          "voice_vibrato": 0.855,
+          "voice_articulation": 2.7949999999999995,
+          "voice_microtone": 0.39,
+          "voice_tradition": 39.370000000000005,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 0.9749999999999996,
+          "voice_speech_song": 3.769999999999999,
+          "voice_ensemble_config": 3.5100000000000007,
+          "voice_ornament_system": 5.59,
+          "voice_pitch_organization": 3.0349999999999997,
+          "voice_processing_chain": 1.17,
+          "voice_multitrack_stack": 2.145
+        }
+      }
+    ],
+    "room": "hawaiian_heiau_outdoor_lava_stone_temple",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "slack_key_hawaiian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

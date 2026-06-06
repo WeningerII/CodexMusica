@@ -1,0 +1,155 @@
+{
+  "id": "slacker_rock",
+  "name": "Slacker rock (early-1990s American lo-fi indie)",
+  "family": "rock_punk",
+  "lineage": "Early-1990s American indie rock substyle characterized by deliberately-loose performance aesthetic, lo-fi production, deadpan vocal delivery, and oblique-fragmentary lyrical content. Pavement (Stockton, 1989-1999) is the canonical type-specimen; parallel acts include Sebadoh, Guided by Voices, Silver Jews, and Built to Spill. Distinguished from broader indie rock by slacker rock's explicit casual-attitudinal aesthetic and emphasis on rough-edged production.",
+  "recipe": "classic North American slacker rock, distorted Rock, alternative branch, experimental distorted rock chillwave post-rock. thick, chest resonance low mid, equal tempered, 31 tet. marshall plexi amp British rock amp arpeggiated clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb proco RAT.",
+  "recipe_chars": 611,
+  "score": 393.012,
+  "config": {
+    "traditions": [
+      "slacker_rock",
+      "chillwave_glo_fi",
+      "post_rock_extended"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 17.840999999999994,
+          "voice_quality": 0.273,
+          "voice_vibrato": 0.8174999999999999,
+          "voice_articulation": 0.318,
+          "voice_microtone": 17.604999999999997,
+          "voice_tradition": 3.185000000000001,
+          "voice_mechanism_compound": 2.665000000000001,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 0.1365,
+          "voice_pitch_organization": 4.68,
+          "voice_processing_chain": 5.069999999999999,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 9.067999999999998,
+          "amp_make": 9.1,
+          "body_wood": 0.4995,
+          "neck_wood": 0.4995,
+          "fretboard": 0.49499999999999994,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.7725000000000002,
+          "string_material": 0.49499999999999994,
+          "bridge": 0.4995,
+          "scale_length": 0.9990000000000001,
+          "string_gauge": 0.4995,
+          "finish": 0,
+          "string_tuning": 10.92
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 1.9000000000000001,
+          "amp_make": 9.165,
+          "body_wood": 0.9990000000000001,
+          "pickup_config": 1.0399999999999998,
+          "string_type": 23.075,
+          "scale_length_b": 0.4995,
+          "fretted_or_not": 0,
+          "bass_technique": 17.7
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "oak_shell",
+          "shell_thickness": "thick_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "single_clear",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 4.9399999999999995,
+          "shell_wood": 0.7994999999999999,
+          "shell_thickness": 0.3045,
+          "bearing_edges": 0.636,
+          "drumhead": 0.573,
+          "snare_wires": 0.7725,
+          "cymbal_alloy": 18.145,
+          "cymbal_hammering": 17.7715,
+          "cymbal_lathing": 17.7865,
+          "cymbal_finish": 0.49499999999999994,
+          "drum_technique": 17.75
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_proco_rat"
+    ]
+  }
+}

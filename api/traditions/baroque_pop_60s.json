@@ -1,0 +1,222 @@
+{
+  "id": "baroque_pop_60s",
+  "name": "Baroque pop (60s)",
+  "family": "rock_punk",
+  "lineage": "1960s pop substyle integrating harpsichord, classical-orchestral-strings, woodwinds, and other Baroque-and-Classical-period instrumental textures into pop-song structures. Procol Harum's A Whiter Shade of Pale (1967), the Beatles' Eleanor Rigby (1966) and broader Sgt. Pepper's (1967) deployments, the Left Banke's Walk Away Renée (1966), and the Zombies' Odessey and Oracle (1968) constitute the canonical type-specimens.",
+  "recipe": "classic Los Angeles mid-1960s baroque pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, chest resonance low mid, equal tempered, Baroque ornamental. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, 18 ply hard rock maple vintage production European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament legato harpsichord. small Soho room 1962-1968 indie-commercial uk small 60s commercial. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ.",
+  "recipe_chars": 971,
+  "score": 674.06,
+  "config": {
+    "traditions": [
+      "baroque_pop_60s",
+      "classical_period_18c",
+      "grand_opera_french"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 17.149999999999995,
+          "voice_quality": 0.3,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 0.24,
+          "voice_microtone": 22.104999999999997,
+          "voice_tradition": 15.019999999999998,
+          "voice_mechanism_compound": 6.399999999999999,
+          "voice_estill_quality": 7.1049999999999995,
+          "voice_speech_song": 12.199999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 6.444999999999999,
+          "voice_pitch_organization": 6.3999999999999995,
+          "voice_processing_chain": 1.86,
+          "voice_multitrack_stack": 3.575
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_short",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 8.95,
+          "amp_make": 3.4850000000000003,
+          "body_wood": 1.26,
+          "neck_wood": 0.195,
+          "fretboard": 1.02,
+          "pickup_magnet": 0.195,
+          "string_material": 1.02,
+          "string_gauge": 1.6349999999999998,
+          "bridge": 0.135,
+          "scale_length": 1.69,
+          "finish": 0,
+          "string_tuning": 5.125
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 1.9000000000000001,
+          "amp_make": 3.4850000000000003,
+          "body_wood": 0.9149999999999999,
+          "pickup_config": 0.045,
+          "string_type": 8.76,
+          "scale_length_b": 0.435,
+          "fretted_or_not": 0.345,
+          "bass_technique": 7.45
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 8.319999999999999,
+          "shell_wood": 1.65,
+          "shell_thickness": 1.17,
+          "bearing_edges": 0.09,
+          "drumhead": 9.415,
+          "snare_wires": 0.825,
+          "cymbal_alloy": 16.545,
+          "cymbal_hammering": 16.45,
+          "cymbal_lathing": 17.125,
+          "cymbal_finish": 0.195,
+          "drum_technique": 8.319999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 9.145,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 1.785,
+          "piano_hammer": 9.645,
+          "piano_rim": 10.209999999999999,
+          "piano_soundboard": 8.95,
+          "piano_pinblock": 6.6,
+          "piano_plate": 6.539999999999999,
+          "piano_pitch_standard": 10.885000000000002
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 9.75,
+          "orch_strings": 1.17,
+          "orch_top_wood": 12.834999999999997,
+          "orch_back_wood": 12.834999999999997,
+          "orch_varnish": 11.21,
+          "orch_setup_period": 9.42,
+          "orch_bow": 1.69,
+          "orch_bow_stick": 8.32,
+          "orch_articulation": 0.915,
+          "orch_rosin": 13.02
+        }
+      },
+      {
+        "id": "harpsichord",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "harpsichord_register": "harpsi_8_foot",
+          "harpsichord_context": "harpsichord_solo",
+          "harpsichord_maker_school": "harpsichord_french_blanchet_taskin",
+          "harpsichord_plectrum": "harpsichord_leather_french",
+          "harpsichord_temperament": "harpsichord_vallotti"
+        },
+        "scores": {
+          "keyboard_technique": 9.145,
+          "harpsichord_register": 3.3799999999999994,
+          "harpsichord_context": 3.7700000000000005,
+          "harpsichord_maker_school": 1.69,
+          "harpsichord_plectrum": 1.69,
+          "harpsichord_temperament": 4.68
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_la_smallroom_chambers",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_vox_ac30_topboost",
+      "medium": "tape_15ips"
+    },
+    "tuning": "well_temperament_late_baroque_italian",
+    "aesthetic": "wall_of_sound",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "id": "khamak",
+  "name": "Khamak (Bengali plucked-drone tension lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "khamak",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "khamak_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "khamak_baul",
+          "default": true,
+          "name": "Baul accompaniment with pitch-bend pulse",
+          "descriptors": [
+            "baul",
+            "pitch-bending",
+            "rhythmic-drone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "bengali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khamak_body",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "khamak_wood_skin",
+          "default": true,
+          "name": "Wooden shell + goat-skin head (canonical Bengali)",
+          "descriptors": [
+            "wood-goat-skin-canonical-bengali"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khamak_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "khamak_gut_canonical",
+          "default": true,
+          "name": "Gut (canonical Bengali baul)",
+          "descriptors": [
+            "gut-canonical-bengali-baul"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "khamak_steel_modern",
+          "name": "Steel (modern alternative)",
+          "descriptors": [
+            "steel-modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "khamak_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "khamak_baul",
+          "default": true,
+          "name": "Baul accompaniment with pitch-bend pulse",
+          "descriptors": [
+            "baul",
+            "pitch-bending",
+            "rhythmic-drone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "bengali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khamak_body",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "khamak_wood_skin",
+          "default": true,
+          "name": "Wooden shell + goat-skin head (canonical Bengali)",
+          "descriptors": [
+            "wood-goat-skin-canonical-bengali"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khamak_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "khamak_gut_canonical",
+          "default": true,
+          "name": "Gut (canonical Bengali baul)",
+          "descriptors": [
+            "gut-canonical-bengali-baul"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "khamak_steel_modern",
+          "name": "Steel (modern alternative)",
+          "descriptors": [
+            "steel-modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    }
+  ]
+}

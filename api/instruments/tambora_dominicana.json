@@ -1,0 +1,234 @@
+{
+  "id": "tambora_dominicana",
+  "name": "Tambora dominicana (Dominican double-headed barrel drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tambora",
+  "parts": [
+    {
+      "id": "tambora_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "tambora_carved_wood_two_heads",
+          "default": true,
+          "name": "Carved-wood barrel, two heads",
+          "descriptors": [
+            "wood",
+            "hide",
+            "merengue-tradition",
+            "caribbean-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick",
+            "merengue-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambora_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tambora_hand_and_stick",
+          "default": true,
+          "name": "One hand on left head + stick on right head (merengue standard)",
+          "descriptors": [
+            "characteristic",
+            "merengue-tradition",
+            "asymmetric-pattern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick",
+            "merengue-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambora_dominicana_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "tambora_dominicana_avocado",
+          "default": true,
+          "name": "Avocado wood (canonical Dominican)",
+          "descriptors": [
+            "avocado-canonical-dominican"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick",
+            "merengue-tradition"
+          ]
+        },
+        {
+          "id": "tambora_dominicana_mahogany",
+          "name": "Mahogany (premium alternative)",
+          "descriptors": [
+            "mahogany-premium-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick",
+            "merengue-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambora_dominicana_heads",
+      "surface": false,
+      "name": "Head pair",
+      "variants": [
+        {
+          "id": "tambora_dominicana_male_female",
+          "default": true,
+          "name": "Male goat skin (left, stick) + female goat skin (right, hand) — canonical asymmetric pair",
+          "descriptors": [
+            "male-female-goat-skin-asymmetric-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick",
+            "merengue-tradition"
+          ]
+        },
+        {
+          "id": "tambora_dominicana_cowhide_alt",
+          "name": "Cowhide (modern alternative)",
+          "descriptors": [
+            "cowhide-modern-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tambora_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "tambora_carved_wood_two_heads",
+          "default": true,
+          "name": "Carved-wood barrel, two heads",
+          "descriptors": [
+            "wood",
+            "hide",
+            "merengue-tradition",
+            "caribbean-tradition"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick",
+            "merengue-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambora_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tambora_hand_and_stick",
+          "default": true,
+          "name": "One hand on left head + stick on right head (merengue standard)",
+          "descriptors": [
+            "characteristic",
+            "merengue-tradition",
+            "asymmetric-pattern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick",
+            "merengue-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambora_dominicana_shell_wood",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "tambora_dominicana_avocado",
+          "default": true,
+          "name": "Avocado wood (canonical Dominican)",
+          "descriptors": [
+            "avocado-canonical-dominican"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick",
+            "merengue-tradition"
+          ]
+        },
+        {
+          "id": "tambora_dominicana_mahogany",
+          "name": "Mahogany (premium alternative)",
+          "descriptors": [
+            "mahogany-premium-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick",
+            "merengue-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambora_dominicana_heads",
+      "surface": false,
+      "name": "Head pair",
+      "variants": [
+        {
+          "id": "tambora_dominicana_male_female",
+          "default": true,
+          "name": "Male goat skin (left, stick) + female goat skin (right, hand) — canonical asymmetric pair",
+          "descriptors": [
+            "male-female-goat-skin-asymmetric-canonical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick",
+            "merengue-tradition"
+          ]
+        },
+        {
+          "id": "tambora_dominicana_cowhide_alt",
+          "name": "Cowhide (modern alternative)",
+          "descriptors": [
+            "cowhide-modern-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands-and-stick"
+          ]
+        }
+      ]
+    }
+  ]
+}

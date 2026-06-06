@@ -1,0 +1,134 @@
+{
+  "id": "son_jarocho",
+  "name": "Son jarocho",
+  "family": "global",
+  "lineage": "Mexican Veracruz-Gulf-Coast Afro-Mestizo-Indigenous son tradition with characteristic jarana five-double-course strum-guitar, requinto-jarocho four-string lead-melody-guitar, harp, quijada-de-burro donkey-jawbone scraper, and zapateado wooden-platform dance-percussion. Originated late-17th-century in the Sotavento lowlands south of Veracruz-Port out of Afro-Cuban habanera, Spanish-baroque fandango, and Indigenous-Totonac musical-fusion. The canonical La Bamba is the most internationally recognized son jarocho son, but the tradition spans 80+ son sones with characteristic 6/8-against-2/4 sesquialteral hemiola, call-and-response sung verses (often improvised, decimas Spanish-poetic-form), and circular fandango community-dance-and-music-making fiesta-context. The 1970s-1980s son-jarocho-revival reconnected urban Mexico City to rural Sotavento source-communities.",
+  "recipe": "classic tropical mid-1970s son jarocho, drone Modal, string branch, Mexican functional song banda sinaloense bolero mexicano. full chest belt, chest resonance low mid, polynesian oli chant, m1 with m0 pulse borrowing. diatonic only son jarocho tradition cedrillo canonical veracruz gut pre modern son jarocho bass and harmony arpa palo escrito Mexican rosewood gut pre 1950s son jarocho jarana jarocha, son jarocho standard cedrillo canonical veracruz requinto jarocho, cedrillo canonical veracruz leona. plaza garibaldi outdoor mariachi. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 648,
+  "score": 252.788,
+  "config": {
+    "traditions": [
+      "son_jarocho",
+      "banda_sinaloense",
+      "bolero_mexicano"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 0.18712499999999999,
+          "voice_quality": 1.885,
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 0.39,
+          "voice_microtone": 0.0315,
+          "voice_tradition": 10.205,
+          "voice_mechanism_compound": 5.719999999999999,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 12.024999999999999,
+          "voice_ensemble_config": 12.739999999999998,
+          "voice_ornament_system": 0.50025,
+          "voice_pitch_organization": 2.6,
+          "voice_processing_chain": 6.91675,
+          "voice_multitrack_stack": 4.098
+        }
+      },
+      {
+        "id": "arpa_jarocha",
+        "slots": {
+          "arpa_jarocha_strings": "arpa_jarocha_36",
+          "arpa_jarocha_body_wood": "arpa_jarocha_cedrillo",
+          "arpa_jarocha_string_material": "arpa_jarocha_gut_historical",
+          "arpa_jarocha_role": "arpa_jarocha_bass_and_arpeggio"
+        },
+        "scores": {
+          "arpa_jarocha_strings": 16.859624999999998,
+          "arpa_jarocha_body_wood": 5.658749999999999,
+          "arpa_jarocha_string_material": 10.881874999999997,
+          "arpa_jarocha_role": 29.900000000000006
+        }
+      },
+      {
+        "id": "jarana_jarocha",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "jarana_size": "jarana_segunda",
+          "jarana_jarocha_context": "jarana_jarocha_revival",
+          "jarana_jarocha_body_wood": "jarana_palo_escrito",
+          "jarana_jarocha_strings": "jarana_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.925,
+          "jarana_size": 11.889999999999999,
+          "jarana_jarocha_context": 3.844999999999999,
+          "jarana_jarocha_body_wood": 5.658749999999999,
+          "jarana_jarocha_strings": 12.440374999999998
+        }
+      },
+      {
+        "id": "requinto_jarocho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "requinto_jarocho_pluck": "requinto_jarocho_horn",
+          "requinto_jarocho_tuning": "requinto_jarocho_high",
+          "requinto_jarocho_body_wood": "requinto_cedrillo",
+          "requinto_jarocho_strings": "requinto_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.925,
+          "requinto_jarocho_pluck": 12.767124999999998,
+          "requinto_jarocho_tuning": 3.25,
+          "requinto_jarocho_body_wood": 5.658749999999999,
+          "requinto_jarocho_strings": -0.035
+        }
+      },
+      {
+        "id": "leona",
+        "slots": {
+          "plucked_traditional_technique": "plucked_tremolo",
+          "leona_tuning": "leona_low_pent",
+          "leona_technique": "leona_plucked",
+          "leona_body_wood": "leona_cedrillo",
+          "leona_strings": "leona_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.1,
+          "leona_tuning": 11.889999999999999,
+          "leona_technique": 0.945,
+          "leona_body_wood": 5.658749999999999,
+          "leona_strings": -0.035
+        }
+      }
+    ],
+    "room": "plaza_garibaldi_outdoor_mariachi",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mariachi_son_6_8_3_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

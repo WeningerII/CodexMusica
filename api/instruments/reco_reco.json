@@ -1,0 +1,114 @@
+{
+  "id": "reco_reco",
+  "name": "Reco-reco (Brazilian scraper)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "reco-reco",
+  "parts": [
+    {
+      "id": "reco_source",
+      "name": "Material",
+      "variants": [
+        {
+          "id": "reco_metal_springs",
+          "default": true,
+          "name": "Metal springs box (modern samba)",
+          "descriptors": [
+            "snappy",
+            "samba-tradition",
+            "metallic-attack",
+            "metal-construction"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "scraper",
+            "samba-tradition"
+          ]
+        },
+        {
+          "id": "reco_ribbed_wood",
+          "name": "Ribbed wood (traditional)",
+          "descriptors": [
+            "organic-tone",
+            "wood"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "scraper"
+          ]
+        },
+        {
+          "id": "reco_bamboo",
+          "name": "Ribbed bamboo (traditional)",
+          "descriptors": [
+            "organic-tone",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "scraper"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "reco_source",
+      "name": "Material",
+      "variants": [
+        {
+          "id": "reco_metal_springs",
+          "default": true,
+          "name": "Metal springs box (modern samba)",
+          "descriptors": [
+            "snappy",
+            "samba-tradition",
+            "metallic-attack",
+            "metal-construction"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "scraper",
+            "samba-tradition"
+          ]
+        },
+        {
+          "id": "reco_ribbed_wood",
+          "name": "Ribbed wood (traditional)",
+          "descriptors": [
+            "organic-tone",
+            "wood"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "scraper"
+          ]
+        },
+        {
+          "id": "reco_bamboo",
+          "name": "Ribbed bamboo (traditional)",
+          "descriptors": [
+            "organic-tone",
+            "bamboo"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "scraper"
+          ]
+        }
+      ]
+    }
+  ]
+}

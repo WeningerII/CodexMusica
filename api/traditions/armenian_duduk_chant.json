@@ -1,0 +1,87 @@
+{
+  "id": "armenian_duduk_chant",
+  "name": "Armenian duduk-accompanied chant (UNESCO 2008)",
+  "family": "global",
+  "lineage": "Armenian duduk-accompanied vocal-and-instrumental chant tradition, with the duduk (apricot-wood double-reed cylindrical-bore aerophone) recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2005 and inscribed on the Representative List 2008 as \"the duduk and its music.\" The duduk produces a deep, plangent, melancholic tone with characteristic vibrato-and-pitch-bend articulation and a fundamental pitched in the human-vocal mid-register, allowing the instrument to function as a \"second voice\" alongside the singer in lament and ceremonial contexts. Traditional duduk performance is in pairs: the dam duduk holds a sustained drone-tone (the dam, equivalent to the Sufi-Persian damam pedal-point), while the lead duduk plays the melodic content above. Vocal repertoire spans Armenian Apostolic liturgical sharakan hymns (the Armenian Orthodox church's canonical hymn cycles, in eight modes after the Byzantine oktoechos but with Armenian-language and characteristic ornamental conventions), folk-lament repertoire (the patkerazard genre of bride-departure laments), and the historical-narrative ballad cycles tied to the Armenian Genocide commemoration. Modal vocabulary draws on Armenian regional modal systems with quarter-tone and three-quarter-tone microtonal inflections shared with broader Anatolian and Caucasus regional modal traditions. Djivan Gasparyan (1928-2021) and Vatche Hovsepian among the twentieth-century canonical duduk masters. Performance contexts include Apostolic Church liturgical settings (the canonical context for sharakan), funeral and commemoration ceremonies, and the post-1990 international-touring concert-circuit. Distinguished from Azerbaijani mugham by Armenian duduk's sharakan-liturgical (vs dastgah-classical) repertoire base and Armenian-Apostolic-rite framework; distinguished from Turkish ney by duduk's double-reed cylindrical-bore (vs Turkish end-blown-flute) construction.",
+  "recipe": "classic armenian duduk-accompanied chant, drone Modal, vocal branch, middle eastern classical art music, christian gospel coptic iraqi maqam of baghdad yemeni sanaani song. thick, declaimed, chest resonance low mid, ornamental. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 559,
+  "score": 454.208,
+  "config": {
+    "traditions": [
+      "armenian_duduk_chant",
+      "iraqi_maqam_baghdad",
+      "yemeni_sanaani"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "arabic_maqam_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 5.865,
+          "voice_quality": 5.885000000000001,
+          "voice_vibrato": 3.5100000000000002,
+          "voice_articulation": 3.1999999999999997,
+          "voice_microtone": 7.734999999999999,
+          "voice_tradition": 24.244999999999997,
+          "voice_mechanism_compound": 13.519999999999998,
+          "voice_estill_quality": 10.399999999999999,
+          "voice_speech_song": 23.465000000000003,
+          "voice_ensemble_config": 23.010000000000005,
+          "voice_ornament_system": 10.14,
+          "voice_pitch_organization": 13.129999999999999,
+          "voice_processing_chain": 5.85,
+          "voice_multitrack_stack": 8.299999999999999
+        }
+      },
+      {
+        "id": "duduk",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "duduk_use": "duduk_solo",
+          "duduk_pitch": "duduk_gf",
+          "duduk_body_wood": "duduk_apricot_canonical",
+          "duduk_reed": "duduk_arundo_canonical",
+          "duduk_lineage": "duduk_djivan_gasparyan"
+        },
+        "scores": {
+          "wind_articulation": 4.289999999999999,
+          "duduk_use": 5.865,
+          "duduk_pitch": 2.3,
+          "duduk_body_wood": 18.025000000000002,
+          "duduk_reed": 16.680000000000003,
+          "duduk_lineage": 21.840000000000003
+        }
+      }
+    ],
+    "room": "stone_armenian_church",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

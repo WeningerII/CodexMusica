@@ -1,0 +1,327 @@
+{
+  "id": "leona",
+  "name": "Leona (son jarocho bass)",
+  "family": "plucked_traditional",
+  "class": "bass",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "leona",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_tremolo",
+          "name": "Tremolo (mandolin-style)",
+          "applies_to": [
+            "baglamas",
+            "bouzouki",
+            "cuatro_pr",
+            "cuatro_venezolano",
+            "tres_cubano",
+            "cavaquinho",
+            "tiple",
+            "jarana_jarocha",
+            "requinto_jarocho",
+            "leona",
+            "vihuela_mexicana",
+            "domra"
+          ],
+          "descriptors": [
+            "tremolo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "rapid-tremolo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "mandolin",
+            "mediterranean"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "leona_tuning",
+      "surface": false,
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "leona_low_pent",
+          "default": true,
+          "name": "Low pentatonic (canonical)",
+          "descriptors": [
+            "son-jarocho-standard",
+            "foundational"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "leona_alt",
+          "name": "Alternate (regional)",
+          "descriptors": [
+            "variant",
+            "specific-pieces",
+            "rare"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leona_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "leona_plucked",
+          "default": true,
+          "name": "Plucked bass-line",
+          "descriptors": [
+            "foundation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "leona_finger",
+          "name": "Fingerpicked",
+          "descriptors": [
+            "ornamental",
+            "arrangement-dependent",
+            "modern"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leona_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "leona_cedrillo",
+          "default": true,
+          "name": "Cedrillo (canonical Veracruz)",
+          "descriptors": [
+            "cedrillo-canonical-veracruz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "leona_caoba",
+          "name": "Caoba / mahogany (premium)",
+          "descriptors": [
+            "caoba-mahogany-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "acoustic-only",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leona_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "leona_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "leona_gut_historical",
+          "name": "Gut (pre-1950s historical son jarocho)",
+          "descriptors": [
+            "gut-pre-1950s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "leona_tuning",
+      "surface": false,
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "leona_low_pent",
+          "default": true,
+          "name": "Low pentatonic (canonical)",
+          "descriptors": [
+            "son-jarocho-standard",
+            "foundational"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "leona_alt",
+          "name": "Alternate (regional)",
+          "descriptors": [
+            "variant",
+            "specific-pieces",
+            "rare"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leona_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "leona_plucked",
+          "default": true,
+          "name": "Plucked bass-line",
+          "descriptors": [
+            "foundation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "leona_finger",
+          "name": "Fingerpicked",
+          "descriptors": [
+            "ornamental",
+            "arrangement-dependent",
+            "modern"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leona_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "leona_cedrillo",
+          "default": true,
+          "name": "Cedrillo (canonical Veracruz)",
+          "descriptors": [
+            "cedrillo-canonical-veracruz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "leona_caoba",
+          "name": "Caoba / mahogany (premium)",
+          "descriptors": [
+            "caoba-mahogany-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "acoustic-only",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leona_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "leona_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "acoustic-only",
+            "low-register"
+          ]
+        },
+        {
+          "id": "leona_gut_historical",
+          "name": "Gut (pre-1950s historical son jarocho)",
+          "descriptors": [
+            "gut-pre-1950s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

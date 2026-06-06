@@ -1,0 +1,68 @@
+{
+  "id": "sami_yoik_tracking",
+  "name": "Sami yoik — animal-tracking and hunting song",
+  "family": "global",
+  "lineage": "Sami yoik (joik) tradition continuous from premodern Sami reindeer-herding-and-hunting-and-fishing practice across the Sápmi-region of northern Norway, Sweden, Finland, and Russia through colonial-era Christianization-suppression continuous through 20th-century revival",
+  "recipe": "classic modern sami yoik — animal-tracking and hunting song, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, oceania pacific praise song māori waiata mōteatea / patere aboriginal australian hunting songlines. vocal fry, declaimed, tasteful, continuous-phonation. sapmi outdoor tundra yoik. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 453,
+  "score": 128.441,
+  "config": {
+    "traditions": [
+      "sami_yoik_tracking",
+      "maori_waiata_moteatea_patere",
+      "aboriginal_australian_songlines"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "sami_joik_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 2.1089999999999995,
+          "voice_vibrato": 1.014,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.0315,
+          "voice_tradition": 19.709749999999993,
+          "voice_mechanism_compound": 5.555000000000001,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 13.454999999999997,
+          "voice_ensemble_config": 7.409999999999999,
+          "voice_ornament_system": 18.586249999999996,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.78,
+          "voice_multitrack_stack": 1.17
+        }
+      }
+    ],
+    "room": "sapmi_outdoor_tundra_yoik",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_pentatonic_long_song",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

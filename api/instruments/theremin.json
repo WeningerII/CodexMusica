@@ -1,0 +1,359 @@
+{
+  "id": "theremin",
+  "name": "Theremin",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "theremin",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_lead_line",
+          "name": "Lead synth line",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth",
+            "ondes_martenot",
+            "theremin"
+          ],
+          "descriptors": [
+            "lead",
+            "singing"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "pop",
+            "synthwave"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "theremin_model",
+      "surface": false,
+      "name": "Model class",
+      "variants": [
+        {
+          "id": "theremin_rca",
+          "default": true,
+          "name": "RCA / Lev Termen original",
+          "descriptors": [
+            "historical",
+            "analog-drift-character"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "theremin_etherwave",
+          "name": "Etherwave (Moog Music)",
+          "descriptors": [
+            "narrow-q-precise",
+            "production-standard"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "theremin_big_briar",
+          "name": "Big Briar / professional",
+          "descriptors": [
+            "concert-grade",
+            "refined",
+            "specialty"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "theremin_digital",
+          "name": "Digital reissue",
+          "descriptors": [
+            "affordable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theremin_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "theremin_aerial",
+          "default": true,
+          "name": "Aerial-fingered virtuosic",
+          "descriptors": [
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "theremin_cinematic",
+          "name": "Gesture-broad cinematic-vibrato",
+          "descriptors": [
+            "atmospheric",
+            "eerie"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "theremin_drone",
+          "name": "Drone-only / textural",
+          "descriptors": [
+            "ambient",
+            "minimal",
+            "sustained"
+          ],
+          "match_tokens": [
+            "drone-like",
+            "drone-foundation",
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theremin_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "theremin_lev_termen_canonical",
+          "default": true,
+          "name": "Lev Sergeyevich Termen Petrograd 1920 lineage (canonical Russian inventor)",
+          "descriptors": [
+            "lev-sergeyevich-termen-petrograd-1920-lineage-canonical-russian-inventor"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "theremin_clara_rockmore",
+          "name": "Clara Rockmore concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)",
+          "descriptors": [
+            "clara-rockmore-concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "theremin_moog_etherwave",
+          "name": "Moog Music Etherwave (canonical modern Robert Moog reissue 1996-present)",
+          "descriptors": [
+            "moog-music-etherwave-canonical-modern-robert-moog-reissue-1996-present"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "theremin_model",
+      "surface": false,
+      "name": "Model class",
+      "variants": [
+        {
+          "id": "theremin_rca",
+          "default": true,
+          "name": "RCA / Lev Termen original",
+          "descriptors": [
+            "historical",
+            "analog-drift-character"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "theremin_etherwave",
+          "name": "Etherwave (Moog Music)",
+          "descriptors": [
+            "narrow-q-precise",
+            "production-standard"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "theremin_big_briar",
+          "name": "Big Briar / professional",
+          "descriptors": [
+            "concert-grade",
+            "refined",
+            "specialty"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "theremin_digital",
+          "name": "Digital reissue",
+          "descriptors": [
+            "affordable",
+            "consistent"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theremin_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "theremin_aerial",
+          "default": true,
+          "name": "Aerial-fingered virtuosic",
+          "descriptors": [
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "theremin_cinematic",
+          "name": "Gesture-broad cinematic-vibrato",
+          "descriptors": [
+            "atmospheric",
+            "eerie"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "theremin_drone",
+          "name": "Drone-only / textural",
+          "descriptors": [
+            "ambient",
+            "minimal",
+            "sustained"
+          ],
+          "match_tokens": [
+            "drone-like",
+            "drone-foundation",
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theremin_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "theremin_lev_termen_canonical",
+          "default": true,
+          "name": "Lev Sergeyevich Termen Petrograd 1920 lineage (canonical Russian inventor)",
+          "descriptors": [
+            "lev-sergeyevich-termen-petrograd-1920-lineage-canonical-russian-inventor"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "theremin_clara_rockmore",
+          "name": "Clara Rockmore concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)",
+          "descriptors": [
+            "clara-rockmore-concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "theremin_moog_etherwave",
+          "name": "Moog Music Etherwave (canonical modern Robert Moog reissue 1996-present)",
+          "descriptors": [
+            "moog-music-etherwave-canonical-modern-robert-moog-reissue-1996-present"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

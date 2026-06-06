@@ -1,0 +1,235 @@
+{
+  "id": "kamancha",
+  "name": "Kamancha (Caucasian / Persian spiked fiddle)",
+  "family": "bowed",
+  "class": "bowed",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kamancha",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kamancha_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kamancha_walnut_skin_canonical",
+          "default": true,
+          "name": "Walnut bowl with sheepskin or fish-skin face (canonical Azerbaijani/Persian)",
+          "descriptors": [
+            "walnut-bowl-skin-faced-canonical-caucasian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "mugham-tradition",
+            "shashmaqam-tradition"
+          ]
+        },
+        {
+          "id": "kamancha_mulberry_alternative",
+          "name": "Mulberry bowl alternative",
+          "descriptors": [
+            "mulberry-bowl-alternative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamancha_string",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "kamancha_four_silk_or_metal",
+          "default": true,
+          "name": "Four-string silk-or-steel set (canonical mugham trio)",
+          "descriptors": [
+            "four-string-silk-or-steel-canonical-mugham-trio"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "mugham-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamancha_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "kamancha_garabagh_school",
+          "default": true,
+          "name": "Garabagh / Shusha mugham school (canonical Azerbaijani)",
+          "descriptors": [
+            "garabagh-shusha-mugham-school-canonical-azerbaijani"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "mugham-tradition"
+          ]
+        },
+        {
+          "id": "kamancha_persian_radif",
+          "name": "Persian radif tradition",
+          "descriptors": [
+            "persian-radif-tradition-tehran-conservatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "persian-radif"
+          ]
+        },
+        {
+          "id": "kamancha_central_asian_ghijak",
+          "name": "Central Asian ghijak / shashmaqam usage",
+          "descriptors": [
+            "central-asian-ghijak-shashmaqam-bukhara-tashkent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "shashmaqam-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kamancha_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "kamancha_walnut_skin_canonical",
+          "default": true,
+          "name": "Walnut bowl with sheepskin or fish-skin face (canonical Azerbaijani/Persian)",
+          "descriptors": [
+            "walnut-bowl-skin-faced-canonical-caucasian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "mugham-tradition",
+            "shashmaqam-tradition"
+          ]
+        },
+        {
+          "id": "kamancha_mulberry_alternative",
+          "name": "Mulberry bowl alternative",
+          "descriptors": [
+            "mulberry-bowl-alternative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamancha_string",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "kamancha_four_silk_or_metal",
+          "default": true,
+          "name": "Four-string silk-or-steel set (canonical mugham trio)",
+          "descriptors": [
+            "four-string-silk-or-steel-canonical-mugham-trio"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "mugham-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kamancha_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "kamancha_garabagh_school",
+          "default": true,
+          "name": "Garabagh / Shusha mugham school (canonical Azerbaijani)",
+          "descriptors": [
+            "garabagh-shusha-mugham-school-canonical-azerbaijani"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "mugham-tradition"
+          ]
+        },
+        {
+          "id": "kamancha_persian_radif",
+          "name": "Persian radif tradition",
+          "descriptors": [
+            "persian-radif-tradition-tehran-conservatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "persian-radif"
+          ]
+        },
+        {
+          "id": "kamancha_central_asian_ghijak",
+          "name": "Central Asian ghijak / shashmaqam usage",
+          "descriptors": [
+            "central-asian-ghijak-shashmaqam-bukhara-tashkent"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "shashmaqam-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

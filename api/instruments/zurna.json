@@ -1,0 +1,363 @@
+{
+  "id": "zurna",
+  "name": "Zurna / surnay (Anatolian/Caucasian)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "zurna",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "applies_to": [
+            "tin_whistle",
+            "tin_whistle_low",
+            "uilleann_pipes",
+            "biniou",
+            "highland_bagpipes",
+            "bombarde",
+            "recorder",
+            "gaida_bulgarian",
+            "gaita_galega",
+            "shawm",
+            "zurna",
+            "mizmar",
+            "ghaita",
+            "ciaramella",
+            "duduk",
+            "mey"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "zurna_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "zurna_kaba",
+          "name": "Kaba zurna (low)",
+          "descriptors": [
+            "outdoor",
+            "wedding",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "zurna_orta",
+          "default": true,
+          "name": "Orta zurna (medium)",
+          "descriptors": [
+            "standard",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurna_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "zurna_wedding",
+          "default": true,
+          "name": "Wedding / outdoor",
+          "descriptors": [
+            "celebratory"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "zurna_mehter",
+          "name": "Mehter / military",
+          "descriptors": [
+            "historical",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "ottoman"
+          ]
+        },
+        {
+          "id": "zurna_sufi",
+          "name": "Sufi ceremony",
+          "descriptors": [
+            "ritual",
+            "meditative",
+            "specialized"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurna_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "zurna_apricot_canonical",
+          "default": true,
+          "name": "Apricot wood (canonical Anatolian Ottoman)",
+          "descriptors": [
+            "apricot-canonical-anatolian-ottoman"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "zurna_plum",
+          "name": "Plum (alternative)",
+          "descriptors": [
+            "plum-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "zurna_ebony_premium",
+          "name": "Ebony (premium Mehter ceremonial)",
+          "descriptors": [
+            "ebony-premium-mehter-ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurna_reed",
+      "surface": false,
+      "name": "Reed (double-reed)",
+      "variants": [
+        {
+          "id": "zurna_arundo_canonical",
+          "default": true,
+          "name": "Arundo donax double-reed with metal staple (canonical Ottoman)",
+          "descriptors": [
+            "arundo-donax-metal-staple-canonical-ottoman"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zurna_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "zurna_kaba",
+          "name": "Kaba zurna (low)",
+          "descriptors": [
+            "outdoor",
+            "wedding",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "zurna_orta",
+          "default": true,
+          "name": "Orta zurna (medium)",
+          "descriptors": [
+            "standard",
+            "folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurna_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "zurna_wedding",
+          "default": true,
+          "name": "Wedding / outdoor",
+          "descriptors": [
+            "celebratory"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "zurna_mehter",
+          "name": "Mehter / military",
+          "descriptors": [
+            "historical",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "ottoman"
+          ]
+        },
+        {
+          "id": "zurna_sufi",
+          "name": "Sufi ceremony",
+          "descriptors": [
+            "ritual",
+            "meditative",
+            "specialized"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurna_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "zurna_apricot_canonical",
+          "default": true,
+          "name": "Apricot wood (canonical Anatolian Ottoman)",
+          "descriptors": [
+            "apricot-canonical-anatolian-ottoman"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "zurna_plum",
+          "name": "Plum (alternative)",
+          "descriptors": [
+            "plum-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "zurna_ebony_premium",
+          "name": "Ebony (premium Mehter ceremonial)",
+          "descriptors": [
+            "ebony-premium-mehter-ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zurna_reed",
+      "surface": false,
+      "name": "Reed (double-reed)",
+      "variants": [
+        {
+          "id": "zurna_arundo_canonical",
+          "default": true,
+          "name": "Arundo donax double-reed with metal staple (canonical Ottoman)",
+          "descriptors": [
+            "arundo-donax-metal-staple-canonical-ottoman"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ]
+}

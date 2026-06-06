@@ -1,0 +1,165 @@
+{
+  "id": "m_base_collective",
+  "name": "M-Base collective (late-1980s Brooklyn-based jazz-avant-garde)",
+  "family": "jazz",
+  "lineage": "Late-1980s-and-onward jazz-avant-garde collective centered on alto saxophonist Steve Coleman (born 1956), pursuing a \"Macro-Basic Array of Structured Extemporizations\" compositional methodology integrating Yoruba metaphysical concepts, mathematical-rhythmic structures, and African diasporic musical-cultural inheritance. Cassandra Wilson's early-career M-Base recordings, Greg Osby's solo work, and Coleman's Five Elements and Council of Balance ensembles constitute the canonical core.",
+  "recipe": "classic North American m-base collective, improv On Frame, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, narrative, equal tempered. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 716,
+  "score": 411.974,
+  "config": {
+    "traditions": [
+      "m_base_collective",
+      "conscious_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 11.503749999999995,
+          "voice_quality": 6.045,
+          "voice_vibrato": 0.13125,
+          "voice_articulation": 1.3487500000000001,
+          "voice_microtone": 11.798999999999996,
+          "voice_tradition": 15.3475,
+          "voice_mechanism_compound": 1.17925,
+          "voice_estill_quality": 0.32175,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 3.1020000000000008,
+          "voice_processing_chain": 5.75,
+          "voice_multitrack_stack": 9.154
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "tenor_sax",
+          "sax_reed": "hard_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 9.399999999999999,
+          "sax_size": 1.55075,
+          "sax_reed": 0.13125,
+          "sax_body_alloy": 12.00375,
+          "sax_mouthpiece": 0.13125,
+          "sax_technique": 12,
+          "sax_maker_school": 14.625
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 9.45,
+          "grand_piano_size": 0.11325,
+          "grand_piano_brand": 0.19074999999999998,
+          "piano_hammer": 1.885,
+          "piano_rim": 1.885,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 2.535
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": 1.9500000000000002,
+          "amp_make": 4.29,
+          "body_wood": 0.09,
+          "pickup_config": 0.1225,
+          "string_type": 15.134749999999999,
+          "scale_length_b": 0.2575,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 12
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "fourteen_step_hammering",
+          "cymbal_lathing": "hand_lathed_pit_retaining",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 12.869999999999997,
+          "shell_wood": 0.135,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 0.25375,
+          "drumhead": 15.052249999999999,
+          "snare_wires": 0.0645,
+          "cymbal_alloy": 13.258999999999997,
+          "cymbal_hammering": 12.1745,
+          "cymbal_lathing": 12.10525,
+          "cymbal_finish": 0.16,
+          "drum_technique": 12.869999999999997
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_30ips"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

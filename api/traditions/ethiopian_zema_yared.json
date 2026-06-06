@@ -1,0 +1,124 @@
+{
+  "id": "ethiopian_zema_yared",
+  "name": "Ethiopian Tewahedo zema chant",
+  "family": "classical",
+  "lineage": "Ethiopian Orthodox Tewahedo liturgical chant tradition, attributed by tradition to Saint Yared (sixth century), the system's tradition-attribution-founder. The threefold ge'ez modal system — ge'ez (the foundational mode, associated with weekdays and the Lent fasts), ezel (the sober mode, associated with Saturday and funerals), and araray (the festive mode, associated with Sunday celebration and major feasts) — structures the entire liturgical year. Cantor (debteras) train at monastic schools for years to memorize the corpus, with the melekket notation system (handed-down annotated marks in liturgical books indicating melodic formulae) serving as memory-aid rather than full prescription. Performance includes characteristic instruments: tsenatsil sistrum, kebero drum (single conical drumhead with leather lacing), begena ten-string box-lyre (Old-Testament-king-David-iconography, devotional only), and meleket end-blown trumpet (reserved for high feasts). Rock-hewn churches of Lalibela (twelfth century) and Aksumite stone basilicas provide canonical performance contexts. Modal vocabulary draws on the broader Ethiopian qenet pentatonic mode-system with mode-specific cadential formulae. The Kay Kaufman Shelemay and Peter Jeffery three-volume Ethiopian Christian Liturgical Chant: An Anthology (A-R Editions 1993-1997) constitutes the definitive Western scholarly documentation. Distinguished from Coptic Orthodox chant by Tewahedo's ge'ez-ezel-araray three-mode system (vs Coptic's eight-mode oktoechos lineage); distinguished from Syriac Orthodox chant by Ge'ez liturgical-language and Aksumite-Ethiopian regional rite; distinguished from Byzantine chant by absence of ison-drone and presence of instrumental accompaniment in feast contexts.",
+  "recipe": "classic 1993-1997 ethiopian tewahedo zema chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum burgundian school. thick, declaimed, chest resonance low mid, ornamental. metal jingle frame handle canonical tewahedo liturgical zema liturgical rhythm canonical ethiopian tsenatsil, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero, ten string box lyre deep buzzing leather plectrum canonical ethiopian tewahedo devotional canonical ethiopian orthodox begena, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn legato trumpet. lalibela rock hewn church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 866,
+  "score": 299.799,
+  "config": {
+    "traditions": [
+      "ethiopian_zema_yared",
+      "ars_antiqua_organum",
+      "burgundian_school"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 8.385000000000002,
+          "voice_quality": 12.089999999999998,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.99,
+          "voice_microtone": 8.125000000000002,
+          "voice_tradition": 12.544999999999993,
+          "voice_mechanism_compound": 11.18,
+          "voice_estill_quality": 7.995,
+          "voice_speech_song": 12.805000000000001,
+          "voice_ensemble_config": 12.74,
+          "voice_ornament_system": 7.450875,
+          "voice_pitch_organization": 14.66875,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 1.3308749999999998
+        }
+      },
+      {
+        "id": "tsenatsil",
+        "slots": {
+          "tsenatsil_body": "tsenatsil_metal_jingle_frame_handle_canonical",
+          "tsenatsil_tradition": "tsenatsil_zema_canonical"
+        },
+        "scores": {
+          "tsenatsil_body": 13.259999999999998,
+          "tsenatsil_tradition": 16.85775
+        }
+      },
+      {
+        "id": "kebero",
+        "slots": {
+          "kebero_skin": "kebero_calfskin",
+          "kebero_shell_wood": "kebero_olive_canonical",
+          "kebero_tradition": "kebero_orthodox_tewahedo"
+        },
+        "scores": {
+          "kebero_skin": 12.482249999999997,
+          "kebero_shell_wood": 9.267999999999999,
+          "kebero_tradition": 10.27
+        }
+      },
+      {
+        "id": "begena",
+        "slots": {
+          "begena_body": "begena_ten_string_box_lyre_canonical",
+          "begena_tradition": "begena_devotional_canonical"
+        },
+        "scores": {
+          "begena_body": 14.468,
+          "begena_tradition": 19.645375
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.695,
+          "brass_size": 0.045,
+          "trumpet_mouthpiece": 6.629999999999999,
+          "brass_mute": 2.5,
+          "trumpet_technique": 2.695,
+          "trumpet_bell_metal": 1.69,
+          "trumpet_maker_school": 1.69
+        }
+      }
+    ],
+    "room": "lalibela_rock_hewn_church",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "ethio_qenet_unified",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

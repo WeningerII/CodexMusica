@@ -1,0 +1,446 @@
+{
+  "id": "bandolim",
+  "name": "Bandolim (Brazilian mandolin)",
+  "family": "acoustic_strings",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "bandolim",
+  "parts": [
+    {
+      "id": "bandolim_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "bandolim_flat_back",
+          "default": true,
+          "name": "Flat-back (Brazilian choro canon)",
+          "descriptors": [
+            "traditional",
+            "mid-forward",
+            "wood",
+            "brazilian-flat-back"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "bandolim_bowl_back",
+          "name": "Bowl-back (Italian-influenced pre-Pixinguinha)",
+          "descriptors": [
+            "overtone-rich",
+            "european-derived",
+            "bowl-back",
+            "pre-pixinguinha"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandolim_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "bandolim_european_spruce",
+          "default": true,
+          "name": "European spruce (premium choro luthier canon)",
+          "descriptors": [
+            "european-spruce",
+            "choro-luthier-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "bandolim_cedar",
+          "name": "Cedar (warmer alternative)",
+          "descriptors": [
+            "cedar",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "bandolim_sitka",
+          "name": "Sitka spruce (modern standard)",
+          "descriptors": [
+            "sitka",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandolim_back_wood",
+      "surface": false,
+      "name": "Back wood",
+      "variants": [
+        {
+          "id": "bandolim_brazilian_rosewood",
+          "default": true,
+          "name": "Brazilian rosewood (pre-1992 vintage canonical)",
+          "descriptors": [
+            "brazilian-rosewood",
+            "pre-1992-vintage",
+            "jacob-do-bandolim-era"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-i",
+            "vintage"
+          ]
+        },
+        {
+          "id": "bandolim_indian_rosewood",
+          "name": "Indian rosewood (modern standard)",
+          "descriptors": [
+            "indian-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "bandolim_jacaranda_da_bahia",
+          "name": "Jacarandá da Bahia (Dalbergia nigra alternative)",
+          "descriptors": [
+            "jacaranda-bahia",
+            "dalbergia-nigra",
+            "restricted"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "bandolim_pau_ferro",
+          "name": "Pau ferro (modern CITES-friendly)",
+          "descriptors": [
+            "pau-ferro",
+            "cites-friendly"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandolim_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "bandolim_steel_courses",
+          "default": true,
+          "name": "Steel four-course (G-D-A-E, choro canon)",
+          "descriptors": [
+            "steel-four-course",
+            "choro-canon",
+            "bright-piercing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ]
+        },
+        {
+          "id": "bandolim_phosphor_bronze",
+          "name": "Phosphor bronze (warmer modern)",
+          "descriptors": [
+            "phosphor-bronze",
+            "warmer-modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "bandolim_gut_pre_1900",
+          "name": "Pre-1900 plain gut (early bowl-back canon)",
+          "descriptors": [
+            "plain-gut",
+            "pre-1900",
+            "bowl-back-era"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandolim_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "bandolim_pick_tremolo",
+          "default": true,
+          "name": "Plectrum + tremolo (choro)",
+          "descriptors": [
+            "virtuoso",
+            "choro-tradition",
+            "tremolo-sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bandolim_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "bandolim_flat_back",
+          "default": true,
+          "name": "Flat-back (Brazilian choro canon)",
+          "descriptors": [
+            "traditional",
+            "mid-forward",
+            "wood",
+            "brazilian-flat-back"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "bandolim_bowl_back",
+          "name": "Bowl-back (Italian-influenced pre-Pixinguinha)",
+          "descriptors": [
+            "overtone-rich",
+            "european-derived",
+            "bowl-back",
+            "pre-pixinguinha"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandolim_top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "bandolim_european_spruce",
+          "default": true,
+          "name": "European spruce (premium choro luthier canon)",
+          "descriptors": [
+            "european-spruce",
+            "choro-luthier-canon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "bandolim_cedar",
+          "name": "Cedar (warmer alternative)",
+          "descriptors": [
+            "cedar",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        },
+        {
+          "id": "bandolim_sitka",
+          "name": "Sitka spruce (modern standard)",
+          "descriptors": [
+            "sitka",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandolim_back_wood",
+      "surface": false,
+      "name": "Back wood",
+      "variants": [
+        {
+          "id": "bandolim_brazilian_rosewood",
+          "default": true,
+          "name": "Brazilian rosewood (pre-1992 vintage canonical)",
+          "descriptors": [
+            "brazilian-rosewood",
+            "pre-1992-vintage",
+            "jacob-do-bandolim-era"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-i",
+            "vintage"
+          ]
+        },
+        {
+          "id": "bandolim_indian_rosewood",
+          "name": "Indian rosewood (modern standard)",
+          "descriptors": [
+            "indian-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "bandolim_jacaranda_da_bahia",
+          "name": "Jacarandá da Bahia (Dalbergia nigra alternative)",
+          "descriptors": [
+            "jacaranda-bahia",
+            "dalbergia-nigra",
+            "restricted"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "bandolim_pau_ferro",
+          "name": "Pau ferro (modern CITES-friendly)",
+          "descriptors": [
+            "pau-ferro",
+            "cites-friendly"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandolim_strings",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "bandolim_steel_courses",
+          "default": true,
+          "name": "Steel four-course (G-D-A-E, choro canon)",
+          "descriptors": [
+            "steel-four-course",
+            "choro-canon",
+            "bright-piercing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "small-body"
+          ]
+        },
+        {
+          "id": "bandolim_phosphor_bronze",
+          "name": "Phosphor bronze (warmer modern)",
+          "descriptors": [
+            "phosphor-bronze",
+            "warmer-modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "bandolim_gut_pre_1900",
+          "name": "Pre-1900 plain gut (early bowl-back canon)",
+          "descriptors": [
+            "plain-gut",
+            "pre-1900",
+            "bowl-back-era"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandolim_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "bandolim_pick_tremolo",
+          "default": true,
+          "name": "Plectrum + tremolo (choro)",
+          "descriptors": [
+            "virtuoso",
+            "choro-tradition",
+            "tremolo-sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "choro-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

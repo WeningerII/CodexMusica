@@ -1,0 +1,46 @@
+{
+  "id": "inuit_katajjaq",
+  "name": "Katajjaq (Inuit throat-singing game)",
+  "family": "global",
+  "lineage": "Inuit Arctic throat-singing game tradition preserved across Nunavik (northern Quebec), Nunavut, Greenland, and the Inuit Russian Far East — two women face each other in close proximity (often forehead to forehead) and alternate inhale-exhale vocal patterns at high speed, attempting to break each others rhythm until one laughs or runs out of breath; modern revival through Tanya Tagaq (the solo katajjaq performer who extended the tradition into solo electronic-collaboration work, Animism 2014 Polaris Music Prize), Susan Aglukark, the Pirurvik Centre cultural preservation infrastructure",
+  "recipe": "classic mid-2010s katajjaq, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, sub saharan African hunting song san (khoisan) hunting and trance song aboriginal australian hunting songlines. ingressive egressive paired breath alternation interlocked supraglottic both phases 8th to 12th partial overtone range arctic paired game tradition interlocked breath throat singing voice. arctic arnhem indigenous outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 574,
+  "score": 60.213,
+  "config": {
+    "traditions": [
+      "inuit_katajjaq",
+      "san_bushman_hunting",
+      "aboriginal_australian_songlines"
+    ],
+    "instruments": [
+      {
+        "id": "throat_singing_voice",
+        "slots": {
+          "throat_mechanism_root": "throat_mechanism_ingressive_egressive_paired",
+          "throat_overtone_target_region": "throat_overtone_8th_to_12th_partial",
+          "throat_singing_voice_region": "throat_singing_voice_arctic_paired"
+        },
+        "scores": {
+          "throat_mechanism_root": 18.5,
+          "throat_overtone_target_region": 3.002964285714285,
+          "throat_singing_voice_region": 25.309857142857137
+        }
+      }
+    ],
+    "room": "arctic_arnhem_indigenous_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

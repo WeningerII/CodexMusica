@@ -1,0 +1,156 @@
+{
+  "id": "banda_sinaloense",
+  "name": "Banda sinaloense",
+  "family": "global",
+  "lineage": "Mexican brass-band tradition of Sinaloa state, derived from late-nineteenth-century German-immigrant military-band tradition adapted to Mexican-rural-popular celebration-music. Large ensemble of clarinets, trumpets, trombones, sousaphone, tambora, tarola, voice — entirely brass-and-percussion. Repertoire spans ranchera, corrido, cumbia. Banda El Recodo (founded 1938) anchors the canonical sound.",
+  "recipe": "classic late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline. thick, full chest belt, Scottish Gaelic vocal, m1 with m0 pulse borrowing. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition clarinet, banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 881,
+  "score": 111.757,
+  "config": {
+    "traditions": [
+      "banda_sinaloense",
+      "american_drumline"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.7499999999999996,
+          "voice_quality": 5.948750000000002,
+          "voice_vibrato": 0.21675,
+          "voice_articulation": 0.23025,
+          "voice_microtone": 0,
+          "voice_tradition": 3.25,
+          "voice_mechanism_compound": 1.09875,
+          "voice_estill_quality": 3.2030000000000003,
+          "voice_speech_song": 3.575,
+          "voice_ensemble_config": 3.2500000000000004,
+          "voice_ornament_system": 1.56,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 2.8684999999999996,
+          "voice_multitrack_stack": 0.5039999999999999
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.4394999999999998,
+          "brass_size": 0.04875,
+          "trumpet_mouthpiece": 1.625,
+          "brass_mute": 0.04875,
+          "trumpet_technique": 1.4394999999999998,
+          "trumpet_bell_metal": 4.3995,
+          "trumpet_maker_school": 2.6
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_5g",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 1.4394999999999998,
+          "trombone_type": 0.08025,
+          "trombone_mouthpiece": 1.625,
+          "trombone_mute": 0.04875,
+          "trombone_technique": 0.41175,
+          "trombone_bell_metal": 4.4445,
+          "trombone_maker_school": 2.6
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_cc",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "tuba_pitch": 2.7215,
+          "tuba_context": 7.665499999999999,
+          "tuba_bell_metal": 4.3995,
+          "tuba_valve_system": 3.068,
+          "tuba_maker_school": 7.120999999999999
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "clarinet_body": 3.25,
+          "clarinet_size": 0.0975,
+          "clarinet_reed": 0.04875,
+          "clarinet_articulation": 0.105
+        }
+      },
+      {
+        "id": "banda_sinaloense",
+        "slots": {
+          "sections": "banda_tuba",
+          "banda_sinaloense_context": "banda_sinaloense_norteno"
+        },
+        "scores": {
+          "sections": 0.3045,
+          "banda_sinaloense_context": 1.69
+        }
+      }
+    ],
+    "room": "mexico_bolero_xochimilco_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

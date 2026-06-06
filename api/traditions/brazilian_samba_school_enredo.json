@@ -1,0 +1,130 @@
+{
+  "id": "brazilian_samba_school_enredo",
+  "name": "Brazilian samba-school enredo (samba-enredo, Carnaval processional)",
+  "family": "global",
+  "lineage": "Brazilian Rio Carnaval samba-school enredo (samba-enredo, \"theme-samba\") tradition continuous from 1928 first samba-school Deixa Falar foundation through the 1930s-1980s Estação Primeira de Mangueira and Portela canonical-school era into modern Sambódromo-procession continuous practice; the enredo is the canonical annual samba composition that narrates the parade-school's theme",
+  "recipe": "classic mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song trinidad calypso-soca road march trinidadian panorama steelpan competition. intimate aspirated, tasteful, continuous-phonation, modern pop training. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 821,
+  "score": 277.012,
+  "config": {
+    "traditions": [
+      "brazilian_samba_school_enredo",
+      "trinidad_road_march",
+      "caribbean_carnival_steelpan_panorama"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 22.830000000000002,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.045,
+          "voice_tradition": 4.16,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 6.174999999999999,
+          "voice_ensemble_config": 4.29,
+          "voice_ornament_system": 0.435,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 3.5400000000000005,
+          "voice_multitrack_stack": 1.6250000000000002
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_brazilian",
+          "cavaquinho_context": "cavaquinho_choro",
+          "cavaquinho_body_wood": "cavaquinho_mahogany",
+          "cavaquinho_strings": "cavaquinho_steel"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.325,
+          "cavaquinho_origin": 12.852500000000003,
+          "cavaquinho_context": 10.659999999999998,
+          "cavaquinho_body_wood": 10.870000000000001,
+          "cavaquinho_strings": 5.069999999999999
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_samba",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "pandeiro_size": 10.870000000000001,
+          "pandeiro_context": 2.8600000000000003,
+          "pandeiro_head": 9.62,
+          "pandeiro_shell_wood": 9.62,
+          "pandeiro_jingles": 9.62
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_primeira",
+          "surdo_skin": "surdo_nylon",
+          "surdo_shell": "surdo_aluminum_canonical"
+        },
+        "scores": {
+          "surdo_size": 0,
+          "surdo_skin": 7.93,
+          "surdo_shell": 6.759999999999999
+        }
+      },
+      {
+        "id": "tamborim",
+        "slots": {
+          "tamborim_skin": "tamborim_nylon",
+          "tamborim_striker": "tamborim_cluster",
+          "tamborim_shell": "tamborim_aluminum_canonical"
+        },
+        "scores": {
+          "tamborim_skin": 2.8600000000000003,
+          "tamborim_striker": 18.070000000000004,
+          "tamborim_shell": 5.069999999999999
+        }
+      }
+    ],
+    "room": "bahian_terreiro_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "samba_2_4_telecoteco",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

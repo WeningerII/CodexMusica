@@ -1,0 +1,152 @@
+{
+  "id": "traditional_doom",
+  "name": "Traditional doom",
+  "family": "global",
+  "lineage": "Traditional doom metal lineage descending directly from the Black Sabbath template (Black Sabbath 1970, Master of Reality 1971) — codified through Pentagram (Bobby Liebling, founded 1971, the underground US doom band whose first commercial album waited until 1985), Saint Vitus (Los Angeles SST Records canon, Saint Vitus 1984, Born Too Late 1986), Candlemass (the Swedish epic-doom canon, Epicus Doomicus Metallicus 1986), Trouble (Chicago, Psalm 9 1984)",
+  "recipe": "classic North American early-1970s traditional doom, distorted Rock, doom branch, nwobhm metal. thick, larynx lowered, chest resonance low mid, equal tempered. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, vintage ambassador asymmetric machine hammered symmetric pattern organized rows drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 582,
+  "score": 313.033,
+  "config": {
+    "traditions": [
+      "traditional_doom",
+      "nwobhm"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 7.106000000000002,
+          "voice_quality": 14.699999999999996,
+          "voice_vibrato": 0.598875,
+          "voice_articulation": 0.26325000000000004,
+          "voice_microtone": 6.000000000000001,
+          "voice_tradition": 2.5420000000000007,
+          "voice_mechanism_compound": 12.986999999999998,
+          "voice_estill_quality": 0.168,
+          "voice_speech_song": 1.0755000000000001,
+          "voice_ensemble_config": 1.10875,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 2.977875,
+          "voice_multitrack_stack": 2.21
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_orange",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 14.663749999999999,
+          "amp_make": 17.068375,
+          "body_wood": 2.6,
+          "neck_wood": 0.598875,
+          "fretboard": 0.2625,
+          "pickup_magnet": 0.22525,
+          "pickup_winding": 0.39,
+          "string_material": 0.6375,
+          "bridge": 0.6303749999999999,
+          "scale_length": 2.6,
+          "string_gauge": 0.630375,
+          "finish": 0,
+          "string_tuning": 7.93
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 14.663749999999999,
+          "amp_make": 17.068375,
+          "body_wood": 1.2292500000000002,
+          "pickup_config": 0,
+          "string_type": 10.725,
+          "scale_length_b": 0.686625,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 6.42525
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 0.26,
+          "shell_wood": 0.45,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 0.8298750000000001,
+          "drumhead": 2.2465,
+          "snare_wires": 0.630375,
+          "cymbal_alloy": 15.212499999999999,
+          "cymbal_hammering": 6.206250000000001,
+          "cymbal_lathing": 6.181500000000001,
+          "cymbal_finish": 0.2625,
+          "drum_technique": 6.25
+        }
+      }
+    ],
+    "room": "stoner_doom_garage_amplifier_room",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_tube_german_v72",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_british_high_gain",
+      "medium": "tape_15ips"
+    },
+    "tuning": "doom_sabbath_tritone_diminished",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

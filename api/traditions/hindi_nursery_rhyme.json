@@ -1,0 +1,68 @@
+{
+  "id": "hindi_nursery_rhyme",
+  "name": "Hindi nursery rhyme (Indian school-curriculum children's songs)",
+  "family": "global",
+  "lineage": "Pan-Indian Hindi-medium children's school-song tradition continuous from late-19th-century Indian-Republican-modernization-era school-curriculum codification through post-independence 1947-onward Hindi-medium school-curriculum continuous practice; the tradition is intentionally constructed school-curriculum-music rather than continuous-folk-tradition",
+  "recipe": "classic modern hindi nursery rhyme, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, east Asian nursery rhyme korean dongyo hindi lori. thick, low dynamic level, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 363,
+  "score": 98.111,
+  "config": {
+    "traditions": [
+      "hindi_nursery_rhyme",
+      "korean_dongyo",
+      "hindi_lori"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "korean_minsogak_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.8000000000000007,
+          "voice_quality": 2.275,
+          "voice_vibrato": 3.2093750000000005,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0.39,
+          "voice_tradition": 11.587499999999999,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 2.405,
+          "voice_ensemble_config": 0.6499999999999999,
+          "voice_ornament_system": 3.4250000000000007,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 2.993125,
+          "voice_multitrack_stack": 1.395
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

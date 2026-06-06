@@ -1,0 +1,292 @@
+{
+  "id": "yueqin",
+  "name": "Yueqin (Chinese moon lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "yueqin",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "yueqin_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "yueqin_jingju",
+          "default": true,
+          "name": "Jingju (Beijing opera) accompaniment",
+          "descriptors": [
+            "articulate",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "yueqin_solo",
+          "name": "Solo concert",
+          "descriptors": [
+            "melodic",
+            "lyrical",
+            "folk"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yueqin_construction",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "yueqin_snake_skin",
+          "default": true,
+          "name": "Wood-and-snake-skin (traditional)",
+          "descriptors": [
+            "archaic",
+            "historical",
+            "snake-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "yueqin_synthetic",
+          "name": "Wood with synthetic head (modern)",
+          "descriptors": [
+            "standard",
+            "concert-grade",
+            "contemporary",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked"
+          ]
+        },
+        {
+          "id": "yueqin_large_concert",
+          "name": "Larger concert variant",
+          "descriptors": [
+            "extended",
+            "orchestra-context",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "concert",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yueqin_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "yueqin_silk_traditional",
+          "default": true,
+          "name": "Silk (canonical traditional)",
+          "descriptors": [
+            "silk-traditional"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "yueqin_nylon_modern",
+          "name": "Nylon (modern)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "yueqin_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "yueqin_jingju",
+          "default": true,
+          "name": "Jingju (Beijing opera) accompaniment",
+          "descriptors": [
+            "articulate",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "yueqin_solo",
+          "name": "Solo concert",
+          "descriptors": [
+            "melodic",
+            "lyrical",
+            "folk"
+          ],
+          "match_tokens": [
+            "soloistic",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yueqin_construction",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "yueqin_snake_skin",
+          "default": true,
+          "name": "Wood-and-snake-skin (traditional)",
+          "descriptors": [
+            "archaic",
+            "historical",
+            "snake-skin",
+            "hide"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "yueqin_synthetic",
+          "name": "Wood with synthetic head (modern)",
+          "descriptors": [
+            "standard",
+            "concert-grade",
+            "contemporary",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked"
+          ]
+        },
+        {
+          "id": "yueqin_large_concert",
+          "name": "Larger concert variant",
+          "descriptors": [
+            "extended",
+            "orchestra-context",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "concert",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yueqin_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "yueqin_silk_traditional",
+          "default": true,
+          "name": "Silk (canonical traditional)",
+          "descriptors": [
+            "silk-traditional"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "yueqin_nylon_modern",
+          "name": "Nylon (modern)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

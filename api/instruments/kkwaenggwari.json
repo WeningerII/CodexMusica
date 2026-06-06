@@ -1,0 +1,104 @@
+{
+  "id": "kkwaenggwari",
+  "name": "Kkwaenggwari (Korean small flat brass gong)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kkwaenggwari",
+  "parts": [
+    {
+      "id": "kkwaenggwari_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "kkwaenggwari_lead",
+          "default": true,
+          "name": "Sangsoe (lead) — samul nori / pungmul",
+          "descriptors": [
+            "lead"
+          ],
+          "match_tokens": [
+            "lead-melody",
+            "percussive-attack",
+            "metallic",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "samul-nori",
+            "pungmul",
+            "korean-folk"
+          ]
+        },
+        {
+          "id": "kkwaenggwari_buseul",
+          "name": "Bujsoe (second-lead) — supporting",
+          "descriptors": [
+            "supporting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "samul-nori"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kkwaenggwari_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "kkwaenggwari_lead",
+          "default": true,
+          "name": "Sangsoe (lead) — samul nori / pungmul",
+          "descriptors": [
+            "lead"
+          ],
+          "match_tokens": [
+            "lead-melody",
+            "percussive-attack",
+            "metallic",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "samul-nori",
+            "pungmul",
+            "korean-folk"
+          ]
+        },
+        {
+          "id": "kkwaenggwari_buseul",
+          "name": "Bujsoe (second-lead) — supporting",
+          "descriptors": [
+            "supporting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "samul-nori"
+          ]
+        }
+      ]
+    }
+  ]
+}

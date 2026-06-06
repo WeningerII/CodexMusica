@@ -1,0 +1,68 @@
+{
+  "id": "byzantine_chant",
+  "name": "Byzantine chant",
+  "family": "classical",
+  "lineage": "Greek Orthodox liturgical chant tradition continuing in unbroken practice since the 9th-century codification at the Byzantine court of Constantinople, governed by the eight-mode oktoechos modal system and performed as ison-drone-with-melismatic-chanter (psaltis) across the liturgical year in Orthodox cathedrals, monasteries (Mount Athos, Meteora), and parish churches",
+  "recipe": "classic modern byzantine chant, ritual Devotional, Russian orthodox branch, vocal drone modal armenian duduk-accompanied chant croatian istrian two-part-in-istrian-scale. thick, declaimed, chest resonance low mid, ornamental. byzantine monastery chant athos. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 388,
+  "score": 193.022,
+  "config": {
+    "traditions": [
+      "byzantine_chant",
+      "armenian_duduk_chant",
+      "croatian_istrian_diaphonic"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.8400000000000007,
+          "voice_quality": 10.444999999999999,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.795,
+          "voice_microtone": 0.6499999999999999,
+          "voice_tradition": 18.069999999999997,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 4.615000000000001,
+          "voice_speech_song": 4.714999999999999,
+          "voice_ensemble_config": 4.94,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 3.185,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 2.08
+        }
+      }
+    ],
+    "room": "byzantine_monastery_chant_athos",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "byzantine_oktoechos_eight_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

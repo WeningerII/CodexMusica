@@ -1,0 +1,663 @@
+{
+  "id": "short_scale_bass",
+  "name": "Short-scale electric bass",
+  "family": "electric_strings",
+  "class": "bass",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "short-scale bass",
+  "parts": [
+    {
+      "id": "electric_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "electric_bass_walking",
+          "name": "Walking bass line",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "fretless_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "walking"
+          ],
+          "match_tokens": [
+            "electric",
+            "picked"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ],
+          "default": true
+        },
+        {
+          "id": "electric_bass_pick_aggressive",
+          "name": "Pick aggressive",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "picked",
+            "high-gain-saturation"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "rock-canonical",
+            "punk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "amp_make",
+      "name": "Amplifier archetype",
+      "variants": [
+        {
+          "id": "amp_unspecified",
+          "default": true,
+          "name": "Unspecified",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass",
+            "pedal_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "amp_british_60s_selmer",
+          "name": "Selmer (Twin Selectortone, Truvoice — British 60s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "selmer-amp",
+            "british-60s-amp",
+            "midrange-honk",
+            "push-button-tone-select"
+          ],
+          "match_tokens": [
+            "electric",
+            "midrange-forward",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "british-beat-boom-canonical"
+          ]
+        },
+        {
+          "id": "amp_british_late_60s_marshall_plexi",
+          "name": "Marshall Plexi / JTM (British late-60s rock)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "marshall-plexi-amp",
+            "british-rock-amp",
+            "crunch-breakup",
+            "cranked-tube"
+          ],
+          "match_tokens": [
+            "electric",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-blues-rock",
+            "arena-rock"
+          ]
+        },
+        {
+          "id": "amp_american_fender_tweed",
+          "name": "Fender Tweed (Bassman / Deluxe — American 50s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "fender-tweed-amp",
+            "american-50s-amp",
+            "tweed-breakup",
+            "thick-midrange"
+          ],
+          "match_tokens": [
+            "electric",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "blues-canonical",
+            "rockabilly",
+            "country",
+            "early-rock-and-roll"
+          ]
+        },
+        {
+          "id": "amp_american_ampeg_b15",
+          "name": "Ampeg B-15 flip-top (American 60s bass)",
+          "applies_to": [
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "ampeg-b15-amp",
+            "american-60s-bass-amp",
+            "flip-top-character",
+            "rounded-low-end"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "soul",
+            "rhythm-and-blues",
+            "motown",
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "amp_modern_modeling",
+          "name": "Modeling amplifier (Kemper / Fractal / Katana)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "modeled-amp",
+            "digital-amplification",
+            "profile-based",
+            "modern-rig"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "djent",
+            "modern-metal"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "short_scale_bass_model",
+      "surface": false,
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "short_scale_bass_hofner",
+          "default": true,
+          "name": "Höfner violin bass",
+          "descriptors": [
+            "british-invasion",
+            "hollow-body",
+            "mwah-tone"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        },
+        {
+          "id": "short_scale_bass_eb0",
+          "name": "Gibson EB-0",
+          "descriptors": [
+            "Motown-school",
+            "humbucker",
+            "thumpy"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        },
+        {
+          "id": "short_scale_bass_mustang",
+          "name": "Fender Mustang Bass",
+          "descriptors": [
+            "versatile",
+            "30-inch",
+            "sixties-American"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        },
+        {
+          "id": "short_scale_bass_modern_reissue",
+          "name": "Modern boutique short-scale",
+          "descriptors": [
+            "contemporary",
+            "varied"
+          ],
+          "match_tokens": [
+            "modern",
+            "electric",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "short_scale_bass_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "short_scale_bass_motown",
+          "default": true,
+          "name": "Motown / soul",
+          "descriptors": [
+            "tight-low-end"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        },
+        {
+          "id": "short_scale_bass_british_invasion",
+          "name": "British Invasion",
+          "descriptors": [
+            "pop-foundational",
+            "sixties"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "short_scale_bass_indie",
+          "name": "Indie / alternative",
+          "descriptors": [
+            "boutique-revival",
+            "modern-rediscovery",
+            "tonal-variety"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "short_scale_bass_pickup",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "short_scale_bass_dual_blade_hofner",
+          "default": true,
+          "name": "Dual blade humbucker (Höfner staple)",
+          "descriptors": [
+            "hofner-blade",
+            "dual-blade",
+            "thumpy-mid"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "short_scale_bass_eb0_humbucker",
+          "name": "Single humbucker (Gibson EB-0)",
+          "descriptors": [
+            "humbucker",
+            "thumpy-low-mid"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        },
+        {
+          "id": "short_scale_bass_mustang_split",
+          "name": "Split-coil (Mustang Bass)",
+          "descriptors": [
+            "split-coil",
+            "mustang-bass"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "short_scale_bass_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "short_scale_bass_flat_la_bella",
+          "default": true,
+          "name": "La Bella flatwound short-scale (Motown / Hofner canon)",
+          "descriptors": [
+            "la-bella-flat",
+            "short-scale",
+            "detroit-soul-bass-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "motown",
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "short_scale_bass_pyramid_pure_nickel",
+          "name": "Pyramid pure nickel short-scale (McCartney / Beatles canon)",
+          "descriptors": [
+            "pyramid-pure-nickel",
+            "mccartney-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "vintage"
+          ]
+        },
+        {
+          "id": "short_scale_bass_roundwound",
+          "name": "Roundwound short-scale (modern)",
+          "descriptors": [
+            "roundwound",
+            "modern",
+            "short-scale"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electric_technique",
+      "default_variant": "electric_bass_walking"
+    },
+    {
+      "id": "short_scale_bass_model",
+      "surface": false,
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "short_scale_bass_hofner",
+          "default": true,
+          "name": "Höfner violin bass",
+          "descriptors": [
+            "british-invasion",
+            "hollow-body",
+            "mwah-tone"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        },
+        {
+          "id": "short_scale_bass_eb0",
+          "name": "Gibson EB-0",
+          "descriptors": [
+            "Motown-school",
+            "humbucker",
+            "thumpy"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        },
+        {
+          "id": "short_scale_bass_mustang",
+          "name": "Fender Mustang Bass",
+          "descriptors": [
+            "versatile",
+            "30-inch",
+            "sixties-American"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        },
+        {
+          "id": "short_scale_bass_modern_reissue",
+          "name": "Modern boutique short-scale",
+          "descriptors": [
+            "contemporary",
+            "varied"
+          ],
+          "match_tokens": [
+            "modern",
+            "electric",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "short_scale_bass_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "short_scale_bass_motown",
+          "default": true,
+          "name": "Motown / soul",
+          "descriptors": [
+            "tight-low-end"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        },
+        {
+          "id": "short_scale_bass_british_invasion",
+          "name": "British Invasion",
+          "descriptors": [
+            "pop-foundational",
+            "sixties"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "short_scale_bass_indie",
+          "name": "Indie / alternative",
+          "descriptors": [
+            "boutique-revival",
+            "modern-rediscovery",
+            "tonal-variety"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "short_scale_bass_pickup",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "short_scale_bass_dual_blade_hofner",
+          "default": true,
+          "name": "Dual blade humbucker (Höfner staple)",
+          "descriptors": [
+            "hofner-blade",
+            "dual-blade",
+            "thumpy-mid"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "short_scale_bass_eb0_humbucker",
+          "name": "Single humbucker (Gibson EB-0)",
+          "descriptors": [
+            "humbucker",
+            "thumpy-low-mid"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        },
+        {
+          "id": "short_scale_bass_mustang_split",
+          "name": "Split-coil (Mustang Bass)",
+          "descriptors": [
+            "split-coil",
+            "mustang-bass"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "short_scale_bass_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "short_scale_bass_flat_la_bella",
+          "default": true,
+          "name": "La Bella flatwound short-scale (Motown / Hofner canon)",
+          "descriptors": [
+            "la-bella-flat",
+            "short-scale",
+            "detroit-soul-bass-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "motown",
+            "british-invasion"
+          ]
+        },
+        {
+          "id": "short_scale_bass_pyramid_pure_nickel",
+          "name": "Pyramid pure nickel short-scale (McCartney / Beatles canon)",
+          "descriptors": [
+            "pyramid-pure-nickel",
+            "mccartney-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "vintage"
+          ]
+        },
+        {
+          "id": "short_scale_bass_roundwound",
+          "name": "Roundwound short-scale (modern)",
+          "descriptors": [
+            "roundwound",
+            "modern",
+            "short-scale"
+          ],
+          "match_tokens": [
+            "electric",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

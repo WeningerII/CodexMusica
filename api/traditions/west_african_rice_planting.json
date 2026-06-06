@@ -1,0 +1,89 @@
+{
+  "id": "west_african_rice_planting",
+  "name": "West-African rice-planting song (Senegambian-Mande)",
+  "family": "global",
+  "lineage": "West-African Senegambian-Mande rice-planting song tradition continuous from premodern Senegambian-and-Guinean rice-agriculture village-labor practice through colonial-period continuous performance into modern West-African-rural continuous practice; the West-African Senegambian rice-planting song tradition was demonstrably the documented lineage origin point for the South-Carolina Lowcountry rice-cultivation work-songs continuous into the broader American-South work-song tradition",
+  "recipe": "classic modern west-african rice-planting song, field Work, sub saharan African branch, American south field work, sub saharan African praise song, sub saharan African protest song zulu izibongo yoruba oríkì. extended whistle, declaimed, tasteful, continuous-phonation. calabash nylon fishing line cowhide mande traditional kora. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 495,
+  "score": 259.515,
+  "config": {
+    "traditions": [
+      "west_african_rice_planting",
+      "zulu_izibongo",
+      "yoruba_oriki"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_polyrhythmic_layered",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.464,
+          "voice_quality": 3.055000000000003,
+          "voice_vibrato": 2.47,
+          "voice_articulation": 6.759999999999999,
+          "voice_microtone": 0.24,
+          "voice_tradition": 47.19,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.39,
+          "voice_speech_song": 10.594999999999999,
+          "voice_ensemble_config": 5.590000000000001,
+          "voice_ornament_system": 16.444999999999997,
+          "voice_pitch_organization": 6.759999999999999,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 1.5539999999999998
+        }
+      },
+      {
+        "id": "kora",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "kora_strings": "kora_21_traditional",
+          "kora_resonator": "kora_calabash_med",
+          "kora_strings_mat": "kora_fishing_line",
+          "kora_top_skin": "kora_cowhide_canonical",
+          "kora_neck_wood": "kora_rosewood_modern",
+          "kora_lineage": "kora_suso_lineage"
+        },
+        "scores": {
+          "plucked_traditional_technique": 11.959999999999999,
+          "kora_strings": 0.7224999999999999,
+          "kora_resonator": 2.47,
+          "kora_strings_mat": 2.47,
+          "kora_top_skin": 3.769999999999999,
+          "kora_neck_wood": 3.3799999999999994,
+          "kora_lineage": 4.55
+        }
+      }
+    ],
+    "room": "tanzanian_outdoor_village_clearing",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mande_pentatonic_jeli_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

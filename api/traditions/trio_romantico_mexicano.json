@@ -1,0 +1,102 @@
+{
+  "id": "trio_romantico_mexicano",
+  "name": "Trío romántico (Mexican bolero trio)",
+  "family": "pop",
+  "lineage": "Mexican trío romántico bolero-trio tradition emerging in 1930s-1940s Mexico City. Three-male-voice harmonized chorus with two acoustic guitars and one requinto (smaller higher-tuned lead guitar). Trio Los Panchos (founded 1944, New York) crystallized the form, established the requinto-lead-with-three-voice-harmony as canonical, and exported the genre internationally throughout Latin America.",
+  "recipe": "classic tropical mid-1930s trío romántico, functional Song, Mexican branch, Latin am troubadour ballad poetry milonga filipino kundiman. thick, full chest belt, melodic, equal tempered. parlor acoustic guitar, cedrillo canonical veracruz requinto jarocho. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 449,
+  "score": 114.279,
+  "config": {
+    "traditions": [
+      "trio_romantico_mexicano",
+      "milonga",
+      "filipino_kundiman"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 2.8400000000000003,
+          "voice_quality": 5.1000000000000005,
+          "voice_vibrato": 0.87375,
+          "voice_articulation": 0.32999999999999996,
+          "voice_microtone": 2.250000000000001,
+          "voice_tradition": 1.56,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 5.265,
+          "voice_ensemble_config": 8.19,
+          "voice_ornament_system": 3.25,
+          "voice_pitch_organization": 2.65,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 4.27875
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 2.45,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.67875,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.67875
+        }
+      },
+      {
+        "id": "requinto_jarocho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "requinto_jarocho_pluck": "requinto_jarocho_finger",
+          "requinto_jarocho_tuning": "requinto_jarocho_high",
+          "requinto_jarocho_body_wood": "requinto_cedrillo",
+          "requinto_jarocho_strings": "requinto_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "requinto_jarocho_pluck": 1.1612500000000001,
+          "requinto_jarocho_tuning": 3.3799999999999994,
+          "requinto_jarocho_body_wood": 1.69,
+          "requinto_jarocho_strings": -0.035
+        }
+      }
+    ],
+    "room": "mexico_bolero_xochimilco_studio",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

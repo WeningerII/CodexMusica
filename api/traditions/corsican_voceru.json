@@ -1,0 +1,68 @@
+{
+  "id": "corsican_voceru",
+  "name": "Corsican voceru (vendetta-lament)",
+  "family": "global",
+  "lineage": "Corsican mourning-song tradition continuous from medieval-and-early-modern Corsican rural practice through 18th-19th century documented performance by voceratrice (Corsican professional women keeners); particularly associated with the vendetta tradition where the voceru explicitly demands revenge on the killer",
+  "recipe": "classic modern corsican voceru, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, chanson fado ballad poetry greek éntechno sardinian cantu a tenore and launeddas. thick, false fold engaged, tasteful, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 408,
+  "score": 120.968,
+  "config": {
+    "traditions": [
+      "corsican_voceru",
+      "greek_entechno",
+      "sardinian_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.08,
+          "voice_quality": 5.494999999999999,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.69,
+          "voice_microtone": 0.24,
+          "voice_tradition": 13.064999999999996,
+          "voice_mechanism_compound": 3.7700000000000005,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 3.7050000000000005,
+          "voice_ensemble_config": 3.1200000000000006,
+          "voice_ornament_system": 0.9000000000000001,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 2.47,
+          "voice_multitrack_stack": 2.08
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

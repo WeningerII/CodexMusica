@@ -1,0 +1,433 @@
+{
+  "id": "wavetable_synth",
+  "name": "Wavetable synthesizer",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "wavetable synth",
+  "parts": [
+    {
+      "id": "electronic_technique",
+      "name": "Programming approach",
+      "variants": [
+        {
+          "id": "electronic_pad_drone",
+          "default": true,
+          "name": "Pad / drone",
+          "applies_to": [
+            "analog_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "string_machine",
+            "granular_synth",
+            "ondes_martenot",
+            "modular_synth",
+            "eurorack_modular"
+          ],
+          "descriptors": [
+            "sustained",
+            "pad"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-and-pad",
+            "drone-like",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "shoegaze"
+          ]
+        },
+        {
+          "id": "electronic_arpeggiated",
+          "name": "Arpeggiated sequence",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "digital_subtractive",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "monosynth_acid_bass"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "arpeggio-decoration"
+          ],
+          "canonical_tags": [
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_lead_line",
+          "name": "Lead synth line",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth",
+            "ondes_martenot",
+            "theremin"
+          ],
+          "descriptors": [
+            "lead",
+            "singing"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "pop",
+            "synthwave"
+          ]
+        },
+        {
+          "id": "electronic_bass_sub",
+          "name": "Sub-bass",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "monosynth_acid_bass",
+            "fm_synth",
+            "wavetable_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "digital_subtractive"
+          ],
+          "descriptors": [
+            "sub-bass",
+            "low"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "trap",
+            "dubstep"
+          ]
+        },
+        {
+          "id": "electronic_pluck_short",
+          "name": "Pluck / short envelope",
+          "applies_to": [
+            "analog_synth",
+            "analog_mono_synth",
+            "analog_poly_synth",
+            "fm_synth",
+            "digital_subtractive",
+            "wavetable_synth"
+          ],
+          "descriptors": [
+            "plucked",
+            "short-envelope"
+          ],
+          "match_tokens": [
+            "electronic",
+            "string-attack"
+          ],
+          "canonical_tags": [
+            "pop",
+            "edm"
+          ]
+        },
+        {
+          "id": "electronic_glitch_textural",
+          "name": "Glitch / textural",
+          "applies_to": [
+            "granular_synth",
+            "modular_synth",
+            "eurorack_modular",
+            "sampler_classic",
+            "wavetable_synth"
+          ],
+          "descriptors": [
+            "glitched",
+            "textural"
+          ],
+          "match_tokens": [
+            "electronic"
+          ],
+          "canonical_tags": [
+            "idm",
+            "experimental"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "wt_position",
+      "surface": false,
+      "name": "Wavetable position",
+      "variants": [
+        {
+          "id": "wt_static",
+          "default": true,
+          "name": "Static (single waveform)",
+          "descriptors": [
+            "focused",
+            "classical-subtractive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "wt_morphing",
+          "name": "Slow morphing",
+          "descriptors": [
+            "evolving",
+            "breathing",
+            "organic-electronic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "wt_chaotic",
+          "name": "Fast / chaotic morphing",
+          "descriptors": [
+            "glitchy",
+            "animated",
+            "modern-edm"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wt_family",
+      "name": "Wave family",
+      "variants": [
+        {
+          "id": "wt_analog_emul",
+          "name": "Analog-style waves",
+          "descriptors": [
+            "analog-drift-character",
+            "familiar",
+            "versatile"
+          ],
+          "match_tokens": [
+            "analog",
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "wt_vocal",
+          "name": "Vocal / formant waves",
+          "descriptors": [
+            "expressive",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "wt_industrial",
+          "default": true,
+          "name": "Industrial / digital waves",
+          "descriptors": [
+            "metallic",
+            "high-gain-saturation",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wt_polyphony",
+      "name": "Polyphony",
+      "variants": [
+        {
+          "id": "wt_mono",
+          "default": true,
+          "name": "Monophonic",
+          "descriptors": [
+            "solo",
+            "expressive",
+            "lead"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "wt_poly",
+          "name": "Polyphonic",
+          "descriptors": [
+            "chordal",
+            "full"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wt_position",
+      "surface": false,
+      "name": "Wavetable position",
+      "variants": [
+        {
+          "id": "wt_static",
+          "default": true,
+          "name": "Static (single waveform)",
+          "descriptors": [
+            "focused",
+            "classical-subtractive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "wt_morphing",
+          "name": "Slow morphing",
+          "descriptors": [
+            "evolving",
+            "breathing",
+            "organic-electronic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "wt_chaotic",
+          "name": "Fast / chaotic morphing",
+          "descriptors": [
+            "glitchy",
+            "animated",
+            "modern-edm"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wt_family",
+      "name": "Wave family",
+      "variants": [
+        {
+          "id": "wt_analog_emul",
+          "name": "Analog-style waves",
+          "descriptors": [
+            "analog-drift-character",
+            "familiar",
+            "versatile"
+          ],
+          "match_tokens": [
+            "analog",
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "wt_vocal",
+          "name": "Vocal / formant waves",
+          "descriptors": [
+            "expressive",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "wt_industrial",
+          "default": true,
+          "name": "Industrial / digital waves",
+          "descriptors": [
+            "metallic",
+            "high-gain-saturation",
+            "modern"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wt_polyphony",
+      "name": "Polyphony",
+      "variants": [
+        {
+          "id": "wt_mono",
+          "default": true,
+          "name": "Monophonic",
+          "descriptors": [
+            "solo",
+            "expressive",
+            "lead"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        },
+        {
+          "id": "wt_poly",
+          "name": "Polyphonic",
+          "descriptors": [
+            "chordal",
+            "full"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    }
+  ]
+}

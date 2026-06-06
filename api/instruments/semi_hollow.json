@@ -1,0 +1,1013 @@
+{
+  "id": "semi_hollow",
+  "name": "Semi-hollow electric guitar",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "semi-hollow",
+  "parts": [
+    {
+      "id": "electric_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "electric_clean_strummed",
+          "default": true,
+          "name": "Clean strummed",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "twelve_string_electric",
+            "archtop_jazz",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "clean",
+            "strummed"
+          ],
+          "match_tokens": [
+            "electric",
+            "open-chord-ringing-overtones",
+            "picked"
+          ],
+          "canonical_tags": [
+            "pop",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "electric_jazz_comping",
+          "name": "Jazz comping",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "archtop_jazz",
+            "semi_hollow"
+          ],
+          "descriptors": [
+            "comped",
+            "clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "jazz-trained",
+            "comping"
+          ],
+          "canonical_tags": [
+            "jazz-canonical"
+          ]
+        },
+        {
+          "id": "electric_arpeggiated_clean",
+          "name": "Arpeggiated clean",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "twelve_string_electric",
+            "archtop_jazz",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "arpeggio-decoration",
+            "picked"
+          ],
+          "canonical_tags": [
+            "shoegaze",
+            "post-punk",
+            "indie"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "amp_make",
+      "name": "Amplifier archetype",
+      "variants": [
+        {
+          "id": "amp_unspecified",
+          "default": true,
+          "name": "Unspecified",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass",
+            "pedal_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "amp_british_60s_selmer",
+          "name": "Selmer (Twin Selectortone, Truvoice — British 60s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "selmer-amp",
+            "british-60s-amp",
+            "midrange-honk",
+            "push-button-tone-select"
+          ],
+          "match_tokens": [
+            "electric",
+            "midrange-forward",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "british-beat-boom-canonical"
+          ]
+        },
+        {
+          "id": "amp_british_60s_vox_ac",
+          "name": "Vox AC15 / AC30 / Top Boost (British 60s chime)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric"
+          ],
+          "descriptors": [
+            "vox-ac-amp",
+            "british-60s-amp",
+            "top-boost-chime",
+            "blue-alnico-speaker"
+          ],
+          "match_tokens": [
+            "electric",
+            "chimey",
+            "top-end-extension",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "british-beat-boom-canonical",
+            "jangle-pop"
+          ]
+        },
+        {
+          "id": "amp_british_late_60s_marshall_plexi",
+          "name": "Marshall Plexi / JTM (British late-60s rock)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "marshall-plexi-amp",
+            "british-rock-amp",
+            "crunch-breakup",
+            "cranked-tube"
+          ],
+          "match_tokens": [
+            "electric",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "british-blues-rock",
+            "arena-rock"
+          ]
+        },
+        {
+          "id": "amp_american_fender_tweed",
+          "name": "Fender Tweed (Bassman / Deluxe — American 50s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass"
+          ],
+          "descriptors": [
+            "fender-tweed-amp",
+            "american-50s-amp",
+            "tweed-breakup",
+            "thick-midrange"
+          ],
+          "match_tokens": [
+            "electric",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "blues-canonical",
+            "rockabilly",
+            "country",
+            "early-rock-and-roll"
+          ]
+        },
+        {
+          "id": "amp_american_fender_blackface",
+          "name": "Fender Blackface (Twin / Deluxe Reverb — American 60s)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "pedal_steel"
+          ],
+          "descriptors": [
+            "fender-blackface-amp",
+            "american-60s-amp",
+            "spring-reverb-bright",
+            "scooped-clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-with-reverb",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "surf",
+            "country",
+            "soul",
+            "funk",
+            "rhythm-and-blues"
+          ]
+        },
+        {
+          "id": "amp_modern_modeling",
+          "name": "Modeling amplifier (Kemper / Fractal / Katana)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "modeled-amp",
+            "digital-amplification",
+            "profile-based",
+            "modern-rig"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "djent",
+            "modern-metal"
+          ]
+        },
+        {
+          "id": "amp_british_marshall_jcm800",
+          "name": "Marshall JCM800 master-volume (British 80s metal/punk stack)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "marshall-jcm800-amp",
+            "british-80s-rock-amp",
+            "master-volume-overdrive",
+            "el34-stack-saturation"
+          ],
+          "match_tokens": [
+            "electric",
+            "high-gain",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "thrash-metal",
+            "hair-metal",
+            "punk",
+            "hardcore-punk"
+          ]
+        },
+        {
+          "id": "amp_british_hiwatt",
+          "name": "Hiwatt DR103 (British clean-headroom 100W)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "electric_bass"
+          ],
+          "descriptors": [
+            "hiwatt-amp",
+            "british-clean-amp",
+            "high-wattage-headroom",
+            "partridge-iron-transformers"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-headroom",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "progressive-rock",
+            "arena-rock",
+            "hard-rock"
+          ]
+        },
+        {
+          "id": "amp_british_orange",
+          "name": "Orange OR120 / Rockerverb (British heavy crunch)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "baritone_electric",
+            "electric_bass"
+          ],
+          "descriptors": [
+            "orange-amp",
+            "british-heavy-crunch",
+            "thick-mid-low",
+            "sludgy-character"
+          ],
+          "match_tokens": [
+            "electric",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "stoner-metal",
+            "sludge",
+            "doom",
+            "noise-rock"
+          ]
+        },
+        {
+          "id": "amp_roland_jc120",
+          "name": "Roland JC-120 Jazz Chorus (Japanese solid-state stereo, 1975)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric"
+          ],
+          "descriptors": [
+            "roland-jc120-amp",
+            "solid-state-stereo-chorus",
+            "pristine-clean",
+            "transistor-clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "clean-chorused",
+            "solid-state-amplification"
+          ],
+          "canonical_tags": [
+            "post-punk",
+            "dream-pop",
+            "jazz-fusion",
+            "new-wave"
+          ]
+        },
+        {
+          "id": "amp_mesa_dual_rectifier",
+          "name": "Mesa/Boogie Dual Rectifier (modern California high-gain)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "mesa-dual-rectifier-amp",
+            "california-modern-saturation",
+            "scooped-mid-modern-metal",
+            "multi-mode-rectifier"
+          ],
+          "match_tokens": [
+            "electric",
+            "high-gain",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "nu-metal",
+            "modern-metal",
+            "djent"
+          ]
+        },
+        {
+          "id": "amp_american_fender_champ",
+          "name": "Fender Champ / Princeton (low-watt American tweed/blackface)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz"
+          ],
+          "descriptors": [
+            "fender-champ-amp",
+            "low-wattage-studio-grit",
+            "easily-cranked",
+            "natural-power-tube-breakup"
+          ],
+          "match_tokens": [
+            "electric",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "blues-canonical",
+            "studio-grit",
+            "rockabilly"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "semi_archetypes",
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "semi_es335",
+          "default": true,
+          "name": "Gibson ES-335 (with center block)",
+          "descriptors": [
+            "balanced"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "blues-rock"
+          ]
+        },
+        {
+          "id": "semi_casino",
+          "name": "Epiphone Casino (full hollow)",
+          "descriptors": [
+            "lively",
+            "folk-rock"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "british-pop"
+          ]
+        },
+        {
+          "id": "semi_es355_bb_king",
+          "name": "Gibson ES-355 (Lucille — BB King canon)",
+          "descriptors": [
+            "es-355",
+            "lucille-canon",
+            "varitone-switch"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "blues-rock"
+          ]
+        },
+        {
+          "id": "semi_es175_gibson",
+          "name": "Gibson ES-175 (jazz-leaning)",
+          "descriptors": [
+            "es-175",
+            "jazz-leaning",
+            "laminated-maple"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "semi_rickenbacker_330_360",
+          "name": "Rickenbacker 330 / 360 (chime)",
+          "descriptors": [
+            "rickenbacker",
+            "chimey",
+            "british-invasion"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semi_hollow_pickup",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "semi_dual_humbucker",
+          "default": true,
+          "name": "Dual humbucker (PAF / 57 Classic)",
+          "descriptors": [
+            "dual-humbucker",
+            "paf-style",
+            "warm-mid"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "semi_dual_p90",
+          "name": "Dual P-90 (Epiphone Casino, ES-330)",
+          "descriptors": [
+            "dual-p90",
+            "soapbar",
+            "bite-and-warmth"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "british-pop"
+          ]
+        },
+        {
+          "id": "semi_filtertron_gretsch",
+          "name": "FilterTron / Gretsch humbucker",
+          "descriptors": [
+            "filtertron",
+            "gretsch-canon",
+            "twangy-clarity"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "semi_toaster_rickenbacker",
+          "name": "Toaster (Rickenbacker)",
+          "descriptors": [
+            "toaster",
+            "rickenbacker-canon",
+            "chimey"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semi_hollow_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "semi_pure_nickel",
+          "default": true,
+          "name": "Pure nickel (vintage / Cropper / King)",
+          "descriptors": [
+            "pure-nickel",
+            "vintage-tone",
+            "mellow-warm"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "semi_nickel_plated",
+          "name": "Nickel-plated steel (modern)",
+          "descriptors": [
+            "nickel-plated-steel",
+            "balanced",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "semi_flatwound_jazz",
+          "name": "Flatwound jazz",
+          "descriptors": [
+            "flatwound",
+            "jazz-warm",
+            "reduced-finger-squeak"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semi_hollow_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "semi_hollow_jazz",
+          "default": true,
+          "name": "Blues / jazz",
+          "descriptors": [
+            "sustained-tone",
+            "foundational"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "semi_hollow_indie",
+          "name": "Indie / alternative",
+          "descriptors": [
+            "warmer-than-solid-body",
+            "character-tone",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ]
+        },
+        {
+          "id": "semi_hollow_rockabilly_gretsch",
+          "name": "Rockabilly / surf (Gretsch hollowbody)",
+          "descriptors": [
+            "rockabilly",
+            "gretsch",
+            "twangy",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "semi_hollow_british_invasion",
+          "name": "British Invasion / British R&B (Gretsch / Epiphone / Rickenbacker hollowbody)",
+          "descriptors": [
+            "british-invasion",
+            "chimey",
+            "hollow-body",
+            "sixties"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "beat-boom"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "semi_archetypes",
+      "name": "Archetypal model",
+      "variants": [
+        {
+          "id": "semi_es335",
+          "default": true,
+          "name": "Gibson ES-335 (with center block)",
+          "descriptors": [
+            "balanced"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "blues-rock"
+          ]
+        },
+        {
+          "id": "semi_casino",
+          "name": "Epiphone Casino (full hollow)",
+          "descriptors": [
+            "lively",
+            "folk-rock"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "british-pop"
+          ]
+        },
+        {
+          "id": "semi_es355_bb_king",
+          "name": "Gibson ES-355 (Lucille — BB King canon)",
+          "descriptors": [
+            "es-355",
+            "lucille-canon",
+            "varitone-switch"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "blues-rock"
+          ]
+        },
+        {
+          "id": "semi_es175_gibson",
+          "name": "Gibson ES-175 (jazz-leaning)",
+          "descriptors": [
+            "es-175",
+            "jazz-leaning",
+            "laminated-maple"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "semi_rickenbacker_330_360",
+          "name": "Rickenbacker 330 / 360 (chime)",
+          "descriptors": [
+            "rickenbacker",
+            "chimey",
+            "british-invasion"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semi_hollow_pickup",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "semi_dual_humbucker",
+          "default": true,
+          "name": "Dual humbucker (PAF / 57 Classic)",
+          "descriptors": [
+            "dual-humbucker",
+            "paf-style",
+            "warm-mid"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "semi_dual_p90",
+          "name": "Dual P-90 (Epiphone Casino, ES-330)",
+          "descriptors": [
+            "dual-p90",
+            "soapbar",
+            "bite-and-warmth"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "british-pop"
+          ]
+        },
+        {
+          "id": "semi_filtertron_gretsch",
+          "name": "FilterTron / Gretsch humbucker",
+          "descriptors": [
+            "filtertron",
+            "gretsch-canon",
+            "twangy-clarity"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "semi_toaster_rickenbacker",
+          "name": "Toaster (Rickenbacker)",
+          "descriptors": [
+            "toaster",
+            "rickenbacker-canon",
+            "chimey"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "british-invasion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semi_hollow_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "semi_pure_nickel",
+          "default": true,
+          "name": "Pure nickel (vintage / Cropper / King)",
+          "descriptors": [
+            "pure-nickel",
+            "vintage-tone",
+            "mellow-warm"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "semi_nickel_plated",
+          "name": "Nickel-plated steel (modern)",
+          "descriptors": [
+            "nickel-plated-steel",
+            "balanced",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "semi_flatwound_jazz",
+          "name": "Flatwound jazz",
+          "descriptors": [
+            "flatwound",
+            "jazz-warm",
+            "reduced-finger-squeak"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semi_hollow_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "semi_hollow_jazz",
+          "default": true,
+          "name": "Blues / jazz",
+          "descriptors": [
+            "sustained-tone",
+            "foundational"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "electric",
+            "plucked"
+          ]
+        },
+        {
+          "id": "semi_hollow_indie",
+          "name": "Indie / alternative",
+          "descriptors": [
+            "warmer-than-solid-body",
+            "character-tone",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ]
+        },
+        {
+          "id": "semi_hollow_rockabilly_gretsch",
+          "name": "Rockabilly / surf (Gretsch hollowbody)",
+          "descriptors": [
+            "rockabilly",
+            "gretsch",
+            "twangy",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "semi_hollow_british_invasion",
+          "name": "British Invasion / British R&B (Gretsch / Epiphone / Rickenbacker hollowbody)",
+          "descriptors": [
+            "british-invasion",
+            "chimey",
+            "hollow-body",
+            "sixties"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "warmed"
+          ],
+          "canonical_tags": [
+            "british-invasion",
+            "british-invasion",
+            "beat-boom"
+          ]
+        }
+      ]
+    }
+  ]
+}

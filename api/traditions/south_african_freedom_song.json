@@ -1,0 +1,68 @@
+{
+  "id": "south_african_freedom_song",
+  "name": "South African freedom song (anti-apartheid)",
+  "family": "global",
+  "lineage": "South African anti-apartheid freedom-song tradition continuous from late-1940s post-apartheid-codification group-vocal protest practice through the 1976 Soweto Uprising and 1980s-1990s liberation-and-transition era; defined by group-vocal harmony-singing, toyi-toyi marching-chant, and canonical anthems integrated into both the African National Congress and broader liberation movements",
+  "recipe": "classic 1947-1949 south african freedom song, protest Song, sub saharan African branch, African pop isicathamiya, anglo American protest song, christian gospel ritual devotional southern gospel quartet bluegrass gospel. thick, declaimed, tasteful, ornamental. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 398,
+  "score": 212.46,
+  "config": {
+    "traditions": [
+      "south_african_freedom_song",
+      "southern_gospel_quartet",
+      "bluegrass_gospel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 4.159999999999999,
+          "voice_quality": 3.96,
+          "voice_vibrato": 0.825,
+          "voice_articulation": 1.7499999999999998,
+          "voice_microtone": 1.6499999999999995,
+          "voice_tradition": 26.324999999999996,
+          "voice_mechanism_compound": 1.585,
+          "voice_estill_quality": 1.5499999999999996,
+          "voice_speech_song": 15.014999999999997,
+          "voice_ensemble_config": 8.189999999999998,
+          "voice_ornament_system": 5.15,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 4.029999999999999,
+          "voice_multitrack_stack": 4.549999999999999
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

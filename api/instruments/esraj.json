@@ -1,0 +1,316 @@
+{
+  "id": "esraj",
+  "name": "Esraj (bowed Indian lute)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "esraj",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_microtonal_inflected",
+          "name": "Microtonal-inflected",
+          "applies_to": [
+            "kamancheh",
+            "rebab",
+            "sarangi",
+            "esraj",
+            "violin_carnatic",
+            "morin_khuur",
+            "erhu",
+            "jinghu",
+            "haegeum"
+          ],
+          "descriptors": [
+            "microtonal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "microtonal-bend",
+            "shruti-inflected"
+          ],
+          "canonical_tags": [
+            "maqam",
+            "arabic",
+            "hindustani"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "esraj_strings",
+      "name": "Sympathetic strings",
+      "variants": [
+        {
+          "id": "esraj_15_taraf",
+          "default": true,
+          "name": "15 sympathetic",
+          "descriptors": [
+            "halo",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "esraj_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "esraj_kirtan",
+          "default": true,
+          "name": "Sikh kirtan accompaniment",
+          "descriptors": [
+            "devotional",
+            "sustained",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "esraj_bengali",
+          "name": "Bengali Rabindra Sangeet",
+          "descriptors": [
+            "lyrical",
+            "melodic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "esraj_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "esraj_tun",
+          "default": true,
+          "name": "Tun / Indian cedar (canonical)",
+          "descriptors": [
+            "tun-indian-cedar-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "esraj_teak",
+          "name": "Teak (alternative)",
+          "descriptors": [
+            "teak-alternative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "esraj_main_strings",
+      "surface": false,
+      "name": "Main playing strings",
+      "variants": [
+        {
+          "id": "esraj_steel_modern",
+          "default": true,
+          "name": "Steel main + bronze sympathetics (modern canonical)",
+          "descriptors": [
+            "steel-bronze-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "esraj_gut_historical",
+          "name": "Gut (pre-modern Bengali / Sikh historical)",
+          "descriptors": [
+            "gut-pre-modern-bengali-sikh"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "esraj_strings",
+      "name": "Sympathetic strings",
+      "variants": [
+        {
+          "id": "esraj_15_taraf",
+          "default": true,
+          "name": "15 sympathetic",
+          "descriptors": [
+            "halo",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "esraj_use",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "esraj_kirtan",
+          "default": true,
+          "name": "Sikh kirtan accompaniment",
+          "descriptors": [
+            "devotional",
+            "sustained",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "esraj_bengali",
+          "name": "Bengali Rabindra Sangeet",
+          "descriptors": [
+            "lyrical",
+            "melodic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "esraj_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "esraj_tun",
+          "default": true,
+          "name": "Tun / Indian cedar (canonical)",
+          "descriptors": [
+            "tun-indian-cedar-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "esraj_teak",
+          "name": "Teak (alternative)",
+          "descriptors": [
+            "teak-alternative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "esraj_main_strings",
+      "surface": false,
+      "name": "Main playing strings",
+      "variants": [
+        {
+          "id": "esraj_steel_modern",
+          "default": true,
+          "name": "Steel main + bronze sympathetics (modern canonical)",
+          "descriptors": [
+            "steel-bronze-modern-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected"
+          ]
+        },
+        {
+          "id": "esraj_gut_historical",
+          "name": "Gut (pre-modern Bengali / Sikh historical)",
+          "descriptors": [
+            "gut-pre-modern-bengali-sikh"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shruti-inflected",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

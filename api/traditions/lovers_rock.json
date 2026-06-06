@@ -1,0 +1,170 @@
+{
+  "id": "lovers_rock",
+  "name": "Lovers' rock",
+  "family": "global",
+  "lineage": "UK Black-British soft-soul reggae subgenre that emerged from 1976 onward as the Black British response to Jamaican roots-reggae — codified through Louisa Mark (Caught You in a Lie 1975), Janet Kay (Silly Games 1979, the #2 UK chart breakthrough), Carroll Thompson, Sandra Cross, Brown Sugar, the Investigators production team (Dennis Bovell); female-vocal-led with softer mixing aesthetic and lyrical content centering on female romantic interiority",
+  "recipe": "classic tropical mid-1970s lovers' rock, bass System, reggae diaspora branch, soul R&B functional song doo-wop dc go-go. thick, blues-shouter, chest resonance low mid, narrative. Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard ostinato slow chorale tonewheel organ. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 747,
+  "score": 337.145,
+  "config": {
+    "traditions": [
+      "lovers_rock",
+      "doo_wop",
+      "dc_go_go"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 8.075000000000001,
+          "voice_quality": 5.600000000000001,
+          "voice_vibrato": 0.5249999999999999,
+          "voice_articulation": 4.8950000000000005,
+          "voice_microtone": 3.0500000000000007,
+          "voice_tradition": 7.72,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 5.1450000000000005,
+          "voice_speech_song": 2.925,
+          "voice_ensemble_config": 1.95,
+          "voice_ornament_system": 1.695,
+          "voice_pitch_organization": 1.26,
+          "voice_processing_chain": 3.135,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 4.99,
+          "amp_make": 5.880000000000001,
+          "body_wood": 0.5249999999999999,
+          "neck_wood": 0.5249999999999999,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.345,
+          "string_material": 0.345,
+          "string_gauge": 0.5249999999999999,
+          "bridge": 0.105,
+          "scale_length": 1.0500000000000003,
+          "finish": 0,
+          "string_tuning": 2.6
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 10.2,
+          "amp_make": 7.94,
+          "body_wood": 1.0500000000000003,
+          "pickup_config": 0,
+          "string_type": 8.385,
+          "scale_length_b": 0.5249999999999999,
+          "fretted_or_not": 0.105,
+          "bass_technique": 10.2
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 10.2,
+          "shell_wood": 0.435,
+          "shell_thickness": 0,
+          "bearing_edges": 0.5249999999999999,
+          "drumhead": 0.7899999999999999,
+          "snare_wires": 0.5249999999999999,
+          "cymbal_alloy": 3.385,
+          "cymbal_hammering": 3.785,
+          "cymbal_lathing": 3.245,
+          "cymbal_finish": 0.345,
+          "drum_technique": 10.2
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "slow_chorale",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 5.835,
+          "drawbar_setting": 2.5,
+          "rotary_speed": 5.1450000000000005,
+          "percussion_setting": 1.3,
+          "tonewheel_model": 2.535,
+          "leslie_cabinet_model": 0.6299999999999999
+        }
+      }
+    ],
+    "room": "brixton_uk_lovers_rock_basement",
+    "archetype": "arch_kingston_jamaican_commercial",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": "dub_mixing_aesthetic",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

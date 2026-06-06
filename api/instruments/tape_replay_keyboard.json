@@ -1,0 +1,254 @@
+{
+  "id": "tape_replay_keyboard",
+  "name": "Tape-replay polyphonic keyboard",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 1,
+    "dynamics": 0
+  },
+  "short": "tape-replay keyboard",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        },
+        {
+          "id": "keyboard_arpeggio_sustain_rich",
+          "name": "Arpeggiated sustain-rich",
+          "applies_to": [
+            "grand_piano",
+            "rhodes_electric",
+            "mellotron",
+            "electric_piano_tine",
+            "tape_replay_keyboard",
+            "pipe_organ"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "sustain-rich-overtones"
+          ],
+          "match_tokens": [
+            "arpeggio-decoration",
+            "sustained",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "shoegaze"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tape_voice",
+      "surface": false,
+      "name": "Voice bank",
+      "variants": [
+        {
+          "id": "string_tape",
+          "default": true,
+          "name": "String section tape",
+          "descriptors": [
+            "wobbly",
+            "vintage-orchestral"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "choir_tape",
+          "name": "Choir tape",
+          "descriptors": [
+            "haunted",
+            "wordless",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "flute_tape",
+          "name": "Flute tape",
+          "descriptors": [
+            "breathy",
+            "pastoral",
+            "fragile"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "brass_tape",
+          "name": "Brass tape",
+          "descriptors": [
+            "dignified",
+            "overtone-rich-sustained",
+            "archaic",
+            "brass"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tape_state",
+      "name": "Tape condition",
+      "variants": [
+        {
+          "id": "fresh_tape",
+          "default": true,
+          "name": "Fresh tape",
+          "descriptors": [
+            "fresh",
+            "unworn"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "aged_tape",
+          "name": "Aged / worn tape",
+          "descriptors": [
+            "unstable",
+            "overtone-shifted",
+            "haunting"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tape_voice",
+      "surface": false,
+      "name": "Voice bank",
+      "variants": [
+        {
+          "id": "string_tape",
+          "default": true,
+          "name": "String section tape",
+          "descriptors": [
+            "wobbly",
+            "vintage-orchestral"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "choir_tape",
+          "name": "Choir tape",
+          "descriptors": [
+            "haunted",
+            "wordless",
+            "liturgical"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "flute_tape",
+          "name": "Flute tape",
+          "descriptors": [
+            "breathy",
+            "pastoral",
+            "fragile"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "brass_tape",
+          "name": "Brass tape",
+          "descriptors": [
+            "dignified",
+            "overtone-rich-sustained",
+            "archaic",
+            "brass"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tape_state",
+      "name": "Tape condition",
+      "variants": [
+        {
+          "id": "fresh_tape",
+          "default": true,
+          "name": "Fresh tape",
+          "descriptors": [
+            "fresh",
+            "unworn"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        },
+        {
+          "id": "aged_tape",
+          "name": "Aged / worn tape",
+          "descriptors": [
+            "unstable",
+            "overtone-shifted",
+            "haunting"
+          ],
+          "match_tokens": [
+            "electric",
+            "sample-based"
+          ]
+        }
+      ]
+    }
+  ]
+}

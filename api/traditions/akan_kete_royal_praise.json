@@ -1,0 +1,98 @@
+{
+  "id": "akan_kete_royal_praise",
+  "name": "Akan-Asante kete royal praise music",
+  "family": "global",
+  "lineage": "Akan-Asante royal court-music tradition continuous from pre-colonial Asantehene court-music practice (17th-19th century Asante Empire era) through colonial-period continuous performance into modern Ghanaian Asante cultural-practice; the kete ensemble is the royal-court praise-music ensemble",
+  "recipe": "classic modern akan-asante kete royal praise music, praise Song, sub saharan African branch, African diasporic wedding, west African groove percussion, indigenous ritual devotional yoruba aso ebi wedding music inuit katajjaq throat-singing game. kargyraa, declaimed, tasteful, continuous-phonation. iroko alternative west African talking drum, modern revival iroko west African premium dunun. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 531,
+  "score": 201.141,
+  "config": {
+    "traditions": [
+      "akan_kete_royal_praise",
+      "yoruba_aso_ebi_wedding",
+      "inuit_katajjaq_games"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.8850000000000002,
+          "voice_quality": 14.289999999999992,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 1.7000000000000002,
+          "voice_tradition": 22.165,
+          "voice_mechanism_compound": 1.65,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 4.225,
+          "voice_ensemble_config": 3.2500000000000004,
+          "voice_ornament_system": 6.305000000000001,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.9449999999999998,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "tama_senegal",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 0.28875,
+          "talking_drum_context": 1.69,
+          "talking_drum_shell_wood": 4.680000000000001,
+          "talking_drum_head": 0.435
+        }
+      },
+      {
+        "id": "dunun",
+        "slots": {
+          "dunun_size": "kenkeni",
+          "dunun_bell": "dunun_double_bell",
+          "dunun_shell_wood": "dunun_iroko",
+          "dunun_head": "dunun_cowhide_canonical"
+        },
+        "scores": {
+          "dunun_size": 0.51,
+          "dunun_bell": 1.69,
+          "dunun_shell_wood": 4.680000000000001,
+          "dunun_head": 0.525
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "equal_heptatonic_west_african",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

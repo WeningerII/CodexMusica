@@ -1,0 +1,182 @@
+{
+  "id": "jug_inst",
+  "name": "Jug (blown ceramic / glass jug, bass instrument)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "jug",
+  "parts": [
+    {
+      "id": "jug_material",
+      "name": "Jug material",
+      "variants": [
+        {
+          "id": "jug_ceramic_clay",
+          "default": true,
+          "name": "Ceramic / clay jug (canonical)",
+          "descriptors": [
+            "traditional",
+            "ceramic",
+            "clay"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "jug-band",
+            "memphis-jug-band"
+          ]
+        },
+        {
+          "id": "jug_glass",
+          "name": "Glass jug",
+          "descriptors": [
+            "projecting",
+            "glass"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "jug_metal",
+          "name": "Metal jug (less common)",
+          "descriptors": [
+            "harsh",
+            "rare"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jug_technique",
+      "name": "Blowing technique",
+      "variants": [
+        {
+          "id": "jug_lips_buzzed",
+          "default": true,
+          "name": "Lips-buzzed across opening (canonical)",
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "jug-band"
+          ]
+        },
+        {
+          "id": "jug_humming",
+          "name": "Humming-and-blowing (variant)",
+          "descriptors": [
+            "hummed",
+            "tonal"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "jug_material",
+      "name": "Jug material",
+      "variants": [
+        {
+          "id": "jug_ceramic_clay",
+          "default": true,
+          "name": "Ceramic / clay jug (canonical)",
+          "descriptors": [
+            "traditional",
+            "ceramic",
+            "clay"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "jug-band",
+            "memphis-jug-band"
+          ]
+        },
+        {
+          "id": "jug_glass",
+          "name": "Glass jug",
+          "descriptors": [
+            "projecting",
+            "glass"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "jug_metal",
+          "name": "Metal jug (less common)",
+          "descriptors": [
+            "harsh",
+            "rare"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jug_technique",
+      "name": "Blowing technique",
+      "variants": [
+        {
+          "id": "jug_lips_buzzed",
+          "default": true,
+          "name": "Lips-buzzed across opening (canonical)",
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "jug-band"
+          ]
+        },
+        {
+          "id": "jug_humming",
+          "name": "Humming-and-blowing (variant)",
+          "descriptors": [
+            "hummed",
+            "tonal"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

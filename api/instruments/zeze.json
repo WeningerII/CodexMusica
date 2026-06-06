@@ -1,0 +1,96 @@
+{
+  "id": "zeze",
+  "name": "Zeze (Wagogo board zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "zeze",
+  "parts": [
+    {
+      "id": "zeze_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "zeze_board_zither_multiple_strings_canonical",
+          "default": true,
+          "name": "Board zither with multiple strings (canonical Wagogo central Tanzanian)",
+          "descriptors": [
+            "board-zither-multiple-strings-canonical-wagogo-tanzanian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "wagogo-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zeze_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "zeze_wagogo_non_ritual_canonical",
+          "default": true,
+          "name": "Wagogo non-ritual song accompaniment (canonical)",
+          "descriptors": [
+            "wagogo-non-ritual-canonical-central-tanzania"
+          ],
+          "match_tokens": [
+            "plucked",
+            "wagogo-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zeze_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "zeze_board_zither_multiple_strings_canonical",
+          "default": true,
+          "name": "Board zither with multiple strings (canonical Wagogo central Tanzanian)",
+          "descriptors": [
+            "board-zither-multiple-strings-canonical-wagogo-tanzanian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "wagogo-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zeze_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "zeze_wagogo_non_ritual_canonical",
+          "default": true,
+          "name": "Wagogo non-ritual song accompaniment (canonical)",
+          "descriptors": [
+            "wagogo-non-ritual-canonical-central-tanzania"
+          ],
+          "match_tokens": [
+            "plucked",
+            "wagogo-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

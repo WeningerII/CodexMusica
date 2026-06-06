@@ -1,0 +1,213 @@
+{
+  "id": "imzad",
+  "name": "Imzad (Tuareg single-string bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "imzad",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "imzad_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "imzad_halfgourd",
+          "default": true,
+          "name": "Half-gourd with goatskin",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "gourd",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "desert-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "imzad_string",
+      "name": "String",
+      "variants": [
+        {
+          "id": "imzad_horsehair",
+          "default": true,
+          "name": "Horsehair bundle",
+          "descriptors": [
+            "authentic",
+            "natural-material-resonance",
+            "horsehair"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "imzad_bow",
+      "surface": false,
+      "name": "Bow",
+      "variants": [
+        {
+          "id": "imzad_horsehair_bow",
+          "default": true,
+          "name": "Horsehair bow (canonical Tuareg)",
+          "descriptors": [
+            "horsehair-bow-canonical-tuareg"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "desert-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "imzad_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "imzad_tuareg_women",
+          "default": true,
+          "name": "Tuareg womens canonical solo tradition",
+          "descriptors": [
+            "tuareg-women-canonical-solo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "desert-traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "imzad_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "imzad_halfgourd",
+          "default": true,
+          "name": "Half-gourd with goatskin",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "gourd",
+            "goatskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "desert-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "imzad_string",
+      "name": "String",
+      "variants": [
+        {
+          "id": "imzad_horsehair",
+          "default": true,
+          "name": "Horsehair bundle",
+          "descriptors": [
+            "authentic",
+            "natural-material-resonance",
+            "horsehair"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "imzad_bow",
+      "surface": false,
+      "name": "Bow",
+      "variants": [
+        {
+          "id": "imzad_horsehair_bow",
+          "default": true,
+          "name": "Horsehair bow (canonical Tuareg)",
+          "descriptors": [
+            "horsehair-bow-canonical-tuareg"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "desert-traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "imzad_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "imzad_tuareg_women",
+          "default": true,
+          "name": "Tuareg womens canonical solo tradition",
+          "descriptors": [
+            "tuareg-women-canonical-solo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "desert-traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

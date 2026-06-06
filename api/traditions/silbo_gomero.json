@@ -1,0 +1,79 @@
+{
+  "id": "silbo_gomero",
+  "name": "Silbo Gomero whistled language (UNESCO 2009)",
+  "family": "global",
+  "lineage": "Silbo Gomero whistled-language tradition of La Gomera island, Canary Islands, recognized as UNESCO Intangible Cultural Heritage 2009 — a fully grammatical whistled register of the Spanish language using turbulent lip-and-tongue-formed source (no vocal-fold vibration, distinct from the M3 whistle vocal register) to encode vowels and consonants across the mountain-canyon distances of the island terrain (sound carries 2-5 km across canyon walls); whistled vowels mapped onto two pitches (high and low) and whistled consonants mapped onto two-and-more types of pitch-transition (interrupted vs continuous, with rising vs falling), giving sufficient phonemic-distinction-capacity to transmit any Spanish-language utterance; preserved through the La Gomera school curriculum (1999-onward compulsory instruction) and the ethnographic lineage of Ramón Trujillo who established the linguistic-phonological description in the 1970s-80s; parallel related whistled-language traditions include Sfyria (Antia village Greek), Mazatec (Oaxaca Mexico), Kuşköy (Turkish Black Sea), and the Hmong courtship-whistle traditions",
+  "recipe": "classic silbo gomero whistled language, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, continuous-phonation. lip aperture turbulent source whistled language signal communication whistled voice. canyon. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 455,
+  "score": 256.235,
+  "config": {
+    "traditions": [
+      "silbo_gomero",
+      "shipibo_icaros",
+      "inuit_katajjaq_games"
+    ],
+    "instruments": [
+      {
+        "id": "whistled_voice",
+        "slots": {
+          "whistled_voice_source": "whistled_lip_aperture",
+          "whistled_voice_context": "whistled_voice_signal_communication"
+        },
+        "scores": {
+          "whistled_voice_source": 16.85,
+          "whistled_voice_context": 20.344999999999995
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 7.409999999999999,
+          "voice_quality": 6.615000000000001,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.7950000000000002,
+          "voice_microtone": 3.1,
+          "voice_tradition": 17.744999999999997,
+          "voice_mechanism_compound": 5.849999999999999,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 14.235000000000001,
+          "voice_ensemble_config": 13.780000000000001,
+          "voice_ornament_system": 1.69,
+          "voice_pitch_organization": 7.285,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 5.719999999999999
+        }
+      }
+    ],
+    "room": "canyon",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

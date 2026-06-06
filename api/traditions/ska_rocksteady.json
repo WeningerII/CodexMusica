@@ -1,0 +1,233 @@
+{
+  "id": "ska_rocksteady",
+  "name": "Ska and rocksteady",
+  "family": "global",
+  "lineage": "Jamaican ska (1959-1965, fast-tempo guitar-upbeat horn-section-foregrounded dance music) and its slower-tempo derivation rocksteady (1965-1968) — codified at Studio One, Treasure Isle, and Federal through the Skatalites (Tommy McCook, Don Drummond, Roland Alphonso, Lloyd Knibb, the ska house band), Prince Buster, Toots and the Maytals, the Wailers (early-period), Alton Ellis (Get Ready Rocksteady), Ken Boothe, the Heptones; preceded reggae and remains foundational to the broader Jamaican popular music lineage",
+  "recipe": "classic tropical mid-1960s ska and rocksteady, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. melodic, blues inflected, Yoruba tonal vocal, m1 with m0 pulse borrowing. fast decay low resonance percussive ebony single coil electric guitar, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, pin lathed tonal groove brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, heavy one piece matched to monette horn trumpet, saxophone, deep foundational bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 753,
+  "score": 255.175,
+  "config": {
+    "traditions": [
+      "ska_rocksteady",
+      "calypso",
+      "zydeco"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 0.7,
+          "amp_make": 1.15,
+          "body_wood": 0.195,
+          "neck_wood": 0.195,
+          "fretboard": 1.09,
+          "pickup_magnet": 0.15,
+          "string_material": 0.15,
+          "string_gauge": 0.195,
+          "bridge": 1,
+          "scale_length": 0.38999999999999996,
+          "finish": 0,
+          "string_tuning": 0.375
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "electric_technique": 3.995,
+          "amp_make": 2.4700000000000006,
+          "body_wood": 1.195,
+          "pickup_config": 1,
+          "string_type": 2.99,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.09,
+          "bass_technique": 3.995
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "brass_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 10.659999999999997,
+          "shell_wood": 0.195,
+          "shell_thickness": 0,
+          "bearing_edges": 0.195,
+          "drumhead": 0.5449999999999999,
+          "snare_wires": 0.195,
+          "cymbal_alloy": 0.59,
+          "cymbal_hammering": -0.035,
+          "cymbal_lathing": 1.17,
+          "cymbal_finish": 0.3,
+          "drum_technique": 10.659999999999997
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "drawbar_setting": 0.7149999999999999,
+          "rotary_speed": 0.8999999999999999,
+          "percussion_setting": 0.39,
+          "tonewheel_model": 1.1049999999999998,
+          "leslie_cabinet_model": 0.195
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_ska_skank",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 20.999999999999993,
+          "brass_size": 0.24,
+          "trumpet_mouthpiece": 5.3950000000000005,
+          "brass_mute": 0,
+          "trumpet_technique": 20.999999999999993,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.78
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_split_tone_overblown",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 20.999999999999993,
+          "sax_size": 0.195,
+          "sax_reed": 0.15,
+          "sax_body_alloy": 0.325,
+          "sax_mouthpiece": 0.15,
+          "sax_technique": 0.25,
+          "sax_maker_school": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "twang_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 0.3,
+          "voice_vibrato": 1.19,
+          "voice_articulation": 0.39,
+          "voice_microtone": 0.63,
+          "voice_tradition": 1.885,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 11.114999999999998,
+          "voice_ensemble_config": 10.659999999999997,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 3.875,
+          "voice_multitrack_stack": 1.23
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 20.999999999999993,
+          "trombone_type": 1,
+          "trombone_mouthpiece": 3.425,
+          "trombone_mute": 0,
+          "trombone_technique": 2.08,
+          "trombone_bell_metal": 0.39,
+          "trombone_maker_school": 0.78
+        }
+      }
+    ],
+    "room": "kingston_studio_one_brentford_road",
+    "archetype": "arch_kingston_jamaican_commercial",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "id": "liquid_dnb",
+  "name": "Liquid drum-and-bass (mid-1990s atmospheric jazz-influenced D&B)",
+  "family": "electronic",
+  "lineage": "2000s and 2010s drum-and-bass subgenre extending atmospheric drum-and-bass with explicit soul-and-jazz vocal-feature emphasis and broader pop-crossover-friendly arrangement. Hospital Records (founded 1996, peak influence 2005-onward) anchored the canonical liquid drum-and-bass institutional infrastructure; High Contrast, Logistics, London Elektricity, Netsky, and the broader contemporary Hospital roster define the canonical liquid drum-and-bass aesthetic.",
+  "recipe": "classic liquid drum-and-bass, bass System, bass descendants branch, American jazz smooth vocal modern vocal jazz. thick, low dynamic level, chest resonance low mid, narrative. TR-808, sub bass analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 491,
+  "score": 289.079,
+  "config": {
+    "traditions": [
+      "liquid_dnb",
+      "smooth_jazz_80s",
+      "modern_vocal_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 13.631499999999997,
+          "voice_quality": 2.650000000000002,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.1000000000000005,
+          "voice_microtone": 10.549999999999997,
+          "voice_tradition": 9.75,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 6.189500000000001,
+          "voice_speech_song": 14.755000000000006,
+          "voice_ensemble_config": 14.690000000000005,
+          "voice_ornament_system": 1.95,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 3.8,
+          "voice_multitrack_stack": 5.742500000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 11.895000000000003,
+          "drum_machine_808_context": 11.960000000000004,
+          "tr808_production_origin": 0.7149999999999994
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 11.765,
+          "oscillator": 11.960000000000004,
+          "filter_topology": 13.260000000000003,
+          "envelope": 0.25999999999999995,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 3.8999999999999995,
+          "grand_piano_size": 2.9804999999999997,
+          "grand_piano_brand": 2.9804999999999997,
+          "piano_hammer": 3.5,
+          "piano_rim": 3.29,
+          "piano_soundboard": 3.4005,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": -0.035
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

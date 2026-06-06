@@ -1,0 +1,412 @@
+{
+  "id": "xalam",
+  "name": "Xalam / tehardent (Sahelian lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "xalam",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ],
+          "default": true
+        },
+        {
+          "id": "plucked_call_and_response",
+          "name": "Call-and-response",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "akonting",
+            "banjo_5_string",
+            "sintir",
+            "xalam"
+          ],
+          "descriptors": [
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "call-response",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "griot",
+            "west-african"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "xalam_strings",
+      "surface": false,
+      "name": "String count",
+      "variants": [
+        {
+          "id": "xalam_five",
+          "default": true,
+          "name": "Five-string Wolof (canonical)",
+          "descriptors": [
+            "standard",
+            "Senegambian",
+            "griot-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_four",
+          "name": "Four-string",
+          "descriptors": [
+            "regional",
+            "older-form",
+            "variant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_three",
+          "name": "Three-string archaic",
+          "descriptors": [
+            "oldest",
+            "rare",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xalam_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "xalam_praise",
+          "default": true,
+          "name": "Griot praise (canonical)",
+          "descriptors": [
+            "traditional",
+            "oral-history",
+            "genealogical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_mbalax",
+          "name": "Mbalax (Senegalese pop)",
+          "descriptors": [
+            "modern",
+            "fused",
+            "urban"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_pan_african",
+          "name": "Pan-African session",
+          "descriptors": [
+            "collaborative",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xalam_body",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "xalam_gourd_skin",
+          "default": true,
+          "name": "Gourd body with cowhide top",
+          "descriptors": [
+            "gourd-cowhide",
+            "canonical-sahelian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_carved_wood",
+          "name": "Carved wood body (modern)",
+          "descriptors": [
+            "carved-wood",
+            "modern-luthier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xalam_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "xalam_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_gut_historical",
+          "name": "Gut (pre-modern)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "plucked_traditional_technique",
+      "default_variant": "plucked_fingerpicked"
+    },
+    {
+      "id": "xalam_strings",
+      "surface": false,
+      "name": "String count",
+      "variants": [
+        {
+          "id": "xalam_five",
+          "default": true,
+          "name": "Five-string Wolof (canonical)",
+          "descriptors": [
+            "standard",
+            "Senegambian",
+            "griot-traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_four",
+          "name": "Four-string",
+          "descriptors": [
+            "regional",
+            "older-form",
+            "variant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_three",
+          "name": "Three-string archaic",
+          "descriptors": [
+            "oldest",
+            "rare",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xalam_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "xalam_praise",
+          "default": true,
+          "name": "Griot praise (canonical)",
+          "descriptors": [
+            "traditional",
+            "oral-history",
+            "genealogical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_mbalax",
+          "name": "Mbalax (Senegalese pop)",
+          "descriptors": [
+            "modern",
+            "fused",
+            "urban"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_pan_african",
+          "name": "Pan-African session",
+          "descriptors": [
+            "collaborative",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xalam_body",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "xalam_gourd_skin",
+          "default": true,
+          "name": "Gourd body with cowhide top",
+          "descriptors": [
+            "gourd-cowhide",
+            "canonical-sahelian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_carved_wood",
+          "name": "Carved wood body (modern)",
+          "descriptors": [
+            "carved-wood",
+            "modern-luthier"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xalam_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "xalam_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern canonical)",
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ]
+        },
+        {
+          "id": "xalam_gut_historical",
+          "name": "Gut (pre-modern)",
+          "descriptors": [
+            "gut-pre-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

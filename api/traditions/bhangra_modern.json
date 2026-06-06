@@ -1,0 +1,111 @@
+{
+  "id": "bhangra_modern",
+  "name": "Bhangra (modern)",
+  "family": "global",
+  "lineage": "Modern bhangra — the post-1980s British-Asian diaspora extension of the originating Punjab village male-harvest-dance tradition into urban electronic pop format, codified through Bally Sagoo, Apache Indian, Malkit Singh, Bally Jagpal, the Punjabi MC dance-floor crossover era (the 1998 Mundian To Bach Ke that found its global breakthrough through Jay-Z 2003 remix), and the broader UK-Punjab Sangeeta / Multitone label catalogs",
+  "recipe": "classic mid-1980s bhangra, functional Song, south Asian pop branch, west African groove percussion hiplife jùjú. thick, rap, tasteful, equal tempered. synthetic synthetic remo modern stable bolt tuned modern concert stable dholak, synthetic gut pre modern Punjabi tumbi, behringer rd 8 modern clone analog circuit reproduction TR-808. punjab village bhangra dhol outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 501,
+  "score": 165.706,
+  "config": {
+    "traditions": [
+      "bhangra_modern",
+      "hiplife",
+      "juju"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 10.985,
+          "voice_quality": 2.21,
+          "voice_vibrato": 2.5193749999999997,
+          "voice_articulation": 0.39,
+          "voice_microtone": 9.489499999999998,
+          "voice_tradition": 16.348125,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 5.525,
+          "voice_ensemble_config": 3.5100000000000002,
+          "voice_ornament_system": 2.795,
+          "voice_pitch_organization": 2.2,
+          "voice_processing_chain": 8.019375,
+          "voice_multitrack_stack": 4.42
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_synthetic",
+          "dholak_head": "dholak_synthetic_head",
+          "dholak_tensioning": "dholak_bolt_tuned"
+        },
+        "scores": {
+          "dholak_use": 0.78,
+          "dholak_construction": 2.5193749999999997,
+          "dholak_head": 2.5193749999999997,
+          "dholak_tensioning": 2.57
+        }
+      },
+      {
+        "id": "tumbi",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "tumbi_construction": "tumbi_synthetic",
+          "tumbi_context": "tumbi_fusion",
+          "tumbi_string": "tumbi_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.2006250000000005,
+          "tumbi_construction": 2.8831249999999997,
+          "tumbi_context": 2.833125,
+          "tumbi_string": 5.150875
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 0.585,
+          "drum_machine_808_context": 5.785,
+          "tr808_production_origin": 2.6693749999999996
+        }
+      }
+    ],
+    "room": "punjab_village_bhangra_dhol_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "shruti_22",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

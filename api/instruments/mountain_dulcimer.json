@@ -1,0 +1,408 @@
+{
+  "id": "mountain_dulcimer",
+  "name": "Appalachian (mountain) dulcimer",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "mountain dulcimer",
+  "parts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "acoustic_resonator_steel",
+            "mountain_dulcimer",
+            "cittern"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "narrative"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "singer-songwriter",
+            "folk",
+            "folk-revival",
+            "confessional",
+            "ballad-poetry"
+          ],
+          "default": true
+        },
+        {
+          "id": "acoustic_drone_modal",
+          "name": "Drop-tuned drone",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mandolin",
+            "mandola",
+            "mountain_dulcimer",
+            "cittern",
+            "autoharp"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "britfolk"
+          ]
+        },
+        {
+          "id": "acoustic_clawhammer",
+          "name": "Clawhammer / frailing",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "mountain_dulcimer"
+          ],
+          "descriptors": [
+            "clawhammer",
+            "frailed"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "old-time",
+            "appalachian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "dulcimer_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "dulcimer_3",
+          "name": "Three-string traditional",
+          "descriptors": [
+            "archaic",
+            "drone-suited",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dulcimer_4",
+          "default": true,
+          "name": "Four-string (doubled melody)",
+          "descriptors": [
+            "ringing",
+            "traditional",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "modal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcimer_tuning",
+      "surface": false,
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "mixolydian_tuning",
+          "default": true,
+          "name": "Mixolydian (D-A-d)",
+          "descriptors": [
+            "modal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "ionian_tuning",
+          "surface": false,
+          "name": "Ionian (D-A-A)",
+          "descriptors": [
+            "major-scale",
+            "accessible",
+            "revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "modal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcimer_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "dulcimer_walnut_canonical",
+          "default": true,
+          "name": "Walnut top + walnut back (canonical Appalachian)",
+          "descriptors": [
+            "walnut-canonical-appalachian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dulcimer_butternut",
+          "name": "Butternut (warmer alternative)",
+          "descriptors": [
+            "butternut-warmer-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dulcimer_cherry",
+          "name": "Cherry (sweeter)",
+          "descriptors": [
+            "cherry-sweeter"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dulcimer_spruce_top",
+          "name": "Spruce top + walnut back (modern crossover)",
+          "descriptors": [
+            "spruce-walnut-modern-crossover"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcimer_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dulcimer_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dulcimer_phosphor_bronze",
+          "name": "Phosphor bronze (warmer alternative)",
+          "descriptors": [
+            "phosphor-bronze-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "acoustic_technique",
+      "default_variant": "acoustic_fingerpicked"
+    },
+    {
+      "id": "dulcimer_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "dulcimer_3",
+          "name": "Three-string traditional",
+          "descriptors": [
+            "archaic",
+            "drone-suited",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dulcimer_4",
+          "default": true,
+          "name": "Four-string (doubled melody)",
+          "descriptors": [
+            "ringing",
+            "traditional",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "modal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcimer_tuning",
+      "surface": false,
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "mixolydian_tuning",
+          "default": true,
+          "name": "Mixolydian (D-A-d)",
+          "descriptors": [
+            "modal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "ionian_tuning",
+          "surface": false,
+          "name": "Ionian (D-A-A)",
+          "descriptors": [
+            "major-scale",
+            "accessible",
+            "revival"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "modal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcimer_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "dulcimer_walnut_canonical",
+          "default": true,
+          "name": "Walnut top + walnut back (canonical Appalachian)",
+          "descriptors": [
+            "walnut-canonical-appalachian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dulcimer_butternut",
+          "name": "Butternut (warmer alternative)",
+          "descriptors": [
+            "butternut-warmer-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dulcimer_cherry",
+          "name": "Cherry (sweeter)",
+          "descriptors": [
+            "cherry-sweeter"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dulcimer_spruce_top",
+          "name": "Spruce top + walnut back (modern crossover)",
+          "descriptors": [
+            "spruce-walnut-modern-crossover"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dulcimer_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dulcimer_steel_modern",
+          "default": true,
+          "name": "Steel (modern canonical)",
+          "descriptors": [
+            "steel-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dulcimer_phosphor_bronze",
+          "name": "Phosphor bronze (warmer alternative)",
+          "descriptors": [
+            "phosphor-bronze-warmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

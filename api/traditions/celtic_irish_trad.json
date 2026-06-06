@@ -1,0 +1,193 @@
+{
+  "id": "celtic_irish_trad",
+  "name": "Irish trad session",
+  "family": "vernacular",
+  "lineage": "Irish traditional instrumental dance-tune session tradition — modal melodies (Dorian and Mixolydian dominant) played on fiddle, tin whistle, flute, uilleann pipes, button accordion, concertina, bodhrán, and (in the post-Bothy-Band revival era) bouzouki and guitar in DADGAD tuning — revived from the 1960s-70s through Sean Ó Riada, Ceoltóirí Chualann, the Chieftains, the Bothy Band, Planxty, Altan, and the broader Doolin / Clare / Galway pub-session circuit",
+  "recipe": "classic North American mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal polish village fiddle huayno. double stops fiddle, melodic tin whistle, flute, leather drone like accordion, dadgad tuning parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed rowsome dublin tradition uilleann pipes. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 789,
+  "score": 168.175,
+  "config": {
+    "traditions": [
+      "celtic_irish_trad",
+      "polish_village_fiddle",
+      "andean_huayno"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_tasto"
+        },
+        "scores": {
+          "bowed_technique": 5.295,
+          "fiddle_strings": 0.78,
+          "fiddle_bow": 0.975,
+          "fiddle_mute": 0.3,
+          "fiddle_articulation": 0.42
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "d_whistle",
+          "whistle_ornament": "cut_ornament",
+          "whistle_body_material": "whistle_wood_premium"
+        },
+        "scores": {
+          "wind_articulation": 5.245,
+          "whistle_key": 6.098214285714285,
+          "whistle_ornament": 3.5649999999999995,
+          "whistle_body_material": 0.75
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "flute_size": "alto_flute",
+          "flute_material": "wooden_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": 0.26,
+          "flute_size": 0.3107142857142857,
+          "flute_material": 0.39,
+          "flute_technique": 0.39,
+          "flute_maker_school": 0.7007142857142857
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 5.720000000000001,
+          "accordion_reed_material": 0.39,
+          "musette_offset": 3.5649999999999995,
+          "reed_config": 0.42,
+          "bellows": 3.5649999999999995,
+          "voicing_chamber": 0.22799999999999998,
+          "accordion_maker_school": 0.645
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "dadgad",
+          "top_wood_parlor": "mahogany_top_p",
+          "back_sides_parlor": "rosewood_bs_p",
+          "string_acoustic_parlor": "coated_nano_p"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "string_tuning": 10.59,
+          "top_wood_parlor": 0.39,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.39
+        }
+      },
+      {
+        "id": "celtic_harp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "celtic_harp_levers": "lever_camac",
+          "celtic_harp_strings": "celtic_gut"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "celtic_harp_levers": 0.39,
+          "celtic_harp_strings": 4.9399999999999995
+        }
+      },
+      {
+        "id": "concertina_english",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "concertina_english_config": "concertina_english_treble_48",
+          "concertina_english_context": "concertina_english_english_folk"
+        },
+        "scores": {
+          "free_reed_technique": 5.720000000000001,
+          "concertina_english_config": 1.0277142857142856,
+          "concertina_english_context": 3.6399999999999997
+        }
+      },
+      {
+        "id": "bodhran",
+        "slots": {
+          "bodhran_play": "bodhran_kerry",
+          "bodhran_skin": "bodhran_goatskin",
+          "bodhran_shell_wood": "bodhran_ash_traditional"
+        },
+        "scores": {
+          "bodhran_play": 3.6399999999999997,
+          "bodhran_skin": 8.245,
+          "bodhran_shell_wood": 6.918857142857142
+        }
+      },
+      {
+        "id": "tin_whistle_low",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "tin_whistle_low_pitch": "tin_whistle_low_low_d",
+          "tin_whistle_low_context": "tin_whistle_low_trad"
+        },
+        "scores": {
+          "wind_articulation": 5.245,
+          "tin_whistle_low_pitch": 6.098214285714285,
+          "tin_whistle_low_context": 3.8999999999999995
+        }
+      },
+      {
+        "id": "uilleann_pipes",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "uilleann_set": "full_set",
+          "uilleann_pipes_pitch": "uilleann_pipes_flat",
+          "uilleann_chanter_wood": "uilleann_african_blackwood",
+          "uilleann_reed": "uilleann_cane_canonical",
+          "uilleann_bag": "uilleann_leather_canonical",
+          "uilleann_lineage": "uilleann_rowsome"
+        },
+        "scores": {
+          "wind_articulation": 5.245,
+          "uilleann_set": 5.003928571428571,
+          "uilleann_pipes_pitch": 4.029999999999999,
+          "uilleann_chanter_wood": 3.3149999999999995,
+          "uilleann_reed": 2.9,
+          "uilleann_bag": 2.9,
+          "uilleann_lineage": 2.9899999999999998
+        }
+      }
+    ],
+    "room": "irish_pub_doolin_clare_session",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

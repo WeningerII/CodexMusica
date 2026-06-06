@@ -1,0 +1,68 @@
+{
+  "id": "russian_volga_boat_song",
+  "name": "Russian Volga boat-haulers' work song (бурлацкая песня)",
+  "family": "global",
+  "lineage": "Russian Volga boat-haulers (бурлаки burlaki) work-song tradition documented from 17th-19th century Russian river-haulage-laborer practice (the burlaki towed cargo-barges upstream against the Volga current by rope-and-shoulder before steam-tug-substitution in the 1860s-1880s) through 19th-century Russian-Romantic-era documentation into 20th-century revival; the canonical \"Эй, ухнем!\" (Ey, ukhnem!, \"Hey, heave-ho!\") is the foundational repertoire",
+  "recipe": "classic mid-1860s russian volga boat-haulers' work song, sea Shanty, north Southeast Asian baltic branch, Slavic balkan field work, European protest song, Slavic bard ballad poetry italian canti partigiani russian zhnitvenye pesni. low dynamic level, tasteful, unrestrained, Mediterranean demotic vocal. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 442,
+  "score": 93.735,
+  "config": {
+    "traditions": [
+      "russian_volga_boat_song",
+      "italian_canti_partigiani",
+      "russian_zhnitvenye"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 4.875,
+          "voice_vibrato": 1.1700000000000002,
+          "voice_articulation": 3.795,
+          "voice_microtone": 0.045,
+          "voice_tradition": 4.484999999999999,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.7849999999999999,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 1.95,
+          "voice_ornament_system": 0.6499999999999999,
+          "voice_pitch_organization": 3.795,
+          "voice_processing_chain": 2.08,
+          "voice_multitrack_stack": 0.78
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "russian_minor_estrada_chanson",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

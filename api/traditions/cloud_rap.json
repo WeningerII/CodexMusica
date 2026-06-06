@@ -1,0 +1,100 @@
+{
+  "id": "cloud_rap",
+  "name": "Cloud rap",
+  "family": "hip_hop",
+  "lineage": "Atmospheric-trap subgenre codified through early-2010s East Coast underground hip-hop — washed-out reverbed beats with extended ambient pads, hi-pass-filtered drums, atmospheric-vocal-treatment with heavy reverb-and-delay; A$AP Rocky\\u2019s LiveLoveA$AP (2011), Lil B, and the broader Soundcloud-era post-blog-rap aesthetic",
+  "recipe": "classic Southern American 2010-2013 cloud rap, mc Rhythm, modern branch, ambient experimental electric witch house vaporwave aesthetic. thick, rap, tasteful, narrative. drum machine analog, pad like pad analog synth. tape echo chamber. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 360,
+  "score": 134.675,
+  "config": {
+    "traditions": [
+      "cloud_rap",
+      "witch_house_2010s",
+      "vapor_aesthetic"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.54,
+          "voice_quality": 12.44,
+          "voice_vibrato": 1.65,
+          "voice_articulation": 4.949999999999999,
+          "voice_microtone": 0.95,
+          "voice_tradition": 7.685,
+          "voice_mechanism_compound": 3.769999999999999,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 12.389999999999997,
+          "voice_ensemble_config": 5.589999999999998,
+          "voice_ornament_system": 1.1049999999999998,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 11.099999999999998,
+          "voice_multitrack_stack": 3.575
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 1.65,
+          "snare_voice": 1.65,
+          "hat_voice": 0,
+          "shuffle_quantize": 1.65
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "saw_single",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 8.434999999999999,
+          "oscillator": 1.3,
+          "filter_topology": 0.045,
+          "envelope": 3.3799999999999994,
+          "modulation": 0.045
+        }
+      }
+    ],
+    "room": "tape_echo_chamber",
+    "archetype": "arch_atlanta_trap_2010s",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "cloud_rap_aesthetic",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

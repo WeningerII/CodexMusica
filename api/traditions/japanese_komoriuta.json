@@ -1,0 +1,68 @@
+{
+  "id": "japanese_komoriuta",
+  "name": "Japanese komoriuta (子守唄, cradle song)",
+  "family": "global",
+  "lineage": "Japanese cradle-song tradition continuous from Edo-period (and pre-Edo) domestic-vocal practice through Meiji-and-Showa-era folksong collection (Yanagida Kunio, Machida Kashō) into modern Japanese domestic singing; distinct regional variants documented in Itsuki (Kumamoto), Chūgoku, Akita, Edo, and Takeda",
+  "recipe": "classic modern japanese komoriuta, lullaby, east Asian branch, east Asian pop functional song, east Asian art music, vocal drone modal shidaiqu enka. thick, chest mix belt, melodic, continuous-phonation. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 357,
+  "score": 216.405,
+  "config": {
+    "traditions": [
+      "japanese_komoriuta",
+      "shidaiqu",
+      "enka"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.3799999999999994,
+          "voice_quality": 0.6399999999999999,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 1.3,
+          "voice_microtone": 3.3799999999999994,
+          "voice_tradition": 34.905,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1,
+          "voice_speech_song": 9.294999999999998,
+          "voice_ensemble_config": 5.329999999999999,
+          "voice_ornament_system": 5.8500000000000005,
+          "voice_pitch_organization": 1.45,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 3.3799999999999994
+        }
+      }
+    ],
+    "room": "tatami_parlor_japanese",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "japanese_in_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "id": "marimba_orchestral",
+  "name": "Marimba (orchestral)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "marimba",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_mallets_orchestral",
+          "default": true,
+          "name": "Mallets orchestral",
+          "applies_to": [
+            "marimba_orchestral",
+            "vibraphone",
+            "xylophone",
+            "glockenspiel",
+            "timpani"
+          ],
+          "descriptors": [
+            "mallets"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "marimba_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "marimba_4_octave",
+          "default": true,
+          "name": "4-octave",
+          "descriptors": [
+            "standard",
+            "versatile",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "marimba_5_octave",
+          "name": "5-octave concert",
+          "descriptors": [
+            "extended",
+            "virtuoso",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimba_orchestral_bar",
+      "name": "Bar material",
+      "variants": [
+        {
+          "id": "marimba_orchestral_honduran",
+          "default": true,
+          "name": "Honduran rosewood (canonical)",
+          "descriptors": [
+            "standard",
+            "traditional",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "marimba_orchestral_padauk",
+          "name": "Padauk",
+          "descriptors": [
+            "sharp",
+            "treble-extended",
+            "alternative",
+            "padauk"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack",
+            "mallets"
+          ]
+        },
+        {
+          "id": "marimba_orchestral_synthetic",
+          "name": "Synthetic Kelon",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "synthetic",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "marimba_size",
+      "surface": false,
+      "name": "Size class",
+      "variants": [
+        {
+          "id": "marimba_4_octave",
+          "default": true,
+          "name": "4-octave",
+          "descriptors": [
+            "standard",
+            "versatile",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "marimba_5_octave",
+          "name": "5-octave concert",
+          "descriptors": [
+            "extended",
+            "virtuoso",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimba_orchestral_bar",
+      "name": "Bar material",
+      "variants": [
+        {
+          "id": "marimba_orchestral_honduran",
+          "default": true,
+          "name": "Honduran rosewood (canonical)",
+          "descriptors": [
+            "standard",
+            "traditional",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack",
+            "mallets",
+            "woody"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "marimba_orchestral_padauk",
+          "name": "Padauk",
+          "descriptors": [
+            "sharp",
+            "treble-extended",
+            "alternative",
+            "padauk"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack",
+            "mallets"
+          ]
+        },
+        {
+          "id": "marimba_orchestral_synthetic",
+          "name": "Synthetic Kelon",
+          "descriptors": [
+            "durable",
+            "consistent",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "synthetic",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

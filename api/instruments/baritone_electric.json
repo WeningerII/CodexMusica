@@ -1,0 +1,721 @@
+{
+  "id": "baritone_electric",
+  "name": "Baritone electric guitar",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "baritone electric",
+  "parts": [
+    {
+      "id": "electric_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "electric_clean_strummed",
+          "default": true,
+          "name": "Clean strummed",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "twelve_string_electric",
+            "archtop_jazz",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "clean",
+            "strummed"
+          ],
+          "match_tokens": [
+            "electric",
+            "open-chord-ringing-overtones",
+            "picked"
+          ],
+          "canonical_tags": [
+            "pop",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "electric_palm_muted_chug",
+          "name": "Palm-muted chug",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "palm-muted",
+            "percussive"
+          ],
+          "match_tokens": [
+            "electric",
+            "muted",
+            "chugging-rhythm",
+            "picked"
+          ],
+          "canonical_tags": [
+            "metal",
+            "punk"
+          ]
+        },
+        {
+          "id": "electric_arpeggiated_clean",
+          "name": "Arpeggiated clean",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "twelve_string_electric",
+            "archtop_jazz",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "arpeggiated",
+            "clean"
+          ],
+          "match_tokens": [
+            "electric",
+            "arpeggio-decoration",
+            "picked"
+          ],
+          "canonical_tags": [
+            "shoegaze",
+            "post-punk",
+            "indie"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "amp_make",
+      "name": "Amplifier archetype",
+      "variants": [
+        {
+          "id": "amp_unspecified",
+          "default": true,
+          "name": "Unspecified",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass",
+            "pedal_steel"
+          ],
+          "descriptors": [],
+          "match_tokens": [
+            "electric"
+          ]
+        },
+        {
+          "id": "amp_modern_modeling",
+          "name": "Modeling amplifier (Kemper / Fractal / Katana)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "archtop_jazz",
+            "twelve_string_electric",
+            "baritone_electric",
+            "electric_bass",
+            "semi_hollow_bass",
+            "short_scale_bass",
+            "fretless_bass"
+          ],
+          "descriptors": [
+            "modeled-amp",
+            "digital-amplification",
+            "profile-based",
+            "modern-rig"
+          ],
+          "match_tokens": [
+            "electric"
+          ],
+          "canonical_tags": [
+            "djent",
+            "modern-metal"
+          ]
+        },
+        {
+          "id": "amp_british_marshall_jcm800",
+          "name": "Marshall JCM800 master-volume (British 80s metal/punk stack)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "marshall-jcm800-amp",
+            "british-80s-rock-amp",
+            "master-volume-overdrive",
+            "el34-stack-saturation"
+          ],
+          "match_tokens": [
+            "electric",
+            "high-gain",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "thrash-metal",
+            "hair-metal",
+            "punk",
+            "hardcore-punk"
+          ]
+        },
+        {
+          "id": "amp_british_orange",
+          "name": "Orange OR120 / Rockerverb (British heavy crunch)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "baritone_electric",
+            "electric_bass"
+          ],
+          "descriptors": [
+            "orange-amp",
+            "british-heavy-crunch",
+            "thick-mid-low",
+            "sludgy-character"
+          ],
+          "match_tokens": [
+            "electric",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "stoner-metal",
+            "sludge",
+            "doom",
+            "noise-rock"
+          ]
+        },
+        {
+          "id": "amp_mesa_dual_rectifier",
+          "name": "Mesa/Boogie Dual Rectifier (modern California high-gain)",
+          "applies_to": [
+            "electric_guitar_single_coil",
+            "electric_guitar_humbucker",
+            "semi_hollow",
+            "baritone_electric"
+          ],
+          "descriptors": [
+            "mesa-dual-rectifier-amp",
+            "california-modern-saturation",
+            "scooped-mid-modern-metal",
+            "multi-mode-rectifier"
+          ],
+          "match_tokens": [
+            "electric",
+            "high-gain",
+            "overdriven",
+            "tube-amplification"
+          ],
+          "canonical_tags": [
+            "nu-metal",
+            "modern-metal",
+            "djent"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "baritone_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "baritone_surf",
+          "name": "Surf / spaghetti western",
+          "descriptors": [
+            "twangy",
+            "low",
+            "character"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_metal",
+          "default": true,
+          "name": "Modern metal (downtuned)",
+          "descriptors": [
+            "contemporary"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baritone_electric_tuning",
+      "surface": false,
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "baritone_electric_b_standard",
+          "default": true,
+          "name": "Standard baritone (B-B)",
+          "descriptors": [
+            "common"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_electric_drop_a",
+          "name": "Drop-A",
+          "descriptors": [
+            "heavier-music",
+            "metal-context",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_electric_c_standard",
+          "name": "C-standard",
+          "descriptors": [
+            "middle-ground",
+            "flexible",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baritone_electric_scale",
+      "surface": false,
+      "name": "Scale length",
+      "variants": [
+        {
+          "id": "baritone_27_scale",
+          "default": true,
+          "name": "27\" baritone scale (Music Man, Gretsch Baritone)",
+          "descriptors": [
+            "27-inch",
+            "short-baritone",
+            "tight-clear-low-end"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_28_scale",
+          "name": "28.625\" (Fender Bass VI / Squier Bass VI)",
+          "descriptors": [
+            "28-625-inch",
+            "bass-vi-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_30_scale",
+          "name": "30\"+ (extended modern metal)",
+          "descriptors": [
+            "30-inch-plus",
+            "extended-baritone",
+            "metal-djent"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baritone_electric_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "baritone_nickel_plated",
+          "default": true,
+          "name": "Nickel-plated baritone set (.013-.062 typical)",
+          "descriptors": [
+            "nickel-plated-steel",
+            "baritone-gauge",
+            "medium-heavy"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_stainless_heavy",
+          "name": "Stainless steel heavy (drop-tune metal)",
+          "descriptors": [
+            "stainless-steel",
+            "heavy-gauge",
+            "drop-tuned"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        },
+        {
+          "id": "baritone_pure_nickel_surf",
+          "name": "Pure nickel surf-twang (Duane Eddy canon)",
+          "descriptors": [
+            "pure-nickel",
+            "surf-twang",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baritone_electric_pickup",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "baritone_dual_humbucker",
+          "default": true,
+          "name": "Dual humbucker (modern metal)",
+          "descriptors": [
+            "dual-humbucker",
+            "high-output"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        },
+        {
+          "id": "baritone_single_coil_jaguar",
+          "name": "Single-coil (Fender Bass VI / Jaguar canon)",
+          "descriptors": [
+            "single-coil",
+            "jaguar-bass-vi-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "surf"
+          ]
+        },
+        {
+          "id": "baritone_p90",
+          "name": "P-90 (Gretsch / Danelectro)",
+          "descriptors": [
+            "p90",
+            "gretsch-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "baritone_use",
+      "surface": false,
+      "name": "Use",
+      "variants": [
+        {
+          "id": "baritone_surf",
+          "name": "Surf / spaghetti western",
+          "descriptors": [
+            "twangy",
+            "low",
+            "character"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_metal",
+          "default": true,
+          "name": "Modern metal (downtuned)",
+          "descriptors": [
+            "contemporary"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baritone_electric_tuning",
+      "surface": false,
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "baritone_electric_b_standard",
+          "default": true,
+          "name": "Standard baritone (B-B)",
+          "descriptors": [
+            "common"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_electric_drop_a",
+          "name": "Drop-A",
+          "descriptors": [
+            "heavier-music",
+            "metal-context",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_electric_c_standard",
+          "name": "C-standard",
+          "descriptors": [
+            "middle-ground",
+            "flexible",
+            "modern"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baritone_electric_scale",
+      "surface": false,
+      "name": "Scale length",
+      "variants": [
+        {
+          "id": "baritone_27_scale",
+          "default": true,
+          "name": "27\" baritone scale (Music Man, Gretsch Baritone)",
+          "descriptors": [
+            "27-inch",
+            "short-baritone",
+            "tight-clear-low-end"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_28_scale",
+          "name": "28.625\" (Fender Bass VI / Squier Bass VI)",
+          "descriptors": [
+            "28-625-inch",
+            "bass-vi-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_30_scale",
+          "name": "30\"+ (extended modern metal)",
+          "descriptors": [
+            "30-inch-plus",
+            "extended-baritone",
+            "metal-djent"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baritone_electric_strings",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "baritone_nickel_plated",
+          "default": true,
+          "name": "Nickel-plated baritone set (.013-.062 typical)",
+          "descriptors": [
+            "nickel-plated-steel",
+            "baritone-gauge",
+            "medium-heavy"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "baritone_stainless_heavy",
+          "name": "Stainless steel heavy (drop-tune metal)",
+          "descriptors": [
+            "stainless-steel",
+            "heavy-gauge",
+            "drop-tuned"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        },
+        {
+          "id": "baritone_pure_nickel_surf",
+          "name": "Pure nickel surf-twang (Duane Eddy canon)",
+          "descriptors": [
+            "pure-nickel",
+            "surf-twang",
+            "vintage"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baritone_electric_pickup",
+      "surface": false,
+      "name": "Pickup configuration",
+      "variants": [
+        {
+          "id": "baritone_dual_humbucker",
+          "default": true,
+          "name": "Dual humbucker (modern metal)",
+          "descriptors": [
+            "dual-humbucker",
+            "high-output"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        },
+        {
+          "id": "baritone_single_coil_jaguar",
+          "name": "Single-coil (Fender Bass VI / Jaguar canon)",
+          "descriptors": [
+            "single-coil",
+            "jaguar-bass-vi-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "surf"
+          ]
+        },
+        {
+          "id": "baritone_p90",
+          "name": "P-90 (Gretsch / Danelectro)",
+          "descriptors": [
+            "p90",
+            "gretsch-canon"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

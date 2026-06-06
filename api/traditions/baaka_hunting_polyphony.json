@@ -1,0 +1,68 @@
+{
+  "id": "baaka_hunting_polyphony",
+  "name": "Baaka (Aka pygmy) hunting polyphony",
+  "family": "global",
+  "lineage": "Baaka (Aka, Bayaka) Central-African pygmy hunting-and-ritual polyphonic-vocal tradition continuous from premodern Congolese-and-Central-African-Republic rainforest hunting practice through 20th-century continuous performance into modern Baaka-and-broader-Mbuti continuous practice",
+  "recipe": "classic modern baaka (aka pygmy) hunting polyphony, hunting Song, sub saharan African branch, arctic hunting song, sub saharan African praise song, indigenous ritual devotional mande jeli / griot praise-song maasai adumu warrior jumping-song. vocal fry, declaimed, tasteful, continuous-phonation. outdoor kalahari fire circle. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 456,
+  "score": 218.93,
+  "config": {
+    "traditions": [
+      "baaka_hunting_polyphony",
+      "mande_jeli_praise",
+      "maasai_adumu_olaranyani"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.029999999999999,
+          "voice_quality": 4.35,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0.38999999999999996,
+          "voice_tradition": 22.489999999999995,
+          "voice_mechanism_compound": 3.599999999999999,
+          "voice_estill_quality": 0.7949999999999999,
+          "voice_speech_song": 10.724999999999998,
+          "voice_ensemble_config": 8.58,
+          "voice_ornament_system": 11.114999999999998,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 3.9,
+          "voice_multitrack_stack": 4.029999999999999
+        }
+      }
+    ],
+    "room": "outdoor_kalahari_fire_circle",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

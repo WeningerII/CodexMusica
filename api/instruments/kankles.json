@@ -1,0 +1,96 @@
+{
+  "id": "kankles",
+  "name": "Kanklės (Lithuanian board zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kanklės",
+  "parts": [
+    {
+      "id": "kankles_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "kankles_board_zither_finger_plucked_canonical",
+          "default": true,
+          "name": "Board zither, finger-plucked (canonical Lithuanian sutartinės instrumental)",
+          "descriptors": [
+            "board-zither-finger-plucked-canonical-lithuanian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lithuanian-sutartines-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kankles_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "kankles_sutartines_canonical",
+          "default": true,
+          "name": "Instrumental sutartinės accompaniment (canonical)",
+          "descriptors": [
+            "instrumental-sutartines-canonical-lithuanian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lithuanian-sutartines-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kankles_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "kankles_board_zither_finger_plucked_canonical",
+          "default": true,
+          "name": "Board zither, finger-plucked (canonical Lithuanian sutartinės instrumental)",
+          "descriptors": [
+            "board-zither-finger-plucked-canonical-lithuanian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lithuanian-sutartines-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kankles_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "kankles_sutartines_canonical",
+          "default": true,
+          "name": "Instrumental sutartinės accompaniment (canonical)",
+          "descriptors": [
+            "instrumental-sutartines-canonical-lithuanian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lithuanian-sutartines-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

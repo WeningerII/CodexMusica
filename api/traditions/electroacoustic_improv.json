@@ -1,0 +1,107 @@
+{
+  "id": "electroacoustic_improv",
+  "name": "Electroacoustic improvisation",
+  "family": "global",
+  "lineage": "1990s-onward electronics-foregrounded improvisation tradition — codified through the Erstwhile Records catalog (Jon Abbey-curated), the Tokyo Off-Site scene (Otomo Yoshihide, Sachiko M, Toshimaru Nakamura), Berlin Echtzeitmusik scene, and Vienna sin: ned label; characterized by no-input-mixer feedback, contact-mic preparations, and sustained low-amplitude texture exploration",
+  "recipe": "classic mid-1990s electroacoustic improvisation, improv On Frame, jam free branch, musique concrete experimental electric electroacoustic composition musique concrète. granular modular synth, eurorack modular, basswood mahogany ebony low output no compression nickel humbucker electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 439,
+  "score": 45.158,
+  "config": {
+    "traditions": [
+      "electroacoustic_improv",
+      "electroacoustic_composition",
+      "musique_concrete"
+    ],
+    "instruments": [
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 2.0018749999999996,
+          "granular_use": 0.059,
+          "granular_synth_source": 0.9099999999999999
+        }
+      },
+      {
+        "id": "eurorack_modular",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "eurorack_focus": "eurorack_west_coast",
+          "eurorack_modular_context": "eurorack_modular_studio"
+        },
+        "scores": {
+          "electronic_technique": 2.0018749999999996,
+          "eurorack_focus": 0.9099999999999999,
+          "eurorack_modular_context": 0.9099999999999999
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 2.0018749999999996,
+          "mod_voltage_source": 0.375375,
+          "mod_patch_density": 0.34149999999999997,
+          "mod_lineage": 0.39
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_american_fender_champ",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_c"
+        },
+        "scores": {
+          "electric_technique": 1.91,
+          "amp_make": 1.1049999999999998,
+          "body_wood": 1.3,
+          "neck_wood": 1.001875,
+          "fretboard": 1.00375,
+          "pickup_magnet": 0.3208333333333333,
+          "pickup_winding": 2.113125,
+          "string_material": 1,
+          "bridge": 1.00375,
+          "scale_length": 1.3,
+          "string_gauge": 1.01025,
+          "finish": 0.045,
+          "string_tuning": 1.3
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "bohlen_pierce",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

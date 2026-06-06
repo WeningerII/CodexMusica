@@ -1,0 +1,151 @@
+{
+  "id": "dub_poetry",
+  "name": "Dub poetry",
+  "family": "global",
+  "lineage": "Jamaican-British poetic-spoken-word performance tradition over reggae rhythm backing — codified through Linton Kwesi Johnson (UK Black-British, the figure, his 1978 Dread Beat an Blood the founding album), Mutabaruka (Jamaican), Oku Onuora (Jamaican, who coined the genre name in 1979), Mikey Smith (Jamaican), Benjamin Zephaniah (UK Black-British)",
+  "recipe": "classic tropical late-1970s dub poetry, bass System, reggae diaspora branch, intl hip hop MC rhythm, anglo singer song ballad poetry freak folk rapso. rap, chest resonance low mid, narrative, sean nos. orange amp British heavy crunch clean strummed single coil electric guitar, orange amp British heavy crunch pyramid pure nickel bass British mid 60s era electric bass, over hammered post lathe strikes rim clicks drum kit. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 648,
+  "score": 205.58,
+  "config": {
+    "traditions": [
+      "dub_poetry",
+      "freak_folk",
+      "rapso"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 3.25,
+          "voice_vibrato": 0.6,
+          "voice_articulation": 1.0349999999999997,
+          "voice_microtone": 0.39,
+          "voice_tradition": 4.550000000000001,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.7149999999999997,
+          "voice_speech_song": 10.83,
+          "voice_ensemble_config": 4.549999999999999,
+          "voice_ornament_system": 2.085,
+          "voice_pitch_organization": 1.2599999999999998,
+          "voice_processing_chain": 1.9449999999999998,
+          "voice_multitrack_stack": 0.975
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "c_standard"
+        },
+        "scores": {
+          "electric_technique": 4.95,
+          "amp_make": 3.7,
+          "body_wood": 0.3,
+          "neck_wood": 0.38999999999999996,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.345,
+          "string_material": 0.825,
+          "string_gauge": 0.3,
+          "bridge": 0,
+          "scale_length": 0.6,
+          "finish": 0,
+          "string_tuning": 1.77
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "electric_technique": 15.544999999999996,
+          "amp_make": 3.7,
+          "body_wood": 0.6,
+          "pickup_config": 0,
+          "string_type": 5.84,
+          "scale_length_b": 0.3,
+          "fretted_or_not": 0.045,
+          "bass_technique": 15.544999999999996
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_rim_clicks_dub",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "double_coated",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "meinl_fx9",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "lathing_raw_unlathed",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "rim_clicks_dub"
+        },
+        "scores": {
+          "percussion_technique": 15.499999999999996,
+          "shell_wood": 0.585,
+          "shell_thickness": 0.045,
+          "bearing_edges": 0.3,
+          "drumhead": 0.405,
+          "snare_wires": 0.345,
+          "cymbal_alloy": 0,
+          "cymbal_hammering": 2.015,
+          "cymbal_lathing": 0.195,
+          "cymbal_finish": 0.43499999999999994,
+          "drum_technique": 15.499999999999996
+        }
+      }
+    ],
+    "room": "brixton_uk_lovers_rock_basement",
+    "archetype": "arch_kingston_dub_console",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": "dub_mixing_aesthetic",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

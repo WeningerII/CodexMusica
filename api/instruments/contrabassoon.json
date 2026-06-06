@@ -1,0 +1,379 @@
+{
+  "id": "contrabassoon",
+  "name": "Contrabassoon",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "contrabassoon",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "contrabassoon_school",
+      "surface": false,
+      "name": "Maker school",
+      "variants": [
+        {
+          "id": "contrabassoon_heckel",
+          "default": true,
+          "name": "Heckel (canonical)",
+          "descriptors": [
+            "professional",
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contrabassoon_mollenhauer",
+          "name": "Mollenhauer / older German",
+          "descriptors": [
+            "traditional",
+            "low-overtone-rich",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contrabassoon_semi_kontra",
+          "name": "Semi-contra / modern variants",
+          "descriptors": [
+            "extended-range",
+            "experimental",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabassoon_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "contrabassoon_orch",
+          "default": true,
+          "name": "Orchestral bass",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contrabassoon_chamber",
+          "name": "Chamber wind ensemble",
+          "descriptors": [
+            "rare",
+            "specialty",
+            "bass-foundation"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "contrabassoon_contemporary",
+          "name": "Contemporary solo",
+          "descriptors": [
+            "modern",
+            "extended-techniques",
+            "concert-rare"
+          ],
+          "match_tokens": [
+            "contemporary",
+            "contemporary-classical",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabassoon_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "contrabassoon_maple_canonical",
+          "default": true,
+          "name": "Mountain maple (canonical Heckel)",
+          "descriptors": [
+            "mountain-maple-canonical-heckel"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contrabassoon_palisander",
+          "name": "Palisander rosewood (premium)",
+          "descriptors": [
+            "palisander-rosewood-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "contrabassoon_school",
+      "surface": false,
+      "name": "Maker school",
+      "variants": [
+        {
+          "id": "contrabassoon_heckel",
+          "default": true,
+          "name": "Heckel (canonical)",
+          "descriptors": [
+            "professional",
+            "narrow-q-precise"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contrabassoon_mollenhauer",
+          "name": "Mollenhauer / older German",
+          "descriptors": [
+            "traditional",
+            "low-overtone-rich",
+            "historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contrabassoon_semi_kontra",
+          "name": "Semi-contra / modern variants",
+          "descriptors": [
+            "extended-range",
+            "experimental",
+            "rare"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabassoon_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "contrabassoon_orch",
+          "default": true,
+          "name": "Orchestral bass",
+          "descriptors": [
+            "standard"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contrabassoon_chamber",
+          "name": "Chamber wind ensemble",
+          "descriptors": [
+            "rare",
+            "specialty",
+            "bass-foundation"
+          ],
+          "match_tokens": [
+            "chamber-fed",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "contrabassoon_contemporary",
+          "name": "Contemporary solo",
+          "descriptors": [
+            "modern",
+            "extended-techniques",
+            "concert-rare"
+          ],
+          "match_tokens": [
+            "contemporary",
+            "contemporary-classical",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabassoon_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "contrabassoon_maple_canonical",
+          "default": true,
+          "name": "Mountain maple (canonical Heckel)",
+          "descriptors": [
+            "mountain-maple-canonical-heckel"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ]
+        },
+        {
+          "id": "contrabassoon_palisander",
+          "name": "Palisander rosewood (premium)",
+          "descriptors": [
+            "palisander-rosewood-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ]
+}

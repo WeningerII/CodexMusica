@@ -1,0 +1,125 @@
+{
+  "id": "mento",
+  "name": "Mento",
+  "family": "global",
+  "lineage": "Jamaican rural folk-and-dance music tradition that preceded ska as the dominant Jamaican popular music genre — codified through the post-WWII commercial recordings of Lord Flea, Count Lasher, the Jolly Boys, Stanley Beckford, Harold Richardson; built on a fusion of West African rhythmic foundations, European-derived quadrille dance forms, and Caribbean Spanish-influenced song structures",
+  "recipe": "classic tropical mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata garifuna paranda and hungu-hungu. thick, full chest belt, melodic, rhythmic. alternating thumb travis picked parlor acoustic guitar, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, traditional gourd calabash maracas. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 580,
+  "score": 210.963,
+  "config": {
+    "traditions": [
+      "mento",
+      "bachata",
+      "garifuna_paranda_hungu_hungu"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 6.885000000000001,
+          "voice_quality": 1.95,
+          "voice_vibrato": 1.2899999999999998,
+          "voice_articulation": 2.47,
+          "voice_microtone": 0.49999999999999983,
+          "voice_tradition": 8.515,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 2.405,
+          "voice_speech_song": 8.774999999999999,
+          "voice_ensemble_config": 5.589999999999998,
+          "voice_ornament_system": 0.5199999999999999,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 3.12,
+          "voice_multitrack_stack": 2.47
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "drop_d",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "eighty_twenty_p"
+        },
+        "scores": {
+          "acoustic_technique": 4.3,
+          "string_tuning": 0.44499999999999995,
+          "top_wood_parlor": 0.435,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.48000000000000004
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "banjo_back": "resonator",
+          "tone_ring": "tubaphone",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "plucked_traditional_technique": 8.905000000000001,
+          "banjo_back": 0.435,
+          "tone_ring": 0,
+          "banjo_head": 5.719999999999998,
+          "banjo_pot": 1.5150000000000001,
+          "banjo_play": 0.3,
+          "banjo_rim_wood": 0.33,
+          "banjo_neck_wood": 0.915,
+          "banjo_strings": 0.15,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 5.6549999999999985
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_gourd",
+          "maracas_filling": "maracas_beads"
+        },
+        "scores": {
+          "maracas_construction": 1.275,
+          "maracas_filling": 1.0799999999999998
+        }
+      }
+    ],
+    "room": "kingston_studio_one_brentford_road",
+    "archetype": "arch_kingston_jamaican_commercial",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

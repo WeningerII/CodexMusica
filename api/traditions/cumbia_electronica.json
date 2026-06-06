@@ -1,0 +1,132 @@
+{
+  "id": "cumbia_electronica",
+  "name": "Cumbia electrónica",
+  "family": "global",
+  "lineage": "Late-2000s electronic remix-and-production genre re-engineering traditional Colombian-Mexican cumbia rhythmic foundation through digital production techniques — codified through ZZK Records (Buenos Aires-based label, Frikstailers, Chancha Via Circuito), Toy Selectah, Dengue Dengue Dengue, Bomba Estéreo (Elegancia Tropical 2012), and the broader Latin-American electronic-tropical-bass scene",
+  "recipe": "classic 2007-2009 cumbia electrónica, electronic Dance, Latin electric branch, Latin am groove percussion cumbia peruana cumbia colombiana. thick, full chest belt, chest resonance low mid, rhythmic. sampler, digital subtractive, roland tr 8s modern aira digital recreation TR-808, leather petosa seattle American premium accordion. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 477,
+  "score": 196.432,
+  "config": {
+    "traditions": [
+      "cumbia_electronica",
+      "cumbia_peruvian",
+      "cumbia_colombiana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.675,
+          "voice_quality": 12.044999999999995,
+          "voice_vibrato": 0.6,
+          "voice_articulation": 2.08,
+          "voice_microtone": 0.39,
+          "voice_tradition": 0.9099999999999999,
+          "voice_mechanism_compound": 2.7449999999999997,
+          "voice_estill_quality": 0.15,
+          "voice_speech_song": 6.044999999999998,
+          "voice_ensemble_config": 5.979999999999999,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 1.395,
+          "voice_processing_chain": 12.759999999999996,
+          "voice_multitrack_stack": 3.575
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 0.975,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 0.325,
+          "sampler_classic_context": 9.099999999999998
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 2.275,
+          "va_archetypes": 0.44999999999999996,
+          "digital_subtractive_context": 6.109999999999998
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.4050000000000002,
+          "drum_machine_808_context": 3.3799999999999994,
+          "tr808_production_origin": 2.5
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_petosa_seattle"
+        },
+        "scores": {
+          "free_reed_technique": 0.325,
+          "accordion_reed_material": 0.6,
+          "musette_offset": 1.3,
+          "reed_config": 0.6,
+          "bellows": 1.195,
+          "voicing_chamber": 0.09,
+          "accordion_maker_school": 2.1599999999999997
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

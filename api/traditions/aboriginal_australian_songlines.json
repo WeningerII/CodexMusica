@@ -1,0 +1,94 @@
+{
+  "id": "aboriginal_australian_songlines",
+  "name": "Aboriginal Australian hunting songlines",
+  "family": "global",
+  "lineage": "Aboriginal Australian hunting-and-songlines tradition continuous from at-least-65,000-year-continuous Indigenous-Australian cultural-practice through colonial-era continuous performance into modern Aboriginal-and-Torres-Strait-Islander continuous practice",
+  "recipe": "classic modern aboriginal australian hunting songlines, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, oceania pacific praise song māori waiata mōteatea / patere san (khoisan) hunting and trance song. vocal fry, declaimed, tasteful, continuous-phonation. eucalyptus tetrodonta yidaki canon northeast arnhem sugarbag beeswax native bee wax didgeridoo, claves. arctic arnhem indigenous outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 563,
+  "score": 156.736,
+  "config": {
+    "traditions": [
+      "aboriginal_australian_songlines",
+      "maori_waiata_moteatea_patere",
+      "san_bushman_hunting"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.05375,
+          "voice_quality": 2.1202499999999995,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 6.759999999999999,
+          "voice_microtone": 0.045,
+          "voice_tradition": 12.620249999999997,
+          "voice_mechanism_compound": 9.6,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 10.334999999999999,
+          "voice_ensemble_config": 5.199999999999999,
+          "voice_ornament_system": 3.055,
+          "voice_pitch_organization": 6.759999999999999,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 1.17525
+        }
+      },
+      {
+        "id": "didgeridoo",
+        "slots": {
+          "wind_articulation": "wind_circular_breathing_drone",
+          "didj_material": "eucalyptus_tetrodonta_yidaki",
+          "didj_mouthpiece": "sugarbag_beeswax_mouthpiece",
+          "didj_technique": "circular_breathing"
+        },
+        "scores": {
+          "wind_articulation": 0.795,
+          "didj_material": 9.75,
+          "didj_mouthpiece": 10.123,
+          "didj_technique": 6.759999999999999
+        }
+      },
+      {
+        "id": "claves",
+        "slots": {
+          "claves_pattern": "claves_bembe",
+          "claves_wood": "claves_cuban_hardwood"
+        },
+        "scores": {
+          "claves_pattern": 0.9099999999999999,
+          "claves_wood": 0.3525
+        }
+      }
+    ],
+    "room": "arctic_arnhem_indigenous_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_pentatonic_long_song",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

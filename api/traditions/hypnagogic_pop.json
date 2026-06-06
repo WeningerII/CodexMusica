@@ -1,0 +1,131 @@
+{
+  "id": "hypnagogic_pop",
+  "name": "Hypnagogic pop",
+  "family": "global",
+  "lineage": "Late-2000s onward American underground genre evocative of half-remembered 1980s pop-and-soundtrack production aesthetics, characterized by hazy lo-fi production, cassette-tape saturation, and nostalgia-as-subject-matter compositional posture — codified through Ariel Pink (Worn Copy 2003, House Arrest 2006), Ducktails, James Ferraro, Spencer Clark, with David Keenan's 2009 The Wire article naming the genre",
+  "recipe": "classic 2007-2009 hypnagogic pop, experimental Elec, lofi branch, pop rock functional song new wave yacht rock. thick, worn fold, chest resonance low mid, equal tempered. singing lead analog poly synth, field textural sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 459,
+  "score": 353.896,
+  "config": {
+    "traditions": [
+      "hypnagogic_pop",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 12.61,
+          "voice_quality": 0.5949999999999996,
+          "voice_vibrato": 1.0050000000000001,
+          "voice_articulation": 0.45,
+          "voice_microtone": 12.049999999999997,
+          "voice_tradition": 12.999999999999998,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 8.514999999999997,
+          "voice_ensemble_config": 6.369999999999998,
+          "voice_ornament_system": 0.345,
+          "voice_pitch_organization": 0.54,
+          "voice_processing_chain": 5.46,
+          "voice_multitrack_stack": 4.29
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 10.36,
+          "poly_archetypes": 1.3,
+          "poly_voices": 0.51,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.7506250000000003,
+          "sampler_archetypes": 1.4500000000000002,
+          "sampler_bit_depth": 1.8200000000000003,
+          "sampler_workflow": 4.63,
+          "sampler_classic_context": 14.364999999999997
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 9.879999999999999,
+          "amp_make": 3.5100000000000016,
+          "body_wood": 1.05,
+          "neck_wood": 1.05,
+          "fretboard": 0.36,
+          "pickup_magnet": 0.18,
+          "string_material": 0.27,
+          "string_gauge": 0.9600000000000001,
+          "bridge": 0.25875,
+          "scale_length": 1.7700000000000002,
+          "finish": 0.09,
+          "string_tuning": 1.69
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "lofi_deliberate",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "gwerz_breton",
+  "name": "Gwerz Breton (Brittany narrative-lament)",
+  "family": "global",
+  "lineage": "Breton gwerz long-narrative-lament tradition of Brittany (Lower Brittany, Breton-language region), comprising the canonical Breton-language sung-narrative corpus addressing historical-tragic events, supernatural-encounters, and personal-moral-cautionary tales. Performance configuration: solo unaccompanied female-or-male voice in characteristic free-rhythm extended-melismatic style with narrow-range modal vocabulary and the strict Breton-Celtic-meter four-line stanza form. The nineteenth-century Théodore Hersart de La Villemarqué Barzaz-Breiz collection (1839) consolidated the literary-historical canon. The post-1970 Breton-language-revival under Yann-Fañch Kemener and Nolwenn Korbell sustained institutional transmission. Distinguished from Breton kan ha diskan dance-singing by gwerz's sung-narrative-without-dance functional orientation.",
+  "recipe": "classic late-1830s gwerz breton, ballad Poetry, Celtic balladic branch, Celtic balladic Scottish ballad child ballad revival. extended whistle, incomplete closure resting, overtone rich sustained, narrative. intimate paris small studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 366,
+  "score": 90.917,
+  "config": {
+    "traditions": [
+      "gwerz_breton",
+      "child_ballad_revival"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.6690000000000005,
+          "voice_quality": 3.55,
+          "voice_vibrato": 1.4365,
+          "voice_articulation": 5.6075,
+          "voice_microtone": 0.40950000000000003,
+          "voice_tradition": 16.153499999999998,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 1.69,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 11.736999999999998,
+          "voice_pitch_organization": 4.218500000000001,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 0.49950000000000006
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

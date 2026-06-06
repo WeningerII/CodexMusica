@@ -1,0 +1,210 @@
+{
+  "id": "drum_machine_606",
+  "name": "Roland TR-606 drum machine",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "short": "TR-606",
+  "parts": [
+    {
+      "id": "drum_machine_606_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "drum_machine_606_kick",
+          "default": true,
+          "name": "Kick (tight, short)",
+          "descriptors": [
+            "characteristic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "drum_machine_606_snare",
+          "name": "Snare (sharp, thin)",
+          "descriptors": [
+            "distinctive",
+            "fast-attack-transient"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "drum_machine_606_cymbal",
+          "name": "Cymbal / hi-hat",
+          "descriptors": [
+            "glassy",
+            "short",
+            "analog-circuit"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drum_machine_606_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "drum_machine_606_acid",
+          "default": true,
+          "name": "Acid house",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "drum_machine_606_techno",
+          "name": "Early techno",
+          "descriptors": [
+            "minimal",
+            "foundation"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "detroit"
+          ]
+        },
+        {
+          "id": "drum_machine_606_electro",
+          "name": "Electro / post-punk",
+          "descriptors": [
+            "New-Wave",
+            "characteristic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "analog"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "drum_machine_606_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "drum_machine_606_kick",
+          "default": true,
+          "name": "Kick (tight, short)",
+          "descriptors": [
+            "characteristic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "drum_machine_606_snare",
+          "name": "Snare (sharp, thin)",
+          "descriptors": [
+            "distinctive",
+            "fast-attack-transient"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "drum_machine_606_cymbal",
+          "name": "Cymbal / hi-hat",
+          "descriptors": [
+            "glassy",
+            "short",
+            "analog-circuit"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drum_machine_606_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "drum_machine_606_acid",
+          "default": true,
+          "name": "Acid house",
+          "descriptors": [
+            "foundational"
+          ],
+          "match_tokens": [
+            "classic-acid",
+            "electronic",
+            "machine-quantized"
+          ]
+        },
+        {
+          "id": "drum_machine_606_techno",
+          "name": "Early techno",
+          "descriptors": [
+            "minimal",
+            "foundation"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "detroit"
+          ]
+        },
+        {
+          "id": "drum_machine_606_electro",
+          "name": "Electro / post-punk",
+          "descriptors": [
+            "New-Wave",
+            "characteristic"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized"
+          ],
+          "canonical_tags": [
+            "analog"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "hyperpop",
+  "name": "Hyperpop",
+  "family": "electronic",
+  "lineage": "Late-2010s onward maximalist pop subgenre fusing the production language of EDM-Bigroom, mainstream-pop, online-fandom-internet-culture, and bedroom-DAW-production aesthetics — codified through the PC Music label (A.G. Cook, SOPHIE), 100 gecs (1000 gecs 2019), Charli XCX (Pop 2 2017, how i'm feeling now 2020), Dorian Electra, Hannah Diamond, and the broader Discord-and-SoundCloud-distributed scene",
+  "recipe": "classic 2017-2019 hyperpop, experimental Elec, pop experimental branch, pop rock functional song new wave synthpop. thick, chest resonance low mid, equal tempered, modern pop training. drum machine analog, plucked short envelope wavetable synth, sampler drum machine, lead plus third fifth 3 part stack late 1980s reverb saturated bus stack heavy bus compression glue post 2010 multitrack vocal stack. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 547,
+  "score": 279.28,
+  "config": {
+    "traditions": [
+      "hyperpop",
+      "new_wave",
+      "synthpop"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_high"
+        },
+        "scores": {
+          "kick_voice": 0.24,
+          "snare_voice": 0.24,
+          "hat_voice": 0,
+          "shuffle_quantize": 1.515
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 17.84,
+          "wt_position": 1.69,
+          "wt_family": 0.39,
+          "wt_polyphony": 0.9450000000000001
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 3.25,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "nasal_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 18.785,
+          "voice_quality": 0.325,
+          "voice_vibrato": 1.0050000000000001,
+          "voice_articulation": 0.39,
+          "voice_microtone": 16.049999999999997,
+          "voice_tradition": 19.174999999999997,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 9.424999999999997,
+          "voice_ensemble_config": 7.669999999999998,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 0.9749999999999996,
+          "voice_processing_chain": 4.295,
+          "voice_multitrack_stack": 4.62
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.065,
+          "multitrack_stack_era_aesthetic": 3.245,
+          "multitrack_stack_processing": 1.6899999999999997
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "hyperpop_aesthetic",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

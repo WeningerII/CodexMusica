@@ -1,0 +1,111 @@
+{
+  "id": "american_political_hip_hop",
+  "name": "American political hip-hop and conscious rap",
+  "family": "global",
+  "lineage": "American political hip-hop tradition continuous from 1980s Boogie-Down-Productions-and-Public-Enemy era through 1990s-2000s Native-Tongues-and-Rawkus-Records-era conscious rap into the 2010s-onward Black-Lives-Matter-era political hip-hop; centered on Public Enemy, KRS-One Boogie Down Productions, A Tribe Called Quest, Mos Def and Talib Kweli Black Star, Kendrick Lamar, Killer Mike Run the Jewels",
+  "recipe": "classic mid-1980s american political hip-hop and conscious rap, protest Song, urban American branch, anglo American protest song, MC rhythm, bass system conscious hip-hop french rap. rap, tasteful, narrative, beatbox. sampled chopped turntable, sampled chopped sampler drum machine, chopped sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 487,
+  "score": 379.746,
+  "config": {
+    "traditions": [
+      "american_political_hip_hop",
+      "conscious_hip_hop",
+      "french_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 21.1575,
+          "voice_vibrato": 0.6749999999999999,
+          "voice_articulation": 6.6,
+          "voice_microtone": 0.49999999999999983,
+          "voice_tradition": 7.004999999999999,
+          "voice_mechanism_compound": 2.8300000000000005,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 19.697499999999994,
+          "voice_ensemble_config": 8.969999999999999,
+          "voice_ornament_system": 0.9099999999999999,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 15.629999999999997,
+          "voice_multitrack_stack": 5.460000000000001
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 6.529,
+          "turntable_technique": 6.194999999999999
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 6.529,
+          "sample_bitdepth": 0.945,
+          "sample_swing": 10.139999999999999,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 6.529,
+          "sampler_archetypes": 10.139999999999999,
+          "sampler_bit_depth": 1.6199999999999997,
+          "sampler_workflow": 6.54,
+          "sampler_classic_context": 17.484999999999996
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

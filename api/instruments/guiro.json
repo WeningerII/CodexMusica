@@ -1,0 +1,204 @@
+{
+  "id": "guiro",
+  "name": "Güiro (scraper)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "güiro",
+  "parts": [
+    {
+      "id": "guiro_origin",
+      "surface": false,
+      "name": "Origin / construction",
+      "variants": [
+        {
+          "id": "guiro_cuban",
+          "default": true,
+          "name": "Cuban gourd",
+          "descriptors": [
+            "deep-warm",
+            "traditional",
+            "gourd"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "guiro_puerto_rican",
+          "name": "Puerto Rican calabaza",
+          "descriptors": [
+            "sharp",
+            "regional"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "plena"
+          ]
+        },
+        {
+          "id": "guiro_mexican_pvc",
+          "name": "Mexican PVC / wood",
+          "descriptors": [
+            "modern",
+            "mass-produced",
+            "durable",
+            "pvc"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guiro_striker",
+      "name": "Striker",
+      "variants": [
+        {
+          "id": "guiro_wood",
+          "default": true,
+          "name": "Wooden stick",
+          "descriptors": [
+            "soft-attack",
+            "traditional",
+            "wood"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "guiro_metal",
+          "name": "Metal scraper",
+          "descriptors": [
+            "sharp",
+            "cutting",
+            "modern"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "guiro_comb",
+          "name": "Comb-style multi-prong",
+          "descriptors": [
+            "rapid-tremolo",
+            "projecting",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "guiro_origin",
+      "surface": false,
+      "name": "Origin / construction",
+      "variants": [
+        {
+          "id": "guiro_cuban",
+          "default": true,
+          "name": "Cuban gourd",
+          "descriptors": [
+            "deep-warm",
+            "traditional",
+            "gourd"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "guiro_puerto_rican",
+          "name": "Puerto Rican calabaza",
+          "descriptors": [
+            "sharp",
+            "regional"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "plena"
+          ]
+        },
+        {
+          "id": "guiro_mexican_pvc",
+          "name": "Mexican PVC / wood",
+          "descriptors": [
+            "modern",
+            "mass-produced",
+            "durable",
+            "pvc"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guiro_striker",
+      "name": "Striker",
+      "variants": [
+        {
+          "id": "guiro_wood",
+          "default": true,
+          "name": "Wooden stick",
+          "descriptors": [
+            "soft-attack",
+            "traditional",
+            "wood"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "guiro_metal",
+          "name": "Metal scraper",
+          "descriptors": [
+            "sharp",
+            "cutting",
+            "modern"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "guiro_comb",
+          "name": "Comb-style multi-prong",
+          "descriptors": [
+            "rapid-tremolo",
+            "projecting",
+            "contemporary"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

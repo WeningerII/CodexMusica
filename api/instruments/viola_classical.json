@@ -1,0 +1,1179 @@
+{
+  "id": "viola_classical",
+  "name": "Viola (orchestral alto)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "viola",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_pizzicato",
+          "name": "Pizzicato (plucked)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "plucked",
+            "pizzicato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "bowed_spiccato_articulated",
+          "name": "Spiccato (bouncing)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "spiccato",
+            "articulated"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "staccato"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_sul_ponticello",
+          "name": "Sul ponticello (near bridge)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "glassy",
+            "metallic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "avant"
+          ]
+        },
+        {
+          "id": "bowed_sul_tasto",
+          "name": "Sul tasto (over fingerboard)",
+          "applies_to": [
+            "violin_orchestral",
+            "viola_classical",
+            "cello",
+            "double_bass"
+          ],
+          "descriptors": [
+            "airy",
+            "distant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_klezmer_ornamented",
+          "name": "Klezmer ornament-heavy",
+          "applies_to": [
+            "fiddle",
+            "violin_orchestral",
+            "viola_classical",
+            "violin_carnatic"
+          ],
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "ornament-heavy"
+          ],
+          "canonical_tags": [
+            "klezmer",
+            "eastern-european"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "viola_size",
+      "surface": false,
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "viola_15_inch",
+          "name": "15\" compact",
+          "descriptors": [
+            "responsive",
+            "chamber-suited",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "viola_16_inch",
+          "default": true,
+          "name": "16\" standard",
+          "descriptors": [
+            "orchestral"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "viola_17_inch",
+          "name": "17\" large",
+          "descriptors": [
+            "deep",
+            "overtone-rich-sustained",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "viola_synthetic",
+          "default": true,
+          "name": "Synthetic core (Dominant / Vision)",
+          "descriptors": [
+            "stable",
+            "modern",
+            "versatile",
+            "synthetic-core"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "viola_gut_plain",
+          "name": "Plain lamb gut (period-performance canonical)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "viola_silver_wound_gut",
+          "name": "Silver-wound on lamb gut (Pirastro Eudoxa C/G)",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "late-baroque"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "viola_steel_core",
+          "name": "Steel core (projecting solo)",
+          "descriptors": [
+            "steel-core",
+            "projecting",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "viola_tungsten_wound_c",
+          "name": "Tungsten-wound C-string (Larsen / Spirocore — viola-specific)",
+          "descriptors": [
+            "tungsten-wound",
+            "larsen-spirocore",
+            "viola-c-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_top_wood",
+      "surface": false,
+      "name": "Top wood (table / belly)",
+      "variants": [
+        {
+          "id": "viola_norway_spruce",
+          "default": true,
+          "name": "Norway spruce / European alpine (Picea abies)",
+          "descriptors": [
+            "norway-spruce",
+            "european-alpine",
+            "quartersawn",
+            "fine-grain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "viola_italian_alpine_spruce",
+          "name": "Italian alpine spruce (Val di Fiemme)",
+          "descriptors": [
+            "italian-alpine-spruce",
+            "val-di-fiemme"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "viola_carpathian_spruce",
+          "name": "Carpathian spruce (eastern European)",
+          "descriptors": [
+            "carpathian-spruce",
+            "eastern-european-source"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_back_wood",
+      "surface": false,
+      "name": "Back / rib / neck wood",
+      "variants": [
+        {
+          "id": "viola_bosnian_flamed_maple",
+          "default": true,
+          "name": "Bosnian flamed European maple (canonical)",
+          "descriptors": [
+            "european-maple",
+            "acer-pseudoplatanus",
+            "bosnian-source",
+            "flamed-figure"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "viola_european_maple_general",
+          "name": "European maple (general source)",
+          "descriptors": [
+            "european-maple-general",
+            "standard-flamed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_hard_rock_maple",
+          "name": "Hard rock maple (Acer saccharum)",
+          "descriptors": [
+            "hard-rock-maple",
+            "denser-than-european"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_varnish",
+      "surface": false,
+      "name": "Varnish system",
+      "variants": [
+        {
+          "id": "viola_cremonese_pre_1750",
+          "name": "Cremonese pre-1750 four-layer ground+varnish (Brescian / Cremona canon)",
+          "descriptors": [
+            "cremonese-pre-1750",
+            "four-layer-system",
+            "oil-base-coat",
+            "lake-color-coat"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "viola_oil_amber",
+          "default": true,
+          "name": "Oil-based amber varnish (modern luthier standard)",
+          "descriptors": [
+            "oil-varnish",
+            "amber-tinted",
+            "larch-turpentine"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_spirit_varnish",
+          "name": "Spirit varnish (shellac + alcohol)",
+          "descriptors": [
+            "spirit-varnish",
+            "shellac-alcohol"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_modern_synthetic_varnish",
+          "name": "Modern synthetic (polyurethane, mass production)",
+          "descriptors": [
+            "synthetic-varnish",
+            "mass-production"
+          ],
+          "match_tokens": [
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_setup_period",
+      "surface": false,
+      "name": "Setup period (baroque vs modern)",
+      "variants": [
+        {
+          "id": "viola_modern_setup",
+          "default": true,
+          "name": "Modern (post-1850): longer neck, heavier bass-bar",
+          "descriptors": [
+            "modern-setup",
+            "longer-neck",
+            "heavier-bass-bar",
+            "chinrest-fitted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_baroque_setup",
+          "name": "Baroque (pre-1850): short neck, light bass-bar, no chinrest",
+          "descriptors": [
+            "baroque-setup",
+            "short-neck",
+            "shorter-fingerboard",
+            "lighter-bass-bar",
+            "no-chinrest",
+            "lower-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_bow_stick",
+      "surface": false,
+      "name": "Bow stick wood",
+      "variants": [
+        {
+          "id": "viola_pernambuco",
+          "default": true,
+          "name": "Pernambuco (Paubrasilia echinata, traditional canon)",
+          "descriptors": [
+            "pernambuco",
+            "paubrasilia-echinata",
+            "classical-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "viola_snakewood",
+          "name": "Snakewood (Brosimum guianense, baroque-era canon)",
+          "descriptors": [
+            "snakewood",
+            "pre-1800-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "viola_carbon_fiber",
+          "name": "Carbon-fiber composite (modern alternative)",
+          "descriptors": [
+            "carbon-fiber",
+            "humidity-stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_brazilwood",
+          "name": "Brazilwood (student / intermediate)",
+          "descriptors": [
+            "brazilwood",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_rosin",
+      "surface": false,
+      "name": "Rosin",
+      "variants": [
+        {
+          "id": "viola_larsen_rosin",
+          "default": true,
+          "name": "Larsen viola-specific (denser modern)",
+          "descriptors": [
+            "larsen-viola-specific",
+            "denser-modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_pirastro_obligato_rosin",
+          "name": "Pirastro Obligato (modern balanced)",
+          "descriptors": [
+            "pirastro-obligato",
+            "balanced-grip"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_galeazzi_baroque_rosin",
+          "name": "Galeazzi 1791 Italian-recipe (Aquila baroque)",
+          "descriptors": [
+            "galeazzi-1791",
+            "period-rosin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "viola_bernardel_rosin",
+          "name": "Bernardel (French traditional)",
+          "descriptors": [
+            "bernardel-french-traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "viola_size",
+      "surface": false,
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "viola_15_inch",
+          "name": "15\" compact",
+          "descriptors": [
+            "responsive",
+            "chamber-suited",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "viola_16_inch",
+          "default": true,
+          "name": "16\" standard",
+          "descriptors": [
+            "orchestral"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "viola_17_inch",
+          "name": "17\" large",
+          "descriptors": [
+            "deep",
+            "overtone-rich-sustained",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_strings",
+      "name": "String type",
+      "variants": [
+        {
+          "id": "viola_synthetic",
+          "default": true,
+          "name": "Synthetic core (Dominant / Vision)",
+          "descriptors": [
+            "stable",
+            "modern",
+            "versatile",
+            "synthetic-core"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "viola_gut_plain",
+          "name": "Plain lamb gut (period-performance canonical)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "short-sustain",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "viola_silver_wound_gut",
+          "name": "Silver-wound on lamb gut (Pirastro Eudoxa C/G)",
+          "descriptors": [
+            "silver-wound",
+            "lamb-gut-core",
+            "warm-bright",
+            "sustained-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "late-baroque"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "viola_steel_core",
+          "name": "Steel core (projecting solo)",
+          "descriptors": [
+            "steel-core",
+            "projecting",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "viola_tungsten_wound_c",
+          "name": "Tungsten-wound C-string (Larsen / Spirocore — viola-specific)",
+          "descriptors": [
+            "tungsten-wound",
+            "larsen-spirocore",
+            "viola-c-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_top_wood",
+      "surface": false,
+      "name": "Top wood (table / belly)",
+      "variants": [
+        {
+          "id": "viola_norway_spruce",
+          "default": true,
+          "name": "Norway spruce / European alpine (Picea abies)",
+          "descriptors": [
+            "norway-spruce",
+            "european-alpine",
+            "quartersawn",
+            "fine-grain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "viola_italian_alpine_spruce",
+          "name": "Italian alpine spruce (Val di Fiemme)",
+          "descriptors": [
+            "italian-alpine-spruce",
+            "val-di-fiemme"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "viola_carpathian_spruce",
+          "name": "Carpathian spruce (eastern European)",
+          "descriptors": [
+            "carpathian-spruce",
+            "eastern-european-source"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_back_wood",
+      "surface": false,
+      "name": "Back / rib / neck wood",
+      "variants": [
+        {
+          "id": "viola_bosnian_flamed_maple",
+          "default": true,
+          "name": "Bosnian flamed European maple (canonical)",
+          "descriptors": [
+            "european-maple",
+            "acer-pseudoplatanus",
+            "bosnian-source",
+            "flamed-figure"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "baroque"
+          ]
+        },
+        {
+          "id": "viola_european_maple_general",
+          "name": "European maple (general source)",
+          "descriptors": [
+            "european-maple-general",
+            "standard-flamed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_hard_rock_maple",
+          "name": "Hard rock maple (Acer saccharum)",
+          "descriptors": [
+            "hard-rock-maple",
+            "denser-than-european"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_varnish",
+      "surface": false,
+      "name": "Varnish system",
+      "variants": [
+        {
+          "id": "viola_cremonese_pre_1750",
+          "name": "Cremonese pre-1750 four-layer ground+varnish (Brescian / Cremona canon)",
+          "descriptors": [
+            "cremonese-pre-1750",
+            "four-layer-system",
+            "oil-base-coat",
+            "lake-color-coat"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "viola_oil_amber",
+          "default": true,
+          "name": "Oil-based amber varnish (modern luthier standard)",
+          "descriptors": [
+            "oil-varnish",
+            "amber-tinted",
+            "larch-turpentine"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_spirit_varnish",
+          "name": "Spirit varnish (shellac + alcohol)",
+          "descriptors": [
+            "spirit-varnish",
+            "shellac-alcohol"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_modern_synthetic_varnish",
+          "name": "Modern synthetic (polyurethane, mass production)",
+          "descriptors": [
+            "synthetic-varnish",
+            "mass-production"
+          ],
+          "match_tokens": [
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_setup_period",
+      "surface": false,
+      "name": "Setup period (baroque vs modern)",
+      "variants": [
+        {
+          "id": "viola_modern_setup",
+          "default": true,
+          "name": "Modern (post-1850): longer neck, heavier bass-bar",
+          "descriptors": [
+            "modern-setup",
+            "longer-neck",
+            "heavier-bass-bar",
+            "chinrest-fitted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained",
+            "modern"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_baroque_setup",
+          "name": "Baroque (pre-1850): short neck, light bass-bar, no chinrest",
+          "descriptors": [
+            "baroque-setup",
+            "short-neck",
+            "shorter-fingerboard",
+            "lighter-bass-bar",
+            "no-chinrest",
+            "lower-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_bow_stick",
+      "surface": false,
+      "name": "Bow stick wood",
+      "variants": [
+        {
+          "id": "viola_pernambuco",
+          "default": true,
+          "name": "Pernambuco (Paubrasilia echinata, traditional canon)",
+          "descriptors": [
+            "pernambuco",
+            "paubrasilia-echinata",
+            "classical-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern",
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "viola_snakewood",
+          "name": "Snakewood (Brosimum guianense, baroque-era canon)",
+          "descriptors": [
+            "snakewood",
+            "pre-1800-canon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "viola_carbon_fiber",
+          "name": "Carbon-fiber composite (modern alternative)",
+          "descriptors": [
+            "carbon-fiber",
+            "humidity-stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_brazilwood",
+          "name": "Brazilwood (student / intermediate)",
+          "descriptors": [
+            "brazilwood",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "bowed",
+            "student-tier"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_rosin",
+      "surface": false,
+      "name": "Rosin",
+      "variants": [
+        {
+          "id": "viola_larsen_rosin",
+          "default": true,
+          "name": "Larsen viola-specific (denser modern)",
+          "descriptors": [
+            "larsen-viola-specific",
+            "denser-modern"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_pirastro_obligato_rosin",
+          "name": "Pirastro Obligato (modern balanced)",
+          "descriptors": [
+            "pirastro-obligato",
+            "balanced-grip"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "viola_galeazzi_baroque_rosin",
+          "name": "Galeazzi 1791 Italian-recipe (Aquila baroque)",
+          "descriptors": [
+            "galeazzi-1791",
+            "period-rosin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "classical"
+          ]
+        },
+        {
+          "id": "viola_bernardel_rosin",
+          "name": "Bernardel (French traditional)",
+          "descriptors": [
+            "bernardel-french-traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ]
+    }
+  ]
+}

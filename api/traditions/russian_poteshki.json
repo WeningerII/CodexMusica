@@ -1,0 +1,68 @@
+{
+  "id": "russian_poteshki",
+  "name": "Russian poteshki and pestushki (children's rhymes)",
+  "family": "global",
+  "lineage": "Russian-language children's play-song tradition continuous from medieval-and-early-modern Russian folk-play-song origins through 19th-century Russian-folklorist documentation (Vladimir Dahl and others) into modern continuous Russian childhood-practice; poteshki (entertaining-rhymes for older children) and pestushki (caretaking-rhymes for infants) constitute the core repertoire",
+  "recipe": "classic modern russian poteshki and pestushki, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, Slavic bard ballad poetry spanish and latin american rondas portuguese acalanto. thick, low dynamic level, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 398,
+  "score": 95.897,
+  "config": {
+    "traditions": [
+      "russian_poteshki",
+      "spanish_rondas",
+      "portuguese_acalanto"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.930000000000001,
+          "voice_quality": 2.275,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.045,
+          "voice_tradition": 7.379999999999999,
+          "voice_mechanism_compound": 1.875,
+          "voice_estill_quality": 0.8099999999999998,
+          "voice_speech_song": 10.464999999999996,
+          "voice_ensemble_config": 7.02,
+          "voice_ornament_system": 0.27,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.78,
+          "voice_multitrack_stack": 0.7949999999999999
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "russian_minor_estrada_chanson",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

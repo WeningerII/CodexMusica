@@ -1,0 +1,162 @@
+{
+  "id": "carnatic_vocal",
+  "name": "Carnatic vocal",
+  "family": "classical",
+  "lineage": "South Indian classical vocal tradition organized around the 72-melakarta scale system codified by Venkatamakhin in 1620 and the kriti-composition canon of the early-19th-century Trinity (Tyagaraja, Muthuswami Dikshitar, Syama Sastri); 20th-century lineage M.S. Subbulakshmi, D.K. Pattammal, M.D. Ramanathan, T.N. Krishnan, Semmangudi Srinivasa Iyer, T.R. Mahalingam",
+  "recipe": "classic North American early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, silvery treble-extended suited to female vocal tanpura, ghatam, thavil, jackwood frame canonical carnatic kanjira. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 687,
+  "score": 362,
+  "config": {
+    "traditions": [
+      "carnatic_vocal",
+      "sinhala_vannama",
+      "telugu_kirtana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.5899999999999994,
+          "voice_quality": 3.185,
+          "voice_vibrato": 5.329999999999999,
+          "voice_articulation": 0.54,
+          "voice_microtone": 1.17,
+          "voice_tradition": 24.505000000000003,
+          "voice_mechanism_compound": 9.399999999999999,
+          "voice_estill_quality": 11.019999999999998,
+          "voice_speech_song": 9.999999999999996,
+          "voice_ensemble_config": 4.419999999999999,
+          "voice_ornament_system": 17.445,
+          "voice_pitch_organization": 18.615,
+          "voice_processing_chain": 3.4899999999999998,
+          "voice_multitrack_stack": 4.549999999999999
+        }
+      },
+      {
+        "id": "mridangam",
+        "slots": {
+          "mridangam_heads": "mridangam_standard",
+          "mridangam_use": "mridangam_carnatic",
+          "mridangam_shell_wood": "mridangam_jackwood_canonical",
+          "mridangam_heads_material": "mridangam_goat_buffalo",
+          "mridangam_lineage": "mridangam_palghat"
+        },
+        "scores": {
+          "mridangam_heads": 4.9399999999999995,
+          "mridangam_use": 0,
+          "mridangam_shell_wood": 2.08,
+          "mridangam_heads_material": 0.9749999999999999,
+          "mridangam_lineage": 3.38
+        }
+      },
+      {
+        "id": "violin_carnatic",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "violin_carnatic_tuning": "violin_carnatic_carnatic",
+          "violin_carnatic_posture": "violin_carnatic_seated_south",
+          "violin_carnatic_strings": "violin_carnatic_gut_historical",
+          "violin_carnatic_lineage": "violin_carnatic_lalgudi"
+        },
+        "scores": {
+          "bowed_technique": 9.5,
+          "violin_carnatic_tuning": 10.659999999999998,
+          "violin_carnatic_posture": 3.12,
+          "violin_carnatic_strings": 3.575,
+          "violin_carnatic_lineage": 3.38
+        }
+      },
+      {
+        "id": "tanpura",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "tanpura_size": "female_size",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "five_string_chitra",
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_gourd_body"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.5,
+          "tanpura_size": 4.159999999999999,
+          "tanpura_jawari": 9.5,
+          "tanpura_strings": 1.56,
+          "tanpura_string_material": 0.9749999999999999,
+          "tanpura_body_wood": 0.9749999999999999
+        }
+      },
+      {
+        "id": "ghatam",
+        "slots": {
+          "ghatam_school": "ghatam_trichy",
+          "ghatam_technique": "ghatam_mouth"
+        },
+        "scores": {
+          "ghatam_school": 0.39,
+          "ghatam_technique": 0.8249999999999998
+        }
+      },
+      {
+        "id": "thavil",
+        "slots": {
+          "thavil_context": "thavil_periya_melam",
+          "thavil_technique": "thavil_stick_finger",
+          "thavil_shell_wood": "thavil_jackwood",
+          "thavil_head": "thavil_buffalo_goat"
+        },
+        "scores": {
+          "thavil_context": 0,
+          "thavil_technique": 0,
+          "thavil_shell_wood": 0.39,
+          "thavil_head": 0.9749999999999999
+        }
+      },
+      {
+        "id": "kanjira",
+        "slots": {
+          "kanjira_skin": "kanjira_goat",
+          "kanjira_context": "kanjira_carnatic",
+          "kanjira_shell_wood": "kanjira_jackwood_canonical",
+          "kanjira_jingle": "kanjira_brass_jingle"
+        },
+        "scores": {
+          "kanjira_skin": 0.39,
+          "kanjira_context": 4.9399999999999995,
+          "kanjira_shell_wood": 4.03,
+          "kanjira_jingle": 0.9749999999999999
+        }
+      }
+    ],
+    "room": "chennai_madras_music_academy_sabha",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

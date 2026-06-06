@@ -1,0 +1,68 @@
+{
+  "id": "maasai_adumu_olaranyani",
+  "name": "Maasai adumu warrior jumping-song",
+  "family": "global",
+  "lineage": "Maasai East African pastoral vocal tradition of southern Kenya and northern Tanzania (Kajiado, Narok, Ngorongoro, Serengeti boundary regions). Performance centers on the eunoto warrior-graduation ceremony and adumu jumping-dance: young moran (warriors) in a competitive circle, each leaping vertically to maximum height while the surrounding warriors sing a polyrhythmic guttural-vocal pattern of pitched grunt-and-throat-call accompanied by hyper-rapid breath-and-tongue-clicking and the rhythmic call-and-response of the olaranyani song-leader. No melodic instrument tradition — vocal-only, with the song-leader's melodic line answered by the warrior chorus in unison-or-octave-leap configuration with characteristic vocal-rasp and chest-voice projection. Naomi Kipury's 1983 ethnographic collection (Oral Literature of the Maasai, East African Educational Publishers, Nairobi) and the 2001-2003 Smithsonian Maasai Field Recordings (Daniel Johnson / Simon Saitoti) provide the principal documentation. Repertoire functions span warrior-formation cycles, cattle-praise, ilkipoot-elder oratorical-rhetorical cycles, women's parallel choral repertoire (lipsmacking eunoto-women's songs), and warrior-mourning. Distinguished from neighboring Sukuma and Kikuyu vocal traditions by Maasai's exclusive vocal-only (no instrument) configuration and characteristic guttural-rasp male-warrior projection; distinguished from Samburu (a closely-related Nilotic group) by Maasai's adumu-jumping-as-primary-performance-architecture.",
+  "recipe": "classic 2001-2003 maasai adumu warrior jumping-song, ritual Devotional, indigenous branch, vocal drone modal estonian setu leelo polyphonic song sámi yoik. vocal fry, declaimed, melodic, unrestrained. maasai manyatta outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 355,
+  "score": 211.89,
+  "config": {
+    "traditions": [
+      "maasai_adumu_olaranyani",
+      "estonian_setu_leelo",
+      "sami_yoik"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 10.27,
+          "voice_quality": 7.595000000000001,
+          "voice_vibrato": 2.6399999999999997,
+          "voice_articulation": 3.8,
+          "voice_microtone": 1.625,
+          "voice_tradition": 27.364999999999995,
+          "voice_mechanism_compound": 5.1450000000000005,
+          "voice_estill_quality": 4.065,
+          "voice_speech_song": 21.645000000000003,
+          "voice_ensemble_config": 18.590000000000003,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 3.6399999999999997,
+          "voice_processing_chain": 10.14,
+          "voice_multitrack_stack": 15.339999999999998
+        }
+      }
+    ],
+    "room": "maasai_manyatta_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

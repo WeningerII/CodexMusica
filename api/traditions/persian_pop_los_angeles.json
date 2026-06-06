@@ -1,0 +1,166 @@
+{
+  "id": "persian_pop_los_angeles",
+  "name": "Tehrangeles Persian pop",
+  "family": "global",
+  "lineage": "Iranian-diaspora Los Angeles-recorded pop tradition codified by the post-1979-revolution émigré recording industry centered on Westwood / Tarzana — Andy and Kouros, Moein, Dariush, Googoosh\\u2019s post-2000 return, with characteristic Farsi-language vocals over Westernized pop-rock production",
+  "recipe": "classic Los Angeles late-1970s tehrangeles persian pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. thick, low dynamic level, chest resonance low mid, equal tempered. oberheim tom oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, mahogany rosewood clean strummed single coil electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 677,
+  "score": 268.237,
+  "config": {
+    "traditions": [
+      "persian_pop_los_angeles",
+      "iraqi_maqam",
+      "malhun_maghrebi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 16.16149999999999,
+          "voice_quality": 1.755,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 0.063,
+          "voice_microtone": 15.949999999999998,
+          "voice_tradition": 15.404499999999997,
+          "voice_mechanism_compound": 6.6765,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 3.9650000000000003,
+          "voice_ensemble_config": 2.08,
+          "voice_ornament_system": 8.1695,
+          "voice_pitch_organization": 7.9879999999999995,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 1.5250000000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 13.45,
+          "poly_archetypes": 1.24,
+          "poly_voices": 0.15,
+          "poly_maker_lineage": 4.136500000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 13.45,
+          "amp_make": 1.755,
+          "body_wood": 1.95,
+          "neck_wood": 1.95,
+          "fretboard": 1.885,
+          "pickup_magnet": 0.045,
+          "string_material": 0.045,
+          "string_gauge": 1.95,
+          "bridge": 0,
+          "scale_length": 1.95,
+          "finish": 0.15,
+          "string_tuning": 1.3
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 1.6899999999999997,
+          "body_wood": 1.95,
+          "pickup_config": 0,
+          "string_type": 2.5,
+          "scale_length_b": 1.95,
+          "fretted_or_not": 0.045,
+          "bass_technique": 2.45
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 2.0799999999999996,
+          "shell_wood": 0.09099999999999998,
+          "shell_thickness": 0.045,
+          "bearing_edges": 1.95,
+          "drumhead": 13.69,
+          "snare_wires": 1.95,
+          "cymbal_alloy": 16.045,
+          "cymbal_hammering": 16.012999999999998,
+          "cymbal_lathing": 15.995,
+          "cymbal_finish": 0.045,
+          "drum_technique": 2.5
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

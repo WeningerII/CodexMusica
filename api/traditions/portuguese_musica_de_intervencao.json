@@ -1,0 +1,104 @@
+{
+  "id": "portuguese_musica_de_intervencao",
+  "name": "Portuguese música de intervenção",
+  "family": "global",
+  "lineage": "Portuguese música de intervenção (\"intervention music\") protest-song tradition continuous from 1960s-1974 Estado Novo dictatorship-era political folk-and-songwriter scene; centered on José Afonso, Adriano Correia de Oliveira, Sérgio Godinho, José Mário Branco; José Afonso's \"Grândola Vila Morena\" was the radio-signal that triggered the April 25 1974 Carnation Revolution",
+  "recipe": "classic mid-1960s portuguese música de intervenção, protest Song, European branch, iberian Latin protest song, chanson fado ballad poetry, iberian functional song fado de coimbra morna. thick, lament wail, chest resonance low mid, continuous-phonation. fingerpicked acoustic guitar, lower tuned fado coimbra tradition jacaranda Portuguese rosewood spruce canonical fado steel canonical Portuguese guitarra portuguesa. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 556,
+  "score": 169.648,
+  "config": {
+    "traditions": [
+      "portuguese_musica_de_intervencao",
+      "fado_coimbra_university",
+      "morna"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 3.545000000000001,
+          "voice_quality": 3.835,
+          "voice_vibrato": 0.975,
+          "voice_articulation": 2.08,
+          "voice_microtone": 0.38999999999999996,
+          "voice_tradition": 7.540000000000001,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.39,
+          "voice_speech_song": 9.035,
+          "voice_ensemble_config": 3.9,
+          "voice_ornament_system": 3.494999999999999,
+          "voice_pitch_organization": 2.035,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 3.640000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_e",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "acoustic_technique": 5.035,
+          "string_tuning": 0,
+          "top_wood": 0.54,
+          "back_sides": 0.5850000000000001,
+          "string_acoustic": 0.78,
+          "acoustic_om_technique": 5.035
+        }
+      },
+      {
+        "id": "guitarra_portuguesa",
+        "slots": {
+          "guitarra_tuning_school": "guitarra_coimbra_lower_tuned",
+          "guitarra_body_wood": "guitarra_jacaranda_body",
+          "guitarra_top_wood": "guitarra_spruce_top",
+          "guitarra_strings": "guitarra_steel_canonical",
+          "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
+        },
+        "scores": {
+          "guitarra_tuning_school": 3.38,
+          "guitarra_body_wood": 3.3149999999999995,
+          "guitarra_top_wood": 1.69,
+          "guitarra_strings": 3.3799999999999994,
+          "guitarra_technique": 2.08
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

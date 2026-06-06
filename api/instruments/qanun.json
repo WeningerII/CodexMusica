@@ -1,0 +1,651 @@
+{
+  "id": "qanun",
+  "name": "Qānūn (Arab/Turkish trapezoidal zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "qanun",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "qanun_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "qanun_arab_72",
+          "default": true,
+          "name": "Arab 24-course / 72 string",
+          "descriptors": [
+            "full-range",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "qanun_turkish",
+          "name": "Turkish 26-course",
+          "descriptors": [
+            "extended",
+            "makam-virtuosic",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanun_levers",
+      "name": "Microtonal levers (mandals)",
+      "variants": [
+        {
+          "id": "mandal_brass",
+          "default": true,
+          "name": "Brass levers",
+          "descriptors": [
+            "quick-toggle-mechanism",
+            "quick-toggle",
+            "modern",
+            "brass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanun_pick",
+      "surface": false,
+      "name": "Pluck",
+      "variants": [
+        {
+          "id": "qanun_finger_picks",
+          "default": true,
+          "name": "Metal index-finger picks (modern canonical)",
+          "descriptors": [
+            "treble-extended",
+            "articulate",
+            "classical",
+            "metal-finger-picks"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "qanun_tortoiseshell_pick_historical",
+          "name": "Tortoiseshell picks (pre-1973 historical canonical)",
+          "descriptors": [
+            "tortoiseshell",
+            "pre-1973",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "qanun_plastic_pick",
+          "name": "Plastic picks (modern alternative)",
+          "descriptors": [
+            "plastic",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanun_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "qanun_walnut_body",
+          "default": true,
+          "name": "Walnut (canonical decorative)",
+          "descriptors": [
+            "walnut-body",
+            "canonical-decorative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "qanun_maple_body",
+          "name": "Maple (Turkish school)",
+          "descriptors": [
+            "maple-body",
+            "turkish-school"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "qanun_rosewood_body",
+          "name": "Rosewood (Arab premium)",
+          "descriptors": [
+            "rosewood-body",
+            "arab-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanun_bridge_skin",
+      "surface": false,
+      "name": "Bridge skin plate",
+      "variants": [
+        {
+          "id": "qanun_goat_skin_bridge",
+          "default": true,
+          "name": "Goat-skin bridge plate (canonical)",
+          "descriptors": [
+            "goat-skin-bridge-plate",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "qanun_fish_skin_bridge",
+          "name": "Fish-skin bridge plate (lighter alternative)",
+          "descriptors": [
+            "fish-skin-bridge-plate",
+            "lighter-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "qanun_synthetic_bridge",
+          "name": "Synthetic bridge plate (modern)",
+          "descriptors": [
+            "synthetic-bridge-plate",
+            "modern-stable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanun_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "qanun_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern standard)",
+          "descriptors": [
+            "nylon-modern-standard"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "qanun_gut_historical",
+          "name": "Gut (pre-1900 historical canonical)",
+          "descriptors": [
+            "gut-historical",
+            "pre-1900-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "qanun_fluorocarbon",
+          "name": "Fluorocarbon (modern alternative)",
+          "descriptors": [
+            "fluorocarbon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "qanun_strings",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "qanun_arab_72",
+          "default": true,
+          "name": "Arab 24-course / 72 string",
+          "descriptors": [
+            "full-range",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "qanun_turkish",
+          "name": "Turkish 26-course",
+          "descriptors": [
+            "extended",
+            "makam-virtuosic",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanun_levers",
+      "name": "Microtonal levers (mandals)",
+      "variants": [
+        {
+          "id": "mandal_brass",
+          "default": true,
+          "name": "Brass levers",
+          "descriptors": [
+            "quick-toggle-mechanism",
+            "quick-toggle",
+            "modern",
+            "brass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanun_pick",
+      "surface": false,
+      "name": "Pluck",
+      "variants": [
+        {
+          "id": "qanun_finger_picks",
+          "default": true,
+          "name": "Metal index-finger picks (modern canonical)",
+          "descriptors": [
+            "treble-extended",
+            "articulate",
+            "classical",
+            "metal-finger-picks"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "qanun_tortoiseshell_pick_historical",
+          "name": "Tortoiseshell picks (pre-1973 historical canonical)",
+          "descriptors": [
+            "tortoiseshell",
+            "pre-1973",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "ornamented",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "cites-app-i"
+          ]
+        },
+        {
+          "id": "qanun_plastic_pick",
+          "name": "Plastic picks (modern alternative)",
+          "descriptors": [
+            "plastic",
+            "modern-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanun_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "qanun_walnut_body",
+          "default": true,
+          "name": "Walnut (canonical decorative)",
+          "descriptors": [
+            "walnut-body",
+            "canonical-decorative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "qanun_maple_body",
+          "name": "Maple (Turkish school)",
+          "descriptors": [
+            "maple-body",
+            "turkish-school"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "qanun_rosewood_body",
+          "name": "Rosewood (Arab premium)",
+          "descriptors": [
+            "rosewood-body",
+            "arab-premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanun_bridge_skin",
+      "surface": false,
+      "name": "Bridge skin plate",
+      "variants": [
+        {
+          "id": "qanun_goat_skin_bridge",
+          "default": true,
+          "name": "Goat-skin bridge plate (canonical)",
+          "descriptors": [
+            "goat-skin-bridge-plate",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "qanun_fish_skin_bridge",
+          "name": "Fish-skin bridge plate (lighter alternative)",
+          "descriptors": [
+            "fish-skin-bridge-plate",
+            "lighter-alternative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "qanun_synthetic_bridge",
+          "name": "Synthetic bridge plate (modern)",
+          "descriptors": [
+            "synthetic-bridge-plate",
+            "modern-stable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qanun_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "qanun_nylon_modern",
+          "default": true,
+          "name": "Nylon (modern standard)",
+          "descriptors": [
+            "nylon-modern-standard"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "qanun_gut_historical",
+          "name": "Gut (pre-1900 historical canonical)",
+          "descriptors": [
+            "gut-historical",
+            "pre-1900-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "qanun_fluorocarbon",
+          "name": "Fluorocarbon (modern alternative)",
+          "descriptors": [
+            "fluorocarbon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

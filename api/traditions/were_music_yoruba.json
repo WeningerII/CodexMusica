@@ -1,0 +1,85 @@
+{
+  "id": "were_music_yoruba",
+  "name": "Were music (Yoruba Ramadan procession)",
+  "family": "global",
+  "lineage": "Yoruba were music: pre-dawn Ramadan-procession devotional song-and-drumming tradition of southwestern Nigerian Muslim-Yoruba communities, performed by ajiwere groups moving through Muslim neighborhoods before the suhoor pre-dawn meal during Ramadan. Performance combines unison or call-and-response chorus singing in Yoruba and Arabic (Quranic phrases interpolated into Yoruba praise-poetry) with sákárà frame-drums and small bells. Direct ancestor of fuji music — Alhaji Ayinde Barrister brought the were aesthetic into post-Ramadan secular commercial performance contexts.",
+  "recipe": "classic modern were music, ritual Devotional, islamic branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, pure, rhythmic. walnut bent frame canonical Iranian tar frame drum. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 370,
+  "score": 163.39,
+  "config": {
+    "traditions": [
+      "were_music_yoruba",
+      "indonesian_jaipongan",
+      "fuji"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.4249999999999998,
+          "voice_quality": 10.139999999999999,
+          "voice_vibrato": 1.3900000000000001,
+          "voice_articulation": 0.885,
+          "voice_microtone": 3.1315000000000004,
+          "voice_tradition": 31.46,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 11.5315,
+          "voice_pitch_organization": 16.544999999999998,
+          "voice_processing_chain": 4.545,
+          "voice_multitrack_stack": 1.8899999999999997
+        }
+      },
+      {
+        "id": "tar_frame_drum",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "tar_size": "tar_small",
+          "tar_frame_drum_context": "tar_frame_drum_sufi",
+          "tar_frame_shell_wood": "tar_frame_walnut",
+          "tar_frame_head": "tar_frame_calfskin"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "tar_size": 0.195,
+          "tar_frame_drum_context": 1.8675,
+          "tar_frame_shell_wood": 1.645,
+          "tar_frame_head": 0.3
+        }
+      }
+    ],
+    "room": "atlas_mountain_village_square",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

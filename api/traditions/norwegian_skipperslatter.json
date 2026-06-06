@@ -1,0 +1,89 @@
+{
+  "id": "norwegian_skipperslatter",
+  "name": "Norwegian skipperslåttar (sailor work-songs)",
+  "family": "global",
+  "lineage": "Norwegian-Scandinavian sailor work-song tradition (skipperslåttar = \"ship-sailor tunes,\" skanssanger = \"quarterdeck songs\") continuous from 18th-19th-century Norwegian-and-broader-Scandinavian maritime-trade work-song practice through 20th-century Norwegian-folk-revival into modern Norwegian-coastal-cultural-practice; foundational repertoire includes \"Pål sine høner\" (sailor work-coordination song), Norwegian sea-shanty translations",
+  "recipe": "classic modern norwegian skipperslåttar, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, Slavic balkan field work, European drinking song russian zhnitvenye pesni romanian colinde de seceriş. thick, low dynamic level, tasteful, unrestrained. castagnari Italian premium folk music straight accordion. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 472,
+  "score": 112.735,
+  "config": {
+    "traditions": [
+      "norwegian_skipperslatter",
+      "russian_zhnitvenye",
+      "romanian_colinde_seceris"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.500000000000001,
+          "voice_quality": 3.575,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.7499999999999998,
+          "voice_microtone": 0.22750000000000004,
+          "voice_tradition": 9.75,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 8.775,
+          "voice_ensemble_config": 3.5100000000000002,
+          "voice_ornament_system": 0.26,
+          "voice_pitch_organization": 1.9631249999999998,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.5287499999999999
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 4.290000000000001,
+          "accordion_reed_material": 0.045,
+          "musette_offset": 0.39,
+          "reed_config": 0,
+          "bellows": 0.3,
+          "voicing_chamber": 0.315,
+          "accordion_maker_school": 2.6381249999999996
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

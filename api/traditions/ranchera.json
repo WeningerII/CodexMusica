@@ -1,0 +1,169 @@
+{
+  "id": "ranchera",
+  "name": "Ranchera",
+  "family": "vernacular",
+  "lineage": "Mexican rural-pastoral nostalgic-song-form codified 1920s-1940s in the Mexican-revolutionary-era-and-cinema-golden-age, performed by mariachi-conjunto ensemble (typically violin-section, trumpet-pair, guitar, vihuela, guitarrón) with prominent solo-vocalist. The canonical ranchera structure: simple three-or-four-chord harmonic-progression (I-IV-V or I-vi-IV-V), 3/4 or 4/4 meter, sentimental lyrics about rural-homeland, lost-love, drinking-and-sorrow, mother-figure. The 1936-onward Mexican-golden-age-cinema established ranchera as the national-cinematic-musical-export, recorded by ranchera-cantante singers (typically male-tenor or female-mezzo) with characteristic grito-mexicano high-falsetto-cry interjection. The genre influenced Tejano, mariachi-revival, and modern norteño popular-styles.",
+  "recipe": "classic tropical modern ranchera, functional Song, ranchera branch, tejano border corrido, Mexican functional song, tropical song functional song bachata. thick, full chest belt, chest resonance low mid, narrative. sitka spruce European maple sycamore maple French Polish shellac pad violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison standard rim orchestral balance trumpet, cedar fingerpicked classical nylon-string guitar, cedar caoba paracho guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 820,
+  "score": 330.845,
+  "config": {
+    "traditions": [
+      "ranchera",
+      "corrido",
+      "bachata"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 2.405,
+          "voice_quality": 35.50000000000001,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 0.5199999999999999,
+          "voice_microtone": 0.39,
+          "voice_tradition": 6.5,
+          "voice_mechanism_compound": 3.769999999999999,
+          "voice_estill_quality": 21.24,
+          "voice_speech_song": 18.394999999999996,
+          "voice_ensemble_config": 10.139999999999997,
+          "voice_ornament_system": 0.7499999999999998,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 4.159999999999999,
+          "voice_multitrack_stack": 2.5999999999999996
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.75,
+          "orch_strings": 0.3,
+          "orch_top_wood": 4.325,
+          "orch_back_wood": 3.55,
+          "orch_varnish": 3.725,
+          "orch_setup_period": 2.275,
+          "orch_bow": 1.305,
+          "orch_bow_stick": 3.245,
+          "orch_articulation": 0.39,
+          "orch_rosin": 3.25
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_mariachi_unison",
+          "brass_size": "cornet",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_mariachi_unison",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 9.589999999999996,
+          "brass_size": 0,
+          "trumpet_mouthpiece": 3.55,
+          "brass_mute": 0.75,
+          "trumpet_technique": 9.589999999999996,
+          "trumpet_bell_metal": 1.3,
+          "trumpet_maker_school": 1.3
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 3.705,
+          "string_tuning": 0,
+          "top_wood_classical": 1.69,
+          "bracing_classical": 0.39,
+          "string_classical": 0.045,
+          "attack_technique_cl": 1.0499999999999998
+        }
+      },
+      {
+        "id": "guitarron_mexicano",
+        "slots": {
+          "guitarron_body": "guitarron_deep_round_back",
+          "guitarron_body_wood": "guitarron_cedar_paracho",
+          "guitarron_strings": "guitarron_six_string_nylon_steel",
+          "guitarron_string_material": "guitarron_nylon_steel_modern",
+          "guitarron_technique": "guitarron_octave_pair_plucking"
+        },
+        "scores": {
+          "guitarron_body": 0.39,
+          "guitarron_body_wood": 6.239999999999998,
+          "guitarron_strings": 0.525,
+          "guitarron_string_material": 0.65,
+          "guitarron_technique": 8.189999999999998
+        }
+      },
+      {
+        "id": "vihuela_mexicana",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "vihuela_mexicana_back": "vihuela_mexicana_arched",
+          "vihuela_mexicana_context": "vihuela_mexicana_modern",
+          "vihuela_mexicana_body_wood": "vihuela_mexicana_mahogany",
+          "vihuela_mexicana_strings": "vihuela_mexicana_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.95,
+          "vihuela_mexicana_back": 4.774999999999999,
+          "vihuela_mexicana_context": 1.3,
+          "vihuela_mexicana_body_wood": 6.239999999999998,
+          "vihuela_mexicana_strings": 6.239999999999998
+        }
+      }
+    ],
+    "room": "mexico_peerless_musart_50s_60s",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "condenser_tube",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "id": "norwegian_2nd_wave_black",
+  "name": "Norwegian 2nd-wave black metal",
+  "family": "global",
+  "lineage": "Early-1990s Norwegian black-metal scene centered on Oslo, codified through Mayhem (De Mysteriis Dom Sathanas 1994), Burzum (Filosofem 1996), Darkthrone (Transilvanian Hunger 1994), Emperor (In the Nightside Eclipse 1994), and Immortal — characterized by raw lo-fi production, false-fold ventricular shriek vocals, tremolo-picked tremolo-feast guitar work, blast-beat drumming, and Satanist / anti-Christian lyrical content with the church-burning context that made the scene internationally notorious",
+  "recipe": "classic North American 1990-1993 norwegian 2nd-wave black metal, distorted Rock, black branch, ambient experimental electric witch house vaporwave aesthetic. thick, false fold engaged, equal tempered, 31 tet. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ernie ball slinky electric bass, machine hammered symmetric pattern organized rows unlathed natural finish drum kit. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 583,
+  "score": 210.763,
+  "config": {
+    "traditions": [
+      "norwegian_2nd_wave_black",
+      "witch_house_2010s",
+      "vapor_aesthetic"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.3850000000000016,
+          "voice_quality": 11.094999999999994,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 0.09,
+          "voice_microtone": 3.500000000000001,
+          "voice_tradition": 2.2749999999999995,
+          "voice_mechanism_compound": 14.319999999999999,
+          "voice_estill_quality": 1.2449999999999999,
+          "voice_speech_song": 2.925,
+          "voice_ensemble_config": 2.8600000000000003,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 2,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 11.16,
+          "amp_make": 4.745,
+          "body_wood": 5.329999999999999,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.15,
+          "pickup_winding": 0.345,
+          "string_material": 0.39,
+          "bridge": 0.39,
+          "scale_length": 5.329999999999999,
+          "string_gauge": 0.39,
+          "finish": 1,
+          "string_tuning": 7.279999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 1.2,
+          "amp_make": 1.805,
+          "body_wood": 0.54,
+          "pickup_config": 1.15,
+          "string_type": 4.26,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": 5
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "lathing_raw_unlathed",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 2.8600000000000003,
+          "shell_wood": 0.39,
+          "shell_thickness": 0,
+          "bearing_edges": 0.54,
+          "drumhead": 0.39,
+          "snare_wires": 0.39,
+          "cymbal_alloy": 13.59,
+          "cymbal_hammering": 3.74,
+          "cymbal_lathing": 3.845,
+          "cymbal_finish": 1.455,
+          "drum_technique": 3.75
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_marshall_jcm800",
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "lofi_deliberate",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

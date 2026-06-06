@@ -1,0 +1,299 @@
+{
+  "id": "celtic_harp",
+  "name": "Celtic / lever harp (clàrsach)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "celtic harp",
+  "parts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_strummed_ringing",
+          "default": true,
+          "name": "Open-chord strumming (ringing)",
+          "applies_to": [
+            "acoustic_guitar_dread",
+            "acoustic_guitar_om",
+            "acoustic_guitar_parlor",
+            "classical_nylon_string_guitar",
+            "mandolin",
+            "mandola",
+            "autoharp",
+            "celtic_harp",
+            "cittern"
+          ],
+          "descriptors": [
+            "strummed",
+            "open-chord-ringing-overtones"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "folk-revival",
+            "pop"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "celtic_harp_levers",
+      "name": "Lever system",
+      "variants": [
+        {
+          "id": "lever_camac",
+          "default": true,
+          "name": "Camac levers",
+          "descriptors": [
+            "responsive",
+            "modern",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "celtic_harp_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "celtic_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "classical",
+            "gut",
+            "gut-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_celtic_harp",
+          "name": "Plain sheep gut (unsplit, period)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_celtic_harp",
+          "name": "Plain lamb gut (Aquila HU)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "organic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "varnished_gut_celtic_harp",
+          "name": "Varnished gut",
+          "descriptors": [
+            "varnished",
+            "sealed",
+            "humidity-resistant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "celtic_nylon",
+          "name": "Nylon",
+          "descriptors": [
+            "stable",
+            "modern",
+            "nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "celtic_wire_strung",
+          "name": "Wire-strung (clàrsach)",
+          "descriptors": [
+            "archaic",
+            "ringing",
+            "medieval"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "celtic_harp_levers",
+      "name": "Lever system",
+      "variants": [
+        {
+          "id": "lever_camac",
+          "default": true,
+          "name": "Camac levers",
+          "descriptors": [
+            "responsive",
+            "modern",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "celtic_harp_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "celtic_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "low-mid-rich-spectrum",
+            "traditional",
+            "classical",
+            "gut",
+            "gut-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "plain_sheep_gut_celtic_harp",
+          "name": "Plain sheep gut (unsplit, period)",
+          "descriptors": [
+            "plain-gut",
+            "sheep-gut",
+            "unsplit",
+            "short-sustain"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "plain_lamb_gut_celtic_harp",
+          "name": "Plain lamb gut (Aquila HU)",
+          "descriptors": [
+            "plain-gut",
+            "lamb-gut",
+            "whole-lamb-method",
+            "organic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "varnished_gut_celtic_harp",
+          "name": "Varnished gut",
+          "descriptors": [
+            "varnished",
+            "sealed",
+            "humidity-resistant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "celtic_nylon",
+          "name": "Nylon",
+          "descriptors": [
+            "stable",
+            "modern",
+            "nylon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "celtic_wire_strung",
+          "name": "Wire-strung (clàrsach)",
+          "descriptors": [
+            "archaic",
+            "ringing",
+            "medieval"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

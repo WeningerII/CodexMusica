@@ -1,0 +1,237 @@
+{
+  "id": "igil",
+  "name": "Igil (Tuvan two-string bowed horsehead fiddle)",
+  "family": "bowed",
+  "class": "bowed",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "igil",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "igil_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "igil_carved_horsehead",
+          "default": true,
+          "name": "Carved horsehead scroll, skin or wood soundboard",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "wood",
+            "hide",
+            "tuvan-tradition"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "igil_string",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "igil_horsehair_two",
+          "default": true,
+          "name": "Two horsehair-bundle strings",
+          "descriptors": [
+            "authentic",
+            "horsehair"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "igil_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "igil_larch_canonical",
+          "default": true,
+          "name": "Larch (canonical Tuvan)",
+          "descriptors": [
+            "larch-canonical-tuvan"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "igil_cedar_alternative",
+          "name": "Cedar (alternative)",
+          "descriptors": [
+            "cedar-alternative"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "igil_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "igil_khoomei_accompaniment",
+          "default": true,
+          "name": "Khoomei throat-singing accompaniment (canonical)",
+          "descriptors": [
+            "khoomei-accompaniment-canonical"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "igil_pastoral_solo",
+          "name": "Pastoral solo (canonical Tuvan)",
+          "descriptors": [
+            "pastoral-solo-canonical"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "igil_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "igil_carved_horsehead",
+          "default": true,
+          "name": "Carved horsehead scroll, skin or wood soundboard",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "wood",
+            "hide",
+            "tuvan-tradition"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "igil_string",
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "igil_horsehair_two",
+          "default": true,
+          "name": "Two horsehair-bundle strings",
+          "descriptors": [
+            "authentic",
+            "horsehair"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "igil_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "igil_larch_canonical",
+          "default": true,
+          "name": "Larch (canonical Tuvan)",
+          "descriptors": [
+            "larch-canonical-tuvan"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "igil_cedar_alternative",
+          "name": "Cedar (alternative)",
+          "descriptors": [
+            "cedar-alternative"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "igil_tradition",
+      "surface": false,
+      "name": "Performance tradition",
+      "variants": [
+        {
+          "id": "igil_khoomei_accompaniment",
+          "default": true,
+          "name": "Khoomei throat-singing accompaniment (canonical)",
+          "descriptors": [
+            "khoomei-accompaniment-canonical"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "igil_pastoral_solo",
+          "name": "Pastoral solo (canonical Tuvan)",
+          "descriptors": [
+            "pastoral-solo-canonical"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

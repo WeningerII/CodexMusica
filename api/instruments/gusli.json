@@ -1,0 +1,370 @@
+{
+  "id": "gusli",
+  "name": "Gusli (Slavic psaltery)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gusli",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_fingerpicked",
+          "name": "Fingerpicked",
+          "applies_to": [
+            "kora",
+            "ngoni",
+            "kamele_ngoni",
+            "donso_ngoni",
+            "xalam",
+            "akonting",
+            "kantele",
+            "gusli",
+            "dotara",
+            "ektara",
+            "khamak",
+            "tumbi",
+            "sintir",
+            "banjo_5_string",
+            "cavaquinho"
+          ],
+          "descriptors": [
+            "fingerpicked",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gusli_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "gusli_archaic_5",
+          "name": "Five-string archaic",
+          "descriptors": [
+            "ancestral",
+            "bardic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "gusli_chromatic",
+          "default": true,
+          "name": "Chromatic concert",
+          "descriptors": [
+            "orchestral",
+            "modern",
+            "versatile"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusli_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "gusli_bylina",
+          "default": true,
+          "name": "Bylina epic singing",
+          "descriptors": [
+            "oral-history",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "gusli_folk",
+          "name": "Folk dance / round-song",
+          "descriptors": [
+            "communal",
+            "celebratory",
+            "regional"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "plucked"
+          ]
+        },
+        {
+          "id": "gusli_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "preservationist",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusli_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gusli_brass_canonical",
+          "default": true,
+          "name": "Brass (canonical Slavic)",
+          "descriptors": [
+            "brass-canonical-slavic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "gusli_steel_modern",
+          "name": "Steel (modern concert)",
+          "descriptors": [
+            "steel-modern-concert"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "gusli_gut_historical",
+          "name": "Gut (pre-modern bardic)",
+          "descriptors": [
+            "gut-pre-modern-bardic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusli_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "gusli_maple_birch",
+          "default": true,
+          "name": "Maple / birch (canonical Slavic)",
+          "descriptors": [
+            "maple-birch",
+            "canonical-slavic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "gusli_spruce_top",
+          "name": "Spruce top (resonant)",
+          "descriptors": [
+            "spruce-top-resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gusli_strings",
+      "name": "String count",
+      "variants": [
+        {
+          "id": "gusli_archaic_5",
+          "name": "Five-string archaic",
+          "descriptors": [
+            "ancestral",
+            "bardic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "gusli_chromatic",
+          "default": true,
+          "name": "Chromatic concert",
+          "descriptors": [
+            "orchestral",
+            "modern",
+            "versatile"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusli_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "gusli_bylina",
+          "default": true,
+          "name": "Bylina epic singing",
+          "descriptors": [
+            "oral-history",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "gusli_folk",
+          "name": "Folk dance / round-song",
+          "descriptors": [
+            "communal",
+            "celebratory",
+            "regional"
+          ],
+          "match_tokens": [
+            "folk",
+            "folk-tradition",
+            "plucked"
+          ]
+        },
+        {
+          "id": "gusli_revival",
+          "name": "Modern revival",
+          "descriptors": [
+            "concert",
+            "preservationist",
+            "twentieth-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusli_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gusli_brass_canonical",
+          "default": true,
+          "name": "Brass (canonical Slavic)",
+          "descriptors": [
+            "brass-canonical-slavic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "gusli_steel_modern",
+          "name": "Steel (modern concert)",
+          "descriptors": [
+            "steel-modern-concert"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "gusli_gut_historical",
+          "name": "Gut (pre-modern bardic)",
+          "descriptors": [
+            "gut-pre-modern-bardic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gusli_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "gusli_maple_birch",
+          "default": true,
+          "name": "Maple / birch (canonical Slavic)",
+          "descriptors": [
+            "maple-birch",
+            "canonical-slavic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "gusli_spruce_top",
+          "name": "Spruce top (resonant)",
+          "descriptors": [
+            "spruce-top-resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "id": "merengue_urbano",
+  "name": "Merengue urbano",
+  "family": "global",
+  "lineage": "Electronic-and-rap-influenced Dominican merengue variant emerging in 1990s-2000s. Synthesis of traditional merengue rhythmic pulse with hip-hop production and reggaeton harmonic-rhythmic vocabulary. Drum-machine-and-sampler production, faster 2/4 tempo than traditional merengue, simpler chord-progressions, explicit MC-rapped vocal sections alongside sung verse-and-chorus. Omega \"El Fuerte\" and El Cata anchored the 2000s commercial sound.",
+  "recipe": "classic mid-1990s merengue urbano, functional Song, tropical song branch, reggaeton MC rhythm moombahton. thick, rap, punctuated, beatbox. TR-808, analog synth, electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 370,
+  "score": 108.621,
+  "config": {
+    "traditions": [
+      "merengue_urbano",
+      "reggaeton",
+      "moombahton"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 10.928,
+          "voice_vibrato": 0.3465,
+          "voice_articulation": 2.663,
+          "voice_microtone": 0.195,
+          "voice_tradition": 4.225,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 12.284999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0.21,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 5.195,
+          "voice_multitrack_stack": 7.520999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 2.535,
+          "drum_machine_808_context": 4.786499999999999,
+          "tr808_production_origin": 0.693
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "triangle_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 2.4050000000000002,
+          "oscillator": 1.45,
+          "filter_topology": 0.744,
+          "envelope": 2.663,
+          "modulation": 0.21
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 0,
+          "body_wood": 0.336,
+          "pickup_config": 0.4365,
+          "string_type": 0.5145,
+          "scale_length_b": 0.3465,
+          "fretted_or_not": 0,
+          "bass_technique": -0.035
+        }
+      }
+    ],
+    "room": "dominican_capital_studio_80s",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "merengue_2_4_perico_ripiao",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

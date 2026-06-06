@@ -1,0 +1,24 @@
+# Codex Musica
+
+> A static, server-free catalog of recording "recipes" for 1090 recorded-music
+> traditions and 421 instruments. Each tradition resolves to a compressed
+> descriptor-stack recipe (how to record a song in that style) plus a structured
+> arrangement (ensemble, room, signal chain, tuning). All data is plain JSON served as
+> static files — open a URL and read it. No API key, no server, no rate limit.
+
+## How to use (for agents)
+- List of traditions: https://weningerii.github.io/CodexMusica/api/traditions/index.json
+- One tradition (recipe + arrangement): https://weningerii.github.io/CodexMusica/api/traditions/{id}.json
+- List of instruments: https://weningerii.github.io/CodexMusica/api/instruments/index.json
+- One instrument: https://weningerii.github.io/CodexMusica/api/instruments/{id}.json
+- Catalog root / endpoint map: https://weningerii.github.io/CodexMusica/api/index.json
+
+Each tradition file has: id, name, family, lineage, recipe (string, <=1000 chars),
+recipe_chars, score, and config (the structured arrangement). Fetch the index to get
+every {id}, then fetch the per-id file you need.
+
+## Catalog
+- [Catalog index](https://weningerii.github.io/CodexMusica/api/index.json)
+- [Traditions index](https://weningerii.github.io/CodexMusica/api/traditions/index.json)
+- [Instruments index](https://weningerii.github.io/CodexMusica/api/instruments/index.json)
+- [Agent guide](https://weningerii.github.io/CodexMusica/AGENTS.md)

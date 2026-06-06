@@ -1,0 +1,98 @@
+{
+  "id": "jackin_house",
+  "name": "Jackin' house",
+  "family": "electronic",
+  "lineage": "Late-2000s-and-2010s house subgenre returning to Chicago-acid-house-derived \"jacking\" bouncy bass-line aesthetic. Characterized by funky cut-and-paste vocal-sampling, prominent off-beat bass-pulse, and 1990s deep-house-influenced groove. UK producers Mark Knight, Hatiras, the broader Toolroom Records label, and American producers Chocolate Puma, Detroit Swindle, and Jesse Rose anchored the canonical sound.",
+  "recipe": "classic 2007-2009 jackin' house, electronic Dance, house branch, funk percussive groove percussion future funk. thick, fry bleed, chest resonance low mid, punctuated. TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 391,
+  "score": 103.727,
+  "config": {
+    "traditions": [
+      "jackin_house",
+      "future_funk_vaporwave",
+      "funk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fry_bleed_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 1.25,
+          "voice_vibrato": 0.513,
+          "voice_articulation": 0.9099999999999999,
+          "voice_microtone": 0.045,
+          "voice_tradition": 2.535,
+          "voice_mechanism_compound": 1.4815,
+          "voice_estill_quality": 2.7680000000000007,
+          "voice_speech_song": 8.384999999999998,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0.0735,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 7.82175,
+          "voice_multitrack_stack": 4.16
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 3.3149999999999995,
+          "drum_machine_808_context": 3.3799999999999994,
+          "tr808_production_origin": 0.318
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 3.185,
+          "oscillator": 3.3799999999999994,
+          "filter_topology": 3.3799999999999994,
+          "envelope": 0.9099999999999999,
+          "modulation": 0
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

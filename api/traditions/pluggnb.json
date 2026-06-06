@@ -1,0 +1,98 @@
+{
+  "id": "pluggnb",
+  "name": "Pluggnb (R&B-plugg hybrid)",
+  "family": "hip_hop",
+  "lineage": "2019-onward subgenre extending plugg with explicit R&B-soul melodic-vocal influence, slower romantic tempos, and reverb-drenched-Auto-Tune-emotional delivery. Producer Sxlxmxn defined much of the early pluggnb sound; Summrs, Autumn!, kankan, and TaTa constitute canonical artists. Distinguished from plugg by pluggnb's explicit R&B-melodic emphasis and romantic-relationship lyrical content.",
+  "recipe": "classic Southern American modern pluggnb, mc Rhythm, southern branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, melodic, narrative. analog synth, TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 364,
+  "score": 154.145,
+  "config": {
+    "traditions": [
+      "pluggnb",
+      "doo_wop",
+      "alt_rnb"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.7250000000000005,
+          "voice_quality": 5.600000000000001,
+          "voice_vibrato": 2.6399999999999997,
+          "voice_articulation": 7.195,
+          "voice_microtone": 0.75,
+          "voice_tradition": 6.4350000000000005,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 5.1450000000000005,
+          "voice_speech_song": 5.915,
+          "voice_ensemble_config": 4.9399999999999995,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 3.2500000000000004,
+          "voice_multitrack_stack": 5.069999999999999
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "saw_single",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 2.7500000000000004,
+          "oscillator": 0.735,
+          "filter_topology": 1.3,
+          "envelope": 0.195,
+          "modulation": 0.105
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.85,
+          "drum_machine_808_context": 1.53,
+          "tr808_production_origin": 0.8999999999999999
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_atlanta_trap_2010s",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

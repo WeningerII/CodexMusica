@@ -1,0 +1,50 @@
+{
+  "id": "chiptune_8bit",
+  "name": "Chiptune / 8-bit",
+  "family": "electronic",
+  "lineage": "Late-1990s and 2000s electronic subgenre composed using sound chips from 1980s game consoles (Commodore 64 SID chip, Nintendo Game Boy LSDj software, Famicom NSF chip). Characterized by limited-polyphony square-and-triangle-wave timbres, fast tempo, and bright-melodic content reminiscent of 8-bit-era video-game soundtracks. Anamanaguchi, Crystal Castles (early use), Sabrepulse, Bit Shifter, and the broader 8bitpeoples netlabel anchored the canonical 2000s sound.",
+  "recipe": "classic 1997-1999 chiptune / 8-bit, experimental Elec, idm glitch branch, house electronic dance future house. fast decay focused low analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 341,
+  "score": 19.915,
+  "config": {
+    "traditions": [
+      "chiptune_8bit",
+      "future_house",
+      "electro_house_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "oscillator": 1.8956249999999997,
+          "filter_topology": 2.3549999999999995,
+          "envelope": 1.3900000000000001,
+          "modulation": 0.105
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

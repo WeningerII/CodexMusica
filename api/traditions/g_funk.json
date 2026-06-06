@@ -1,0 +1,134 @@
+{
+  "id": "g_funk",
+  "name": "G-funk",
+  "family": "hip_hop",
+  "lineage": "Early-1990s Los Angeles gangsta-funk hip-hop subgenre codified by Dr. Dre on The Chronic (1992) and Snoop Doggy Doggs Doggystyle (1993), built on Parliament-Funkadelic samples, talkbox lead, high-pitched synth lead lines, and slow-tempo (90-100 BPM) syncopated drum machine programming",
+  "recipe": "classic 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion minneapolis synth-funk-pop. thick, rap, narrative, equal tempered. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, electric bass, talkbox. west la 1616 butler avenue 1968-present major-flagship the village recorder west la. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 479,
+  "score": 187.435,
+  "config": {
+    "traditions": [
+      "g_funk",
+      "funk",
+      "minneapolis_synth_funk_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 1.52125,
+          "voice_quality": 7.715375,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 5.130249999999999,
+          "voice_microtone": 1.3525,
+          "voice_tradition": 6.971125,
+          "voice_mechanism_compound": 1.0676249999999998,
+          "voice_estill_quality": 1.155625,
+          "voice_speech_song": 8.681625,
+          "voice_ensemble_config": 6.369999999999998,
+          "voice_ornament_system": 0.020624999999999998,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 10.289999999999997,
+          "voice_multitrack_stack": 2.75425
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 5.06875,
+          "sample_bitdepth": 0.44999999999999996,
+          "sample_swing": 8.839999999999998,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 5.6745,
+          "oscillator": 2.6817499999999996,
+          "filter_topology": 1.3075,
+          "envelope": 1.3,
+          "modulation": 0.024375
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "electric_technique": 10.42,
+          "amp_make": 1.625,
+          "body_wood": 0.55425,
+          "pickup_config": 0.1315,
+          "string_type": 0.78,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0.9099999999999999,
+          "bass_technique": 10.42
+        }
+      },
+      {
+        "id": "talkbox",
+        "slots": {
+          "talkbox_use": "talkbox_rock",
+          "talkbox_construction": "talkbox_tube"
+        },
+        "scores": {
+          "talkbox_use": 0,
+          "talkbox_construction": 0.39
+        }
+      }
+    ],
+    "room": "the_village_recorder_west_la",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

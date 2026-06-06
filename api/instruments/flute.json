@@ -1,0 +1,680 @@
+{
+  "id": "flute",
+  "name": "Flute (concert / alto / bass / piccolo)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "flute",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_bebop_runs",
+          "name": "Bebop fast runs",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "cornet"
+          ],
+          "descriptors": [
+            "angular"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bebop-derived",
+            "jazz-trained",
+            "bebop-runs",
+            "gospel-runs"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "wind_cool_lyrical",
+          "name": "Cool lyrical",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "cornet",
+            "flugelhorn"
+          ],
+          "descriptors": [
+            "cool",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "cool-lyrical",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "wind_multiphonic_avant",
+          "name": "Multiphonic / avant-garde",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "oboe"
+          ],
+          "descriptors": [
+            "multiphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "avant-garde",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "avant",
+            "noise",
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "wind_breath_quiet",
+          "name": "Breath-tone, low dynamic",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "clarinet",
+            "cornet",
+            "flugelhorn",
+            "shakuhachi",
+            "ney"
+          ],
+          "descriptors": [
+            "breath-tone-airy",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "breathing",
+            "quiet"
+          ],
+          "canonical_tags": [
+            "lounge",
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "flute_size",
+      "surface": false,
+      "name": "Size",
+      "variants": [
+        {
+          "id": "concert_flute",
+          "default": true,
+          "name": "Concert flute (C)",
+          "descriptors": [
+            "airy",
+            "articulate-low-distortion",
+            "agile"
+          ],
+          "match_tokens": [
+            "concert",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "alto_flute",
+          "name": "Alto flute (G)",
+          "descriptors": [
+            "breathy",
+            "dark",
+            "singing"
+          ]
+        },
+        {
+          "id": "bass_flute",
+          "name": "Bass flute",
+          "descriptors": [
+            "hollow",
+            "breathy-low"
+          ]
+        },
+        {
+          "id": "piccolo_flute",
+          "name": "Piccolo",
+          "descriptors": [
+            "piercing",
+            "treble-extended",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flute_material",
+      "surface": false,
+      "name": "Material",
+      "variants": [
+        {
+          "id": "silver_flute",
+          "default": true,
+          "name": "Silver",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "modern",
+            "silver"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "gold_flute",
+          "name": "Gold",
+          "descriptors": [
+            "low-overtone-rich",
+            "overtone-rich-sustained",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "wooden_flute",
+          "name": "Wood (grenadilla / cocus)",
+          "descriptors": [
+            "low-overtone-rich",
+            "woody",
+            "baroque-leaning",
+            "grenadilla",
+            "cocus"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "platinum_flute",
+          "name": "Platinum",
+          "descriptors": [
+            "dense",
+            "focused",
+            "expensive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flute_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "classical_flute",
+          "default": true,
+          "name": "Classical embouchure",
+          "descriptors": [
+            "pure",
+            "controlled",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "jazz_flute",
+          "name": "Jazz / overblown",
+          "descriptors": [
+            "breathy",
+            "growled",
+            "expressive"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "beatboxed_flute",
+          "name": "Beatboxed / vocalized",
+          "descriptors": [
+            "percussive",
+            "modern-cross-genre"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "irish_flute",
+          "name": "Irish trad rolls",
+          "descriptors": [
+            "ornamented",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flute_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "flute_powell_boston",
+          "default": true,
+          "name": "Powell Boston (canonical American orchestral)",
+          "descriptors": [
+            "powell-boston-canonical-american-orchestral"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flute_haynes_boston",
+          "name": "Haynes Boston (American orchestral premium)",
+          "descriptors": [
+            "haynes-boston-american-orchestral-premium"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flute_muramatsu",
+          "name": "Muramatsu (Japanese premium)",
+          "descriptors": [
+            "muramatsu-japanese-premium"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flute_yamaha",
+          "name": "Yamaha (modern Japanese mid-to-premium tier)",
+          "descriptors": [
+            "yamaha-modern-japanese-mid-to-premium"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "flute_size",
+      "surface": false,
+      "name": "Size",
+      "variants": [
+        {
+          "id": "concert_flute",
+          "default": true,
+          "name": "Concert flute (C)",
+          "descriptors": [
+            "airy",
+            "articulate-low-distortion",
+            "agile"
+          ],
+          "match_tokens": [
+            "concert",
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "alto_flute",
+          "name": "Alto flute (G)",
+          "descriptors": [
+            "breathy",
+            "dark",
+            "singing"
+          ]
+        },
+        {
+          "id": "bass_flute",
+          "name": "Bass flute",
+          "descriptors": [
+            "hollow",
+            "breathy-low"
+          ]
+        },
+        {
+          "id": "piccolo_flute",
+          "name": "Piccolo",
+          "descriptors": [
+            "piercing",
+            "treble-extended",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flute_material",
+      "surface": false,
+      "name": "Material",
+      "variants": [
+        {
+          "id": "silver_flute",
+          "default": true,
+          "name": "Silver",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "modern",
+            "silver"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "gold_flute",
+          "name": "Gold",
+          "descriptors": [
+            "low-overtone-rich",
+            "overtone-rich-sustained",
+            "soloistic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "wooden_flute",
+          "name": "Wood (grenadilla / cocus)",
+          "descriptors": [
+            "low-overtone-rich",
+            "woody",
+            "baroque-leaning",
+            "grenadilla",
+            "cocus"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "platinum_flute",
+          "name": "Platinum",
+          "descriptors": [
+            "dense",
+            "focused",
+            "expensive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flute_technique",
+      "surface": false,
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "classical_flute",
+          "default": true,
+          "name": "Classical embouchure",
+          "descriptors": [
+            "pure",
+            "controlled",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "jazz_flute",
+          "name": "Jazz / overblown",
+          "descriptors": [
+            "breathy",
+            "growled",
+            "expressive"
+          ],
+          "match_tokens": [
+            "jazz-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "beatboxed_flute",
+          "name": "Beatboxed / vocalized",
+          "descriptors": [
+            "percussive",
+            "modern-cross-genre"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        },
+        {
+          "id": "irish_flute",
+          "name": "Irish trad rolls",
+          "descriptors": [
+            "ornamented",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flute_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "flute_powell_boston",
+          "default": true,
+          "name": "Powell Boston (canonical American orchestral)",
+          "descriptors": [
+            "powell-boston-canonical-american-orchestral"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flute_haynes_boston",
+          "name": "Haynes Boston (American orchestral premium)",
+          "descriptors": [
+            "haynes-boston-american-orchestral-premium"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flute_muramatsu",
+          "name": "Muramatsu (Japanese premium)",
+          "descriptors": [
+            "muramatsu-japanese-premium"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "flute_yamaha",
+          "name": "Yamaha (modern Japanese mid-to-premium tier)",
+          "descriptors": [
+            "yamaha-modern-japanese-mid-to-premium"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "id": "alt_country_americana",
+  "name": "Americana",
+  "family": "vernacular",
+  "lineage": "Post-1980s amalgamation of country, folk, rock, blues, and Appalachian string-band traditions into a roots-music umbrella — codified through No Depression magazine (1995-onward), Uncle Tupelo / Wilco / Son Volt, Lucinda Williams, Steve Earle, Gillian Welch, Jason Isbell, Drive-By Truckers",
+  "recipe": "classic North American modern americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller folk noir. thick, incomplete closure resting, melodic, equal tempered. travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, pre muffled edge muffled machine hammered symmetric pattern organized rows drum kit, folk autoharp, wurlitzer ep, bowl back Italian hard rock maple k and k twin internal mounted acoustic faithful mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 961,
+  "score": 469.03,
+  "config": {
+    "traditions": [
+      "alt_country_americana",
+      "texas_country_folk_storyteller",
+      "folk_noir"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "open_d",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 12.635,
+          "string_tuning": 1.885,
+          "top_wood": 0.32999999999999996,
+          "back_sides": 0.38999999999999996,
+          "string_acoustic": 0.8550000000000002
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 9.804999999999998,
+          "amp_make": 10.399999999999997,
+          "body_wood": 0.285,
+          "neck_wood": 0.43499999999999994,
+          "fretboard": 0.285,
+          "pickup_magnet": 0.285,
+          "string_material": 0.78,
+          "string_gauge": 0.39,
+          "bridge": 0.045,
+          "scale_length": 0.5700000000000001,
+          "finish": 0,
+          "string_tuning": 3.7700000000000005
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 10.584999999999997,
+          "amp_make": 10.399999999999997,
+          "pickup_steel": 0.285,
+          "string_setup": 4.089999999999999,
+          "bar_material": 0.78,
+          "pedal_steel_brand": 10.969999999999997,
+          "pedal_steel_neck_config": 9.819999999999999,
+          "pedal_steel_strings": 9.834999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pick_aggressive",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "electric_technique": -0.035,
+          "amp_make": 9.924999999999997,
+          "body_wood": 0.5700000000000001,
+          "pickup_config": 0,
+          "string_type": 5.845,
+          "scale_length_b": 0.28500000000000003,
+          "fretted_or_not": 0.135,
+          "bass_technique": 9.804999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 3.1200000000000006,
+          "shell_wood": 0.78,
+          "shell_thickness": 0.09,
+          "bearing_edges": 0.48,
+          "drumhead": 1.56,
+          "snare_wires": 0.33,
+          "cymbal_alloy": 4.9350000000000005,
+          "cymbal_hammering": 4.65,
+          "cymbal_lathing": 4.785,
+          "cymbal_finish": 0.57,
+          "drum_technique": 5.050000000000001
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 20.14999999999999,
+          "voice_quality": 1.0999999999999999,
+          "voice_vibrato": 9.534999999999998,
+          "voice_articulation": 0.09,
+          "voice_microtone": 4.605000000000001,
+          "voice_tradition": 5.785,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 12.014999999999995,
+          "voice_speech_song": 6.045,
+          "voice_ensemble_config": 3.1200000000000006,
+          "voice_ornament_system": 1.435,
+          "voice_pitch_organization": 0.78,
+          "voice_processing_chain": 3.9699999999999998,
+          "voice_multitrack_stack": 3.25
+        }
+      },
+      {
+        "id": "autoharp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "autoharp_chord_bars": "autoharp_15_chord",
+          "autoharp_context": "autoharp_folk_revival",
+          "autoharp_strings": "autoharp_steel_modern",
+          "autoharp_body_wood": "autoharp_spruce_maple"
+        },
+        "scores": {
+          "acoustic_technique": 0.5199999999999999,
+          "autoharp_chord_bars": 1.69,
+          "autoharp_context": 2.8600000000000003,
+          "autoharp_strings": 0.13000000000000012,
+          "autoharp_body_wood": -1.455
+        }
+      },
+      {
+        "id": "wurlitzer_ep",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "wurlitzer_use": "wurlitzer_supertramp",
+          "wurlitzer_ep_voice": "wurlitzer_ep_overdrive",
+          "wurlitzer_model": "wurlitzer_200a_canonical",
+          "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 0.44499999999999995,
+          "wurlitzer_use": 0.045,
+          "wurlitzer_ep_voice": 2.47,
+          "wurlitzer_model": -0.035,
+          "wurlitzer_reed_material": 0.78
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "redwood_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "ghs_mandolin_silk_steel",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 0.5199999999999999,
+          "mandolin_shape": 1.69,
+          "mandolin_top": 0.39,
+          "mandolin_back": 2.47,
+          "mandolin_bracing": -0.05,
+          "mandolin_strings": 0.78,
+          "mandolin_fingerboard": 0.09,
+          "mandolin_pickup": 3.6399999999999997
+        }
+      }
+    ],
+    "room": "studio_in_the_country_bogalusa",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "americana_train_beat_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

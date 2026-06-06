@@ -1,0 +1,79 @@
+{
+  "id": "fijian_meke",
+  "name": "Fijian meke (chant-and-dance)",
+  "family": "global",
+  "lineage": "Fijian meke collective chant-and-dance tradition of the Fijian iTaukei (indigenous Fijian) population. The meke comprises several sub-forms: meke wesi (spear-dance, male-warriors), meke iri (fan-dance, women), meke ni vakatara (sitting-dance), and seasea (women's standing-dance), each with distinct choreographic vocabulary and song-accompaniment. Performance involves a vakatara dance-troupe with parallel singing chorus and slit-drum-and-bamboo-stamping-tube percussion. The canonical post-independence Fiji-1970 cultural-revival under the Fiji Museum and the Pacific Theatre formed institutional preservation infrastructure. Distinguished from neighboring Tongan lakalaka by Fijian meke's warrior-and-women parallel-track choreographic structure and Fijian-language repertoire.",
+  "recipe": "classic early-1970s fijian meke, ritual Devotional, indigenous branch, west African groove percussion, vocal drone modal georgian three-voice polyphony macedonian glasoechko male diaphonic. kargyraa, declaimed, melodic, rhythmic. log drum. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 464,
+  "score": 181.445,
+  "config": {
+    "traditions": [
+      "fijian_meke",
+      "georgian_three_voice_polyphony",
+      "macedonian_glasoechko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_tube_saturation",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.9099999999999999,
+          "voice_quality": 3.5900000000000007,
+          "voice_vibrato": 0.8250000000000001,
+          "voice_articulation": 0.975,
+          "voice_microtone": 0.045,
+          "voice_tradition": 11.554999999999998,
+          "voice_mechanism_compound": 6.899999999999999,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 16.445000000000007,
+          "voice_ensemble_config": 14.690000000000005,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "log_drum",
+        "slots": {
+          "log_drum_voice": "log_drum_mid",
+          "log_drum_context": "log_drum_amapiano"
+        },
+        "scores": {
+          "log_drum_voice": 0.8850000000000001,
+          "log_drum_context": 2.6
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

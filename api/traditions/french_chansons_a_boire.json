@@ -1,0 +1,89 @@
+{
+  "id": "french_chansons_a_boire",
+  "name": "French chansons à boire (drinking songs)",
+  "family": "global",
+  "lineage": "French chanson à boire (drinking-song) tradition continuous from medieval-French goliardic-and-tavern-song origins through 16th-17th-century chanson-à-boire collections (Pierre Attaingnant 1530s and Pierre Phalèse late-16th-century printed-chanson collections include drinking-song repertoire) through 19th-century French cabaret-and-tavern continuous practice into modern French-and-French-Canadian pub-practice",
+  "recipe": "classic mid-1530s french chansons à boire, drinking Song, European branch, americas drinking song, chanson fado ballad poetry, iberian functional song cape verdean batuko of santiago island mexican cantina drinking song. vocal fry, low dynamic level, tasteful, continuous-phonation. castagnari Italian premium folk music accordion. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 472,
+  "score": 145.828,
+  "config": {
+    "traditions": [
+      "french_chansons_a_boire",
+      "cape_verdean_batuko",
+      "mexican_cantina_drinking"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 1.41,
+          "voice_quality": 4.875,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.38999999999999996,
+          "voice_tradition": 4.16,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.645,
+          "voice_speech_song": 17.095,
+          "voice_ensemble_config": 7.799999999999999,
+          "voice_ornament_system": 1.7449999999999997,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 0.435,
+          "voice_multitrack_stack": 1.8
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "italian_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 0,
+          "accordion_reed_material": 0.345,
+          "musette_offset": 0.495,
+          "reed_config": 10.11,
+          "bellows": 0.39,
+          "voicing_chamber": 0.9099999999999999,
+          "accordion_maker_school": 1.2324999999999997
+        }
+      }
+    ],
+    "room": "irish_pub",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

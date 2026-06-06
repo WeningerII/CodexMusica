@@ -1,0 +1,79 @@
+{
+  "id": "lakota_peyote_song",
+  "name": "Lakota peyote songs (Native American Church)",
+  "family": "global",
+  "lineage": "Lakota peyote-meeting songs of the Native American Church tradition: the canonical liturgical-song repertoire for the all-night peyote-sacrament ceremony shared across many North American Native nations through the post-1900 Native American Church organization. Performance: a singer using gourd-rattle and water-drum (small drum with water inside producing a distinctive pitched-glissando-able sound), in seated-circle configuration with the participants taking turns leading songs through the night. Repertoire combines Lakota-language songs with vocables-only material and (post-1920s) songs incorporating English-language Christian themes. Distinguished from broader powwow song by peyote-meeting's sacrament-specific liturgical context and the water-drum-and-gourd-rattle (vs powwow-drum) instrumental configuration.",
+  "recipe": "classic mid-1920s lakota peyote songs, ritual Devotional, indigenous branch, blues narrative work song jeju haenyeo songs bahraini fjiri. thick, declaimed, chest resonance low mid, narrative. foundational high pitched powwow drum circle. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 388,
+  "score": 124.548,
+  "config": {
+    "traditions": [
+      "lakota_peyote_song",
+      "jeju_haenyeo_songs",
+      "bahraini_fjiri"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.8375000000000001,
+          "voice_quality": 4.355,
+          "voice_vibrato": 1.4815,
+          "voice_articulation": 1.25,
+          "voice_microtone": 2.6,
+          "voice_tradition": 8.319999999999999,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 10.985,
+          "voice_ensemble_config": 6.759999999999999,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 2.9530000000000003,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 2.1105
+        }
+      },
+      {
+        "id": "powwow_drum_circle",
+        "slots": {
+          "members": "pw_lead_singer",
+          "style": "pw_northern"
+        },
+        "scores": {
+          "members": 1.69,
+          "style": 1.69
+        }
+      }
+    ],
+    "room": "open_steppe_outdoor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

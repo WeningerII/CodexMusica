@@ -1,0 +1,267 @@
+{
+  "id": "progressive_rock",
+  "name": "Progressive rock",
+  "family": "rock_punk",
+  "lineage": "Late-1960s through 1970s UK classical-and-jazz-influenced rock genre featuring extended composition, complex meter, virtuosic instrumental performance — codified through King Crimson (In the Court of the Crimson King 1969, the prog founding album), Yes (Fragile 1971, Close to the Edge 1972), Genesis (Selling England by the Pound 1973, the Peter Gabriel era), Pink Floyd (the post-Syd-Barrett expansion through Dark Side of the Moon 1973 and Wish You Were Here 1975), Emerson Lake and Palmer, Jethro Tull, Gentle Giant",
+  "recipe": "classic British 1967-1969 progressive rock, distorted Rock, progressive rock branch, classic distorted rock, experimental distorted rock psychedelic rock britpop. thick, unvoiced, chest resonance low mid, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch vintage ambassador asymmetric machine hammered symmetric pattern drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron, gentle expressive vibrato y analog synth, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, silver continuous-airflow legato flute, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio.",
+  "recipe_chars": 960,
+  "score": 902.943,
+  "config": {
+    "traditions": [
+      "progressive_rock",
+      "psychedelic_rock",
+      "britpop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "whisper_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 30.39,
+          "voice_quality": 1.6,
+          "voice_vibrato": 2.68,
+          "voice_articulation": 0.645,
+          "voice_microtone": 29.600000000000005,
+          "voice_tradition": 6.47,
+          "voice_mechanism_compound": 5.590000000000001,
+          "voice_estill_quality": 6.925,
+          "voice_speech_song": 12.415,
+          "voice_ensemble_config": 11.569999999999999,
+          "voice_ornament_system": 7.330000000000001,
+          "voice_pitch_organization": 4.65,
+          "voice_processing_chain": 9.165000000000001,
+          "voice_multitrack_stack": 6.240000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 6.045,
+          "amp_make": 13.39,
+          "body_wood": 0.885,
+          "neck_wood": 2.68,
+          "fretboard": 2.68,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.9099999999999999,
+          "string_material": 2.68,
+          "bridge": 0.885,
+          "scale_length": 2.08,
+          "string_gauge": 0.885,
+          "finish": 0.435,
+          "string_tuning": 17.030000000000005
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": 0.835,
+          "amp_make": 12.545000000000002,
+          "body_wood": 1.7700000000000002,
+          "pickup_config": 0,
+          "string_type": 31.52500000000001,
+          "scale_length_b": 0.885,
+          "fretted_or_not": 0,
+          "bass_technique": 25.13500000000001
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b23",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 14.04,
+          "shell_wood": 2.98,
+          "shell_thickness": 0,
+          "bearing_edges": 1.18,
+          "drumhead": 5.48,
+          "snare_wires": 0.885,
+          "cymbal_alloy": 31.250000000000007,
+          "cymbal_hammering": 25.190000000000005,
+          "cymbal_lathing": 25.040000000000006,
+          "cymbal_finish": 2.68,
+          "drum_technique": 24.340000000000007
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 1.2999999999999998,
+          "drawbar_setting": 24.38500000000001,
+          "rotary_speed": 24.200000000000006,
+          "percussion_setting": 12.610000000000003,
+          "tonewheel_model": 18.135,
+          "leslie_cabinet_model": 1.855
+        }
+      },
+      {
+        "id": "mellotron",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "mellotron_voice": "mellotron_strings",
+          "mellotron_context": "mellotron_prog",
+          "mellotron_model": "mellotron_m400_canonical",
+          "mellotron_tape_material": "mellotron_polyester_tape_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 1.2999999999999998,
+          "mellotron_voice": 15.860000000000003,
+          "mellotron_context": 4.025,
+          "mellotron_model": 16.575000000000003,
+          "mellotron_tape_material": 0.39
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 0.85,
+          "oscillator": 2.725,
+          "filter_topology": 0.9099999999999999,
+          "envelope": 0.645,
+          "modulation": 1
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 4.795,
+          "grand_piano_size": 0.9300000000000002,
+          "grand_piano_brand": 2.68,
+          "piano_hammer": 19.110000000000003,
+          "piano_rim": 19.500000000000004,
+          "piano_soundboard": 6.095000000000001,
+          "piano_pinblock": 5.000000000000001,
+          "piano_plate": 4.745,
+          "piano_pitch_standard": 5.9750000000000005
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "piccolo_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": 4.75,
+          "flute_size": 2.68,
+          "flute_material": 1.18,
+          "flute_technique": 0,
+          "flute_maker_school": 0.39
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_subtle",
+          "sm_voicing": "sm_brass"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sm_voice_count": 0.39,
+          "sm_chorus": 0.9099999999999999,
+          "sm_voicing": 0.3
+        }
+      }
+    ],
+    "room": "uk_70s_hard_rock_arena_studio",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_helios_uk_70s",
+      "console": "console_helios_uk_70s",
+      "comp": "comp_adr_compex",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_british_hiwatt",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_mxr_phase_90",
+      "fx_memory_man_delay",
+      "fx_univibe_chorus"
+    ]
+  }
+}

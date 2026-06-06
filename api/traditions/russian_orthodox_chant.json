@@ -1,0 +1,111 @@
+{
+  "id": "russian_orthodox_chant",
+  "name": "Russian Orthodox liturgical chant",
+  "family": "global",
+  "lineage": "Russian Orthodox liturgical chant tradition codified across the medieval-Kievan and Muscovite periods, drawing on the Byzantine octoechos modal system through the znamenny notation tradition — characterized by unaccompanied male-choir performance, the four-part choral harmonization style developed from the seventeenth century onward, deep-bass octavist register, and the obikhod and obihod-derived modern liturgical settings used across the Russian Orthodox parish-and-monastic-foundation network",
+  "recipe": "classic modern russian orthodox liturgical chant, ritual Devotional, Russian orthodox branch, christian gospel coptic coptic liturgical chant ethiopian tewahedo zema chant. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, prima nylon modern spruce maple balalaika, choir russian orthodox. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 576,
+  "score": 246.007,
+  "config": {
+    "traditions": [
+      "russian_orthodox_chant",
+      "coptic_liturgical",
+      "ethiopian_zema_yared"
+    ],
+    "instruments": [
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 2.4699999999999998,
+          "choir_polyphonic_configuration": 2.47,
+          "choir_regional_canonical_configuration": 2.08,
+          "choir_ensemble_repertoire": 7.539999999999998
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 6.500000000000001,
+          "voice_quality": 12.510499999999999,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 5.65,
+          "voice_microtone": 0.495,
+          "voice_tradition": 8.774999999999999,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 5.840000000000002,
+          "voice_speech_song": 9.814999999999998,
+          "voice_ensemble_config": 11.049999999999995,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 3.1887499999999998,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 1.6847142857142856
+        }
+      },
+      {
+        "id": "balalaika",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "balalaika_size": "prima_balalaika",
+          "balalaika_strings": "nylon_balalaika",
+          "balalaika_body_wood": "balalaika_spruce_maple",
+          "balalaika_tradition": "balalaika_andreyev_concert"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.04678571428571429,
+          "balalaika_size": 3.2926428571428574,
+          "balalaika_strings": 1.69,
+          "balalaika_body_wood": 1.8149999999999997,
+          "balalaika_tradition": 0.39
+        }
+      },
+      {
+        "id": "choir_russian_orthodox",
+        "slots": {
+          "voicing": "orthodox_oktavist",
+          "use": "orthodox_divine_liturgy"
+        },
+        "scores": {
+          "voicing": 9.099999999999998,
+          "use": 6.239999999999998
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

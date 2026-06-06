@@ -1,0 +1,68 @@
+{
+  "id": "alpine_yodel",
+  "name": "Alpine yodel (Austrian-Swiss-Bavarian Jodel)",
+  "family": "global",
+  "lineage": "Alpine Jodel (\"yodel\") vocal tradition of the Austrian Tyrol, Swiss German-speaking cantons, and Bavarian Alps, characterized by rapid alternation between chest-register and falsetto-register on extended vowel-only melodic phrases (without text). Developed historically as a cattle-herder long-distance signaling system in the high mountain pastures, with parallel survival as social-celebration song in village gathering contexts. Performance ranges from solo Naturjodler unaccompanied lyrical-melodic form to multipart Jodler-with-Stubenmusik chamber-ensemble accompanied versions. The Swiss Yodel Festival (Eidgenössisches Jodlerfest, founded 1924) constitutes the institutional anchor; the parallel Austrian-Tyrolean and Bavarian regional traditions maintain village-level transmission.",
+  "recipe": "classic mid-1920s alpine yodel, drone Modal, vocal branch, blues narrative work song coco brasileiro jeju haenyeo songs. thick, yodel, melodic, narrative. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 301,
+  "score": 144.375,
+  "config": {
+    "traditions": [
+      "alpine_yodel",
+      "coco_brasileiro",
+      "jeju_haenyeo_songs"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "yodel_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.6399999999999997,
+          "voice_quality": 6.84,
+          "voice_vibrato": 3.1979999999999995,
+          "voice_articulation": 0.6499999999999998,
+          "voice_microtone": 2.6,
+          "voice_tradition": 8.775,
+          "voice_mechanism_compound": 8.385,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 9.294999999999998,
+          "voice_ensemble_config": 7.15,
+          "voice_ornament_system": 1.69,
+          "voice_pitch_organization": 1.755,
+          "voice_processing_chain": 3.5100000000000002,
+          "voice_multitrack_stack": 7.02
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

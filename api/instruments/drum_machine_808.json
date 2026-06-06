@@ -1,0 +1,318 @@
+{
+  "id": "drum_machine_808",
+  "name": "Roland TR-808 drum machine",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": -2,
+    "range": 2,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "TR-808",
+  "parts": [
+    {
+      "id": "tr808_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "tr808_kick_long",
+          "name": "Kick (long decay)",
+          "descriptors": [
+            "sub-bass"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "hip-hop"
+          ]
+        },
+        {
+          "id": "tr808_clap",
+          "default": true,
+          "name": "Hand clap",
+          "descriptors": [
+            "snappy",
+            "versatile"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tr808_cowbell",
+          "name": "Cowbell",
+          "descriptors": [
+            "character",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drum_machine_808_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "drum_machine_808_trap",
+          "name": "Hip-hop / trap",
+          "descriptors": [
+            "modern",
+            "sub-bass-foundational",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        },
+        {
+          "id": "drum_machine_808_miami",
+          "name": "Electro / Miami bass",
+          "descriptors": [
+            "club-foundation",
+            "genre-defining"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "1980s"
+          ]
+        },
+        {
+          "id": "drum_machine_808_rb",
+          "default": true,
+          "name": "Pop / R&B",
+          "descriptors": [
+            "twenty-first-century",
+            "production-staple",
+            "commercial"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tr808_production_origin",
+      "surface": false,
+      "name": "Production origin",
+      "variants": [
+        {
+          "id": "tr808_roland_osaka_canonical",
+          "default": true,
+          "name": "Roland Osaka 1980-1983 (canonical original — 12,000 unit run, transistor noise-based voice circuits)",
+          "descriptors": [
+            "roland-osaka-1980-1983-canonical-original-12000-unit-run-transistor-noise-based-voice-circuits"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "tr808_behringer_clone",
+          "name": "Behringer RD-8 (modern clone — analog circuit reproduction)",
+          "descriptors": [
+            "behringer-rd-8-modern-clone-analog-circuit-reproduction"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tr808_tr_8s_modern",
+          "name": "Roland TR-8S (modern AIRA digital recreation)",
+          "descriptors": [
+            "roland-tr-8s-modern-aira-digital-recreation"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tr808_voice",
+      "surface": false,
+      "name": "Voice character",
+      "variants": [
+        {
+          "id": "tr808_kick_long",
+          "name": "Kick (long decay)",
+          "descriptors": [
+            "sub-bass"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "hip-hop"
+          ]
+        },
+        {
+          "id": "tr808_clap",
+          "default": true,
+          "name": "Hand clap",
+          "descriptors": [
+            "snappy",
+            "versatile"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tr808_cowbell",
+          "name": "Cowbell",
+          "descriptors": [
+            "character",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drum_machine_808_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "drum_machine_808_trap",
+          "name": "Hip-hop / trap",
+          "descriptors": [
+            "modern",
+            "sub-bass-foundational",
+            "twenty-first-century"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        },
+        {
+          "id": "drum_machine_808_miami",
+          "name": "Electro / Miami bass",
+          "descriptors": [
+            "club-foundation",
+            "genre-defining"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "1980s"
+          ]
+        },
+        {
+          "id": "drum_machine_808_rb",
+          "default": true,
+          "name": "Pop / R&B",
+          "descriptors": [
+            "twenty-first-century",
+            "production-staple",
+            "commercial"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tr808_production_origin",
+      "surface": false,
+      "name": "Production origin",
+      "variants": [
+        {
+          "id": "tr808_roland_osaka_canonical",
+          "default": true,
+          "name": "Roland Osaka 1980-1983 (canonical original — 12,000 unit run, transistor noise-based voice circuits)",
+          "descriptors": [
+            "roland-osaka-1980-1983-canonical-original-12000-unit-run-transistor-noise-based-voice-circuits"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "tr808_behringer_clone",
+          "name": "Behringer RD-8 (modern clone — analog circuit reproduction)",
+          "descriptors": [
+            "behringer-rd-8-modern-clone-analog-circuit-reproduction"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tr808_tr_8s_modern",
+          "name": "Roland TR-8S (modern AIRA digital recreation)",
+          "descriptors": [
+            "roland-tr-8s-modern-aira-digital-recreation"
+          ],
+          "match_tokens": [
+            "electronic",
+            "machine-quantized",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

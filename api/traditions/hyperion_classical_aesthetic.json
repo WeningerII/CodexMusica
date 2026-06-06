@@ -1,0 +1,145 @@
+{
+  "id": "hyperion_classical_aesthetic",
+  "name": "Hyperion-school classical-recording aesthetic",
+  "family": "global",
+  "lineage": "Hyperion Records (British classical label founded 1980) audiophile-canon production aesthetic for Western classical chamber and song repertoire — characterized by intimate close-miked sound stage, transparent capture without console coloration, minimal post-processing, and exploratory programming covering obscure and rediscovered repertoire alongside the standard canon",
+  "recipe": "classic early-1980s hyperion-school classical-recording aesthetic, art Music, western common practice branch, western early art music historically-informed performance recording baroque period-instrument. thick, declaimed, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, gut norway spruce European alpine European maple bosnian source cello. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 665,
+  "score": 545.852,
+  "config": {
+    "traditions": [
+      "hyperion_classical_aesthetic",
+      "historical_informed_performance",
+      "baroque_period"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 5.0440000000000005,
+          "voice_quality": 1.1199999999999999,
+          "voice_vibrato": 4.68,
+          "voice_articulation": 0.9749999999999999,
+          "voice_microtone": 11.05,
+          "voice_tradition": 11.634999999999998,
+          "voice_mechanism_compound": 8.899999999999999,
+          "voice_estill_quality": 11.959999999999997,
+          "voice_speech_song": 9.094999999999999,
+          "voice_ensemble_config": 3.7700000000000005,
+          "voice_ornament_system": 9.2,
+          "voice_pitch_organization": 9.245,
+          "voice_processing_chain": 2.1449999999999996,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_415_baroque"
+        },
+        "scores": {
+          "keyboard_technique": 9,
+          "grand_piano_size": 0.9099999999999999,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 11.634999999999998,
+          "piano_rim": 10.4995,
+          "piano_soundboard": 11.3745,
+          "piano_pinblock": 9.459999999999999,
+          "piano_plate": 11.203999999999999,
+          "piano_pitch_standard": 11.071
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 9,
+          "orch_strings": 1.91,
+          "orch_top_wood": 9.924999999999999,
+          "orch_back_wood": 10.774999999999999,
+          "orch_varnish": 8.95,
+          "orch_setup_period": 9.318999999999999,
+          "orch_bow": 1.1594999999999998,
+          "orch_bow_stick": 13.055499999999997,
+          "orch_articulation": 0.9099999999999999,
+          "orch_rosin": 9.39
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_gut",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
+          "cello_setup_period": "baroque_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "galeazzi_1791_baroque_rosin_cello",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 9,
+          "cello_strings": 1.1234999999999997,
+          "cello_top_wood": 9.924999999999999,
+          "cello_back_wood": 10.774999999999999,
+          "cello_varnish": 8.95,
+          "cello_setup_period": 9.318999999999999,
+          "cello_bow_grip": 5.9799999999999995,
+          "cello_rosin": 9.39,
+          "cello_bow_stick": 13.055499999999997
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

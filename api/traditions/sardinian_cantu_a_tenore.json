@@ -1,0 +1,68 @@
+{
+  "id": "sardinian_cantu_a_tenore",
+  "name": "Sardinian cantu a tenore (UNESCO 2008)",
+  "family": "global",
+  "lineage": "Sardinian cantu a tenore four-male-voice polyphonic tradition of the Barbagia region (interior central-northeast Sardinia, particularly the Nuoro province villages of Bitti, Orgosolo, Orune, and Orosei), recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2005 and inscribed on the Representative List 2008. The ensemble consists of four named voice-parts: the boghe (the soloist who initiates each verse with the verse-text, leading the ensemble), the mesu boghe (the high tenor-register harmony voice), the contra (the guttural-ventricular harmony voice producing a deep bass-register growl through false-vocal-fold co-oscillation), and the bassu (the lowest guttural-ventricular voice, producing the deepest growling subharmonic). The contra and bassu employ the same false-vocal-fold technique that produces Tuvan kargyraa subharmonic — a striking case of independent convergence between two unrelated traditions. Performance occurs traditionally in the su zilleri stone-walled village bar, with the four singers facing inward in a tight circle. Repertoire spans religious processional cycles (such as the Holy Week passion-passages), pastoral courtship and praise songs, and the satirical-improvisatory cantu a tenore-with-improvised-text contest contexts. Tenores di Bitti and Tenores di Orosei among the canonical twentieth-century ensembles. Bernard Lortat-Jacob's Chants de Passion (Éditions du Cerf 1998) and the Smithsonian Folkways SFW 50402 Sardinia: Music of the Shepherds (1995) constitute the principal documentary anchors. Distinguished from Corsican paghjella by Sardinian's four-voice (vs Corsican three-voice) configuration and guttural-ventricular subharmonic vocal architecture; distinguished from Albanian iso-polyphony by Sardinian's no-drone subharmonic-voice-as-bass (vs Albanian iso-drone foundation) configuration.",
+  "recipe": "classic sardinian cantu a tenore, drone Modal, vocal branch, Mediterranean ballad ballad poetry, overtone drone modal xhosa umngqokolo overtone singing tuvan throat singing. sygyt, false fold engaged, overtone rich sustained, hocket articulation. sardinian su zilleri stone bar. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 408,
+  "score": 360.705,
+  "config": {
+    "traditions": [
+      "sardinian_cantu_a_tenore",
+      "xhosa_umngqokolo_overtone",
+      "tuvan_throat"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "overtone_singing",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 14.795,
+          "voice_quality": 35.5,
+          "voice_vibrato": 0.85,
+          "voice_articulation": 1.5,
+          "voice_microtone": 3.295,
+          "voice_tradition": 27.235,
+          "voice_mechanism_compound": 21.4,
+          "voice_estill_quality": 4.845,
+          "voice_speech_song": 15.795000000000002,
+          "voice_ensemble_config": 36.075,
+          "voice_ornament_system": 10.540000000000003,
+          "voice_pitch_organization": 10.169999999999998,
+          "voice_processing_chain": 10.490000000000004,
+          "voice_multitrack_stack": 6.585
+        }
+      }
+    ],
+    "room": "sardinian_su_zilleri_stone_bar",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

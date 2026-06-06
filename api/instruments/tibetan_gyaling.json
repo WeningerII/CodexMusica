@@ -1,0 +1,170 @@
+{
+  "id": "tibetan_gyaling",
+  "name": "Gyaling (Tibetan double-reed oboe)",
+  "family": "wind",
+  "class": "reed",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gyaling",
+  "parts": [
+    {
+      "id": "gyaling_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "gyaling_wood_metal_bell",
+          "default": true,
+          "name": "Wood body, metal flared bell",
+          "descriptors": [
+            "nasal",
+            "ceremonial",
+            "wood",
+            "brass",
+            "tibetan-buddhist"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gyaling_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "gyaling_rosewood_canonical",
+          "default": true,
+          "name": "Rosewood body with brass bell (canonical Tibetan)",
+          "descriptors": [
+            "rosewood-body-brass-bell-canonical-tibetan"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "tibetan-ritual"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "gyaling_walnut",
+          "name": "Walnut body (alternative)",
+          "descriptors": [
+            "walnut-alternative"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gyaling_reed",
+      "surface": false,
+      "name": "Reed",
+      "variants": [
+        {
+          "id": "gyaling_arundo_canonical",
+          "default": true,
+          "name": "Arundo donax double-reed (canonical Tibetan monastic)",
+          "descriptors": [
+            "arundo-donax-canonical-tibetan-monastic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gyaling_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "gyaling_wood_metal_bell",
+          "default": true,
+          "name": "Wood body, metal flared bell",
+          "descriptors": [
+            "nasal",
+            "ceremonial",
+            "wood",
+            "brass",
+            "tibetan-buddhist"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gyaling_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "gyaling_rosewood_canonical",
+          "default": true,
+          "name": "Rosewood body with brass bell (canonical Tibetan)",
+          "descriptors": [
+            "rosewood-body-brass-bell-canonical-tibetan"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "tibetan-ritual"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "gyaling_walnut",
+          "name": "Walnut body (alternative)",
+          "descriptors": [
+            "walnut-alternative"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gyaling_reed",
+      "surface": false,
+      "name": "Reed",
+      "variants": [
+        {
+          "id": "gyaling_arundo_canonical",
+          "default": true,
+          "name": "Arundo donax double-reed (canonical Tibetan monastic)",
+          "descriptors": [
+            "arundo-donax-canonical-tibetan-monastic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "tibetan-ritual"
+          ]
+        }
+      ]
+    }
+  ]
+}

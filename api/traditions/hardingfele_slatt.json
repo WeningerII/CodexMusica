@@ -1,0 +1,52 @@
+{
+  "id": "hardingfele_slatt",
+  "name": "Hardingfele slått (Hardanger-fiddle dance-tunes)",
+  "family": "global",
+  "lineage": "Norwegian Hardanger-fiddle slått dance-tune tradition of western-Norwegian mountain valleys (Hardanger, Voss, Telemark, Setesdal, Numedal regions). The hardingfele Hardanger-fiddle has four bowed melody strings plus four-or-five sympathetic resonant strings beneath the fingerboard, producing characteristic shimmering-overtone resonance. Slått (singular slått, plural slåttar) are solo virtuoso dance-tunes with strict regional-stylistic-conventions: springar three-beat asymmetric dance-tune, gangar two-beat walking-dance, halling acrobatic-male-display-dance, and rull rolling-tune. Performance: solo Hardanger-fiddle, with each regional sub-tradition (Setesdal, Hallingdal, Numedal, Valdres, Telemark) maintaining distinctive playing-conventions and ornamental-vocabulary.",
+  "recipe": "classic modern hardingfele slått, ballad Poetry, Celtic balladic branch, string drone modal hardanger fiddle polish village fiddle. mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian hardanger fiddle inst. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 392,
+  "score": 18.016,
+  "config": {
+    "traditions": [
+      "hardingfele_slatt",
+      "hardanger_fiddle",
+      "polish_village_fiddle"
+    ],
+    "instruments": [
+      {
+        "id": "hardanger_fiddle_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "hardingfele_strings": "hardingfele_4_taraf",
+          "hardingfele_tuning": "hardingfele_old_norwegian",
+          "hardingfele_strings_material": "hardingfele_synthetic_modern",
+          "hardingfele_inlay": "hardingfele_pearl_bone",
+          "hardingfele_body_wood": "hardingfele_spruce_maple"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "hardingfele_strings": 1.3,
+          "hardingfele_tuning": 1.041,
+          "hardingfele_strings_material": 0.39,
+          "hardingfele_inlay": 5.069999999999999,
+          "hardingfele_body_wood": 3.3799999999999994
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

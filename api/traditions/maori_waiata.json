@@ -1,0 +1,124 @@
+{
+  "id": "maori_waiata",
+  "name": "Māori waiata + taonga pūoro",
+  "family": "global",
+  "lineage": "Aotearoa New Zealand Māori vocal tradition. Pre-European foundation built on narrow-range melody (frequently around a minor third), microtonal glissandi and pitch-bends, and antiphonal-or-unison choral response to the kaiwaiata lead. Nineteenth-century Christian-mission introduction of four-part hymnody overlaid onto the pre-contact base, producing the kapa haka collective-performance form combining waiata sung-song, haka chanted-dance, and poi rhythmic implement. Performance contexts include the pōwhiri formal welcome, tangihanga funeral, whakatau informal welcome, and hui collective-assembly. Taonga pūoro (\"singing treasures\") secondary to voice: kōauau small notched flute (albatross-wing-bone or carved hardwood, three holes, sung-into for accompaniment of lament/lullaby/charm), pūtōrino unique-to-Aotearoa wooden bugle-flute (split-hollowed hardwood torpedo-or-case-moth profile, plays as flute OR trumpet, dual voicing represents the female and male voices of Hine Raukatauri), pūkāea long wooden trumpet (signaling), pūtātara pūmoana conch shell, pūrerehua bullroarer, porotiti spinning disc, pakuru teeth-held resonant rods, poi rhythmic ball. The twentieth-century revivalist lineage of Hirini Melbourne, Richard Nunns, and Horomona Horo restored taonga pūoro from near-extinction. Distinguished from Tahitian himene tarava by Aotearoa-specific microtonal narrow-range melodic vocabulary and pūtōrino-dual-voicing instrumental signature; distinguished from Hawaiian mele oli by waiata-haka-poi compound performance form",
+  "recipe": "classic modern māori waiata + taonga pūoro, ritual Devotional, indigenous branch, vocal drone modal macedonian glasoechko male diaphonic corsican paghjella three-voice unaccompanied. extended whistle, declaimed, melodic, punctuated. albatross wing bone three hole canonical pre contact Maori waiata accompaniment lament lullaby charm koauau, split hollowed hardwood torpedo case moth profile canonical Maori unique aotearoa dual flute bugle voicing female male hine raukatauri putorino, conch shell horn, yellow brass canonical 70 30 bach stradivarius schilke chicago lead bright shallow cup lead trumpet unison trumpet. maori marae carved wharenui. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 779,
+  "score": 294.97,
+  "config": {
+    "traditions": [
+      "maori_waiata",
+      "macedonian_glasoechko",
+      "corsican_paghjella"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 7.035,
+          "voice_quality": 4.355,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 2.885,
+          "voice_microtone": 2.6944999999999997,
+          "voice_tradition": 13.875875,
+          "voice_mechanism_compound": 3.8449999999999998,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 15.145000000000003,
+          "voice_ensemble_config": 15.080000000000002,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 4.826499999999999,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 5.9799999999999995
+        }
+      },
+      {
+        "id": "koauau",
+        "slots": {
+          "koauau_material": "koauau_albatross_bone_canonical",
+          "koauau_tradition": "koauau_waiata_accompaniment"
+        },
+        "scores": {
+          "koauau_material": 10.27,
+          "koauau_tradition": 7.9495
+        }
+      },
+      {
+        "id": "putorino",
+        "slots": {
+          "putorino_construction": "putorino_split_hollowed_hardwood_case_moth_canonical",
+          "putorino_voice": "putorino_dual_flute_and_bugle"
+        },
+        "scores": {
+          "putorino_construction": 14.518875,
+          "putorino_voice": 17.532500000000002
+        }
+      },
+      {
+        "id": "conch_shell_horn",
+        "slots": {
+          "wind_articulation": "wind_call_blowing",
+          "conch_use": "conch_andean",
+          "conch_shell_horn_region": "conch_shell_horn_polynesian"
+        },
+        "scores": {
+          "wind_articulation": 1.8199999999999998,
+          "conch_use": 1.234625,
+          "conch_shell_horn_region": 11.830000000000002
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_mariachi_unison",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_mariachi_unison",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 1.4775,
+          "brass_size": 1.69,
+          "trumpet_mouthpiece": 5.004999999999999,
+          "brass_mute": 0.5336249999999999,
+          "trumpet_technique": 1.4775,
+          "trumpet_bell_metal": 1.2738749999999999,
+          "trumpet_maker_school": 1.69
+        }
+      }
+    ],
+    "room": "maori_marae_carved_wharenui",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "id": "pump_organ_harmonium",
+  "name": "Pump organ / American reed organ",
+  "family": "keyboard",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "pump organ",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "grand_piano",
+            "upright_piano",
+            "harpsichord",
+            "pipe_organ",
+            "pump_organ_harmonium",
+            "celesta"
+          ],
+          "descriptors": [
+            "legato",
+            "pedal-resonant"
+          ],
+          "match_tokens": [
+            "classical",
+            "classical-trained",
+            "sustained-tone",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pump_organ_construction",
+      "name": "Construction era",
+      "variants": [
+        {
+          "id": "pump_organ_19th_parlor",
+          "default": true,
+          "name": "19th-century parlor",
+          "descriptors": [
+            "reedy"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "domestic"
+          ]
+        },
+        {
+          "id": "pump_organ_late_19th_revival",
+          "name": "Late-19th revival hymn",
+          "descriptors": [
+            "church-and-camp-meeting",
+            "congregational",
+            "tonewheel-precursor"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pump_organ_indian_export",
+          "name": "Hand-pumped Indian conversion",
+          "descriptors": [
+            "colonial-export",
+            "shorter-bellows",
+            "kirtan-precursor"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pump_organ_stops",
+      "surface": false,
+      "name": "Stops / voicing",
+      "variants": [
+        {
+          "id": "pump_organ_diapason_stop",
+          "name": "Diapason / 8'",
+          "descriptors": [
+            "fundamental",
+            "voice-doubling",
+            "singing"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pump_organ_celeste_stop",
+          "default": true,
+          "name": "Celeste / vox humana",
+          "descriptors": [
+            "detuned-pair",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "hymn"
+          ]
+        },
+        {
+          "id": "pump_organ_bourdon_stop",
+          "name": "Bourdon / 16'",
+          "descriptors": [
+            "sub-octave",
+            "fundamental-doubling",
+            "pedal-fill"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pump_organ_flute_stop",
+          "name": "Flute / 4'",
+          "descriptors": [
+            "octave-up",
+            "softer",
+            "sweetening"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pump_organ_construction",
+      "name": "Construction era",
+      "variants": [
+        {
+          "id": "pump_organ_19th_parlor",
+          "default": true,
+          "name": "19th-century parlor",
+          "descriptors": [
+            "reedy"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "domestic"
+          ]
+        },
+        {
+          "id": "pump_organ_late_19th_revival",
+          "name": "Late-19th revival hymn",
+          "descriptors": [
+            "church-and-camp-meeting",
+            "congregational",
+            "tonewheel-precursor"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pump_organ_indian_export",
+          "name": "Hand-pumped Indian conversion",
+          "descriptors": [
+            "colonial-export",
+            "shorter-bellows",
+            "kirtan-precursor"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pump_organ_stops",
+      "surface": false,
+      "name": "Stops / voicing",
+      "variants": [
+        {
+          "id": "pump_organ_diapason_stop",
+          "name": "Diapason / 8'",
+          "descriptors": [
+            "fundamental",
+            "voice-doubling",
+            "singing"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pump_organ_celeste_stop",
+          "default": true,
+          "name": "Celeste / vox humana",
+          "descriptors": [
+            "detuned-pair",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "hymn"
+          ]
+        },
+        {
+          "id": "pump_organ_bourdon_stop",
+          "name": "Bourdon / 16'",
+          "descriptors": [
+            "sub-octave",
+            "fundamental-doubling",
+            "pedal-fill"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "pump_organ_flute_stop",
+          "name": "Flute / 4'",
+          "descriptors": [
+            "octave-up",
+            "softer",
+            "sweetening"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

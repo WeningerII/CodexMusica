@@ -1,0 +1,345 @@
+{
+  "id": "santur",
+  "name": "Santūr (Persian hammered dulcimer)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "santur",
+  "parts": [
+    {
+      "id": "plucked_traditional_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "plucked_classical_idiom",
+          "name": "Classical / art-music idiom",
+          "applies_to": [
+            "lute_renaissance",
+            "theorbo",
+            "oud",
+            "qanun",
+            "kanun",
+            "tar_persian",
+            "setar_persian",
+            "tanbur_persian",
+            "santur",
+            "santoor",
+            "saz_baglama",
+            "sitar",
+            "sarod",
+            "veena",
+            "rudra_veena",
+            "tanpura",
+            "koto",
+            "biwa_lute",
+            "pipa",
+            "guqin",
+            "gayageum",
+            "geomungo",
+            "sanxian",
+            "ruan",
+            "dan_tranh",
+            "guzheng",
+            "yueqin",
+            "shamisen"
+          ],
+          "descriptors": [
+            "ornamented",
+            "sustained"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "plucked_drone_modal",
+          "name": "Drone-modal",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki"
+          ],
+          "descriptors": [
+            "drone-like",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "drone-foundation",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "raga",
+            "maqam"
+          ]
+        },
+        {
+          "id": "plucked_ornamented_melodic",
+          "default": true,
+          "name": "Ornamented melodic",
+          "applies_to": [
+            "sitar",
+            "sarod",
+            "tanpura",
+            "tar_persian",
+            "tanbur_persian",
+            "setar_persian",
+            "saz_baglama",
+            "cumbus",
+            "baglamas",
+            "bouzouki",
+            "oud",
+            "qanun",
+            "kanun",
+            "santur",
+            "santoor",
+            "rudra_veena",
+            "veena",
+            "dotara",
+            "tumbi",
+            "ektara",
+            "khamak",
+            "tambura_balkan"
+          ],
+          "descriptors": [
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string-attack",
+            "ornament-heavy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "south-asian",
+            "central-asian"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "santur_school",
+      "surface": false,
+      "name": "Tradition / school",
+      "variants": [
+        {
+          "id": "santur_persian",
+          "default": true,
+          "name": "Persian classical",
+          "descriptors": [
+            "dastgah",
+            "court"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santur_iraqi",
+          "name": "Iraqi maqam",
+          "descriptors": [
+            "Mesopotamian",
+            "distinct-tuning",
+            "art-music"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santur_indian_santoor",
+          "name": "Indian santoor variant",
+          "descriptors": [
+            "Hindustani-adopted",
+            "Kashmir-derived",
+            "late-20th-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "santur_technique",
+      "surface": false,
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "santur_mizrab",
+          "default": true,
+          "name": "Mizrab strike (canonical)",
+          "descriptors": [
+            "standard",
+            "tight-rhythmic-articulation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santur_damped",
+          "name": "Damped / muted",
+          "descriptors": [
+            "ornamental",
+            "expressive",
+            "colour"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santur_sustained",
+          "name": "Sustained tremolo",
+          "descriptors": [
+            "modern",
+            "extended",
+            "expressive"
+          ],
+          "match_tokens": [
+            "sustained",
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "santur_school",
+      "surface": false,
+      "name": "Tradition / school",
+      "variants": [
+        {
+          "id": "santur_persian",
+          "default": true,
+          "name": "Persian classical",
+          "descriptors": [
+            "dastgah",
+            "court"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santur_iraqi",
+          "name": "Iraqi maqam",
+          "descriptors": [
+            "Mesopotamian",
+            "distinct-tuning",
+            "art-music"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santur_indian_santoor",
+          "name": "Indian santoor variant",
+          "descriptors": [
+            "Hindustani-adopted",
+            "Kashmir-derived",
+            "late-20th-century"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "santur_technique",
+      "surface": false,
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "santur_mizrab",
+          "default": true,
+          "name": "Mizrab strike (canonical)",
+          "descriptors": [
+            "standard",
+            "tight-rhythmic-articulation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santur_damped",
+          "name": "Damped / muted",
+          "descriptors": [
+            "ornamental",
+            "expressive",
+            "colour"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "santur_sustained",
+          "name": "Sustained tremolo",
+          "descriptors": [
+            "modern",
+            "extended",
+            "expressive"
+          ],
+          "match_tokens": [
+            "sustained",
+            "plucked",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

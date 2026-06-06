@@ -1,0 +1,1137 @@
+{
+  "id": "saxophone",
+  "name": "Saxophone (soprano / alto / tenor / baritone)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "saxophone",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_honking_attack",
+          "name": "Honking attack",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone"
+          ],
+          "descriptors": [
+            "honking",
+            "attack"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "honking-attack",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "r&b",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "wind_punchy_ensemble",
+          "name": "Punchy ensemble",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone"
+          ],
+          "descriptors": [
+            "fast-attack-transient",
+            "ensemble",
+            "horn-section"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "punchy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "r&b",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "wind_bebop_runs",
+          "name": "Bebop fast runs",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "cornet"
+          ],
+          "descriptors": [
+            "angular"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bebop-derived",
+            "jazz-trained",
+            "bebop-runs",
+            "gospel-runs"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "wind_cool_lyrical",
+          "name": "Cool lyrical",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "cornet",
+            "flugelhorn"
+          ],
+          "descriptors": [
+            "cool",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "cool-lyrical",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "wind_multiphonic_avant",
+          "name": "Multiphonic / avant-garde",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "oboe"
+          ],
+          "descriptors": [
+            "multiphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "avant-garde",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "avant",
+            "noise",
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "wind_split_tone_overblown",
+          "name": "Split-tone / overblown",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet"
+          ],
+          "descriptors": [
+            "split-tone",
+            "overblown"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "wind_breath_quiet",
+          "name": "Breath-tone, low dynamic",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "flute",
+            "clarinet",
+            "cornet",
+            "flugelhorn",
+            "shakuhachi",
+            "ney"
+          ],
+          "descriptors": [
+            "breath-tone-airy",
+            "low-dynamic-level"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "breathing",
+            "quiet"
+          ],
+          "canonical_tags": [
+            "lounge",
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "wind_ska_skank_stab",
+          "name": "Ska skank stab",
+          "applies_to": [
+            "trumpet",
+            "trombone",
+            "saxophone"
+          ],
+          "descriptors": [
+            "short"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "ska",
+            "rocksteady"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "sax_size",
+      "surface": false,
+      "name": "Size",
+      "variants": [
+        {
+          "id": "soprano_sax",
+          "name": "Soprano",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "pinched",
+            "soprano"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "alto_sax",
+          "default": true,
+          "name": "Alto",
+          "descriptors": [
+            "treble-extended",
+            "lyrical",
+            "alto"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "tenor_sax",
+          "name": "Tenor",
+          "descriptors": [
+            "round",
+            "husky",
+            "central",
+            "tenor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "afrobeat",
+            "soul",
+            "r&b"
+          ]
+        },
+        {
+          "id": "baritone_sax",
+          "name": "Baritone",
+          "descriptors": [
+            "deep",
+            "growly",
+            "low-mid-thick"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sax_reed",
+      "name": "Reed strength",
+      "variants": [
+        {
+          "id": "soft_reed",
+          "name": "Soft",
+          "descriptors": [
+            "treble-extended",
+            "easy-blowing",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "soft-attack",
+            "reed-driven",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "medium_reed",
+          "default": true,
+          "name": "Medium",
+          "descriptors": [
+            "balanced",
+            "standard",
+            "versatile"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "hard_reed",
+          "name": "Hard",
+          "descriptors": [
+            "focused",
+            "dark",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sax_body_alloy",
+      "surface": false,
+      "name": "Body alloy",
+      "variants": [
+        {
+          "id": "yellow_brass_sax",
+          "default": true,
+          "name": "Yellow brass (Cu/Zn 70/30, standard)",
+          "descriptors": [
+            "yellow-brass",
+            "cu-zn-70-30",
+            "balanced-bright",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern",
+            "classical"
+          ]
+        },
+        {
+          "id": "gold_brass_sax",
+          "name": "Gold brass (Cu/Zn 85/15, warmer)",
+          "descriptors": [
+            "gold-brass",
+            "cu-zn-85-15",
+            "warmer-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "rose_brass_sax",
+          "name": "Rose brass (Cu/Zn 90/10, darker)",
+          "descriptors": [
+            "rose-brass",
+            "cu-zn-90-10",
+            "darker-warmer"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "phosphor_bronze_sax",
+          "name": "Phosphor bronze (boutique dark)",
+          "descriptors": [
+            "phosphor-bronze",
+            "cu-sn-p",
+            "darker-dense"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "nickel_silver_sax",
+          "name": "Nickel silver (Cu-Ni-Zn, bright projection)",
+          "descriptors": [
+            "nickel-silver",
+            "cu-ni-zn",
+            "bright-projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sax_mouthpiece",
+      "name": "Mouthpiece material",
+      "variants": [
+        {
+          "id": "hard_rubber_mp",
+          "default": true,
+          "name": "Hard rubber",
+          "descriptors": [
+            "low-overtone-rich",
+            "traditional",
+            "rubber"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "metal_mp",
+          "name": "Metal",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "cutting"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "ebonite_vintage",
+          "name": "Vintage ebonite",
+          "descriptors": [
+            "low-onset-attack",
+            "dark",
+            "mellow",
+            "ebonite"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sax_technique",
+      "surface": false,
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "sax_honking_attack",
+          "name": "Honking attack",
+          "descriptors": [
+            "honking",
+            "attack"
+          ],
+          "match_tokens": [
+            "honking-attack",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "r&b",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "sax_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "continuous-phonation",
+            "sustained-tone",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "sax_bebop_runs",
+          "name": "Bebop runs",
+          "descriptors": [
+            "angular"
+          ],
+          "match_tokens": [
+            "bebop-derived",
+            "jazz-trained",
+            "bebop-runs",
+            "gospel-runs",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "sax_multiphonic_avant",
+          "name": "Multiphonic avant",
+          "descriptors": [
+            "multiphonic"
+          ],
+          "match_tokens": [
+            "avant-garde",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "avant",
+            "noise"
+          ]
+        },
+        {
+          "id": "sax_cool_lyrical",
+          "name": "Cool lyrical",
+          "descriptors": [
+            "cool",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "cool-lyrical",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "sax_split_tone_overblown",
+          "name": "Split-tone overblown",
+          "descriptors": [
+            "split-tone",
+            "overblown"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sax_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "sax_selmer_mark_vi",
+          "default": true,
+          "name": "Selmer Mark VI (canonical 1954-1974 jazz — Paris)",
+          "descriptors": [
+            "selmer-mark-vi-canonical-1954-1974-jazz-paris"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "jazz"
+          ]
+        },
+        {
+          "id": "sax_selmer_balanced_action",
+          "name": "Selmer Balanced Action (pre-1954 vintage)",
+          "descriptors": [
+            "selmer-balanced-action-pre-1954-vintage"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "sax_yamaha_custom",
+          "name": "Yamaha Custom 875EX (modern Japanese premium)",
+          "descriptors": [
+            "yamaha-custom-875ex-modern-japanese-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sax_yanagisawa_premium",
+          "name": "Yanagisawa (modern Japanese boutique)",
+          "descriptors": [
+            "yanagisawa-modern-japanese-boutique"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sax_keilwerth_german",
+          "name": "Keilwerth (German boutique)",
+          "descriptors": [
+            "keilwerth-german-boutique"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sax_size",
+      "surface": false,
+      "name": "Size",
+      "variants": [
+        {
+          "id": "soprano_sax",
+          "name": "Soprano",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "pinched",
+            "soprano"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "alto_sax",
+          "default": true,
+          "name": "Alto",
+          "descriptors": [
+            "treble-extended",
+            "lyrical",
+            "alto"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "tenor_sax",
+          "name": "Tenor",
+          "descriptors": [
+            "round",
+            "husky",
+            "central",
+            "tenor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "afrobeat",
+            "soul",
+            "r&b"
+          ]
+        },
+        {
+          "id": "baritone_sax",
+          "name": "Baritone",
+          "descriptors": [
+            "deep",
+            "growly",
+            "low-mid-thick"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sax_reed",
+      "name": "Reed strength",
+      "variants": [
+        {
+          "id": "soft_reed",
+          "name": "Soft",
+          "descriptors": [
+            "treble-extended",
+            "easy-blowing",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "soft-attack",
+            "reed-driven",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "medium_reed",
+          "default": true,
+          "name": "Medium",
+          "descriptors": [
+            "balanced",
+            "standard",
+            "versatile"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "hard_reed",
+          "name": "Hard",
+          "descriptors": [
+            "focused",
+            "dark",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sax_body_alloy",
+      "surface": false,
+      "name": "Body alloy",
+      "variants": [
+        {
+          "id": "yellow_brass_sax",
+          "default": true,
+          "name": "Yellow brass (Cu/Zn 70/30, standard)",
+          "descriptors": [
+            "yellow-brass",
+            "cu-zn-70-30",
+            "balanced-bright",
+            "modern-standard"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "modern",
+            "classical"
+          ]
+        },
+        {
+          "id": "gold_brass_sax",
+          "name": "Gold brass (Cu/Zn 85/15, warmer)",
+          "descriptors": [
+            "gold-brass",
+            "cu-zn-85-15",
+            "warmer-tone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "classical",
+            "modern"
+          ]
+        },
+        {
+          "id": "rose_brass_sax",
+          "name": "Rose brass (Cu/Zn 90/10, darker)",
+          "descriptors": [
+            "rose-brass",
+            "cu-zn-90-10",
+            "darker-warmer"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "phosphor_bronze_sax",
+          "name": "Phosphor bronze (boutique dark)",
+          "descriptors": [
+            "phosphor-bronze",
+            "cu-sn-p",
+            "darker-dense"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "nickel_silver_sax",
+          "name": "Nickel silver (Cu-Ni-Zn, bright projection)",
+          "descriptors": [
+            "nickel-silver",
+            "cu-ni-zn",
+            "bright-projecting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sax_mouthpiece",
+      "name": "Mouthpiece material",
+      "variants": [
+        {
+          "id": "hard_rubber_mp",
+          "default": true,
+          "name": "Hard rubber",
+          "descriptors": [
+            "low-overtone-rich",
+            "traditional",
+            "rubber"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "metal_mp",
+          "name": "Metal",
+          "descriptors": [
+            "treble-extended",
+            "projecting",
+            "cutting"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "ebonite_vintage",
+          "name": "Vintage ebonite",
+          "descriptors": [
+            "low-onset-attack",
+            "dark",
+            "mellow",
+            "ebonite"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sax_technique",
+      "surface": false,
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "sax_honking_attack",
+          "name": "Honking attack",
+          "descriptors": [
+            "honking",
+            "attack"
+          ],
+          "match_tokens": [
+            "honking-attack",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "r&b",
+            "afrobeat",
+            "soul"
+          ]
+        },
+        {
+          "id": "sax_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "continuous-phonation",
+            "sustained-tone",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "sax_bebop_runs",
+          "name": "Bebop runs",
+          "descriptors": [
+            "angular"
+          ],
+          "match_tokens": [
+            "bebop-derived",
+            "jazz-trained",
+            "bebop-runs",
+            "gospel-runs",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "bebop"
+          ]
+        },
+        {
+          "id": "sax_multiphonic_avant",
+          "name": "Multiphonic avant",
+          "descriptors": [
+            "multiphonic"
+          ],
+          "match_tokens": [
+            "avant-garde",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "avant",
+            "noise"
+          ]
+        },
+        {
+          "id": "sax_cool_lyrical",
+          "name": "Cool lyrical",
+          "descriptors": [
+            "cool",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "cool-lyrical",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "cool-jazz"
+          ]
+        },
+        {
+          "id": "sax_split_tone_overblown",
+          "name": "Split-tone overblown",
+          "descriptors": [
+            "split-tone",
+            "overblown"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "free-jazz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sax_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "sax_selmer_mark_vi",
+          "default": true,
+          "name": "Selmer Mark VI (canonical 1954-1974 jazz — Paris)",
+          "descriptors": [
+            "selmer-mark-vi-canonical-1954-1974-jazz-paris"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage",
+            "jazz"
+          ]
+        },
+        {
+          "id": "sax_selmer_balanced_action",
+          "name": "Selmer Balanced Action (pre-1954 vintage)",
+          "descriptors": [
+            "selmer-balanced-action-pre-1954-vintage"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        },
+        {
+          "id": "sax_yamaha_custom",
+          "name": "Yamaha Custom 875EX (modern Japanese premium)",
+          "descriptors": [
+            "yamaha-custom-875ex-modern-japanese-premium"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sax_yanagisawa_premium",
+          "name": "Yanagisawa (modern Japanese boutique)",
+          "descriptors": [
+            "yanagisawa-modern-japanese-boutique"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "sax_keilwerth_german",
+          "name": "Keilwerth (German boutique)",
+          "descriptors": [
+            "keilwerth-german-boutique"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

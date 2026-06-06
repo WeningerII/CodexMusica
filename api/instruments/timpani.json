@@ -1,0 +1,169 @@
+{
+  "id": "timpani",
+  "name": "Timpani (orchestral kettle drums)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "timpani",
+  "parts": [
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_mallets_orchestral",
+          "default": true,
+          "name": "Mallets orchestral",
+          "applies_to": [
+            "marimba_orchestral",
+            "vibraphone",
+            "xylophone",
+            "glockenspiel",
+            "timpani"
+          ],
+          "descriptors": [
+            "mallets"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "orchestral"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "timpani_size",
+      "surface": false,
+      "name": "Size set",
+      "variants": [
+        {
+          "id": "timpani_4_drum_set",
+          "default": true,
+          "name": "4-drum set (32, 29, 26, 23\")",
+          "descriptors": [
+            "orchestral",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timpani_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "timpani_calfskin",
+          "default": true,
+          "name": "Calfskin (period)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "traditional",
+            "calfskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "timpani_synthetic",
+          "name": "Synthetic",
+          "descriptors": [
+            "stable",
+            "modern",
+            "consistent",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "mallets"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "timpani_size",
+      "surface": false,
+      "name": "Size set",
+      "variants": [
+        {
+          "id": "timpani_4_drum_set",
+          "default": true,
+          "name": "4-drum set (32, 29, 26, 23\")",
+          "descriptors": [
+            "orchestral",
+            "classical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timpani_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "timpani_calfskin",
+          "default": true,
+          "name": "Calfskin (period)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "traditional",
+            "calfskin",
+            "hide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "mallets",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "timpani_synthetic",
+          "name": "Synthetic",
+          "descriptors": [
+            "stable",
+            "modern",
+            "consistent",
+            "synthetic"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "mallets"
+          ]
+        }
+      ]
+    }
+  ]
+}

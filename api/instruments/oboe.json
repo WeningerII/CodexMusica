@@ -1,0 +1,522 @@
+{
+  "id": "oboe",
+  "name": "Oboe",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "oboe",
+  "parts": [
+    {
+      "id": "wind_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "wind_continuous_legato",
+          "default": true,
+          "name": "Continuous legato",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "cornet",
+            "clarinet",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "tuba",
+            "euphonium",
+            "flugelhorn",
+            "recorder",
+            "duduk",
+            "mey",
+            "bansuri",
+            "dizi",
+            "shakuhachi",
+            "ney",
+            "kaval",
+            "quena",
+            "xiao",
+            "suling",
+            "hichiriki_double_reed",
+            "gaita_colombiana"
+          ],
+          "descriptors": [
+            "continuous-airflow",
+            "legato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "continuous-phonation",
+            "sustained-tone",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "jazz-canonical",
+            "classical"
+          ]
+        },
+        {
+          "id": "wind_multiphonic_avant",
+          "name": "Multiphonic / avant-garde",
+          "applies_to": [
+            "saxophone",
+            "trumpet",
+            "trombone",
+            "clarinet",
+            "flute",
+            "oboe"
+          ],
+          "descriptors": [
+            "multiphonic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "avant-garde",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "avant",
+            "noise",
+            "free-jazz"
+          ]
+        },
+        {
+          "id": "wind_classical_legato",
+          "name": "Classical legato",
+          "applies_to": [
+            "oboe",
+            "english_horn",
+            "bassoon",
+            "contrabassoon",
+            "french_horn",
+            "trumpet",
+            "trombone",
+            "tuba",
+            "euphonium",
+            "flute",
+            "alto_flute",
+            "bass_flute",
+            "piccolo",
+            "clarinet"
+          ],
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "classical",
+            "classical-trained",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "oboe_reed",
+      "name": "Reed style",
+      "variants": [
+        {
+          "id": "oboe_american_scrape",
+          "default": true,
+          "name": "American scrape",
+          "descriptors": [
+            "low-overtone-rich",
+            "singing",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oboe_european_scrape",
+          "name": "European/long scrape",
+          "descriptors": [
+            "focused",
+            "reedy",
+            "french"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_class",
+      "name": "Instrument class",
+      "variants": [
+        {
+          "id": "oboe_modern",
+          "default": true,
+          "name": "Modern conservatoire",
+          "descriptors": [
+            "full-keywork",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "modern",
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oboe_baroque",
+          "name": "Baroque (period)",
+          "descriptors": [
+            "narrow",
+            "low-overtone-rich"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "oboe_grenadilla_canonical",
+          "default": true,
+          "name": "Grenadilla / African blackwood (canonical modern conservatoire)",
+          "descriptors": [
+            "grenadilla-african-blackwood-canonical-modern-conservatoire"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "oboe_violetwood",
+          "name": "Violetwood / kingwood (premium Lorée canon)",
+          "descriptors": [
+            "violetwood-kingwood-premium-loree-canon"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "oboe_boxwood_baroque",
+          "name": "Boxwood (canonical baroque/classical pre-1850)",
+          "descriptors": [
+            "boxwood-canonical-baroque-classical-pre-1850"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "oboe_cocobolo",
+          "name": "Cocobolo (warmer premium alternative)",
+          "descriptors": [
+            "cocobolo-warmer-premium-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "oboe_loree_paris",
+          "default": true,
+          "name": "Lorée Paris (canonical American-school)",
+          "descriptors": [
+            "loree-paris-canonical-american-school"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oboe_marigaux",
+          "name": "Marigaux (French)",
+          "descriptors": [
+            "marigaux-french"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oboe_howarth_london",
+          "name": "Howarth London (British)",
+          "descriptors": [
+            "howarth-london-british"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oboe_yamaha_modern",
+          "name": "Yamaha (modern Japanese)",
+          "descriptors": [
+            "yamaha-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "oboe_reed",
+      "name": "Reed style",
+      "variants": [
+        {
+          "id": "oboe_american_scrape",
+          "default": true,
+          "name": "American scrape",
+          "descriptors": [
+            "low-overtone-rich",
+            "singing",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oboe_european_scrape",
+          "name": "European/long scrape",
+          "descriptors": [
+            "focused",
+            "reedy",
+            "french"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_class",
+      "name": "Instrument class",
+      "variants": [
+        {
+          "id": "oboe_modern",
+          "default": true,
+          "name": "Modern conservatoire",
+          "descriptors": [
+            "full-keywork",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "modern",
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oboe_baroque",
+          "name": "Baroque (period)",
+          "descriptors": [
+            "narrow",
+            "low-overtone-rich"
+          ],
+          "match_tokens": [
+            "baroque-leaning",
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "oboe_grenadilla_canonical",
+          "default": true,
+          "name": "Grenadilla / African blackwood (canonical modern conservatoire)",
+          "descriptors": [
+            "grenadilla-african-blackwood-canonical-modern-conservatoire"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "oboe_violetwood",
+          "name": "Violetwood / kingwood (premium Lorée canon)",
+          "descriptors": [
+            "violetwood-kingwood-premium-loree-canon"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "oboe_boxwood_baroque",
+          "name": "Boxwood (canonical baroque/classical pre-1850)",
+          "descriptors": [
+            "boxwood-canonical-baroque-classical-pre-1850"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "oboe_cocobolo",
+          "name": "Cocobolo (warmer premium alternative)",
+          "descriptors": [
+            "cocobolo-warmer-premium-alternative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_maker_school",
+      "surface": false,
+      "name": "Maker / school",
+      "variants": [
+        {
+          "id": "oboe_loree_paris",
+          "default": true,
+          "name": "Lorée Paris (canonical American-school)",
+          "descriptors": [
+            "loree-paris-canonical-american-school"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oboe_marigaux",
+          "name": "Marigaux (French)",
+          "descriptors": [
+            "marigaux-french"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oboe_howarth_london",
+          "name": "Howarth London (British)",
+          "descriptors": [
+            "howarth-london-british"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "oboe_yamaha_modern",
+          "name": "Yamaha (modern Japanese)",
+          "descriptors": [
+            "yamaha-modern-japanese"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "classical-trained"
+          ]
+        }
+      ]
+    }
+  ]
+}

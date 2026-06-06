@@ -1,0 +1,68 @@
+{
+  "id": "afoxe",
+  "name": "Afoxé (Afro-Brazilian net-bead shaker)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "afoxé",
+  "parts": [
+    {
+      "id": "afoxe_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "afoxe_gourd_beads",
+          "default": true,
+          "name": "Gourd wrapped in beaded net",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "gourd",
+            "beads",
+            "snap-attack"
+          ],
+          "match_tokens": [
+            "shaker",
+            "afro-brazilian-tradition",
+            "samba-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "afoxe_body",
+      "name": "Body",
+      "variants": [
+        {
+          "id": "afoxe_gourd_beads",
+          "default": true,
+          "name": "Gourd wrapped in beaded net",
+          "descriptors": [
+            "traditional",
+            "organic-tone",
+            "gourd",
+            "beads",
+            "snap-attack"
+          ],
+          "match_tokens": [
+            "shaker",
+            "afro-brazilian-tradition",
+            "samba-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

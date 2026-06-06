@@ -1,0 +1,168 @@
+{
+  "id": "progressive_metal_classic",
+  "name": "Progressive metal",
+  "family": "global",
+  "lineage": "Metal-prog-rock hybrid subgenre codified through Queensrÿche (Operation: Mindcrime 1988), Fates Warning (Awaken the Guardian 1986), Dream Theater (Images and Words 1992), Symphony X, and Watchtower; characterized by operatic-clean-vocal performances, virtuosic-twin-guitar lead lines, complex multi-meter compositions, and the conceptual-album / fantasy-narrative lyrical subject-matter tradition",
+  "recipe": "classic late-1980s progressive metal, distorted Rock, prog branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, nervy, narrative, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 634,
+  "score": 511.349,
+  "config": {
+    "traditions": [
+      "progressive_metal_classic",
+      "acid_jazz_uk_90s",
+      "nu_jazz_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "speech_voice",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 10.89499999999999,
+          "voice_quality": 0.313125,
+          "voice_vibrato": 0.55125,
+          "voice_articulation": 1.0999999999999999,
+          "voice_microtone": 10.918124999999996,
+          "voice_tradition": 3.1368750000000003,
+          "voice_mechanism_compound": 14.389374999999996,
+          "voice_estill_quality": 1.755,
+          "voice_speech_song": 7.344999999999998,
+          "voice_ensemble_config": 6.889999999999999,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 0.9099999999999999,
+          "voice_processing_chain": 2.8600000000000003,
+          "voice_multitrack_stack": 1.730625
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 14.444999999999997,
+          "amp_make": 8.688125,
+          "body_wood": 6.499999999999999,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.3,
+          "pickup_winding": 0.313125,
+          "string_material": 0.39,
+          "bridge": 0.313125,
+          "scale_length": 6.889999999999999,
+          "string_gauge": 0.66375,
+          "finish": 0,
+          "string_tuning": 11.699999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "electric_technique": 0.2,
+          "amp_make": 5.134999999999999,
+          "body_wood": 0.4125,
+          "pickup_config": 0.39,
+          "string_type": 10.660624999999998,
+          "scale_length_b": 0.3,
+          "fretted_or_not": 0.305625,
+          "bass_technique": 9.499999999999996
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "fourteen_step_hammering",
+          "cymbal_lathing": "unlathed_bell",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 10.139999999999999,
+          "shell_wood": 0.39,
+          "shell_thickness": 0.024375,
+          "bearing_edges": 0.39,
+          "drumhead": 2.2099999999999995,
+          "snare_wires": 0.20625,
+          "cymbal_alloy": 22.428124999999998,
+          "cymbal_hammering": 9.149999999999997,
+          "cymbal_lathing": 9.485624999999995,
+          "cymbal_finish": 0.39,
+          "drum_technique": 10.139999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 1.21125,
+          "poly_archetypes": 4.809999999999999,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -0.17499999999999996
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_marshall_jcm800",
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

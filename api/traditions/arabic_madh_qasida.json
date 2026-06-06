@@ -1,0 +1,89 @@
+{
+  "id": "arabic_madh_qasida",
+  "name": "Arabic madh and qasida (Arabic praise-poetry)",
+  "family": "global",
+  "lineage": "Arabic classical praise-poetry tradition continuous from pre-Islamic jāhiliyya-era qasida ode-form (the canonical pre-Islamic Mu'allaqat seven-poem collection) through medieval-Islamic-era continuous performance into modern Arabic-classical-poetry recitation practice; madh (praise) and qasida (extended-ode) are the canonical Arabic praise-poetry-and-song forms",
+  "recipe": "classic North American mid-1970s arabic madh and qasida, praise Song, middle east n African branch, indian subcontinent praise song, middle eastern classical art music, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, declaimed, chest resonance low mid, continuous-phonation. walnut ribs canonical mid tier spruce face pyramid nylon oud. carpeted bedroom. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 510,
+  "score": 321.385,
+  "config": {
+    "traditions": [
+      "arabic_madh_qasida",
+      "andalusi_nuba",
+      "persian_dastgah"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "arabic_maqam_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.56,
+          "voice_quality": 19.674999999999994,
+          "voice_vibrato": 5.069999999999999,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 17.874999999999996,
+          "voice_tradition": 30.514999999999997,
+          "voice_mechanism_compound": 10.84,
+          "voice_estill_quality": 11.299999999999999,
+          "voice_speech_song": 12.934999999999999,
+          "voice_ensemble_config": 6.109999999999999,
+          "voice_ornament_system": 28.429999999999996,
+          "voice_pitch_organization": 28.609999999999996,
+          "voice_processing_chain": 3.08,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_horn",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.795,
+          "oud_school": 1.69,
+          "oud_strings": 5.069999999999999,
+          "oud_pick": 1.54,
+          "oud_body_wood": 3.2299999999999995,
+          "oud_soundboard_wood": 3.2299999999999995,
+          "oud_string_material": 3.3799999999999994
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

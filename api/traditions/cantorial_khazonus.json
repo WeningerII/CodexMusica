@@ -1,0 +1,83 @@
+{
+  "id": "cantorial_khazonus",
+  "name": "Cantorial khazonus (chazzanut)",
+  "family": "global",
+  "lineage": "Ashkenazi Jewish synagogue cantorial tradition — the solo lead-singer (chazzan / khazn / cantor) liturgical practice of the Eastern European Yiddish-speaking world, codified through Yossele Rosenblatt (the golden-age chazzan, 1882-1933), Gershon Sirota, Mordechai Hershman, Moishe Oysher, Jan Peerce (the cantor-to-opera-tenor crossover), Moshe Koussevitzky",
+  "recipe": "classic early-1880s cantorial khazonus, ritual Devotional, Jewish branch, vocal drone modal, European funeral lament armenian duduk-accompanied chant skolt sámi leuʹdd. vocal fry, declaimed, chest resonance low mid, narrative. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. klezmer simcha celebration hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 505,
+  "score": 149.257,
+  "config": {
+    "traditions": [
+      "cantorial_khazonus",
+      "armenian_duduk_chant",
+      "sami_skolt_leudd"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.3,
+          "voice_quality": 4.745,
+          "voice_vibrato": 0.675,
+          "voice_articulation": 0.615,
+          "voice_microtone": 0.24,
+          "voice_tradition": 4.355,
+          "voice_mechanism_compound": 1.3050000000000002,
+          "voice_estill_quality": 5.720000000000001,
+          "voice_speech_song": 2.79,
+          "voice_ensemble_config": 3.7700000000000005,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 1.2149999999999996,
+          "voice_processing_chain": 1.17,
+          "voice_multitrack_stack": 1.3
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 2.2349999999999994,
+          "choir_polyphonic_configuration": 2.2800000000000002,
+          "choir_regional_canonical_configuration": 1.3,
+          "choir_ensemble_repertoire": 2.6
+        }
+      }
+    ],
+    "room": "klezmer_simcha_celebration_hall",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "klezmer_freygish_ahava_raba_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

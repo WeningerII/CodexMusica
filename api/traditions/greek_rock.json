@@ -1,0 +1,186 @@
+{
+  "id": "greek_rock",
+  "name": "Greek rock",
+  "family": "rock_punk",
+  "lineage": "Greek-language rock music developed from 1960s onward, integrating Greek-laiko and rebetiko folk-music influences with broader Western rock vocabulary. The 1960s Pavlos Sidiropoulos and Stamatis Spanoudakis era inaugurated the form; the 1980s-90s \"Greek rock\" wave through Magic de Spell, Trypes, Tripes, Pyx Lax, and the broader post-1981 Athens scene consolidated commercial visibility. Distinguished by Greek-language lyrics and frequent integration of bouzouki/baglamas folk-instruments into rock contexts.",
+  "recipe": "classic North American mid-1960s greek rock, distorted Rock, regional branch, chanson fado Greek entechno greek éntechno. thick, lament wail, equal tempered, Mediterranean demotic vocal. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, strummed baglamas, walnut staves canonical Greek strummed bouzouki. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 668,
+  "score": 357.604,
+  "config": {
+    "traditions": [
+      "greek_rock",
+      "greek_entechno"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 25.34499999999999,
+          "voice_quality": 1.7499999999999998,
+          "voice_vibrato": 0.34125,
+          "voice_articulation": 0.168,
+          "voice_microtone": 20.554999999999996,
+          "voice_tradition": 25.651999999999994,
+          "voice_mechanism_compound": 1.755,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 0.0315,
+          "voice_pitch_organization": 3.0550000000000006,
+          "voice_processing_chain": 3.6577500000000005,
+          "voice_multitrack_stack": 6.39575
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 1.8199999999999998,
+          "amp_make": 9.879999999999999,
+          "body_wood": 0.1365,
+          "neck_wood": 0.273,
+          "fretboard": 0.273,
+          "pickup_magnet": 0.0315,
+          "pickup_winding": 0.20325,
+          "string_material": 0.273,
+          "bridge": 0.0735,
+          "scale_length": 0,
+          "string_gauge": 0.0735,
+          "finish": 0,
+          "string_tuning": 10.009999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 9.945,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 23.564,
+          "scale_length_b": 0.063,
+          "fretted_or_not": 0.1365,
+          "bass_technique": 19.2315
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "kevlar_drumhead",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b8",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_rock"
+        },
+        "scores": {
+          "percussion_technique": 6.629999999999999,
+          "shell_wood": 0.273,
+          "shell_thickness": 0.063,
+          "bearing_edges": 0,
+          "drumhead": 0.273,
+          "snare_wires": 0,
+          "cymbal_alloy": 19.423,
+          "cymbal_hammering": 19.2865,
+          "cymbal_lathing": 19.212999999999997,
+          "cymbal_finish": 0.273,
+          "drum_technique": 19.25
+        }
+      },
+      {
+        "id": "baglamas",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "baglamas_config": "baglamas_three_double",
+          "baglamas_context": "baglamas_rebetiko",
+          "baglamas_body_wood": "baglamas_mulberry",
+          "baglamas_strings": "baglamas_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.9094999999999995,
+          "baglamas_config": 0.258,
+          "baglamas_context": 8.19,
+          "baglamas_body_wood": 0.675,
+          "baglamas_strings": -0.525
+        }
+      },
+      {
+        "id": "bouzouki",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bouzouki_courses": "trichordo",
+          "bouzouki_pick": "bouzouki_thin",
+          "bouzouki_body_wood": "bouzouki_walnut_bowl",
+          "bouzouki_strings": "bouzouki_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.9094999999999995,
+          "bouzouki_courses": 1.69,
+          "bouzouki_pick": 0.2265,
+          "bouzouki_body_wood": 8.5155,
+          "bouzouki_strings": 0.37050000000000005
+        }
+      }
+    ],
+    "room": "athens_minos_studios_60s_70s",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_marshall_plexi_1959",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

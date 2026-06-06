@@ -1,0 +1,198 @@
+{
+  "id": "soca_soul",
+  "name": "Soca soul",
+  "family": "global",
+  "lineage": "Trinidadian soul-and-soca crossover tradition codified by Lord Shorty\\u2019s reinvention of calypso through soca (1973 Endless Vibrations record) — Arrow\\u2019s Hot Hot Hot (1982) bringing the form to international audiences, then Machel Montano, Bunji Garlin, Patrice Roberts, and Destra Garcia evolving the canon through the 1990s-2000s",
+  "recipe": "classic mid-1990s soca soul, groove Percussion, Caribbean branch, soul R&B functional song contemporary r&b northern soul and motown. thick, blues-shouter, overtone rich sustained, narrative. Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled hot rolled annealed full lathed drum kit, analog poly synth, tenor ensemble honking attack saxophone, steelpan. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 671,
+  "score": 542.41,
+  "config": {
+    "traditions": [
+      "soca_soul",
+      "contemporary_rb_late_90s_2000s",
+      "northern_soul_motown"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 8.025,
+          "voice_quality": 8.100000000000001,
+          "voice_vibrato": 0.8049999999999999,
+          "voice_articulation": 7.3950000000000005,
+          "voice_microtone": 0.75,
+          "voice_tradition": 9.219999999999999,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 7.6450000000000005,
+          "voice_speech_song": 3.835,
+          "voice_ensemble_config": 2.8600000000000003,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 1.26,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 3.185
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "pine",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 7.49,
+          "amp_make": 8.98,
+          "body_wood": 0.8049999999999999,
+          "neck_wood": 0.5249999999999999,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.345,
+          "string_material": 0.345,
+          "string_gauge": 0.8049999999999999,
+          "bridge": 0.6,
+          "scale_length": 1.0500000000000003,
+          "finish": 0,
+          "string_tuning": 1.6800000000000002
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 7.4,
+          "amp_make": 9.54,
+          "body_wood": 1.0500000000000003,
+          "pickup_config": 0.7949999999999999,
+          "string_type": 10.985,
+          "scale_length_b": 0.6,
+          "fretted_or_not": 0.105,
+          "bass_technique": 7.4
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_sticks_motown",
+          "shell_wood": "walnut_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b15_signature",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "sticks_motown"
+        },
+        "scores": {
+          "percussion_technique": 7.45,
+          "shell_wood": 0.9099999999999999,
+          "shell_thickness": 0,
+          "bearing_edges": 0.9450000000000001,
+          "drumhead": 1.17,
+          "snare_wires": 0.5249999999999999,
+          "cymbal_alloy": 3.835,
+          "cymbal_hammering": 0.8449999999999999,
+          "cymbal_lathing": 1.8199999999999998,
+          "cymbal_finish": 0.345,
+          "drum_technique": 7.45
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 0.9099999999999999,
+          "poly_archetypes": 0.825,
+          "poly_voices": 0.675,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 9.095,
+          "sax_size": 7.4,
+          "sax_reed": 0.345,
+          "sax_body_alloy": -0.035,
+          "sax_mouthpiece": 0.345,
+          "sax_technique": 7.4,
+          "sax_maker_school": 0.6
+        }
+      },
+      {
+        "id": "steelpan",
+        "slots": {
+          "steelpan_voice": "cello_pan",
+          "steelpan_context": "steelpan_panyard"
+        },
+        "scores": {
+          "steelpan_voice": 0.39,
+          "steelpan_context": 1.045
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

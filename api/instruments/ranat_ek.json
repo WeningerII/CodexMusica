@@ -1,0 +1,96 @@
+{
+  "id": "ranat_ek",
+  "name": "Ranat ek (Thai lead xylophone, 21 wooden bars)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ranat ek",
+  "parts": [
+    {
+      "id": "ranat_ek_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "ranat_ek_kep",
+          "default": true,
+          "name": "Kep (hard-mallet bright canonical)",
+          "descriptors": [
+            "lead-melodic"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "piphat",
+            "thai"
+          ]
+        },
+        {
+          "id": "ranat_ek_mai_nuam",
+          "name": "Mai nuam (soft-mallet)",
+          "descriptors": [
+            "mellow",
+            "chamber"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "mahori"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ranat_ek_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "ranat_ek_kep",
+          "default": true,
+          "name": "Kep (hard-mallet bright canonical)",
+          "descriptors": [
+            "lead-melodic"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "piphat",
+            "thai"
+          ]
+        },
+        {
+          "id": "ranat_ek_mai_nuam",
+          "name": "Mai nuam (soft-mallet)",
+          "descriptors": [
+            "mellow",
+            "chamber"
+          ],
+          "match_tokens": [
+            "mallets",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "mahori"
+          ]
+        }
+      ]
+    }
+  ]
+}
