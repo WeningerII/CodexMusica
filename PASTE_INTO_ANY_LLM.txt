@@ -1,14 +1,25 @@
 ════════════════════════════════════════════════════════════════════════
  CODEX MUSICA — paste this whole block into ANY chat LLM (incl. free ChatGPT)
 ════════════════════════════════════════════════════════════════════════
-HOW TO USE: copy everything between the lines below and paste it as your
-first message to the LLM. Then just say a genre, e.g. "afrobeat" or
-"blend bluegrass + thrash metal". No link, no browsing, no account needed.
+THREE WAYS TO USE THIS — pick one:
 
-For the EXACT curated recipe of a specific genre (not the LLM's own
-rendering), open one small file in your browser and paste its text too:
-  https://weningerii.github.io/CodexMusica/api/traditions/<id>.json
-  (list of all ids: https://weningerii.github.io/CodexMusica/api/traditions/index.json)
+WAY 1 (BEST — live curated data, no pasting): In ChatGPT, turn ON the
+globe/Search toggle under the message box (it goes blue), then send:
+  Read https://weningerii.github.io/CodexMusica/api/traditions/afrobeat.json
+  and give me the recording recipe.
+Free ChatGPT has web search; with the toggle ON it fetches the real curated
+recipe. (Swap "afrobeat" for any id; full list:
+https://weningerii.github.io/CodexMusica/api/traditions/index.json)
+Without the toggle the model often refuses the URL — that's the toggle's job.
+
+WAY 2 (act as the assistant from the link): toggle Search ON and send:
+  Read https://weningerii.github.io/CodexMusica/llms.txt and act as the
+  Codex Musica recipe assistant it describes.
+
+WAY 3 (no link at all): copy the block between the lines below and PASTE it
+as your message (it is kept under 5000 chars so ChatGPT keeps it inline as
+instructions, not a file). Then name a genre. If it still attaches as a
+file, click "Show in text field" to turn it back into a message.
 
 ──────────────────────── COPY FROM HERE ────────────────────────
 ⚑ INSTRUCTIONS FOR THE AI — ACT, DON'T ANALYZE. Do NOT summarize, critique,
@@ -90,15 +101,6 @@ American jazz pre jazz ragtime. cold pressed wurzen felt oversize maple
 tension resonator European spruce grand stride upright piano. blanket
 damped commercial-major electrical era office. large-diaphragm condenser,
 tube pre, German tube console. 78rpm shellac.
-
-afrobeat —
-classic West African mid-1970s afrobeat, groove Percussion, Afro-diasporic
-electric branch, American jazz fusion. thick, nervy, narrative.
-chicken-scratch midrange-forward clean single coil electric guitar,
-fingerstyle electric bass, bronze drum kit, tonewheel organ Leslie, tenor
-saxophone, trumpet, shekere, congas. large-diaphragm condenser, German
-tube V72-school preamp, German tube console, vari-mu tube compressor,
-Pultec-style passive program EQ. two-inch thirty-ips tape.
 
 Now: ask me for a genre (or two to blend) and I will produce one recipe
 string in exactly this format. If the user pastes a Codex Musica JSON
