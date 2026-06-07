@@ -4659,6 +4659,27 @@ const INSTRUMENTS = [
     ]
   },
   {
+    id: 'bass_drum',
+    name: 'Bass drum (kick / concert)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: 0, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'bass drum',
+    parts: [
+      { id: 'bass_drum_size', name: 'Size', variants: [
+        { id: 'bass_drum_22_standard', default: true, name: '22-inch standard kick', descriptors: ['punchy', 'round-low-end'], match_tokens: ['rock', 'pop', 'standard-kit'] },
+        { id: 'bass_drum_18_jazz', name: '18-inch jazz bass drum', descriptors: ['warm', 'resonant', 'open'], match_tokens: ['jazz', 'bop', 'small-kit'] },
+        { id: 'bass_drum_24_26_big', name: '24-26-inch big kick', descriptors: ['deep', 'cavernous', 'thunderous'], match_tokens: ['metal', 'arena-rock', 'heavy-rock'] },
+        { id: 'bass_drum_concert', name: 'Concert / orchestral bass drum (mallet-struck)', descriptors: ['orchestral', 'broad', 'low-boom'], match_tokens: ['orchestral', 'marching', 'concert'] },
+      ] },
+      { id: 'bass_drum_beater', surface: false, name: 'Beater / pedal', variants: [
+        { id: 'bass_drum_felt_pedal', default: true, name: 'Felt beater, single pedal', descriptors: ['rounded-attack', 'felt-thump'], match_tokens: ['rock', 'pop'] },
+        { id: 'bass_drum_wood_click', name: 'Wood / plastic beater', descriptors: ['clicky-attack', 'defined-point'], match_tokens: ['metal', 'modern'] },
+        { id: 'bass_drum_double_pedal', name: 'Double pedal', descriptors: ['rapid', 'gallop'], match_tokens: ['metal', 'double-bass'] },
+      ] },
+    ]
+  },
+  {
     id: 'drum_kit',
     name: 'Drum kit (Western)',
     family: 'percussion',
@@ -5448,33 +5469,6 @@ const INSTRUMENTS = [
       { id: 'tabla_syahi', name: 'Syahi (black tuning paste)', variants: [
         { id: 'fresh_syahi', default: true, name: 'Fresh syahi', descriptors: ['ringing', 'pitched', 'vivid'], match_tokens: ['percussive-attack', 'hands', 'classical-trained'] },
         { id: 'aged_syahi', name: 'Aged syahi', descriptors: ['mellower', 'broken-in', 'softer'], match_tokens: ['percussive-attack', 'hands', 'classical-trained'] },
-      ] },
-    ]
-  },
-  {
-    id: 'taiko_drums',
-    name: 'Taiko (Japanese ensemble drums)',
-    family: 'percussion',
-    class: 'hand_percussion',
-    axes: { pitchFix: 0, sustain: -2, polyphony: 0, harmonicity: 0, register: -1, range: 1, articulation: 1, transduction: -2, dynamics: 2 },
-    short: 'taiko',
-    parts: [
-      { id: 'taiko_shell_wood', surface: false, name: 'Shell wood', variants: [
-        { id: 'keyaki_zelkova_single_log', default: true, name: 'Keyaki (Japanese zelkova, single-log kurinuki)', descriptors: ['keyaki', 'zelkova', 'single-log', 'kurinuki-construction', 'traditional'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'], canonical_tags: ['traditional'] },
-        { id: 'tamo_japanese_ash_taiko', name: 'Tamo (Japanese ash)', descriptors: ['tamo', 'japanese-ash', 'ring-porous-grain'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'], canonical_tags: ['traditional'] },
-        { id: 'sen_kalopanax_taiko', name: 'Sen (kalopanax septemlobus)', descriptors: ['sen', 'kalopanax', 'lighter-grain'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'], canonical_tags: ['traditional'] },
-        { id: 'matsu_pine_taiko', name: 'Matsu (Japanese pine)', descriptors: ['matsu', 'japanese-pine', 'lighter-tone'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-        { id: 'oak_barrel_american_taiko', name: 'American oak (wine-barrel kumi-daiko)', descriptors: ['oak-barrel', 'american-oak', 'wine-barrel-reuse', 'modern-american-taiko'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'], canonical_tags: ['modern'] },
-      ] },
-      { id: 'taiko_size', surface: false, name: 'Size class', variants: [
-        { id: 'shime_daiko', name: 'Shime-daiko (compact, lead)', descriptors: ['high-pitched', 'timekeeping', 'virtuoso'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-        { id: 'chu_daiko', default: true, name: 'Chū-daiko (medium)', descriptors: ['foundational', 'versatile'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-        { id: 'odaiko', name: 'Ōdaiko (large)', descriptors: ['deep', 'ceremonial', 'foundational'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-      ] },
-      { id: 'taiko_drums_context', surface: false, name: 'Use context', variants: [
-        { id: 'taiko_drums_matsuri', default: true, name: 'Matsuri festival', descriptors: ['communal'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-        { id: 'taiko_drums_kumi', name: 'Kumi-daiko ensemble', descriptors: ['twentieth-century', 'concert-stage', 'modern'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-        { id: 'taiko_drums_theater', name: 'Theater (kabuki / noh)', descriptors: ['theatrical', 'classical', 'ritualized'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
       ] },
     ]
   },
@@ -9814,25 +9808,6 @@ const INSTRUMENTS = [
   // Mexican son jarocho, Andean, vallenato, Venezuelan llanero
   // ============================================================
   {
-    id: 'bata_drums',
-    name: 'Batá drums (Afro-Cuban liturgical three-drum set)',
-    family: 'percussion',
-    class: 'membranophone',
-    axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: 0, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
-    short: 'batá',
-    parts: [
-      { id: 'bata_role', name: 'Drum size/role', variants: [
-        { id: 'bata_iya', default: true, name: 'Iyá (mother — largest, lead)', descriptors: ['lead', 'authoritative'], match_tokens: ['percussive-attack', 'hands', 'santeria', 'afro-cuban-liturgical', 'lukumi'] },
-        { id: 'bata_itotele', name: 'Itótele (middle — answer)', descriptors: ['response'], match_tokens: ['percussive-attack', 'hands', 'santeria', 'lukumi'] },
-        { id: 'bata_okonkolo', name: 'Okónkolo (smallest — pulse)', descriptors: ['pulse', 'high-pitched'], match_tokens: ['percussive-attack', 'hands', 'santeria', 'lukumi'] },
-      ] },
-      { id: 'bata_consecration', name: 'Consecration state', variants: [
-        { id: 'bata_aña', default: true, name: 'Aña (consecrated, for sacred ceremony)', descriptors: ['sacred', 'ritual', 'liturgical'], match_tokens: ['percussive-attack', 'santeria', 'lukumi'] },
-        { id: 'bata_aberikula', name: 'Aberíkula (unconsecrated, for concert/teaching)', descriptors: ['secular', 'concert-context'], match_tokens: ['percussive-attack'] },
-      ] },
-    ]
-  },
-  {
     id: 'guitarron_mexicano',
     name: 'Guitarrón (Mexican mariachi bass guitar)',
     family: 'acoustic_strings',
@@ -10715,39 +10690,6 @@ const INSTRUMENTS = [
       ] },
       { id: 'nafa_tradition', surface: false, name: 'Performance tradition', variants: [
         { id: 'nafa_lakalaka_canonical', default: true, name: 'Lakalaka choreographed-performance accompaniment (canonical)', descriptors: ['lakalaka-choreographed-canonical-tongan'], match_tokens: ['hand-drum', 'tongan-tradition'] },
-      ] },
-    ]
-  },
-  {
-    id: 'dumbek',
-    name: 'Dumbek / darbuka (Middle Eastern goblet drum)',
-    family: 'percussion',
-    class: 'membranophone',
-    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
-    short: 'dumbek',
-    parts: [
-      { id: 'dumbek_body', name: 'Body', variants: [
-        { id: 'dumbek_ceramic_canonical', default: true, name: 'Ceramic body with goat-skin or plastic head (canonical)', descriptors: ['ceramic-body-goat-skin-canonical-middle-eastern'], match_tokens: ['hand-drum', 'middle-eastern-tradition'] },
-        { id: 'dumbek_metal_alt', name: 'Cast-metal body alternative (modern)', descriptors: ['cast-metal-body-modern-alternative'], match_tokens: ['hand-drum', 'middle-eastern-tradition'] },
-      ] },
-      { id: 'dumbek_tradition', surface: false, name: 'Performance tradition', variants: [
-        { id: 'dumbek_chalghi_andalusi_canonical', default: true, name: 'Chalghi and Andalusi ensemble use (canonical)', descriptors: ['chalghi-andalusi-canonical-middle-eastern'], match_tokens: ['hand-drum', 'middle-eastern-tradition'] },
-      ] },
-    ]
-  },
-  {
-    id: 'riqq',
-    name: 'Riqq (Middle Eastern small tambourine)',
-    family: 'percussion',
-    class: 'hand_percussion',
-    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
-    short: 'riqq',
-    parts: [
-      { id: 'riqq_body', name: 'Body', variants: [
-        { id: 'riqq_fish_skin_brass_jingles_canonical', default: true, name: 'Fish-skin or plastic head with brass jingles (canonical chalghi time-keeping)', descriptors: ['fish-skin-brass-jingles-canonical-chalghi-time-keeping'], match_tokens: ['hand-drum', 'iraqi-maqam-tradition', 'middle-eastern-tradition'] },
-      ] },
-      { id: 'riqq_tradition', surface: false, name: 'Performance tradition', variants: [
-        { id: 'riqq_chalghi_canonical', default: true, name: 'Chalghi ensemble time-keeping (canonical)', descriptors: ['chalghi-time-keeping-canonical-baghdadi'], match_tokens: ['hand-drum', 'iraqi-maqam-tradition'] },
       ] },
     ]
   },
