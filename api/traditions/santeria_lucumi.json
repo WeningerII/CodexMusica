@@ -3,9 +3,9 @@
   "name": "Lukumí ceremonial",
   "family": "global",
   "lineage": "Cuban Yoruba-derived Afro-Cuban religious-ritual song-and-drumming tradition preserved since the 17th-century-onward enslaved-Yoruba (Nigerian and Beninese) population, organized around the worship of the orichas (Yoruba deities transposed into Catholic-saint syncretism). The canonical batá-drum ensemble: three two-headed hourglass-shaped sacred-drums (iyá largest, itótele middle, okónkolo smallest) interlock through complex polyrhythmic patterns (toques) specific to each oricha. Each oricha has dedicated rezos invocational-songs, suyeres invocational-melodic-fragments, and toques rhythmic-patterns identifying-and-summoning the deity. The Lucumí ritual-vocabulary preserves substantial pre-colonial Yoruba liturgical-text untranslated. The 1959-onward Cuban revolution suppressed-and-then-tolerated santería; the 1990s-onward post-Special-Period economic-opening reopened public ritual practice.",
-  "recipe": "classic modern lukumí ceremonial, ritual Devotional, Afro-diasporic branch, Cuban groove percussion charanga cha-cha-chá. extended whistle, full chest belt, melodic, punctuated. ritual liturgical sacred bata drums, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 534,
-  "score": 146.76,
+  "recipe": "classic modern lukumí ceremonial, ritual Devotional, Afro-diasporic branch, Cuban groove percussion charanga cha-cha-chá. extended whistle, full chest belt, melodic, punctuated. sacred mahogany Cuban alternative goat skin knife stretched lacing bata, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 570,
+  "score": 156.746,
   "config": {
     "traditions": [
       "santeria_lucumi",
@@ -49,14 +49,18 @@
         }
       },
       {
-        "id": "bata_drums",
+        "id": "bata",
         "slots": {
-          "bata_role": "bata_itotele",
-          "bata_consecration": "bata_aña"
+          "bata_set": "okonkolo",
+          "bata_use": "bata_lucumi",
+          "bata_shell_wood": "bata_mahogany",
+          "bata_head_material": "bata_goat_skin_canonical"
         },
         "scores": {
-          "bata_role": 0.46950000000000003,
-          "bata_consecration": 7.333625
+          "bata_set": 0.504,
+          "bata_use": 3.9000000000000004,
+          "bata_shell_wood": 5.8999999999999995,
+          "bata_head_material": 1.3
         }
       },
       {

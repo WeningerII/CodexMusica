@@ -1,10 +1,10 @@
 {
   "name": "Codex Musica — static recipe API",
   "description": "Pre-compiled recording recipes for recorded-music traditions. Each tradition resolves to a descriptor-stack \"recipe\" plus a structured arrangement. Static files only — open a URL and read the JSON. No server, no key.",
-  "generated": "2026-06-06",
+  "generated": "2026-06-07",
   "counts": {
     "traditions": 1090,
-    "instruments": 421
+    "instruments": 418
   },
   "endpoints": {
     "traditions_index": "traditions/index.json",

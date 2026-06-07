@@ -1,7 +1,7 @@
 {
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
-  "generated": "2026-06-06",
+  "generated": "2026-06-07",
   "count": 1090,
   "items": [
     {
@@ -386,8 +386,8 @@
       "id": "gagaku",
       "name": "Gagaku",
       "family": "classical",
-      "recipe": "classic modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, silk biwa lute, matsu Japanese pine taiko drums. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 461
+      "recipe": "classic modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, silk biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 548
     },
     {
       "id": "beijing_opera",
@@ -1037,8 +1037,8 @@
       "id": "taarab",
       "name": "Taarab",
       "family": "global",
-      "recipe": "classic North American early-1910s taarab, groove Percussion, central east south African branch, Persian arab improv improv on frame, mid east n African pop functional song khaliji algerian chaabi. thick, declaimed, chest resonance low mid, equal tempered. weltmeister east German mid tier vintage volk ensemble accordion, metal finger picks rosewood body arab premium qanun, walnut ribs canonical mid tier pyramid nylon arab school oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, ceramic body goat skin canonical middle eastern chalghi andalusi canonical middle eastern dumbek. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 804
+      "recipe": "classic North American early-1910s taarab, groove Percussion, central east south African branch, Persian arab improv improv on frame, mid east n African pop functional song khaliji algerian chaabi. thick, declaimed, chest resonance low mid, equal tempered. weltmeister east German mid tier vintage volk ensemble accordion, metal finger picks rosewood body arab premium qanun, walnut ribs canonical mid tier pyramid nylon arab school oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 817
     },
     {
       "id": "chimurenga",
@@ -2241,8 +2241,8 @@
       "id": "santeria_lucumi",
       "name": "Lukumí ceremonial",
       "family": "global",
-      "recipe": "classic modern lukumí ceremonial, ritual Devotional, Afro-diasporic branch, Cuban groove percussion charanga cha-cha-chá. extended whistle, full chest belt, melodic, punctuated. ritual liturgical sacred bata drums, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 534
+      "recipe": "classic modern lukumí ceremonial, ritual Devotional, Afro-diasporic branch, Cuban groove percussion charanga cha-cha-chá. extended whistle, full chest belt, melodic, punctuated. sacred mahogany Cuban alternative goat skin knife stretched lacing bata, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 570
     },
     {
       "id": "haitian_vodou",
@@ -3450,7 +3450,7 @@
     },
     {
       "id": "hausa_court_music",
-      "name": "Hausa court music (rok\\u0327on Sarkin Kano)",
+      "name": "Hausa court music (roķon Sarkin Kano)",
       "family": "global",
       "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion were music acehnese saman. vocal fry, declaimed, rhythmic, Yoruba tonal vocal. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African talking drum, griot voice. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
       "recipe_chars": 516
@@ -3942,8 +3942,8 @@
       "id": "iraqi_maqam_baghdad",
       "name": "Iraqi maqam of Baghdad",
       "family": "classical",
-      "recipe": "classic North American early-1900s iraqi maqam of baghdad, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. drone like modal santur, coconut shell resonator skin face canonical baghdadi chalghi ensemble lead canonical iraqi maqam legato joza, fish skin brass jingles canonical chalghi time keeping chalghi time keeping canonical baghdadi riqq, ceramic body goat skin canonical middle eastern chalghi andalusi canonical middle eastern dumbek, small kettle pair stick struck canonical chalghi time keeping chalghi time keeping canonical baghdadi maqam naqqarat. iraqi baghdad chamber. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 855
+      "recipe": "classic North American early-1900s iraqi maqam of baghdad, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. drone like modal santur, coconut shell resonator skin face canonical baghdadi chalghi ensemble lead canonical iraqi maqam legato joza, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian iraqi maqam zarb drier finger darbuka, small kettle pair stick struck canonical chalghi time keeping chalghi time keeping canonical baghdadi maqam naqqarat. iraqi baghdad chamber. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 898
     },
     {
       "id": "coptic_orthodox_chant",
