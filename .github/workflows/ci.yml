@@ -29,6 +29,9 @@ jobs:
       - name: Validate references
         run: npm run validate
 
+      - name: Docs drift + documented-command validity
+        run: npm run check-docs
+
       - name: Audit data quality
         run: npm run audit
 
