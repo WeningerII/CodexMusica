@@ -503,7 +503,7 @@ const TRADITION_SIGNATURES = {
 // ---- Lookups ----
 // O(1) ID indexes built once at boot from the catalog arrays. Every render
 // path used to call `.find()` linear scans on these arrays — at 40+ cards
-// the cumulative cost of scanning 505 traditions × 372 instruments × N
+// the cumulative cost of scanning 1090 traditions × 421 instruments × N
 // chain items × variants dominated the per-render budget (the heaviest
 // single hot path, `findTraditionsByVector`, alone cost ~1M ops/render).
 // Maps push every lookup to constant time without changing call sites.
@@ -2758,7 +2758,7 @@ function renderAttributions() {
   const tbody = document.querySelector('#attributions-table tbody');
   if (!tbody) return;
   const rows = [
-    { name: 'Lucide',  scope: 'UI icons (97 in the codex)', license: 'ISC',     url: 'https://lucide.dev/' },
+    { name: 'Lucide',  scope: 'UI icons (' + (typeof ICON_PATHS !== 'undefined' ? Object.keys(ICON_PATHS).length : 0) + ' in the codex)', license: 'ISC',     url: 'https://lucide.dev/' },
     { name: 'Twemoji', scope: 'Instrument emoji (' + (typeof EMOJI_REGISTRY !== 'undefined' ? Object.keys(EMOJI_REGISTRY).length : 0) + ' mapped)', license: 'CC-BY 4.0', url: 'https://github.com/jdecked/twemoji' },
   ];
   tbody.innerHTML = rows.map(r => `<tr style="border-bottom: 1px solid var(--surface-2);">
@@ -2770,7 +2770,7 @@ function renderAttributions() {
 }
 
 // Family-level visual identity via color, not icons. The codex has 11
-// instrument families across 326 instruments; no UI icon library (Lucide,
+// instrument families across 421 instruments; no UI icon library (Lucide,
 // Heroicons, Tabler, etc.) has more than ~5 real instrument glyphs, and
 // substituting noteheads for "violin" or "drum" misrepresents the family.
 // Color works better here: 11 distinct hues actually differentiate, where
@@ -4392,7 +4392,6 @@ function renderSidebarTraditions() {
     const targetIdx = idx + direction;
     if (targetIdx < 0 || targetIdx >= seen.length) return;
     const otherId = seen[targetIdx];
-    if (typeof pushHistory === 'function') pushHistory();
     // Lift the moving group out of app.cards, then splice it back in either
     // BEFORE the other group's first card (when moving up) or AFTER the
     // other group's last card (when moving down).
@@ -4414,6 +4413,7 @@ function renderSidebarTraditions() {
         ? [...remaining, ...sourceCards]
         : [...remaining.slice(0, lastOtherIdx + 1), ...sourceCards, ...remaining.slice(lastOtherIdx + 1)];
     }
+    if (typeof pushHistory === 'function') pushHistory();
     renderAll();
   }
   host.querySelectorAll('[data-move-trad-up]').forEach(b => {
@@ -4511,7 +4511,6 @@ function renderSidebarTraditions() {
       // dragover from cursor Y relative to the target's midpoint.
       if (app._dragTraditionId && app._dragTraditionId !== targetId) {
         const sourceId = app._dragTraditionId;
-        if (typeof pushHistory === 'function') pushHistory();
         const sourceCards = app.cards.filter(c => c.traditionId === sourceId);
         const remaining = app.cards.filter(c => c.traditionId !== sourceId);
         if (dropAbove) {
@@ -4535,6 +4534,7 @@ function renderSidebarTraditions() {
           }
         }
         app._dragTraditionId = null;
+        if (typeof pushHistory === 'function') pushHistory();
         renderAll();
         return;
       }
@@ -4543,7 +4543,6 @@ function renderSidebarTraditions() {
       if (app._dragCardId) {
         const dragCard = app.cards.find(c => c.id === app._dragCardId);
         if (dragCard && dragCard.traditionId !== targetId) {
-          if (typeof pushHistory === 'function') pushHistory();
           dragCard.traditionId = targetId;
           // Move the card next to its new tradition's existing members
           app.cards = app.cards.filter(c => c.id !== dragCard.id);
@@ -4560,6 +4559,7 @@ function renderSidebarTraditions() {
             app.cards.splice(lastIdx + 1, 0, dragCard);
           }
           app._dragCardId = null;
+          if (typeof pushHistory === 'function') pushHistory();
           renderAll();
         }
       }
@@ -4568,7 +4568,7 @@ function renderSidebarTraditions() {
 
   // Wire tradition-delete buttons — bulk-remove all cards with that traditionId
   // in one undoable action. Uses skipHistory: true per rmCard to avoid one
-  // history entry per card; pushHistory() runs once before the batch.
+  // history entry per card; pushHistory() runs once after the batch.
   host.querySelectorAll('[data-delete-tradition]').forEach(b => {
     b.addEventListener('click', async (e) => {
       e.stopPropagation();
@@ -4586,8 +4586,8 @@ function renderSidebarTraditions() {
         danger: true,
       });
       if (!ok) return;
-      if (typeof pushHistory === 'function') pushHistory();
       for (const c of cards) rmCard(c.id, { skipHistory: true });
+      if (typeof pushHistory === 'function') pushHistory();
       showToast(`Removed ${tradName} (${cards.length} card${cards.length === 1 ? '' : 's'})`, 'success');
     });
   });
@@ -5315,7 +5315,7 @@ function renderChainSection(card) {
     if (isMulti) {
       const ids = card.chain[s.id] || [];
       isSet = ids.length > 0;
-      value = ids.length === 0 ? '—' : (ids.length === 1 ? ChainItem(s.id, ids[0]).name : ids.length + ' selected');
+      value = ids.length === 0 ? '—' : (ids.length === 1 ? (ChainItem(s.id, ids[0])?.name || ids[0]) : ids.length + ' selected');
     } else {
       const id = card.chain[s.id];
       isSet = !!id;
@@ -6675,7 +6675,7 @@ function renderAxisFingerprint(axesObj, classExtra) {
 // The centroid is a pure function of static catalog data — the same tradId
 // always produces the same result. Cached lazily: first call per tradId
 // computes and stores; subsequent calls return the cached vector. With
-// findTraditionsByVector iterating all 505 traditions on every render, this
+// findTraditionsByVector iterating all 1090 traditions on every render, this
 // drops the per-render compute from ~1M ops to ~5K ops after first warmup.
 let _TRAD_CENTROID_CACHE = null;
 
