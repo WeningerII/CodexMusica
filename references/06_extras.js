@@ -1680,7 +1680,7 @@ const TRADITION_EXTRAS = {
   'laiko': {
     parent: 'balladPoetry.mediterraneanBallad',
     axes: { harm: 1, pitch: 0, ornament: 1, meter: 1, density: 1, transmission: 0, improv: 0, soundTech: 0, intensity: 1, voice: 2, timbre: 0, percussion: 1, cyclicity: 0 },
-    description: 'Post-WWII Greek popular-song tradition (laikó: "of the people"), succeeding rebetiko as the urban Greek mass-entertainment idiom from the late 1940s through the 1980s. Retains bouzouki as central instrument but adds full band arrangement (rhythm section, orchestra in studio recordings) and shifts from underclass-bohemian rebetiko subjects toward broad-audience love-and-loss lyrical themes. Substitutes Western functional harmony for the modal dromoi inheritance (though modal traces persist in melodic phrasing). Bouzouki playing technique evolves from rebetiko\\u2019s plectrum-driven taximi improvisation toward more ornamental virtuoso lines. Distinct from entechno (literary art-song) and skyladiko (later working-class subgenre).',
+    description: 'Post-WWII Greek popular-song tradition (laikó: "of the people"), succeeding rebetiko as the urban Greek mass-entertainment idiom from the late 1940s through the 1980s. Retains bouzouki as central instrument but adds full band arrangement (rhythm section, orchestra in studio recordings) and shifts from underclass-bohemian rebetiko subjects toward broad-audience love-and-loss lyrical themes. Substitutes Western functional harmony for the modal dromoi inheritance (though modal traces persist in melodic phrasing). Bouzouki playing technique evolves from rebetiko’s plectrum-driven taximi improvisation toward more ornamental virtuoso lines. Distinct from entechno (literary art-song) and skyladiko (later working-class subgenre).',
     exemplars: ['Stelios Kazantzidis — Yparxo (1965)', 'Marinella — early-1970s catalog', 'Grigoris Bithikotsis — Mikis Theodorakis settings', 'Stratos Dionysiou — laikó standards'],
     status: 'documented',
     crossRefs: ['droneModal.vocal', 'balladPoetry.chansonFado'],
@@ -1836,14 +1836,6 @@ const TRADITION_EXTRAS = {
     exemplars: ['Gyütö Monks of Tibet', 'Gyume Tantric University', 'Drepung Loseling Monastery'],
     status: 'documented',
     crossRefs: ['droneModal.overtone', 'praiseSong.indianSubcontinent'],
-  },
-  'inuit_katajjaq': {
-    parent: 'ritualDevotional.indigenous',
-    axes: { harm: -2, pitch: -2, ornament: 0, meter: 1, density: 1, transmission: 1, improv: 1, soundTech: -2, intensity: 0, voice: 2, timbre: 2, percussion: -2, cyclicity: 2 },
-    description: 'Throat-game tradition — typically two women face each other, trading short rhythmic vocalizations of voiced and unvoiced breath sounds, animal calls, and pulsed tones at high speed until one breaks; performed as competition and as play.',
-    exemplars: ['Tanya Tagaq', 'Sylvia Cloutier', 'Beatrice Deer'],
-    status: 'documented',
-    crossRefs: ['droneModal.overtone'],
   },
   'tin_pan_alley_song': {
     parent: 'functionalSong.crooners',
@@ -2496,7 +2488,7 @@ const TRADITION_EXTRAS = {
   'yemenite_torah_cantillation': {
     parent: 'ritualDevotional.jewish',
     axes: { harm: -2, pitch: 1, ornament: 1, meter: -2, density: -2, transmission: 0, improv: 0, soundTech: -2, intensity: 0, voice: 2, timbre: 1, percussion: -2, cyclicity: -2 },
-    description: 'Yemenite Jewish liturgical recitation of the Pentateuch; centuries-old ta\\u2019amei mikra (cantillation accent) tradition, monophonic-vocal-only chant in Hebrew, considered closest extant continuation of pre-diaspora-era practice.',
+    description: 'Yemenite Jewish liturgical recitation of the Pentateuch; centuries-old ta’amei mikra (cantillation accent) tradition, monophonic-vocal-only chant in Hebrew, considered closest extant continuation of pre-diaspora-era practice.',
     exemplars: ['Yemenite synagogue tradition', 'Sa\'id Tsabari', 'Yair Ben-David'],
     status: 'documented',
     crossRefs: ['balladPoetry.medEastPoetic'],
@@ -2512,7 +2504,7 @@ const TRADITION_EXTRAS = {
   'quranic_recitation_tajweed': {
     parent: 'ritualDevotional.islamic',
     axes: { harm: -2, pitch: 1, ornament: 2, meter: -2, density: -2, transmission: 1, improv: 1, soundTech: -1, intensity: 1, voice: 2, timbre: 2, percussion: -2, cyclicity: -2 },
-    description: 'Codified scriptural recitation tradition with strict pronunciation rules and elaborate maqam-based melodic-modal phrasing; reciters trained in seven readings (qira\\u2019at), recitation forms tartil and tajwid sub-modes.',
+    description: 'Codified scriptural recitation tradition with strict pronunciation rules and elaborate maqam-based melodic-modal phrasing; reciters trained in seven readings (qira’at), recitation forms tartil and tajwid sub-modes.',
     exemplars: ['Abdul Basit Abdul Samad', 'Mohamed Refaat', 'Mishary Rashid Alafasy'],
     status: 'documented',
     crossRefs: ['artMusic.middleEasternClassical'],
@@ -3300,7 +3292,7 @@ const TRADITION_EXTRAS = {
   'pre_sampling_hip_hop_1979_1985': {
     parent: 'mcRhythm.usHipHop.eastCoast',
     axes: { harm: -1, pitch: -2, ornament: 0, meter: 2, density: 1, transmission: 1, improv: 1, soundTech: 0, intensity: 1, voice: 2, timbre: 0, percussion: 2, cyclicity: 1 },
-    description: 'Founding-decade hip-hop (1979–1985), pre-sample-based-production. Live-band-backing recreates disco breaks while MCs rap over the rhythm. Party-record formats (12-inch single dominant), call-and-response between MCs, foundational lyric vocabulary (boasts, party-rocking, social commentary, neighborhood pride). The pre-recorded canon of the genre — recordings before this period don\\u2019t exist commercially.',
+    description: 'Founding-decade hip-hop (1979–1985), pre-sample-based-production. Live-band-backing recreates disco breaks while MCs rap over the rhythm. Party-record formats (12-inch single dominant), call-and-response between MCs, foundational lyric vocabulary (boasts, party-rocking, social commentary, neighborhood pride). The pre-recorded canon of the genre — recordings before this period don’t exist commercially.',
     exemplars: ['Sugarhill Gang — Rapper\'s Delight (1979)', 'Grandmaster Flash & The Furious Five — The Message (1982)', 'Kurtis Blow — The Breaks (1980)', 'Run-DMC — Sucker MC\'s (1983)', 'Afrika Bambaataa & Soul Sonic Force — Planet Rock (1982)'],
     status: 'documented',
     crossRefs: [{ ref: 'functionalSong.soulRb', voice_isolated: true }],
@@ -3377,7 +3369,7 @@ const TRADITION_EXTRAS = {
   'tappa': {
     parent: 'improvOnFrame.indianClassicalImprov',
     axes: { harm: -1, pitch: -2, ornament: 2, meter: 1, density: 0, transmission: -1, improv: 2, soundTech: -1, intensity: 1, voice: 2, timbre: 1, percussion: 0, cyclicity: -1 },
-    description: 'Fast-melismatic semi-classical North Indian vocal genre derived from Punjabi camel-drivers\\u2019 songs, codified for art-music context in the late 18th century by Mian Shori Mian. Defined by extremely rapid taan (melodic-figure) sequences within compact compositions. Hybrid position between khayal and thumri — more rhythmically driven than the former, more melodically agile than the latter.',
+    description: 'Fast-melismatic semi-classical North Indian vocal genre derived from Punjabi camel-drivers’ songs, codified for art-music context in the late 18th century by Mian Shori Mian. Defined by extremely rapid taan (melodic-figure) sequences within compact compositions. Hybrid position between khayal and thumri — more rhythmically driven than the former, more melodically agile than the latter.',
     exemplars: ['Girija Devi — Tappa in Raga Khamaj', 'Malini Rajurkar — Tappa in Raga Kafi', 'Shobha Gurtu — Tappa in Raga Bhairavi'],
     status: 'documented',
     crossRefs: ['artMusic.southAsian'],
@@ -3385,7 +3377,7 @@ const TRADITION_EXTRAS = {
   'dadra': {
     parent: 'improvOnFrame.indianClassicalImprov',
     axes: { harm: -1, pitch: -2, ornament: 1, meter: 1, density: 0, transmission: 0, improv: 1, soundTech: -1, intensity: 0, voice: 2, timbre: 1, percussion: 0, cyclicity: -1 },
-    description: 'Light-classical North Indian vocal genre in dadra-tāl (six-beat cycle), shorter and more song-like than thumri but sharing thumri\\u2019s romantic / devotional poetic register. Boundary genre between mehfil-court-music and the regional folk traditions of Uttar Pradesh and Punjab. Often performed as concert closer following a thumri set.',
+    description: 'Light-classical North Indian vocal genre in dadra-tāl (six-beat cycle), shorter and more song-like than thumri but sharing thumri’s romantic / devotional poetic register. Boundary genre between mehfil-court-music and the regional folk traditions of Uttar Pradesh and Punjab. Often performed as concert closer following a thumri set.',
     exemplars: ['Begum Akhtar — Aaye Na Balam', 'Girija Devi — Dadra in Raga Khamaj', 'Shobha Gurtu — Dadra Bandish'],
     status: 'documented',
     crossRefs: ['ritualDevotional.hindu'],
@@ -3529,7 +3521,7 @@ const TRADITION_EXTRAS = {
   'bomba_puertorican': {
     parent: 'ritualDevotional.afroDiasporic',
     axes: { harm: -2, pitch: -2, ornament: 0, meter: 2, density: 1, transmission: 1, improv: 1, soundTech: -2, intensity: 1, voice: 2, timbre: 0, percussion: 2, cyclicity: 2 },
-    description: 'Afro-Puerto Rican drum-and-call-response tradition rooted in 17th–19th-century plantation life on the island\\u2019s coastal regions. Two-drum (buleador / primo) interaction with primo drum responding to dancer\\u2019s movements (drum-follows-dancer rather than dancer-follows-drum). Call-response soloist-and-chorus singing. Multiple regional sub-traditions (Loíza, Mayagüez, Ponce).',
+    description: 'Afro-Puerto Rican drum-and-call-response tradition rooted in 17th–19th-century plantation life on the island’s coastal regions. Two-drum (buleador / primo) interaction with primo drum responding to dancer’s movements (drum-follows-dancer rather than dancer-follows-drum). Call-response soloist-and-chorus singing. Multiple regional sub-traditions (Loíza, Mayagüez, Ponce).',
     exemplars: ['Cepeda Family — Bomba de Loíza recordings', 'Modesto Cepeda — Bomba y Plena Workshop', 'William Cepeda — Bombazo (Loíza modernized)'],
     status: 'documented',
     crossRefs: ['groovePercussion.caribbean'],
@@ -3569,7 +3561,7 @@ const TRADITION_EXTRAS = {
   'garifuna_paranda': {
     parent: 'ritualDevotional.afroDiasporic',
     axes: { harm: -1, pitch: -2, ornament: 0, meter: 1, density: 0, transmission: 1, improv: 0, soundTech: -2, intensity: 1, voice: 2, timbre: 0, percussion: 1, cyclicity: 1 },
-    description: 'Garifuna ballad form distinct from punta — slower tempo, Spanish-Latin-influenced acoustic-guitar accompaniment, individual-singer-and-guitarist solo presentation rather than ensemble drum-and-chorus context. Romantic and reflective lyric register. The ballad-tradition counterpart to punta\\u2019s celebratory-drum tradition within the same Garifuna culture.',
+    description: 'Garifuna ballad form distinct from punta — slower tempo, Spanish-Latin-influenced acoustic-guitar accompaniment, individual-singer-and-guitarist solo presentation rather than ensemble drum-and-chorus context. Romantic and reflective lyric register. The ballad-tradition counterpart to punta’s celebratory-drum tradition within the same Garifuna culture.',
     exemplars: ['Paul Nabor — Naguya Nei', 'Aurelio Martinez — Lándini', 'Andy Palacio — Beiba Nuni'],
     status: 'documented',
     crossRefs: ['balladPoetry.westAfricanGriot'],
@@ -3673,7 +3665,7 @@ const TRADITION_EXTRAS = {
   'lebanese_pop_tarab': {
     parent: 'functionalSong.midEastNAfricanPop',
     axes: { harm: 1, pitch: -2, ornament: 2, meter: 1, density: 1, transmission: -1, improv: 1, soundTech: 0, intensity: 1, voice: 2, timbre: 0, percussion: 1, cyclicity: 0 },
-    description: 'Beirut-centered modern Arabic-pop tradition retaining tarab-vocal melismatic ornamentation while incorporating Western pop production-scale and arrangement vocabulary. Diva-singer-led ensemble format. Pan-Arab market reach through Lebanon\\u2019s relatively unrestricted recording industry. Distinct from Egyptian shaabi (working-class) and Gulf khaliji (Saudi-Emirati pop) by sophistication-of-arrangement and tarab-tradition continuity.',
+    description: 'Beirut-centered modern Arabic-pop tradition retaining tarab-vocal melismatic ornamentation while incorporating Western pop production-scale and arrangement vocabulary. Diva-singer-led ensemble format. Pan-Arab market reach through Lebanon’s relatively unrestricted recording industry. Distinct from Egyptian shaabi (working-class) and Gulf khaliji (Saudi-Emirati pop) by sophistication-of-arrangement and tarab-tradition continuity.',
     exemplars: ['Fairuz — Habbaytak Bissayf', 'Magida El Roumi — Ya Beirut', 'Najwa Karam — Khalleeni Shoufak', 'Nancy Ajram — Ah W Noss', 'Elissa — Ayami Bik'],
     status: 'documented',
     crossRefs: ['improvOnFrame.persianArabImprov', 'artMusic.middleEasternClassical'],
@@ -3777,7 +3769,7 @@ const TRADITION_EXTRAS = {
   'wassoulou': {
     parent: 'balladPoetry.westAfricanGriot',
     axes: { harm: -1, pitch: 0, ornament: 1, meter: 1, density: 1, transmission: 1, improv: 1, soundTech: 0, intensity: 1, voice: 2, timbre: 0, percussion: 2, cyclicity: 1 },
-    description: 'Malian popular tradition originating in the Wassoulou region south of the Niger River, distinct from hereditary jeli praise-singing in its communal-rural origin and non-specialist lineage. Pre-modern roots in pentatonic hunters-music (donso); the modern recorded form emerged in the 1970s-1980s through women-led ensembles, with hexatonic-pentatonic melodic frame and djembe-driven rhythmic foundation. Lyrics address love, social commentary, women\\u2019s perspectives, and rural-life themes — explicitly outside the genealogical-praise-of-elites repertoire of jeli tradition. Modern arrangements add electric guitar and bass; the kamele ngoni (small youth\\u2019s harp-lute, hexatonic) is the genre\\u2019s signature instrument.',
+    description: 'Malian popular tradition originating in the Wassoulou region south of the Niger River, distinct from hereditary jeli praise-singing in its communal-rural origin and non-specialist lineage. Pre-modern roots in pentatonic hunters-music (donso); the modern recorded form emerged in the 1970s-1980s through women-led ensembles, with hexatonic-pentatonic melodic frame and djembe-driven rhythmic foundation. Lyrics address love, social commentary, women’s perspectives, and rural-life themes — explicitly outside the genealogical-praise-of-elites repertoire of jeli tradition. Modern arrangements add electric guitar and bass; the kamele ngoni (small youth’s harp-lute, hexatonic) is the genre’s signature instrument.',
     exemplars: ['Oumou Sangaré — Moussolou (1989)', 'Nahawa Doumbia — La Grande Cantatrice Malienne', 'Sali Sidibé — early-1990s catalog', 'Ramata Diakité — Na (2001)'],
     status: 'documented',
     crossRefs: ['groovePercussion.westAfrican', 'functionalSong.africanPop'],
@@ -3793,7 +3785,7 @@ const TRADITION_EXTRAS = {
   'ecm_jazz_aesthetic': {
     parent: 'improvOnFrame.americanJazz',
     axes: { harm: 1, pitch: -2, ornament: 1, meter: 1, density: 0, transmission: -2, improv: 2, soundTech: -1, intensity: 0, voice: 1, timbre: 1, percussion: 0, cyclicity: 0 },
-    description: 'Recording-aesthetic tradition associated with Manfred Eicher\\u2019s ECM Records (Munich, 1969-onward). Defined by concert-hall-or-large-tracking-room recording, minimal-and-precisely-placed close-miking, extended decay-tail preservation, and an audiophile-documentary mix philosophy. Genre-agnostic in catalog scope but recognizable as a unified production aesthetic across jazz, classical, and folk recordings.',
+    description: 'Recording-aesthetic tradition associated with Manfred Eicher’s ECM Records (Munich, 1969-onward). Defined by concert-hall-or-large-tracking-room recording, minimal-and-precisely-placed close-miking, extended decay-tail preservation, and an audiophile-documentary mix philosophy. Genre-agnostic in catalog scope but recognizable as a unified production aesthetic across jazz, classical, and folk recordings.',
     exemplars: ['Keith Jarrett — The Köln Concert (1975)', 'Pat Metheny — Bright Size Life (1976)', 'Jan Garbarek — Twelve Moons (1993)', 'Ralph Towner — Solstice (1975)'],
     status: 'documented',
     crossRefs: ['artMusic.westernModern'],
@@ -3825,7 +3817,7 @@ const TRADITION_EXTRAS = {
   'manhattan_chamber_loft': {
     parent: 'artMusic.westernCommonPractice',
     axes: { harm: 2, pitch: -2, ornament: 1, meter: 1, density: 1, transmission: -2, improv: 1, soundTech: 0, intensity: 1, voice: 1, timbre: 1, percussion: 0, cyclicity: 0 },
-    description: 'Manhattan-loft-and-small-room contemporary-classical and chamber-jazz recording aesthetic associated with labels like New World, CRI (Composers Recordings Inc.), Cantaloupe Music, and the wider Bang on a Can / new-music collective scene. Smaller spaces than ECM\\u2019s preferred concert halls, more compositional-collage workflow than purist-documentary aesthetic. Often features composer-performer-engineer triple-roles in single-creator recordings.',
+    description: 'Manhattan-loft-and-small-room contemporary-classical and chamber-jazz recording aesthetic associated with labels like New World, CRI (Composers Recordings Inc.), Cantaloupe Music, and the wider Bang on a Can / new-music collective scene. Smaller spaces than ECM’s preferred concert halls, more compositional-collage workflow than purist-documentary aesthetic. Often features composer-performer-engineer triple-roles in single-creator recordings.',
     exemplars: ['Bang on a Can All-Stars — Industry (1995)', 'David Lang — Cheating, Lying, Stealing', 'Steve Reich — early-period CRI recordings', 'Meredith Monk — solo-vocal loft recordings'],
     status: 'documented',
     crossRefs: ['artMusic.westernModern', 'improvOnFrame.americanJazz.avant'],
@@ -3897,7 +3889,7 @@ const TRADITION_EXTRAS = {
   'bulgarian_dance_traditional': {
     parent: 'groovePercussion',
     axes: { harm: -1, pitch: 1, ornament: 1, meter: 2, density: 1, transmission: 2, improv: 1, soundTech: -2, intensity: 1, voice: 2, timbre: 1, percussion: 1, cyclicity: 0 },
-    description: 'Bulgarian village-and-stage horo-dance tradition. Distinctive irregular-meter-cycle structures: horo (general dance), ruchenitsa (7/8), kopanitsa (11/16), paidushko (5/8), petrunino (13/16). Instruments: gaida bagpipe, kaval end-blown flute, tambura (Balkan long-neck lute), gadulka (bowed lyra), tapan double-headed drum. Mid-20th-century state-folk-ensemble codification (Filip Kutev Ensemble, 1951) created concert-stage versions; village-tradition continues at folk festivals. Distinguished from Greek-and-Romanian neighbors by specifically-Bulgarian asymmetric meters and by characteristic women\\u2019s-choir vocal-style (open-throated, parallel-second harmony).',
+    description: 'Bulgarian village-and-stage horo-dance tradition. Distinctive irregular-meter-cycle structures: horo (general dance), ruchenitsa (7/8), kopanitsa (11/16), paidushko (5/8), petrunino (13/16). Instruments: gaida bagpipe, kaval end-blown flute, tambura (Balkan long-neck lute), gadulka (bowed lyra), tapan double-headed drum. Mid-20th-century state-folk-ensemble codification (Filip Kutev Ensemble, 1951) created concert-stage versions; village-tradition continues at folk festivals. Distinguished from Greek-and-Romanian neighbors by specifically-Bulgarian asymmetric meters and by characteristic women’s-choir vocal-style (open-throated, parallel-second harmony).',
     exemplars: ['Filip Kutev Ensemble — early-period recordings', 'Kostadin Varimezov — gaida solo recordings', 'Theodosii Spassov — kaval recital albums', 'Nedyalko Nedyalkov — folk-orchestra recordings'],
     status: 'documented',
     crossRefs: ['balladPoetry.slavicBard', 'balladPoetry.mediterraneanBallad'],
@@ -3929,7 +3921,7 @@ const TRADITION_EXTRAS = {
   'japanese_taiko_ensemble': {
     parent: 'groovePercussion.eastAsian',
     axes: { harm: -2, pitch: 0, ornament: 0, meter: 2, density: 1, transmission: 1, improv: 0, soundTech: 0, intensity: 2, voice: 0, timbre: 1, percussion: 2, cyclicity: 0 },
-    description: 'Japanese kumi-daiko (group-taiko) modern ensemble-form, originated 1951 with Daihachi Oguchi\\u2019s Osuwa Daiko in Nagano. Reformatted earlier village-festival-and-temple solo-or-small-ensemble taiko practice into large-stage concert presentation. Standard ensemble: multiple chu-daiko (medium-barrel), o-daiko (large-barrel feature), shime-daiko (high-pitched tightening-rope drum), occasional shakuhachi (end-blown bamboo flute) and voice. Choreographed-physical-performance dimension: precise visual unison, athletic stance, theatrical stage-discipline. International influence since Kodō group founding (1981 Sado Island). Distinguished from Korean samul nori by larger-instrument-scale and by formal-stage-presentation tradition.',
+    description: 'Japanese kumi-daiko (group-taiko) modern ensemble-form, originated 1951 with Daihachi Oguchi’s Osuwa Daiko in Nagano. Reformatted earlier village-festival-and-temple solo-or-small-ensemble taiko practice into large-stage concert presentation. Standard ensemble: multiple chu-daiko (medium-barrel), o-daiko (large-barrel feature), shime-daiko (high-pitched tightening-rope drum), occasional shakuhachi (end-blown bamboo flute) and voice. Choreographed-physical-performance dimension: precise visual unison, athletic stance, theatrical stage-discipline. International influence since Kodō group founding (1981 Sado Island). Distinguished from Korean samul nori by larger-instrument-scale and by formal-stage-presentation tradition.',
     exemplars: ['Kodō — Heartbeat (1986)', 'Ondekoza — early Sado Island recordings', 'Osuwa Daiko — anniversary recordings', 'San Jose Taiko — diasporic American taiko recordings'],
     status: 'documented',
     crossRefs: ['artMusic.eastAsian', 'ritualDevotional.buddhist'],
@@ -3953,7 +3945,7 @@ const TRADITION_EXTRAS = {
   'hausa_court_music': {
     parent: 'balladPoetry.westAfricanGriot',
     axes: { harm: -2, pitch: 0, ornament: 1, meter: 1, density: 0, transmission: 2, improv: 1, soundTech: -2, intensity: 2, voice: 2, timbre: 1, percussion: 1, cyclicity: 1 },
-    description: 'Sahelian-Hausa royal-court ceremonial tradition (rok\\u0327on Sarkin Kano), Northern Nigeria and Niger. Court musicians (maroka) attached to emir\\u2019s palace perform praise-recitation, ceremonial-arrival fanfare, and event-marking music. Iconic instrument: kakaki (long ceremonial brass instrument, 3-meter length, blown by hereditary specialist class). Percussion includes kalangu (talking drum) and ganga (cylindrical drum). Distinguished from Mande griot tradition by Islamic-court-context (Hausa emirates established by Usman dan Fodio jihad, 1804) and by long-horn-rather-than-string-led ensemble. Active living tradition; ceremonial-not-commercial recording context.',
+    description: 'Sahelian-Hausa royal-court ceremonial tradition (roķon Sarkin Kano), Northern Nigeria and Niger. Court musicians (maroka) attached to emir’s palace perform praise-recitation, ceremonial-arrival fanfare, and event-marking music. Iconic instrument: kakaki (long ceremonial brass instrument, 3-meter length, blown by hereditary specialist class). Percussion includes kalangu (talking drum) and ganga (cylindrical drum). Distinguished from Mande griot tradition by Islamic-court-context (Hausa emirates established by Usman dan Fodio jihad, 1804) and by long-horn-rather-than-string-led ensemble. Active living tradition; ceremonial-not-commercial recording context.',
     exemplars: ['Mamman Shata — Hausa praise-singing recordings', 'Dan Maraya Jos — kuntigi-and-voice albums', 'Kano emirate ceremonial recordings (BBC archive)', 'Folkways Hausa music collection (1956 Tracey field recordings)'],
     status: 'documented',
     crossRefs: ['ritualDevotional.islamic', 'groovePercussion.westAfrican'],
@@ -3970,7 +3962,7 @@ const TRADITION_EXTRAS = {
     parent: 'artMusic.westernCommonPractice',
     axes: { harm: 2, pitch: 1, ornament: 0, meter: 1, density: 2, transmission: 1, improv: 0, soundTech: -1, intensity: 1, voice: -2, timbre: 1, percussion: 0, cyclicity: 0 },
     description: 'Northern-English working-class brass-band tradition, formalized 1850s onward through industrial-mill-and-mining-village ensembles. Standard 25-player instrumentation: cornet, flugelhorn, tenor horn, baritone horn, euphonium, trombone, bass-trombone, E-flat tuba, B-flat tuba, percussion. Annual contesting tradition (Whit Friday marches, British Open, National Championships) drove repertoire-development including specifically-composed test-pieces by Holst, Elgar, Howells, Birtwistle. Distinguished from American-school marching-band by all-brass-instrumentation (no woodwinds or strings) and by stationary-concert-stage performance versus marching-formation American context.',
-    exemplars: ['Black Dyke Band — Holst-test-piece recordings', 'Brighouse and Rastrick — National Championships albums', 'Cory Band — Birtwistle Grimethorpe Aria', 'Foden\\u2019s Band — historical Decca recordings'],
+    exemplars: ['Black Dyke Band — Holst-test-piece recordings', 'Brighouse and Rastrick — National Championships albums', 'Cory Band — Birtwistle Grimethorpe Aria', 'Foden’s Band — historical Decca recordings'],
     status: 'documented',
     crossRefs: ['artMusic.westernEarly'],
   },
@@ -3985,8 +3977,8 @@ const TRADITION_EXTRAS = {
   'tango_traditional': {
     parent: 'balladPoetry.latinAmTroubadour',
     axes: { harm: 1, pitch: 0, ornament: 1, meter: 1, density: 1, transmission: 1, improv: 1, soundTech: -2, intensity: 1, voice: 2, timbre: 1, percussion: -2, cyclicity: 0 },
-    description: 'Pre-1955 Buenos-Aires-Montevideo orquesta-típica era tango, predecessor of post-Piazzolla nuevo-tango concert-tradition. Standard orquesta-típica: bandoneon section (4-to-6 instruments), violin section (3-to-4 instruments), upright piano, upright bass, voice. Period-bandleaders Carlos di Sarli, Juan d\\u2019Arienzo, Aníbal Troilo, Osvaldo Pugliese established distinct stylistic schools (rítmico vs. melódico vs. evolutivo). Performance-context: milonga (dance-hall) primarily; recording in confitería or radio-station live-broadcast format. Distinguished from later-nuevo-tango by dance-floor-functional purpose and by acoustic-tape-era recording aesthetic.',
-    exemplars: ['Carlos di Sarli — 1940s RCA-Argentina recordings', 'Aníbal Troilo — Glostora Tango Club broadcasts', 'Osvaldo Pugliese — Yumba-rhythm recordings', 'Juan d\\u2019Arienzo — early Victor recordings'],
+    description: 'Pre-1955 Buenos-Aires-Montevideo orquesta-típica era tango, predecessor of post-Piazzolla nuevo-tango concert-tradition. Standard orquesta-típica: bandoneon section (4-to-6 instruments), violin section (3-to-4 instruments), upright piano, upright bass, voice. Period-bandleaders Carlos di Sarli, Juan d’Arienzo, Aníbal Troilo, Osvaldo Pugliese established distinct stylistic schools (rítmico vs. melódico vs. evolutivo). Performance-context: milonga (dance-hall) primarily; recording in confitería or radio-station live-broadcast format. Distinguished from later-nuevo-tango by dance-floor-functional purpose and by acoustic-tape-era recording aesthetic.',
+    exemplars: ['Carlos di Sarli — 1940s RCA-Argentina recordings', 'Aníbal Troilo — Glostora Tango Club broadcasts', 'Osvaldo Pugliese — Yumba-rhythm recordings', 'Juan d’Arienzo — early Victor recordings'],
     status: 'documented',
     crossRefs: ['groovePercussion.latinAm'],
   },

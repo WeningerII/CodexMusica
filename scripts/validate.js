@@ -342,6 +342,26 @@ for (const fam of Object.keys(C.INSTRUMENT_FAMILY_PARTS || {})) {
   }
 }
 
+// ---- Source-level duplicate-key detection (06_extras.js) ----
+// TRADITION_EXTRAS is an object literal, so a duplicate key silently collapses on
+// eval (the later definition wins) — invisible to every check against the loaded
+// object. Scan the raw source so a conflicting redefinition (the inuit_katajjaq
+// case) is caught instead of one definition being silently dropped.
+{
+  const fs = require('fs');
+  const path = require('path');
+  const extrasSrc = fs.readFileSync(path.join(__dirname, '..', 'references', '06_extras.js'), 'utf8');
+  const seenKey = new Set();
+  const keyRe = /^ {2}'([a-z0-9_]+)':\s*\{/gm;
+  let km;
+  while ((km = keyRe.exec(extrasSrc)) !== null) {
+    if (seenKey.has(km[1])) {
+      errors.push(['DUPLICATE_KEY', 'extras_source', km[1], 'two entries in 06_extras.js — the later one silently wins on eval']);
+    }
+    seenKey.add(km[1]);
+  }
+}
+
 // ---- Report ----
 if (errors.length === 0) {
   const archCount = (C.CHAIN_ARCHETYPES || []).length;

@@ -1264,7 +1264,7 @@ const PRODUCTION_AESTHETICS = [
     era: '2014-present',
     description: 'Maximalist-distorted-digital production aesthetic associated with PC Music label and SOPHIE-era producers. Heavy auto-tune as expressive feature, distorted-clipped sub-bass, pitched-up sped-up vocal manipulation, abrupt arrangement shifts, deliberate digital-clipping artifacts. Not primarily about loudness like streaming-era pop — about texture density and digital-medium interrogation. Distinct from vaporwave by maximalist-not-melancholic posture.',
     characteristic_techniques: ['extreme-autotune', 'pitched-up-vocals', 'distorted-sub-bass', 'abrupt-arrangement-shifts', 'digital-clipping-as-feature', 'maximalist-density', 'pc-music-aesthetic'],
-    exemplar_recordings: ['SOPHIE — Oil of Every Pearl\\u2019s Un-Insides (2018)', 'Charli XCX — Vroom Vroom EP (2016)', 'A. G. Cook — 7G (2020)', '100 gecs — 1000 gecs (2019)'],
+    exemplar_recordings: ['SOPHIE — Oil of Every Pearl’s Un-Insides (2018)', 'Charli XCX — Vroom Vroom EP (2016)', 'A. G. Cook — 7G (2020)', '100 gecs — 1000 gecs (2019)'],
     production_locus: 'production'
   },
   {
@@ -1273,7 +1273,7 @@ const PRODUCTION_AESTHETICS = [
     era: '2010-present',
     description: 'Slowed-down corporate-music sampling production aesthetic; lineage from chopped-and-screwed Houston hip-hop (DJ Screw, mid-1990s) extended into post-2010 internet-meme-and-aesthetic genre. Source material is typically 1980s-1990s smooth-jazz, mall-music, lounge, easy-listening — slowed 25-40% with pitch dropped, looped, layered with cassette-tape distortion and reverb. Distinct from hyperpop by melancholic-nostalgic posture rather than maximalist confrontation.',
     characteristic_techniques: ['source-pitch-down', 'tempo-slowdown-25-to-40-pct', 'looping-of-mall-source', 'cassette-saturation-overlay', 'extended-reverb-tail', 'corporate-source-recontextualization'],
-    exemplar_recordings: ['Macintosh Plus — Floral Shoppe (2011)', 'DJ Screw — 3 \\u2019N The Mornin (1996)', 'Saint Pepsi — Hit Vibes (2013)', 'James Ferraro — Far Side Virtual (2011)'],
+    exemplar_recordings: ['Macintosh Plus — Floral Shoppe (2011)', 'DJ Screw — 3 ’N The Mornin (1996)', 'Saint Pepsi — Hit Vibes (2013)', 'James Ferraro — Far Side Virtual (2011)'],
     production_locus: 'production-and-mixing'
   },
   {
@@ -1300,7 +1300,7 @@ const PRODUCTION_AESTHETICS = [
     era: '1959-1972',
     description: 'Detroit-Hitsville Studio A in-house production aesthetic developed by the label founder and the in-house session band collective. Distinguished from contemporary wall-of-sound by tight-pocket-rhythm-section instead of layered-orchestration approach: melodic-walking-eighth-note bass-led grooves, piano-driven harmonic foundation, tight-pocket-drumming with tambourine accent, single-room small-studio recording with characteristic short-decay live-room ambience. Bouncing-down to limited-track tape required ensemble-balance committing-to-mix during tracking.',
     characteristic_techniques: ['live-room-tracking', 'session-band-pocket', 'detroit-soul-bass-led', 'short-decay-room-sound', 'committed-to-mix-during-tracking', 'echo-chamber-utility', 'motown-eq-curve'],
-    exemplar_recordings: ['Marvin Gaye — What\\u2019s Going On (1971)', 'The Temptations — Cloud Nine (1968)', 'Stevie Wonder — Talking Book (1972)', 'The Supremes — Where Did Our Love Go (1964)'],
+    exemplar_recordings: ['Marvin Gaye — What’s Going On (1971)', 'The Temptations — Cloud Nine (1968)', 'Stevie Wonder — Talking Book (1972)', 'The Supremes — Where Did Our Love Go (1964)'],
     production_locus: 'recording-tracking'
   },
   {
@@ -1327,7 +1327,7 @@ const PRODUCTION_AESTHETICS = [
     era: '1971-1980',
     description: 'Philadelphia International Records (early-1970s producer-songwriter duo founders) orchestrated-soul production aesthetic. Sigma Sound Studios in-house aesthetic featuring an in-house session band collective plus a dedicated in-house string-and-horn arranger. Distinguished from Motown by larger-scale orchestration, longer-form arrangements (often 6-8 minute album cuts), vibraphone-prominent harmonic-color, four-on-the-floor proto-disco rhythmic foundation.',
     characteristic_techniques: ['session-band-rhythm-section', 'in-house-string-arrangement', 'long-form-arrangement', 'vibraphone-prominent', 'four-on-floor-proto-disco', 'sigma-sound-room', 'philly-bounce-feel'],
-    exemplar_recordings: ['The O\\u2019Jays — Back Stabbers (1972)', 'MFSB — TSOP (1974)', 'Harold Melvin & the Blue Notes — Wake Up Everybody (1975)', 'The Stylistics — You Make Me Feel Brand New (1973)'],
+    exemplar_recordings: ['The O’Jays — Back Stabbers (1972)', 'MFSB — TSOP (1974)', 'Harold Melvin & the Blue Notes — Wake Up Everybody (1975)', 'The Stylistics — You Make Me Feel Brand New (1973)'],
     production_locus: 'recording-and-arrangement'
   },
   {
@@ -1336,7 +1336,7 @@ const PRODUCTION_AESTHETICS = [
     era: '1948-1969',
     description: 'Chess Records Chicago-South-Side amplified-blues production aesthetic. Small-room tracking at 2120 South Michigan Avenue (and earlier 4750 South Cottage Grove). Heavy electric-guitar-and-harmonica amplification distinguished urban Chicago blues from acoustic-Delta predecessor. In-house engineering produced characteristic mid-range-heavy boxy room sound, slap-back tape echo (developed before commercial-availability), and committed-to-mono mix philosophy.',
     characteristic_techniques: ['amplified-blues-band', 'small-room-tracking', 'mid-range-heavy-room', 'slap-back-tape-echo', 'committed-mono-mix', 'cross-harmonica-amplified', 'electric-bass-or-upright-bass'],
-    exemplar_recordings: ['Muddy Waters — Hoochie Coochie Man (1954)', 'Howlin\\u2019 Wolf — Smokestack Lightning (1956)', 'Little Walter — Juke (1952)', 'Bo Diddley — Bo Diddley (1955)'],
+    exemplar_recordings: ['Muddy Waters — Hoochie Coochie Man (1954)', 'Howlin’ Wolf — Smokestack Lightning (1956)', 'Little Walter — Juke (1952)', 'Bo Diddley — Bo Diddley (1955)'],
     production_locus: 'recording-engineering'
   },
   {
@@ -1345,7 +1345,7 @@ const PRODUCTION_AESTHETICS = [
     era: '1970-1981',
     description: 'Early-1970s through early-1980s West Coast P-Funk-collective (umbrella ensemble project) production aesthetic. Multitracked-funk with analog-synthesizer synth-bass-led harmonic foundation, envelope-filter space-bass funk, psychedelic-guitar lead with extended fuzz solos, full-collective vocal-stack backgrounds. Distinguished from Motown and Stax by deliberate-loose-pocket aesthetic and by extended jam-form arrangements (often 8-15 minutes).',
     characteristic_techniques: ['collective-tracking-arrangement', 'analog-synth-bass-foundation', 'envelope-filter-space-bass', 'psychedelic-fuzz-guitar-lead', 'collective-vocal-stack', 'extended-jam-form', 'deliberate-loose-pocket'],
-    exemplar_recordings: ['Funkadelic — Maggot Brain (1971)', 'Parliament — Mothership Connection (1975)', 'Bootsy\\u2019s Rubber Band — Stretchin\\u2019 Out (1976)', 'Funkadelic — One Nation Under a Groove (1978)'],
+    exemplar_recordings: ['Funkadelic — Maggot Brain (1971)', 'Parliament — Mothership Connection (1975)', 'Bootsy’s Rubber Band — Stretchin’ Out (1976)', 'Funkadelic — One Nation Under a Groove (1978)'],
     production_locus: 'production-and-arrangement'
   },
   {

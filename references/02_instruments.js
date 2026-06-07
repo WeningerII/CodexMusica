@@ -9420,7 +9420,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'violao_7_role', name: 'Functional role', variants: [
         { id: 'violao_7_bordao_counter', default: true, name: 'Bordão counter-melody (choro)', descriptors: ['walking-bass', 'countermelody', 'choro-tradition'], match_tokens: ['plucked', 'choro-tradition'] },
-        { id: 'violao_7_chord_accompaniment', name: 'Chord accompaniment', variants: undefined, descriptors: ['accompaniment'], match_tokens: ['plucked'] },
+        { id: 'violao_7_chord_accompaniment', name: 'Chord accompaniment', descriptors: ['accompaniment'], match_tokens: ['plucked'] },
       ] },
     ]
   },
