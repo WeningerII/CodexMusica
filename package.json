@@ -26,7 +26,7 @@
     "smoke": "node scripts/smoke.js",
     "tandem": "node scripts/tandem.js",
     "reachability": "node scripts/ui_reachability_check.js",
-    "check-docs": "node scripts/check_docs.js && node scripts/check_doc_commands.js",
+    "check-docs": "node scripts/check_docs.js && node scripts/check_doc_commands.js && node scripts/check_doc_behaviors.js",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

@@ -30,6 +30,17 @@ All notable changes to this project are recorded here. Format loosely follows
   `05_traditions.js` (one tradition per line). Asserts the prior value and a
   unique, delimiter-anchored match before writing, so an edit can never corrupt
   a neighbouring field (e.g. top-level `tuning` vs the `string_tuning` part).
+- `scripts/check_doc_behaviors.js` (folded into `npm run check-docs`, so it runs in
+  CI): a third doc gate that asserts the documented *behaviors and outputs* of the
+  agent-facing docs, not merely that commands exit 0. `check_docs.js` gates the catalog
+  counts and `check_doc_commands.js` gates that every documented command runs — neither
+  caught SKILL.md §3f drifting, which kept warning (as "verified") that a bare
+  `--diff <a> <b>` "dies" long after `recipe.js`'s `BOOLEAN_FLAGS` made every argument
+  ordering work. Each assertion pins one documented behavior to the SKILL.md section that
+  states it — the `--diff` arg-order/byte-identity contract, `--swap-variant` exit-2
+  rejection, stapling order → lead tradition, the `nearest_neighbor` / `preface_configure`
+  outputs cited as "Verified", and arrangement being CLI-only — and fails CI when reality
+  diverges (proven against the historical `--diff` regression).
 
 ### Changed
 - Tradition defaults refined (61 traditions; recipe outputs re-snapshotted, all
@@ -95,6 +106,18 @@ All notable changes to this project are recorded here. Format loosely follows
   it now uses the app's `confirmDialog`.
 - `saveWS` and `delWS` now guard `window.storage` symmetrically (each early-returns on
   `!window.storage`; reads go through `safeGet`'s try/catch wrapper).
+- `scripts/expand.js` truncated piped JSON at the OS pipe buffer (~64 KiB): each success
+  path did `console.log(bigJSON); process.exit(0)`, and `process.exit()` tears the process
+  down before a large async stdout write drains to a pipe — so `expand.js --tradition
+  <id> | jq` lost everything past byte 65524 while still exiting 0 (a file redirect was
+  unaffected). Success paths now set `process.exitCode` and let the event loop flush
+  stdout; the flag dispatch is an `if/else-if/else` chain so they no longer fall through
+  into the usage error. Exit codes unchanged (0 success / 2 error).
+- Corrected two stale SKILL.md dogfooding notes the code had outrun: §3f no longer claims
+  a bare `--diff <a> <b>` "dies" (every argument ordering is byte-identical, now gated by
+  `check_doc_behaviors.js`), and §3h no longer says jsdom is "already installed" — the
+  headless rich-recipe path needs `npm ci` first, and a fresh clone fails with "Cannot
+  find module 'jsdom'" even from the repo root.
 
 ## [1.0.0]
 

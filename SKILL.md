@@ -416,8 +416,9 @@ Notes that bite:
   `--exclude-instrument` sit — before, between, or after them (all three orderings verified
   byte-identical). `--weight` defaults to 0.5 (0 = full A … 1 = full B). (Historical
   footgun, now fixed: a *bare* `--diff <a> <b>` used to swallow `<a>` and die with
-  `--diff requires two tradition ids`. `check_doc_commands.js` now executes the documented
-  form on every run, so the working invocation can't silently regress.)
+  `--diff requires two tradition ids`. `check_doc_commands.js` runs the documented form
+  and `check_doc_behaviors.js` asserts every argument ordering stays byte-identical on
+  each CI run, so this can't silently regress.)
 - `--swap-variant` is `inst:part:variant`; multiple swaps separated by `;`.
   Validate the triple first via `db.partsFor(inst)` (§2) — recipe.js rejects
   unknown part/variant ids with exit 2.
