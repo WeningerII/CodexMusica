@@ -5,7 +5,7 @@
   "lineage": "Brega and tecnobrega Brazilian popular-music genres of the northern Brazilian Amazonian Pará state (especially Belém). Brega (\"kitsch\") originated as a mid-late-twentieth-century commercial sentimental-popular music; tecnobrega is its 2000s-onward electronic-DIY remix-and-production reformulation, with characteristic synthesizer-and-808-drum-machine production, fast tempo, and an outdoor-aparelhagem sound-system street-party performance context. Distinguished from sertanejo by brega's northern-Amazonian-Brazilian regional base.",
   "recipe": "classic mid-2000s brega and tecnobrega, functional Song, Brazilian song branch, reggaeton MC rhythm moombahton. thick, rap, chest resonance low mid, unrestrained. TR-808, fast decay focused low analog synth, basswood mahogany rosewood alnico lower tension down tuning humbucker electric guitar. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 450,
-  "score": 119.757,
+  "score": 119.62,
   "config": {
     "traditions": [
       "brega_tecnobrega",
@@ -44,7 +44,7 @@
           "voice_ensemble_config": 7.93,
           "voice_ornament_system": 2.1500000000000004,
           "voice_pitch_organization": 0.9532499999999998,
-          "voice_processing_chain": 4.773000000000001,
+          "voice_processing_chain": 4.636500000000001,
           "voice_multitrack_stack": 5.4517500000000005
         }
       },

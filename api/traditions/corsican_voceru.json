@@ -3,21 +3,21 @@
   "name": "Corsican voceru (vendetta-lament)",
   "family": "global",
   "lineage": "Corsican mourning-song tradition continuous from medieval-and-early-modern Corsican rural practice through 18th-19th century documented performance by voceratrice (Corsican professional women keeners); particularly associated with the vendetta tradition where the voceru explicitly demands revenge on the killer",
-  "recipe": "classic modern corsican voceru, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, chanson fado ballad poetry greek éntechno sardinian cantu a tenore and launeddas. thick, false fold engaged, tasteful, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 408,
-  "score": 120.968,
+  "recipe": "classic modern corsican voceru, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, chanson fado ballad poetry greek éntechno morna. vocal fry, lament wail, tasteful, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 372,
+  "score": 115.375,
   "config": {
     "traditions": [
       "corsican_voceru",
       "greek_entechno",
-      "sardinian_traditional"
+      "morna"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "false_fold_voice",
+          "voice_register": "vocal_fry",
+          "voice_quality": "fado_voice",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "legato_voice",
           "voice_microtone": "tempered_voice",

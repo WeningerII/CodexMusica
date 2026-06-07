@@ -1,11 +1,11 @@
 {
   "id": "mongolian_urtiin_duu",
-  "name": "Mongolian urtiin duu long-song (UNESCO 2008)",
+  "name": "Mongolian urtiin duu long-song",
   "family": "classical",
-  "lineage": "Mongolian urtiin duu (\"long song\") tradition, recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2005 and inscribed on the Representative List 2008. Solo vocal art-form characterized by extreme melisma — single text syllables extended across many breaths in elaborate ornamental melodic territory, with characteristic falsetto-and-chest-register alternation, a vibrato called shuranhai produced by ornamental throat-tremolo, and an overall melodic range extending across two-and-a-half octaves. Repertoire draws on praise-songs to natural features (rivers, mountains, the eternal blue sky tngri), ancestor-veneration cycles, and ceremonial-occasion repertoire. Accompaniment on morin khuur (the two-string horsehead fiddle that is the canonical Mongolian instrument). Pentatonic modal vocabulary with mode-specific ornament conventions and a strongly pastoral-derived expressive register. Norovbanzad (1931-2002) is the twentieth-century canonical singer. Carole Pegg's Mongolian Music, Dance & Oral Narrative (University of Washington Press 2001) is the principal English-language scholarly documentation, with Mongolian National Folk Song and Dance Academy archives the institutional anchor. The 2005 UNESCO inscription was a multinational nomination by Mongolia and China (for the parallel Inner Mongolian urtyn duu tradition). Distinguished from Mongolian bogino duu (\"short song\") by the long-song's extreme-melisma extended-form structure; distinguished from Tuvan ezengileer melodic-style by Mongolian-Khalkh dialect-specific cadential conventions; distinguished from Kazakh küy by voice-led (vs instrumental-led) tradition structure.",
-  "recipe": "classic mongolian urtiin duu long-song, drone Modal, heterophonic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. kargyraa, declaimed, melodic, ornamental. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 422,
-  "score": 363.145,
+  "lineage": "Mongolian urtiin duu (\"long song\") tradition. Solo vocal art-form characterized by extreme melisma — single text syllables extended across many breaths in elaborate ornamental melodic territory, with characteristic falsetto-and-chest-register alternation, a vibrato called shuranhai produced by ornamental throat-tremolo, and an overall melodic range extending across two-and-a-half octaves. Repertoire draws on praise-songs to natural features (rivers, mountains, the eternal blue sky tngri), ancestor-veneration cycles, and ceremonial-occasion repertoire. Accompaniment on morin khuur (the two-string horsehead fiddle that is the canonical Mongolian instrument). Pentatonic modal vocabulary with mode-specific ornament conventions and a strongly pastoral-derived expressive register. Norovbanzad (1931-2002) is the twentieth-century canonical singer. Carole Pegg's Mongolian Music, Dance & Oral Narrative (University of Washington Press 2001) is the principal English-language scholarly documentation, with Mongolian National Folk Song and Dance Academy archives the institutional anchor. Distinguished from Mongolian bogino duu (\"short song\") by the long-song's extreme-melisma extended-form structure; distinguished from Tuvan ezengileer melodic-style by Mongolian-Khalkh dialect-specific cadential conventions; distinguished from Kazakh küy by voice-led (vs instrumental-led) tradition structure.",
+  "recipe": "classic early-1930s mongolian urtiin duu long-song, drone Modal, heterophonic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. kargyraa, declaimed, melodic, ornamental. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 434,
+  "score": 337.815,
   "config": {
     "traditions": [
       "mongolian_urtiin_duu",
@@ -32,19 +32,19 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 28.209999999999997,
+          "voice_register": 25.709999999999997,
           "voice_quality": 6.695000000000002,
           "voice_vibrato": 3.9749999999999996,
           "voice_articulation": 3.5949999999999998,
           "voice_microtone": 4.265,
-          "voice_tradition": 24.189999999999998,
-          "voice_mechanism_compound": 24.73,
+          "voice_tradition": 21.689999999999998,
+          "voice_mechanism_compound": 22.229999999999993,
           "voice_estill_quality": 6.11,
-          "voice_speech_song": 20.475000000000005,
-          "voice_ensemble_config": 14.820000000000002,
+          "voice_speech_song": 16.185,
+          "voice_ensemble_config": 10.529999999999998,
           "voice_ornament_system": 4.7,
-          "voice_pitch_organization": 29.075000000000003,
-          "voice_processing_chain": 8.58,
+          "voice_pitch_organization": 26.575,
+          "voice_processing_chain": 7.279999999999999,
           "voice_multitrack_stack": 7.279999999999999
         }
       },
@@ -59,9 +59,9 @@
         },
         "scores": {
           "bowed_technique": 6.045,
-          "morin_khuur_use": 40.205000000000005,
+          "morin_khuur_use": 37.705,
           "morin_khuur_construction": 2.6,
-          "morin_khuur_body_wood": 11.56,
+          "morin_khuur_body_wood": 10.56,
           "morin_khuur_strings": 7.669999999999999
         }
       }

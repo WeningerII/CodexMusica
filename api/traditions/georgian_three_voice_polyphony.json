@@ -1,11 +1,11 @@
 {
   "id": "georgian_three_voice_polyphony",
-  "name": "Georgian three-voice polyphony (UNESCO 2001)",
+  "name": "Georgian three-voice polyphony",
   "family": "global",
-  "lineage": "Georgian Caucasian three-voice unaccompanied polyphonic tradition recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2001 — comprising four regional sub-traditions each with distinct three-voice configuration: Kakhetian table-song (two soloists carrying upper voices over a sustained choral drone bani, the eastern-Georgian wine-toast supra context), Gurian three-voice with krimanchuli (the western-Georgian high-yodeling M1-M2-alternation upper voice over mtkmeli lead and bani drone, the most contrapuntally complex regional style), Megrelian funeral lament (the western-coastal-Georgian three-voice with text-carrying mtkmeli), and Svanetian highland complex three-voice (the upper-mountain Svaneti regional style with archaic non-tempered fifth-and-fourth harmony); twentieth-century preservation through the Anchiskhati Choir Tbilisi, Rustavi Choir, the ethnomusicology lineage of Joseb Jordania, Edisher Garaqanidze, and the Tbilisi State Conservatoire folk-polyphony research program; performed in church-and-supra contexts using non-tempered Pythagorean-leaning fifths and fourths, the harmonic vocabulary distinct from Western tempered choral practice",
-  "recipe": "classic georgian three-voice polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. sygyt, false fold engaged, overtone rich sustained, equal tempered. a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 556,
-  "score": 343.675,
+  "lineage": "Georgian Caucasian three-voice unaccompanied polyphonic tradition — comprising four regional sub-traditions each with distinct three-voice configuration: Kakhetian table-song (two soloists carrying upper voices over a sustained choral drone bani, the eastern-Georgian wine-toast supra context), Gurian three-voice with krimanchuli (the western-Georgian high-yodeling M1-M2-alternation upper voice over mtkmeli lead and bani drone, the most contrapuntally complex regional style), Megrelian funeral lament (the western-coastal-Georgian three-voice with text-carrying mtkmeli), and Svanetian highland complex three-voice (the upper-mountain Svaneti regional style with archaic non-tempered fifth-and-fourth harmony); twentieth-century preservation through the Anchiskhati Choir Tbilisi, Rustavi Choir, the ethnomusicology lineage of Joseb Jordania, Edisher Garaqanidze, and the Tbilisi State Conservatoire folk-polyphony research program; performed in church-and-supra contexts using non-tempered Pythagorean-leaning fifths and fourths, the harmonic vocabulary distinct from Western tempered choral practice",
+  "recipe": "classic modern georgian three-voice polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. sygyt, false fold engaged, overtone rich sustained, equal tempered. a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 563,
+  "score": 338.095,
   "config": {
     "traditions": [
       "georgian_three_voice_polyphony",
@@ -40,7 +40,7 @@
           "voice_tradition": 15.404999999999998,
           "voice_mechanism_compound": 9.62,
           "voice_estill_quality": 5.785,
-          "voice_speech_song": 15.015000000000006,
+          "voice_speech_song": 13.325000000000003,
           "voice_ensemble_config": 33.145,
           "voice_ornament_system": 11.340000000000003,
           "voice_pitch_organization": 8.299999999999999,

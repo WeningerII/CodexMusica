@@ -1,11 +1,11 @@
 {
   "id": "vietnamese_hat_xoan",
-  "name": "Vietnamese hát xoan (UNESCO 2017)",
+  "name": "Vietnamese hát xoan",
   "family": "global",
-  "lineage": "Vietnamese hát xoan ancestral-spring-ritual song tradition of Phú Thọ province, the heartland of the Hùng-Kings legendary first-Vietnamese-dynasty mythos. Recognized as UNESCO Intangible Cultural Heritage in Need of Urgent Safeguarding 2011, transferred to the Representative List 2017 — a rare administrative case in UNESCO of an Urgent-Safeguarding entry graduating to ordinary inscription, signaling successful revitalization. Performance occurs at the Hùng-Kings temple (Đền Hùng) and adjacent communal-house đình precincts during the lunar new-year and Hùng-Kings death-anniversary festivals (lunar tenth day of third month). Three movement types: thờ (worship, slow ceremonial-cadence verse for ancestor-veneration), quả cách (formal-narrative cyclical sections, fourteen canonical pieces), and hội (festival, faster celebratory cadence with audience-participation call-and-response). Performance configuration: a male choir of phường xoan villagers from one of four canonical guild-villages (An Thái, Phù Đức, Kim Đới, Thét), accompanied by phách bamboo clapper and trống cơm small barrel-drum. Modal vocabulary draws on Vietnamese pentatonic with mode-specific cadential conventions. The tradition was nearly extinct by the 1990s; the UNESCO Urgent-Safeguarding inscription triggered systematic transmission revival across the four guild-villages. Distinguished from quan họ by xoan's ritual-ancestor-veneration (vs courtship-festival) functional framing; distinguished from ca trù by xoan's village-collective-male-choir (vs chamber-female-soloist) ensemble configuration.",
-  "recipe": "classic vietnamese hát xoan, ritual Devotional, indigenous branch, southeast Asian art music thai classical burmese mahagita. thick, declaimed, chest resonance low mid, narrative. bamboo clapper struck hardwood stick canonical Vietnamese ca tru singer held cadence canonical Vietnamese phach, small praise drum patron struck canonical Vietnamese ca tru patron response canonical Vietnamese trong chau. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 551,
-  "score": 226.615,
+  "lineage": "Vietnamese hát xoan ancestral-spring-ritual song tradition of Phú Thọ province, the heartland of the Hùng-Kings legendary first-Vietnamese-dynasty mythos. Performance occurs at the Hùng-Kings temple (Đền Hùng) and adjacent communal-house đình precincts during the lunar new-year and Hùng-Kings death-anniversary festivals (lunar tenth day of third month). Three movement types: thờ (worship, slow ceremonial-cadence verse for ancestor-veneration), quả cách (formal-narrative cyclical sections, fourteen canonical pieces), and hội (festival, faster celebratory cadence with audience-participation call-and-response). Performance configuration: a male choir of phường xoan villagers from one of four canonical guild-villages (An Thái, Phù Đức, Kim Đới, Thét), accompanied by phách bamboo clapper and trống cơm small barrel-drum. Modal vocabulary draws on Vietnamese pentatonic with mode-specific cadential conventions. The tradition was nearly extinct by the 1990s, but systematic transmission-revival has since spread across the four guild-villages. Distinguished from quan họ by xoan's ritual-ancestor-veneration (vs courtship-festival) functional framing; distinguished from ca trù by xoan's village-collective-male-choir (vs chamber-female-soloist) ensemble configuration.",
+  "recipe": "classic mid-1990s vietnamese hát xoan, ritual Devotional, indigenous branch, southeast Asian art music thai classical burmese mahagita. thick, declaimed, chest resonance low mid, narrative. bamboo clapper struck hardwood stick canonical Vietnamese ca tru singer held cadence canonical Vietnamese phach, small praise drum patron struck canonical Vietnamese ca tru patron response canonical Vietnamese trong chau. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 561,
+  "score": 221.565,
   "config": {
     "traditions": [
       "vietnamese_hat_xoan",
@@ -37,9 +37,9 @@
           "voice_vibrato": 3.299999999999999,
           "voice_articulation": 1.4299999999999997,
           "voice_microtone": 0.09,
-          "voice_tradition": 8.775,
+          "voice_tradition": 7.605,
           "voice_mechanism_compound": 4.13,
-          "voice_estill_quality": 3.185,
+          "voice_estill_quality": 2.4699999999999998,
           "voice_speech_song": 9.294999999999998,
           "voice_ensemble_config": 10.14,
           "voice_ornament_system": 3.65,

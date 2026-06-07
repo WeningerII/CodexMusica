@@ -1,11 +1,11 @@
 {
   "id": "aka_baka_polyphony",
-  "name": "Aka / Baka forest forager polyphony (UNESCO 2003)",
+  "name": "Aka / Baka forest forager polyphony",
   "family": "global",
-  "lineage": "Central African Republic and southeastern Cameroon Aka / Baka / BaYaka rainforest hunter-gatherer four-and-more-part polyphonic vocal tradition recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2003 — characterized by four canonical voice-parts in the Aka system (motangole the principal melodic voice, ngue-wa-lembo the equivalent of a bass anchor, osese the middle voice, and diyei the upper yodeled M1-M2-rapid-alternation voice with open vowels in M1 and closed/high vowels in M2), hocket interlocking single-note distribution across the ensemble, polyrhythmic-layered independent ostinato cycles per voice, and overlap-driven entrance-and-exit aesthetic; documented through the Simha Arom canonical ethnomusicological field-recording-and-analysis program (1970s-onward Centre National de la Recherche Scientifique France) and Susanne Fürniss yodel-mechanism phonetic analysis, with parallel Mbenga-Mbuti (Ituri Forest DRC pygmy-polyphonic tradition) related-but-distinct repertoire",
-  "recipe": "classic aka / baka forest forager polyphony, drone Modal, heterophonic branch, indigenous ritual devotional, west African griot ballad poetry tuareg tendé pestle-rhythm song shipibo-conibo icaros healing songs. vocal fry, declaimed, melodic, unrestrained. a cappella small 3 to 8 one per part four voice polyphonic regional mbenga mbuti three voice ostinato hocket yodel global traditional polyphonic choir ensemble. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 563,
-  "score": 289.138,
+  "lineage": "Central African Republic and southeastern Cameroon Aka / Baka / BaYaka rainforest hunter-gatherer four-and-more-part polyphonic vocal tradition — characterized by four canonical voice-parts in the Aka system (motangole the principal melodic voice, ngue-wa-lembo the equivalent of a bass anchor, osese the middle voice, and diyei the upper yodeled M1-M2-rapid-alternation voice with open vowels in M1 and closed/high vowels in M2), hocket interlocking single-note distribution across the ensemble, polyrhythmic-layered independent ostinato cycles per voice, and overlap-driven entrance-and-exit aesthetic; documented through the Simha Arom canonical ethnomusicological field-recording-and-analysis program (1970s-onward Centre National de la Recherche Scientifique France) and Susanne Fürniss yodel-mechanism phonetic analysis, with parallel Mbenga-Mbuti (Ituri Forest DRC pygmy-polyphonic tradition) related-but-distinct repertoire",
+  "recipe": "classic mid-1970s aka / baka forest forager polyphony, drone Modal, heterophonic branch, indigenous ritual devotional, west African griot ballad poetry tuareg tendé pestle-rhythm song shipibo-conibo icaros healing songs. vocal fry, declaimed, melodic, unrestrained. a cappella small 3 to 8 one per part four voice polyphonic regional mbenga mbuti three voice ostinato hocket yodel global traditional polyphonic choir ensemble. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 573,
+  "score": 285.108,
   "config": {
     "traditions": [
       "aka_baka_polyphony",
@@ -40,8 +40,8 @@
           "voice_tradition": 14.559999999999999,
           "voice_mechanism_compound": 11.769999999999998,
           "voice_estill_quality": 4.875,
-          "voice_speech_song": 16.315000000000012,
-          "voice_ensemble_config": 36.85500000000001,
+          "voice_speech_song": 14.625000000000009,
+          "voice_ensemble_config": 35.16500000000001,
           "voice_ornament_system": 8.86,
           "voice_pitch_organization": 4.159999999999999,
           "voice_processing_chain": 8.759999999999998,

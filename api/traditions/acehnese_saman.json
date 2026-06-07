@@ -1,11 +1,11 @@
 {
   "id": "acehnese_saman",
-  "name": "Acehnese saman (UNESCO 2011 Indonesian dance-song)",
+  "name": "Acehnese saman",
   "family": "global",
-  "lineage": "Acehnese saman seated-rhythmic-dance-and-song tradition of the Gayo people of central Aceh province, northern Sumatra, Indonesia. UNESCO Intangible Cultural Heritage in Need of Urgent Safeguarding 2011. Performance configuration: a tightly packed row of 10-20 male dancers seated cross-legged on the floor, performing extremely fast and precise synchronized hand-clapping, chest-slapping, thigh-slapping, and arm-movement choreography while singing Islamic-devotional verse in the Gayo language. The form emerged in the thirteenth-fourteenth century with Islamic missionary activity in Aceh; the canonical genre features rapid acceleration through the performance and characteristic call-and-response between the leader-syech and the body of dancers.",
-  "recipe": "classic acehnese saman, ritual Devotional, islamic branch, west African groove percussion fújì sabar drumming. vocal fry, declaimed, chest resonance low mid, punctuated. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 394,
-  "score": 129.337,
+  "lineage": "Acehnese saman seated-rhythmic-dance-and-song tradition of the Gayo people of central Aceh province, northern Sumatra, Indonesia. Performance configuration: a tightly packed row of 10-20 male dancers seated cross-legged on the floor, performing extremely fast and precise synchronized hand-clapping, chest-slapping, thigh-slapping, and arm-movement choreography while singing Islamic-devotional verse in the Gayo language. The form emerged in the thirteenth-fourteenth century with Islamic missionary activity in Aceh; the canonical genre features rapid acceleration through the performance and characteristic call-and-response between the leader-syech and the body of dancers.",
+  "recipe": "classic modern acehnese saman, ritual Devotional, islamic branch, west African groove percussion fújì sabar drumming. vocal fry, declaimed, chest resonance low mid, punctuated. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 401,
+  "score": 127.387,
   "config": {
     "traditions": [
       "acehnese_saman",
@@ -40,10 +40,10 @@
           "voice_tradition": 11.244999999999997,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 14.754999999999997,
+          "voice_speech_song": 13.455,
           "voice_ensemble_config": 10.009999999999998,
           "voice_ornament_system": 6.931499999999999,
-          "voice_pitch_organization": 3.035,
+          "voice_pitch_organization": 1.69,
           "voice_processing_chain": 2.8550000000000004,
           "voice_multitrack_stack": 1.7779285714285713
         }

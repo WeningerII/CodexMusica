@@ -2,10 +2,10 @@
   "id": "jongo_brasileiro",
   "name": "Jongo (Afro-Brazilian Vale do Paraíba)",
   "family": "global",
-  "lineage": "Afro-Brazilian jongo song-and-dance tradition of the Vale do Paraíba region (between São Paulo and Rio de Janeiro), descended from the Bantu-speaking enslaved population brought to the colonial-period coffee plantations. Performance: large frame-drum tambu and smaller candongueiro drum-pair, with male lead-singer-improvisor exchanging encoded ponto verses with the dancers in the surrounding circle. The encoded jongo language uses metaphorical references and indirection (originally as resistance-code under slavery). UNESCO consideration since 2005 as Brazilian intangible-cultural-heritage.",
-  "recipe": "classic mid-2000s jongo, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode embolada. vocal fry, intimate aspirated, melodic, punctuated. tambourine orch. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 331,
-  "score": 82.275,
+  "lineage": "Afro-Brazilian jongo song-and-dance tradition of the Vale do Paraíba region (between São Paulo and Rio de Janeiro), descended from the Bantu-speaking enslaved population brought to the colonial-period coffee plantations. Performance: large frame-drum tambu and smaller candongueiro drum-pair, with male lead-singer-improvisor exchanging encoded ponto verses with the dancers in the surrounding circle. The encoded jongo language uses metaphorical references and indirection (originally as resistance-code under slavery).",
+  "recipe": "classic modern jongo, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode embolada. vocal fry, intimate aspirated, melodic, punctuated. tambourine orch. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 328,
+  "score": 81.885,
   "config": {
     "traditions": [
       "jongo_brasileiro",
@@ -28,7 +28,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
@@ -44,7 +44,7 @@
           "voice_ensemble_config": 6.629999999999999,
           "voice_ornament_system": 3.65,
           "voice_pitch_organization": 1.2899999999999998,
-          "voice_processing_chain": 3.25,
+          "voice_processing_chain": 2.07,
           "voice_multitrack_stack": 1.69
         }
       },
