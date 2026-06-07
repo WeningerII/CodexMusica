@@ -76,7 +76,7 @@ if (flags.traditions) {
     A: { id: idA, name: tA.name, parent: eA.parent, family: tA.family, room: tA.room, archetype: tA.chain_archetype, tuning: tA.tuning },
     B: { id: idB, name: tB.name, parent: eB.parent, family: tB.family, room: tB.room, archetype: tB.chain_archetype, tuning: tB.tuning },
     instruments: venn(tA.instruments, tB.instruments),
-    crossRefs: venn(eA.crossRefs, eB.crossRefs),
+    crossRefs: venn((eA.crossRefs || []).map(cr => (cr && typeof cr === 'object') ? cr.ref : cr), (eB.crossRefs || []).map(cr => (cr && typeof cr === 'object') ? cr.ref : cr)),
     axes: axisDeltas(eA.axes, eB.axes),
     same_parent: eA.parent === eB.parent,
     same_family: tA.family === tB.family,

@@ -2955,7 +2955,7 @@
     },
     {
       "id": "hausa_court_music",
-      "name": "Hausa court music (rok\\u0327on Sarkin Kano)",
+      "name": "Hausa court music (roķon Sarkin Kano)",
       "family": "global",
       "href": "traditions/hausa_court_music.json"
     },
@@ -2985,19 +2985,19 @@
     },
     {
       "id": "georgian_three_voice_polyphony",
-      "name": "Georgian three-voice polyphony (UNESCO 2001)",
+      "name": "Georgian three-voice polyphony",
       "family": "global",
       "href": "traditions/georgian_three_voice_polyphony.json"
     },
     {
       "id": "aka_baka_polyphony",
-      "name": "Aka / Baka forest forager polyphony (UNESCO 2003)",
+      "name": "Aka / Baka forest forager polyphony",
       "family": "global",
       "href": "traditions/aka_baka_polyphony.json"
     },
     {
       "id": "corsican_paghjella",
-      "name": "Corsican paghjella three-voice unaccompanied (UNESCO 2009)",
+      "name": "Corsican paghjella three-voice unaccompanied",
       "family": "global",
       "href": "traditions/corsican_paghjella.json"
     },
@@ -3015,13 +3015,13 @@
     },
     {
       "id": "vedic_chant",
-      "name": "Vedic chant (UNESCO 2003)",
+      "name": "Vedic chant",
       "family": "global",
       "href": "traditions/vedic_chant.json"
     },
     {
       "id": "silbo_gomero",
-      "name": "Silbo Gomero whistled language (UNESCO 2009)",
+      "name": "Silbo Gomero whistled language",
       "family": "global",
       "href": "traditions/silbo_gomero.json"
     },
@@ -3033,25 +3033,25 @@
     },
     {
       "id": "albanian_iso_polyphony",
-      "name": "Albanian iso-polyphony (UNESCO 2008)",
+      "name": "Albanian iso-polyphony",
       "family": "global",
       "href": "traditions/albanian_iso_polyphony.json"
     },
     {
       "id": "azerbaijani_mugham",
-      "name": "Azerbaijani mugham (UNESCO 2008)",
+      "name": "Azerbaijani mugham",
       "family": "classical",
       "href": "traditions/azerbaijani_mugham.json"
     },
     {
       "id": "shashmaqam_central_asian",
-      "name": "Shashmaqam (Tajik-Uzbek classical, UNESCO 2008)",
+      "name": "Shashmaqam (Tajik-Uzbek classical)",
       "family": "classical",
       "href": "traditions/shashmaqam_central_asian.json"
     },
     {
       "id": "kyrgyz_manaschi_epic",
-      "name": "Kyrgyz Manas epic-recital (UNESCO 2013)",
+      "name": "Kyrgyz Manas epic-recital",
       "family": "global",
       "href": "traditions/kyrgyz_manaschi_epic.json"
     },
@@ -3141,13 +3141,13 @@
     },
     {
       "id": "mongolian_urtiin_duu",
-      "name": "Mongolian urtiin duu long-song (UNESCO 2008)",
+      "name": "Mongolian urtiin duu long-song",
       "family": "classical",
       "href": "traditions/mongolian_urtiin_duu.json"
     },
     {
       "id": "mongolian_khoomei",
-      "name": "Mongolian khoomei overtone singing (UNESCO 2010)",
+      "name": "Mongolian khoomei overtone singing",
       "family": "global",
       "href": "traditions/mongolian_khoomei.json"
     },
@@ -3165,7 +3165,7 @@
     },
     {
       "id": "sakha_olonkho_epic",
-      "name": "Sakha olonkho heroic epic (UNESCO 2008)",
+      "name": "Sakha olonkho heroic epic",
       "family": "global",
       "href": "traditions/sakha_olonkho_epic.json"
     },
@@ -3177,55 +3177,55 @@
     },
     {
       "id": "vietnamese_ca_tru",
-      "name": "Vietnamese ca trù (UNESCO 2009 Urgent Safeguarding)",
+      "name": "Vietnamese ca trù",
       "family": "classical",
       "href": "traditions/vietnamese_ca_tru.json"
     },
     {
       "id": "vietnamese_quan_ho",
-      "name": "Vietnamese quan họ Bắc Ninh (UNESCO 2009)",
+      "name": "Vietnamese quan họ Bắc Ninh",
       "family": "global",
       "href": "traditions/vietnamese_quan_ho.json"
     },
     {
       "id": "vietnamese_hat_xoan",
-      "name": "Vietnamese hát xoan (UNESCO 2017)",
+      "name": "Vietnamese hát xoan",
       "family": "global",
       "href": "traditions/vietnamese_hat_xoan.json"
     },
     {
       "id": "cambodian_chapei_dang_veng",
-      "name": "Cambodian chapei dang veng (UNESCO 2016 Urgent Safeguarding)",
+      "name": "Cambodian chapei dang veng",
       "family": "global",
       "href": "traditions/cambodian_chapei_dang_veng.json"
     },
     {
       "id": "ifugao_hudhud_chants",
-      "name": "Hudhud chants of the Ifugao (UNESCO 2008)",
+      "name": "Hudhud chants of the Ifugao",
       "family": "global",
       "href": "traditions/ifugao_hudhud_chants.json"
     },
     {
       "id": "korean_gagok",
-      "name": "Korean gagok lyric-song (UNESCO 2010)",
+      "name": "Korean gagok lyric-song",
       "family": "classical",
       "href": "traditions/korean_gagok.json"
     },
     {
       "id": "jeju_haenyeo_songs",
-      "name": "Jeju haenyeo songs (UNESCO 2016)",
+      "name": "Jeju haenyeo songs",
       "family": "global",
       "href": "traditions/jeju_haenyeo_songs.json"
     },
     {
       "id": "chinese_kunqu_opera",
-      "name": "Chinese kunqu opera (UNESCO 2008)",
+      "name": "Chinese kunqu opera",
       "family": "classical",
       "href": "traditions/chinese_kunqu_opera.json"
     },
     {
       "id": "tibetan_ache_lhamo",
-      "name": "Tibetan ache lhamo opera (UNESCO 2009)",
+      "name": "Tibetan ache lhamo opera",
       "family": "classical",
       "href": "traditions/tibetan_ache_lhamo.json"
     },
@@ -3237,7 +3237,7 @@
     },
     {
       "id": "japanese_gidayu_bushi",
-      "name": "Japanese gidayū-bushi (Bunraku narration, UNESCO 2008)",
+      "name": "Japanese gidayū-bushi (Bunraku narration)",
       "family": "classical",
       "href": "traditions/japanese_gidayu_bushi.json"
     },
@@ -3249,43 +3249,43 @@
     },
     {
       "id": "sardinian_cantu_a_tenore",
-      "name": "Sardinian cantu a tenore (UNESCO 2008)",
+      "name": "Sardinian cantu a tenore",
       "family": "global",
       "href": "traditions/sardinian_cantu_a_tenore.json"
     },
     {
       "id": "croatian_klapa_dalmatian",
-      "name": "Croatian klapa Dalmatian close-harmony (UNESCO 2012)",
+      "name": "Croatian klapa Dalmatian close-harmony",
       "family": "global",
       "href": "traditions/croatian_klapa_dalmatian.json"
     },
     {
       "id": "croatian_istrian_diaphonic",
-      "name": "Croatian Istrian two-part-in-Istrian-scale (UNESCO 2009)",
+      "name": "Croatian Istrian two-part-in-Istrian-scale",
       "family": "global",
       "href": "traditions/croatian_istrian_diaphonic.json"
     },
     {
       "id": "macedonian_glasoechko",
-      "name": "Macedonian Glasoechko male diaphonic (UNESCO 2015 Urgent Safeguarding)",
+      "name": "Macedonian Glasoechko male diaphonic",
       "family": "global",
       "href": "traditions/macedonian_glasoechko.json"
     },
     {
       "id": "armenian_duduk_chant",
-      "name": "Armenian duduk-accompanied chant (UNESCO 2008)",
+      "name": "Armenian duduk-accompanied chant",
       "family": "global",
       "href": "traditions/armenian_duduk_chant.json"
     },
     {
       "id": "lithuanian_sutartines",
-      "name": "Lithuanian sutartinės multipart (UNESCO 2010)",
+      "name": "Lithuanian sutartinės multipart",
       "family": "global",
       "href": "traditions/lithuanian_sutartines.json"
     },
     {
       "id": "estonian_setu_leelo",
-      "name": "Estonian Setu leelo polyphonic song (UNESCO 2009)",
+      "name": "Estonian Setu leelo polyphonic song",
       "family": "global",
       "href": "traditions/estonian_setu_leelo.json"
     },
@@ -3333,25 +3333,25 @@
     },
     {
       "id": "garifuna_paranda_hungu_hungu",
-      "name": "Garifuna paranda and hungu-hungu (UNESCO 2008)",
+      "name": "Garifuna paranda and hungu-hungu",
       "family": "global",
       "href": "traditions/garifuna_paranda_hungu_hungu.json"
     },
     {
       "id": "cape_verdean_batuko",
-      "name": "Cape Verdean batuko of Santiago Island (UNESCO 2019)",
+      "name": "Cape Verdean batuko of Santiago Island",
       "family": "global",
       "href": "traditions/cape_verdean_batuko.json"
     },
     {
       "id": "brazilian_samba_de_roda",
-      "name": "Brazilian samba de roda do Recôncavo (UNESCO 2008)",
+      "name": "Brazilian samba de roda do Recôncavo",
       "family": "global",
       "href": "traditions/brazilian_samba_de_roda.json"
     },
     {
       "id": "tongan_lakalaka",
-      "name": "Tongan lakalaka sung-speech-dance (UNESCO 2008)",
+      "name": "Tongan lakalaka sung-speech-dance",
       "family": "global",
       "href": "traditions/tongan_lakalaka.json"
     },
@@ -3369,7 +3369,7 @@
     },
     {
       "id": "yemeni_sanaani",
-      "name": "Yemeni Sanaani song (UNESCO 2008)",
+      "name": "Yemeni Sanaani song",
       "family": "classical",
       "href": "traditions/yemeni_sanaani.json"
     },
@@ -3555,7 +3555,7 @@
     },
     {
       "id": "uyghur_muqam",
-      "name": "Uyghur On Ikki Muqam (Twelve Muqams, UNESCO 2008)",
+      "name": "Uyghur On Ikki Muqam (Twelve Muqams)",
       "family": "classical",
       "href": "traditions/uyghur_muqam.json"
     },
@@ -3705,7 +3705,7 @@
     },
     {
       "id": "korean_chongmyo_jeryeak",
-      "name": "Chongmyo jeryeak (royal ancestral shrine music, UNESCO 2008)",
+      "name": "Chongmyo jeryeak (royal ancestral shrine music)",
       "family": "classical",
       "href": "traditions/korean_chongmyo_jeryeak.json"
     },
@@ -3723,7 +3723,7 @@
     },
     {
       "id": "vietnamese_don_ca_tai_tu",
-      "name": "Vietnamese đờn ca tài tử (southern amateur music, UNESCO 2013)",
+      "name": "Vietnamese đờn ca tài tử (southern amateur music)",
       "family": "classical",
       "href": "traditions/vietnamese_don_ca_tai_tu.json"
     },
@@ -3813,7 +3813,7 @@
     },
     {
       "id": "acehnese_saman",
-      "name": "Acehnese saman (UNESCO 2011 Indonesian dance-song)",
+      "name": "Acehnese saman",
       "family": "global",
       "href": "traditions/acehnese_saman.json"
     },
@@ -4047,7 +4047,7 @@
     },
     {
       "id": "cypriot_tsiattista",
-      "name": "Cypriot tsiattista (improvised dueling couplets, UNESCO 2011)",
+      "name": "Cypriot tsiattista (improvised dueling couplets)",
       "family": "global",
       "href": "traditions/cypriot_tsiattista.json"
     },
@@ -4101,7 +4101,7 @@
     },
     {
       "id": "basque_bertsolaritza",
-      "name": "Basque bertsolaritza (improvised verse-dueling, UNESCO 2009)",
+      "name": "Basque bertsolaritza (improvised verse-dueling)",
       "family": "global",
       "href": "traditions/basque_bertsolaritza.json"
     },
@@ -4245,7 +4245,7 @@
     },
     {
       "id": "chamame_argentine",
-      "name": "Chamamé (UNESCO 2020)",
+      "name": "Chamamé",
       "family": "global",
       "href": "traditions/chamame_argentine.json"
     },
@@ -4281,7 +4281,7 @@
     },
     {
       "id": "currulao_pacifico",
-      "name": "Currulao (Colombian Pacific, UNESCO 2010)",
+      "name": "Currulao (Colombian Pacific)",
       "family": "global",
       "href": "traditions/currulao_pacifico.json"
     },

@@ -853,11 +853,6 @@ const PREFACE_LEXICON = [
     tokens: ['broken-in-fast', 'modern-classical', 'soft-attack', 'singing-sustain', 'brighter', 'cutting', 'full', 'low-mid-rich-spectrum', 'open-chord-ringing-overtones']
   },
   {
-    id: 'shimmering',
-    note: "bright treble overtones layered into a sustained chord-ring — paired-detune beat frequencies giving the audible shimmer",
-    tokens: ['top-end-overtone-rich', 'open-chord-ringing-overtones', 'sustained-tone', 'detuned-pair', 'treble-extended', 'shimmery', 'naturally-reverberant', 'full', 'articulate']
-  },
-  {
     id: 'sparse-tapping',
     note: "hand on skin, quiet, the texture more than the pulse",
     tokens: ['soft-attack', 'soft', 'plush', 'cozy', 'lament-leaning', 'iberian-celtic', 'folk-tradition', 'top-rolled-off-8k', 'body-resonance-low-mid']
@@ -1373,11 +1368,6 @@ const PREFACE_LEXICON = [
     tokens: ['fast-attack-transient', 'speech-derived', 'tight-articulation', 'clean-articulation-low-blur', 'projecting', 'controlled', 'balanced', 'modern-pop-training', 'minimal-AES-narrowing']
   },
   {
-    id: 'enunciating',
-    note: "deliberate consonant clarity for theater and formal recitation — classical-vocal diction, oratorical projection, every word reaching the back row",
-    tokens: ['declaimed', 'declamatory', 'articulate', 'belt-projection', 'sustained-projection', 'tight-articulation', 'projecting-bright', 'project-defining', 'projection-prioritized']
-  },
-  {
     id: 'nuanced',
     note: "subtle dynamic shading and controlled micro-register shifts — chamber-music, lieder, and jazz-ballad delivery where every gesture is intentional",
     tokens: ['subtle', 'subtle-virtuosity', 'expressive', 'expressive-extended', 'controlled', 'soft-attack', 'balanced', 'intimate-aspirated', 'plush']
@@ -1391,16 +1381,6 @@ const PREFACE_LEXICON = [
     id: 'storytelling',
     note: "narrative-arc delivery — speech-derived melodic line shaped by paragraph-pacing, bard-and-griot-and-balladeer register where words carry the form",
     tokens: ['narrative', 'speech-derived', 'speech-like', 'bardic', 'wandering-bardic', 'rhythmic-speech', 'recitative-rhythmically-free-pitched-speech', 'griot-praise-narrative-vocal', 'heightened-speech-stylized-intonation']
-  },
-  {
-    id: 'poetic',
-    note: "lyrical attention to wordcraft — ornamented phrasing, literary cadence, image-shaped sustain typical of lieder, art-song, and chanson-littéraire",
-    tokens: ['lyrical', 'lyric-pastoral', 'cool-lyrical', 'ballad-poetry', 'wandering-bardic', 'ornamented', 'expressive', 'romantic-introspective-lyrical-content', 'bardic']
-  },
-  {
-    id: 'dactylic',
-    note: "stressed-unstressed-unstressed foot pattern — Homeric-hexameter and Sanskrit-vedic epic recitation register, long-short-short prosody",
-    tokens: ['epic', 'recitative-free-meter', 'recitative-rhythmically-free-pitched-speech', 'compound-meter', 'declaimed', 'wandering-bardic', 'narrative', 'bardic', 'twelve-eight-triplet-meter']
   },
   {
     id: 'dismissive',
@@ -1441,11 +1421,6 @@ const PREFACE_LEXICON = [
     id: 'fawning',
     note: "exaggerated soft-sweet breathy-sustained deferential — over-flattering register, courtesy-as-performance",
     tokens: ['intimate-aspirated', 'breath-heavy', 'plush', 'cozy', 'expressive-extended', 'soft-attack', 'ornamented', 'sustained-tone', 'subtle']
-  },
-  {
-    id: 'demanding',
-    note: "heavy-attack projected forceful articulation — insistent-request register, no-room-for-refusal posture",
-    tokens: ['fast-attack-transient', 'projecting', 'belt-projection', 'declamatory', 'declaimed', 'projection-prioritized', 'tight-articulation', 'project-defining', 'controlled']
   },
   {
     id: 'oratorial',

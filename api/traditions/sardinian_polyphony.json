@@ -5,7 +5,7 @@
   "lineage": "Sardinian a cappella four-voice polyphonic tradition — cantu a tenore (male four-voice with bassu, contra, mesa voche, and boche solo lead) and cantu a chiterra (vocal-with-guitar shepherd song), preserved through the village traditions of Bitti, Nuoro, and Logudoro, with the Tenores di Bitti Mialinu Pira ensemble as the canonical late-twentieth-century preservation lineage",
   "recipe": "classic modern sardinian polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian cantu a tenore and launeddas. vocal fry, false fold engaged, hocket articulation, filtered throat. a tenores quartet. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 409,
-  "score": 229.37,
+  "score": 227.04,
   "config": {
     "traditions": [
       "sardinian_polyphony",
@@ -40,8 +40,8 @@
           "voice_tradition": 26.97499999999999,
           "voice_mechanism_compound": 7.409999999999999,
           "voice_estill_quality": 5.654999999999999,
-          "voice_speech_song": 8.254999999999999,
-          "voice_ensemble_config": 19.499999999999996,
+          "voice_speech_song": 7.864999999999998,
+          "voice_ensemble_config": 19.109999999999992,
           "voice_ornament_system": 4.809999999999999,
           "voice_pitch_organization": 1.755,
           "voice_processing_chain": 4.789999999999999,

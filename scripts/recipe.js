@@ -42,15 +42,22 @@ const { translate } = require('./translate.js');
 const args = process.argv.slice(2);
 const flags = {};
 const positional = [];
+// Boolean-only flags never consume the next token. Without this a bare
+// `--diff <idA> <idB>` made `--diff` swallow <idA>, leaving one positional and
+// dying with "--diff requires two tradition ids". Listing them lets the natural
+// `--diff <a> <b> [--weight=]` form work as documented (the `--diff --weight= <a> <b>`
+// form keeps working too).
+const BOOLEAN_FLAGS = new Set(['diff', 'json', 'trace', 'why', 'why-json', 'why-prefaces', 'why-prefaces-json']);
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a.startsWith('--')) {
     const eq = a.indexOf('=');
     if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
     else {
+      const name = a.slice(2);
       const next = args[i + 1];
-      if (next && !next.startsWith('--')) { flags[a.slice(2)] = next; i++; }
-      else flags[a.slice(2)] = true;
+      if (!BOOLEAN_FLAGS.has(name) && next && !next.startsWith('--')) { flags[name] = next; i++; }
+      else flags[name] = true;
     }
   } else {
     positional.push(a);

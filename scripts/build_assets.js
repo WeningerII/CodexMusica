@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 // Build references/08_asset_manifest.js from vendored SVGs in references/_assets/icons/.
 //
+// ⚠ ORDERING FOOTGUN: this FULL-OVERWRITES 08_asset_manifest.js with only
+// ICON_PATHS/ICON_ALIASES. `assets:emoji` (EMOJI_*) and `assets:photos`
+// (PHOTO_REGISTRY) instead read-existing + append their own section. So run
+// `npm run assets:icons` FIRST, then emoji/photos — running it AFTER them
+// silently drops the emoji/photo registries. (Proper fix: merge like the others.)
+//
 // Outputs:
 //   const ICON_PATHS   = {  slug: '<inner svg markup>',  ... };
 //   const ICON_ALIASES = {  codex-canonical-name: lucide-slug,  ... };

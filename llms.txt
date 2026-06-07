@@ -1,7 +1,7 @@
 # Codex Musica
 
 > A static, server-free catalog of recording "recipes" for 1090 recorded-music
-> traditions and 421 instruments. Each tradition resolves to a compressed
+> traditions and 418 instruments. Each tradition resolves to a compressed
 > descriptor-stack recipe (how to record a song in that style) plus a structured
 > arrangement (ensemble, room, signal chain, tuning). All data is plain JSON served as
 > static files — open a URL and read it. No API key, no server, no rate limit.
@@ -26,7 +26,7 @@ and add/edit/delete catalog entries — runs from the repo. An agent with a shel
     git clone https://github.com/WeningerII/CodexMusica
     cd CodexMusica && npm ci
     node scripts/recipe.js --traditions afrobeat,post_punk --exclude-instrument=tonewheel_organ
-    node scripts/recipe.js --diff bluegrass thrash_metal --weight=0.6
+    node scripts/recipe.js --diff --weight=0.6 bluegrass thrash_metal
     node scripts/recipe.js --axis-target "harm:1,density:2,intensity:2"
 
 See SKILL.md in the repo for the complete contract (data model, all flags, CRUD,

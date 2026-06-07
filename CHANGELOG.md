@@ -93,7 +93,8 @@ All notable changes to this project are recorded here. Format loosely follows
   like the already-allowlisted viz functions, not an `icon()` bypass).
 - Delete-workspace used native `confirm()` (which browsers can suppress in the embed) —
   it now uses the app's `confirmDialog`.
-- `saveWS` and `delWS` now guard `window.storage` symmetrically with `safeGet`.
+- `saveWS` and `delWS` now guard `window.storage` symmetrically (each early-returns on
+  `!window.storage`; reads go through `safeGet`'s try/catch wrapper).
 
 ## [1.0.0]
 

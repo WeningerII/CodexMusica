@@ -1,5 +1,5 @@
 {
-  "count": 421,
+  "count": 418,
   "items": [
     {
       "id": "choir_ensemble",
@@ -854,6 +854,12 @@
       "href": "instruments/djembe.json"
     },
     {
+      "id": "bass_drum",
+      "name": "Bass drum (kick / concert)",
+      "family": "percussion",
+      "href": "instruments/bass_drum.json"
+    },
+    {
       "id": "drum_kit",
       "name": "Drum kit (Western)",
       "family": "percussion",
@@ -1056,12 +1062,6 @@
       "name": "Tabla (pair: dayan and bayan)",
       "family": "percussion",
       "href": "instruments/tabla.json"
-    },
-    {
-      "id": "taiko_drums",
-      "name": "Taiko (Japanese ensemble drums)",
-      "family": "percussion",
-      "href": "instruments/taiko_drums.json"
     },
     {
       "id": "talking_drum",
@@ -2126,12 +2126,6 @@
       "href": "instruments/igil.json"
     },
     {
-      "id": "bata_drums",
-      "name": "Batá drums (Afro-Cuban liturgical three-drum set)",
-      "family": "percussion",
-      "href": "instruments/bata_drums.json"
-    },
-    {
       "id": "guitarron_mexicano",
       "name": "Guitarrón (Mexican mariachi bass guitar)",
       "family": "acoustic_strings",
@@ -2406,18 +2400,6 @@
       "name": "Nafa (Tongan wooden slit-drum)",
       "family": "percussion",
       "href": "instruments/nafa.json"
-    },
-    {
-      "id": "dumbek",
-      "name": "Dumbek / darbuka (Middle Eastern goblet drum)",
-      "family": "percussion",
-      "href": "instruments/dumbek.json"
-    },
-    {
-      "id": "riqq",
-      "name": "Riqq (Middle Eastern small tambourine)",
-      "family": "percussion",
-      "href": "instruments/riqq.json"
     },
     {
       "id": "damaru",

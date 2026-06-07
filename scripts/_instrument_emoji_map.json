@@ -66,7 +66,7 @@
       "alfaia", "zabumba", "caja_vallenata", "tassa_drum", "bombo_andino",
       "atabaque", "tombak", "taphon", "sampho", "skor_thom", "thavil",
       "naqqarat", "nafa", "kebero", "tbel", "trinidadian_iron", "kultrun",
-      "tende_drum", "dumbek"
+      "tende_drum"
     ]
   },
 
@@ -100,9 +100,9 @@
     "ids": [
       "djembe", "congas", "bongos", "darbuka", "dholak", "dunun", "bodhran",
       "tabla", "pakhawaj", "mridangam", "ghatam", "kanjira", "talking_drum",
-      "surdo", "timbales", "taiko_drums", "taiko_drum", "buk_korean",
-      "janggu", "bata", "bata_drums", "sabar", "bendir", "daf", "pandeiro",
-      "tar_frame_drum", "riq", "riqq", "qarqaba", "damaru", "handpan",
+      "surdo", "timbales", "taiko_drum", "buk_korean",
+      "janggu", "bata", "sabar", "bendir", "daf", "pandeiro",
+      "tar_frame_drum", "riq", "qarqaba", "damaru", "handpan",
       "kendang_indonesian", "repinique", "cuica", "log_drum",
       "tambora_dominicana", "pahu", "ipu_heke", "gaval"
     ]

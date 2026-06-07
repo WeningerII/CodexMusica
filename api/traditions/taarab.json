@@ -3,9 +3,9 @@
   "name": "Taarab",
   "family": "global",
   "lineage": "East African Swahili-coast genre (Zanzibar, coastal Tanzania, coastal Kenya, Comoros) fusing Arab maqam-system melody, Indian classical raga vocabulary, and Bantu-Swahili language poetry into large-ensemble wedding-and-celebration music; codified through Siti binti Saad (1928 HMV-Bombay first commercial recordings, the mother of taarab), Bi Kidude (1910-2013, Zanzibars longest-living taarab matriarch), the Culture Musical Club (founded 1958), and Black Star Musical Club",
-  "recipe": "classic North American early-1910s taarab, groove Percussion, central east south African branch, Persian arab improv improv on frame, mid east n African pop functional song khaliji algerian chaabi. thick, declaimed, chest resonance low mid, equal tempered. weltmeister east German mid tier vintage volk ensemble accordion, metal finger picks rosewood body arab premium qanun, walnut ribs canonical mid tier pyramid nylon arab school oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, ceramic body goat skin canonical middle eastern chalghi andalusi canonical middle eastern dumbek. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 804,
-  "score": 346.602,
+  "recipe": "classic North American early-1910s taarab, groove Percussion, central east south African branch, Persian arab improv improv on frame, mid east n African pop functional song khaliji algerian chaabi. thick, declaimed, chest resonance low mid, equal tempered. weltmeister east German mid tier vintage volk ensemble accordion, metal finger picks rosewood body arab premium qanun, walnut ribs canonical mid tier pyramid nylon arab school oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 817,
+  "score": 357.517,
   "config": {
     "traditions": [
       "taarab",
@@ -139,14 +139,18 @@
         }
       },
       {
-        "id": "dumbek",
+        "id": "darbuka",
         "slots": {
-          "dumbek_body": "dumbek_ceramic_canonical",
-          "dumbek_tradition": "dumbek_chalghi_andalusi_canonical"
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "dumbek_body": 1.0799999999999998,
-          "dumbek_tradition": 1.3199999999999998
+          "percussion_technique": 0.26,
+          "darbuka_material": 2.175,
+          "darbuka_skin": 1.8449999999999998,
+          "darbuka_regional_style": 5.85
         }
       }
     ],

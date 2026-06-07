@@ -1,11 +1,11 @@
 {
   "id": "currulao_pacifico",
-  "name": "Currulao (Colombian Pacific, UNESCO 2010)",
+  "name": "Currulao (Colombian Pacific)",
   "family": "global",
-  "lineage": "Afro-Colombian marimba-and-percussion ensemble tradition of Pacific coastal region (Chocó, Valle del Cauca, Cauca, Nariño departments) and adjacent Ecuadorian Pacific coast. Marimba de chonta (wooden marimba with bamboo resonators), bombo and cununo drums, guasá tubular shakers, voice (often female-lead with chorus). UNESCO ICH 2010 (marimba-de-chonta-and-traditional-music-of-the-Colombian-South-Pacific).",
-  "recipe": "classic currulao, groove Percussion, Latin am branch, Brazilian groove percussion maracatu pagode. thick, punctuated, beatbox, m1 with m0 pulse borrowing. traditional rosewood marimba orchestral, traditional vicuña hide hide bombo andino. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 400,
-  "score": 97.297,
+  "lineage": "Afro-Colombian marimba-and-percussion ensemble tradition of Pacific coastal region (Chocó, Valle del Cauca, Cauca, Nariño departments) and adjacent Ecuadorian Pacific coast. Marimba de chonta (wooden marimba with bamboo resonators), bombo and cununo drums, guasá tubular shakers, voice (often female-lead with chorus).",
+  "recipe": "classic modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion maracatu pagode. thick, punctuated, beatbox, m1 with m0 pulse borrowing. marimba orchestral, bombo andino. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 357,
+  "score": 85.327,
   "config": {
     "traditions": [
       "currulao_pacifico",
@@ -28,7 +28,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_polynesian_falsetto",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
@@ -40,11 +40,11 @@
           "voice_tradition": 6.175,
           "voice_mechanism_compound": 3.3799999999999994,
           "voice_estill_quality": 3.185,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 12.2,
+          "voice_speech_song": 5.004999999999999,
+          "voice_ensemble_config": 6.629999999999999,
+          "voice_ornament_system": 8.95,
           "voice_pitch_organization": 0.75,
-          "voice_processing_chain": 2.785,
+          "voice_processing_chain": 2.07,
           "voice_multitrack_stack": 1.69
         }
       },
@@ -53,12 +53,12 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "marimba_size": "marimba_4_octave",
-          "marimba_orchestral_bar": "marimba_orchestral_honduran"
+          "marimba_orchestral_bar": "marimba_orchestral_padauk"
         },
         "scores": {
           "percussion_technique": -0.05,
           "marimba_size": 0.15,
-          "marimba_orchestral_bar": 1.34
+          "marimba_orchestral_bar": 0.15
         }
       },
       {
@@ -69,8 +69,8 @@
           "bombo_andino_shell_wood": "bombo_andino_ceibo"
         },
         "scores": {
-          "bombo_andino_construction": 1.69,
-          "bombo_andino_skin": 1.435,
+          "bombo_andino_construction": 1.17,
+          "bombo_andino_skin": 0.135,
           "bombo_andino_shell_wood": 0.6
         }
       }

@@ -1,11 +1,11 @@
 {
   "id": "yemeni_sanaani",
-  "name": "Yemeni Sanaani song (UNESCO 2008)",
+  "name": "Yemeni Sanaani song",
   "family": "classical",
-  "lineage": "Yemeni al-ghinā' al-Ṣanʻānī (\"the song of Sana'a\") classical urban-chamber-song tradition of the Yemeni highlands, recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2003 and inscribed on the Representative List 2008. Origin in the medieval Yemeni-Rasulid period (thirteenth-fifteenth centuries) with development through the Qasimid and Mutawakkilite imamate periods (seventeenth-twentieth centuries) into the modern form. Performance configuration: a male singer (the singer holds the social role of muṭrib, a respected community-cultural-figure rather than a paid entertainer) accompanies himself on the qanbus (the short-neck skin-bellied Yemeni-Arabian lute — distinct from the more familiar oud, with characteristic deep buzzing-resonance from the skin belly), or on the small-frame turbi drum or sahn metal-tray-as-percussion-surface. Performance contexts center on the qat-chew majlis (the afternoon-into-evening social gathering at a private home where male participants consume the mildly stimulant qat leaf while engaging in literary-philosophical-political conversation and song). Repertoire spans three movement-categories within a typical qomah (\"setting\"): das'ah (the slow opening movement), wasṭ (the middle movement), and ghinā' al-bāṣ (the lively concluding movement). Lyric base draws on classical Arabic poetry and especially the seventeenth-century Yemeni mystic-philosopher poet Muhammad ibn Sharaf al-Dīn (1559-1607). Modal vocabulary draws on the Arabic maqam framework with Yemeni-specific cadential and ornamental conventions. The UNESCO ICH 2008 dossier and the Yemen Music House field-recording archive constitute the principal documentation. Distinguished from Iraqi maqam by Yemeni-Sanaani's qanbus (vs Iraqi joza-and-santur) instrumental signature and Yemeni-Arabian regional dialect; distinguished from Hejazi and Najdi Arabian song by Yemeni-Sanaani's qat-majlis-chamber (vs court-or-bedouin) functional context.",
-  "recipe": "classic yemeni sanaani song, art Music, middle eastern classical branch, islamic ritual devotional naʿat anāshīd. vocal fry, declaimed, chest resonance low mid, unrestrained. short neck skin bellied canonical sanaani al ghina al sanaani classical qanbus. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 406,
-  "score": 264.215,
+  "lineage": "Yemeni al-ghinā' al-Ṣanʻānī (\"the song of Sana'a\") classical urban-chamber-song tradition of the Yemeni highlands. Origin in the medieval Yemeni-Rasulid period (thirteenth-fifteenth centuries) with development through the Qasimid and Mutawakkilite imamate periods (seventeenth-twentieth centuries) into the modern form. Performance configuration: a male singer (the singer holds the social role of muṭrib, a respected community-cultural-figure rather than a paid entertainer) accompanies himself on the qanbus (the short-neck skin-bellied Yemeni-Arabian lute — distinct from the more familiar oud, with characteristic deep buzzing-resonance from the skin belly), or on the small-frame turbi drum or sahn metal-tray-as-percussion-surface. Performance contexts center on the qat-chew majlis (the afternoon-into-evening social gathering at a private home where male participants consume the mildly stimulant qat leaf while engaging in literary-philosophical-political conversation and song). Repertoire spans three movement-categories within a typical qomah (\"setting\"): das'ah (the slow opening movement), wasṭ (the middle movement), and ghinā' al-bāṣ (the lively concluding movement). Lyric base draws on classical Arabic poetry and especially the seventeenth-century Yemeni mystic-philosopher poet Muhammad ibn Sharaf al-Dīn (1559-1607). Modal vocabulary draws on the Arabic maqam framework with Yemeni-specific cadential and ornamental conventions. The Yemen Music House field-recording archive constitutes the principal documentation. Distinguished from Iraqi maqam by Yemeni-Sanaani's qanbus (vs Iraqi joza-and-santur) instrumental signature and Yemeni-Arabian regional dialect; distinguished from Hejazi and Najdi Arabian song by Yemeni-Sanaani's qat-majlis-chamber (vs court-or-bedouin) functional context.",
+  "recipe": "classic early-1550s yemeni sanaani song, art Music, middle eastern classical branch, islamic ritual devotional naʿat anāshīd. vocal fry, declaimed, chest resonance low mid, unrestrained. short neck skin bellied canonical sanaani al ghina al sanaani classical qanbus. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 418,
+  "score": 252.685,
   "config": {
     "traditions": [
       "yemeni_sanaani",
@@ -28,7 +28,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
@@ -40,11 +40,11 @@
           "voice_tradition": 27.47825,
           "voice_mechanism_compound": 14.369,
           "voice_estill_quality": 15.667499999999997,
-          "voice_speech_song": 25.285,
-          "voice_ensemble_config": 16.64,
+          "voice_speech_song": 20.995000000000005,
+          "voice_ensemble_config": 12.35,
           "voice_ornament_system": 23.17025,
           "voice_pitch_organization": 23.26025,
-          "voice_processing_chain": 3.25,
+          "voice_processing_chain": 2.6,
           "voice_multitrack_stack": 0.9059999999999999
         }
       },

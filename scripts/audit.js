@@ -48,6 +48,7 @@
 //
 // SECTIONS
 //   parent_crossref_redundant       -- Issue #1
+//   duplicate_part_id               -- Issue #1b (errors)
 //   dead_canonical                  -- Issue #2
 //   dead_whitelist                  -- Issue #3
 //   duplicate_descriptors           -- Issue #4
@@ -66,6 +67,7 @@
 //   variant_score_below_threshold   -- Issue #17 (warnings)
 //   coverage_gaps_runtime           -- Issue #18 (warnings)
 //   multistart_divergent            -- Issue #19 (warnings)
+//   function_branch_shape           -- Issue #20 (advisory)
 //
 // EXIT CODES
 //   0 — no issues (or warnings-only without --strict)

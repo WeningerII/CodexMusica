@@ -1,11 +1,11 @@
 {
   "id": "corsican_paghjella",
-  "name": "Corsican paghjella three-voice unaccompanied (UNESCO 2009)",
+  "name": "Corsican paghjella three-voice unaccompanied",
   "family": "global",
-  "lineage": "Corsican three-voice unaccompanied sacred-and-secular polyphonic tradition recognized as UNESCO Intangible Cultural Heritage 2009 — the canonical Corsican vocal-polyphonic form built on three named voice-parts (secondu the lead text-carrying voice, bassu the bass-anchor voice, terzu the highest-and-most-ornamented voice that enters last), performed in stone-walled village-church contexts and in lay confraternity (cunfraterne) sacred-paraliturgical contexts, with the canonical regional centers in Niolu, Castagniccia, Sartène-Tallano, Balagne; the modern revival from the 1970s-onward through riacquistu Corsican cultural-resurgence groups Canta u Populu Corsu, A Filetta, Tavagna, I Muvrini, and the contemporary ethnomusicology lineage of Bernard Lortat-Jacob and Jean-Étienne Antonini",
-  "recipe": "classic corsican paghjella three-voice unaccompanied, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. vocal fry, false fold engaged, tasteful, Mediterranean demotic vocal. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 572,
-  "score": 277.483,
+  "lineage": "Corsican three-voice unaccompanied sacred-and-secular polyphonic tradition — the canonical Corsican vocal-polyphonic form built on three named voice-parts (secondu the lead text-carrying voice, bassu the bass-anchor voice, terzu the highest-and-most-ornamented voice that enters last), performed in stone-walled village-church contexts and in lay confraternity (cunfraterne) sacred-paraliturgical contexts, with the canonical regional centers in Niolu, Castagniccia, Sartène-Tallano, Balagne; the modern revival from the 1970s-onward through riacquistu Corsican cultural-resurgence groups Canta u Populu Corsu, A Filetta, Tavagna, I Muvrini, and the contemporary ethnomusicology lineage of Bernard Lortat-Jacob and Jean-Étienne Antonini",
+  "recipe": "classic mid-1970s corsican paghjella three-voice unaccompanied, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. vocal fry, false fold engaged, tasteful, Mediterranean demotic vocal. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 582,
+  "score": 275.933,
   "config": {
     "traditions": [
       "corsican_paghjella",

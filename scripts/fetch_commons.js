@@ -14,7 +14,7 @@ const path = require('path');
 const https = require('https');
 
 const args = process.argv.slice(2);
-const opts = { limit: Infinity, start: 0, out: '/tmp/commons_fetch.json', map: 'scripts/_instrument_asset_map.json' };
+const opts = { limit: Infinity, start: 0, out: '/tmp/commons_fetch.json', map: 'scripts/_instrument_asset_map_full.json' };
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--limit') opts.limit = parseInt(args[++i], 10);
   else if (args[i] === '--start') opts.start = parseInt(args[++i], 10);

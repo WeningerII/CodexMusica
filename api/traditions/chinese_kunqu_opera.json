@@ -1,11 +1,11 @@
 {
   "id": "chinese_kunqu_opera",
-  "name": "Chinese kunqu opera (UNESCO 2008)",
+  "name": "Chinese kunqu opera",
   "family": "classical",
-  "lineage": "Chinese kunqu opera, recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2001 (the inaugural proclamation list) and inscribed on the Representative List 2008. Kunqu crystallized in the Kunshan region (south of Suzhou, Jiangsu province) during the late Ming dynasty (sixteenth century) under the founding theorist-composer Wei Liangfu (c.1489-1566), who codified the kunqu-tunes system based on the older Kunshan-region folk-tune vocabulary. The genre flourished through the Ming-Qing transition as the dominant elite-class theatrical-and-musical form, with the canonical play-cycles of the Mudan Ting (Peony Pavilion, 1598, Tang Xianzu) and Changsheng Dian (Palace of Eternal Life, 1688, Hong Sheng) constituting the core repertoire. Performance integrates singing, stylized dance-movement, recited dialogue, and instrumental accompaniment in a fully-integrated theatrical form. Vocal style features wide melisma, characteristic dyhayou portamento sliding-pitch ornament, and an elaborate ornament-vocabulary tied to specific text-tones and emotion-categories. The accompanying ensemble centers on the qudi flute (the principal melodic carrier, a transverse bamboo flute), sanxian (three-string plucked lute), pipa (four-string pear-shaped plucked lute), and a percussion battery for theatrical-cue work. The mid-twentieth-century cultural-revolutionary period nearly extinguished the form; the post-1980 revival under conservatory programs and the touring company circuit has restored continuity. Yu Zhenfei (1902-1993) is among the twentieth-century canonical performers. Distinguished from later Beijing opera (jingju) by kunqu's elite-literary-elegant register and slower tempo; distinguished from Cantonese opera (yueju) by Wu-Mandarin lyric-language and Jiangnan-region cadential conventions.",
-  "recipe": "classic North American chinese kunqu opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, bend inflected. jingju foundational python skin silk canonical traditional padauk mid tier sanxian, silk red sandalwood zitan premium pipa, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 539,
-  "score": 259.618,
+  "lineage": "Chinese kunqu opera. Kunqu crystallized in the Kunshan region (south of Suzhou, Jiangsu province) during the late Ming dynasty (sixteenth century) under the founding theorist-composer Wei Liangfu (c.1489-1566), who codified the kunqu-tunes system based on the older Kunshan-region folk-tune vocabulary. The genre flourished through the Ming-Qing transition as the dominant elite-class theatrical-and-musical form, with the canonical play-cycles of the Mudan Ting (Peony Pavilion, 1598, Tang Xianzu) and Changsheng Dian (Palace of Eternal Life, 1688, Hong Sheng) constituting the core repertoire. Performance integrates singing, stylized dance-movement, recited dialogue, and instrumental accompaniment in a fully-integrated theatrical form. Vocal style features wide melisma, characteristic dyhayou portamento sliding-pitch ornament, and an elaborate ornament-vocabulary tied to specific text-tones and emotion-categories. The accompanying ensemble centers on the qudi flute (the principal melodic carrier, a transverse bamboo flute), sanxian (three-string plucked lute), pipa (four-string pear-shaped plucked lute), and a percussion battery for theatrical-cue work. The mid-twentieth-century cultural-revolutionary period nearly extinguished the form; the post-1980 revival under conservatory programs and the touring company circuit has restored continuity. Yu Zhenfei (1902-1993) is among the twentieth-century canonical performers. Distinguished from later Beijing opera (jingju) by kunqu's elite-literary-elegant register and slower tempo; distinguished from Cantonese opera (yueju) by Wu-Mandarin lyric-language and Jiangnan-region cadential conventions.",
+  "recipe": "classic North American early-1480s chinese kunqu opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, bend inflected. jingju foundational python skin silk canonical traditional padauk mid tier sanxian, silk red sandalwood zitan premium pipa, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 551,
+  "score": 255.478,
   "config": {
     "traditions": [
       "chinese_kunqu_opera",
@@ -39,11 +39,11 @@
           "voice_tradition": 20.605,
           "voice_mechanism_compound": 2.4852499999999997,
           "voice_estill_quality": 19.87625,
-          "voice_speech_song": 17.095000000000002,
-          "voice_ensemble_config": 17.03,
+          "voice_speech_song": 15.91225,
+          "voice_ensemble_config": 14.040000000000001,
           "voice_ornament_system": 16.055,
           "voice_pitch_organization": 8.31175,
-          "voice_processing_chain": 3.25,
+          "voice_processing_chain": 2.7950000000000004,
           "voice_multitrack_stack": 2.6
         }
       },
