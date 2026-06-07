@@ -41,6 +41,22 @@ All notable changes to this project are recorded here. Format loosely follows
   rejection, stapling order → lead tradition, the `nearest_neighbor` / `preface_configure`
   outputs cited as "Verified", and arrangement being CLI-only — and fails CI when reality
   diverges (proven against the historical `--diff` regression).
+- **Voice model expanded with two new articulatory dimensions + an `auto: false`
+  explicit-only variant mechanism.** The `voice` instrument gains `voice_vocal_tract`
+  (tongue-root / vowel posture: `tongue_root_retracted_dark`, `tongue_root_advanced_bright`,
+  `pharyngeal_widened_yawned`, `nasalized_tract`) and `voice_effort` (phonatory effort /
+  subglottal pressure: `effort_minimal_undersung`, `effort_projected`, `effort_pressed_maximal`),
+  plus a `slow_wide_terminal_vibrato` vibrato variant and an `appalachian_outlaw_folk_tradition`
+  vocal tradition. These give native slots to vocal techniques the model previously had to
+  cram into `voice_quality` — e.g. "keep subglottal pressure minimal / sing at conversation
+  volume or below" (effort) and "pull the tongue root back, target back vowels" (vocal tract),
+  which can now coexist with a lowered larynx and fry instead of competing for one slot. To add
+  them without perturbing a single existing recipe, every new non-default variant carries
+  `auto: false`: `search.js` skips such variants in BOTH the seed pick (`seedFromTradition`) and
+  the hill-climb (`variantSwapMoves`), so an optional dimension stays at its neutral
+  (empty-descriptor, silently-dropped) default for every tradition unless a caller selects it
+  explicitly via `--swap-variant` (which pins it past the search). Verified zero-blast — recipes
+  1198/1198, prefaces 79/79, app 56/56, equivalence 8/8, all byte-identical.
 
 ### Changed
 - Tradition defaults refined (61 traditions; recipe outputs re-snapshotted, all

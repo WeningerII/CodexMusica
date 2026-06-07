@@ -252,6 +252,19 @@ const INSTRUMENTS = [
         { id: 'rap_voice', surface: false, name: 'Rap voice', descriptors: ['rap', 'mc-flow', 'rhythmic-speech'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['rap', 'hip-hop'] },
         { id: 'child_voice', surface: false, name: "Children's choir / treble", descriptors: ['child', 'treble'], match_tokens: ['child-voice', 'speech-derived', 'breathing'], canonical_tags: ['boys-choir'] },
       ] },
+      { id: 'voice_vocal_tract', surface: false, name: 'Vocal-tract / vowel posture', variants: [
+        { id: 'tract_neutral', default: true, surface: false, name: 'Neutral tract (unmarked)', descriptors: [] },
+        { id: 'tongue_root_retracted_dark', surface: false, auto: false, name: 'Tongue-root retracted (back-vowel, dark)', descriptors: ['tongue-root-retracted', 'back-vowel-targeted', 'front-consonant-degraded', 'pharyngeal-darkened'] },
+        { id: 'tongue_root_advanced_bright', surface: false, auto: false, name: 'Tongue-root advanced (front-vowel, bright)', descriptors: ['tongue-root-advanced', 'front-vowel-forward', 'consonant-crisp', 'oral-brightened'] },
+        { id: 'pharyngeal_widened_yawned', surface: false, auto: false, name: 'Pharynx widened (yawn-open throat)', descriptors: ['pharynx-widened', 'yawn-open-throat', 'inner-space-expanded'] },
+        { id: 'nasalized_tract', surface: false, auto: false, name: 'Nasalized (velopharyngeal port open)', descriptors: ['nasalized', 'velopharyngeal-open', 'nasal-coupled-resonance'] },
+      ] },
+      { id: 'voice_effort', surface: false, name: 'Phonatory effort / subglottal pressure', variants: [
+        { id: 'effort_moderate', default: true, surface: false, name: 'Moderate effort (unmarked dynamic)', descriptors: [] },
+        { id: 'effort_minimal_undersung', surface: false, auto: false, name: 'Minimal pressure / under-sung (conversation volume or below)', descriptors: ['minimal-subglottal-pressure', 'conversation-volume-or-below', 'under-sung', 'force-withheld'] },
+        { id: 'effort_projected', surface: false, auto: false, name: 'Projected (raised pressure, carrying)', descriptors: ['raised-subglottal-pressure', 'projected', 'carrying'] },
+        { id: 'effort_pressed_maximal', surface: false, auto: false, name: 'Pressed / maximal force', descriptors: ['maximal-subglottal-pressure', 'pressed-loud', 'full-force'] },
+      ] },
       { id: 'voice_vibrato', surface: false, name: 'Vibrato', variants: [
         { id: 'straight_tone', name: 'Straight tone', descriptors: ['pure', 'direct', 'instrumental'], match_tokens: ['speech-derived', 'breathing', 'vibrato-rich'] },
         { id: 'slow_vibrato', default: true, name: 'Slow vibrato', descriptors: ['chest-resonance-low-mid', 'expressive', 'classical'], match_tokens: ['vibrato-rich', 'vibrato-y', 'speech-derived'] },
@@ -260,6 +273,7 @@ const INSTRUMENTS = [
         { id: 'oscillating_vibrato', name: 'Country oscillating vibrato', descriptors: ['bluesy', 'expressive'], match_tokens: ['vibrato-rich', 'vibrato-y', 'speech-derived', 'breathing'], canonical_tags: ['country'] },
         { id: 'delayed_vibrato', name: 'Delayed vibrato', descriptors: ['tasteful', 'modern'], match_tokens: ['vibrato-rich', 'vibrato-y', 'speech-derived', 'breathing'] },
         { id: 'terminal_vibrato', name: 'Terminal (note-end only)', descriptors: ['melodic', 'period-honest'], match_tokens: ['vibrato-rich', 'vibrato-y', 'speech-derived', 'breathing'], canonical_tags: ['country'] },
+        { id: 'slow_wide_terminal_vibrato', auto: false, name: 'Slow, wide, terminal-only', descriptors: ['slow-rate', 'wide-excursion', 'terminal-sustain-only'] },
       ] },
       { id: 'voice_articulation', surface: false, name: 'Articulation', variants: [
         { id: 'legato_voice', default: true, name: 'Legato', descriptors: ['continuous-phonation', 'connected', 'flowing'], match_tokens: ['legato', 'sustained-tone', 'speech-derived'] },
@@ -281,6 +295,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'voice_tradition', surface: false, name: 'Vocal tradition / training', variants: [
         { id: 'modern_pop_vocal_training', default: true, name: 'Modern pop / contemporary commercial vocal training', descriptors: ['modern-pop-training', 'contemporary-commercial', 'mixed-belt', 'studio-ready'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['pop', 'modern'] },
+        { id: 'appalachian_outlaw_folk_tradition', auto: false, name: 'Anglo-American folk / outlaw-country (plain narrative, untrained-natural)', descriptors: ['anglo-american-folk', 'plain-spoken-narrative', 'untrained-natural', 'outlaw-country-lineage'] },
         { id: 'bel_canto_tradition', name: 'Bel canto (Italian operatic)', descriptors: ['bel-canto', 'italian-operatic', 'sustained-line', 'legato-priority'], match_tokens: ['speech-derived', 'breathing', 'classical-trained'], canonical_tags: ['classical', 'italian'] },
         { id: 'baroque_ornamental_tradition', name: 'Baroque ornamental (trills, divisions, messa di voce)', descriptors: ['baroque-ornamental', 'messa-di-voce', 'period-style', 'trill-heavy'], match_tokens: ['speech-derived', 'breathing', 'classical-trained', 'period-performance'], canonical_tags: ['baroque', 'classical'] },
         { id: 'sean_nos_tradition', name: 'Sean-nós (Irish unaccompanied)', descriptors: ['sean-nos', 'unaccompanied', 'gaelic-tradition', 'free-rhythm', 'ornamented'], match_tokens: ['speech-derived', 'breathing', 'folk-tradition'], canonical_tags: ['celtic', 'folk'] },

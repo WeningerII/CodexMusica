@@ -656,6 +656,17 @@ path). Don't hand-edit the duplicated pieces independently:
 5. Optionally register an emoji in `EMOJI_REGISTRY` (else it falls back by family).
 6. Re-serialize `02_instruments.js` (+ `01` if touched); run the checker.
 
+**Add an optional, off-by-default dimension** (a new part, or extra variants, whose presence
+must NOT change any existing recipe): make the part's `default:true` variant *neutral* — empty
+`descriptors: []`, so it renders nothing — and tag every other variant `auto: false`. The node
+search (`search.js`) skips `auto: false` variants in **both** the seed pick (`seedFromTradition`)
+and the hill-climb (`variantSwapMoves`), so the neutral default is kept for every tradition and the
+variant surfaces only when a caller selects it explicitly via `--swap-variant` (which pins it
+past the search). The browser path uses `defaultParts` (no hill-climb), so it keeps the default
+too. This is how `voice`'s `voice_effort` (subglottal-pressure / under-singing) and
+`voice_vocal_tract` (tongue-root / vowel posture) dimensions were added with zero recipe drift
+(1198/1198 + 56/56 + 8/8 unchanged). Confirm with `npm test` after.
+
 **Edit**: keep `id` stable; re-check every ref you touch.
 **Delete an instrument**: remove it AND scrub every dangling ref — any
 `tradition.instruments[]`, any family part's `applies_to[]`, any `EMOJI_REGISTRY` entry,
