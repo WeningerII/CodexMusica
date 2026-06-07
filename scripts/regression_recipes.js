@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// regression.js — snapshot-and-diff tests for canonical recipe outputs.
+// regression_recipes.js — snapshot-and-diff tests for canonical recipe outputs.
 //
 // Captures the recipe output for a curated set of fixture configurations
 // into tests/regression_snapshot.json, then on subsequent runs diffs the
@@ -9,10 +9,10 @@
 // them" misses.
 //
 // USAGE
-//   node scripts/regression.js                # run tests, exit 1 on any diff
+//   node scripts/regression_recipes.js              # run tests, exit 1 on any diff
 //   node scripts/regression_recipes.js --update       # regenerate snapshot from current output
-//   node scripts/regression.js --verbose      # show full output for each fixture
-//   node scripts/regression.js --fixture=<id> # run only a specific fixture
+//   node scripts/regression_recipes.js --verbose    # show full output for each fixture
+//   node scripts/regression_recipes.js --fixture=<id> # run only a specific fixture
 //
 // EXIT CODES
 //   0 — all fixtures match snapshot (or --update completed)

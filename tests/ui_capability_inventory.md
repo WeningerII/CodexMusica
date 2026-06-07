@@ -2,7 +2,7 @@
 
 The single source of truth for every interactive surface in the codex. Read this before changing the UI. Update this in the same commit as any UI change. The build's reachability gate (`scripts/ui_reachability_check.js`) enforces that every `status: reachable` entry's selector resolves to at least one element under the entry's precondition. Surfaces that aren't catalogued here are invisible to the build gate, which is how the master-detail refactor silently dropped the stack signature panel, the tradition-group delete, and three drag-drop interactions.
 
-**Last verified:** UI Capability Inventory Plan complete (2026-05-27). All 6 phases shipped. Reachability gate enforced via `scripts/ui_reachability_check.js` on every `build.js` run. Total entries: 65 reachable, 1 pending, 1 retired.
+**Last verified:** UI Capability Inventory Plan complete (2026-05-27). All 6 phases shipped. Reachability gate enforced via `scripts/ui_reachability_check.js` on every `build.js` run. Total entries: 80 reachable, 0 pending, 1 retired.
 
 ---
 

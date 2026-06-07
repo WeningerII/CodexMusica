@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // regression_prefaces.js — verifies the habitat matcher produces stable
-// preface assignments for 70 canonical (tradition, instrument) fixtures
-// covering all 14 instrument classes (5 per class).
+// preface assignments for 79 canonical (tradition, instrument) fixtures
+// spanning all 14 instrument classes.
 // Run before any release. Failing means the matcher changed behavior.
 
 const fs = require('fs');

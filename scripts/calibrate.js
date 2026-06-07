@@ -5,7 +5,7 @@
 // descriptors appear; the rest is for human (Claude or curator) judgment using
 // the four-bin discrepancy taxonomy in SKILL.md.
 //
-// Unlike regression.js (output-stability check, runs in build pipeline) and
+// Unlike regression_recipes.js (output-stability check, runs in build pipeline) and
 // smoke.js (crash-resistance check, runs in build pipeline), calibrate.js is
 // an on-demand quality-review tool. NOT in the build pipeline. Run when:
 //   - You suspect catalog drift after a major edit
