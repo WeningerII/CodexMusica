@@ -1,11 +1,11 @@
 {
   "id": "mongolian_khoomei",
-  "name": "Mongolian khoomei overtone singing (UNESCO 2010)",
+  "name": "Mongolian khoomei overtone singing",
   "family": "global",
-  "lineage": "Mongolian khoomei overtone-singing tradition, recognized as UNESCO Intangible Cultural Heritage 2010 (Mongolian inscription). The technique produces a sustained chest-register fundamental while shaping the vocal tract to amplify upper partials of the harmonic series, generating a clearly audible whistle-tone melody floating above the fundamental. Khalkh-Mongol vocabulary distinguishes several techniques: kharkhiraa (low-register subharmonic kargyraa-equivalent), iisgerekh (mid-register sygyt-equivalent whistle-tone), shakhaa (constricted-throat variant), bagalzuuriin (deep throat-tension), and uyangiin (a singing-leaning lyrical variant). Performance contexts span solo concert, pastoral solo (a shepherd alone on the steppe), morin-khuur-accompanied ensemble, and the contemporary international touring circuit. Sundui, Tserendavaa, and Ganbold are the canonical twentieth-century khoomei masters; the post-1990 Mongolian state cultural-revival has produced a major export of khoomei performers internationally. The Smithsonian Folkways field recordings provide the principal Western-distributed documentation. Distinguished from Tuvan khoomei by Mongolian-Khalkh dialect-specific technique nomenclature and Mongolian-state-cultural-context performance framework (vs Tuvan-state-cultural-context); distinguished from Xhosa umngqokolo by Mongolian khoomei's throat-tension fundamental production (vs Xhosa's chest-register relaxed-fundamental); distinguished from Tibetan multiphonic yang chant by Mongolian khoomei's solo (vs ensemble-monastic) and secular (vs liturgical) configurations.",
-  "recipe": "classic mongolian khoomei overtone singing, drone Modal, overtone branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. sygyt, false fold engaged, chest resonance low mid, unrestrained. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, mongolian tuvan tradition wood hide tovshuur. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 492,
-  "score": 410.88,
+  "lineage": "Mongolian khoomei overtone-singing tradition. The technique produces a sustained chest-register fundamental while shaping the vocal tract to amplify upper partials of the harmonic series, generating a clearly audible whistle-tone melody floating above the fundamental. Khalkh-Mongol vocabulary distinguishes several techniques: kharkhiraa (low-register subharmonic kargyraa-equivalent), iisgerekh (mid-register sygyt-equivalent whistle-tone), shakhaa (constricted-throat variant), bagalzuuriin (deep throat-tension), and uyangiin (a singing-leaning lyrical variant). Performance contexts span solo concert, pastoral solo (a shepherd alone on the steppe), morin-khuur-accompanied ensemble, and the contemporary international touring circuit. Sundui, Tserendavaa, and Ganbold are the canonical twentieth-century khoomei masters; the post-1990 Mongolian state cultural-revival has produced a major export of khoomei performers internationally. The Smithsonian Folkways field recordings provide the principal Western-distributed documentation. Distinguished from Tuvan khoomei by Mongolian-Khalkh dialect-specific technique nomenclature and Mongolian-state-cultural-context performance framework (vs Tuvan-state-cultural-context); distinguished from Xhosa umngqokolo by Mongolian khoomei's throat-tension fundamental production (vs Xhosa's chest-register relaxed-fundamental); distinguished from Tibetan multiphonic yang chant by Mongolian khoomei's solo (vs ensemble-monastic) and secular (vs liturgical) configurations.",
+  "recipe": "classic early-1990s mongolian khoomei overtone singing, drone Modal, overtone branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. sygyt, false fold engaged, chest resonance low mid, unrestrained. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, mongolian tuvan tradition wood hide tovshuur. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 504,
+  "score": 396.38,
   "config": {
     "traditions": [
       "mongolian_khoomei",
@@ -32,18 +32,18 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 37.93000000000001,
+          "voice_register": 35.43,
           "voice_quality": 36.51,
           "voice_vibrato": 5.574999999999999,
           "voice_articulation": 2.5,
           "voice_microtone": 9.065,
-          "voice_tradition": 41.39000000000001,
-          "voice_mechanism_compound": 33.18500000000001,
+          "voice_tradition": 38.89000000000001,
+          "voice_mechanism_compound": 30.684999999999995,
           "voice_estill_quality": 3.185000000000001,
           "voice_speech_song": 7.215,
           "voice_ensemble_config": 10.01,
           "voice_ornament_system": 2.405,
-          "voice_pitch_organization": 39.975,
+          "voice_pitch_organization": 37.474999999999994,
           "voice_processing_chain": 4.095,
           "voice_multitrack_stack": 2.6
         }
@@ -59,9 +59,9 @@
         },
         "scores": {
           "bowed_technique": 2.7300000000000004,
-          "morin_khuur_use": 32.905,
+          "morin_khuur_use": 30.404999999999998,
           "morin_khuur_construction": 4.29,
-          "morin_khuur_body_wood": 10.56,
+          "morin_khuur_body_wood": 9.56,
           "morin_khuur_strings": 1.69
         }
       },
@@ -72,7 +72,7 @@
           "tovshuur_body": "tovshuur_carved_wood_hide"
         },
         "scores": {
-          "tovshuur_strings": 14.870000000000001,
+          "tovshuur_strings": 13.780000000000001,
           "tovshuur_body": 3.0199999999999996
         }
       }

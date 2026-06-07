@@ -1,10 +1,10 @@
 {
   "id": "korean_chongmyo_jeryeak",
-  "name": "Chongmyo jeryeak (royal ancestral shrine music, UNESCO 2008)",
+  "name": "Chongmyo jeryeak (royal ancestral shrine music)",
   "family": "classical",
-  "lineage": "Korean Chongmyo jeryeak (Royal Ancestral Shrine Music) Joseon-dynasty court ritual music for the spring-and-autumn ancestor-veneration ceremony at the Chongmyo Royal Shrine in Seoul. Composed in 1463 by King Sejo (reigned 1455-1468) from earlier Goryeo-and-Tang-derived material, the suite comprises two parts: Botaepyeong (eleven movements praising civil virtue, performed during the literary-rite portion of the ceremony) and Jeongdaeeop (eleven movements praising martial virtue, performed during the military-rite portion). Performance configuration: a large court ensemble of approximately fifty musicians plus sixty-four dancers performing the strict ilmu line-dance choreography. UNESCO Masterpiece 2001 (with Jongmyo Jerye ritual), Representative List 2008.",
-  "recipe": "classic chongmyo jeryeak, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. kargyraa, declaimed, overtone rich sustained, punctuated. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 656,
+  "lineage": "Korean Chongmyo jeryeak (Royal Ancestral Shrine Music) Joseon-dynasty court ritual music for the spring-and-autumn ancestor-veneration ceremony at the Chongmyo Royal Shrine in Seoul. Composed in 1463 by King Sejo (reigned 1455-1468) from earlier Goryeo-and-Tang-derived material, the suite comprises two parts: Botaepyeong (eleven movements praising civil virtue, performed during the literary-rite portion of the ceremony) and Jeongdaeeop (eleven movements praising martial virtue, performed during the military-rite portion). Performance configuration: a large court ensemble of approximately fifty musicians plus sixty-four dancers performing the strict ilmu line-dance choreography.",
+  "recipe": "classic mid-1460s chongmyo jeryeak, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. kargyraa, declaimed, overtone rich sustained, punctuated. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 666,
   "score": 217.29,
   "config": {
     "traditions": [
@@ -38,7 +38,7 @@
           "voice_articulation": 0.9750000000000001,
           "voice_microtone": 0.39,
           "voice_tradition": 7.085,
-          "voice_mechanism_compound": 2.5949999999999998,
+          "voice_mechanism_compound": 4.6049999999999995,
           "voice_estill_quality": 4.695,
           "voice_speech_song": 5.004999999999999,
           "voice_ensemble_config": 6.629999999999999,

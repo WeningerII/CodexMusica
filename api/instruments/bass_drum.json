@@ -1,0 +1,234 @@
+{
+  "id": "bass_drum",
+  "name": "Bass drum (kick / concert)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bass drum",
+  "parts": [
+    {
+      "id": "bass_drum_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "bass_drum_22_standard",
+          "default": true,
+          "name": "22-inch standard kick",
+          "descriptors": [
+            "punchy",
+            "round-low-end"
+          ],
+          "match_tokens": [
+            "rock",
+            "pop",
+            "standard-kit"
+          ]
+        },
+        {
+          "id": "bass_drum_18_jazz",
+          "name": "18-inch jazz bass drum",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "open"
+          ],
+          "match_tokens": [
+            "jazz",
+            "bop",
+            "small-kit"
+          ]
+        },
+        {
+          "id": "bass_drum_24_26_big",
+          "name": "24-26-inch big kick",
+          "descriptors": [
+            "deep",
+            "cavernous",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "metal",
+            "arena-rock",
+            "heavy-rock"
+          ]
+        },
+        {
+          "id": "bass_drum_concert",
+          "name": "Concert / orchestral bass drum (mallet-struck)",
+          "descriptors": [
+            "orchestral",
+            "broad",
+            "low-boom"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "marching",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_drum_beater",
+      "surface": false,
+      "name": "Beater / pedal",
+      "variants": [
+        {
+          "id": "bass_drum_felt_pedal",
+          "default": true,
+          "name": "Felt beater, single pedal",
+          "descriptors": [
+            "rounded-attack",
+            "felt-thump"
+          ],
+          "match_tokens": [
+            "rock",
+            "pop"
+          ]
+        },
+        {
+          "id": "bass_drum_wood_click",
+          "name": "Wood / plastic beater",
+          "descriptors": [
+            "clicky-attack",
+            "defined-point"
+          ],
+          "match_tokens": [
+            "metal",
+            "modern"
+          ]
+        },
+        {
+          "id": "bass_drum_double_pedal",
+          "name": "Double pedal",
+          "descriptors": [
+            "rapid",
+            "gallop"
+          ],
+          "match_tokens": [
+            "metal",
+            "double-bass"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bass_drum_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "bass_drum_22_standard",
+          "default": true,
+          "name": "22-inch standard kick",
+          "descriptors": [
+            "punchy",
+            "round-low-end"
+          ],
+          "match_tokens": [
+            "rock",
+            "pop",
+            "standard-kit"
+          ]
+        },
+        {
+          "id": "bass_drum_18_jazz",
+          "name": "18-inch jazz bass drum",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "open"
+          ],
+          "match_tokens": [
+            "jazz",
+            "bop",
+            "small-kit"
+          ]
+        },
+        {
+          "id": "bass_drum_24_26_big",
+          "name": "24-26-inch big kick",
+          "descriptors": [
+            "deep",
+            "cavernous",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "metal",
+            "arena-rock",
+            "heavy-rock"
+          ]
+        },
+        {
+          "id": "bass_drum_concert",
+          "name": "Concert / orchestral bass drum (mallet-struck)",
+          "descriptors": [
+            "orchestral",
+            "broad",
+            "low-boom"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "marching",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_drum_beater",
+      "surface": false,
+      "name": "Beater / pedal",
+      "variants": [
+        {
+          "id": "bass_drum_felt_pedal",
+          "default": true,
+          "name": "Felt beater, single pedal",
+          "descriptors": [
+            "rounded-attack",
+            "felt-thump"
+          ],
+          "match_tokens": [
+            "rock",
+            "pop"
+          ]
+        },
+        {
+          "id": "bass_drum_wood_click",
+          "name": "Wood / plastic beater",
+          "descriptors": [
+            "clicky-attack",
+            "defined-point"
+          ],
+          "match_tokens": [
+            "metal",
+            "modern"
+          ]
+        },
+        {
+          "id": "bass_drum_double_pedal",
+          "name": "Double pedal",
+          "descriptors": [
+            "rapid",
+            "gallop"
+          ],
+          "match_tokens": [
+            "metal",
+            "double-bass"
+          ]
+        }
+      ]
+    }
+  ]
+}

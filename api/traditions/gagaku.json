@@ -3,9 +3,9 @@
   "name": "Gagaku",
   "family": "classical",
   "lineage": "Japanese imperial court music tradition codified during the Nara and Heian periods (eighth through twelfth centuries CE) drawing on Tang Chinese, Korean, and indigenous Japanese ceremonial-court repertoire — preserved continuously through the Imperial Household Music Department (Kunaichō Gakubu) lineage in Tokyo, with characteristic ensemble of shō mouth-organ, hichiriki double-reed, ryūteki transverse flute, biwa lute, koto zither, kakko drum, and shōko gong",
-  "recipe": "classic modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, silk biwa lute, matsu Japanese pine taiko drums. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 461,
-  "score": 37.157,
+  "recipe": "classic modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, silk biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 548,
+  "score": 42.179,
   "config": {
     "traditions": [
       "gagaku"
@@ -59,16 +59,20 @@
         }
       },
       {
-        "id": "taiko_drums",
+        "id": "taiko_drum",
         "slots": {
-          "taiko_shell_wood": "matsu_pine_taiko",
-          "taiko_size": "odaiko",
-          "taiko_drums_context": "taiko_drums_theater"
+          "taiko_size": "taiko_o_daiko",
+          "taiko_skin": "taiko_cowhide",
+          "taiko_shell_wood": "taiko_keyaki_canonical",
+          "taiko_lineage": "taiko_kodo_sado",
+          "taiko_technique": "taiko_gagaku_ritual"
         },
         "scores": {
+          "taiko_size": 0.8012142857142855,
+          "taiko_skin": 3.769999999999999,
           "taiko_shell_wood": 3.769999999999999,
-          "taiko_size": 1.3,
-          "taiko_drums_context": 1.69
+          "taiko_lineage": 1.7504285714285714,
+          "taiko_technique": 1.69
         }
       }
     ],

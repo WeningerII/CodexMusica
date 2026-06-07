@@ -5,7 +5,7 @@
   "lineage": "Ashkenazi Jewish synagogue cantorial tradition — the solo lead-singer (chazzan / khazn / cantor) liturgical practice of the Eastern European Yiddish-speaking world, codified through Yossele Rosenblatt (the golden-age chazzan, 1882-1933), Gershon Sirota, Mordechai Hershman, Moishe Oysher, Jan Peerce (the cantor-to-opera-tenor crossover), Moshe Koussevitzky",
   "recipe": "classic early-1880s cantorial khazonus, ritual Devotional, Jewish branch, vocal drone modal, European funeral lament armenian duduk-accompanied chant skolt sámi leuʹdd. vocal fry, declaimed, chest resonance low mid, narrative. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. klezmer simcha celebration hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 505,
-  "score": 149.257,
+  "score": 145.487,
   "config": {
     "traditions": [
       "cantorial_khazonus",
@@ -25,7 +25,7 @@
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_solo_over_choral_drone",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",

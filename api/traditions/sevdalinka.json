@@ -5,7 +5,7 @@
   "lineage": "Bosnian melancholy-romantic urban song tradition that emerged in the late-Ottoman period (post-1463 Ottoman conquest of Bosnia) and codified through the Austro-Hungarian administrative period (1878-1918) into the recording-era 20th century — 20th-century figures Himzo Polovina, Safet Isović (the 1950s-70s sevdalinka voice), Zaim Imamović, Beba Selimović, and the modern Damir Imamović and Amira Medunjanin sevdalinka revival; melismatic vocal melody with Ottoman makam-influenced modal vocabulary over saz, accordion, and violin accompaniment",
   "recipe": "classic North American early-1870s sevdalinka, ballad Poetry, Mediterranean ballad branch, vocal drone modal, balkan drinking song armenian duduk-accompanied chant flamenco. vocal fry, low dynamic level, melodic, bend inflected. makam correct mulberry bowl canonical anatolian steel canonical modern drone like saz baglama, castagnari Italian premium folk music accordion, brass band balkan romani, gusle, plum canonical bulgarian kaval, tambura balkan. balkan sevdalinka kafana tavern. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 618,
-  "score": 262.997,
+  "score": 256.572,
   "config": {
     "traditions": [
       "sevdalinka",
@@ -111,7 +111,7 @@
         "scores": {
           "bowed_technique": 2.795,
           "gusle_region": 2.47,
-          "gusle_context": 0.8099999999999998,
+          "gusle_context": 0.6149999999999999,
           "gusle_body_wood": 0.9099999999999999,
           "gusle_string_material": 0.39
         }

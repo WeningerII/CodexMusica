@@ -1,11 +1,11 @@
 {
   "id": "sardinian_cantu_a_tenore",
-  "name": "Sardinian cantu a tenore (UNESCO 2008)",
+  "name": "Sardinian cantu a tenore",
   "family": "global",
-  "lineage": "Sardinian cantu a tenore four-male-voice polyphonic tradition of the Barbagia region (interior central-northeast Sardinia, particularly the Nuoro province villages of Bitti, Orgosolo, Orune, and Orosei), recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2005 and inscribed on the Representative List 2008. The ensemble consists of four named voice-parts: the boghe (the soloist who initiates each verse with the verse-text, leading the ensemble), the mesu boghe (the high tenor-register harmony voice), the contra (the guttural-ventricular harmony voice producing a deep bass-register growl through false-vocal-fold co-oscillation), and the bassu (the lowest guttural-ventricular voice, producing the deepest growling subharmonic). The contra and bassu employ the same false-vocal-fold technique that produces Tuvan kargyraa subharmonic — a striking case of independent convergence between two unrelated traditions. Performance occurs traditionally in the su zilleri stone-walled village bar, with the four singers facing inward in a tight circle. Repertoire spans religious processional cycles (such as the Holy Week passion-passages), pastoral courtship and praise songs, and the satirical-improvisatory cantu a tenore-with-improvised-text contest contexts. Tenores di Bitti and Tenores di Orosei among the canonical twentieth-century ensembles. Bernard Lortat-Jacob's Chants de Passion (Éditions du Cerf 1998) and the Smithsonian Folkways SFW 50402 Sardinia: Music of the Shepherds (1995) constitute the principal documentary anchors. Distinguished from Corsican paghjella by Sardinian's four-voice (vs Corsican three-voice) configuration and guttural-ventricular subharmonic vocal architecture; distinguished from Albanian iso-polyphony by Sardinian's no-drone subharmonic-voice-as-bass (vs Albanian iso-drone foundation) configuration.",
-  "recipe": "classic sardinian cantu a tenore, drone Modal, vocal branch, Mediterranean ballad ballad poetry, overtone drone modal xhosa umngqokolo overtone singing tuvan throat singing. sygyt, false fold engaged, overtone rich sustained, hocket articulation. sardinian su zilleri stone bar. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 408,
-  "score": 360.705,
+  "lineage": "Sardinian cantu a tenore four-male-voice polyphonic tradition of the Barbagia region (interior central-northeast Sardinia, particularly the Nuoro province villages of Bitti, Orgosolo, Orune, and Orosei). The ensemble consists of four named voice-parts: the boghe (the soloist who initiates each verse with the verse-text, leading the ensemble), the mesu boghe (the high tenor-register harmony voice), the contra (the guttural-ventricular harmony voice producing a deep bass-register growl through false-vocal-fold co-oscillation), and the bassu (the lowest guttural-ventricular voice, producing the deepest growling subharmonic). The contra and bassu employ the same false-vocal-fold technique that produces Tuvan kargyraa subharmonic — a striking case of independent convergence between two unrelated traditions. Performance occurs traditionally in the su zilleri stone-walled village bar, with the four singers facing inward in a tight circle. Repertoire spans religious processional cycles (such as the Holy Week passion-passages), pastoral courtship and praise songs, and the satirical-improvisatory cantu a tenore-with-improvised-text contest contexts. Tenores di Bitti and Tenores di Orosei among the canonical twentieth-century ensembles. Bernard Lortat-Jacob's Chants de Passion (Éditions du Cerf 1998) and the Smithsonian Folkways SFW 50402 Sardinia: Music of the Shepherds (1995) constitute the principal documentary anchors. Distinguished from Corsican paghjella by Sardinian's four-voice (vs Corsican three-voice) configuration and guttural-ventricular subharmonic vocal architecture; distinguished from Albanian iso-polyphony by Sardinian's no-drone subharmonic-voice-as-bass (vs Albanian iso-drone foundation) configuration.",
+  "recipe": "classic late-1990s sardinian cantu a tenore, drone Modal, vocal branch, Mediterranean ballad ballad poetry, overtone drone modal xhosa umngqokolo overtone singing tuvan throat singing. sygyt, false fold engaged, overtone rich sustained, hocket articulation. sardinian su zilleri stone bar. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 419,
+  "score": 353.575,
   "config": {
     "traditions": [
       "sardinian_cantu_a_tenore",
@@ -40,8 +40,8 @@
           "voice_tradition": 27.235,
           "voice_mechanism_compound": 21.4,
           "voice_estill_quality": 4.845,
-          "voice_speech_song": 15.795000000000002,
-          "voice_ensemble_config": 36.075,
+          "voice_speech_song": 12.805000000000001,
+          "voice_ensemble_config": 33.08500000000001,
           "voice_ornament_system": 10.540000000000003,
           "voice_pitch_organization": 10.169999999999998,
           "voice_processing_chain": 10.490000000000004,

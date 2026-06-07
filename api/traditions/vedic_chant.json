@@ -1,11 +1,11 @@
 {
   "id": "vedic_chant",
-  "name": "Vedic chant (UNESCO 2003)",
+  "name": "Vedic chant",
   "family": "global",
-  "lineage": "Vedic chant recognized as UNESCO Masterpiece of the Oral and Intangible Heritage of Humanity 2003 — the canonical three-thousand-year-continuous Sanskrit recitation tradition for the four Vedas (Rgveda, Yajurveda, Sāmaveda, Atharvaveda) preserved through the gurukula master-disciple oral-transmission lineage; defined by the three-tone udatta-anudatta-svarita pitch-accent system (udatta the raised pitch, anudatta the lower pitch, svarita the falling-pitch tone) inherited from Proto-Indo-European prosody, with the additional Sāmaveda musical-melodic elaboration (the Sāman chant tradition that uses seven svaras and is considered the source of later Indian classical raga); transmission preserved through the canonical paṭha (recitation-style) variants — Saṃhitā (continuous), Padapāṭha (word-by-word), Krama-pāṭha (interlocking pairs), Jaṭā-pāṭha (woven pattern), and Ghana-pāṭha (dense pattern) — each designed to lock the text against transmission error; the Nambudiri Brahmin community of Kerala preserves the most archaic Sāmavedic chanting layer, with parallel Tamil-Brahmin, Maharashtrian, and Kashi (Banaras) regional preservation lineages",
-  "recipe": "classic vedic chant, ritual Devotional, hindu branch, south Asian art music sinhala vannama telugu kirtana. declaimed, chest resonance low mid, continuous-phonation, bend inflected. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 492,
-  "score": 210.053,
+  "lineage": "Vedic chant — the canonical three-thousand-year-continuous Sanskrit recitation tradition for the four Vedas (Rgveda, Yajurveda, Sāmaveda, Atharvaveda) preserved through the gurukula master-disciple oral-transmission lineage; defined by the three-tone udatta-anudatta-svarita pitch-accent system (udatta the raised pitch, anudatta the lower pitch, svarita the falling-pitch tone) inherited from Proto-Indo-European prosody, with the additional Sāmaveda musical-melodic elaboration (the Sāman chant tradition that uses seven svaras and is considered the source of later Indian classical raga); transmission preserved through the canonical paṭha (recitation-style) variants — Saṃhitā (continuous), Padapāṭha (word-by-word), Krama-pāṭha (interlocking pairs), Jaṭā-pāṭha (woven pattern), and Ghana-pāṭha (dense pattern) — each designed to lock the text against transmission error; the Nambudiri Brahmin community of Kerala preserves the most archaic Sāmavedic chanting layer, with parallel Tamil-Brahmin, Maharashtrian, and Kashi (Banaras) regional preservation lineages",
+  "recipe": "classic modern vedic chant, ritual Devotional, hindu branch, south Asian art music sinhala vannama telugu kirtana. declaimed, chest resonance low mid, continuous-phonation, bend inflected. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 499,
+  "score": 206.023,
   "config": {
     "traditions": [
       "vedic_chant",
@@ -40,8 +40,8 @@
           "voice_tradition": 8.58,
           "voice_mechanism_compound": 3.769999999999999,
           "voice_estill_quality": 5.753000000000001,
-          "voice_speech_song": 15.014999999999997,
-          "voice_ensemble_config": 9.489999999999998,
+          "voice_speech_song": 13.324999999999996,
+          "voice_ensemble_config": 7.799999999999999,
           "voice_ornament_system": 5.525,
           "voice_pitch_organization": 26.0815,
           "voice_processing_chain": 4.549999999999999,

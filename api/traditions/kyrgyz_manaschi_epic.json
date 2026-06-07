@@ -1,11 +1,11 @@
 {
   "id": "kyrgyz_manaschi_epic",
-  "name": "Kyrgyz Manas epic-recital (UNESCO 2013)",
+  "name": "Kyrgyz Manas epic-recital",
   "family": "global",
-  "lineage": "Kyrgyz Manas heroic-epic recital tradition recognized as UNESCO Intangible Cultural Heritage 2013 (originally proclaimed 2009) under the inscription \"Epic culture, folk tales and music of the Kyrgyz epic Manas\". The Manas trilogy — Manas, Semetey, Seytek — reaches up to 553,000 verse-lines in the canonical recension. Classical manaschi epic-reciter performs voice-only with hand-gesture and cadence patterning, often in near-trance state; the akyn improvising sung-poet variant accompanies with the komuz three-string fretless lute. Sometimes shamanic in framing — the manaschi receives the epic in dream-summons from the spirit of Manas. Twentieth-century canonical figures include Sagymbay Orozbakov (1867-1930), Sayakbay Karalaev (1911-1971, whose recension is the largest documented corpus and whose portrait appears on the 500-som banknote), and contemporary Talantaaly Bakchiev (born 1971). Bishkek State Manas Theater established as state-level performance venue. Distinguished from Turkic dastan traditions by the Kyrgyz-language-specific narrative-cadence grammar and the trance-summons performance framing; distinguished from Kazakh kuy by voice-led (vs instrumental-led) tradition structure",
-  "recipe": "classic kyrgyz manas epic-recital, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, narrative. apricot juniper wood three gut strings canonical kyrgyz akyn kuu solo canonical kyrgyz instrumental narrative komuz. kyrgyz manaschi outdoor or state theater. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 513,
-  "score": 226.66,
+  "lineage": "Kyrgyz Manas heroic-epic recital tradition. The Manas trilogy — Manas, Semetey, Seytek — reaches up to 553,000 verse-lines in the canonical recension. Classical manaschi epic-reciter performs voice-only with hand-gesture and cadence patterning, often in near-trance state; the akyn improvising sung-poet variant accompanies with the komuz three-string fretless lute. Sometimes shamanic in framing — the manaschi receives the epic in dream-summons from the spirit of Manas. Twentieth-century canonical figures include Sagymbay Orozbakov (1867-1930), Sayakbay Karalaev (1911-1971, whose recension is the largest documented corpus and whose portrait appears on the 500-som banknote), and contemporary Talantaaly Bakchiev (born 1971). Bishkek State Manas Theater established as state-level performance venue. Distinguished from Turkic dastan traditions by the Kyrgyz-language-specific narrative-cadence grammar and the trance-summons performance framing; distinguished from Kazakh kuy by voice-led (vs instrumental-led) tradition structure",
+  "recipe": "classic early-1860s kyrgyz manas epic-recital, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, narrative. apricot juniper wood three gut strings canonical kyrgyz akyn kuu solo canonical kyrgyz instrumental narrative komuz. kyrgyz manaschi outdoor or state theater. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 525,
+  "score": 219.213,
   "config": {
     "traditions": [
       "kyrgyz_manaschi_epic",
@@ -37,11 +37,11 @@
           "voice_vibrato": 1.69,
           "voice_articulation": 1.4299999999999997,
           "voice_microtone": 0.845,
-          "voice_tradition": 10.725,
+          "voice_tradition": 9.165,
           "voice_mechanism_compound": 3.3799999999999994,
           "voice_estill_quality": 5.785000000000001,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 11.699999999999996,
+          "voice_speech_song": 6.694999999999999,
+          "voice_ensemble_config": 10.009999999999998,
           "voice_ornament_system": 4.095000000000001,
           "voice_pitch_organization": 4.095000000000001,
           "voice_processing_chain": 3.3799999999999994,
@@ -55,8 +55,8 @@
           "komuz_tradition": "komuz_akyn_kuy_canonical"
         },
         "scores": {
-          "komuz_body": 10.27,
-          "komuz_tradition": 13.6975
+          "komuz_body": 8.969999999999999,
+          "komuz_tradition": 12.397499999999999
         }
       }
     ],
