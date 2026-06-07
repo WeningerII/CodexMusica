@@ -66,7 +66,7 @@ console.log(`╔═════════════════════�
 console.log(`║ INSPECT: ${t.name} (${tid})`);
 if (staples.length) console.log(`║ STAPLED: ${staples.join(', ')}`);
 console.log(`║ parent: ${e.parent || '(none)'}`);
-console.log(`║ crossRefs: ${(e.crossRefs || []).join(', ') || '(none)'}`);
+console.log(`║ crossRefs: ${(e.crossRefs || []).map(cr => (cr && typeof cr === 'object') ? cr.ref : cr).join(', ') || '(none)'}`);
 console.log(`║ instruments: ${(t.instruments || []).join(', ')}`);
 console.log(`║ room: ${t.room || '(none)'}    archetype: ${t.chain_archetype || '(inline)'}`);
 console.log(`║ chain inline: mic=${t.chain_mic || '?'} pre=${t.chain_pre || '?'} medium=${t.chain_medium || '?'} console=${t.chain_console || '?'}`);

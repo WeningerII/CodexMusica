@@ -109,9 +109,11 @@ function harvestTradition(tradId, weightScale = 1.0) {
       if (tok && tok.length > 2) out.push({ token: tok, weight: 1.5 * weightScale, source: `${layer}.parent` });
     }
   }
-  // crossRefs at 0.7
+  // crossRefs at 0.7 (entries are strings OR {ref,...} objects — normalize first)
   for (const cr of (e.crossRefs || [])) {
-    const parts = cr.split('.').flatMap(s =>
+    const ref = (cr && typeof cr === 'object') ? cr.ref : cr;
+    if (!ref) continue;
+    const parts = ref.split('.').flatMap(s =>
       s.replace(/([A-Z])/g, ' $1').toLowerCase().split(/\s+/));
     for (const tok of parts) {
       if (tok && tok.length > 2) out.push({ token: tok, weight: 0.7 * weightScale, source: `${layer}.crossref` });
@@ -276,7 +278,7 @@ console.log(`╔═════════════════════�
 console.log(`║ STACK: ${t.name} (${tid})  [mode=${mode}]`);
 if (staples.length) console.log(`║ STAPLED: ${staples.join(', ')}`);
 console.log(`║ parent: ${e.parent || '(none)'}`);
-console.log(`║ crossRefs: ${(e.crossRefs || []).join(', ') || '(none)'}`);
+console.log(`║ crossRefs: ${(e.crossRefs || []).map(cr => (cr && typeof cr === 'object') ? cr.ref : cr).join(', ') || '(none)'}`);
 console.log(`║ room: ${seed.room || '(none)'}    archetype: ${seed.archetype || '(inline)'}    aesthetic: ${seed.aesthetic || '(none)'}`);
 const chainStr = ['mic', 'pre', 'console', 'comp', 'eq', 'medium']
   .filter(k => chain[k])

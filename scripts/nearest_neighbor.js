@@ -124,7 +124,7 @@ function tradition_byId(tid) {
   if (!seedExtras) return null;
   const seedAxes = seedExtras.axes || {};
   const seedParent = seedExtras.parent || '';
-  const seedCrossRefs = new Set(seedExtras.crossRefs || []);
+  const seedCrossRefs = new Set((seedExtras.crossRefs || []).map(cr => (cr && typeof cr === 'object') ? cr.ref : cr));
 
   const results = [];
   for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
@@ -136,7 +136,7 @@ function tradition_byId(tid) {
 
     const axisDist = axisL1(seedAxes, e.axes);
     const pathDist = parentPathDistance(seedParent, e.parent || '');
-    const otherCrossRefs = new Set(e.crossRefs || []);
+    const otherCrossRefs = new Set((e.crossRefs || []).map(cr => (cr && typeof cr === 'object') ? cr.ref : cr));
     let crossOverlap = 0;
     for (const cr of seedCrossRefs) if (otherCrossRefs.has(cr)) crossOverlap++;
     if (seedParent && otherCrossRefs.has(seedParent)) crossOverlap += 2;

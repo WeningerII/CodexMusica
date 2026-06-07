@@ -186,5 +186,5 @@ if (r.axes) {
 }
 
 if (r.tradition.crossRefs.length) {
-  console.log(`CROSSREFS       ${r.tradition.crossRefs.join(', ')}`);
+  console.log(`CROSSREFS       ${r.tradition.crossRefs.map(cr => (cr && typeof cr === 'object') ? cr.ref : cr).join(', ')}`);
 }
