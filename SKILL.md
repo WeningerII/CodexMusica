@@ -1,7 +1,7 @@
 ---
 name: codex-music-tool
 description: Query, compose, validate, and mutate the Codex Musica dataset — 1090 recorded-music traditions (in a 311-node genre tree, 13-axis space), 421 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 459-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
-license: MIT
+license: UNLICENSED
 ---
 
 # Codex Musica
@@ -19,7 +19,7 @@ absolute `references/` path. `node` and `jq` are available.
 
 > Ground truth beats memory: tables are bare `const` (not `window.*`/`module.exports`,
 > except `07`); `axes` is an **object**; **tree-node ids are full dotted paths**;
-> `crossRefs[]` mixes strings and `{ref,weight}` objects; counts are in §1. Shipped data
+> `crossRefs[]` mixes strings and `{ref,voice_isolated}`/`{ref,isolated_parts}` objects; counts are in §1. Shipped data
 > is clean under the §5 checker — but verify with §5/§6, don't trust remembered numbers.
 
 ---
@@ -92,7 +92,7 @@ tradition ─instruments[]─▶ instrument ─family─▶ family ; instrument 
     ├─chain_mic / chain_pre / chain_console / chain_comp / chain_eq / chain_medium / chain_amp*
     │      = free-vocabulary component ids (NOT a lookup table; inline fallback when no archetype)
     └─production_aesthetic? ─▶ aesthetic
-extras[tradition] ─parent─▶ tree node id ; ─crossRefs[]─▶ tree node id (string OR {ref,weight})
+extras[tradition] ─parent─▶ tree node id ; ─crossRefs[]─▶ tree node id (string OR {ref,voice_isolated|isolated_parts})
 tree node ─parent─▶ tree node id (root nodes have parent:null)
 asset: EMOJI_REGISTRY[instrument_or_variant_id] = emoji codepoint ; instruments fall back via family
 ```
@@ -105,7 +105,7 @@ family_parts: INSTRUMENT_FAMILY_PARTS[familyId] = [ part, … ]          // 9 fa
 part        : {id, name, surface?, variants[], applies_to?[]}          // applies_to gates a family part
 variant     : {id, name, descriptors[], default?, applies_to?[], match_tokens?[]}
 instrument  : {id, name, family, class, axes{9 named keys}, short, parts[]}   // parts already family-merged
-room        : {id, name, cluster, descriptors[], note}                 // group by .cluster (no "type")
+room        : {id, name, cluster, descriptors[], note, default_chain_archetype?, era?, region?, scale_tier?}  // group by .cluster (no "type")
 archetype   : {id, name, era, region, scale_tier, components{mic,pre,console?,comp,eq,medium}, exemplar_studios[], note}
 aesthetic   : {id, name, era, description, characteristic_techniques[], exemplar_recordings[], production_locus}
 tuning      : {id, name, sub, descriptors[], note, pointer}            // "sub"/descriptors carry the system
@@ -129,8 +129,10 @@ Facts that bite if you miss them:
 - **Tree-node ids are full dotted paths.** 287 of 311 ids contain dots
   (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and
   resolve directly via `byNode[path]` — no path reconstruction.
-- **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but ~67 entries
-  are `{ref:"<node path>", weight:N}` objects. Normalize with `cr.ref ?? cr` before
+- **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but 67 entries
+  (across 63 distinct traditions) are `{ref:"<node path>", voice_isolated:true}` (44) or
+  `{ref:"<node path>", isolated_parts:[…]}` (23) objects — there is **no** `weight` field
+  (a `{ref,weight}` object would fail `validate.js`). Normalize with `cr.ref ?? cr` before
   resolving (the §5/§6 checks do this).
 - An instrument's `parts` are already family-merged in the data; the §2 helper
   `partsFor(id)` reproduces the merge (family parts filtered by `applies_to`, overlaid
@@ -220,7 +222,7 @@ db.byAes = idx(db.PRODUCTION_AESTHETICS); db.byTuning = idx(db.TUNINGS);
 db.byTrad = idx(db.TRADITIONS); db.byNode = idx(db.TREE_NODES);
 db.byPreface = idx(db.PREFACE_LEXICON); db.extras = db.TRADITION_EXTRAS;
 // tree node ids are full dotted paths → resolve extras.parent / crossRefs via db.byNode.
-db.crId = cr => (cr && typeof cr === 'object') ? cr.ref : cr;   // crossRefs: string OR {ref,weight}
+db.crId = cr => (cr && typeof cr === 'object') ? cr.ref : cr;   // crossRefs: string OR {ref,voice_isolated|isolated_parts}
 // available parts for an instrument = family parts (filtered by applies_to) overlaid
 // with the instrument's own parts (own wins on id). Mirrors scripts/_merge.js.
 db.partsFor = id => {
@@ -656,7 +658,7 @@ and any arrangement `ensemble[]` pointing at it.
 **Add/edit/delete a tradition**: a `TRADITIONS` entry **must** have a paired
 `TRADITION_EXTRAS["<id>"]` whose `parent` is a tree-node id, `axes` is a 13-key object
 of ints in −2..+2, plus `description`/`exemplars`/`status`/`crossRefs` (crossRefs are
-tree-node ids, as strings or `{ref,weight}` objects). `room`/`tuning`/`chain_archetype`/
+tree-node ids, as strings or `{ref,voice_isolated}`/`{ref,isolated_parts}` objects). `room`/`tuning`/`chain_archetype`/
 `production_aesthetic` should resolve.
 
 **Other entities**: family/part/variant → `01`+`02`; room/archetype/aesthetic/tuning →
@@ -720,7 +722,7 @@ console.log(JSON.stringify({ totalIssues: issues.length, byCategory: byCat, samp
 **Verified on shipped data:** `{"totalIssues":0,"sample":[],"byCategory":{}}` — fully
 consistent. (Two subtleties make this true: the disjoint-`applies_to` `MULTI_DEFAULT`
 exception covers `wind.wind_articulation` and `percussion.percussion_technique`; and
-crossRefs are normalized via `cr.ref ?? cr` since ~67 are `{ref,weight}` objects.) The
+crossRefs are normalized via `cr.ref ?? cr` since 67 are `{ref,voice_isolated}`/`{ref,isolated_parts}` objects.) The
 checker also flags injected damage — a dup instrument id, bad `family`, orphan extras
 key, tradition with no extras, and bad extras `parent` yield `DUP_INST oud`,
 `BAD_FAMILY frob`, `EXTRAS_ORPHAN x_orphan`, `TRAD_NO_EXTRAS x_bad`,
@@ -853,7 +855,7 @@ data; run from the repo root. Add `--json` where noted for machine-readable outp
 
 | In the app | Agent command |
 |---|---|
-| Browse traditions / instruments / rooms / tunings | `node scripts/list.js --traditions` (or `--instruments`, `--rooms`, `--archetypes`, `--aesthetics`, `--variants --instrument=<id>`) — all take filters like `--family=`, `--era=`, `--region=`, `--has-part=` |
+| Browse traditions / instruments / rooms / tunings | `node scripts/list.js --traditions` (or `--instruments`, `--rooms`, `--archetypes`, `--aesthetics`, `--tunings`, `--tree`, `--variants --instrument=<id>`) — filters are per-section: `--traditions` takes `--family=`/`--parent=`; `--instruments` takes `--family=`/`--has-part=`; `--rooms`/`--archetypes` take `--era=`/`--region=`/`--scale=` |
 | Chain-section menu (mic/pre/console/…) contents | `node scripts/list.js --section <mic\|pre\|console\|comp\|eq\|medium\|fx\|amp>` |
 | Deep-view one entry with its refs resolved | `node scripts/expand.js --tradition <id>` (or `--instrument`, `--room`, `--archetype`, `--aesthetic`, `--tree`) — emits JSON |
 | Tradition fingerprint strip (13-axis profile) | `node scripts/fingerprint.js <tradition_id>` (`--json`; optional `--aesthetic=<id>`) |

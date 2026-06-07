@@ -26,7 +26,7 @@ and add/edit/delete catalog entries — runs from the repo. An agent with a shel
     git clone https://github.com/WeningerII/CodexMusica
     cd CodexMusica && npm ci
     node scripts/recipe.js --traditions afrobeat,post_punk --exclude-instrument=tonewheel_organ
-    node scripts/recipe.js --diff bluegrass thrash_metal --weight=0.6
+    node scripts/recipe.js --diff --weight=0.6 bluegrass thrash_metal
     node scripts/recipe.js --axis-target "harm:1,density:2,intensity:2"
 
 See SKILL.md in the repo for the complete contract (data model, all flags, CRUD,

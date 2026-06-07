@@ -47,9 +47,9 @@ For full structured arrangements (ensemble, room, chain, tuning) per tradition:
   "name": "Bluegrass",
   "family": "vernacular",
   "recipe": "classic North American 1945-1948 bluegrass, …",
-  "recipe_chars": 712,
-  "score": 1.34,
-  "config": { "traditions": ["bluegrass", …], "instruments": [ … ], "room": …, "chain": …, "tuning": … }
+  "recipe_chars": 711,
+  "score": 234.156,
+  "config": { "traditions": ["bluegrass", …], "instruments": [ … ], "room": "bristol_sessions_appalachian_pre_commercial", "archetype": "arch_late60s_us_multitrack", "inline_chain": { … }, "tuning": "bluegrass_high_lonesome_pentatonic", "aesthetic": …, "arrangement": …, "fx_extras": [ … ] }
 }
 ```
 
@@ -66,7 +66,7 @@ cd CodexMusica && npm ci
 
 node scripts/recipe.js --traditions afrobeat,post_punk            # blend genres
 node scripts/recipe.js --tradition afrobeat --exclude-instrument=saxophone --swap-variant=voice:voice_register:falsetto
-node scripts/recipe.js --diff bluegrass thrash_metal --weight=0.6  # weighted blend
+node scripts/recipe.js --diff --weight=0.6 bluegrass thrash_metal  # weighted blend
 node scripts/recipe.js --axis-target "harm:1,density:2,intensity:2"
 npm run validate                                                   # reference-integrity check
 ```
