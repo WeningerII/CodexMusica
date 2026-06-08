@@ -21,8 +21,11 @@ const VERBOSE = process.argv.includes('--verbose');
 const REGISTRY = require('./_promises.js');
 
 const DOCS = ['AGENTS.md', 'llms.txt', 'README.md', 'SKILL.md'];
-const PROMISE_RE = /@promise:\s*([a-z0-9-]+)/gi;
-const COVERS_RE = /@covers:\s*([a-z0-9 ,-]+)/gi;
+// Allow `_` as well as `-` so a malformed/underscore orphan id is still caught,
+// not silently skipped (registry ids are hyphenated, but the gate must flag ANY
+// marker that has no registry row).
+const PROMISE_RE = /@promise:\s*([a-z0-9_-]+)/gi;
+const COVERS_RE = /@covers:\s*([a-z0-9 ,_-]+)/gi;
 
 // ── collect DOC markers: id -> [files] ──
 const docMarkers = new Map();

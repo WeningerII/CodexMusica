@@ -15,6 +15,7 @@
 //   app<->node desync   -> equivalence.js
 //   stale api/          -> check_artifact_fresh.js   (needs --fresh-api/--fresh-html)
 //   silent blend-drop   -> recipe.js  (input validation)
+//   orphan promise      -> check_promises.js  (documented but unregistered/ungated)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -136,6 +137,13 @@ if (FRESH_API && FRESH_HTML) {
 
 // 7. silent blend-drop -> recipe.js  (read-only on the real tree)
 record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--traditions', 'afrobeat,__bogus_fault__']));
+
+// 8. orphan promise (documented but unregistered/ungated) -> check_promises.js
+{
+  const d = mkenv(['scripts', 'AGENTS.md', 'llms.txt', 'README.md', 'SKILL.md']);
+  fs.appendFileSync(path.join(d, 'AGENTS.md'), '\n<!-- @promise: __orphan_fault__ -->\n');
+  record('orphan-promise -> check_promises.js', gate(d, ['scripts/check_promises.js']));
+}
 
 const escaped = results.filter((r) => !r.caught);
 console.log(`\n=== Fault injection: ${results.length} gate-class(es) tested, ${escaped.length} escape(s) ===`);
