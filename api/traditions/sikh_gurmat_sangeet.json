@@ -18,6 +18,8 @@
         "slots": {
           "voice_register": "vocal_fry",
           "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "staccato_voice",
           "voice_microtone": "shruti_inflected",
@@ -34,6 +36,8 @@
         "scores": {
           "voice_register": 0.39,
           "voice_quality": 8.958999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 1.3,
           "voice_articulation": 0.645,
           "voice_microtone": 2.47,

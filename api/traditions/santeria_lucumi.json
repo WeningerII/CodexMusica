@@ -18,6 +18,8 @@
         "slots": {
           "voice_register": "extended_whistle_register",
           "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "staccato_voice",
           "voice_microtone": "maqam_inflected",
@@ -34,6 +36,8 @@
         "scores": {
           "voice_register": 1.1049999999999998,
           "voice_quality": 3.5600000000000005,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 2.19,
           "voice_articulation": 1.294,
           "voice_microtone": 0.29400000000000004,

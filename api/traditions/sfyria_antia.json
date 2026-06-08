@@ -29,6 +29,8 @@
         "slots": {
           "voice_register": "sygyt_register",
           "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "shouted_voice",
           "voice_microtone": "overtone_singing",
@@ -45,6 +47,8 @@
         "scores": {
           "voice_register": 2.34,
           "voice_quality": 3.4450000000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 0.855,
           "voice_articulation": 0.9750000000000001,
           "voice_microtone": 6.35,

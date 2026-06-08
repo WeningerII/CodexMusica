@@ -17,6 +17,7 @@ const path = require('path');
 const C = require('./_loader.js');
 const { search, seedFromTradition } = require('./search.js');
 const { translate } = require('./translate.js');
+const { buildResolver, recordProblems, RECIPE_CHAR_CEILING } = require('./_api_contract.js');
 
 const flags = {};
 for (const a of process.argv.slice(2)) {
@@ -48,7 +49,7 @@ function compileTradition(t) {
   const seed = seedFromTradition(t.id, [], EMPTY_OPTS);
   if (!seed) return null;
   const result = search(seed, { maxIters: 100 });
-  const recipe = translate(result.config, { ceiling: 1000 });
+  const recipe = translate(result.config, { ceiling: RECIPE_CHAR_CEILING });
   return {
     id: t.id,
     name: t.name,
@@ -67,6 +68,15 @@ function main() {
   mkdir(path.join(OUT, 'traditions'));
   mkdir(path.join(OUT, 'instruments'));
 
+  // The static API is the agent-facing PRODUCT, so this build is fail-CLOSED:
+  // a tradition that won't compile, or any record that breaks a documented
+  // promise (over-ceiling recipe, unresolvable config id), is collected and
+  // makes the build exit non-zero — never silently dropped. In the publish
+  // workflow this aborts before anything reaches the live site.
+  const R = buildResolver(C);
+  const failures = []; // [{ id, err }] — traditions that threw / returned null
+  const contract = []; // ["<id> — <problem>"] — records that break the contract
+
   // ---- traditions ----
   const traditions = C.TRADITIONS.slice(0, LIMIT);
   const tindex = [];
@@ -77,13 +87,15 @@ function main() {
     let rec;
     try {
       rec = compileTradition(t);
-    } catch {
+    } catch (e) {
       rec = null;
+      failures.push({ id: t.id, err: e.message });
     }
     if (!rec) {
       fail++;
       continue;
     }
+    for (const p of recordProblems(rec, R)) contract.push(`${t.id} — ${p}`);
     writeJson(path.join(OUT, 'traditions', `${t.id}.json`), rec);
     tindex.push({ id: t.id, name: t.name, family: t.family, href: `traditions/${t.id}.json` });
     bundle.push({
@@ -143,6 +155,31 @@ function main() {
   const secs = ((Date.now() - t0) / 1000).toFixed(1);
   process.stderr.write(
     `Done: ${ok} traditions (${fail} failed), ${iindex.length} instruments in ${secs}s -> ${OUT}\n`
+  );
+
+  // ---- self-verify: fail CLOSED if any promise is broken ----
+  const isFull = LIMIT === Infinity;
+  const errs = [];
+  if (failures.length) {
+    errs.push(`${failures.length} tradition(s) failed to compile:`);
+    for (const f of failures.slice(0, 20)) errs.push(`    ${f.id}: ${f.err}`);
+  }
+  if (isFull && bundle.length !== C.TRADITIONS.length) {
+    errs.push(`incomplete: built ${bundle.length} of ${C.TRADITIONS.length} traditions (the "all ${C.TRADITIONS.length}" promise)`);
+  }
+  if (contract.length) {
+    errs.push(`${contract.length} record(s) break the API contract (<=${RECIPE_CHAR_CEILING} chars, resolvable ids):`);
+    for (const p of contract.slice(0, 20)) errs.push(`    ${p}`);
+  }
+  if (errs.length) {
+    process.stderr.write('\nAPI BUILD FAILED — refusing to publish a broken artifact:\n');
+    for (const e of errs) process.stderr.write(`  ✗ ${e}\n`);
+    process.exit(1);
+  }
+  process.stderr.write(
+    isFull
+      ? `Self-verify OK: ${bundle.length}/${C.TRADITIONS.length} traditions, all recipes <=${RECIPE_CHAR_CEILING} chars, all ids resolve.\n`
+      : `Self-verify OK (sample build, --limit=${LIMIT}): per-record contract holds; completeness not asserted.\n`
   );
   return { tindex, iindex };
 }

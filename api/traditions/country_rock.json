@@ -18,6 +18,8 @@
         "slots": {
           "voice_register": "chest_voice",
           "voice_quality": "worn_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "melisma_voice",
           "voice_microtone": "tempered_voice",
@@ -34,6 +36,8 @@
         "scores": {
           "voice_register": 53.98000000000003,
           "voice_quality": 0.8612499999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 22.760000000000005,
           "voice_articulation": 0.118125,
           "voice_microtone": 27.05000000000001,
@@ -248,7 +252,7 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
-      "fx_spring_reverb"
+      "spring_reverb"
     ]
   }
 }

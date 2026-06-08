@@ -18,6 +18,8 @@
         "slots": {
           "voice_register": "kargyraa_register",
           "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "bend_inflected",
@@ -34,6 +36,8 @@
         "scores": {
           "voice_register": 2.8400000000000007,
           "voice_quality": 5.925000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 0.375,
           "voice_microtone": 0.24,

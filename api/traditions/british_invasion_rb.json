@@ -18,6 +18,8 @@
         "slots": {
           "voice_register": "chest_voice",
           "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "spoken_voice",
           "voice_microtone": "tempered_voice",
@@ -34,6 +36,8 @@
         "scores": {
           "voice_register": 24.481499999999993,
           "voice_quality": 6.3050000000000015,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 0.09,
           "voice_microtone": 11.499999999999996,
@@ -264,7 +268,7 @@
     "arrangement": "slow_build_minor_ballad_6_8",
     "fx_extras": [
       "fx_fuzz_face_germanium",
-      "fx_spring_reverb"
+      "spring_reverb"
     ]
   }
 }

@@ -76,6 +76,13 @@ jobs:
           fi
 
           node scripts/build_discovery.js --api=_dist/api --out=_dist
+
+          # Contract gate: refuse to publish an API that breaks a documented
+          # promise (incomplete count, over-ceiling recipe, unresolvable id).
+          # build_static_api.js self-verifies in memory; this re-checks the
+          # on-disk artifact that is actually about to go live.
+          node scripts/check_api.js --api=_dist/api
+
           cp AGENTS.md index.html _dist/
 
       - name: Publish site to main (only if changed)

@@ -225,17 +225,29 @@ if (flags.tradition) {
 }
 const opts = parseOpts(flags, primaryTradId, stapleIds);
 
+const TRAD_IDS = new Set(C.TRADITIONS.map(t => t.id));
+
 if (flags.tradition) {
   seed = seedFromTradition(flags.tradition, [], opts);
   if (!seed) { console.error(`Unknown tradition: ${flags.tradition}`); process.exit(2); }
 } else if (flags.traditions) {
   const ids = String(flags.traditions).split(',').map(s => s.trim()).filter(Boolean);
   if (ids.length === 0) { console.error('No tradition ids provided'); process.exit(2); }
+  // Validate EVERY id, not just the primary. seedFromTradition silently drops an
+  // unknown staple, so a typo'd genre in a blend would otherwise vanish with no
+  // error (exit 0) — the blend promise quietly broken. Match the strictness of the
+  // single --tradition path and of --exclude/--add/--swap.
+  const unknown = ids.filter(id => !TRAD_IDS.has(id));
+  if (unknown.length) { console.error(`Unknown tradition id(s): ${unknown.join(', ')}`); process.exit(2); }
   seed = seedFromTradition(ids[0], ids.slice(1), opts);
   if (!seed) { console.error(`Unknown tradition: ${ids[0]}`); process.exit(2); }
 } else if (flags.diff) {
-  const [idA, idB] = positional;
+  const [idA, idB, ...extra] = positional;
   if (!idA || !idB) { console.error('--diff requires two tradition ids'); process.exit(2); }
+  if (extra.length) { console.error(`--diff takes exactly two tradition ids; unexpected: ${extra.join(', ')}`); process.exit(2); }
+  // Validate both ids — a bogus SECONDARY is otherwise silently dropped (exit 0).
+  const unknown = [idA, idB].filter(id => !TRAD_IDS.has(id));
+  if (unknown.length) { console.error(`Unknown tradition id(s): ${unknown.join(', ')}`); process.exit(2); }
   const weight = flags.weight !== undefined ? parseFloat(flags.weight) : 0.5;
   seed = seedDiff(idA, idB, weight, opts);
   if (!seed) { console.error('Unknown tradition'); process.exit(2); }

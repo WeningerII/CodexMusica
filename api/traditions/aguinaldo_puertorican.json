@@ -18,6 +18,8 @@
         "slots": {
           "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
           "voice_articulation": "melisma_voice",
           "voice_microtone": "blue_notes",
@@ -34,6 +36,8 @@
         "scores": {
           "voice_register": 4.095000000000001,
           "voice_quality": 10.627499999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 1.0525,
           "voice_articulation": 3.75,
           "voice_microtone": 0.24,

@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "build:api": "node scripts/build_static_api.js && node scripts/build_discovery.js",
+    "build:api": "node scripts/build_static_api.js && node scripts/build_discovery.js && node scripts/check_api.js",
     "build:html": "node scripts/build_html.js --check",
     "build:fast": "node scripts/build.js --skip-smoke --skip-ui-check",
     "validate": "node scripts/validate.js",
@@ -27,6 +27,7 @@
     "tandem": "node scripts/tandem.js",
     "reachability": "node scripts/ui_reachability_check.js",
     "check-docs": "node scripts/check_docs.js && node scripts/check_doc_commands.js && node scripts/check_doc_behaviors.js",
+    "check:api": "node scripts/check_api.js",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

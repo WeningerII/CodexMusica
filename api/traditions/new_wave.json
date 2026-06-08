@@ -3,8 +3,8 @@
   "name": "New wave",
   "family": "rock_punk",
   "lineage": "Late-1970s through mid-1980s post-punk-derived pop-rock — codified through Blondie, Talking Heads (Remain in Light 1980), Devo (Q: Are We Not Men? A: We Are Devo! 1978), The Cars (The Cars 1978), Elvis Costello & the Attractions (My Aim Is True 1977), and the broader Stiff Records / Sire Records ecosystem; characterized by angular-rhythm-section, ironic-detached vocals, and pop-song-form embrace distinguishing it from punk",
-  "recipe": "classic North American 1977-1979 new wave, functional Song, new wave branch, pop rock synthpop, alternative distorted rock. thick, incomplete closure resting, chest resonance low mid, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oak pre muffled edge muffled hot rolled annealed drum kit, singing lead analog synth, string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 664,
+  "recipe": "classic North American 1977-1979 new wave, functional Song, new wave branch, pop rock synthpop, alternative distorted rock. thick, incomplete closure resting, chest resonance low mid, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oak pre muffled edge muffled hot rolled annealed drum kit, singing lead analog synth, string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
+  "recipe_chars": 679,
   "score": 888.208,
   "config": {
     "traditions": [
@@ -18,6 +18,8 @@
         "slots": {
           "voice_register": "chest_voice",
           "voice_quality": "incomplete_closure_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "spoken_voice",
           "voice_microtone": "tempered_voice",
@@ -34,6 +36,8 @@
         "scores": {
           "voice_register": 38.68000000000002,
           "voice_quality": 1.885,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 2.08,
           "voice_articulation": 0.78,
           "voice_microtone": 36.55,
@@ -179,8 +183,8 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
-      "fx_chorus_pedal",
-      "fx_flanger_pedal"
+      "chorus_pedal",
+      "flanger_pedal"
     ]
   }
 }
