@@ -30,6 +30,46 @@ All notable changes to this project are recorded here. Format loosely follows
   `05_traditions.js` (one tradition per line). Asserts the prior value and a
   unique, delimiter-anchored match before writing, so an edit can never corrupt
   a neighbouring field (e.g. top-level `tuning` vs the `string_tuning` part).
+- `scripts/check_doc_behaviors.js` (folded into `npm run check-docs`, so it runs in
+  CI): a third doc gate that asserts the documented *behaviors and outputs* of the
+  agent-facing docs, not merely that commands exit 0. `check_docs.js` gates the catalog
+  counts and `check_doc_commands.js` gates that every documented command runs — neither
+  caught SKILL.md §3f drifting, which kept warning (as "verified") that a bare
+  `--diff <a> <b>` "dies" long after `recipe.js`'s `BOOLEAN_FLAGS` made every argument
+  ordering work. Each assertion pins one documented behavior to the SKILL.md section that
+  states it — the `--diff` arg-order/byte-identity contract, `--swap-variant` exit-2
+  rejection, stapling order → lead tradition, the `nearest_neighbor` / `preface_configure`
+  outputs cited as "Verified", and arrangement being CLI-only — and fails CI when reality
+  diverges (proven against the historical `--diff` regression).
+- **Voice model expanded with two new articulatory dimensions + an `auto: false`
+  explicit-only variant mechanism.** The `voice` instrument gains `voice_vocal_tract`
+  (tongue-root / vowel posture: `tongue_root_retracted_dark`, `tongue_root_advanced_bright`,
+  `pharyngeal_widened_yawned`, `nasalized_tract`) and `voice_effort` (phonatory effort /
+  subglottal pressure: `effort_minimal_undersung`, `effort_projected`, `effort_pressed_maximal`),
+  plus a `slow_wide_terminal_vibrato` vibrato variant and an `appalachian_outlaw_folk_tradition`
+  vocal tradition. These give native slots to vocal techniques the model previously had to
+  cram into `voice_quality` — e.g. "keep subglottal pressure minimal / sing at conversation
+  volume or below" (effort) and "pull the tongue root back, target back vowels" (vocal tract),
+  which can now coexist with a lowered larynx and fry instead of competing for one slot. To add
+  them without perturbing a single existing recipe, every new non-default variant carries
+  `auto: false`: `search.js` skips such variants in BOTH the seed pick (`seedFromTradition`) and
+  the hill-climb (`variantSwapMoves`), so an optional dimension stays at its neutral
+  (empty-descriptor, silently-dropped) default for every tradition unless a caller selects it
+  explicitly via `--swap-variant` (which pins it past the search). Verified zero-blast — recipes
+  1198/1198, prefaces 79/79, app 56/56, equivalence 8/8, all byte-identical.
+- `voice_mechanism_compound` gains `voice_mechanism_supraglottal_rasp_pitch_stable` — a
+  controlled supraglottal rasp that rides on a clean core without bending pitch
+  (`supraglottal-rasp-clean-core, pitch-stable-distortion, controlled-ventricular-overlay,
+  throat-clear-grain`). Every prior supraglottal-grit option baked pitch alteration into its
+  descriptors (`subharmonic` / `octave-down-pitched` / `sub-fundamental-buzz` / `screamed`),
+  so a deliberate pitch-decoupled growl had no native variant. `auto: false` (explicit-only),
+  so zero recipe drift.
+- **"Not set" for instrument parts in the composer UI.** The part-variant picker now offers a
+  "Not set" chip (mirroring the existing null option on `signal chain` / `environment` stages),
+  and the `setPart` handler does `variant || null` like `setTuning`/`setRoom`/`setChain`. An
+  unset part contributes no descriptors — both descriptor builders already skip a falsy variant
+  id (`app.js` `Variant()` → null guard; `scripts/_card_descriptors.js`), so no engine change was
+  needed and browser↔node parity is unaffected (app 56/56, equivalence 8/8).
 
 ### Changed
 - Tradition defaults refined (61 traditions; recipe outputs re-snapshotted, all
@@ -95,6 +135,18 @@ All notable changes to this project are recorded here. Format loosely follows
   it now uses the app's `confirmDialog`.
 - `saveWS` and `delWS` now guard `window.storage` symmetrically (each early-returns on
   `!window.storage`; reads go through `safeGet`'s try/catch wrapper).
+- `scripts/expand.js` truncated piped JSON at the OS pipe buffer (~64 KiB): each success
+  path did `console.log(bigJSON); process.exit(0)`, and `process.exit()` tears the process
+  down before a large async stdout write drains to a pipe — so `expand.js --tradition
+  <id> | jq` lost everything past byte 65524 while still exiting 0 (a file redirect was
+  unaffected). Success paths now set `process.exitCode` and let the event loop flush
+  stdout; the flag dispatch is an `if/else-if/else` chain so they no longer fall through
+  into the usage error. Exit codes unchanged (0 success / 2 error).
+- Corrected two stale SKILL.md dogfooding notes the code had outrun: §3f no longer claims
+  a bare `--diff <a> <b>` "dies" (every argument ordering is byte-identical, now gated by
+  `check_doc_behaviors.js`), and §3h no longer says jsdom is "already installed" — the
+  headless rich-recipe path needs `npm ci` first, and a fresh clone fails with "Cannot
+  find module 'jsdom'" even from the repo root.
 
 ## [1.0.0]
 

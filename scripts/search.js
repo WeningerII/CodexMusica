@@ -173,6 +173,12 @@ function* variantSwapMoves(config) {
       for (const variant of part.variants) {
         const currentVariant = (inst.slots || {})[part.id];
         if (currentVariant === variant.id) continue;
+        // `auto: false` variants are explicit-only: the hill-climb never proposes
+        // them. This lets an optional dimension (e.g. the voice effort/vocal-tract
+        // parts) stay at its neutral default for every tradition unless a caller
+        // pins it in by an explicit slot choice — so adding the dimension perturbs
+        // no existing recipe.
+        if (variant.auto === false) continue;
         const newConfig = structuredClone(config);
         newConfig.instruments[i].slots[part.id] = variant.id;
         yield {
@@ -390,7 +396,7 @@ function randomizeVariants(seed, seedNum) {
     const cataInst = C.INSTRUMENTS.find(i => i.id === inst.id);
     if (!cataInst) continue;
     for (const part of (cataInst.parts || [])) {
-      const variants = part.variants || [];
+      const variants = (part.variants || []).filter(v => v.auto !== false); // skip explicit-only variants
       if (variants.length <= 1) continue;
       const idx = Math.floor(pseudoRandom(counter++) * variants.length);
       inst.slots[part.id] = variants[idx].id;
@@ -489,6 +495,7 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
       let bestIsDefault = false;
       const scoringCtx = getCtxForPart(part.id);
       for (const v of part.variants) {
+        if (v.auto === false) continue; // explicit-only variant: never auto-seeded (see variantSwapMoves)
         const r = scoreVariant(v, scoringCtx, { useNeighbors: true, skipSignals: true });
         const isDefault = v.default === true;
         // Strict win: better score

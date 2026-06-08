@@ -5130,6 +5130,15 @@ function renderPartRow(card, inst, part) {
     //             candidate variant (the swap would remove it; rendered as
     //             a separate strikethrough chip after the new variant's descrs)
     const currentVarDescs = currentVar ? new Set(entryRenderDescs(currentVar)) : new Set();
+    // "Not set" chip — mirrors the chain/environment null option (setTuning/setRoom/setChain)
+    // so a part can be left explicitly unset; an unset part contributes no descriptors
+    // (Variant() returns null and the descriptor builders skip it).
+    const noneChip = document.createElement('button');
+    noneChip.className = 'chip variant-chip' + (!card.parts[part.id] ? ' selected' : '');
+    noneChip.dataset.setPart = part.id;
+    noneChip.dataset.variant = '';
+    noneChip.innerHTML = '<span class="variant-chip-name">Not set</span>';
+    variants.appendChild(noneChip);
     part.variants.forEach(v => {
       const b = document.createElement('button');
       const isCurrent = card.parts[part.id] === v.id;
@@ -5793,7 +5802,7 @@ function handleCardClick(e, card) {
     return;
   }
   if (t.dataset.setPart) {
-    card.parts[t.dataset.setPart] = t.dataset.variant;
+    card.parts[t.dataset.setPart] = t.dataset.variant || null;
     if (card.prefaceAuto) card.preface = suggestPrefaceForCard(card);
     rerenderCard(card);
     return;

@@ -410,12 +410,15 @@ flags below are verified; run from the repo root.
 | Explain variant picks / preface picks | `… --why` / `… --why-prefaces` (add `-json` for either) |
 
 Notes that bite:
-- `--diff` is a boolean flag, but the CLI's generic parser makes a *bare* `--diff`
-  swallow the next token — so `--diff <a> <b>` consumes `<a>` and dies with
-  `--diff requires two tradition ids`. **Protect it by putting a `--`flag immediately
-  after `--diff`**: `--diff --weight=0.7 <a> <b>` keeps both ids positional (verified).
-  `--weight` defaults to 0.5, so always include it to anchor the form, and keep
-  `--swap-variant`/`--exclude-instrument` *after* the two ids, not between them.
+- `--diff` is a registered boolean flag (`recipe.js`'s `BOOLEAN_FLAGS`), so it never
+  swallows the next token: the natural `--diff <a> <b> [--weight=0.7]` form just works,
+  and the two ids stay positional no matter where `--weight` / `--swap-variant` /
+  `--exclude-instrument` sit — before, between, or after them (all three orderings verified
+  byte-identical). `--weight` defaults to 0.5 (0 = full A … 1 = full B). (Historical
+  footgun, now fixed: a *bare* `--diff <a> <b>` used to swallow `<a>` and die with
+  `--diff requires two tradition ids`. `check_doc_commands.js` runs the documented form
+  and `check_doc_behaviors.js` asserts every argument ordering stays byte-identical on
+  each CI run, so this can't silently regress.)
 - `--swap-variant` is `inst:part:variant`; multiple swaps separated by `;`.
   Validate the triple first via `db.partsFor(inst)` (§2) — recipe.js rejects
   unknown part/variant ids with exit 2.
@@ -428,6 +431,7 @@ Verified examples:
 node scripts/recipe.js --tradition delta_blues --swap-variant=voice:voice_register:falsetto
 node scripts/recipe.js --tradition afrobeat --exclude-instrument=saxophone,trumpet
 node scripts/recipe.js --diff --weight=0.5 delta_blues detroit_techno
+node scripts/recipe.js --diff delta_blues detroit_techno          # bare form: both ids stay positional
 ```
 
 ### 3g. Reshape a card toward a preface (inverse-configure)
@@ -489,12 +493,14 @@ faithful path — the real function the app calls, not a reimplementation.
 
 ```js
 // rich_recipe.js — emit a named-format recipe via the real browser engine.
-// Save at the REPO ROOT and run `node rich_recipe.js` from there: jsdom +
-// build_html.js resolve relative to the repo, so running from elsewhere fails
-// with "Cannot find module 'jsdom'". (Mirrors scripts/app_recipe_regression.js.)
+// Save at the REPO ROOT and run `node rich_recipe.js` from there (jsdom +
+// build_html.js resolve relative to the repo). Run `npm ci` first: a fresh clone has
+// no node_modules, so an un-installed tree fails with "Cannot find module 'jsdom'" even
+// from the repo root — and running from the wrong dir fails the same way. (Mirrors
+// scripts/app_recipe_regression.js.)
 const fs=require('fs'),os=require('os'),path=require('path');
 const {execFileSync}=require('child_process');
-const {JSDOM}=require('jsdom');                 // devDependency, already installed
+const {JSDOM}=require('jsdom');                 // devDependency — needs `npm ci` first
 const tmp=path.join(os.tmpdir(),`codex_${process.pid}.html`);
 execFileSync('node',[path.join('scripts','build_html.js'),`--out=${tmp}`,'--quiet'],{stdio:['ignore','ignore','inherit']});
 const html=fs.readFileSync(tmp,'utf8'); fs.unlinkSync(tmp);
@@ -649,6 +655,17 @@ path). Don't hand-edit the duplicated pieces independently:
    `01_family_parts.js`.
 5. Optionally register an emoji in `EMOJI_REGISTRY` (else it falls back by family).
 6. Re-serialize `02_instruments.js` (+ `01` if touched); run the checker.
+
+**Add an optional, off-by-default dimension** (a new part, or extra variants, whose presence
+must NOT change any existing recipe): make the part's `default:true` variant *neutral* — empty
+`descriptors: []`, so it renders nothing — and tag every other variant `auto: false`. The node
+search (`search.js`) skips `auto: false` variants in **both** the seed pick (`seedFromTradition`)
+and the hill-climb (`variantSwapMoves`), so the neutral default is kept for every tradition and the
+variant surfaces only when a caller selects it explicitly via `--swap-variant` (which pins it
+past the search). The browser path uses `defaultParts` (no hill-climb), so it keeps the default
+too. This is how `voice`'s `voice_effort` (subglottal-pressure / under-singing) and
+`voice_vocal_tract` (tongue-root / vowel posture) dimensions were added with zero recipe drift
+(1198/1198 + 56/56 + 8/8 unchanged). Confirm with `npm test` after.
 
 **Edit**: keep `id` stable; re-check every ref you touch.
 **Delete an instrument**: remove it AND scrub every dangling ref — any
