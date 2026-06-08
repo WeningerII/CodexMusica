@@ -184,6 +184,14 @@ All notable changes to this project are recorded here. Format loosely follows
   in a field that resolves against the `amp_make` variant namespace, so its guitar amp
   silently never applied; corrected to `amp_american_fender_blackface` (the same Fender
   Blackface Twin). Surfaced immediately by the new `validate.js` amp guard.
+- `recipe.js` blends silently dropped unknown tradition ids. The primary id (and every
+  `--exclude-instrument` / `--add-instrument` / `--swap-variant` id) was validated and
+  rejected with exit 2, but staple ids in `--traditions a,b` and the secondary in
+  `--diff a b` were passed straight to `seedFromTradition`, which skips an unknown
+  staple — so `--traditions afrobeat,typo` or `--diff afrobeat wrongid` produced a
+  plausible recipe that silently omitted the requested genre (exit 0), quietly breaking
+  the blend promise. Now every tradition id is validated up front (exit 2, offending id
+  named) and `--diff` rejects a stray third positional. Found by an alpha/beta CLI sweep.
 
 ## [1.0.0]
 
