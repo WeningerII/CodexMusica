@@ -3,8 +3,8 @@
   "name": "Merseybeat (Liverpool beat 1962-65)",
   "family": "rock_punk",
   "lineage": "Early-1960s Liverpool-and-Merseyside beat-music style emerging from the convergence of skiffle, American R&B, and rock-and-roll into the canonical guitar-bass-drums-and-vocal-harmony four-piece beat-group format. The Beatles, Gerry and the Pacemakers, the Searchers, the Merseybeats, and Cilla Black constituted the canonical roster; the Cavern Club Liverpool and the Star-Club Hamburg anchored the institutional performance circuit. Distinguished from broader British Invasion by Merseybeat's Liverpool-specific geographic-cultural identity.",
-  "recipe": "classic British merseybeat, distorted Rock, classic branch, regional distorted rock aussie pub rock greek rock. thick, nervy, equal tempered, Mediterranean demotic vocal. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
-  "recipe_chars": 610,
+  "recipe": "classic British merseybeat, distorted Rock, classic branch, regional distorted rock aussie pub rock greek rock. thick, nervy, equal tempered, Mediterranean demotic vocal. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb spring reverb.",
+  "recipe_chars": 624,
   "score": 390.343,
   "config": {
     "traditions": [
@@ -151,7 +151,7 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
-      "fx_spring_reverb"
+      "spring_reverb"
     ]
   }
 }

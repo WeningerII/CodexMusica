@@ -3,8 +3,8 @@
   "name": "Madchester / baggy",
   "family": "rock_punk",
   "lineage": "Late-1980s-and-early-1990s Manchester-based British rock-and-dance subgenre synthesizing indie-rock with acid-house club rhythmic-influence. The Stone Roses, Happy Mondays, Inspiral Carpets, the Charlatans, and James constitute the canonical roster; the Hacienda nightclub (Manchester, opened 1982) provided the canonical performance venue. The 1989 Stone Roses self-titled debut and the parallel Happy Mondays Bummed (1988) consolidated the canonical sound.",
-  "recipe": "classic British 1987-1989 madchester / baggy, distorted Rock, alternative branch, house electronic dance deep house tech-house. thick, blues-shouter, narrative, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sound design field sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 724,
+  "recipe": "classic British 1987-1989 madchester / baggy, distorted Rock, alternative branch, house electronic dance deep house tech-house. thick, blues-shouter, narrative, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sound design field sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus flanger.",
+  "recipe_chars": 739,
   "score": 327.52,
   "config": {
     "traditions": [
@@ -170,8 +170,8 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
-      "fx_chorus_pedal",
-      "fx_flanger_pedal"
+      "chorus_pedal",
+      "flanger_pedal"
     ]
   }
 }

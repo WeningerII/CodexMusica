@@ -3,8 +3,8 @@
   "name": "Post-punk",
   "family": "rock_punk",
   "lineage": "Late-1970s through early-1980s underground rock movement extending punk's rejection of rock-tradition conventions through more harmonic-and-rhythmic experimentation, dub-and-disco bass-and-rhythm sensibility, and intellectualized lyrical content — codified through Wire (Pink Flag 1977), Joy Division (Unknown Pleasures 1979), Gang of Four (Entertainment! 1979), The Fall, Public Image Ltd (Metal Box 1979), Magazine, Talking Heads (Remain in Light 1980)",
-  "recipe": "classic British 1977-1979 post-punk, distorted Rock, punk branch, alternative distorted rock math rock and post-rock. thick, incomplete closure resting, pure, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled machine hammered symmetric pattern organized rows drum kit, ambient pad like analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb boss DS-1.",
-  "recipe_chars": 833,
+  "recipe": "classic British 1977-1979 post-punk, distorted Rock, punk branch, alternative distorted rock math rock and post-rock. thick, incomplete closure resting, pure, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled machine hammered symmetric pattern organized rows drum kit, ambient pad like analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus boss DS-1.",
+  "recipe_chars": 840,
   "score": 745.025,
   "config": {
     "traditions": [
@@ -189,7 +189,7 @@
     "aesthetic": "isolation_post_punk_aesthetic",
     "arrangement": null,
     "fx_extras": [
-      "fx_chorus_pedal",
+      "chorus_pedal",
       "fx_boss_ds1"
     ]
   }

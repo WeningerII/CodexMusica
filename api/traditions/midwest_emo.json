@@ -3,8 +3,8 @@
   "name": "Midwest emo (90s)",
   "family": "rock_punk",
   "lineage": "Mid-1990s American emo subgenre developed in the American Midwest (Champaign-Urbana, Kinsella-family-related Chicago, Milwaukee, and St. Louis) characterized by intricate twinkly-guitar arpeggios, math-rock-derived rhythmic complexity, and confessional-emotional vocal-delivery. Cap'n Jazz (1989-1995, Chicago) inaugurated the style; American Football (1997, Champaign-Urbana, Mike Kinsella), the Promise Ring, Mineral, and Sunny Day Real Estate (Pacific Northwest cognate) constitute the canonical roster.",
-  "recipe": "classic North American mid-1990s midwest emo, distorted Rock, emo branch, alternative distorted rock modern indie rock slacker rock. thick, incomplete closure resting, chest resonance low mid, punctuated. marshall plexi amp British rock amp mahogany rosewood arpeggiated single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, mahogany fiberskyn synthetic calf hot rolled annealed drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix deluxe memory man.",
-  "recipe_chars": 672,
+  "recipe": "classic North American mid-1990s midwest emo, distorted Rock, emo branch, alternative distorted rock modern indie rock slacker rock. thick, incomplete closure resting, chest resonance low mid, punctuated. marshall plexi amp British rock amp mahogany rosewood arpeggiated single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, mahogany fiberskyn synthetic calf hot rolled annealed drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix deluxe memory man chorus.",
+  "recipe_chars": 679,
   "score": 418.277,
   "config": {
     "traditions": [
@@ -152,7 +152,7 @@
     "arrangement": null,
     "fx_extras": [
       "fx_memory_man_delay",
-      "fx_chorus_pedal"
+      "chorus_pedal"
     ]
   }
 }
