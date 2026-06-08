@@ -1,0 +1,100 @@
+{
+  "id": "dubstep",
+  "name": "Dubstep",
+  "family": "global",
+  "lineage": "The dubstep tradition — UK bass music built on a half-time rhythm, sub-bass weight, and the two-step shuffle, originating in South London",
+  "recipe": "classic modern dubstep, bass System, uk soundsystem branch. sampler, TR-909, sub bass digital subtractive, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion hall reverb.",
+  "recipe_chars": 377,
+  "score": 37.171,
+  "config": {
+    "traditions": [
+      "dubstep"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 0.3465,
+          "sampler_bit_depth": 0.10274999999999998,
+          "sampler_workflow": -0.035,
+          "sampler_classic_context": 3.2500000000000004
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.5385,
+          "tr909_production_origin": 0.0775
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 14.970499999999998,
+          "va_archetypes": 0.105,
+          "digital_subtractive_context": 2.08
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "electric_technique": 0.7,
+          "amp_make": 5.265,
+          "body_wood": 0.6435,
+          "pickup_config": 0.07275,
+          "string_type": 5.2,
+          "scale_length_b": 0.507,
+          "fretted_or_not": 0,
+          "bass_technique": 1.5425
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "distortion_high",
+      "hall_reverb"
+    ]
+  }
+}

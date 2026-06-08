@@ -234,6 +234,10 @@ function* traditionStapleMoves(config) {
     if (!ref) continue;
     for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
       const oe = C.TRADITION_EXTRAS[otherTid];
+      // Umbrella genres (e.g. `rock`, `metal`) are query endpoints, not real
+      // recording lineages — never auto-staple them into another tradition, or
+      // they'd homogenize the specific sub-genres they sit beside.
+      if (oe.umbrella) continue;
       if (oe.parent === ref || (oe.parent || '').startsWith(ref + '.')) {
         candidates.add(otherTid);
       }

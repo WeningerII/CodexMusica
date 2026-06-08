@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-06-08",
-  "count": 1090,
+  "count": 1112,
   "items": [
     {
       "id": "honky_tonk",
@@ -7633,6 +7633,160 @@
       "family": "global",
       "recipe": "classic modern japanese domestic weaving-song, domestic Rhythm, east Asian arctic branch, Celtic hebridean domestic rhythm, east Asian lullaby, east Asian field work japanese taue-uta japanese komoriuta. incomplete closure resting, tasteful, continuous-phonation, min yo. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
       "recipe_chars": 425
+    },
+    {
+      "id": "pop",
+      "name": "Pop",
+      "family": "pop",
+      "recipe": "classic modern pop, functional Song, pop rock branch. extended whistle, nasal, rhythmic, equal tempered. singing lead analog synth, TR-808, ernie ball slinky electric bass, heavy bus compression glue post 2010 multitrack vocal stack. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 427
+    },
+    {
+      "id": "rock",
+      "name": "Rock",
+      "family": "rock_punk",
+      "recipe": "classic British mid-1970s rock, distorted Rock, classic branch. thick, low dynamic level, chest resonance low mid, equal tempered. marshall plexi amp British rock amp mahogany maple rosewood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb dallas arbiter fuzz face MXR phase 90 ibanez tube screamer TS9 / TS808.",
+      "recipe_chars": 666
+    },
+    {
+      "id": "metal",
+      "name": "Metal",
+      "family": "rock_punk",
+      "recipe": "classic North American mid-1990s metal, distorted Rock, thrash branch. thick, declaimed, chest resonance low mid, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808 proco RAT.",
+      "recipe_chars": 676
+    },
+    {
+      "id": "country",
+      "name": "Country",
+      "family": "global",
+      "recipe": "classic modern country, functional Song, contemp main branch. thick, low dynamic level, melodic, narrative. Fender tweed amp American 50s amp tweed breakup single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit, double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 555
+    },
+    {
+      "id": "lo_fi",
+      "name": "Lo-fi",
+      "family": "global",
+      "recipe": "classic modern lo-fi, experimental Elec, lofi branch. glitched textural sampler, hammer low mid emphasis tremolo rhodes electric, mahogany thomastik infeld low tension jazz warm electric bass, TR-808, oversize maple tension resonator European spruce norway spruce European tradition grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 403
+    },
+    {
+      "id": "jazz",
+      "name": "Jazz",
+      "family": "jazz",
+      "recipe": "classic North American mid-1970s jazz, improv On Frame, bop branch. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 646
+    },
+    {
+      "id": "blues",
+      "name": "Blues",
+      "family": "blues_gospel",
+      "recipe": "classic North American mid-1970s blues, functional Song, blues electric branch. thick, blues-shouter, narrative, blues inflected. rock blues lower tension down tuning single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, electric bass, bronze bell bronze pin lathed tonal groove brushes-and-sticks drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. 2120 south michigan avenue 1957-1975 indie-commercial chess studios chicago. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb ibanez tube screamer TS9 / TS808.",
+      "recipe_chars": 694
+    },
+    {
+      "id": "folk",
+      "name": "Folk",
+      "family": "global",
+      "recipe": "classic modern folk, protest Song, anglo American branch. thick, incomplete closure resting, chest resonance low mid, min yo. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, pearwood marine band tradition brass traditional straight harmonica, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 484
+    },
+    {
+      "id": "soul",
+      "name": "Soul",
+      "family": "blues_gospel",
+      "recipe": "classic Southern American mid-1970s soul, functional Song, soul R&B branch. thick, blues-shouter, chest resonance low mid, narrative. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled bronze bell bronze machine hammered drum kit, gospel runs upright piano, tenor ensemble honking attack saxophone, bach stradivarius 180 canonical American orchestral ensemble trumpet. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape ibanez tube screamer TS9 / TS808.",
+      "recipe_chars": 753
+    },
+    {
+      "id": "reggae",
+      "name": "Reggae",
+      "family": "global",
+      "recipe": "classic tropical mid-1970s reggae, bass System, Jamaican branch, Afro-diasporic ritual devotional umbanda ceremonial paranda. declaimed, punctuated, Yoruba tonal vocal, ingressive egressive paired breath. pyramid pure nickel bass British mid 60s era thumb muted electric bass, rim clicks drum kit, single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips roland RE-201 space echo spring reverb.",
+      "recipe_chars": 684
+    },
+    {
+      "id": "hip_hop",
+      "name": "Hip-hop",
+      "family": "hip_hop",
+      "recipe": "classic North American mid-1970s hip-hop, mc Rhythm, east coast branch. vocal fry, rap, narrative, beatbox. sampled chopped sampler drum machine, electric bass, sampled chopped turntable. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 338
+    },
+    {
+      "id": "rnb",
+      "name": "R&B",
+      "family": "hip_hop",
+      "recipe": "classic modern r&b, functional Song, soul R&B branch. thick, blues-shouter, narrative, blues inflected. drum machine analog, wavetable synth, gospel runs electric piano tine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 320
+    },
+    {
+      "id": "gospel",
+      "name": "Gospel",
+      "family": "global",
+      "recipe": "classic North American mid-1970s gospel, ritual Devotional, black gospel branch. thick, declaimed, ornamental, gospel pentecostal. call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, electric bass, brushes-and-sticks drum kit, choir southern black gospel. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 678
+    },
+    {
+      "id": "classical",
+      "name": "Classical",
+      "family": "classical",
+      "recipe": "classic North American mid-1970s classical, art Music, western common practice branch. thick, chest resonance low mid, equal tempered, Chinese classical vocal. beech laminated maple laminated European tradition European spruce norway spruce grand piano, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, norway spruce European alpine European maple bosnian source flamed figure cello. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 581
+    },
+    {
+      "id": "electronic",
+      "name": "Electronic",
+      "family": "electronic",
+      "recipe": "classic mid-1980s electronic, experimental Elec, idm glitch branch. drum machine analog, analog synth, sampler drum machine. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette TC electronic 2290 delay pitch shifter ring modulator.",
+      "recipe_chars": 290
+    },
+    {
+      "id": "house",
+      "name": "House",
+      "family": "electronic",
+      "recipe": "classic mid-1980s house, electronic Dance, chicago house branch. drum machine analog, monosynth acid bass. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette lexicon 224 / 480L.",
+      "recipe_chars": 237
+    },
+    {
+      "id": "techno",
+      "name": "Techno",
+      "family": "electronic",
+      "recipe": "classic mid-1980s techno, electronic Dance, techno branch. drum machine analog, analog synth. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette tape echo.",
+      "recipe_chars": 215
+    },
+    {
+      "id": "ska",
+      "name": "Ska",
+      "family": "global",
+      "recipe": "classic tropical mid-1970s ska, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. pure, punctuated, blues inflected, Yoruba tonal vocal. single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, pin lathed tonal groove brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, heavy one piece matched to monette horn trumpet, saxophone, bass leaning trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 675
+    },
+    {
+      "id": "trap",
+      "name": "Trap",
+      "family": "hip_hop",
+      "recipe": "classic Southern American modern trap, mc Rhythm, southern branch. vocal fry, rap, chest resonance low mid, narrative. TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+      "recipe_chars": 323
+    },
+    {
+      "id": "dubstep",
+      "name": "Dubstep",
+      "family": "global",
+      "recipe": "classic modern dubstep, bass System, uk soundsystem branch. sampler, TR-909, sub bass digital subtractive, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion hall reverb.",
+      "recipe_chars": 377
+    },
+    {
+      "id": "kpop",
+      "name": "K-pop",
+      "family": "global",
+      "recipe": "classic modern k-pop, functional Song, east Asian pop branch. extended whistle, equal tempered, modern pop training, sprechgesang notated approximate pitch. sampler, plucked short envelope digital subtractive, TR-808, pyramid pure nickel bass British mid 60s era electric bass, octuple plus dense stack multi track instrument multitrack vocal stack. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 547
+    },
+    {
+      "id": "afrobeats",
+      "name": "Afrobeats",
+      "family": "global",
+      "recipe": "classic modern afrobeats, functional Song, African pop branch. extended whistle, melodic, narrative, equal tempered. TR-808, singing lead analog poly synth, sampler drum machine. large tropical 1965-1985 mid-major EMI. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 348
     }
   ]
 }

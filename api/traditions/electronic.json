@@ -1,0 +1,82 @@
+{
+  "id": "electronic",
+  "name": "Electronic",
+  "family": "electronic",
+  "lineage": "The broad electronic-music tradition — synthesizer- and drum-machine-based music built on programmed sequencing and studio production, descended from mid-20th-century tape experiments and synth and dance music",
+  "recipe": "classic mid-1980s electronic, experimental Elec, idm glitch branch. drum machine analog, analog synth, sampler drum machine. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette TC electronic 2290 delay pitch shifter ring modulator.",
+  "recipe_chars": 290,
+  "score": 20.116,
+  "config": {
+    "traditions": [
+      "electronic"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_high"
+        },
+        "scores": {
+          "kick_voice": 0.020624999999999998,
+          "snare_voice": 0.320625,
+          "hat_voice": 0.020624999999999998,
+          "shuffle_quantize": 0.048375
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "sample_hold"
+        },
+        "scores": {
+          "electronic_technique": 0.585,
+          "oscillator": 0.78,
+          "filter_topology": 1.69,
+          "envelope": 0.40333928571428573,
+          "modulation": 0.1425
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "sample_bitdepth": 0.02839285714285714,
+          "sample_swing": 9.75,
+          "sample_processing": 1.2662767857142856
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "edo_19",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_tc_2290_delay",
+      "pitch_shifter",
+      "ring_mod"
+    ]
+  }
+}

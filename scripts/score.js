@@ -286,6 +286,7 @@ function _getNeighborsUncached(tradId, n = 5) {
     if (!ref) continue;
     for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
       const oe = C.TRADITION_EXTRAS[otherTid];
+      if (oe.umbrella) continue; // umbrella genres never bias another tradition's scoring
       if (oe.parent === ref || (oe.parent || '').startsWith(ref + '.')) {
         candidates.push({ id: otherTid, src: 'crossref', weight: 1.0 });
       }
@@ -295,6 +296,7 @@ function _getNeighborsUncached(tradId, n = 5) {
   for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
     if (otherTid === tradId) continue;
     const oe = C.TRADITION_EXTRAS[otherTid];
+    if (oe.umbrella) continue;
     if (oe.parent === e.parent) {
       candidates.push({ id: otherTid, src: 'sibling', weight: 0.7 });
     }
@@ -304,7 +306,7 @@ function _getNeighborsUncached(tradId, n = 5) {
   for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
     if (otherTid === tradId) continue;
     const oe = C.TRADITION_EXTRAS[otherTid];
-    if (!oe.axes) continue;
+    if (oe.umbrella || !oe.axes) continue;
     let d = 0;
     for (const k of Object.keys(e.axes)) {
       if (oe.axes[k] !== undefined) d += Math.abs(e.axes[k] - oe.axes[k]);

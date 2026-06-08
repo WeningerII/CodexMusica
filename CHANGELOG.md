@@ -7,6 +7,22 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased] — production hardening
 
 ### Added
+- **22 canonical umbrella genres added as distinct top-level traditions** (1090 → 1112):
+  `pop`, `rock`, `metal`, `country`, `lo_fi`, `jazz`, `blues`, `folk`, `soul`, `reggae`,
+  `hip_hop`, `rnb`, `gospel`, `classical`, `electronic`, `house`, `techno`, `ska`, `trap`,
+  `dubstep`, `kpop`, `afrobeats`. The catalog had 40+ `pop` and 30+ `metal`/`rock`
+  sub-genres but no entry for the bare, most-queried terms — an agent fetching
+  `…/api/traditions/pop.json`, or a user searching "Rock", got a 404 on the single most
+  likely query. Each is a peer entry (like the existing `funk`/`punk`), modeled on its most
+  canonical existing exemplar's config so every id resolves, with era-neutral lineages and
+  hand-authored descriptions/exemplars.
+- **`umbrella: true` extras flag + staple/neighbor exclusion** (`search.js` auto-staple,
+  `score.js` neighbor-bias). Umbrella genres are query endpoints, not real recording
+  lineages, so both pools now skip any tradition flagged `umbrella: true`. Without it, the
+  axis-central umbrellas became high-scoring staple/neighbor candidates and perturbed 53
+  existing sub-genre recipes (e.g. dragging `death_metal`'s Mesa Dual Rectifier to a
+  Marshall). With it, every existing recipe is byte-identical (regression 1198/1198, zero
+  churn) while the umbrellas stay fully queryable and compile sensible canonical recipes.
 - Four new `voice_tradition` variants (32 total) for vocal lineages the palette
   lacked: `sami_joik_tradition` (Nordic Sápmi joik), `andean_quechua_tradition`
   (Quechua/Aymara wayno), `native_american_vocal_tradition` (Plains/Southwest

@@ -1,5 +1,5 @@
 {
-  "count": 1090,
+  "count": 1112,
   "items": [
     {
       "id": "honky_tonk",
@@ -6540,6 +6540,138 @@
       "name": "Japanese domestic weaving-song (機織り唄, hata-ori uta)",
       "family": "global",
       "href": "traditions/japanese_domestic_hataori.json"
+    },
+    {
+      "id": "pop",
+      "name": "Pop",
+      "family": "pop",
+      "href": "traditions/pop.json"
+    },
+    {
+      "id": "rock",
+      "name": "Rock",
+      "family": "rock_punk",
+      "href": "traditions/rock.json"
+    },
+    {
+      "id": "metal",
+      "name": "Metal",
+      "family": "rock_punk",
+      "href": "traditions/metal.json"
+    },
+    {
+      "id": "country",
+      "name": "Country",
+      "family": "global",
+      "href": "traditions/country.json"
+    },
+    {
+      "id": "lo_fi",
+      "name": "Lo-fi",
+      "family": "global",
+      "href": "traditions/lo_fi.json"
+    },
+    {
+      "id": "jazz",
+      "name": "Jazz",
+      "family": "jazz",
+      "href": "traditions/jazz.json"
+    },
+    {
+      "id": "blues",
+      "name": "Blues",
+      "family": "blues_gospel",
+      "href": "traditions/blues.json"
+    },
+    {
+      "id": "folk",
+      "name": "Folk",
+      "family": "global",
+      "href": "traditions/folk.json"
+    },
+    {
+      "id": "soul",
+      "name": "Soul",
+      "family": "blues_gospel",
+      "href": "traditions/soul.json"
+    },
+    {
+      "id": "reggae",
+      "name": "Reggae",
+      "family": "global",
+      "href": "traditions/reggae.json"
+    },
+    {
+      "id": "hip_hop",
+      "name": "Hip-hop",
+      "family": "hip_hop",
+      "href": "traditions/hip_hop.json"
+    },
+    {
+      "id": "rnb",
+      "name": "R&B",
+      "family": "hip_hop",
+      "href": "traditions/rnb.json"
+    },
+    {
+      "id": "gospel",
+      "name": "Gospel",
+      "family": "global",
+      "href": "traditions/gospel.json"
+    },
+    {
+      "id": "classical",
+      "name": "Classical",
+      "family": "classical",
+      "href": "traditions/classical.json"
+    },
+    {
+      "id": "electronic",
+      "name": "Electronic",
+      "family": "electronic",
+      "href": "traditions/electronic.json"
+    },
+    {
+      "id": "house",
+      "name": "House",
+      "family": "electronic",
+      "href": "traditions/house.json"
+    },
+    {
+      "id": "techno",
+      "name": "Techno",
+      "family": "electronic",
+      "href": "traditions/techno.json"
+    },
+    {
+      "id": "ska",
+      "name": "Ska",
+      "family": "global",
+      "href": "traditions/ska.json"
+    },
+    {
+      "id": "trap",
+      "name": "Trap",
+      "family": "hip_hop",
+      "href": "traditions/trap.json"
+    },
+    {
+      "id": "dubstep",
+      "name": "Dubstep",
+      "family": "global",
+      "href": "traditions/dubstep.json"
+    },
+    {
+      "id": "kpop",
+      "name": "K-pop",
+      "family": "global",
+      "href": "traditions/kpop.json"
+    },
+    {
+      "id": "afrobeats",
+      "name": "Afrobeats",
+      "family": "global",
+      "href": "traditions/afrobeats.json"
     }
   ]
 }
