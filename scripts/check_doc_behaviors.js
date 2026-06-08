@@ -108,6 +108,24 @@ assert('§9.1', 'recipe.js --arrangement injects a clause the default recipe lac
   return { ok: hasClause(withArr) && !hasClause(without), detail: `with=${hasClause(withArr)}, without=${hasClause(without)}` };
 });
 
+// ── §9.2 — fx_extras ARE a rendered chain stage. Regression guard for the
+//    `fx_`-prefix bug: 18 traditions carried `chain_fx: ['fx_spring_reverb', …]`
+//    that didn't resolve to the fx section (real id `spring_reverb`) and were
+//    silently dropped at render. surf rock without its spring reverb is wrong. ──
+assert('§9.2', 'fx_extras render into the recipe: surf_rock shows its spring reverb + tremolo', () => {
+  const out = run([RECIPE, '--tradition', 'surf_rock']).out;
+  const spring = /spring reverb/i.test(out), trem = /tremolo/i.test(out);
+  return { ok: spring && trem, detail: `spring reverb=${spring}, tremolo=${trem}` };
+});
+
+// ── §3d — the voice/preface lexicon tokens the docs print verbatim ──
+assert('§3d', 'PREFACE_LEXICON "belting" → the 8 tokens documented in §3d', () => {
+  const b = C.PREFACE_LEXICON.find(p => p.id === 'belting');
+  const expected = 'projecting, chest-resonance-low-mid, vibrato-rich, late-Romantic-onward, ringing, blues-shouter, characteristic-cry, choir-blendable';
+  const got = b ? (b.tokens || []).slice(0, 8).join(', ') : '(belting not found)';
+  return { ok: got === expected, detail: got === expected ? '8 tokens match' : `got: ${got}` };
+});
+
 let fail = 0;
 const results = [];
 for (const c of checks) {

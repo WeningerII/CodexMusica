@@ -3,8 +3,8 @@
   "name": "Space rock (late-1960s through 1970s psychedelic cosmic rock)",
   "family": "rock_punk",
   "lineage": "Late-1960s-and-1970s rock subgenre integrating extended psychedelic instrumental passages with science-fiction-cosmic thematic content. Hawkwind (UK 1969-onward) inaugurated the canonical style with Space Ritual (1973); Pink Floyd's pre-Dark-Side material, Gong's Radio Gnome Invisible trilogy, and (in the 1980s revival) Spacemen 3 and Loop continued the lineage. Distinguished from broader progressive rock by space rock's specific psychedelic-cosmic thematic focus and extended-instrumental-passage emphasis.",
-  "recipe": "classic North American space rock, distorted Rock, progressive rock branch, experimental distorted rock chillwave post-rock. thick, low dynamic level, nervy, equal tempered. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky riff driven electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, analog synth. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 675,
+  "recipe": "classic North American space rock, distorted Rock, progressive rock branch, experimental distorted rock chillwave post-rock. thick, low dynamic level, nervy, equal tempered. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky riff driven electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, analog synth. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
+  "recipe_chars": 687,
   "score": 509.056,
   "config": {
     "traditions": [
@@ -18,6 +18,8 @@
         "slots": {
           "voice_register": "chest_voice",
           "voice_quality": "crooner_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "fast_vibrato",
           "voice_articulation": "spoken_voice",
           "voice_microtone": "tempered_voice",
@@ -34,6 +36,8 @@
         "scores": {
           "voice_register": 23.593749999999996,
           "voice_quality": 1.2229999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 3.3799999999999994,
           "voice_articulation": 0.15675,
           "voice_microtone": 23.9285,
@@ -166,8 +170,8 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
-      "fx_tape_echo",
-      "fx_phaser_pedal"
+      "tape_echo",
+      "phaser_pedal"
     ]
   }
 }

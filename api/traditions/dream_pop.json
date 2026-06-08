@@ -3,8 +3,8 @@
   "name": "Dream pop",
   "family": "global",
   "lineage": "1980s-onward atmospheric guitar pop genre codified through the 4AD label catalog (Cocteau Twins, Treasure 1984, Heaven or Las Vegas 1990 the dream pop album), the Mazzy Star California canon (She Hangs Brightly 1990, So Tonight That I Might See 1993 with Hope Sandoval female-vocal-foreground), Galaxie 500 (the New England slowcore-adjacent canon), Beach House (Baltimore modern dream pop, Teen Dream 2010, Bloom 2012)",
-  "recipe": "classic North American mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bedroom pop. thick, larynx lowered, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix deluxe memory man.",
-  "recipe_chars": 793,
+  "recipe": "classic North American mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bedroom pop. thick, larynx lowered, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix deluxe memory man chorus.",
+  "recipe_chars": 800,
   "score": 633.615,
   "config": {
     "traditions": [
@@ -18,6 +18,8 @@
         "slots": {
           "voice_register": "chest_voice",
           "voice_quality": "lowered_larynx_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "spoken_voice",
           "voice_microtone": "tempered_voice",
@@ -34,6 +36,8 @@
         "scores": {
           "voice_register": 21.829999999999995,
           "voice_quality": 1.1999999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 0.9750000000000001,
           "voice_articulation": 0.585,
           "voice_microtone": 21.299999999999997,
@@ -180,7 +184,7 @@
     "arrangement": null,
     "fx_extras": [
       "fx_memory_man_delay",
-      "fx_chorus_pedal"
+      "chorus_pedal"
     ]
   }
 }

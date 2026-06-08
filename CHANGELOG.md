@@ -41,6 +41,28 @@ All notable changes to this project are recorded here. Format loosely follows
   rejection, stapling order → lead tradition, the `nearest_neighbor` / `preface_configure`
   outputs cited as "Verified", and arrangement being CLI-only — and fails CI when reality
   diverges (proven against the historical `--diff` regression).
+- `scripts/check_api.js` + `scripts/_api_contract.js` (`npm run check:api`, in CI; also
+  run at the tail of `npm run build:api` and in the Pages publish): a contract gate over
+  the **static API itself** — the agent-facing product (`api/*.json`) that AGENTS.md,
+  `llms.txt`, and `index.html` point every external agent at, and which until now had **no**
+  automated verification at all. `_api_contract.js` encodes the promises those docs make,
+  asserted in two places. (1) `build_static_api.js` now **fails closed**: a tradition that
+  won't compile, an incomplete count, an over-ceiling recipe, or an unresolvable `config`
+  id makes the build exit non-zero instead of silently dropping the tradition — the old
+  `fail++; continue` could quietly publish fewer than the promised 1090, and
+  `build_discovery.js` would then propagate the short count into `llms.txt`. (2)
+  `check_api.js` re-checks the on-disk artifact: completeness (the "all 1090 in one fetch"
+  promise), the ≤1000-char recipe ceiling, `recipe_chars` accuracy, and that **every**
+  `config` id (room, archetype, tuning, `inline_chain`, `fx_extras`, instruments + slot
+  variants) resolves against the current catalog — which also catches the committed `api/`
+  snapshot drifting from `references/`.
+- `validate.js` now guards three previously-unchecked tradition fields: `chain_fx`
+  (against the fx section) and `chain_amp_guitar` / `chain_amp_bass` (against the
+  `amp_make` variant namespace they actually draw from). That gap is what let the
+  `fx_`-prefix and wrong-namespace amp ids in the Fixed section below ride along unflagged.
+- Two more `check_doc_behaviors.js` assertions: fx_extras render into the recipe (surf
+  rock shows its spring reverb + tremolo — the regression guard for the fx fix below) and
+  the §3d `belting` lexicon tokens match the doc verbatim.
 - **Voice model expanded with two new articulatory dimensions + an `auto: false`
   explicit-only variant mechanism.** The `voice` instrument gains `voice_vocal_tract`
   (tongue-root / vowel posture: `tongue_root_retracted_dark`, `tongue_root_advanced_bright`,
@@ -147,6 +169,21 @@ All notable changes to this project are recorded here. Format loosely follows
   `check_doc_behaviors.js`), and §3h no longer says jsdom is "already installed" — the
   headless rich-recipe path needs `npm ci` first, and a fresh clone fails with "Cannot
   find module 'jsdom'" even from the repo root.
+- **18 traditions silently dropped their intended fx.** Their `chain_fx` carried
+  `fx_`-prefixed ids (`fx_spring_reverb`, `fx_chorus_pedal`, `fx_tape_echo`, …) that don't
+  exist in the fx section — the real ids are unprefixed (`spring_reverb`, `chorus_pedal`,
+  `tape_echo`). `translate` (and the browser `compileStack`) resolve fx by exact id and
+  silently `continue` past a miss, so the period-correct fx never rendered: surf rock
+  without its spring-reverb tank, dub without its plate reverb, honky-tonk/bakersfield
+  without spring reverb + analog delay (27 occurrences across bakersfield,
+  british_invasion_rb, city_pop, country_rock, detroit_techno, dream_pop, dub, honky_tonk,
+  krautrock, madchester_baggy, merseybeat, midwest_emo, new_wave, post_punk, reggae_roots,
+  space_rock, surf_rock, synthpop). Stripped the bogus prefix; those recipes now render
+  their fx, and `validate.js` + `check_api.js` make this class of broken ref fatal.
+- `modal_jazz.chain_amp_guitar` used a chain-`amp`-section id (`amp_fender_twin_blackface`)
+  in a field that resolves against the `amp_make` variant namespace, so its guitar amp
+  silently never applied; corrected to `amp_american_fender_blackface` (the same Fender
+  Blackface Twin). Surfaced immediately by the new `validate.js` amp guard.
 
 ## [1.0.0]
 

@@ -706,6 +706,114 @@
       ]
     },
     {
+      "id": "voice_vocal_tract",
+      "surface": false,
+      "name": "Vocal-tract / vowel posture",
+      "variants": [
+        {
+          "id": "tract_neutral",
+          "default": true,
+          "surface": false,
+          "name": "Neutral tract (unmarked)",
+          "descriptors": []
+        },
+        {
+          "id": "tongue_root_retracted_dark",
+          "surface": false,
+          "auto": false,
+          "name": "Tongue-root retracted (back-vowel, dark)",
+          "descriptors": [
+            "tongue-root-retracted",
+            "back-vowel-targeted",
+            "front-consonant-degraded",
+            "pharyngeal-darkened"
+          ]
+        },
+        {
+          "id": "tongue_root_advanced_bright",
+          "surface": false,
+          "auto": false,
+          "name": "Tongue-root advanced (front-vowel, bright)",
+          "descriptors": [
+            "tongue-root-advanced",
+            "front-vowel-forward",
+            "consonant-crisp",
+            "oral-brightened"
+          ]
+        },
+        {
+          "id": "pharyngeal_widened_yawned",
+          "surface": false,
+          "auto": false,
+          "name": "Pharynx widened (yawn-open throat)",
+          "descriptors": [
+            "pharynx-widened",
+            "yawn-open-throat",
+            "inner-space-expanded"
+          ]
+        },
+        {
+          "id": "nasalized_tract",
+          "surface": false,
+          "auto": false,
+          "name": "Nasalized (velopharyngeal port open)",
+          "descriptors": [
+            "nasalized",
+            "velopharyngeal-open",
+            "nasal-coupled-resonance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_effort",
+      "surface": false,
+      "name": "Phonatory effort / subglottal pressure",
+      "variants": [
+        {
+          "id": "effort_moderate",
+          "default": true,
+          "surface": false,
+          "name": "Moderate effort (unmarked dynamic)",
+          "descriptors": []
+        },
+        {
+          "id": "effort_minimal_undersung",
+          "surface": false,
+          "auto": false,
+          "name": "Minimal pressure / under-sung (conversation volume or below)",
+          "descriptors": [
+            "minimal-subglottal-pressure",
+            "conversation-volume-or-below",
+            "under-sung",
+            "force-withheld"
+          ]
+        },
+        {
+          "id": "effort_projected",
+          "surface": false,
+          "auto": false,
+          "name": "Projected (raised pressure, carrying)",
+          "descriptors": [
+            "raised-subglottal-pressure",
+            "projected",
+            "carrying"
+          ]
+        },
+        {
+          "id": "effort_pressed_maximal",
+          "surface": false,
+          "auto": false,
+          "name": "Pressed / maximal force",
+          "descriptors": [
+            "maximal-subglottal-pressure",
+            "pressed-loud",
+            "full-force"
+          ]
+        }
+      ]
+    },
+    {
       "id": "voice_vibrato",
       "surface": false,
       "name": "Vibrato",
@@ -812,6 +920,16 @@
           ],
           "canonical_tags": [
             "country"
+          ]
+        },
+        {
+          "id": "slow_wide_terminal_vibrato",
+          "auto": false,
+          "name": "Slow, wide, terminal-only",
+          "descriptors": [
+            "slow-rate",
+            "wide-excursion",
+            "terminal-sustain-only"
           ]
         }
       ]
@@ -1090,6 +1208,17 @@
           "canonical_tags": [
             "pop",
             "modern"
+          ]
+        },
+        {
+          "id": "appalachian_outlaw_folk_tradition",
+          "auto": false,
+          "name": "Anglo-American folk / outlaw-country (plain narrative, untrained-natural)",
+          "descriptors": [
+            "anglo-american-folk",
+            "plain-spoken-narrative",
+            "untrained-natural",
+            "outlaw-country-lineage"
           ]
         },
         {
@@ -1829,6 +1958,17 @@
           "match_tokens": [
             "speech-derived",
             "breathing"
+          ]
+        },
+        {
+          "id": "voice_mechanism_supraglottal_rasp_pitch_stable",
+          "auto": false,
+          "name": "Supraglottal rasp on a clean core (controlled ventricular/AES grain, soft throat-clear; true-fold pitch untouched)",
+          "descriptors": [
+            "supraglottal-rasp-clean-core",
+            "pitch-stable-distortion",
+            "controlled-ventricular-overlay",
+            "throat-clear-grain"
           ]
         }
       ]
@@ -4237,6 +4377,114 @@
       ]
     },
     {
+      "id": "voice_vocal_tract",
+      "surface": false,
+      "name": "Vocal-tract / vowel posture",
+      "variants": [
+        {
+          "id": "tract_neutral",
+          "default": true,
+          "surface": false,
+          "name": "Neutral tract (unmarked)",
+          "descriptors": []
+        },
+        {
+          "id": "tongue_root_retracted_dark",
+          "surface": false,
+          "auto": false,
+          "name": "Tongue-root retracted (back-vowel, dark)",
+          "descriptors": [
+            "tongue-root-retracted",
+            "back-vowel-targeted",
+            "front-consonant-degraded",
+            "pharyngeal-darkened"
+          ]
+        },
+        {
+          "id": "tongue_root_advanced_bright",
+          "surface": false,
+          "auto": false,
+          "name": "Tongue-root advanced (front-vowel, bright)",
+          "descriptors": [
+            "tongue-root-advanced",
+            "front-vowel-forward",
+            "consonant-crisp",
+            "oral-brightened"
+          ]
+        },
+        {
+          "id": "pharyngeal_widened_yawned",
+          "surface": false,
+          "auto": false,
+          "name": "Pharynx widened (yawn-open throat)",
+          "descriptors": [
+            "pharynx-widened",
+            "yawn-open-throat",
+            "inner-space-expanded"
+          ]
+        },
+        {
+          "id": "nasalized_tract",
+          "surface": false,
+          "auto": false,
+          "name": "Nasalized (velopharyngeal port open)",
+          "descriptors": [
+            "nasalized",
+            "velopharyngeal-open",
+            "nasal-coupled-resonance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voice_effort",
+      "surface": false,
+      "name": "Phonatory effort / subglottal pressure",
+      "variants": [
+        {
+          "id": "effort_moderate",
+          "default": true,
+          "surface": false,
+          "name": "Moderate effort (unmarked dynamic)",
+          "descriptors": []
+        },
+        {
+          "id": "effort_minimal_undersung",
+          "surface": false,
+          "auto": false,
+          "name": "Minimal pressure / under-sung (conversation volume or below)",
+          "descriptors": [
+            "minimal-subglottal-pressure",
+            "conversation-volume-or-below",
+            "under-sung",
+            "force-withheld"
+          ]
+        },
+        {
+          "id": "effort_projected",
+          "surface": false,
+          "auto": false,
+          "name": "Projected (raised pressure, carrying)",
+          "descriptors": [
+            "raised-subglottal-pressure",
+            "projected",
+            "carrying"
+          ]
+        },
+        {
+          "id": "effort_pressed_maximal",
+          "surface": false,
+          "auto": false,
+          "name": "Pressed / maximal force",
+          "descriptors": [
+            "maximal-subglottal-pressure",
+            "pressed-loud",
+            "full-force"
+          ]
+        }
+      ]
+    },
+    {
       "id": "voice_vibrato",
       "surface": false,
       "name": "Vibrato",
@@ -4343,6 +4591,16 @@
           ],
           "canonical_tags": [
             "country"
+          ]
+        },
+        {
+          "id": "slow_wide_terminal_vibrato",
+          "auto": false,
+          "name": "Slow, wide, terminal-only",
+          "descriptors": [
+            "slow-rate",
+            "wide-excursion",
+            "terminal-sustain-only"
           ]
         }
       ]
@@ -4621,6 +4879,17 @@
           "canonical_tags": [
             "pop",
             "modern"
+          ]
+        },
+        {
+          "id": "appalachian_outlaw_folk_tradition",
+          "auto": false,
+          "name": "Anglo-American folk / outlaw-country (plain narrative, untrained-natural)",
+          "descriptors": [
+            "anglo-american-folk",
+            "plain-spoken-narrative",
+            "untrained-natural",
+            "outlaw-country-lineage"
           ]
         },
         {
@@ -5360,6 +5629,17 @@
           "match_tokens": [
             "speech-derived",
             "breathing"
+          ]
+        },
+        {
+          "id": "voice_mechanism_supraglottal_rasp_pitch_stable",
+          "auto": false,
+          "name": "Supraglottal rasp on a clean core (controlled ventricular/AES grain, soft throat-clear; true-fold pitch untouched)",
+          "descriptors": [
+            "supraglottal-rasp-clean-core",
+            "pitch-stable-distortion",
+            "controlled-ventricular-overlay",
+            "throat-clear-grain"
           ]
         }
       ]

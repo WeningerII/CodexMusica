@@ -1,0 +1,149 @@
+#!/usr/bin/env node
+// check_api.js — the static-API contract gate.
+//
+// WHY: the published static API (api/*.json) is the agent-facing PRODUCT — every
+// external agent is told to fetch it (AGENTS.md, llms.txt, index.html). Yet nothing
+// verified it: build_static_api.js used to fail OPEN (a tradition that failed to
+// compile was silently skipped, dropping all.json below the promised count), and no
+// gate checked the published files against the catalog. This closes that: it asserts
+// the artifact honors every documented promise.
+//
+// What it checks (fast — reads committed JSON, no recompile):
+//   • Completeness — traditions/index, all.json, and the per-id files cover EXACTLY
+//     the catalog's traditions (the "all <N> traditions in one fetch" promise); same
+//     for instruments.
+//   • Recipe ceiling — every recipe <= 1000 chars (AGENTS.md / llms.txt promise).
+//   • recipe_chars accuracy — equals the recipe's true length (no drift).
+//   • Id resolvability — every id in each tradition's `config` (room, archetype,
+//     tuning, inline_chain, fx_extras, instruments + their slot variants) resolves
+//     against the current catalog (the "every id resolvable" promise) — this is what
+//     catches the published snapshot drifting from references/.
+//   • index.json counts match the catalog.
+//
+// Usage:
+//   node scripts/check_api.js                 # check the committed api/
+//   node scripts/check_api.js --api=_dist/api # check a freshly built dir (CI publish)
+//   node scripts/check_api.js --verbose       # list every problem (default: first 40)
+//   node scripts/check_api.js --json
+// Exit 0 if the artifact honors the contract, 1 otherwise.
+
+'use strict';
+const fs = require('fs');
+const path = require('path');
+const C = require('./_loader.js');
+const { buildResolver, recordProblems } = require('./_api_contract.js');
+
+const ROOT = path.join(__dirname, '..');
+const flags = {};
+for (const a of process.argv.slice(2)) {
+  if (a.startsWith('--')) {
+    const eq = a.indexOf('=');
+    if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
+    else flags[a.slice(2)] = true;
+  }
+}
+const API = flags.api ? path.resolve(ROOT, flags.api) : path.join(ROOT, 'api');
+const VERBOSE = !!flags.verbose;
+const MAX_SHOWN = VERBOSE ? Infinity : 40;
+
+const problems = [];
+const fail = (msg) => problems.push(msg);
+
+function readJson(rel) {
+  const p = path.join(API, rel);
+  if (!fs.existsSync(p)) {
+    fail(`missing file: ${rel}`);
+    return null;
+  }
+  try {
+    return JSON.parse(fs.readFileSync(p, 'utf8'));
+  } catch (e) {
+    fail(`invalid JSON in ${rel}: ${e.message}`);
+    return null;
+  }
+}
+
+// Compare two id sets and report missing / extra against the catalog.
+function diffIds(label, actualIds, expectedIds) {
+  const actual = new Set(actualIds);
+  const expected = new Set(expectedIds);
+  const missing = [...expected].filter((id) => !actual.has(id));
+  const extra = [...actual].filter((id) => !expected.has(id));
+  if (missing.length) fail(`${label}: ${missing.length} catalog id(s) missing (e.g. ${missing.slice(0, 5).join(', ')})`);
+  if (extra.length) fail(`${label}: ${extra.length} id(s) not in catalog (e.g. ${extra.slice(0, 5).join(', ')})`);
+}
+
+const R = buildResolver(C);
+const tradIds = C.TRADITIONS.map((t) => t.id);
+const instIds = C.INSTRUMENTS.map((i) => i.id);
+
+// ───────────────────────── traditions ─────────────────────────
+const tindex = readJson('traditions/index.json');
+if (tindex) {
+  if (tindex.count !== C.TRADITIONS.length) fail(`traditions/index.json count=${tindex.count}, catalog has ${C.TRADITIONS.length}`);
+  const items = Array.isArray(tindex.items) ? tindex.items : [];
+  if (items.length !== tindex.count) fail(`traditions/index.json: count=${tindex.count} but items.length=${items.length}`);
+  diffIds('traditions/index.json', items.map((x) => x.id), tradIds);
+
+  // Per-id files: each catalog tradition has a file that honors the record contract.
+  let checked = 0;
+  for (const id of tradIds) {
+    const rec = readJson(`traditions/${id}.json`);
+    if (!rec) continue; // readJson already logged the miss
+    if (rec.id !== id) fail(`traditions/${id}.json: id field is "${rec.id}"`);
+    for (const p of recordProblems(rec, R)) fail(`traditions/${id}.json — ${p}`);
+    checked++;
+  }
+  if (!VERBOSE) console.error(`  …validated ${checked} tradition files`);
+}
+
+// ───────────────────────── all.json (the "one fetch" payload) ─────────────────────────
+const all = readJson('all.json');
+if (all) {
+  if (all.count !== C.TRADITIONS.length) fail(`all.json count=${all.count}, catalog has ${C.TRADITIONS.length}`);
+  const items = Array.isArray(all.items) ? all.items : [];
+  if (items.length !== all.count) fail(`all.json: count=${all.count} but items.length=${items.length}`);
+  diffIds('all.json', items.map((x) => x.id), tradIds);
+  for (const item of items) {
+    // all.json items carry recipe + recipe_chars but no config (by design).
+    for (const p of recordProblems(item, R, { requireConfig: false })) fail(`all.json[${item.id}] — ${p}`);
+  }
+}
+
+// ───────────────────────── instruments ─────────────────────────
+const iindex = readJson('instruments/index.json');
+if (iindex) {
+  if (iindex.count !== C.INSTRUMENTS.length) fail(`instruments/index.json count=${iindex.count}, catalog has ${C.INSTRUMENTS.length}`);
+  const items = Array.isArray(iindex.items) ? iindex.items : [];
+  diffIds('instruments/index.json', items.map((x) => x.id), instIds);
+}
+
+// ───────────────────────── top-level index ─────────────────────────
+const index = readJson('index.json');
+if (index) {
+  const c = index.counts || {};
+  if (c.traditions !== C.TRADITIONS.length) fail(`index.json counts.traditions=${c.traditions}, catalog has ${C.TRADITIONS.length}`);
+  if (c.instruments !== C.INSTRUMENTS.length) fail(`index.json counts.instruments=${c.instruments}, catalog has ${C.INSTRUMENTS.length}`);
+}
+
+// ───────────────────────── report ─────────────────────────
+if (flags.json) {
+  console.log(JSON.stringify({ api: path.relative(ROOT, API), problems }, null, 2));
+  process.exit(problems.length ? 1 : 0);
+}
+
+console.log(`=== Static API contract (${path.relative(ROOT, API) || 'api'}) ===`);
+if (problems.length === 0) {
+  console.log(`PASS — artifact honors every documented promise:`);
+  console.log(`  ✓ ${C.TRADITIONS.length} traditions complete (index + per-id files + all.json)`);
+  console.log(`  ✓ ${C.INSTRUMENTS.length} instruments complete`);
+  console.log(`  ✓ every recipe <= 1000 chars, recipe_chars accurate`);
+  console.log(`  ✓ every config id resolves against the catalog`);
+  process.exit(0);
+}
+console.error(`FAIL — ${problems.length} contract violation(s):`);
+for (const p of problems.slice(0, MAX_SHOWN)) console.error(`  ✗ ${p}`);
+if (problems.length > MAX_SHOWN) console.error(`  … and ${problems.length - MAX_SHOWN} more (use --verbose).`);
+console.error(`\nThe published api/ has drifted from the catalog or broken a promise. Rebuild with`);
+console.error(`\`npm run build:api\` (which now self-verifies) and commit, or fix the offending data.`);
+process.exit(1);

@@ -31,6 +31,7 @@ Every operation is an `npm run` script (see `package.json`):
 | `npm run build:html` | Just (re)build `codex.html` from `references/`, with a post-build syntax check |
 | `npm run build:api` | Pre-compile every tradition into the static, server-free JSON "API" under `api/` + `llms.txt`/`sitemap.xml` |
 | `npm run validate` | Reference-integrity check (fatal on broken refs, axis violations, duplicate ids) |
+| `npm run check:api` | Static-API contract gate: the published `api/` honors every documented promise — complete counts, ≤1000-char recipes, every `config` id resolves |
 | `npm run audit` | Data-quality audit (advisory warnings) |
 | `npm run audit:coherence` | Substantive coherence audit: field-vs-field consistency (recording-era clashes, stamped vocal-tradition defaults, non-12-TET tuning contradictions) |
 | `npm run test` | Regression (5 suites): recipe snapshots + preface assignments + slot-pick lock-ins + browser-app recipe parity + node↔browser equivalence |

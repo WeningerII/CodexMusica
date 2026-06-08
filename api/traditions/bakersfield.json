@@ -3,8 +3,8 @@
   "name": "Bakersfield country",
   "family": "vernacular",
   "lineage": "California Central Valley honky-tonk-derived country tradition that emerged in 1950s-60s Bakersfield as a West Coast reaction against the smoother Nashville Sound — codified through Buck Owens (Capitol Records Bakersfield voice from 1959 onward, Together Again 1964) and Merle Haggard (post-Owens Bakersfield extension, Mama Tried 1968, Okie from Muskogee 1969), played by the Buckaroos (Owens band led by Don Rich) and the Strangers (Haggards band); built on Telecaster-and-pedal-steel-foreground arrangement, faster shuffle tempos than typical Nashville fare, and Dust-Bowl-migration cultural lineage",
-  "recipe": "classic North American mid-1950s bakersfield country, functional Song, honky tonk era branch, outlaw country. thick, covered, expressive, equal tempered. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, steel hot rolled annealed machine hammered symmetric pattern drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 768,
+  "recipe": "classic North American mid-1950s bakersfield country, functional Song, honky tonk era branch, outlaw country. thick, covered, expressive, equal tempered. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, steel hot rolled annealed machine hammered symmetric pattern drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
+  "recipe_chars": 810,
   "score": 361.611,
   "config": {
     "traditions": [
@@ -17,6 +17,8 @@
         "slots": {
           "voice_register": "chest_voice",
           "voice_quality": "opera_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "staccato_voice",
           "voice_microtone": "tempered_voice",
@@ -33,6 +35,8 @@
         "scores": {
           "voice_register": 15.849999999999994,
           "voice_quality": 1,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 12.75,
           "voice_articulation": 0.39,
           "voice_microtone": 2.0630000000000006,
@@ -186,8 +190,8 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
-      "fx_spring_reverb",
-      "fx_analog_delay"
+      "spring_reverb",
+      "analog_delay"
     ]
   }
 }
