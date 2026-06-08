@@ -18,6 +18,8 @@
         "slots": {
           "voice_register": "chest_voice",
           "voice_quality": "yodel_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "shouted_voice",
           "voice_microtone": "tempered_voice",
@@ -34,6 +36,8 @@
         "scores": {
           "voice_register": 5.504500000000001,
           "voice_quality": 0.325,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 5.54875,
           "voice_microtone": 1.7000000000000002,
