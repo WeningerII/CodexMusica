@@ -184,6 +184,13 @@ All notable changes to this project are recorded here. Format loosely follows
   token-set chain in `build_variants.js`. `npm run lint` is clean.
 
 ### Fixed
+- **Browse-traditions search now ranks by match locus, not catalog order.** Typing a
+  genre returned every tradition whose name/lineage/description merely *contained* the
+  term, rendered in raw catalog-array order — so the exact title (e.g. `Pop`) sat
+  hundreds of rows below prose mentions ("…Selena-era pop-conjunto…"), and newly-appended
+  umbrellas sorted dead last. Results are now tiered: exact name → name prefix → name
+  substring → lineage/description only, with shortest name first within a tier. (`src/app.js`,
+  browser-only; recipe output and the static API are unaffected.)
 - Two false-positive `tandem` gates (flagging source untouched by data work):
   the card-descriptor-semantics gate now strips comments before scanning the
   HTML embed for `match_tokens` (the injected `harvestDescriptors` core carries
