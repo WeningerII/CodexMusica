@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // check_docs.js — verify markdown numeric claims against current catalog/audit state.
 //
+// @covers: catalog-counts
+//
 // CATCHES drift across active markdown documentation. Run after catalog
 // changes that move any canonical count, or before tagging a release.
 //

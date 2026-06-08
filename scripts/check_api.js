@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // check_api.js — the static-API contract gate.
 //
+// @covers: recipe-char-ceiling, all-traditions-one-fetch, every-id-resolves
+//
 // WHY: the published static API (api/*.json) is the agent-facing PRODUCT — every
 // external agent is told to fetch it (AGENTS.md, llms.txt, index.html). Yet nothing
 // verified it: build_static_api.js used to fail OPEN (a tradition that failed to

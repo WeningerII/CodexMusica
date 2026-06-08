@@ -35,6 +35,9 @@ jobs:
       - name: Static API contract (committed api/ honors promises)
         run: npm run check:api
 
+      - name: Promise→gate coverage (every promise documented AND gated, 0 orphans)
+        run: npm run check:promises
+
       - name: Audit data quality
         run: npm run audit
 
@@ -46,6 +49,32 @@ jobs:
 
       - name: UI reachability
         run: npm run reachability
+
+  # Reproducibility + two-sided gates. Separate job so the ~6-min fresh rebuild
+  # runs in parallel with `verify`, and still gates the merge (runs on PRs).
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build a fresh artifact from source
+        run: |
+          node scripts/build_static_api.js --out="$RUNNER_TEMP/fresh/api"
+          node scripts/build_html.js --out="$RUNNER_TEMP/fresh/codex.html" --quiet
+
+      - name: Reproducibility — committed api/ + codex.html == fresh build (0 diff)
+        run: node scripts/check_artifact_fresh.js --prebuilt-api="$RUNNER_TEMP/fresh/api" --prebuilt-html="$RUNNER_TEMP/fresh/codex.html"
+
+      - name: Fault injection — every gate is two-sided (0 escapes)
+        run: node scripts/faults.js --fresh-api="$RUNNER_TEMP/fresh/api" --fresh-html="$RUNNER_TEMP/fresh/codex.html"
 
   # The catalog-wide smoke (~16 min, all 1090 traditions) is intentionally not
   # on the per-push path. Run it on demand:

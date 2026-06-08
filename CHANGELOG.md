@@ -63,6 +63,27 @@ All notable changes to this project are recorded here. Format loosely follows
 - Two more `check_doc_behaviors.js` assertions: fx_extras render into the recipe (surf
   rock shows its spring reverb + tremolo — the regression guard for the fx fix below) and
   the §3d `belting` lexicon tokens match the doc verbatim.
+- **Three standing gates that make the dogfooding self-enforcing** (a promise-coverage
+  bijection, two-sided proofs, and artifact reproducibility):
+  - `scripts/check_promises.js` + `scripts/_promises.js` (`npm run check:promises`, in
+    CI): enforces a bijection across the promises the agent-facing docs make
+    (`<!-- @promise: id -->` markers), a registry, and the gates that verify them
+    (`// @covers: id` tags). A documented promise with no gate — or a gate covering an
+    unregistered/undocumented promise — fails CI. 9 promises, 0 orphans on any side.
+  - `scripts/faults.js` (`npm run faults`, new `freshness` CI job): fault injection that
+    plants one known defect per gate-class (broken ref, >1000-char recipe, dropped
+    tradition, app↔node desync, stale `api/`, silent blend-drop) into isolated temp
+    copies and asserts each owning gate exits non-zero. A check you've never seen go red
+    is worthless; this proves all 7 are two-sided (0 escapes).
+  - `scripts/check_artifact_fresh.js` (`npm run check:fresh`, new `freshness` CI job):
+    rebuilds `api/` + `codex.html` and byte-diffs against the committed copy (build
+    timestamps normalized), so the published artifact is provably a function of the
+    source — killing the committed-snapshot-drift class. Caught a stale committed
+    `codex.html` on first run (the file predated the `chain_fx` fix's effect on the
+    embedded data; `build:api` doesn't rebuild it); regenerated.
+- `build_static_api.js --out` now uses `path.resolve` so an absolute output dir is
+  honored (it was `path.join`-ed onto the repo root, silently relocating absolute paths),
+  matching `build_html.js`.
 - **Voice model expanded with two new articulatory dimensions + an `auto: false`
   explicit-only variant mechanism.** The `voice` instrument gains `voice_vocal_tract`
   (tongue-root / vowel posture: `tongue_root_retracted_dark`, `tongue_root_advanced_bright`,

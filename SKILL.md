@@ -13,13 +13,13 @@ stack telling someone how to record a song in a tradition (or 1–3 stapled trad
 This skill makes the data operable: **query**, **compose** an ensemble + sound, compile
 the **recipe**, **validate** every reference, and **mutate** safely.
 
-Every recipe below was run against the real `references/` files and shows its output.
+Every recipe below was run against the real `references/` files and shows its output. <!-- @promise: documented-behaviors -->
 Run from the package root (the dir holding `references/`), or set `CODEX_REF` to the
 absolute `references/` path. `node` and `jq` are available.
 
 > Ground truth beats memory: tables are bare `const` (not `window.*`/`module.exports`,
 > except `07`); `axes` is an **object**; **tree-node ids are full dotted paths**;
-> `crossRefs[]` mixes strings and `{ref,voice_isolated}`/`{ref,isolated_parts}` objects; counts are in §1. Shipped data
+> `crossRefs[]` mixes strings and `{ref,voice_isolated}`/`{ref,isolated_parts}` objects; counts are in §1.<!-- @promise: catalog-counts --> Shipped data
 > is clean under the §5 checker — but verify with §5/§6, don't trust remembered numbers.
 
 ---
@@ -641,7 +641,7 @@ path). Don't hand-edit the duplicated pieces independently:
   edit the `app.js` `TRADITION_SIGNATURES` block by hand.
 - `scripts/equivalence.js` (in `npm test` and `build.js`) executes both the browser
   functions (in jsdom) and the node primitives on shared fixtures and fails if their
-  descriptor sets or preface picks diverge — behavioral parity, not just textual. If you
+  descriptor sets or preface picks diverge — behavioral parity, not just textual. <!-- @promise: browser-node-parity --> If you
   change `_cardDescriptorSet`/`_matchSurvivors` in `app.js`, change the matching
   `scripts/_card_descriptors.js`/`_preface_match.js` too, or this gate fails.
 
