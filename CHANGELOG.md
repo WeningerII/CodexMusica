@@ -64,6 +64,12 @@ All notable changes to this project are recorded here. Format loosely follows
   descriptors (`subharmonic` / `octave-down-pitched` / `sub-fundamental-buzz` / `screamed`),
   so a deliberate pitch-decoupled growl had no native variant. `auto: false` (explicit-only),
   so zero recipe drift.
+- **"Not set" for instrument parts in the composer UI.** The part-variant picker now offers a
+  "Not set" chip (mirroring the existing null option on `signal chain` / `environment` stages),
+  and the `setPart` handler does `variant || null` like `setTuning`/`setRoom`/`setChain`. An
+  unset part contributes no descriptors — both descriptor builders already skip a falsy variant
+  id (`app.js` `Variant()` → null guard; `scripts/_card_descriptors.js`), so no engine change was
+  needed and browser↔node parity is unaffected (app 56/56, equivalence 8/8).
 
 ### Changed
 - Tradition defaults refined (61 traditions; recipe outputs re-snapshotted, all
