@@ -57,6 +57,13 @@ All notable changes to this project are recorded here. Format loosely follows
   (empty-descriptor, silently-dropped) default for every tradition unless a caller selects it
   explicitly via `--swap-variant` (which pins it past the search). Verified zero-blast — recipes
   1198/1198, prefaces 79/79, app 56/56, equivalence 8/8, all byte-identical.
+- `voice_mechanism_compound` gains `voice_mechanism_supraglottal_rasp_pitch_stable` — a
+  controlled supraglottal rasp that rides on a clean core without bending pitch
+  (`supraglottal-rasp-clean-core, pitch-stable-distortion, controlled-ventricular-overlay,
+  throat-clear-grain`). Every prior supraglottal-grit option baked pitch alteration into its
+  descriptors (`subharmonic` / `octave-down-pitched` / `sub-fundamental-buzz` / `screamed`),
+  so a deliberate pitch-decoupled growl had no native variant. `auto: false` (explicit-only),
+  so zero recipe drift.
 
 ### Changed
 - Tradition defaults refined (61 traditions; recipe outputs re-snapshotted, all
