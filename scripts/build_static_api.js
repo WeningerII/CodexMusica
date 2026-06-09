@@ -52,6 +52,11 @@ function compileTradition(t) {
   if (!seed) return null;
   const result = search(seed, { maxIters: 100 });
   const recipe = translate(result.config, { ceiling: RECIPE_CHAR_CEILING });
+  // `pinned` is search machinery (which slots the hill-climb must not touch —
+  // authored tradition.parts land there), not part of the published config
+  // contract; an API consumer reads the OUTCOME in `slots`. Strip it.
+  const config = { ...result.config };
+  delete config.pinned;
   return {
     id: t.id,
     name: t.name,
@@ -60,7 +65,7 @@ function compileTradition(t) {
     recipe,
     recipe_chars: recipe.length,
     score: Number(result.score.toFixed(3)),
-    config: result.config,
+    config,
   };
 }
 

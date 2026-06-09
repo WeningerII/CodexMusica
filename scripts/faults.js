@@ -12,6 +12,8 @@
 //   broken ref          -> validate.js
 //   >1000-char recipe   -> check_api.js
 //   dropped tradition   -> check_api.js
+//   unresolvable id     -> check_api.js
+//   authored-parts flip -> check_api.js
 //   app<->node desync   -> equivalence.js
 //   stale api/          -> check_artifact_fresh.js   (needs --fresh-api/--fresh-html)
 //   silent blend-drop   -> recipe.js  (input validation)
@@ -101,6 +103,20 @@ process.stderr.write('Injecting one defect per gate-class (isolated temp copies;
   j.config.room = 'BOGUS_ROOM_FAULT';
   fs.writeFileSync(f, JSON.stringify(j, null, 2));
   record('unresolvable-id -> check_api.js', gate(d, ['scripts/check_api.js']));
+}
+
+// 4b. authored-parts violation (config contradicts tradition.parts) -> check_api.js
+//     Flip an authored slot to another REAL variant of the same part, so the id
+//     still resolves and only the authored-parts check can catch the defect.
+{
+  const d = mkenv(['scripts', 'references', 'api']);
+  const f = path.join(d, 'api/traditions/bluegrass.json');
+  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+  // bluegrass authors banjo_play: 'three_finger' (references/05_traditions.js).
+  const card = (j.config.instruments || []).find((i) => (i.slots || {}).banjo_play);
+  card.slots.banjo_play = card.slots.banjo_play === 'clawhammer' ? 'three_finger' : 'clawhammer';
+  fs.writeFileSync(f, JSON.stringify(j, null, 2));
+  record('authored-parts-violation -> check_api.js', gate(d, ['scripts/check_api.js']));
 }
 
 // 5. app<->node desync -> equivalence.js  (mutate the NODE adapter only; the
