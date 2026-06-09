@@ -37,6 +37,7 @@ module.exports = [
         ARRANGEMENTS: 'readonly',
         AXIS_DEFINITIONS: 'readonly',
         CHAIN_ARCHETYPES: 'readonly',
+        CODEX_LAZY_API: 'readonly',
         CHAIN_SECTIONS: 'readonly',
         EMOJI_REGISTRY: 'readonly',
         EMOJI_SVGS: 'readonly',

@@ -624,6 +624,26 @@ const _VARIANTS_BY_INST = new Map();         // instId → Map<partId, Map<varia
   }
 })();
 
+// ---- Catalog boot promise (lazy shell) ----
+// The lazy build (`build_html.js --lazy`) omits the traditions/extras tables
+// from the page and injects `CODEX_LAZY_API` ahead of the app code. In that
+// build the Catalog boots from ONE fetch of api/browse.json — everything the
+// browse surfaces read. The embedded build takes the other branch (null):
+// bootFromGlobals already ran synchronously above, so its init path keeps
+// today's fully synchronous timing, byte-identical behavior.
+const CATALOG_READY = (typeof CODEX_LAZY_API !== 'undefined' && !Catalog.all().length)
+  ? fetch(CODEX_LAZY_API + 'browse.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('browse index fetch failed (' + res.status + ')');
+        return res.json();
+      })
+      .then((browse) => {
+        if (!Catalog.bootFromIndex(browse, CODEX_LAZY_API)) {
+          throw new Error('browse index is empty');
+        }
+      })
+  : null;
+
 const _traditionSignatureFor = (tradId) => (tradId && TRADITION_SIGNATURES[tradId]) || [];
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -6339,7 +6359,29 @@ function syncAppBarHeight() {
   document.documentElement.style.setProperty('--app-bar-height', bar.offsetHeight + 'px');
 }
 
+// Boot gate. Embedded build: CATALOG_READY is null and init runs synchronously
+// inside the DOMContentLoaded handler, exactly as it always has. Lazy shell:
+// init waits for the one browse-index fetch; a failed fetch renders a
+// persistent, honest error state instead of a blank app.
 document.addEventListener('DOMContentLoaded', () => {
+  if (CATALOG_READY) CATALOG_READY.then(_initApp).catch(_renderBootError);
+  else _initApp();
+});
+
+function _renderBootError(err) {
+  console.error('Catalog boot failed:', err);
+  const detail = document.getElementById('workspace-detail') || document.body;
+  detail.innerHTML =
+    '<div class="empty-state" id="boot-error">' +
+    '<h2>Couldn’t load the catalog</h2>' +
+    '<p>The browse index (api/browse.json) failed to load. Check your connection and reload the page.</p>' +
+    '<div class="empty-state-actions"><button class="btn btn-primary" id="boot-error-reload">Reload</button></div>' +
+    '</div>';
+  const btn = document.getElementById('boot-error-reload');
+  if (btn) btn.addEventListener('click', () => location.reload());
+}
+
+function _initApp() {
   // Hydrate all icon placeholders in the static HTML shell. Each
   // <span data-icon="name" data-size="N"></span> placeholder gets its
   // innerHTML populated with the canonical icon() SVG. This keeps the
@@ -6494,7 +6536,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   renderAll();
-});
+}
 
 // ============================================================
 // HIERARCHICAL TREE PICKER + SONIC SIMILARITY

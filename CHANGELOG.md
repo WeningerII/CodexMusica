@@ -7,6 +7,26 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased] — production hardening
 
 ### Added
+- **Lazy shell build + parity gate (phase 3 of the lazy-load migration).**
+  `node scripts/build_html.js --lazy` (`npm run build:html:lazy`) assembles the
+  thin-shell variant of the app: the two tradition tables (~3.7 MB, 66% of the
+  embedded data) stay out of the page and a build-injected `CODEX_LAZY_API`
+  const switches `src/app.js` onto its `CATALOG_READY` boot path — ONE fetch of
+  `api/browse.json` before UI init, with a persistent, honest boot-error state
+  (not a blank app) if that fetch fails. The embedded build's init stays fully
+  synchronous and byte-identical in behavior. `scripts/check_lazy_app.js`
+  (`npm run test:lazy`, in the `npm test` chain so CI runs it) boots BOTH
+  builds in jsdom — the lazy one against the committed `api/` through a fetch
+  shim — and asserts behavioral identity: the app-facing catalog projection
+  deep-equal across all traditions, `renderTradPicker()` innerHTML
+  string-identical for the tree and search queries, a six-tradition import
+  producing identical cards and an identical `compressRichRecipe` string,
+  exactly one (cached) fetch per imported tradition, plus both failure paths
+  (browse index unreachable → boot-error state; tradition 404 → zero cards +
+  error toast). `--check` on a lazy build also fails closed if the tradition
+  tables ever leak back into the page. *The committed `codex.html` is still
+  the embedded build — flipping the default (and retooling tandem/reachability/
+  freshness for the shell) is the next phase.*
 - **`Catalog` data layer in the app (phase 2 of the lazy-load migration).** Every
   tradition read in `src/app.js` now routes through one `Catalog` object — direct
   `TRADITIONS` / `TRADITION_EXTRAS` access survives only inside its boot function.

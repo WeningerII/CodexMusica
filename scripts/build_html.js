@@ -19,6 +19,7 @@
 // USAGE
 //   node scripts/build_html.js                    # builds codex.html into OUTPUT_DIR (see _paths.js; CODEX_OUT_DIR overrides)
 //   node scripts/build_html.js --out=path.html    # custom output path
+//   node scripts/build_html.js --lazy             # lazy shell: omit traditions/extras tables; app boots from api/browse.json
 //   node scripts/build_html.js --validate         # run validate.js first; abort on failure
 //   node scripts/build_html.js --check            # post-build: eval data block + assert <script> byte ceiling
 //   node scripts/build_html.js --strict           # --validate + --check, both run
@@ -77,6 +78,14 @@ for (let i = 0; i < args.length; i++) {
 
 const outputPath = flags.out || DEFAULT_OUTPUT;
 
+// --lazy: build the thin shell of the lazy-loading app. The two tradition
+// tables — 65%+ of the embedded data — stay OUT of the page; the app's
+// Catalog layer boots them from api/browse.json (one fetch) and pulls each
+// tradition's import payload from api/traditions/{id}.json on demand. The
+// injected CODEX_LAZY_API const is the switch src/app.js keys off.
+const LAZY = !!flags.lazy;
+const LAZY_OMIT = new Set(['05_traditions.js', '06_extras.js']);
+
 // ─────────────────────── templates are required source ───────────────────────
 // The HTML template and the app are first-class source files under src/. They
 // must exist; this script never reconstructs them from a build output.
@@ -134,6 +143,7 @@ const MAX_SCRIPT_BYTES = 1024 * 1024; // hard ceiling on actual emitted UTF-8 by
 const dataParts = [];
 const sourceSizes = [];
 for (const f of SOURCE_FILES) {
+  if (LAZY && LAZY_OMIT.has(f)) continue;
   const p = path.join(REFS, f);
   const content = fs.readFileSync(p, 'utf8');
   sourceSizes.push({ name: f, bytes: content.length });
@@ -151,6 +161,12 @@ for (const f of SOURCE_FILES) {
 // into this one. The template tail (after the marker) closes it with </script>.
 dataParts.push(`</script>`);
 dataParts.push(`<script>// ─── runtime ───`);
+if (LAZY) {
+  // The lazy-shell switch. src/app.js sees this const, skips the (absent)
+  // embedded tables, and resolves its CATALOG_READY boot promise by fetching
+  // `${CODEX_LAZY_API}browse.json` before any UI init runs.
+  dataParts.push(`const CODEX_LAZY_API = 'api/';`);
+}
 const dataBlock = dataParts.join('\n');
 
 // In-page family-parts merge — inlined from the single source scripts/_merge.js
@@ -251,7 +267,15 @@ if (runCheck) {
     console.error('  ' + e.message);
     process.exit(4);
   }
+  // In a lazy build the tradition tables must NOT be in the page — that
+  // absence IS the property the build exists for. Leaking them (e.g. a
+  // future edit to LAZY_OMIT) would silently re-ship the 3.7 MB embed.
+  if (LAZY && (sandbox.TRADITIONS !== undefined || sandbox.TRADITION_EXTRAS !== undefined)) {
+    console.error('check: FAIL — lazy build leaked embedded tradition tables into the page');
+    process.exit(4);
+  }
   const checks = [];
+  if (LAZY)                                         checks.push(`mode:              lazy shell (traditions/extras via api/)`);
   if (Array.isArray(sandbox.TRADITIONS))            checks.push(`TRADITIONS:        ${sandbox.TRADITIONS.length}`);
   if (Array.isArray(sandbox.INSTRUMENTS))           checks.push(`INSTRUMENTS:       ${sandbox.INSTRUMENTS.length}`);
   if (Array.isArray(sandbox.ROOMS))                 checks.push(`ROOMS:             ${sandbox.ROOMS.length}`);
