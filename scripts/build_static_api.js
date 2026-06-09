@@ -27,7 +27,9 @@ for (const a of process.argv.slice(2)) {
     else flags[a.slice(2)] = true;
   }
 }
-const OUT = path.join(__dirname, '..', flags.out || 'api');
+// path.resolve (not join) so an ABSOLUTE --out (e.g. a temp dir) is honored,
+// while a relative one still resolves against the repo root — matches build_html.
+const OUT = path.resolve(__dirname, '..', flags.out || 'api');
 const LIMIT = flags.limit ? parseInt(flags.limit, 10) : Infinity;
 
 const EMPTY_OPTS = {

@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // equivalence.js — BEHAVIORAL parity between the browser app and the node path.
 //
+// @covers: browser-node-parity
+//
 // WHY THIS EXISTS: the codex ships the same core logic twice — once inlined in
 // src/app.js (the browser, codex.html) and once in scripts/ primitives (the
 // agent/CLI path). tandem.js already guards these pairs, but only TEXTUALLY: it

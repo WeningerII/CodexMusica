@@ -7,6 +7,22 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased] — production hardening
 
 ### Added
+- **22 canonical umbrella genres added as distinct top-level traditions** (1090 → 1112):
+  `pop`, `rock`, `metal`, `country`, `lo_fi`, `jazz`, `blues`, `folk`, `soul`, `reggae`,
+  `hip_hop`, `rnb`, `gospel`, `classical`, `electronic`, `house`, `techno`, `ska`, `trap`,
+  `dubstep`, `kpop`, `afrobeats`. The catalog had 40+ `pop` and 30+ `metal`/`rock`
+  sub-genres but no entry for the bare, most-queried terms — an agent fetching
+  `…/api/traditions/pop.json`, or a user searching "Rock", got a 404 on the single most
+  likely query. Each is a peer entry (like the existing `funk`/`punk`), modeled on its most
+  canonical existing exemplar's config so every id resolves, with era-neutral lineages and
+  hand-authored descriptions/exemplars.
+- **`umbrella: true` extras flag + staple/neighbor exclusion** (`search.js` auto-staple,
+  `score.js` neighbor-bias). Umbrella genres are query endpoints, not real recording
+  lineages, so both pools now skip any tradition flagged `umbrella: true`. Without it, the
+  axis-central umbrellas became high-scoring staple/neighbor candidates and perturbed 53
+  existing sub-genre recipes (e.g. dragging `death_metal`'s Mesa Dual Rectifier to a
+  Marshall). With it, every existing recipe is byte-identical (regression 1198/1198, zero
+  churn) while the umbrellas stay fully queryable and compile sensible canonical recipes.
 - Four new `voice_tradition` variants (32 total) for vocal lineages the palette
   lacked: `sami_joik_tradition` (Nordic Sápmi joik), `andean_quechua_tradition`
   (Quechua/Aymara wayno), `native_american_vocal_tradition` (Plains/Southwest
@@ -63,6 +79,27 @@ All notable changes to this project are recorded here. Format loosely follows
 - Two more `check_doc_behaviors.js` assertions: fx_extras render into the recipe (surf
   rock shows its spring reverb + tremolo — the regression guard for the fx fix below) and
   the §3d `belting` lexicon tokens match the doc verbatim.
+- **Three standing gates that make the dogfooding self-enforcing** (a promise-coverage
+  bijection, two-sided proofs, and artifact reproducibility):
+  - `scripts/check_promises.js` + `scripts/_promises.js` (`npm run check:promises`, in
+    CI): enforces a bijection across the promises the agent-facing docs make
+    (`<!-- @promise: id -->` markers), a registry, and the gates that verify them
+    (`// @covers: id` tags). A documented promise with no gate — or a gate covering an
+    unregistered/undocumented promise — fails CI. 9 promises, 0 orphans on any side.
+  - `scripts/faults.js` (`npm run faults`, new `freshness` CI job): fault injection that
+    plants one known defect per gate-class (broken ref, >1000-char recipe, dropped
+    tradition, app↔node desync, stale `api/`, silent blend-drop) into isolated temp
+    copies and asserts each owning gate exits non-zero. A check you've never seen go red
+    is worthless; this proves all 7 are two-sided (0 escapes).
+  - `scripts/check_artifact_fresh.js` (`npm run check:fresh`, new `freshness` CI job):
+    rebuilds `api/` + `codex.html` and byte-diffs against the committed copy (build
+    timestamps normalized), so the published artifact is provably a function of the
+    source — killing the committed-snapshot-drift class. Caught a stale committed
+    `codex.html` on first run (the file predated the `chain_fx` fix's effect on the
+    embedded data; `build:api` doesn't rebuild it); regenerated.
+- `build_static_api.js --out` now uses `path.resolve` so an absolute output dir is
+  honored (it was `path.join`-ed onto the repo root, silently relocating absolute paths),
+  matching `build_html.js`.
 - **Voice model expanded with two new articulatory dimensions + an `auto: false`
   explicit-only variant mechanism.** The `voice` instrument gains `voice_vocal_tract`
   (tongue-root / vowel posture: `tongue_root_retracted_dark`, `tongue_root_advanced_bright`,
@@ -147,6 +184,13 @@ All notable changes to this project are recorded here. Format loosely follows
   token-set chain in `build_variants.js`. `npm run lint` is clean.
 
 ### Fixed
+- **Browse-traditions search now ranks by match locus, not catalog order.** Typing a
+  genre returned every tradition whose name/lineage/description merely *contained* the
+  term, rendered in raw catalog-array order — so the exact title (e.g. `Pop`) sat
+  hundreds of rows below prose mentions ("…Selena-era pop-conjunto…"), and newly-appended
+  umbrellas sorted dead last. Results are now tiered: exact name → name prefix → name
+  substring → lineage/description only, with shortest name first within a tier. (`src/app.js`,
+  browser-only; recipe output and the static API are unaffected.)
 - Two false-positive `tandem` gates (flagging source untouched by data work):
   the card-descriptor-semantics gate now strips comments before scanning the
   HTML embed for `match_tokens` (the injected `harvestDescriptors` core carries

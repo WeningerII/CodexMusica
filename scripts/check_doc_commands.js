@@ -2,6 +2,8 @@
 // check_doc_commands.js — execute the concrete `node scripts/*.js` example
 // commands embedded in the agent-facing docs and assert they exit 0.
 //
+// @covers: documented-commands-run
+//
 // WHY: check_docs.js verifies canonical counts and that a referenced script
 // FILE exists — but it never checks that a documented INVOCATION actually runs.
 // That blind spot let a broken `recipe.js --diff <a> <b> --weight=` form ship in

@@ -1,0 +1,149 @@
+{
+  "id": "kpop",
+  "name": "K-pop",
+  "family": "global",
+  "lineage": "The K-pop tradition — South Korean idol pop built on maximalist hybrid production, choreography, and multi-member groups, globalized in the streaming era",
+  "recipe": "classic modern k-pop, functional Song, east Asian pop branch. extended whistle, equal tempered, modern pop training, sprechgesang notated approximate pitch. sampler, plucked short envelope digital subtractive, TR-808, pyramid pure nickel bass British mid 60s era electric bass, octuple plus dense stack multi track instrument multitrack vocal stack. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 547,
+  "score": 117.014,
+  "config": {
+    "traditions": [
+      "kpop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 19.434999999999995,
+          "voice_quality": 0.49974999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.336,
+          "voice_articulation": 0.3899999999999999,
+          "voice_microtone": 15.148999999999992,
+          "voice_tradition": 19.824999999999996,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 3.9650000000000003,
+          "voice_ensemble_config": 1.95,
+          "voice_ornament_system": 6.25,
+          "voice_pitch_organization": 1.681,
+          "voice_processing_chain": 1.329,
+          "voice_multitrack_stack": 1.1340000000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_pop_production"
+        },
+        "scores": {
+          "electronic_technique": 0.39999999999999997,
+          "sampler_archetypes": 0.78,
+          "sampler_bit_depth": 0.285,
+          "sampler_workflow": 0.7427499999999999,
+          "sampler_classic_context": 15.142499999999997
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 15.886499999999996,
+          "va_archetypes": 0.063,
+          "digital_subtractive_context": 2.08
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 0.585,
+          "drum_machine_808_context": 1.69,
+          "tr808_production_origin": 0.279
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_walking",
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 0,
+          "body_wood": 0.43050000000000005,
+          "pickup_config": 0.2055,
+          "string_type": 1.17,
+          "scale_length_b": 0.2475,
+          "fretted_or_not": 0.1365,
+          "bass_technique": -0.035
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.424,
+          "multitrack_stack_era_aesthetic": -0.07,
+          "multitrack_stack_processing": 0.3675
+        }
+      }
+    ],
+    "room": "studio_kpop_idol_complex",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_tube",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "maximalist_streaming_pop",
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

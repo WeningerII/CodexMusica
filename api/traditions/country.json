@@ -1,0 +1,193 @@
+{
+  "id": "country",
+  "name": "Country",
+  "family": "global",
+  "lineage": "The broad country-music tradition — Anglo-American vernacular song built on storytelling, descended from Appalachian folk and codified through the Nashville recording industry across the 20th century",
+  "recipe": "classic modern country, functional Song, contemp main branch. thick, low dynamic level, melodic, narrative. Fender tweed amp American 50s amp tweed breakup single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit, double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 555,
+  "score": 194.508,
+  "config": {
+    "traditions": [
+      "country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 13.426374999999993,
+          "voice_quality": 0.8899999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 11.056875,
+          "voice_articulation": 1.44275,
+          "voice_microtone": 0.1425,
+          "voice_tradition": 6.0565,
+          "voice_mechanism_compound": 0.508375,
+          "voice_estill_quality": 11.400875,
+          "voice_speech_song": 6.045,
+          "voice_ensemble_config": 2.4325000000000006,
+          "voice_ornament_system": 0.17437500000000003,
+          "voice_pitch_organization": 0.32625,
+          "voice_processing_chain": 0.84475,
+          "voice_multitrack_stack": 0.39
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "alder",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 11.342749999999999,
+          "amp_make": 11.924999999999997,
+          "body_wood": 0.208,
+          "neck_wood": 0.007499999999999999,
+          "fretboard": 0.017499999999999998,
+          "pickup_magnet": 0,
+          "string_material": 0.39,
+          "string_gauge": 0.23862499999999998,
+          "bridge": 0.2475,
+          "scale_length": 0.014999999999999998,
+          "finish": 0,
+          "string_tuning": 0.8594999999999998
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "mullen_d10",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 12.065749999999998,
+          "amp_make": 11.889999999999997,
+          "pickup_steel": 0.007499999999999999,
+          "string_setup": 5.719999999999999,
+          "bar_material": 0.39,
+          "pedal_steel_brand": 12.764249999999999,
+          "pedal_steel_neck_config": 13.95125,
+          "pedal_steel_strings": 12.629249999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_walking",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_s",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 11.924999999999997,
+          "body_wood": 0.024999999999999998,
+          "pickup_config": 0.343,
+          "string_type": 0.39,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.007499999999999999,
+          "bass_technique": 11.342749999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "steel_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "double_coated",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "brass_cymbal",
+          "cymbal_hammering": "over_hammered",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered",
+          "drum_technique": "brushes_and_sticks"
+        },
+        "scores": {
+          "percussion_technique": 2.34,
+          "shell_wood": 0.39,
+          "shell_thickness": 0.024999999999999998,
+          "bearing_edges": 0.1425,
+          "drumhead": 0.020624999999999998,
+          "snare_wires": 0.017499999999999998,
+          "cymbal_alloy": 0,
+          "cymbal_hammering": 0.325,
+          "cymbal_lathing": 0.19500000000000003,
+          "cymbal_finish": 0.007499999999999999,
+          "drum_technique": 2.34
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 11.599999999999998,
+          "fiddle_strings": 0.39,
+          "fiddle_bow": 0.20049999999999998,
+          "fiddle_mute": 0.221125,
+          "fiddle_articulation": 0.23862499999999998
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

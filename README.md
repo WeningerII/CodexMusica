@@ -3,7 +3,7 @@
 A structured catalog of recorded-music traditions in 13-dimensional parameter space,
 and an engine that turns a song specification into a tightly compressed structural
 **recipe** — a descriptor stack that tells you how to record it. The catalog spans
-**1,090 traditions** and **418 instruments** (with per-part variant decomposition),
+**1,112 traditions** and **418 instruments** (with per-part variant decomposition),
 **256 rooms**, **22 chain archetypes**, and **120 tunings**.
 
 The headline operation is recipe generation; the same catalog also supports tradition
@@ -38,6 +38,9 @@ Every operation is an `npm run` script (see `package.json`):
 | `npm run smoke` | Catalog-wide pipeline health across every tradition (slow) |
 | `npm run tandem` | End-to-end coherence across source + HTML artifacts |
 | `npm run reachability` | Drives every UI control in the built HTML (Playwright) |
+| `npm run check:promises` | Promise→gate coverage: every documented promise has a gate and vice-versa (0 orphans) |
+| `npm run check:fresh` | Reproducibility gate: rebuilds `api/`+`codex.html` and byte-diffs vs the committed copy <!-- @promise: artifact-reproducible --> |
+| `npm run faults` | Fault-injection: plants a defect per gate-class and asserts each gate catches it <!-- @promise: gates-two-sided --> |
 | `npm run lint` / `npm run format` | ESLint / Prettier |
 | `npm run ci` | `lint` + full `build` |
 | `npm run assets:*` | Regenerate embedded emoji / icon / photo assets (occasional) |

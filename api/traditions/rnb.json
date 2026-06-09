@@ -1,0 +1,113 @@
+{
+  "id": "rnb",
+  "name": "R&B",
+  "family": "hip_hop",
+  "lineage": "The contemporary rhythm-and-blues tradition — smooth, vocal-led African-American popular music descended from soul and new jack swing",
+  "recipe": "classic modern r&b, functional Song, soul R&B branch. thick, blues-shouter, narrative, blues inflected. drum machine analog, wavetable synth, gospel runs electric piano tine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 320,
+  "score": 76.414,
+  "config": {
+    "traditions": [
+      "rnb"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 0.39,
+          "snare_voice": 0.39,
+          "hat_voice": 0.39,
+          "shuffle_quantize": 1.69
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "wt_position": 0.39,
+          "wt_family": 0.39,
+          "wt_polyphony": 0.363
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "tine_voicing": "aggressive_tine",
+          "tine_effect": "overdrive_tine"
+        },
+        "scores": {
+          "keyboard_technique": 7.498999999999999,
+          "tine_voicing": 0.39,
+          "tine_effect": 0.378
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 10.784499999999998,
+          "voice_quality": 10.005999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 6.849999999999999,
+          "voice_microtone": 1.69,
+          "voice_tradition": 9.716249999999999,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 7.041499999999999,
+          "voice_speech_song": 6.044999999999999,
+          "voice_ensemble_config": 4.029999999999999,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 0.8505,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 2.08
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

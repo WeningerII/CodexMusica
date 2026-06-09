@@ -1,6 +1,6 @@
 ---
 name: codex-music-tool
-description: Query, compose, validate, and mutate the Codex Musica dataset — 1090 recorded-music traditions (in a 311-node genre tree, 13-axis space), 418 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 454-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
+description: Query, compose, validate, and mutate the Codex Musica dataset — 1112 recorded-music traditions (in a 311-node genre tree, 13-axis space), 418 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 454-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
 license: UNLICENSED
 ---
 
@@ -13,13 +13,13 @@ stack telling someone how to record a song in a tradition (or 1–3 stapled trad
 This skill makes the data operable: **query**, **compose** an ensemble + sound, compile
 the **recipe**, **validate** every reference, and **mutate** safely.
 
-Every recipe below was run against the real `references/` files and shows its output.
+Every recipe below was run against the real `references/` files and shows its output. <!-- @promise: documented-behaviors -->
 Run from the package root (the dir holding `references/`), or set `CODEX_REF` to the
 absolute `references/` path. `node` and `jq` are available.
 
 > Ground truth beats memory: tables are bare `const` (not `window.*`/`module.exports`,
 > except `07`); `axes` is an **object**; **tree-node ids are full dotted paths**;
-> `crossRefs[]` mixes strings and `{ref,voice_isolated}`/`{ref,isolated_parts}` objects; counts are in §1. Shipped data
+> `crossRefs[]` mixes strings and `{ref,voice_isolated}`/`{ref,isolated_parts}` objects; counts are in §1.<!-- @promise: catalog-counts --> Shipped data
 > is clean under the §5 checker — but verify with §5/§6, don't trust remembered numbers.
 
 ---
@@ -57,8 +57,8 @@ Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you 
 | arrangement templates | 5 | bare slug | `ARRANGEMENTS` (array) |
 | tunings | 120 | bare slug, e.g. `twelve_tet` | `TUNINGS` (array) |
 | tree nodes | 311 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |
-| traditions | 1090 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
-| tradition extras | 1090 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
+| traditions | 1112 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
+| tradition extras | 1112 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
 | voice/preface lexicon | 454 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
 | axis definitions | 13 (trad) / 9 (inst) | bare slug, e.g. `harm` | `AXIS_DEFINITIONS`, `INSTRUMENT_AXIS_DEFINITIONS` |
 
@@ -124,7 +124,7 @@ Facts that bite if you miss them:
 - **`instrument.family`** ∈ the 11-value `INSTRUMENT_FAMILIES` table (always resolves).
   **`tradition.family`** is a *different* 12-value vocabulary (`global, classical,
   rock_punk, electronic, hip_hop, vernacular, jazz, pop, blues_gospel, rock, country,
-  pop_rock`; `global` dominates at 663/1090) — a top-level genre bucket, NOT an
+  pop_rock`; `global` dominates at 663/1112) — a top-level genre bucket, NOT an
   instrument family.
 - **Tree-node ids are full dotted paths.** 287 of 311 ids contain dots
   (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and
@@ -173,7 +173,7 @@ module.exports = T;
 ```bash
 CODEX_REF="$PWD/references" node -e 'const T=require("./load.js");
 console.log("loaded:",T.INSTRUMENTS.length,"insts,",T.TRADITIONS.length,"trads")'
-# → loaded: 418 insts, 1090 trads
+# → loaded: 418 insts, 1112 trads
 ```
 
 ### B. `require` for the preface lexicon only (it has `module.exports`)
@@ -641,7 +641,7 @@ path). Don't hand-edit the duplicated pieces independently:
   edit the `app.js` `TRADITION_SIGNATURES` block by hand.
 - `scripts/equivalence.js` (in `npm test` and `build.js`) executes both the browser
   functions (in jsdom) and the node primitives on shared fixtures and fails if their
-  descriptor sets or preface picks diverge — behavioral parity, not just textual. If you
+  descriptor sets or preface picks diverge — behavioral parity, not just textual. <!-- @promise: browser-node-parity --> If you
   change `_cardDescriptorSet`/`_matchSurvivors` in `app.js`, change the matching
   `scripts/_card_descriptors.js`/`_preface_match.js` too, or this gate fails.
 
@@ -824,7 +824,7 @@ name: Bill Monroe`, and the made-up archetype in `soft` (verified).
 - Load once with `q.js`; reuse `db.by*` and `db.partsFor`. Never re-parse the 1–2 MB
   bundles per query.
 - Project to `{id,name}` and `slice`/`head` before printing — never dump a full table
-  (418 instruments / 1090 traditions is a lot of tokens).
+  (418 instruments / 1112 traditions is a lot of tokens).
 - Prefer counts/samples while exploring; pull full records only for the few ids that
   land in the output.
 - For a single name lookup, `grep -oE "name: '…'"` beats spinning up node.

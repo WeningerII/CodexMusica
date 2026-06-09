@@ -7171,12 +7171,26 @@ function renderTradPicker() {
 
   // Search mode — flat results across the whole catalog
   if (q) {
-    const matches = TRADITIONS.filter(t => {
+    // Rank by WHERE the query matches, so an exact title beats a mere prose
+    // mention: 0 exact name · 1 name prefix · 2 name substring · 3 lineage/
+    // description only. Previously this was a flat substring filter rendered in
+    // raw catalog order, so a tradition that only *mentions* the term in its
+    // description (or a late-array entry) could bury the exact title far down.
+    // Secondary sort: shorter name first (more central), then alphabetical.
+    const matchRank = (t) => {
       const ext = TRADITION_EXTRAS[t.id] || {};
-      return normalizeSearch(t.name).includes(q)
-        || normalizeSearch(t.lineage || '').includes(q)
-        || normalizeSearch(ext.description || '').includes(q);
-    });
+      const name = normalizeSearch(t.name);
+      if (name === q) return 0;
+      if (name.startsWith(q)) return 1;
+      if (name.includes(q)) return 2;
+      if (normalizeSearch(t.lineage || '').includes(q) || normalizeSearch(ext.description || '').includes(q)) return 3;
+      return Infinity;
+    };
+    const matches = TRADITIONS
+      .map((t) => ({ t, r: matchRank(t) }))
+      .filter((x) => x.r !== Infinity)
+      .sort((a, b) => a.r - b.r || a.t.name.length - b.t.name.length || a.t.name.localeCompare(b.t.name))
+      .map((x) => x.t);
     if (!matches.length) {
       c.innerHTML = `<div class="empty-msg">No traditions match &ldquo;${esc(q)}&rdquo;</div>`;
       return;

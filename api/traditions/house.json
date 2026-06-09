@@ -1,0 +1,63 @@
+{
+  "id": "house",
+  "name": "House",
+  "family": "electronic",
+  "lineage": "The house tradition — four-on-the-floor electronic dance music originating in Chicago from disco, drum machines, and DJ culture",
+  "recipe": "classic mid-1980s house, electronic Dance, chicago house branch. drum machine analog, monosynth acid bass. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette lexicon 224 / 480L.",
+  "recipe_chars": 237,
+  "score": 3.25,
+  "config": {
+    "traditions": [
+      "house"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "noise_only_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "shuffle_high"
+        },
+        "scores": {
+          "kick_voice": 0.33249999999999996,
+          "snare_voice": 0.013125,
+          "hat_voice": 0.042749999999999996,
+          "shuffle_quantize": 0.02
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "wave_acid": 0.05239285714285714,
+          "filter_acid": 0.41399999999999987,
+          "accent_acid": 0.3
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "colored",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_lexicon_224"
+    ]
+  }
+}

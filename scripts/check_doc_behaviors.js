@@ -2,6 +2,8 @@
 // check_doc_behaviors.js — assert the documented BEHAVIORS and OUTPUTS of the
 // agent-facing docs, not merely that the commands exit 0.
 //
+// @covers: documented-behaviors
+//
 // WHY: the doc gate had a layered blind spot.
 //   • check_docs.js          proves the catalog COUNTS in the docs match the data.
 //   • check_doc_commands.js  proves every documented command RUNS (exit 0).
