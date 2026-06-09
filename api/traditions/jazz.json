@@ -1,0 +1,140 @@
+{
+  "id": "jazz",
+  "name": "Jazz",
+  "family": "jazz",
+  "lineage": "The broad jazz tradition — African-American improvised-ensemble art music codified from early-20th-century New Orleans through swing, bebop, and modal jazz",
+  "recipe": "classic North American mid-1970s jazz, improv On Frame, bop branch. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 646,
+  "score": 222.826,
+  "config": {
+    "traditions": [
+      "jazz"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 2.5,
+          "sax_size": 2.85025,
+          "sax_reed": 0.35025,
+          "sax_body_alloy": 16.034714285714287,
+          "sax_mouthpiece": 0.35025,
+          "sax_technique": 16.0325,
+          "sax_maker_school": 16.183285714285713
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.5,
+          "brass_size": 0.35025,
+          "trumpet_mouthpiece": 18.048035714285714,
+          "brass_mute": 0.5957142857142858,
+          "trumpet_technique": 2.5,
+          "trumpet_bell_metal": 0.28667857142857145,
+          "trumpet_maker_school": 3.25
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 0.26,
+          "grand_piano_size": 0.1365,
+          "grand_piano_brand": 0.35025,
+          "piano_hammer": 3.185,
+          "piano_rim": 4.499678571428571,
+          "piano_soundboard": 1.2980357142857142,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 0.325
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "acoustic_technique": 0.325,
+          "upright_strings": 16,
+          "upright_play": 16
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_brushes_and_sticks",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "vintage_ambassador_drumhead",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "fourteen_step_hammering",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "machine_hammered",
+          "drum_technique": "brushes_jazz"
+        },
+        "scores": {
+          "percussion_technique": 11.439999999999998,
+          "shell_wood": 0.3534642857142857,
+          "shell_thickness": 0,
+          "bearing_edges": 0.00964285714285714,
+          "drumhead": 18.025892857142857,
+          "snare_wires": 0.003214285714285714,
+          "cymbal_alloy": 15.853214285714284,
+          "cymbal_hammering": 16.627714285714283,
+          "cymbal_lathing": 16.011142857142858,
+          "cymbal_finish": 0.35025,
+          "drum_technique": 16
+        }
+      }
+    ],
+    "room": "columbia_30th_street_studio_nyc",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "modal_jazz_dorian_static",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  }
+}

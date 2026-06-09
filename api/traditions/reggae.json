@@ -1,0 +1,192 @@
+{
+  "id": "reggae",
+  "name": "Reggae",
+  "family": "global",
+  "lineage": "The reggae tradition — Jamaican popular music built on the offbeat skank and one-drop drum, evolved from ska and rocksteady",
+  "recipe": "classic tropical mid-1970s reggae, bass System, Jamaican branch, Afro-diasporic ritual devotional umbanda ceremonial paranda. declaimed, punctuated, Yoruba tonal vocal, ingressive egressive paired breath. pyramid pure nickel bass British mid 60s era thumb muted electric bass, rim clicks drum kit, single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips roland RE-201 space echo spring reverb.",
+  "recipe_chars": 684,
+  "score": 94.675,
+  "config": {
+    "traditions": [
+      "reggae",
+      "umbanda_brazilian",
+      "garifuna_paranda"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0.345,
+          "voice_quality": 2.2950000000000004,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.325,
+          "voice_articulation": 0.69,
+          "voice_microtone": 0.24,
+          "voice_tradition": 2.665000000000001,
+          "voice_mechanism_compound": 1.545,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 3.7049999999999996,
+          "voice_ensemble_config": 3.6399999999999997,
+          "voice_ornament_system": 2.4,
+          "voice_pitch_organization": 0.645,
+          "voice_processing_chain": 1.335,
+          "voice_multitrack_stack": 0.9750000000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_thumb_muted",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "electric_technique": 8.749999999999998,
+          "amp_make": 1.885,
+          "body_wood": 0.6,
+          "pickup_config": 0.09,
+          "string_type": 1.8199999999999998,
+          "scale_length_b": 0.3,
+          "fretted_or_not": 0.135,
+          "bass_technique": 8.749999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "percussion_technique": "percussion_rim_clicks_dub",
+          "shell_wood": "mahogany_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_30",
+          "drumhead": "double_coated",
+          "snare_wires": "cable_snares",
+          "cymbal_alloy": "brass_cymbal",
+          "cymbal_hammering": "fourteen_step_hammering",
+          "cymbal_lathing": "pin_lathe",
+          "cymbal_finish": "traditional_finish",
+          "drum_technique": "rim_clicks_dub"
+        },
+        "scores": {
+          "percussion_technique": 8.749999999999998,
+          "shell_wood": 0.44999999999999996,
+          "shell_thickness": 0,
+          "bearing_edges": 0.44999999999999996,
+          "drumhead": 0.3,
+          "snare_wires": 0.3,
+          "cymbal_alloy": 0,
+          "cymbal_hammering": -0.035,
+          "cymbal_lathing": 0.26,
+          "cymbal_finish": 0,
+          "drum_technique": 8.749999999999998
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_jazz_comping",
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 0,
+          "body_wood": 0.3,
+          "neck_wood": 0.3,
+          "fretboard": 0.24,
+          "pickup_magnet": 0.15,
+          "string_material": 0,
+          "string_gauge": 0.3,
+          "bridge": 0.24,
+          "scale_length": 0.6,
+          "finish": 0,
+          "string_tuning": 0.75
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "stopped_rotor",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "drawbar_setting": -0.035,
+          "rotary_speed": 0,
+          "percussion_setting": 0.195,
+          "tonewheel_model": 2.7950000000000004,
+          "leslie_cabinet_model": 0
+        }
+      },
+      {
+        "id": "melodica",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "melodica_use": "melodica_dub",
+          "melodica_pitch": "melodica_alto",
+          "melodica_maker_school": "melodica_hohner_canonical"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "melodica_use": 0.75,
+          "melodica_pitch": 0.045,
+          "melodica_maker_school": 3.0549999999999997
+        }
+      }
+    ],
+    "room": "kingston_channel_one_maxfield_avenue",
+    "archetype": "arch_kingston_jamaican_commercial",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fx_roland_space_echo",
+      "spring_reverb"
+    ]
+  }
+}

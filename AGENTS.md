@@ -1,7 +1,7 @@
 # Codex Musica — guide for AI agents
 
 This repository publishes a **static, server-free "API"**: pre-compiled recording
-**recipes** for **1090 recorded-music traditions** and data for **418 instruments**.
+**recipes** for **1112 recorded-music traditions** and data for **418 instruments**.
 There is no server to call, no API key, and no rate limit — every "endpoint" is just a
 plain JSON file you fetch and read.
 
@@ -11,17 +11,17 @@ For any tradition, you get:
 
 - `recipe` — a compressed descriptor-stack string (≤1000 chars) describing **how to
   record a song in that style**: ensemble timbres, instruments, room, signal chain,
-  tuning. No prose, no artist names.
+  tuning. No prose, no artist names. <!-- @promise: recipe-char-ceiling -->
 - `config` — the structured arrangement behind that recipe (instruments + chosen part
-  variants, room, chain, tuning, aesthetic), every id resolvable against the catalog.
+  variants, room, chain, tuning, aesthetic), every id resolvable against the catalog. <!-- @promise: every-id-resolves -->
 
 ## How to use it (zero setup)
 
 Base URL: `https://weningerii.github.io/CodexMusica`
 
-**Fastest path — one fetch for everything:** `…/api/all.json` returns all 1090
+**Fastest path — one fetch for everything:** `…/api/all.json` returns all 1112
 traditions with their `recipe` strings in a single file (~0.8 MB). Fetch it once and you
-have the whole catalog; no per-id requests needed.
+have the whole catalog; no per-id requests needed. <!-- @promise: all-traditions-one-fetch -->
 
 **Do NOT fetch `codex.html`** — it is a 6 MB human GUI bundle, not machine-readable. Use
 the JSON endpoints.
@@ -58,7 +58,7 @@ For full structured arrangements (ensemble, room, chain, tuning) per tradition:
 The JSON endpoints above serve the **default** recipe per tradition — read-only. The
 **full engine** runs from the repo and does much more: blend multiple genres, add/remove
 instruments, swap part variants, axis-target search, and add/edit/delete catalog
-entities. An agent with a shell gets all of it:
+entities. An agent with a shell gets all of it: <!-- @promise: documented-commands-run -->
 
 ```sh
 git clone https://github.com/WeningerII/CodexMusica
