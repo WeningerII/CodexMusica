@@ -72,5 +72,27 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "american_primitive_open_drone",
+    "room": "takoma_home_recording_fahey",
+    "parts": {
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "top_wood": "sitka",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "phosphor_bronze",
+      "resonator_body": "resonator_national_single_cone_metal",
+      "resonator_strings": "phosphor_resonator",
+      "resonator_technique": "resonator_bottleneck_slide_fingerpicked",
+      "twelve_string_body": "twelve_string_jumbo_steel",
+      "twelve_string_tuning": "twelve_string_open_tunings",
+      "twelve_string_strings": "phosphor_12"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

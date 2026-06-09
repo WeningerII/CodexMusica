@@ -157,5 +157,32 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "mande_pentatonic_jeli_modal",
+    "room": "bamako_griot_jeli_compound",
+    "parts": {
+      "griot_origin": "griot_mande",
+      "griot_voice_context": "griot_voice_praise",
+      "plucked_traditional_technique": "plucked_fingerpicked",
+      "kora_strings": "kora_21_traditional",
+      "kora_resonator": "kora_calabash_full",
+      "kora_strings_mat": "kora_fishing_line",
+      "kora_top_skin": "kora_cowhide_canonical",
+      "kora_neck_wood": "kora_hardwood_local",
+      "kora_lineage": "kora_diabate_lineage",
+      "dunun_size": "dununba",
+      "dunun_bell": "dunun_single_bell",
+      "dunun_shell_wood": "dunun_lenke_canonical",
+      "dunun_head": "dunun_cowhide_canonical",
+      "balafon_tuning": "balafon_mandinka",
+      "balafon_resonator": "balafon_gourd"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "digital_high",
+    "chain_console": "colored"
   }
 }

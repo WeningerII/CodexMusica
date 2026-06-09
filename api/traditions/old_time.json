@@ -147,5 +147,35 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "cross_tuning_fiddle",
+    "room": "wooden_barn",
+    "parts": {
+      "bowed_technique": "bowed_chopped_old_time",
+      "fiddle_articulation": "arco",
+      "harmonica_technique": "harm_folk_first_position",
+      "harmonica_type": "diatonic_blues",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "banjo_back": "open_back",
+      "tone_ring": "no_ring",
+      "banjo_play": "clawhammer",
+      "banjo_setup_period": "banjo_old_time_open_back_setup",
+      "banjo_strings": "banjo_light_clawhammer",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "phosphor_p",
+      "autoharp_chord_bars": "autoharp_21_chord",
+      "autoharp_context": "autoharp_appalachian",
+      "autoharp_strings": "autoharp_steel_modern",
+      "autoharp_body_wood": "autoharp_spruce_maple"
+    },
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

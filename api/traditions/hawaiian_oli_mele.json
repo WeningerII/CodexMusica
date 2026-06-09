@@ -114,5 +114,38 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "hawaiian_heiau_outdoor_lava_stone_temple",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_non_lexical_vocable",
+      "voice_tradition": "polynesian_oli_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+      "voice_estill_quality": "voice_estill_falsetto",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "conch_use": "conch_polynesian",
+      "conch_shell_horn_region": "conch_shell_horn_polynesian",
+      "pahu_construction": "pahu_coconut_log_sharkskin_canonical",
+      "pahu_role": "pahu_heiau_sacred_canonical",
+      "ipu_heke_construction": "ipu_heke_double_gourd_joined_neck_canonical",
+      "ipu_heke_technique": "ipu_heke_ground_strike_palm_slap",
+      "pulili_body": "pulili_bamboo_split_rattle_canonical",
+      "pulili_tradition": "pulili_hula_kahiko_canonical"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_30ips",
+    "chain_console": "colored"
   }
 }

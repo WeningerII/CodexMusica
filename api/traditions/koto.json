@@ -86,5 +86,29 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_in_scale",
+    "room": "tatami_parlor_japanese",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "shaku_length": "one_eight",
+      "shaku_technique": "meri_kari",
+      "shakuhachi_body_material": "shakuhachi_madake_canonical",
+      "shakuhachi_lineage": "shakuhachi_kinko",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "shamisen_size": "futozao",
+      "shamisen_skin": "shamisen_dog",
+      "shamisen_pick": "bachi_acrylic",
+      "shamisen_neck_wood": "shamisen_red_sandalwood",
+      "shamisen_strings": "shamisen_nylon_tsugaru",
+      "shamisen_tradition": "shamisen_tsugaru"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

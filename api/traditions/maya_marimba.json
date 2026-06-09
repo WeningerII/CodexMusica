@@ -69,5 +69,24 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "mexico_bolero_xochimilco_studio",
+    "parts": {
+      "percussion_technique": "percussion_mallets_orchestral",
+      "marimba_size": "marimba_5_octave",
+      "marimba_orchestral_bar": "marimba_orchestral_honduran",
+      "bowed_technique": "bowed_legato_classical",
+      "bass_size": "bass_three_quarter",
+      "bass_top_wood": "norway_spruce_alpine_bass",
+      "bass_back_wood": "bosnian_flamed_maple_bass",
+      "bass_setup_period": "modern_setup_bass",
+      "bass_play": "bass_arco"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

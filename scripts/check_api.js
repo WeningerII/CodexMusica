@@ -33,7 +33,7 @@
 const fs = require('fs');
 const path = require('path');
 const C = require('./_loader.js');
-const { buildResolver, recordProblems } = require('./_api_contract.js');
+const { buildResolver, recordProblems, traditionSource } = require('./_api_contract.js');
 
 const ROOT = path.join(__dirname, '..');
 const flags = {};
@@ -88,12 +88,20 @@ if (tindex) {
   diffIds('traditions/index.json', items.map((x) => x.id), tradIds);
 
   // Per-id files: each catalog tradition has a file that honors the record contract.
+  const rowById = new Map(C.TRADITIONS.map((t) => [t.id, t]));
   let checked = 0;
   for (const id of tradIds) {
     const rec = readJson(`traditions/${id}.json`);
     if (!rec) continue; // readJson already logged the miss
     if (rec.id !== id) fail(`traditions/${id}.json: id field is "${rec.id}"`);
     for (const p of recordProblems(rec, R)) fail(`traditions/${id}.json — ${p}`);
+    // `source` (the import payload for the lazy-loaded app) must be a verbatim
+    // projection of the CURRENT catalog row — this is the check that catches a
+    // published snapshot drifting from references/ after a chain/tuning edit.
+    const wantSource = JSON.stringify(traditionSource(rowById.get(id)));
+    if (JSON.stringify(rec.source) !== wantSource) {
+      fail(`traditions/${id}.json — source != catalog row projection (tuning/room/parts/chain_*)`);
+    }
     checked++;
   }
   if (!VERBOSE) console.error(`  …validated ${checked} tradition files`);
@@ -124,6 +132,14 @@ if (browse) {
   }
   const badAxes = items.filter((x) => !Array.isArray(x.axes) || x.axes.length !== 13);
   if (badAxes.length) fail(`browse.json: ${badAxes.length} item(s) with axes != 13 ints (e.g. ${badAxes.slice(0, 5).map((x) => x.id).join(', ')})`);
+  // The lazy-loaded app boots ENTIRELY from this index — every field its browse
+  // surfaces read (search rank/render, tree leaves, find-similar) must be here.
+  const badFields = items.filter(
+    (x) => typeof x.name !== 'string' || typeof x.family !== 'string' ||
+      typeof x.description !== 'string' || !Array.isArray(x.instruments) ||
+      !('lineage' in x) || !('parent' in x)
+  );
+  if (badFields.length) fail(`browse.json: ${badFields.length} item(s) missing app-facing fields (name/family/description/instruments/lineage/parent) (e.g. ${badFields.slice(0, 5).map((x) => x.id).join(', ')})`);
 }
 
 // ───────────────────────── instruments ─────────────────────────

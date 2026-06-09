@@ -189,5 +189,36 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "irish_pub_doolin_clare_session",
+    "parts": {
+      "string_tuning": "dadgad",
+      "bowed_technique": "bowed_legato_classical",
+      "fiddle_articulation": "arco",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "reed_config": "lmm",
+      "musette_offset": "dry_tuning",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "phosphor_p",
+      "wind_articulation": "wind_folk_melodic",
+      "flute_size": "concert_flute",
+      "flute_material": "wooden_flute",
+      "flute_technique": "irish_flute",
+      "celtic_harp_levers": "lever_camac",
+      "celtic_harp_strings": "celtic_gut",
+      "bodhran_play": "bodhran_kerry",
+      "bodhran_skin": "bodhran_goatskin",
+      "bodhran_shell_wood": "bodhran_birch_ply"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_transformer_70s"
   }
 }

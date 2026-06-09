@@ -154,5 +154,58 @@
     "fx_extras": [
       "fx_tube_screamer"
     ]
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "bay_area_thrash_metal_studio",
+    "parts": {
+      "pickup_magnet": "ceramic_h",
+      "string_material": "stainless_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_fender_h",
+      "electric_technique": "electric_palm_muted_chug",
+      "pickup_config": "humbucker_mm",
+      "string_type": "roundwound_s",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thick_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "double_coated",
+      "snare_wires": "wires_30",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "hand_random_hammering",
+      "cymbal_lathing": "pin_lathe",
+      "cymbal_finish": "brilliant_finish",
+      "drum_technique": "sticks_rock",
+      "percussion_technique": "percussion_sticks_rock",
+      "voice_register": "chest_voice",
+      "voice_quality": "full_chest_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "string_tuning": "standard_tuning"
+    },
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_inline_80s",
+    "chain_fx": [
+      "fx_tube_screamer"
+    ],
+    "chain_amp": "amp_marshall_jcm800",
+    "chain_amp_guitar": "amp_british_marshall_jcm800",
+    "chain_amp_bass": "amp_american_ampeg_svt"
   }
 }

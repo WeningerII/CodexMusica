@@ -94,5 +94,35 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "mongolian_pentatonic_long_song",
+    "room": "arctic_arnhem_indigenous_outdoor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "voice_speech_song": "voice_recitative_free_rhythm",
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_tradition": "polynesian_oli_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+      "voice_estill_quality": "voice_estill_falsetto",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "claves_pattern": "claves_son_3_2",
+      "claves_wood": "claves_cuban_hardwood",
+      "wind_articulation": "wind_circular_breathing_drone",
+      "didj_material": "eucalyptus_tetrodonta_yidaki",
+      "didj_mouthpiece": "sugarbag_beeswax_mouthpiece",
+      "didj_technique": "circular_breathing"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

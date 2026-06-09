@@ -111,5 +111,35 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "varanasi_benares_gharana_baithak",
+    "parts": {
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "copper_bayan",
+      "tabla_syahi": "aged_syahi",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "tanpura_size": "female_size",
+      "tanpura_jawari": "curved_jawari",
+      "tanpura_strings": "four_string_classical",
+      "tanpura_string_material": "tanpura_bronze_steel",
+      "tanpura_body_wood": "tanpura_gourd_body",
+      "sitar_neck": "teak",
+      "sitar_resonator": "with_tumba",
+      "sitar_jawari": "antelope_horn",
+      "sitar_taraf": "taraf_13",
+      "sitar_frets": "tied_gut_parda",
+      "sitar_pluck": "wire_mizrab",
+      "sitar_main_strings": "sitar_bronze_steel_modern",
+      "sitar_jawari_style": "sitar_jawari_open",
+      "sitar_gharana": "sitar_maihar_gharana"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

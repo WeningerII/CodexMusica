@@ -68,5 +68,29 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "tibetan_chant_multiphonic",
+    "room": "untreated_bedroom",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "voice_speech_song": "voice_ametrical_chant",
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_tradition": "hindustani_dhrupad_tradition",
+      "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "overtone_singing",
+      "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

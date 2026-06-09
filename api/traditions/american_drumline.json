@@ -112,5 +112,24 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "percussion_technique": "percussion_mallets_orchestral",
+      "marimba_size": "marimba_5_octave",
+      "marimba_orchestral_bar": "marimba_orchestral_honduran",
+      "section": "dci_snare",
+      "era": "dci_modern",
+      "sections": "mb_brass",
+      "school_style": "corps_style"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

@@ -66,5 +66,25 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "pelog_slendro_balinese",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "parts": {
+      "type": "gb_gong_kebyar",
+      "characteristic": "gb_kotekan",
+      "kendang_size": "kendang_ciblon",
+      "kendang_context": "kendang_balinese",
+      "kendang_shell_wood": "kendang_jackwood_canonical",
+      "kendang_head": "kendang_buffalo_hide_canonical",
+      "saron_size": "saron_barung",
+      "saron_tuning_system": "saron_pelog"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

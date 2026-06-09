@@ -88,5 +88,24 @@
     "aesthetic": "vaporwave_aesthetic",
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tape_echo_chamber",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "sample_bitdepth": "twelve_bit",
+      "sample_swing": "heavy_swing",
+      "sample_processing": "chopped_break",
+      "sm_voice_count": "sm_full_poly",
+      "sm_chorus": "sm_chorus_subtle",
+      "sm_voicing": "sm_violins",
+      "tape_voice": "string_tape",
+      "tape_state": "aged_tape"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
   }
 }

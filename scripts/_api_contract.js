@@ -16,6 +16,26 @@
 
 const RECIPE_CHAR_CEILING = 1000; // AGENTS.md / llms.txt: "recipe (string, <=1000 chars)"
 
+// The raw catalog-row fields the BROWSER app needs to IMPORT a tradition into
+// its workspace: tuning/room/part-overrides plus the recording chain. The
+// lazy-loaded app boots from the light browse index (api/browse.json) and
+// fetches traditions/{id}.json only on import — `source` is where these row
+// fields ride along in that file. Builder and gate both use THIS list, so the
+// published `source` can never silently drift from references/.
+const TRADITION_SOURCE_KEYS = [
+  'tuning', 'room', 'parts',
+  'chain_mic', 'chain_pre', 'chain_comp', 'chain_eq', 'chain_medium',
+  'chain_console', 'chain_fx', 'chain_amp', 'chain_amp_guitar', 'chain_amp_bass',
+];
+
+// Project a catalog tradition row down to its `source` payload (only the keys
+// actually present on the row — absent keys are omitted, not nulled).
+function traditionSource(row) {
+  const out = {};
+  for (const k of TRADITION_SOURCE_KEYS) if (row[k] !== undefined) out[k] = row[k];
+  return out;
+}
+
 // Build an id-resolution index from a loaded catalog (`C` = scripts/_loader.js exports).
 // Mirrors how validate.js resolves refs: per-section chain ids, and per-instrument
 // MERGED parts (the loader has already run mergeFamilyParts), so slot variants resolve
@@ -132,4 +152,4 @@ function recordProblems(rec, R, { requireConfig = true } = {}) {
   return out;
 }
 
-module.exports = { RECIPE_CHAR_CEILING, buildResolver, configIdProblems, recordProblems };
+module.exports = { RECIPE_CHAR_CEILING, TRADITION_SOURCE_KEYS, traditionSource, buildResolver, configIdProblems, recordProblems };
