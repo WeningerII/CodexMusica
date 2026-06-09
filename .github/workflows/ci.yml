@@ -1,8 +1,19 @@
 name: CI
 
+# Least privilege: CI only reads the repo (the publish workflow, sync-pages.yml,
+# is the only one that needs contents: write).
+permissions:
+  contents: read
+
 on:
   push:
-    branches: [main, master]
+    # The production branch is included so a DIRECT push to it (bypassing a PR)
+    # still runs the full gate set and shows red — `master` was dead (no such
+    # branch). NOTE: this makes CI run and report, but it does not BLOCK the
+    # concurrent sync-pages publish; enforcing "green before live" requires
+    # branch protection on the production branch (a repo Setting, not workflow
+    # config) requiring these checks on PRs + disallowing direct pushes.
+    branches: [main, claude/loving-hawking-vq5m4]
   pull_request:
   workflow_dispatch:
 

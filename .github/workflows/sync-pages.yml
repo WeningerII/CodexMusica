@@ -48,32 +48,22 @@ jobs:
           CODEX_OUT_DIR="$PWD/_dist" node scripts/build_html.js --check
           test -f _dist/codex.html
 
-          # The static API compile is ~6 min, so only do it when it could have
-          # changed: when references/ or the generator changed in this push.
-          # Otherwise reuse the API already published on main (always the freshest
-          # build, so no drift). Default to rebuild when we can't tell.
-          NEED_API_REBUILD=1
-          if [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ] \
-             && git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
-            if git diff --quiet "$BEFORE" "$AFTER" -- references scripts/build_static_api.js; then
-              NEED_API_REBUILD=0
-            fi
-          fi
-
+          # Publish the committed api/ from THIS ref — never rebuild, never reuse
+          # main's. The CI `freshness` job byte-diffs the committed api/ against a
+          # fresh build on every PR, so whatever merged here is provably what a
+          # fresh build produces: there is nothing to recompile and no way to
+          # publish a stale API.
+          #
+          # (The old heuristic rebuilt only when references/ or build_static_api.js
+          # changed and otherwise reused main's api/. That silently shipped STALE
+          # recipes whenever the recipe ENGINE changed — _loader/search/score/
+          # translate/_merge — without a references/ edit, because the engine is
+          # not under references/; a failed or superseded prior sync could also
+          # drop a push's data from the reuse. Publishing this ref's gate-verified
+          # api/ closes both holes.)
           rm -rf _dist/api
-          if [ "$NEED_API_REBUILD" = "1" ]; then
-            echo "Static API: rebuilding (references/ or generator changed, or undetermined)."
-            node scripts/build_static_api.js --out=_dist/api
-          else
-            echo "Static API: references unchanged — reusing api/ already on main."
-            git fetch origin main --depth=1 || true
-            if git archive origin/main api 2>/dev/null | tar -x -C _dist 2>/dev/null && [ -f _dist/api/index.json ]; then
-              echo "Reused api/ from origin/main."
-            else
-              echo "Could not reuse from main — rebuilding instead."
-              node scripts/build_static_api.js --out=_dist/api
-            fi
-          fi
+          cp -r api _dist/api
+          test -f _dist/api/index.json
 
           node scripts/build_discovery.js --api=_dist/api --out=_dist
 
