@@ -14,6 +14,9 @@ For any tradition, you get:
   tuning. No prose, no artist names. <!-- @promise: recipe-char-ceiling -->
 - `config` — the structured arrangement behind that recipe (instruments + chosen part
   variants, room, chain, tuning, aesthetic), every id resolvable against the catalog. <!-- @promise: every-id-resolves -->
+  Where the catalog authors an explicit variant for a part (`tradition.parts`), the
+  published config uses exactly that variant — the engine pins authored assignments,
+  the scorer only fills the rest. <!-- @promise: authored-parts-honored -->
 
 ## How to use it (zero setup)
 

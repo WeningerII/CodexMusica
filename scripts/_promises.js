@@ -16,6 +16,7 @@ module.exports = [
   { id: 'recipe-char-ceiling',      doc: 'AGENTS.md', gate: 'check_api.js',            claim: 'every recipe string is <= 1000 chars' },
   { id: 'all-traditions-one-fetch', doc: 'AGENTS.md', gate: 'check_api.js',            claim: 'all traditions are present in api/all.json (one fetch)' },
   { id: 'every-id-resolves',        doc: 'AGENTS.md', gate: 'check_api.js',            claim: 'every config id resolves against the catalog' },
+  { id: 'authored-parts-honored',   doc: 'AGENTS.md', gate: 'check_api.js',            claim: 'published configs honor authored tradition.parts assignments' },
   { id: 'catalog-counts',           doc: 'SKILL.md',  gate: 'check_docs.js',           claim: 'documented catalog counts match the live data' },
   { id: 'documented-commands-run',  doc: 'AGENTS.md', gate: 'check_doc_commands.js',   claim: 'every documented CLI command exits 0' },
   { id: 'documented-behaviors',     doc: 'SKILL.md',  gate: 'check_doc_behaviors.js',  claim: 'the cited "Verified" outputs still hold' },

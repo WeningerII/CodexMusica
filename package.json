@@ -2,7 +2,7 @@
   "name": "codex-music-tool",
   "version": "1.0.0",
   "private": true,
-  "description": "Compressed song-recipe descriptor engine over a 1090-tradition / 418-instrument music codex. Generates structural production blueprints, blends traditions, matches axis profiles, and ships a single-file browseable HTML catalog.",
+  "description": "Compressed song-recipe descriptor engine over a 1112-tradition / 418-instrument music codex. Generates structural production blueprints, blends traditions, matches axis profiles, and ships a single-file browseable HTML catalog.",
   "license": "UNLICENSED",
   "author": "Tony",
   "type": "commonjs",
