@@ -47,6 +47,22 @@ function writeJson(p, obj) {
   fs.writeFileSync(p, JSON.stringify(obj, null, 2));
 }
 
+// Canonical 13-axis order — the browse index stores axes as a compact array in
+// this order (named keys would repeat 13× per tradition and bloat the index at
+// scale). The app maps array→named on load via the file's `axisKeys` header.
+const AXIS_KEYS = ['harm', 'pitch', 'ornament', 'meter', 'density', 'transmission', 'improv', 'soundTech', 'intensity', 'voice', 'timbre', 'percussion', 'cyclicity'];
+
+// Browse-card blurb: the first sentence (or ~180 chars) of the description. The
+// FULL description ships in the per-id file, lazy-loaded when a tradition opens —
+// the index stays lean so it loads once and powers search/tree/similar locally.
+function blurbOf(desc) {
+  if (!desc) return '';
+  const s = String(desc).trim();
+  const dot = s.indexOf('. ');
+  const first = dot > 0 && dot < 200 ? s.slice(0, dot + 1) : s;
+  return first.length > 180 ? first.slice(0, 177).trimEnd() + '…' : first;
+}
+
 function compileTradition(t) {
   const seed = seedFromTradition(t.id, [], EMPTY_OPTS);
   if (!seed) return null;
@@ -83,6 +99,7 @@ function main() {
   const traditions = C.TRADITIONS.slice(0, LIMIT);
   const tindex = [];
   const bundle = [];
+  const browseItems = []; // Tier-1 index for the lazy-loaded app (light data only)
   let ok = 0,
     fail = 0;
   for (const t of traditions) {
@@ -107,10 +124,34 @@ function main() {
       recipe: rec.recipe,
       recipe_chars: rec.recipe_chars,
     });
+    const ext = C.TRADITION_EXTRAS[t.id] || {};
+    browseItems.push({
+      id: t.id,
+      name: t.name,
+      family: t.family,
+      parent: ext.parent || null,
+      axes: AXIS_KEYS.map((k) => (ext.axes && typeof ext.axes[k] === 'number' ? ext.axes[k] : 0)),
+      instruments: t.instruments || [],
+      blurb: blurbOf(ext.description),
+    });
     ok++;
     if (ok % 100 === 0) process.stderr.write(`  ...${ok} traditions\n`);
   }
   writeJson(path.join(OUT, 'traditions', 'index.json'), { count: tindex.length, items: tindex });
+
+  // ---- browse.json: the Tier-1 index the lazy-loaded browser app boots from ----
+  // Light data only (id/name/family/parent/axes/instruments/blurb) so search,
+  // tree, find-similar, and fingerprints all run locally off ONE small fetch; the
+  // heavy config/recipe/description is pulled per-tradition from traditions/{id}.json
+  // only when a tradition is opened. This is what lets the app scale past the
+  // single-file memory ceiling without a server.
+  writeJson(path.join(OUT, 'browse.json'), {
+    name: 'Codex Musica — browse index (Tier-1 data for the lazy-loaded app)',
+    generated: new Date().toISOString().slice(0, 10),
+    axisKeys: AXIS_KEYS,
+    count: browseItems.length,
+    items: browseItems,
+  });
 
   // ---- all.json: every recipe in ONE fetch (the universal "paste one link" payload) ----
   writeJson(path.join(OUT, 'all.json'), {

@@ -7,6 +7,17 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased] — production hardening
 
 ### Added
+- **`api/browse.json` — Tier-1 browse index (phase 1 of the lazy-load migration).**
+  `build:api` now emits a small per-tradition index (id, name, family, parent, a
+  compact 13-axis array, instrument ids, and a ~180-char blurb; ~0.7 MB for 1112,
+  gzips small even at 10k), and `check_api` validates it (complete count, ids match
+  the catalog, 13-axis shape). This is the foundation for moving the browser app off
+  "embed the whole catalog into `codex.html`" to lazy-loading: the app will boot from
+  this one small fetch (powering search / tree / find-similar / fingerprints locally)
+  and pull the heavy `config`/recipe/description from `traditions/{id}.json` only when
+  a tradition is opened — lifting the single-file memory ceiling (~3–5k traditions)
+  with no server. *Index + its gate landed; the app/build-shell migration is the next
+  phase.*
 - **22 canonical umbrella genres added as distinct top-level traditions** (1090 → 1112):
   `pop`, `rock`, `metal`, `country`, `lo_fi`, `jazz`, `blues`, `folk`, `soul`, `reggae`,
   `hip_hop`, `rnb`, `gospel`, `classical`, `electronic`, `house`, `techno`, `ska`, `trap`,

@@ -112,6 +112,20 @@ if (all) {
   }
 }
 
+// ───────────────────────── browse.json (Tier-1 index for the lazy-loaded app) ─────────────────────────
+const browse = readJson('browse.json');
+if (browse) {
+  if (browse.count !== C.TRADITIONS.length) fail(`browse.json count=${browse.count}, catalog has ${C.TRADITIONS.length}`);
+  const items = Array.isArray(browse.items) ? browse.items : [];
+  if (items.length !== browse.count) fail(`browse.json: count=${browse.count} but items.length=${items.length}`);
+  diffIds('browse.json', items.map((x) => x.id), tradIds);
+  if (!Array.isArray(browse.axisKeys) || browse.axisKeys.length !== 13) {
+    fail(`browse.json: axisKeys must list 13 axes (got ${browse.axisKeys && browse.axisKeys.length})`);
+  }
+  const badAxes = items.filter((x) => !Array.isArray(x.axes) || x.axes.length !== 13);
+  if (badAxes.length) fail(`browse.json: ${badAxes.length} item(s) with axes != 13 ints (e.g. ${badAxes.slice(0, 5).map((x) => x.id).join(', ')})`);
+}
+
 // ───────────────────────── instruments ─────────────────────────
 const iindex = readJson('instruments/index.json');
 if (iindex) {
