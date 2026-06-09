@@ -85,12 +85,13 @@ All notable changes to this project are recorded here. Format loosely follows
     CI): enforces a bijection across the promises the agent-facing docs make
     (`<!-- @promise: id -->` markers), a registry, and the gates that verify them
     (`// @covers: id` tags). A documented promise with no gate — or a gate covering an
-    unregistered/undocumented promise — fails CI. 9 promises, 0 orphans on any side.
+    unregistered/undocumented promise — fails CI. 10 promises, 0 orphans on any side.
   - `scripts/faults.js` (`npm run faults`, new `freshness` CI job): fault injection that
     plants one known defect per gate-class (broken ref, >1000-char recipe, dropped
-    tradition, app↔node desync, stale `api/`, silent blend-drop) into isolated temp
-    copies and asserts each owning gate exits non-zero. A check you've never seen go red
-    is worthless; this proves all 7 are two-sided (0 escapes).
+    tradition, unresolvable config id, authored-parts violation, app↔node desync, stale
+    `api/`, silent blend-drop, orphan promise) into isolated temp copies and asserts each
+    owning gate exits non-zero. A check you've never seen go red is worthless; this
+    proves every gate-class is two-sided (0 escapes).
   - `scripts/check_artifact_fresh.js` (`npm run check:fresh`, new `freshness` CI job):
     rebuilds `api/` + `codex.html` and byte-diffs against the committed copy (build
     timestamps normalized), so the published artifact is provably a function of the
@@ -184,6 +185,34 @@ All notable changes to this project are recorded here. Format loosely follows
   token-set chain in `build_variants.js`. `npm run lint` is clean.
 
 ### Fixed
+- **The engine ignored authored `tradition.parts`, so the published API contradicted the
+  catalog at scale.** The documented contract (SKILL.md §3a, `validate.js`, and the browser
+  app, which applies overrides in `makeCard`) says an authored part assignment wins over
+  the `default: true` variant — but the CLI/static-API path (`seedFromTradition`) never
+  read `t.parts`, so the scorer overwrote authored picks and the hill-climb then traded
+  them further away. The published damage was wholesale: 373 traditions author explicit
+  non-default variants, and e.g. `voice_tradition` shipped 94 `taladh`-lineage configs
+  where the catalog authors 7, 71 `beatboxing` where it authors 0, Balinese gamelan voiced
+  as Inuit katajjaq, shoegaze as Mande jeli — reaching the recipe prose itself (Sámi yoik
+  prescribed sygyt whistle-overtone and a Melodyne stack). `seedFromTradition` now overlays
+  authored parts onto the seed (existence-checked per instrument, primary-roster
+  instruments only — the same scoping as the browser and `validate.js`; `auto: false`
+  variants allowed, since authored IS explicit selection) and **pins** them via the
+  existing `pinned` mechanism so `variantSwapMoves` can't swap them out; `--swap-variant`
+  applies last (user fiat beats authored beats scorer). Also fixes a latent pin leak:
+  `randomizeVariants` restarts now skip pinned slots (a restart that overwrote a pin could
+  never climb back). The behavior is now a gated promise: `authored-parts-honored`
+  (AGENTS.md) enforced by `check_api.js` via `_api_contract.js` `authoredPartsProblems()`
+  — checked both at build self-verify and against the committed artifact — with a
+  `faults.js` injection (a resolvable wrong-variant flip only this check can catch)
+  proving the gate two-sided. Three authored values that the hand-curated lock-ins
+  (`tests/slot_pick_lock_ins.json`) showed to be wrong were corrected rather than pinned:
+  `fusion` `shell_wood` → `birch_shell`, `tuvan_throat` `voice_quality` →
+  `false_fold_voice` (kargyraa is ventricular/false-fold phonation), and
+  `contemporary_rb_late_90s_2000s` `voice_quality` → `breath_admixed_voice` (the
+  close-miked intimate aesthetic its own lineage text describes) — these also correct what
+  the browser shows. `api/`, `codex.html`, and the recipe/preface/app regression snapshots
+  regenerated to the authored-faithful outputs.
 - **Browse-traditions search now ranks by match locus, not catalog order.** Typing a
   genre returned every tradition whose name/lineage/description merely *contained* the
   term, rendered in raw catalog-array order — so the exact title (e.g. `Pop`) sat
