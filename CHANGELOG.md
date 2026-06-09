@@ -7,6 +7,26 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased] — production hardening
 
 ### Added
+- **Default build flipped to the lazy shell (phase 4 — the flip).** `npm run
+  build:html` (and `node scripts/build_html.js` with no flags) now produces the
+  lazy shell, and the committed `codex.html` is that shell (~2.5 MB vs ~6.3 MB
+  embedded): it deploys beside the static `api/` and boots from
+  `api/browse.json`. `--embedded` builds the historical fully-self-contained
+  single-file variant; `--embedded` and `--lazy` are mutually exclusive. The
+  gates that boot the page in a no-fetch sandbox were retooled to build the
+  `--embedded` variant from the same source — `equivalence.js`,
+  `app_recipe_regression.js`, `tandem.js` (its HTML-artifact + import-simulation
+  checks), and `ui_reachability_check.js` (headless Chromium can't fetch `api/`
+  over `file://`); each is sound because `check_lazy_app.js` proves the shipped
+  shell is behaviorally identical to that embedded build. `tandem.js` also now
+  asserts the *shipped* `codex.html` is a true shell (no embedded tradition
+  tables; carries `CODEX_LAZY_API`). The freshness/reproducibility job rebuilds
+  the lazy shell by default and byte-diffs it against the committed copy. The
+  shell↔embedded parity is registered as the `lazy-shell-parity` promise
+  (`check_lazy_app.js`), and `faults.js` plants a one-tradition `browse.json`
+  desync to prove that gate is two-sided. *This is the GitHub Pages deployment
+  model going forward: the lone-file / open-from-`file://` property is dropped
+  in favor of one hosted app + static API.*
 - **Lazy shell build + parity gate (phase 3 of the lazy-load migration).**
   `node scripts/build_html.js --lazy` (`npm run build:html:lazy`) assembles the
   thin-shell variant of the app: the two tradition tables (~3.7 MB, 66% of the
@@ -24,9 +44,9 @@ All notable changes to this project are recorded here. Format loosely follows
   exactly one (cached) fetch per imported tradition, plus both failure paths
   (browse index unreachable → boot-error state; tradition 404 → zero cards +
   error toast). `--check` on a lazy build also fails closed if the tradition
-  tables ever leak back into the page. *The committed `codex.html` is still
-  the embedded build — flipping the default (and retooling tandem/reachability/
-  freshness for the shell) is the next phase.*
+  tables ever leak back into the page. *(Phase 4 flipped the default build to
+  this shell and made the committed `codex.html` the shell — see the entry
+  above.)*
 - **`Catalog` data layer in the app (phase 2 of the lazy-load migration).** Every
   tradition read in `src/app.js` now routes through one `Catalog` object — direct
   `TRADITIONS` / `TRADITION_EXTRAS` access survives only inside its boot function.

@@ -58,7 +58,10 @@ const FIXTURES = [
 
 function buildTempHtml() {
   const tmp = path.join(os.tmpdir(), `codex_equiv_${process.pid}.html`);
-  execFileSync('node', [path.join(__dirname, 'build_html.js'), `--out=${tmp}`, '--quiet'], {
+  // --embedded: this harness boots the page in jsdom with NO fetch — it needs
+  // the tradition tables in the page. check_lazy_app.js proves the shipped
+  // lazy shell behaves identically to this embedded build.
+  execFileSync('node', [path.join(__dirname, 'build_html.js'), `--out=${tmp}`, '--quiet', '--embedded'], {
     stdio: ['ignore', 'ignore', 'inherit'],
   });
   return tmp;

@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 // check_lazy_app.js — BEHAVIORAL parity between the lazy shell and the embedded app.
 //
-// WHY: the lazy build (`build_html.js --lazy`) ships the SAME src/app.js with a
-// different data source — api/browse.json + per-tradition `source` fetches
-// instead of embedded tables. Every promise the app makes (search recall and
+// @covers: lazy-shell-parity
+//
+// WHY: the lazy build (the `build_html.js` DEFAULT — what ships in codex.html)
+// carries the SAME src/app.js with a different data source — api/browse.json +
+// per-tradition `source` fetches instead of embedded tables. Every promise the app makes (search recall and
 // ranking, the tradition tree, find-similar, import correctness, the recipe
 // string) must survive that swap byte-for-byte. This gate proves it by booting
 // BOTH builds in jsdom — the lazy one against the committed api/ via a fetch
@@ -56,7 +58,10 @@ const note = (msg) => { if (VERBOSE) console.error('  ' + msg); };
 function buildTempHtml(lazy) {
   const tmp = path.join(os.tmpdir(), `codex_lazy_${lazy ? 'shell' : 'embed'}_${process.pid}.html`);
   const args = [path.join(__dirname, 'build_html.js'), `--out=${tmp}`, '--quiet'];
-  if (lazy) args.push('--lazy');
+  // Both modes EXPLICIT: the default flipped to lazy, so the embedded control
+  // build must opt in via --embedded — otherwise this gate would compare the
+  // lazy shell against itself and prove nothing.
+  args.push(lazy ? '--lazy' : '--embedded');
   execFileSync('node', args, { stdio: ['ignore', 'ignore', 'inherit'] });
   const html = fs.readFileSync(tmp, 'utf8');
   fs.unlinkSync(tmp);

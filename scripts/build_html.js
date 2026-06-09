@@ -1,9 +1,17 @@
 #!/usr/bin/env node
 // build_html.js — assemble codex.html from src/ + references/*.js.
 //
-// codex.html is a single-file browser app: an HTML shell (src/index.template.html)
-// with the catalog data embedded as JS const declarations and the application
-// code appended. This script:
+// codex.html is the shipped browser app. The DEFAULT build (since the lazy-load
+// migration) is the LAZY SHELL: an HTML shell (src/index.template.html) with the
+// non-tradition catalog data embedded as JS const declarations and the
+// application code appended, while the two tradition tables (~66% of the
+// embedded bytes) stay OUT of the page — the app's Catalog layer boots them from
+// api/browse.json (one fetch) and pulls each tradition's import payload from
+// api/traditions/{id}.json on demand. The shell therefore deploys NEXT TO the
+// committed api/ directory (GitHub Pages serves both from the repo root).
+// `--embedded` builds the historical fully-self-contained single-file variant
+// (every table in the page; works from file:// with no api/). check_lazy_app.js
+// gates the two variants to behave identically. This script:
 //
 //   1. Reads the HTML shell src/index.template.html, which contains a single
 //      <!--@CODEX_BODY--> marker where everything dynamic is injected.
@@ -17,9 +25,10 @@
 // block is regenerated from references/*.js on every build.
 //
 // USAGE
-//   node scripts/build_html.js                    # builds codex.html into OUTPUT_DIR (see _paths.js; CODEX_OUT_DIR overrides)
+//   node scripts/build_html.js                    # lazy shell (default) into OUTPUT_DIR (see _paths.js; CODEX_OUT_DIR overrides)
 //   node scripts/build_html.js --out=path.html    # custom output path
-//   node scripts/build_html.js --lazy             # lazy shell: omit traditions/extras tables; app boots from api/browse.json
+//   node scripts/build_html.js --embedded         # fully-embedded single-file variant (all tables in the page; no api/ needed)
+//   node scripts/build_html.js --lazy             # explicit lazy shell (same as the default; kept for back-compat)
 //   node scripts/build_html.js --validate         # run validate.js first; abort on failure
 //   node scripts/build_html.js --check            # post-build: eval data block + assert <script> byte ceiling
 //   node scripts/build_html.js --strict           # --validate + --check, both run
@@ -78,12 +87,19 @@ for (let i = 0; i < args.length; i++) {
 
 const outputPath = flags.out || DEFAULT_OUTPUT;
 
-// --lazy: build the thin shell of the lazy-loading app. The two tradition
-// tables — 65%+ of the embedded data — stay OUT of the page; the app's
-// Catalog layer boots them from api/browse.json (one fetch) and pulls each
-// tradition's import payload from api/traditions/{id}.json on demand. The
-// injected CODEX_LAZY_API const is the switch src/app.js keys off.
-const LAZY = !!flags.lazy;
+// Mode switch — the lazy shell is the DEFAULT. The two tradition tables —
+// 65%+ of the embedded data — stay OUT of the page; the app's Catalog layer
+// boots them from api/browse.json (one fetch) and pulls each tradition's
+// import payload from api/traditions/{id}.json on demand. The injected
+// CODEX_LAZY_API const is the switch src/app.js keys off. `--embedded` opts
+// into the fully-embedded single-file build (all tables in the page; the
+// node/jsdom parity harnesses build it, and it still works from file://).
+// `--lazy` stays accepted as an explicit opt-in for pre-flip invocations.
+if (flags.embedded && flags.lazy) {
+  console.error('build_html: --embedded and --lazy are mutually exclusive');
+  process.exit(2);
+}
+const LAZY = !flags.embedded;
 const LAZY_OMIT = new Set(['05_traditions.js', '06_extras.js']);
 
 // ─────────────────────── templates are required source ───────────────────────
@@ -287,7 +303,7 @@ if (runCheck) {
   if (sandbox.TRADITION_EXTRAS && typeof sandbox.TRADITION_EXTRAS === 'object') {
     checks.push(`TRADITION_EXTRAS:  ${Object.keys(sandbox.TRADITION_EXTRAS).length}`);
   }
-  console.error('check: PASS — embedded data parses cleanly');
+  console.error('check: PASS — data block parses cleanly');
   for (const c of checks) console.error('    ' + c);
 
   // Hard byte-ceiling assertion. The chunker budgets in CHARS (a fast proxy);

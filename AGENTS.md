@@ -23,8 +23,8 @@ Base URL: `https://weningerii.github.io/CodexMusica`
 traditions with their `recipe` strings in a single file (~0.8 MB). Fetch it once and you
 have the whole catalog; no per-id requests needed. <!-- @promise: all-traditions-one-fetch -->
 
-**Do NOT fetch `codex.html`** — it is a 6 MB human GUI bundle, not machine-readable. Use
-the JSON endpoints.
+**Do NOT fetch `codex.html`** — it is the human GUI shell (it lazy-loads this same `api/`
+at runtime), not a machine-readable payload. Use the JSON endpoints.
 
 For full structured arrangements (ensemble, room, chain, tuning) per tradition:
 

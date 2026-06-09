@@ -503,8 +503,8 @@ const TRADITION_SIGNATURES = {
 // ---- Catalog: the tradition data layer ----
 // EVERY tradition read in the app goes through this object — no other code may
 // touch the TRADITIONS / TRADITION_EXTRAS globals directly. Two boot modes:
-//   • embedded — the reference tables are present as globals (the single-file
-//     codex.html build, and every node harness that boots it). Everything is
+//   • embedded — the reference tables are present as globals (the `--embedded`
+//     build, and every node harness that boots it). Everything is
 //     in memory up front; `ensureFull` resolves immediately and the sync
 //     import path behaves exactly as it always has.
 //   • lazy — boots from api/browse.json, the light Tier-1 index (id/name/
@@ -625,8 +625,8 @@ const _VARIANTS_BY_INST = new Map();         // instId → Map<partId, Map<varia
 })();
 
 // ---- Catalog boot promise (lazy shell) ----
-// The lazy build (`build_html.js --lazy`) omits the traditions/extras tables
-// from the page and injects `CODEX_LAZY_API` ahead of the app code. In that
+// The lazy build (the `build_html.js` default) omits the traditions/extras
+// tables from the page and injects `CODEX_LAZY_API` ahead of the app code. In that
 // build the Catalog boots from ONE fetch of api/browse.json — everything the
 // browse surfaces read. The embedded build takes the other branch (null):
 // bootFromGlobals already ran synchronously above, so its init path keeps
