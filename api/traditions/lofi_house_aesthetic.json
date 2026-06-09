@@ -91,5 +91,29 @@
     "aesthetic": "lofi_deliberate",
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "parts": {
+      "sampler_archetypes": "akai_s1000",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_house",
+      "tr909_production_origin": "tr909_roland_osaka_canonical",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_jazz",
+      "electronic_technique": "electronic_bass_sub",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
   }
 }

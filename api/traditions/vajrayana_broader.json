@@ -131,5 +131,41 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "tibetan_chant_multiphonic",
+    "room": "tibetan_monastery_assembly",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_metrical_chant",
+      "voice_tradition": "hindustani_dhrupad_tradition",
+      "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "overtone_singing",
+      "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "throat_mechanism_root": "throat_mechanism_ventricular_subharmonic_70_100Hz",
+      "throat_overtone_target_region": "throat_overtone_target_none",
+      "throat_singing_voice_region": "throat_singing_voice_himalayan_ritual",
+      "log_drum_voice": "log_drum_mid",
+      "log_drum_context": "log_drum_sa_house",
+      "dungchen_length": "dungchen_extended",
+      "dungchen_body_metal": "dungchen_copper_brass_canonical",
+      "dungchen_lineage": "dungchen_gelug_canonical",
+      "gyaling_body": "gyaling_wood_metal_bell",
+      "gyaling_body_wood": "gyaling_rosewood_canonical",
+      "gyaling_reed": "gyaling_arundo_canonical",
+      "conch_use": "conch_polynesian",
+      "conch_shell_horn_region": "conch_shell_horn_shankha"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

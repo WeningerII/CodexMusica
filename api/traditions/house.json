@@ -59,5 +59,28 @@
     "fx_extras": [
       "fx_lexicon_224"
     ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "shuffle_low",
+      "electronic_technique": "electronic_acid_squelch",
+      "wave_acid": "saw_acid",
+      "filter_acid": "opening_acid",
+      "accent_acid": "heavy_accent_acid"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "tape_30ips",
+    "chain_console": "colored",
+    "chain_fx": [
+      "fx_lexicon_224"
+    ]
   }
 }

@@ -72,5 +72,26 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "sampler_archetypes": "akai_s900",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "electronic_technique": "electronic_bass_sub",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
   }
 }

@@ -298,5 +298,35 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "keyboard_technique": "keyboard_classical_legato",
+      "piano_pitch_standard": "a_440_modern",
+      "percussion_technique": "percussion_mallets_orchestral",
+      "marimba_size": "marimba_5_octave",
+      "marimba_orchestral_bar": "marimba_orchestral_honduran",
+      "wind_articulation": "wind_classical_legato",
+      "tuba_pitch": "tuba_cc",
+      "tuba_context": "tuba_orch",
+      "tuba_bell_metal": "tuba_yellow_brass",
+      "tuba_valve_system": "tuba_piston_american",
+      "tuba_maker_school": "tuba_yamaha_xeno",
+      "glockenspiel_size": "glockenspiel_orch_25",
+      "glockenspiel_mallet": "glockenspiel_brass",
+      "bass_flute_pitch": "bass_flute_c",
+      "bass_flute_context": "bass_flute_orch"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

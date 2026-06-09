@@ -139,5 +139,33 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "bowed_technique": "bowed_chopped_old_time",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "acoustic_technique": "acoustic_flatpicked",
+      "upright_play": "pizz_upright",
+      "upright_strings": "gut_wound_upright",
+      "wind_articulation": "wind_punchy_ensemble",
+      "sax_size": "tenor_sax",
+      "sax_technique": "sax_bebop_runs",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "phosphor_p",
+      "members": "gj_lead_guitar",
+      "gypsy_jazz_quintet_era": "gypsy_jazz_quintet_postwar"
+    },
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "shellac_78",
+    "chain_console": "console_german_tube_50s"
   }
 }

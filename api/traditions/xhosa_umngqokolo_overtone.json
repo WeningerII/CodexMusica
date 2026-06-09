@@ -79,5 +79,30 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "mongolian_khoomei_harmonic",
+    "room": "eastern_cape_outdoor_grassland",
+    "parts": {
+      "voice_register": "kargyraa_register",
+      "voice_quality": "lowered_larynx_voice",
+      "voice_speech_song": "voice_non_lexical_vocable",
+      "voice_tradition": "khoomei_tuvan_tradition",
+      "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "overtone_singing",
+      "voice_ornament_system": "voice_ornament_sami_yoik",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_aryepiglottic_steppe",
+      "uhadi_body": "uhadi_gourd_resonator_single_string_struck_canonical",
+      "uhadi_tradition": "uhadi_umngqokolo_canonical"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

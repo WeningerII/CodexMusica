@@ -115,5 +115,43 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "shruti_22",
+    "room": "tehran_classical_dastgah_context",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "hindustani_khyal_tradition",
+      "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "shruti_inflected",
+      "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "copper_bayan",
+      "tabla_syahi": "aged_syahi",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "harmonium_action": "harmonium_hand_pump",
+      "harmonium_voicing": "harmonium_double",
+      "harmonium_use": "harmonium_classical",
+      "bowed_technique": "bowed_microtonal_inflected",
+      "sarangi_belly": "goat_skin_sarangi",
+      "sarangi_taraf": "sarangi_35_strings",
+      "sarangi_bow": "horse_hair_tensioned",
+      "sarangi_main_strings": "sarangi_gut_main",
+      "sarangi_body_wood": "sarangi_tun_body"
+    },
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

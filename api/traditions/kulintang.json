@@ -40,5 +40,19 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "balinese_banjar_courtyard",
+    "parts": {
+      "kulintang_set_tuning": "kulintang_set_maguindanao",
+      "kulintang_set_context": "kulintang_set_full_set"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

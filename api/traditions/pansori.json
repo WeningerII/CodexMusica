@@ -61,5 +61,26 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "korean_minsogak_modes",
+    "room": "korean_gugak_hall",
+    "parts": {
+      "pansori_phonation_mechanism": "pansori_seongeum_rough_pressed",
+      "pansori_sigimsae_ornament": "pansori_sigimsae_yoseong",
+      "pansori_jangdan_cycle": "pansori_jangdan_jungmori",
+      "pansori_chuimsae_response": "pansori_chuimsae_eolssu",
+      "pansori_voice_repertoire": "pansori_voice_canonical_five",
+      "buk_korean_context": "buk_korean_pansori",
+      "buk_korean_construction": "buk_korean_barrel",
+      "buk_korean_shell_wood": "buk_korean_paulownia",
+      "buk_korean_head": "buk_korean_cowhide_canonical"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

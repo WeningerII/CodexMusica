@@ -47,5 +47,21 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "scottish_galician_piping_outdoor",
+    "parts": {
+      "wind_articulation": "wind_folk_melodic",
+      "gaita_galega_drones": "gaita_galega_three_drones",
+      "gaita_galega_use": "gaita_galega_alborada",
+      "gaita_galega_chanter_wood": "gaita_galega_boxwood",
+      "gaita_galega_reed": "gaita_galega_cane_canonical",
+      "gaita_galega_bag": "gaita_galega_goatskin_canonical"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

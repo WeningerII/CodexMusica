@@ -42,5 +42,18 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "mongolian_pentatonic_long_song",
+    "room": "open_steppe_outdoor",
+    "parts": {
+      "dutar_body": "dutar_turkmen_long",
+      "dutar_strings": "dutar_silk_traditional",
+      "dutar_tradition": "dutar_fergana_tashkent_maqom"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

@@ -79,5 +79,28 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "korean_minsogak_modes",
+    "room": "korean_gugak_hall",
+    "parts": {
+      "janggu_use": "janggu_samul_nori",
+      "janggu_construction": "janggu_wood",
+      "janggu_shell_wood": "janggu_paulownia_canonical",
+      "janggu_head": "janggu_horse_dog_asymmetric",
+      "janggu_lineage": "janggu_samul_lineage",
+      "buk_korean_context": "buk_korean_samul_nori",
+      "buk_korean_construction": "buk_korean_barrel",
+      "buk_korean_shell_wood": "buk_korean_paulownia",
+      "buk_korean_head": "buk_korean_cowhide_canonical",
+      "kkwaenggwari_role": "kkwaenggwari_lead",
+      "jing_role": "jing_phrase_marker"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
   }
 }

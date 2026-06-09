@@ -61,5 +61,16 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "broken"
   }
 }

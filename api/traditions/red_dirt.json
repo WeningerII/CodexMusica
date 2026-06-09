@@ -116,5 +116,42 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "country_nashville_three_chord_train_beat",
+    "room": "nashville_rca_studio_b_quonset_hut",
+    "parts": {
+      "body_wood": "swamp_ash",
+      "pickup_magnet": "alnico_5",
+      "string_material": "nickel_plated",
+      "bridge": "hardtail",
+      "scale_length": "scale_fender",
+      "voice_register": "chest_voice",
+      "voice_quality": "twang_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_oral_twang",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "phosphor_p",
+      "string_tuning": "standard_tuning"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_british_inline_80s",
+    "chain_amp": "amp_american_blackface",
+    "chain_amp_guitar": "amp_american_fender_blackface"
   }
 }

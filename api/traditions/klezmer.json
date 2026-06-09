@@ -176,5 +176,36 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "klezmer_freygish_ahava_raba_modes",
+    "room": "klezmer_simcha_celebration_hall",
+    "parts": {
+      "wind_articulation": "wind_punchy_ensemble",
+      "bowed_technique": "bowed_klezmer_ornamented",
+      "fiddle_articulation": "arco",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "reed_config": "lmm",
+      "musette_offset": "dry_tuning",
+      "acoustic_technique": "acoustic_flatpicked",
+      "upright_play": "pizz_upright",
+      "upright_strings": "gut_wound_upright",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "pa_size": "pa_120_bass",
+      "pa_use": "pa_polka",
+      "sections": "klez_clarinet_lead",
+      "rhythm_section": "klez_accordion",
+      "hammer_dulcimer_courses": "hd_15_15",
+      "hammer_material": "leather_covered",
+      "hammered_dulcimer_body_wood": "hd_walnut_canonical",
+      "hammered_dulcimer_strings": "hd_steel_bronze_modern"
+    },
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

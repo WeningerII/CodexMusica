@@ -118,5 +118,25 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "balkan_odd_meter_aksak",
+    "room": "naples_canzone_napoletana_studio",
+    "parts": {
+      "wind_articulation": "wind_bebop_runs",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "tuba_pitch": "tuba_cc",
+      "tuba_context": "tuba_orch",
+      "tuba_bell_metal": "tuba_yellow_brass",
+      "tuba_valve_system": "tuba_piston_american",
+      "tuba_maker_school": "tuba_yamaha_xeno",
+      "section": "dci_snare",
+      "era": "dci_classic"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

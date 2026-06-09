@@ -68,5 +68,28 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "byzantine_oktoechos_eight_modes",
+    "room": "byzantine_monastery_chant_athos",
+    "parts": {
+      "voice_register": "head_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_ametrical_chant",
+      "voice_tradition": "baroque_ornamental_tradition",
+      "voice_pitch_organization": "voice_pitch_pythagorean",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_bel_canto",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

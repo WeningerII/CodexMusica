@@ -44,7 +44,7 @@ jobs:
       - name: Regression (recipes, prefaces, slots, app)
         run: npm run test
 
-      - name: Build single-file HTML (+ data + byte-ceiling check)
+      - name: Build codex.html (lazy shell + no-table-leak + byte-ceiling check)
         run: npm run build:html
 
       - name: UI reachability

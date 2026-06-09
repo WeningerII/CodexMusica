@@ -111,5 +111,41 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "shruti_22",
+    "room": "punjab_village_bhangra_dhol_outdoor",
+    "parts": {
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "shruti_inflected",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "dholak_use": "dholak_classical",
+      "dholak_construction": "dholak_mango",
+      "dholak_head": "dholak_goat_skin_canonical",
+      "dholak_tensioning": "dholak_rope_tuning",
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "tumbi_construction": "tumbi_gourd",
+      "tumbi_context": "tumbi_bhangra",
+      "tumbi_string": "tumbi_steel_modern"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_british_inline_80s"
   }
 }

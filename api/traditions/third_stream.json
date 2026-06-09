@@ -136,5 +136,30 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "bebop_complex_changes",
+    "room": "studio_la_rock_70s_90s",
+    "parts": {
+      "wind_articulation": "wind_bebop_runs",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "sax_size": "tenor_sax",
+      "sax_technique": "sax_bebop_runs",
+      "keyboard_technique": "keyboard_jazz_comping",
+      "piano_pitch_standard": "a_440_modern",
+      "acoustic_technique": "acoustic_flatpicked",
+      "upright_play": "pizz_upright",
+      "upright_strings": "gut_wound_upright",
+      "bowed_technique": "bowed_chopped_old_time",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow"
+    },
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

@@ -69,5 +69,21 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "thai_seven_equal",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "ranat_ek_technique": "ranat_ek_kep",
+      "khong_wong_yai_role": "khong_wong_yai_main_melody",
+      "pi_nai_style": "pi_nai_piphat",
+      "taphon_technique": "taphon_hand_struck",
+      "taphon_shell_wood": "taphon_jackwood_canonical",
+      "taphon_head": "taphon_calfskin_canonical"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

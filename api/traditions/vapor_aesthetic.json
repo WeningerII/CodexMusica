@@ -63,5 +63,21 @@
     "aesthetic": "vaporwave_aesthetic",
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "sampler_archetypes": "akai_s900",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_british_inline_80s"
   }
 }

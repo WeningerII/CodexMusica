@@ -22,4 +22,5 @@ module.exports = [
   { id: 'browser-node-parity',      doc: 'SKILL.md',  gate: 'equivalence.js',          claim: 'browser and node agree on descriptors + preface picks' },
   { id: 'artifact-reproducible',    doc: 'README.md', gate: 'check_artifact_fresh.js', claim: 'published api/ + codex.html are a pure function of the source' },
   { id: 'gates-two-sided',          doc: 'README.md', gate: 'faults.js',               claim: 'every gate is proven to fail on a planted defect' },
+  { id: 'lazy-shell-parity',        doc: 'README.md', gate: 'check_lazy_app.js',       claim: 'the shipped lazy shell behaves identically to the embedded build' },
 ];

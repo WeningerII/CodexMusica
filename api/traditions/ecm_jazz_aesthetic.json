@@ -117,5 +117,34 @@
     "aesthetic": "audiophile_intimate",
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "shell_wood": "maple_shell",
+      "shell_thickness": "medium_shell",
+      "bearing_edges": "edge_30",
+      "drumhead": "calfskin_drum",
+      "snare_wires": "wires_20",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "hand_random_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "drum_technique": "brushes_jazz",
+      "percussion_technique": "percussion_brushes_jazz",
+      "keyboard_technique": "keyboard_jazz_comping",
+      "piano_pitch_standard": "a_440_modern",
+      "wind_articulation": "wind_bebop_runs",
+      "sax_size": "tenor_sax",
+      "sax_technique": "sax_bebop_runs",
+      "acoustic_technique": "acoustic_flatpicked",
+      "upright_play": "pizz_upright",
+      "upright_strings": "gut_wound_upright"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

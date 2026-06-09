@@ -102,5 +102,38 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "slack_key_hawaiian",
+    "room": "honolulu_hawaiian_slack_key_lanai",
+    "parts": {
+      "string_tuning": "open_g",
+      "voice_register": "chest_voice",
+      "voice_quality": "crooner_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_sob",
+      "voice_vibrato": "delayed_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "phosphor_p",
+      "top_wood": "sitka",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "phosphor_bronze"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_30ips",
+    "chain_console": "colored"
   }
 }

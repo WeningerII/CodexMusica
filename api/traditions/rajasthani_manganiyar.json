@@ -128,5 +128,40 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "manganiyar_haveli_courtyard",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "dholak_use": "dholak_classical",
+      "dholak_construction": "dholak_mango",
+      "dholak_head": "dholak_goat_skin_canonical",
+      "dholak_tensioning": "dholak_rope_tuning",
+      "bowed_technique": "bowed_microtonal_inflected",
+      "sarangi_belly": "goat_skin_sarangi",
+      "sarangi_taraf": "sarangi_35_strings",
+      "sarangi_bow": "horse_hair_tensioned",
+      "sarangi_main_strings": "sarangi_gut_main",
+      "sarangi_body_wood": "sarangi_tun_body",
+      "khartal_body": "khartal_wooden_castanet_pair_canonical",
+      "khartal_tradition": "khartal_manganiyar_canonical"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

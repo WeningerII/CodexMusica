@@ -131,5 +131,30 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "room": "nyc_brill_building_tin_pan_alley",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "piano_pitch_standard": "a_440_modern",
+      "choir_size": "chamber_choir",
+      "choir_ensemble_repertoire": "choir_ensemble_global_traditional",
+      "bowed_technique": "bowed_chopped_old_time",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "harp_strings": "harp_47_string",
+      "harp_pedals": "harp_double_pedal",
+      "quartet_school": "quartet_modern",
+      "string_quartet_inst_era": "string_quartet_inst_contemporary",
+      "sections": "bb_saxes",
+      "era": "bb_swing"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

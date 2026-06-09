@@ -102,5 +102,34 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_british_class_a_commercial",
+    "parts": {
+      "voice_register": "mix_voice",
+      "voice_quality": "aspirated_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "electronic_technique": "electronic_pad_drone",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_workflow": "sampler_microsampling_glitch",
+      "sampler_classic_context": "sampler_classic_post"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_british_inline_80s"
   }
 }

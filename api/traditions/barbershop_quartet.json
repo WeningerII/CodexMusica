@@ -94,5 +94,36 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "us_uk_civic_amateur_band_hall",
+    "parts": {
+      "voice_register": "head_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_tradition": "baroque_ornamental_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_bel_canto",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voices": "barbershop_lead",
+      "choir_barbershop_quartet_context": "choir_barbershop_quartet_comp",
+      "vocal_percussion_airstream_mechanism": "vocal_percussion_pulmonic_egressive",
+      "vocal_percussion_beatbox_articulation": "beatbox_kick_bilabial_ejective",
+      "vocal_percussion_syllabic_drum_system": "syllabic_system_none",
+      "vocal_percussion_context": "vocal_percussion_context_ensemble"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

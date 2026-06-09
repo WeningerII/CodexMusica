@@ -137,5 +137,36 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "iraqi_baghdad_chamber",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "persian_dastgah_tradition",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_persian_tahrir",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+      "santur_school": "santur_iraqi",
+      "santur_technique": "santur_mizrab",
+      "joza_body": "joza_coconut_shell_canonical",
+      "joza_tradition": "joza_chalghi_canonical",
+      "naqqarat_body": "naqqarat_small_kettle_pair_stick_struck_canonical",
+      "naqqarat_tradition": "naqqarat_chalghi_canonical"
+    },
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

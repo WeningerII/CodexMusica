@@ -98,5 +98,36 @@
       "distortion_high",
       "hall_reverb"
     ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "body_wood": "alder_b",
+      "pickup_config": "soapbar",
+      "string_type": "coated_nano_bass",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "sub_bass_synth_blend",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_house",
+      "tr909_production_origin": "tr909_roland_osaka_canonical",
+      "electronic_technique": "electronic_bass_sub",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "distortion_high",
+      "hall_reverb"
+    ]
   }
 }

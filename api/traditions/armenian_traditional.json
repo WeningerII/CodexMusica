@@ -121,5 +121,41 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "yerevan_armenian_komitas_studio",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "persian_dastgah_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_persian_tahrir",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "kanun_school": "kanun_armenian",
+      "kanun_articulation": "kanun_tortoiseshell_pick",
+      "wind_articulation": "wind_ornament_heavy",
+      "duduk_use": "duduk_solo",
+      "duduk_pitch": "duduk_a",
+      "duduk_body_wood": "duduk_apricot_canonical",
+      "duduk_reed": "duduk_arundo_canonical",
+      "duduk_lineage": "duduk_djivan_gasparyan"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

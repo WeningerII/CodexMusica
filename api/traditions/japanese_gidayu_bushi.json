@@ -89,5 +89,35 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_in_scale",
+    "room": "wooden_pagoda_hall",
+    "parts": {
+      "voice_register": "falsetto",
+      "voice_quality": "nasal_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "chinese_classical_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_jingju_role",
+      "voice_estill_quality": "voice_estill_nasal_twang",
+      "voice_vibrato": "oscillating_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "shamisen_size": "futozao",
+      "shamisen_skin": "shamisen_dog",
+      "shamisen_pick": "bachi_acrylic",
+      "shamisen_neck_wood": "shamisen_red_sandalwood",
+      "shamisen_strings": "shamisen_nylon_tsugaru",
+      "shamisen_tradition": "shamisen_tsugaru"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

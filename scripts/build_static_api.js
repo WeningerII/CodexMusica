@@ -17,7 +17,7 @@ const path = require('path');
 const C = require('./_loader.js');
 const { search, seedFromTradition } = require('./search.js');
 const { translate } = require('./translate.js');
-const { buildResolver, recordProblems, RECIPE_CHAR_CEILING } = require('./_api_contract.js');
+const { buildResolver, recordProblems, traditionSource, RECIPE_CHAR_CEILING } = require('./_api_contract.js');
 
 const flags = {};
 for (const a of process.argv.slice(2)) {
@@ -47,6 +47,11 @@ function writeJson(p, obj) {
   fs.writeFileSync(p, JSON.stringify(obj, null, 2));
 }
 
+// Canonical 13-axis order — the browse index stores axes as a compact array in
+// this order (named keys would repeat 13× per tradition and bloat the index at
+// scale). The app maps array→named on load via the file's `axisKeys` header.
+const AXIS_KEYS = ['harm', 'pitch', 'ornament', 'meter', 'density', 'transmission', 'improv', 'soundTech', 'intensity', 'voice', 'timbre', 'percussion', 'cyclicity'];
+
 function compileTradition(t) {
   const seed = seedFromTradition(t.id, [], EMPTY_OPTS);
   if (!seed) return null;
@@ -61,6 +66,11 @@ function compileTradition(t) {
     recipe_chars: recipe.length,
     score: Number(result.score.toFixed(3)),
     config: result.config,
+    // The raw row fields the lazy-loaded browser app needs to IMPORT this
+    // tradition (build workspace cards from it): tuning/room/parts + chain_*.
+    // The compiled `config` above is the agent-facing arrangement; the app
+    // composes its own cards from these source ids instead.
+    source: traditionSource(t),
   };
 }
 
@@ -83,6 +93,7 @@ function main() {
   const traditions = C.TRADITIONS.slice(0, LIMIT);
   const tindex = [];
   const bundle = [];
+  const browseItems = []; // Tier-1 index for the lazy-loaded app (light data only)
   let ok = 0,
     fail = 0;
   for (const t of traditions) {
@@ -107,10 +118,44 @@ function main() {
       recipe: rec.recipe,
       recipe_chars: rec.recipe_chars,
     });
+    const ext = C.TRADITION_EXTRAS[t.id] || {};
+    const browseItem = {
+      id: t.id,
+      name: t.name,
+      family: t.family,
+      lineage: t.lineage || null,
+      parent: ext.parent || null,
+      axes: AXIS_KEYS.map((k) => (ext.axes && typeof ext.axes[k] === 'number' ? ext.axes[k] : 0)),
+      instruments: t.instruments || [],
+      description: ext.description || '',
+    };
+    // Optional fields ship only when non-empty — at catalog scale the empty
+    // markers alone are real bytes, and the app's guards treat absent and
+    // empty identically.
+    if (ext.exemplars && ext.exemplars.length) browseItem.exemplars = ext.exemplars;
+    if (ext.crossRefs && ext.crossRefs.length) browseItem.crossRefs = ext.crossRefs;
+    browseItems.push(browseItem);
     ok++;
     if (ok % 100 === 0) process.stderr.write(`  ...${ok} traditions\n`);
   }
   writeJson(path.join(OUT, 'traditions', 'index.json'), { count: tindex.length, items: tindex });
+
+  // ---- browse.json: the Tier-1 index the lazy-loaded browser app boots from ----
+  // Everything the BROWSE surfaces show (name/family/lineage/parent/axes/
+  // instruments/description/exemplars/crossRefs) so search, the tree, find-
+  // similar, and fingerprints all run locally off ONE fetch with zero loss of
+  // recall or display fidelity vs the embedded build. Only the few row fields
+  // an IMPORT needs (tuning/room/parts/chain_*) stay out — they ride in each
+  // traditions/{id}.json as `source`, fetched once per imported tradition.
+  // This split is what lets the app scale past the single-file memory ceiling
+  // without a server and without per-action lag on browse interactions.
+  writeJson(path.join(OUT, 'browse.json'), {
+    name: 'Codex Musica — browse index (Tier-1 data for the lazy-loaded app)',
+    generated: new Date().toISOString().slice(0, 10),
+    axisKeys: AXIS_KEYS,
+    count: browseItems.length,
+    items: browseItems,
+  });
 
   // ---- all.json: every recipe in ONE fetch (the universal "paste one link" payload) ----
   writeJson(path.join(OUT, 'all.json'), {

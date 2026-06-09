@@ -124,5 +124,33 @@
     "aesthetic": "lofi_deliberate",
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "parts": {
+      "body_wood": "alder_b",
+      "pickup_config": "soapbar",
+      "string_type": "coated_nano_bass",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "sub_bass_synth_blend",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_rb",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_workflow": "sampler_microsampling_glitch",
+      "sampler_classic_context": "sampler_classic_post",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "piano_pitch_standard": "a_440_modern",
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_jazz"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
   }
 }

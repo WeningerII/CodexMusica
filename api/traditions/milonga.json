@@ -144,5 +144,43 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "milonga_2_4_ostinato",
+    "room": "odeon_rca_buenos_aires",
+    "parts": {
+      "top_wood_classical": "cedar_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "nylon_normal_cl",
+      "attack_technique_cl": "tirando_cl",
+      "acoustic_technique": "acoustic_fingerpicked",
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "bowed_technique": "bowed_chopped_old_time",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "upright_play": "pizz_upright",
+      "upright_strings": "gut_wound_upright",
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "bandoneon_action": "bandoneon_bisonoric",
+      "bandoneon_use": "bandoneon_tango",
+      "bandoneon_maker_school": "bandoneon_alfred_arnold_aa",
+      "bandoneon_reed_material": "bandoneon_steel_reeds_canonical"
+    },
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
   }
 }

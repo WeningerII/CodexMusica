@@ -7,6 +7,72 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased] — production hardening
 
 ### Added
+- **Default build flipped to the lazy shell (phase 4 — the flip).** `npm run
+  build:html` (and `node scripts/build_html.js` with no flags) now produces the
+  lazy shell, and the committed `codex.html` is that shell (~2.5 MB vs ~6.3 MB
+  embedded): it deploys beside the static `api/` and boots from
+  `api/browse.json`. `--embedded` builds the historical fully-self-contained
+  single-file variant; `--embedded` and `--lazy` are mutually exclusive. The
+  gates that boot the page in a no-fetch sandbox were retooled to build the
+  `--embedded` variant from the same source — `equivalence.js`,
+  `app_recipe_regression.js`, `tandem.js` (its HTML-artifact + import-simulation
+  checks), and `ui_reachability_check.js` (headless Chromium can't fetch `api/`
+  over `file://`); each is sound because `check_lazy_app.js` proves the shipped
+  shell is behaviorally identical to that embedded build. `tandem.js` also now
+  asserts the *shipped* `codex.html` is a true shell (no embedded tradition
+  tables; carries `CODEX_LAZY_API`). The freshness/reproducibility job rebuilds
+  the lazy shell by default and byte-diffs it against the committed copy. The
+  shell↔embedded parity is registered as the `lazy-shell-parity` promise
+  (`check_lazy_app.js`), and `faults.js` plants a one-tradition `browse.json`
+  desync to prove that gate is two-sided. *This is the GitHub Pages deployment
+  model going forward: the lone-file / open-from-`file://` property is dropped
+  in favor of one hosted app + static API.*
+- **Lazy shell build + parity gate (phase 3 of the lazy-load migration).**
+  `node scripts/build_html.js --lazy` (`npm run build:html:lazy`) assembles the
+  thin-shell variant of the app: the two tradition tables (~3.7 MB, 66% of the
+  embedded data) stay out of the page and a build-injected `CODEX_LAZY_API`
+  const switches `src/app.js` onto its `CATALOG_READY` boot path — ONE fetch of
+  `api/browse.json` before UI init, with a persistent, honest boot-error state
+  (not a blank app) if that fetch fails. The embedded build's init stays fully
+  synchronous and byte-identical in behavior. `scripts/check_lazy_app.js`
+  (`npm run test:lazy`, in the `npm test` chain so CI runs it) boots BOTH
+  builds in jsdom — the lazy one against the committed `api/` through a fetch
+  shim — and asserts behavioral identity: the app-facing catalog projection
+  deep-equal across all traditions, `renderTradPicker()` innerHTML
+  string-identical for the tree and search queries, a six-tradition import
+  producing identical cards and an identical `compressRichRecipe` string,
+  exactly one (cached) fetch per imported tradition, plus both failure paths
+  (browse index unreachable → boot-error state; tradition 404 → zero cards +
+  error toast). `--check` on a lazy build also fails closed if the tradition
+  tables ever leak back into the page. *(Phase 4 flipped the default build to
+  this shell and made the committed `codex.html` the shell — see the entry
+  above.)*
+- **`Catalog` data layer in the app (phase 2 of the lazy-load migration).** Every
+  tradition read in `src/app.js` now routes through one `Catalog` object — direct
+  `TRADITIONS` / `TRADITION_EXTRAS` access survives only inside its boot function.
+  Two boot modes: *embedded* (the tables are present as globals — today's
+  single-file `codex.html` and every node/jsdom gate harness; behavior is
+  byte-identical) and *lazy* (`Catalog.bootFromIndex(browse)` boots from
+  `api/browse.json` and `Catalog.ensureFull(id)` fetches a tradition's import
+  payload once, on demand). `importTradition` stays intentionally synchronous
+  (tandem's sandbox checks call it directly), reading the Catalog cache; the
+  UI entry points (`importTraditionWithFeedback`, the sidebar staple button)
+  await `ensureFull` first — the ONE await on the import path, a few hundred
+  bytes, cached per tradition.
+- **`api/browse.json` — Tier-1 browse index (phase 1 of the lazy-load migration).**
+  `build:api` emits a per-tradition index carrying everything the browse surfaces
+  read — id, name, family, lineage, parent, a compact 13-axis array, instrument
+  ids, full description, exemplars, crossRefs (~1 MB for 1112; gzips ~4:1) — and
+  `check_api` validates it (complete count, ids match the catalog, 13-axis shape,
+  app-facing fields present). Search, tree, find-similar, and fingerprints run
+  locally off this ONE fetch with recall and display identical to the embedded
+  build. The only fields excluded are what an *import* needs (tuning/room/parts/
+  chain_*): those ship per tradition as a new `source` field in
+  `traditions/{id}.json` (a verbatim projection of the catalog row, gated by
+  `check_api` against drift), fetched only when a tradition is imported — lifting
+  the single-file memory ceiling (~3–5k traditions) with no server and no
+  per-action lag on browse interactions. *Index, `source`, gates, and the app's
+  data layer landed; the build-shell flip is the next phase.*
 - **22 canonical umbrella genres added as distinct top-level traditions** (1090 → 1112):
   `pop`, `rock`, `metal`, `country`, `lo_fi`, `jazz`, `blues`, `folk`, `soul`, `reggae`,
   `hip_hop`, `rnb`, `gospel`, `classical`, `electronic`, `house`, `techno`, `ska`, `trap`,

@@ -65,5 +65,21 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "trinidad_calypso_panyard_outdoor",
+    "parts": {
+      "steelpan_voice": "tenor_pan",
+      "steelpan_context": "steelpan_panyard",
+      "bowed_technique": "bowed_legato_classical",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "bosnian_flamed_maple_cello",
+      "cello_setup_period": "modern_setup_cello"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

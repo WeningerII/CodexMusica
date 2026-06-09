@@ -147,5 +147,33 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "bluegrass_high_lonesome_pentatonic",
+    "room": "bristol_sessions_appalachian_pre_commercial",
+    "parts": {
+      "acoustic_technique": "acoustic_flatpicked",
+      "upright_play": "pizz_upright",
+      "upright_strings": "gut_wound_upright",
+      "bowed_technique": "bowed_bluegrass_double_stops",
+      "fiddle_articulation": "arco",
+      "mandolin_shape": "f_style",
+      "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "banjo_back": "resonator",
+      "tone_ring": "flathead",
+      "banjo_play": "three_finger",
+      "banjo_setup_period": "banjo_scruggs_bluegrass_setup",
+      "banjo_strings": "banjo_medium_bluegrass",
+      "top_wood": "sitka",
+      "back_sides": "rosewood_bs",
+      "string_acoustic": "phosphor_bronze"
+    },
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

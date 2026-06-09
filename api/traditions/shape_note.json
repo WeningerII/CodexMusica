@@ -90,5 +90,32 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "southern_white_church_gospel_quartet",
+    "parts": {
+      "voice_register": "head_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_tradition": "baroque_ornamental_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_bel_canto",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "shape_note_part": "shape_tenor_lead",
+      "shape_note_voice_context": "shape_note_voice_sacred_harp",
+      "parts": "sh_tenor_lead",
+      "arrangement": "hollow_square"
+    },
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
   }
 }

@@ -115,5 +115,42 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "carpeted_bedroom",
+    "parts": {
+      "voice_articulation": "melisma_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_tradition": "hindustani_dhrupad_tradition",
+      "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "shruti_inflected",
+      "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "copper_bayan",
+      "tabla_syahi": "aged_syahi",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "harmonium_action": "harmonium_hand_pump",
+      "harmonium_voicing": "harmonium_double",
+      "harmonium_use": "harmonium_kirtan",
+      "plucked_traditional_technique": "plucked_drone_modal",
+      "tanpura_size": "female_size",
+      "tanpura_jawari": "curved_jawari",
+      "tanpura_strings": "four_string_classical",
+      "tanpura_string_material": "tanpura_bronze_steel",
+      "tanpura_body_wood": "tanpura_gourd_body"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

@@ -83,5 +83,30 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_metrical_chant",
+      "voice_tradition": "hindustani_dhrupad_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "choir_size": "chamber_choir",
+      "choir_ensemble_repertoire": "choir_ensemble_renaissance"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

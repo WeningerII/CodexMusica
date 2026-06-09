@@ -128,5 +128,43 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "bukhara_shashmaqam_courtyard_chamber",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "persian_dastgah_tradition",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_persian_tahrir",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+      "daf_rings": "daf_with_rings",
+      "daf_context": "daf_classical",
+      "daf_shell_wood": "daf_walnut_canonical",
+      "daf_head_material": "daf_goat_skin_canonical",
+      "daf_jingle_metal": "daf_brass_rings",
+      "dutar_body": "dutar_mulberry_canonical_bukhara",
+      "dutar_strings": "dutar_silk_traditional",
+      "dutar_tradition": "dutar_fergana_tashkent_maqom",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "tanbur_use": "tanbur_sufi",
+      "tanbur_persian_strings": "tanbur_persian_six",
+      "tanbur_persian_body_wood": "tanbur_mulberry_body",
+      "tanbur_persian_string_material": "tanbur_steel_modern",
+      "sato_body": "sato_mulberry_pear_long_neck",
+      "sato_tradition": "sato_shashmaqam_canonical"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

@@ -49,5 +49,24 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "connemara_kitchen_sean_nos",
+    "parts": {
+      "wind_articulation": "wind_ornament_heavy",
+      "uilleann_set": "full_set",
+      "uilleann_pipes_pitch": "uilleann_pipes_d",
+      "uilleann_chanter_wood": "uilleann_african_blackwood",
+      "uilleann_reed": "uilleann_cane_canonical",
+      "uilleann_bag": "uilleann_leather_canonical",
+      "uilleann_lineage": "uilleann_taylor_egan"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_transformer_70s"
   }
 }

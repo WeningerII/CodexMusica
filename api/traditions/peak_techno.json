@@ -61,5 +61,22 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_bass_sub",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
   }
 }

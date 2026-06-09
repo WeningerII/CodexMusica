@@ -48,8 +48,9 @@ const llms = `# Codex Musica
 - Catalog root / endpoint map: ${BASE}/api/index.json
 
 Each tradition file has: id, name, family, lineage, recipe (string, <=1000 chars),
-recipe_chars, score, and config (the structured arrangement). Fetch the index to get
-every {id}, then fetch the per-id file you need.
+recipe_chars, score, config (the structured arrangement), and source (the raw
+catalog-row fields — tuning/room/chain — that the browser app imports from). Fetch
+the index to get every {id}, then fetch the per-id file you need.
 
 ## Full functionality (clone & run — for agents with a shell)
 The static JSON above is the DEFAULT recipe per tradition (read-only). The full engine —

@@ -68,5 +68,30 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "tibetan_monastery_assembly",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_metrical_chant",
+      "voice_tradition": "hindustani_dhrupad_tradition",
+      "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

@@ -102,5 +102,40 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "room": "chennai_madras_music_academy_sabha",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "carnatic_classical_tradition",
+      "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "shruti_inflected",
+      "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "mridangam_heads": "mridangam_standard",
+      "mridangam_use": "mridangam_carnatic",
+      "mridangam_shell_wood": "mridangam_jackwood_canonical",
+      "mridangam_heads_material": "mridangam_goat_buffalo",
+      "mridangam_lineage": "mridangam_palghat",
+      "bowed_technique": "bowed_microtonal_inflected",
+      "violin_carnatic_tuning": "violin_carnatic_carnatic",
+      "violin_carnatic_posture": "violin_carnatic_seated_south",
+      "violin_carnatic_strings": "violin_carnatic_synthetic",
+      "violin_carnatic_lineage": "violin_carnatic_lalgudi"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

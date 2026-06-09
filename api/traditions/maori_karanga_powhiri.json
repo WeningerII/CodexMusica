@@ -79,5 +79,30 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "marae_forecourt",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_non_lexical_vocable",
+      "voice_tradition": "polynesian_oli_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+      "voice_estill_quality": "voice_estill_falsetto",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "putatara_body": "putatara_conch_shell_mouthpiece_canonical",
+      "putatara_tradition": "putatara_karanga_powhiri_canonical"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

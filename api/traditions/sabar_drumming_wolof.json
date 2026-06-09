@@ -100,5 +100,37 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
+    "room": "dakar_mbalax_oran_rai_studio",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "praise_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "yoruba_tonal_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "talking_drum_origin": "gangan_yoruba",
+      "talking_drum_context": "talking_drum_world",
+      "talking_drum_shell_wood": "talking_drum_omo_canonical",
+      "talking_drum_head": "talking_drum_goat_skin_canonical",
+      "sabar_use": "sabar_traditional_dance",
+      "sabar_articulation": "sabar_galin_pin",
+      "sabar_shell_wood": "sabar_dimba_canonical",
+      "sabar_head": "sabar_goat_skin_pegged",
+      "sabar_lineage": "sabar_rose_family"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

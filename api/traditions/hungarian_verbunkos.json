@@ -84,5 +84,27 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "prague_supraphon_studio",
+    "parts": {
+      "bowed_technique": "bowed_chopped_old_time",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "cimbalom_size": "cimbalom_concert_pedal",
+      "cimbalom_mallet": "cimbalom_cotton_wound",
+      "wind_articulation": "wind_dixieland_lead",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "a_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "doina_clarinet"
+    },
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

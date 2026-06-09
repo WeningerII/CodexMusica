@@ -120,5 +120,42 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "ethio_qenet_unified",
+    "room": "addis_kazanchis_azmari_bet_tej_house",
+    "parts": {
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "bowed_technique": "bowed_legato_classical",
+      "masenqo_body": "masenqo_diamond_parchment",
+      "masenqo_string": "masenqo_horsehair_single",
+      "masenqo_bow": "masenqo_horsehair_curved_bow",
+      "masenqo_tradition": "masenqo_azmari",
+      "kebero_skin": "kebero_calfskin",
+      "kebero_shell_wood": "kebero_olive_canonical",
+      "kebero_tradition": "kebero_secular_celebratory",
+      "krar_strings": "krar_five",
+      "krar_body": "krar_wood_skin",
+      "krar_string_material": "krar_nylon_modern",
+      "washint_body": "washint_bamboo"
+    },
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

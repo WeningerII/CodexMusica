@@ -46,5 +46,18 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_isolation_cabin_diy",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

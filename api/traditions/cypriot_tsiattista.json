@@ -116,5 +116,33 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "athens_minos_studios_60s_70s",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "twang_voice",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_tradition": "mediterranean_demotic_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+      "voice_estill_quality": "voice_estill_oral_twang",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "bowed_technique": "bowed_chopped_old_time",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

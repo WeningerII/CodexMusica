@@ -16,6 +16,7 @@
 //   stale api/          -> check_artifact_fresh.js   (needs --fresh-api/--fresh-html)
 //   silent blend-drop   -> recipe.js  (input validation)
 //   orphan promise      -> check_promises.js  (documented but unregistered/ungated)
+//   lazy != embedded    -> check_lazy_app.js  (shipped shell drifts from embedded build)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -143,6 +144,20 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
   const d = mkenv(['scripts', 'AGENTS.md', 'llms.txt', 'README.md', 'SKILL.md']);
   fs.appendFileSync(path.join(d, 'AGENTS.md'), '\n<!-- @promise: __orphan_fault__ -->\n');
   record('orphan-promise -> check_promises.js', gate(d, ['scripts/check_promises.js']));
+}
+
+// 9. lazy shell drifts from embedded build -> check_lazy_app.js
+//    The gate boots BOTH builds; the embedded one reads references/ while the
+//    lazy one reads api/browse.json through the fetch shim. Corrupting one
+//    tradition's name in the isolated browse.json forces the two builds to
+//    disagree on the catalog projection, which the parity gate must catch.
+{
+  const d = mkenv(['scripts', 'references', 'src', 'api']);
+  const f = path.join(d, 'api/browse.json');
+  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+  j.items[0].name = (j.items[0].name || '') + ' __FAULT__';
+  fs.writeFileSync(f, JSON.stringify(j, null, 2));
+  record('lazy-shell-desync -> check_lazy_app.js', gate(d, ['scripts/check_lazy_app.js']));
 }
 
 const escaped = results.filter((r) => !r.caught);

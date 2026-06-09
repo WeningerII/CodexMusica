@@ -125,5 +125,42 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "qat_chew_majlis_room",
+    "parts": {
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "percussion_technique": "percussion_hands_layered",
+      "darbuka_material": "darbuka_aluminum_sombaty",
+      "darbuka_skin": "darbuka_synthetic_mylar",
+      "darbuka_regional_style": "darbuka_egyptian_sombaty",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "qanun_strings": "qanun_arab_72",
+      "qanun_pick": "qanun_finger_picks",
+      "qanun_body_wood": "qanun_walnut_body",
+      "qanun_bridge_skin": "qanun_fish_skin_bridge",
+      "qanun_string_material": "qanun_nylon_modern"
+    },
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }
