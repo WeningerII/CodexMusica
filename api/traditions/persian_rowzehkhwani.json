@@ -68,5 +68,29 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "dastgah_persian",
+    "room": "tehran_classical_dastgah_context",
+    "parts": {
+      "voice_articulation": "melisma_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_register": "chest_voice",
+      "voice_quality": "keening_voice",
+      "voice_tradition": "persian_dastgah_tradition",
+      "voice_pitch_organization": "voice_pitch_persian_dastgah",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

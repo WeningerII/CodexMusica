@@ -91,5 +91,30 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "gagaku_ryo_ritsu",
+    "room": "noh_stage_japanese",
+    "parts": {
+      "free_reed_technique": "free_reed_folk_first_position",
+      "sho_pipes": "seventeen_pipes",
+      "sho_warming": "warmed_sho",
+      "wind_articulation": "wind_continuous_legato",
+      "hichiriki_double_reed_size": "hichiriki_double_reed_standard",
+      "hichiriki_double_reed_context": "hichiriki_double_reed_gagaku",
+      "hichiriki_body_wood": "hichiriki_bamboo_canonical",
+      "hichiriki_reed": "hichiriki_arundo_yoshi",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "biwa_type": "gaku_biwa",
+      "biwa_plectrum": "wide_bachi",
+      "biwa_body_wood": "biwa_mulberry_kuwa",
+      "biwa_strings": "biwa_silk_canonical",
+      "taiko_shell_wood": "taiko_keyaki_canonical",
+      "taiko_size": "taiko_chu_daiko"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

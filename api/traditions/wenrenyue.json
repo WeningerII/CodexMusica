@@ -104,5 +104,35 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "chinese_traditional_teahouse",
+    "parts": {
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "guqin_strings": "guqin_silk",
+      "guqin_context": "guqin_literati",
+      "guqin_body_wood": "guqin_tongmu_aged",
+      "guqin_lacquer": "guqin_lacquer_changran",
+      "wind_articulation": "wind_continuous_legato",
+      "xiao_pitch": "xiao_g",
+      "xiao_context": "xiao_literati",
+      "xiao_body_material": "xiao_purple_bamboo",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "bawu_pitch": "bawu_g",
+      "bawu_context": "bawu_yi",
+      "hulusi_config": "hulusi_three_pipe",
+      "hulusi_context": "hulusi_yunnan",
+      "dizi_membrane": "dizi_with_membrane",
+      "dizi_pitch": "dizi_cd",
+      "dizi_body_material": "dizi_bitter_bamboo",
+      "dizi_regional_style": "dizi_qudi_southern"
+    },
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

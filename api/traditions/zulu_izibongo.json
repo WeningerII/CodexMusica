@@ -68,5 +68,29 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "room": "untreated_bedroom",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_register": "chest_voice",
+      "voice_quality": "praise_voice",
+      "voice_tradition": "yoruba_tonal_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

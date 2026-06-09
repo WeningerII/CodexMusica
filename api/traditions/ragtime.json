@@ -134,5 +134,26 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "keyboard_technique": "keyboard_stride_left_hand",
+      "piano_pitch_standard": "a_440_modern",
+      "wind_articulation": "wind_punchy_ensemble",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "banjo_back": "open_back",
+      "tone_ring": "no_ring",
+      "banjo_play": "clawhammer",
+      "banjo_setup_period": "banjo_old_time_open_back_setup",
+      "banjo_strings": "banjo_light_clawhammer",
+      "upright_use": "upright_honky_tonk",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "chain_mic": "mic_acoustic_horn_pre1925",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
   }
 }

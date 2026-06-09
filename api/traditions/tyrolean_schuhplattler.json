@@ -112,5 +112,40 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "mountain_valley",
+    "parts": {
+      "voice_register": "falsetto",
+      "voice_quality": "yodel_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+      "free_reed_technique": "free_reed_chordal_chugging",
+      "pa_size": "pa_120_bass",
+      "pa_use": "pa_polka",
+      "plucked_traditional_technique": "plucked_fingerpicked",
+      "kantele_strings": "kantele_5",
+      "kantele_context": "kantele_ballad",
+      "kantele_body_wood": "kantele_birch_alder",
+      "kantele_string_material": "kantele_steel_modern",
+      "hammer_dulcimer_courses": "hd_15_15",
+      "hammer_material": "leather_covered",
+      "hammered_dulcimer_body_wood": "hd_walnut_canonical",
+      "hammered_dulcimer_strings": "hd_steel_bronze_modern"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

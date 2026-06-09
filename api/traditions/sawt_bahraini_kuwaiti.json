@@ -104,5 +104,34 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "qat_chew_majlis_room",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "persian_dastgah_tradition",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_persian_tahrir",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "percussion_technique": "percussion_hands_layered",
+      "darbuka_material": "darbuka_aluminum_sombaty",
+      "darbuka_skin": "darbuka_synthetic_mylar",
+      "darbuka_regional_style": "darbuka_egyptian_sombaty"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

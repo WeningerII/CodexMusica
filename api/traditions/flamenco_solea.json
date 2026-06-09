@@ -81,5 +81,33 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "flamenco_compas_12_beat",
+    "room": "casablanca_chaabi_moroccan_studio",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "blues_shouter_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "flamenco_jondo_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+      "voice_estill_quality": "voice_estill_belt",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "flamenco_body": "flamenco_negra_rosewood",
+      "flamenco_features": "flamenco_low_action_golpe_plate",
+      "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
+    },
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

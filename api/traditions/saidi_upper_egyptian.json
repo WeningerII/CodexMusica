@@ -115,5 +115,42 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "cairo_studio_misr_umm_kulthum_era",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "persian_dastgah_tradition",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_persian_tahrir",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "copper_bayan",
+      "tabla_syahi": "aged_syahi",
+      "percussion_technique": "percussion_hands_layered",
+      "tar_size": "tar_large",
+      "tar_frame_drum_context": "tar_frame_drum_art",
+      "tar_frame_shell_wood": "tar_frame_walnut",
+      "tar_frame_head": "tar_frame_goat_skin",
+      "mizmar_pitch": "mizmar_mid",
+      "mizmar_context": "mizmar_saidi",
+      "mizmar_body_wood": "mizmar_apricot_canonical",
+      "mizmar_reed": "mizmar_arundo_canonical"
+    },
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
   }
 }

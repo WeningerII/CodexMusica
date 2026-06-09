@@ -101,5 +101,34 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "room": "wooden_ca_tru_house",
+    "parts": {
+      "voice_register": "falsetto",
+      "voice_quality": "nasal_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "chinese_classical_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_jingju_role",
+      "voice_estill_quality": "voice_estill_nasal_twang",
+      "voice_vibrato": "oscillating_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "phach_body": "phach_bamboo_clapper_struck_hardwood_stick_canonical",
+      "phach_tradition": "phach_ca_tru_canonical",
+      "trong_chau_body": "trong_chau_small_praise_drum_patron_struck_canonical",
+      "trong_chau_tradition": "trong_chau_ca_tru_patron_response_canonical",
+      "dan_day_body": "dan_day_three_string_long_neck_canonical",
+      "dan_day_tradition": "dan_day_ca_tru_canonical"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

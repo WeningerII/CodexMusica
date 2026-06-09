@@ -78,5 +78,22 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tape_echo_chamber",
+    "parts": {
+      "electronic_technique": "electronic_lead_line",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "tape_30ips",
+    "chain_console": "colored"
   }
 }

@@ -71,5 +71,26 @@
       "hall_reverb",
       "analog_delay"
     ]
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "berlin_techno_kreuzberg_studio",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "tape_voice": "string_tape",
+      "tape_state": "aged_tape",
+      "handpan_scale": "handpan_d_kurd",
+      "handpan_maker": "handpan_hang"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "hall_reverb",
+      "analog_delay"
+    ]
   }
 }

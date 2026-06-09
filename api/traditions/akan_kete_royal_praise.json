@@ -98,5 +98,37 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_west_african",
+    "room": "untreated_bedroom",
+    "parts": {
+      "voice_articulation": "call_response_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_register": "chest_voice",
+      "voice_quality": "praise_voice",
+      "voice_tradition": "yoruba_tonal_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "talking_drum_origin": "tama_senegal",
+      "talking_drum_context": "talking_drum_praise",
+      "talking_drum_shell_wood": "talking_drum_omo_canonical",
+      "talking_drum_head": "talking_drum_goat_skin_canonical",
+      "dunun_size": "dununba",
+      "dunun_bell": "dunun_single_bell",
+      "dunun_shell_wood": "dunun_lenke_canonical",
+      "dunun_head": "dunun_cowhide_canonical"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

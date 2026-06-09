@@ -96,5 +96,35 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "mongolian_khoomei_harmonic",
+    "room": "mongolian_ger_interior",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "twang_voice",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_tradition": "mediterranean_demotic_tradition",
+      "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "overtone_singing",
+      "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+      "voice_estill_quality": "voice_estill_oral_twang",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "bowed_technique": "bowed_legato_classical",
+      "morin_khuur_use": "morin_khuur_long_song",
+      "morin_khuur_construction": "morin_khuur_traditional",
+      "morin_khuur_body_wood": "morin_khuur_sycamore",
+      "morin_khuur_strings": "morin_khuur_horsehair_canonical",
+      "tovshuur_strings": "tovshuur_two",
+      "tovshuur_body": "tovshuur_carved_wood_hide"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

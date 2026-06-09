@@ -87,5 +87,35 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "scottish_bothy_farmhouse_kitchen",
+    "parts": {
+      "voice_tradition": "scottish_gaelic_taladh_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "melisma_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_register": "chest_voice",
+      "voice_quality": "keening_voice",
+      "wind_articulation": "wind_ornament_heavy",
+      "highland_drones": "highland_3_drones",
+      "highland_chanter": "highland_blackwood",
+      "highland_drone_reeds": "highland_synthetic_drone_reeds",
+      "highland_chanter_reed": "highland_cane_chanter_reed",
+      "highland_bag": "highland_synthetic_bag"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

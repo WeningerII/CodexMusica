@@ -131,5 +131,25 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "us_uk_civic_amateur_band_hall",
+    "parts": {
+      "wind_articulation": "wind_punchy_ensemble",
+      "tuba_pitch": "tuba_cc",
+      "tuba_context": "tuba_brass_band",
+      "tuba_bell_metal": "tuba_yellow_brass",
+      "tuba_valve_system": "tuba_piston_american",
+      "tuba_maker_school": "tuba_yamaha_xeno",
+      "sections": "cornets_section",
+      "context": "brass_band_competition"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

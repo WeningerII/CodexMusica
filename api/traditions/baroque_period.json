@@ -209,5 +209,38 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "well_temperament_late_baroque_italian",
+    "room": "stone_parish_church",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "orch_setup_period": "baroque_setup_violin",
+      "orch_bow": "baroque_bow",
+      "cello_top_wood": "italian_alpine_spruce_cello",
+      "cello_back_wood": "bosnian_flamed_maple_cello",
+      "cello_setup_period": "baroque_setup_cello",
+      "wind_articulation": "wind_ornament_heavy",
+      "shawm_pitch": "shawm_treble",
+      "shawm_context": "shawm_alta_capella",
+      "shawm_body_wood": "shawm_boxwood_canonical",
+      "shawm_reed": "shawm_arundo_pirouette",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "lute_courses": "lute_8_courses",
+      "lute_renaissance_context": "lute_renaissance_solo",
+      "lute_renaissance_ribs": "lute_yew_ribs",
+      "lute_renaissance_soundboard": "lute_alpine_spruce",
+      "lute_renaissance_strings": "lute_pistoy_bass_gut",
+      "keyboard_technique": "keyboard_classical_legato",
+      "harpsichord_register": "harpsi_8_foot",
+      "harpsichord_context": "harpsichord_continuo",
+      "harpsichord_maker_school": "harpsichord_flemish_ruckers",
+      "harpsichord_plectrum": "harpsichord_quill_canonical",
+      "harpsichord_temperament": "harpsichord_meantone_quarter"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

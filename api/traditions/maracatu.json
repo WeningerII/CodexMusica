@@ -127,5 +127,40 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "maracatu_nacao_4_4",
+    "room": "estudio_rozenblit_recife",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "praise_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "yoruba_tonal_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "choir_size": "chamber_choir",
+      "choir_ensemble_repertoire": "choir_ensemble_global_traditional",
+      "agogo_bell": "agogo_double",
+      "agogo_context": "agogo_bateria",
+      "caxixi_size": "caxixi_small",
+      "caxixi_filling": "caxixi_seeds",
+      "alfaia_shell": "alfaia_wood_rope",
+      "alfaia_skin": "alfaia_cowhide",
+      "alfaia_technique": "alfaia_two_sticks",
+      "afoxe_body": "afoxe_gourd_beads"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_30ips",
+    "chain_console": "colored"
   }
 }

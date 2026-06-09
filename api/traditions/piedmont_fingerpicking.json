@@ -124,5 +124,35 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "us_dustbowl_outdoor_woody_guthrie",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "blues_shouter_voice",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "blue_notes",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_belt",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "harmonica_technique": "harm_blues_cross",
+      "harmonica_type": "diatonic_blues",
+      "acoustic_technique": "acoustic_bottleneck_slide",
+      "top_wood": "sitka_om",
+      "back_sides": "mahogany_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_bottleneck_slide"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "shellac_78",
+    "chain_console": "console_german_tube_50s"
   }
 }

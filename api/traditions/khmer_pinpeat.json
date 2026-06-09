@@ -92,5 +92,28 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_thai_khmer",
+    "room": "phnom_penh_royal_pinpeat_palace_court",
+    "parts": {
+      "roneat_ek_bars": "roneat_ek_bamboo_21_bar_canonical",
+      "roneat_ek_tradition": "roneat_ek_royal_court_canonical",
+      "roneat_thung_bars": "roneat_thung_bamboo_canonical",
+      "roneat_thung_role": "roneat_thung_pinpeat_counter",
+      "sralai_reed": "sralai_palm_leaf_quadruple",
+      "sralai_role": "sralai_pinpeat_lead_melodic",
+      "sampho_construction": "sampho_double_headed_barrel",
+      "sampho_role": "sampho_leader_timekeeper",
+      "skor_thom_construction": "skor_thom_large_pair_canonical",
+      "kong_vong_thom_construction": "kong_vong_thom_sixteen_bronze_canonical",
+      "kong_vong_thom_role": "kong_vong_thom_pinpeat_melodic_skeleton"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

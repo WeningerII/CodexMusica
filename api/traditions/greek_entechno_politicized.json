@@ -104,5 +104,39 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "room": "carpeted_bedroom",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "nylon_normal_cl",
+      "attack_technique_cl": "rasgueado_cl",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "voice_register": "chest_voice",
+      "voice_quality": "twang_voice",
+      "voice_tradition": "mediterranean_demotic_tradition",
+      "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+      "voice_estill_quality": "voice_estill_oral_twang",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "bouzouki_courses": "tetrachordo",
+      "bouzouki_pick": "bouzouki_medium",
+      "bouzouki_body_wood": "bouzouki_walnut_bowl",
+      "bouzouki_strings": "bouzouki_steel_modern"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

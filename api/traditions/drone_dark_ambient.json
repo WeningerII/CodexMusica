@@ -89,5 +89,23 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "krautrock_dusseldorf_kling_klang_studio",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "sm_voice_count": "sm_full_poly",
+      "sm_chorus": "sm_chorus_lush",
+      "sm_voicing": "sm_violins",
+      "tape_voice": "choir_tape",
+      "tape_state": "aged_tape"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_in_the_box"
   }
 }

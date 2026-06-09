@@ -119,5 +119,38 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
+    "room": "dakar_mbalax_oran_rai_studio",
+    "parts": {
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "reed_config": "lmm",
+      "musette_offset": "dry_tuning",
+      "electronic_technique": "electronic_pad_drone",
+      "percussion_technique": "percussion_hands_layered",
+      "darbuka_material": "darbuka_aluminum_sombaty",
+      "darbuka_skin": "darbuka_synthetic_mylar",
+      "darbuka_regional_style": "darbuka_egyptian_sombaty"
+    },
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
   }
 }

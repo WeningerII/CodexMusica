@@ -98,5 +98,36 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "sardinian_outdoor_a_tenore_polyphony",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "mediterranean_demotic_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "throat_mechanism_root": "throat_mechanism_M1_compound_with_overtones",
+      "throat_overtone_target_region": "throat_overtone_8th_to_12th_partial",
+      "throat_singing_voice_region": "throat_singing_voice_mediterranean_pastoral",
+      "wind_articulation": "wind_circular_breathing_drone",
+      "launeddas_pipes": "launeddas_3",
+      "launeddas_breath": "launeddas_circular",
+      "launeddas_material": "launeddas_cane_canonical",
+      "launeddas_reed": "launeddas_idioglot_canonical"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

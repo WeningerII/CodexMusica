@@ -70,5 +70,24 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "montevideo_candombe_barrio_sur_carnival",
+    "parts": {
+      "choir_size": "chamber_choir",
+      "choir_ensemble_repertoire": "choir_ensemble_global_traditional",
+      "percussion_technique": "percussion_hands_layered",
+      "conga_set": "conga_proper",
+      "atabaque_role": "atabaque_rum",
+      "atabaque_skin": "atabaque_cowhide",
+      "atabaque_shell_wood": "atabaque_jacaranda"
+    },
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

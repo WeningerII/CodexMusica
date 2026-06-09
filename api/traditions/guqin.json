@@ -44,5 +44,20 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "chinese_traditional_teahouse",
+    "parts": {
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "guqin_strings": "guqin_silk",
+      "guqin_context": "guqin_literati",
+      "guqin_body_wood": "guqin_tongmu_aged",
+      "guqin_lacquer": "guqin_lacquer_changran"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

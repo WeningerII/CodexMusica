@@ -67,5 +67,19 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_electrical_era_office",
+    "parts": {
+      "keyboard_technique": "keyboard_stride_left_hand",
+      "piano_pitch_standard": "a_440_modern",
+      "upright_use": "upright_honky_tonk",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
   }
 }

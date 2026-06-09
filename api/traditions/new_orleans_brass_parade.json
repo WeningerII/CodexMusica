@@ -119,5 +119,34 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "havana_solar_outdoor_courtyard",
+    "parts": {
+      "shell_wood": "maple_shell",
+      "shell_thickness": "medium_shell",
+      "bearing_edges": "edge_30",
+      "drumhead": "calfskin_drum",
+      "snare_wires": "wires_20",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "hand_random_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "drum_technique": "brushes_jazz",
+      "percussion_technique": "percussion_brushes_jazz",
+      "wind_articulation": "wind_punchy_ensemble",
+      "brass_size": "cornet",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "tuba_pitch": "tuba_cc",
+      "tuba_context": "tuba_brass_band",
+      "tuba_bell_metal": "tuba_yellow_brass",
+      "tuba_valve_system": "tuba_piston_american",
+      "tuba_maker_school": "tuba_yamaha_xeno"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

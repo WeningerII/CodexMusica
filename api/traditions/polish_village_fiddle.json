@@ -46,5 +46,19 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "pythagorean",
+    "room": "wooden_barn",
+    "parts": {
+      "bowed_technique": "bowed_chopped_old_time",
+      "fiddle_articulation": "arco"
+    },
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

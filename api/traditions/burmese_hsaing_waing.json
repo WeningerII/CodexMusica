@@ -56,5 +56,24 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_thai_khmer",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "parts": {
+      "type": "gb_gong_kebyar",
+      "characteristic": "gb_kotekan",
+      "wind_articulation": "wind_ornament_heavy",
+      "shawm_pitch": "shawm_treble",
+      "shawm_context": "shawm_alta_capella",
+      "shawm_body_wood": "shawm_boxwood_canonical",
+      "shawm_reed": "shawm_arundo_pirouette"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

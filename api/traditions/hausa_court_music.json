@@ -109,5 +109,39 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "adobe_room",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "praise_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "yoruba_tonal_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "griot_origin": "griot_mande",
+      "griot_voice_context": "griot_voice_praise",
+      "talking_drum_origin": "tama_senegal",
+      "talking_drum_context": "talking_drum_world",
+      "talking_drum_shell_wood": "talking_drum_omo_canonical",
+      "talking_drum_head": "talking_drum_goat_skin_canonical",
+      "kakaki_length": "kakaki_standard",
+      "kakaki_context": "kakaki_court",
+      "kakaki_bell_metal": "kakaki_brass_canonical"
+    },
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_30ips",
+    "chain_console": "colored"
   }
 }

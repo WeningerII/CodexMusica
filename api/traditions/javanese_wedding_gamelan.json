@@ -116,5 +116,39 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "pelog_slendro_javanese",
+    "room": "tatami_parlor_japanese",
+    "parts": {
+      "voice_articulation": "legato_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_register": "falsetto",
+      "voice_quality": "nasal_voice",
+      "voice_tradition": "chinese_classical_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_pelog_7",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_jingju_role",
+      "voice_estill_quality": "voice_estill_nasal_twang",
+      "voice_vibrato": "oscillating_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "kendang_size": "kendang_ciblon",
+      "kendang_context": "kendang_javanese",
+      "kendang_shell_wood": "kendang_jackwood_canonical",
+      "kendang_head": "kendang_buffalo_hide_canonical",
+      "saron_size": "saron_barung",
+      "saron_tuning_system": "saron_slendro",
+      "bonang_tuning": "bonang_slendro",
+      "bonang_register": "bonang_barung",
+      "sections": "gj_balungan",
+      "tuning": "gj_slendro"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

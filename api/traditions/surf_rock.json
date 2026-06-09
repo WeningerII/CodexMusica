@@ -136,5 +136,50 @@
       "spring_reverb",
       "tremolo_pedal"
     ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_early_tape_us_small",
+    "parts": {
+      "body_wood": "alder",
+      "pickup_magnet": "alnico_5",
+      "string_material": "nickel_plated",
+      "bridge": "vintage_trem",
+      "scale_length": "scale_fender",
+      "electric_technique": "electric_tremolo_picking",
+      "pickup_config": "split_coil",
+      "string_type": "flatwound",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "medium_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "drum_technique": "sticks_rock",
+      "percussion_technique": "percussion_sticks_rock",
+      "wind_articulation": "wind_bebop_runs",
+      "sax_size": "tenor_sax",
+      "sax_technique": "sax_bebop_runs",
+      "string_tuning": "standard_tuning"
+    },
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored",
+    "chain_fx": [
+      "spring_reverb",
+      "tremolo_pedal"
+    ],
+    "chain_amp": "amp_american_blackface",
+    "chain_amp_guitar": "amp_american_fender_blackface",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

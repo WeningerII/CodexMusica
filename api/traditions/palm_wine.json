@@ -67,5 +67,23 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "mande_pentatonic_jeli_modal",
+    "room": "wooden_barn",
+    "parts": {
+      "harmonica_technique": "harm_folk_first_position",
+      "harmonica_type": "diatonic_blues",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "phosphor_p"
+    },
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

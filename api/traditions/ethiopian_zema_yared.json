@@ -124,5 +124,38 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "ethio_qenet_unified",
+    "room": "lalibela_rock_hewn_church",
+    "parts": {
+      "voice_register": "head_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_ametrical_chant",
+      "voice_tradition": "baroque_ornamental_tradition",
+      "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_bel_canto",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "wind_articulation": "wind_punchy_ensemble",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "kebero_skin": "kebero_calfskin",
+      "kebero_shell_wood": "kebero_olive_canonical",
+      "kebero_tradition": "kebero_orthodox_tewahedo",
+      "begena_body": "begena_ten_string_box_lyre_canonical",
+      "begena_tradition": "begena_devotional_canonical",
+      "tsenatsil_body": "tsenatsil_metal_jingle_frame_handle_canonical",
+      "tsenatsil_tradition": "tsenatsil_zema_canonical"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

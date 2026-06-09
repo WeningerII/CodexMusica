@@ -114,5 +114,42 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "doom_sabbath_tritone_diminished",
+    "room": "stoner_doom_garage_amplifier_room",
+    "parts": {
+      "body_wood": "mahogany_h",
+      "pickup_magnet": "alnico_5_h",
+      "string_material": "nickel_plated_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "pickup_config": "humbucker_mm",
+      "string_type": "roundwound_s",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thick_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "double_coated",
+      "snare_wires": "wires_30",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "hand_random_hammering",
+      "cymbal_lathing": "pin_lathe",
+      "cymbal_finish": "brilliant_finish",
+      "drum_technique": "sticks_rock",
+      "percussion_technique": "percussion_sticks_rock",
+      "string_tuning": "standard_tuning"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_british_inline_80s",
+    "chain_amp": "amp_british_orange_dirty",
+    "chain_amp_guitar": "amp_british_orange",
+    "chain_amp_bass": "amp_american_ampeg_svt"
   }
 }

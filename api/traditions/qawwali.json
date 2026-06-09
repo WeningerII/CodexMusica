@@ -89,5 +89,28 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "shruti_22",
+    "room": "fez_andalusi_palace_riad",
+    "parts": {
+      "qawwal_role": "qawwali_lead",
+      "qawwal_voice_context": "qawwal_voice_shrine",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "reed_config": "lmm",
+      "musette_offset": "dry_tuning",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "copper_bayan",
+      "tabla_syahi": "aged_syahi",
+      "harmonium_action": "harmonium_hand_pump",
+      "harmonium_voicing": "harmonium_male",
+      "harmonium_use": "harmonium_qawwali"
+    },
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

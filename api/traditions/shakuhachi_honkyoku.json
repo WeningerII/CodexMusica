@@ -45,5 +45,20 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_in_scale",
+    "room": "tatami_parlor_japanese",
+    "parts": {
+      "wind_articulation": "wind_breath_quiet",
+      "shaku_length": "one_eight",
+      "shaku_technique": "classical_shaku",
+      "shakuhachi_body_material": "shakuhachi_madake_canonical",
+      "shakuhachi_lineage": "shakuhachi_komuso_fuke"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }
