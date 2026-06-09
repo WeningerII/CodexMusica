@@ -158,10 +158,11 @@ function scoreConfig(config) {
 // For each instrument's each part, generate every variant-swap as a candidate move
 function* variantSwapMoves(config) {
   // Pinned slots — entries in config.pinned shaped like { instId: [partId, ...] } — are
-  // exempt from variant-swap move generation. This is how --swap-variant user fiat
-  // survives hill-climbing: search can still climb on every OTHER slot, just not on
-  // slots the caller explicitly pinned. Array form (rather than Set) for clean JSON
-  // serialization through the regression-snapshot and --json output paths.
+  // exempt from variant-swap move generation. This is how authored tradition.parts
+  // assignments and --swap-variant user fiat survive hill-climbing: search can still
+  // climb on every OTHER slot, just not on slots the seed pinned. Array form (rather
+  // than Set) for clean JSON serialization through the regression-snapshot and --json
+  // output paths.
   const pinned = config.pinned || null;
   for (let i = 0; i < config.instruments.length; i++) {
     const inst = config.instruments[i];
@@ -395,11 +396,17 @@ function randomizeVariants(seed, seedNum) {
     return (state * 16807) % 2147483647 / 2147483647;
   }
   const newConfig = structuredClone(seed);
+  // Pinned slots (authored tradition.parts, --swap-variant) stay put: a
+  // randomized restart that overwrote a pinned slot could never climb back
+  // (variantSwapMoves skips pinned slots), so the pin would be silently lost.
+  const pinned = newConfig.pinned || null;
   let counter = 0;
   for (const inst of newConfig.instruments) {
     const cataInst = C.INSTRUMENTS.find(i => i.id === inst.id);
     if (!cataInst) continue;
+    const pinnedParts = pinned && Array.isArray(pinned[inst.id]) ? pinned[inst.id] : null;
     for (const part of (cataInst.parts || [])) {
+      if (pinnedParts && pinnedParts.includes(part.id)) continue;
       const variants = (part.variants || []).filter(v => v.auto !== false); // skip explicit-only variants
       if (variants.length <= 1) continue;
       const idx = Math.floor(pseudoRandom(counter++) * variants.length);
@@ -521,18 +528,54 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
     }
     return { id: iid, slots, scores };
   });
-  // Apply --swap-variant overrides: for each (instrument, part, variant) triple,
-  // override the auto-picked slot AND record (instId → [partId, ...]) in pinned so
-  // the hill-climb search exempts these slots from its variantSwapMoves. Without
-  // pinning, search would climb back to the higher-scoring canonical variant.
+  // Pinned slots — { instId: [partId, ...] } — are exempt from hill-climb
+  // variant swaps and from multistart randomization (see variantSwapMoves /
+  // randomizeVariants). Two writers below, in precedence order: authored
+  // tradition.parts first, then --swap-variant user overrides on top.
   const pinned = {};
+  const pin = (iid, partId) => {
+    pinned[iid] = pinned[iid] || [];
+    if (!pinned[iid].includes(partId)) pinned[iid].push(partId);
+  };
+  // Apply authored tradition.parts — the catalog's own variant assignments
+  // ("default is the `default:true` variant unless the tradition points
+  // elsewhere", SKILL.md §3a). Mirrors the browser app's tradition import
+  // (makeCard partsOverride): each partId → variantId pair applies to every
+  // PRIMARY-tradition instrument that carries both the part and the variant,
+  // and wins over the score-driven pick above. Staple-contributed and ad-hoc
+  // added instruments keep scorer picks — validate.js scopes the authored map
+  // to the primary's own roster. An authored pick may name an `auto: false`
+  // variant: explicit-only gates AUTO-seeding, and an authored assignment is
+  // explicit catalog intent (same standing as --swap-variant).
+  if (t.parts && typeof t.parts === 'object') {
+    const roster = new Set(t.instruments || []);
+    for (const instEntry of instruments) {
+      if (!roster.has(instEntry.id)) continue;
+      const cataInst = C.INSTRUMENTS.find(x => x.id === instEntry.id);
+      if (!cataInst) continue;
+      for (const part of (cataInst.parts || [])) {
+        const vid = t.parts[part.id];
+        if (vid === undefined) continue;
+        const v = (part.variants || []).find(x => x.id === vid);
+        if (!v) continue; // pair targets a same-named part on a different roster instrument
+        instEntry.slots[part.id] = vid;
+        // Keep `scores` honest: record the AUTHORED variant's score in this
+        // seed context, not the scorer-best score it displaced.
+        instEntry.scores[part.id] = scoreVariant(v, getCtxForPart(part.id), { useNeighbors: true, skipSignals: true }).score;
+        pin(instEntry.id, part.id);
+      }
+    }
+  }
+  // Apply --swap-variant overrides LAST: explicit user fiat beats both the
+  // scorer and authored tradition.parts. Each override is pinned so the
+  // hill-climb search exempts these slots from its variantSwapMoves. Without
+  // pinning, search would climb back to the higher-scoring canonical variant.
   for (const iid of Object.keys(swap)) {
     const instEntry = instruments.find(x => x.id === iid);
     if (!instEntry) continue;
     for (const partId of Object.keys(swap[iid])) {
       instEntry.slots[partId] = swap[iid][partId];
-      pinned[iid] = pinned[iid] || [];
-      if (!pinned[iid].includes(partId)) pinned[iid].push(partId);
+      pin(iid, partId);
     }
   }
   return {

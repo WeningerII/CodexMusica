@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // check_api.js — the static-API contract gate.
 //
-// @covers: recipe-char-ceiling, all-traditions-one-fetch, every-id-resolves
+// @covers: recipe-char-ceiling, all-traditions-one-fetch, every-id-resolves, authored-parts-honored
 //
 // WHY: the published static API (api/*.json) is the agent-facing PRODUCT — every
 // external agent is told to fetch it (AGENTS.md, llms.txt, index.html). Yet nothing
@@ -20,6 +20,9 @@
 //     tuning, inline_chain, fx_extras, instruments + their slot variants) resolves
 //     against the current catalog (the "every id resolvable" promise) — this is what
 //     catches the published snapshot drifting from references/.
+//   • Authored-parts fidelity — every published config agrees with its primary
+//     tradition's authored `parts` map (the "configs honor authored
+//     tradition.parts" promise; seedFromTradition pins these at seed time).
 //   • index.json counts match the catalog.
 //
 // Usage:
@@ -141,6 +144,7 @@ if (problems.length === 0) {
   console.log(`  ✓ ${C.INSTRUMENTS.length} instruments complete`);
   console.log(`  ✓ every recipe <= 1000 chars, recipe_chars accurate`);
   console.log(`  ✓ every config id resolves against the catalog`);
+  console.log(`  ✓ every config honors its tradition's authored parts`);
   process.exit(0);
 }
 console.error(`FAIL — ${problems.length} contract violation(s):`);

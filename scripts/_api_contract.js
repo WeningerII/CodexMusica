@@ -8,6 +8,7 @@
 //   • "recipe (string, <=1000 chars)"        → RECIPE_CHAR_CEILING
 //   • "every id resolvable against the catalog" → configIdProblems()
 //   • recipe_chars is the recipe's true length  → recordProblems() (no drift)
+//   • "configs honor authored tradition.parts"  → authoredPartsProblems()
 //
 // Both the builder (build_static_api.js — self-verify in memory before publish) and
 // the gate (check_api.js — verify the published files) assert against THIS module,
@@ -42,7 +43,9 @@ function buildResolver(C) {
     for (const p of inst.parts || []) m.set(p.id, new Set((p.variants || []).map((v) => v.id)));
     instParts.set(inst.id, m);
   }
-  return { sets, chain, instParts };
+  // tradition records by id — authoredPartsProblems needs .parts/.instruments.
+  const traditionById = new Map((C.TRADITIONS || []).map((t) => [t.id, t]));
+  return { sets, chain, instParts, traditionById };
 }
 
 // Return an array of human-readable problem strings for one config object.
@@ -109,6 +112,37 @@ function configIdProblems(config, R) {
   return out;
 }
 
+// Return problem strings when a config contradicts its PRIMARY tradition's
+// authored `parts` map (partId → variantId). seedFromTradition applies those
+// assignments as pinned slots — the same semantics the browser app uses at
+// tradition import — so a published config that disagrees means the artifact
+// predates the assignment (stale) or the pin was broken. Scope mirrors the
+// engine exactly: only instruments on the primary's own roster, and only
+// pairs whose part AND variant exist on that instrument (the makeCard filter
+// validate.js codifies).
+function authoredPartsProblems(config, R) {
+  const out = [];
+  if (!config || typeof config !== 'object') return out;
+  const tid = (config.traditions || [])[0];
+  const t = tid != null ? R.traditionById.get(tid) : null;
+  if (!t || !t.parts || typeof t.parts !== 'object') return out;
+  const roster = new Set(t.instruments || []);
+  for (const inst of config.instruments || []) {
+    if (!inst || !roster.has(inst.id)) continue;
+    const pm = R.instParts.get(inst.id);
+    if (!pm) continue;
+    for (const [pid, vid] of Object.entries(t.parts)) {
+      const variants = pm.get(pid);
+      if (!variants || !variants.has(vid)) continue; // pair targets a different roster instrument
+      const got = (inst.slots || {})[pid];
+      if (got !== vid) {
+        out.push(`${inst.id}.${pid}: authored tradition.parts says ${vid}, config has ${got == null ? 'nothing' : got}`);
+      }
+    }
+  }
+  return out;
+}
+
 // Validate one record that carries a `recipe` (+ `recipe_chars`, + optional `config`):
 // the per-tradition file shape and the all.json item shape. Empty array === clean.
 function recordProblems(rec, R, { requireConfig = true } = {}) {
@@ -127,9 +161,13 @@ function recordProblems(rec, R, { requireConfig = true } = {}) {
       out.push(`recipe_chars (${rec.recipe_chars}) != recipe.length (${rec.recipe.length})`);
     }
   }
-  if (rec.config) out.push(...configIdProblems(rec.config, R));
-  else if (requireConfig) out.push('config: missing');
+  if (rec.config) {
+    out.push(...configIdProblems(rec.config, R));
+    out.push(...authoredPartsProblems(rec.config, R));
+  } else if (requireConfig) {
+    out.push('config: missing');
+  }
   return out;
 }
 
-module.exports = { RECIPE_CHAR_CEILING, buildResolver, configIdProblems, recordProblems };
+module.exports = { RECIPE_CHAR_CEILING, buildResolver, configIdProblems, authoredPartsProblems, recordProblems };
