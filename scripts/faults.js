@@ -14,6 +14,7 @@
 //   dropped tradition   -> check_api.js
 //   app<->node desync   -> equivalence.js
 //   stale api/          -> check_artifact_fresh.js   (needs --fresh-api/--fresh-html)
+//   stale codex.html    -> check_artifact_fresh.js   (needs --fresh-api/--fresh-html)
 //   silent blend-drop   -> recipe.js  (input validation)
 //   orphan promise      -> check_promises.js  (documented but unregistered/ungated)
 //   lazy != embedded    -> check_lazy_app.js  (shipped shell drifts from embedded build)
@@ -49,21 +50,40 @@ function mkenv(items) {
   fs.symlinkSync(path.join(ROOT, 'node_modules'), path.join(d, 'node_modules'));
   return d;
 }
-// Run a gate; return its exit code (never throws). 0 = passed (BAD here), !=0 = caught.
+// Run a gate; capture combined output + exit code (never throws). 0 = passed
+// (BAD here). A non-zero exit is only a real CATCH if its output also names the
+// planted defect (see record) — a timeout is surfaced separately so a gate that
+// merely hangs can't masquerade as detection.
 function gate(dir, args) {
   try {
-    execFileSync('node', args, { cwd: dir, stdio: VERBOSE ? 'inherit' : 'ignore', timeout: 300000 });
-    return 0;
+    const out = execFileSync('node', args, { cwd: dir, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], timeout: 300000, maxBuffer: 32 * 1024 * 1024 });
+    if (VERBOSE) process.stderr.write(out);
+    return { code: 0, out };
   } catch (e) {
-    return e.status == null ? -1 : e.status;
+    const out = `${e.stdout || ''}${e.stderr || ''}`;
+    if (VERBOSE) process.stderr.write(out);
+    const code = e.code === 'ETIMEDOUT' ? 'timeout' : (e.status == null ? -1 : e.status);
+    return { code, out };
   }
 }
 
 const results = [];
-function record(cls, code) {
-  const caught = code !== 0;
-  results.push({ cls, caught, code });
-  process.stderr.write(`  ${caught ? '✓ caught ' : '✗ ESCAPED'}  ${cls}  (exit ${code})\n`);
+// A defect is "caught" only when the gate exits NON-ZERO *and* its output names
+// the planted defect (the `expect` pattern). This rejects two false positives the
+// old `code !== 0` test counted as caught: a gate that times out, and a gate that
+// fails for an unrelated reason (env crash, missing file in the temp copy).
+function record(cls, res, expect) {
+  const { code, out } = res;
+  const nonzero = code !== 0 && code !== 'timeout';
+  const matched = !expect || expect.test(out);
+  const caught = nonzero && matched;
+  let tag;
+  if (caught) tag = '✓ caught     ';
+  else if (code === 0) tag = '✗ ESCAPED    ';
+  else if (code === 'timeout') tag = '✗ TIMEOUT    ';
+  else tag = '✗ WRONG-REASON'; // failed, but not on the planted defect
+  results.push({ cls, caught, code, reason: tag.trim() });
+  process.stderr.write(`  ${tag}  ${cls}  (exit ${code})\n`);
 }
 
 process.stderr.write('Injecting one defect per gate-class (isolated temp copies; real tree untouched)…\n');
@@ -73,7 +93,7 @@ process.stderr.write('Injecting one defect per gate-class (isolated temp copies;
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/05_traditions.js');
   fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace("room: '", "room: 'zzz_fault_"));
-  record('broken-ref -> validate.js', gate(d, ['scripts/validate.js']));
+  record('broken-ref -> validate.js', gate(d, ['scripts/validate.js']), /zzz_fault|BROKEN_REF/i);
 }
 
 // 2. >1000-char recipe -> check_api.js
@@ -84,14 +104,14 @@ process.stderr.write('Injecting one defect per gate-class (isolated temp copies;
   j.recipe = 'x'.repeat(1001);
   j.recipe_chars = 1001;
   fs.writeFileSync(f, JSON.stringify(j, null, 2));
-  record('over-ceiling-recipe -> check_api.js', gate(d, ['scripts/check_api.js']));
+  record('over-ceiling-recipe -> check_api.js', gate(d, ['scripts/check_api.js']), /1000|ceiling|chars/i);
 }
 
 // 3. dropped tradition -> check_api.js
 {
   const d = mkenv(['scripts', 'references', 'api']);
   fs.unlinkSync(path.join(d, 'api/traditions/zydeco.json'));
-  record('dropped-tradition -> check_api.js', gate(d, ['scripts/check_api.js']));
+  record('dropped-tradition -> check_api.js', gate(d, ['scripts/check_api.js']), /zydeco|missing|count/i);
 }
 
 // 4. unresolvable config id (stale snapshot vs catalog) -> check_api.js
@@ -101,7 +121,7 @@ process.stderr.write('Injecting one defect per gate-class (isolated temp copies;
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
   j.config.room = 'BOGUS_ROOM_FAULT';
   fs.writeFileSync(f, JSON.stringify(j, null, 2));
-  record('unresolvable-id -> check_api.js', gate(d, ['scripts/check_api.js']));
+  record('unresolvable-id -> check_api.js', gate(d, ['scripts/check_api.js']), /BOGUS_ROOM_FAULT|resolve|room/i);
 }
 
 // 5. app<->node desync -> equivalence.js  (mutate the NODE adapter only; the
@@ -114,7 +134,7 @@ process.stderr.write('Injecting one defect per gate-class (isolated temp copies;
     "  const _s = harvestDescriptors(card, lookups); _s.add('__FAULT__'); return _s;"
   );
   fs.writeFileSync(f, s);
-  record('app-node-desync -> equivalence.js', gate(d, ['scripts/equivalence.js']));
+  record('app-node-desync -> equivalence.js', gate(d, ['scripts/equivalence.js']), /__FAULT__|EQUIVALENCE|differ|mismatch/i);
 }
 
 // 6. stale api/ (committed != fresh build) -> check_artifact_fresh.js
@@ -124,26 +144,45 @@ if (FRESH_API && FRESH_HTML) {
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
   j.recipe = j.recipe + ' STALE_DRIFT';
   fs.writeFileSync(f, JSON.stringify(j, null, 2));
-  const code = gate(d, [
+  const res = gate(d, [
     'scripts/check_artifact_fresh.js',
     `--committed-api=${path.join(d, 'api')}`,
     `--prebuilt-api=${FRESH_API}`,
     `--prebuilt-html=${FRESH_HTML}`,
     `--committed-html=${FRESH_HTML}`,
   ]);
-  record('stale-api -> check_artifact_fresh.js', code);
+  record('stale-api -> check_artifact_fresh.js', res, /STALE_DRIFT|drift|stale|!=|content/i);
 } else {
   process.stderr.write('  - skipped stale-api fault (pass --fresh-api=DIR --fresh-html=FILE to enable)\n');
 }
 
+// 6b. stale codex.html (committed != fresh build) -> check_artifact_fresh.js
+//     Class 6 mutates only api/ and passes the SAME file as committed+prebuilt
+//     html, so the codex.html half of the gate was never exercised. This proves
+//     it two-sided: the api halves match (fresh==fresh) while the committed html
+//     is a mutated copy, so only an unguarded html comparison could stay green.
+if (FRESH_API && FRESH_HTML) {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-fault-html-'));
+  const staleHtml = path.join(tmp, 'stale_codex.html');
+  fs.writeFileSync(staleHtml, fs.readFileSync(FRESH_HTML, 'utf8') + '\n<!-- __STALE_HTML_FAULT__ -->\n');
+  const res = gate(ROOT, [
+    'scripts/check_artifact_fresh.js',
+    `--committed-api=${FRESH_API}`,
+    `--prebuilt-api=${FRESH_API}`,
+    `--prebuilt-html=${FRESH_HTML}`,
+    `--committed-html=${staleHtml}`,
+  ]);
+  record('stale-html -> check_artifact_fresh.js', res, /codex\.html|stale|!=|drift/i);
+}
+
 // 7. silent blend-drop -> recipe.js  (read-only on the real tree)
-record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--traditions', 'afrobeat,__bogus_fault__']));
+record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--traditions', 'afrobeat,__bogus_fault__']), /__bogus_fault__|[Uu]nknown|not found|resolve/);
 
 // 8. orphan promise (documented but unregistered/ungated) -> check_promises.js
 {
   const d = mkenv(['scripts', 'AGENTS.md', 'llms.txt', 'README.md', 'SKILL.md']);
   fs.appendFileSync(path.join(d, 'AGENTS.md'), '\n<!-- @promise: __orphan_fault__ -->\n');
-  record('orphan-promise -> check_promises.js', gate(d, ['scripts/check_promises.js']));
+  record('orphan-promise -> check_promises.js', gate(d, ['scripts/check_promises.js']), /__orphan_fault__|orphan|no row/i);
 }
 
 // 9. lazy shell drifts from embedded build -> check_lazy_app.js
@@ -157,7 +196,7 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
   j.items[0].name = (j.items[0].name || '') + ' __FAULT__';
   fs.writeFileSync(f, JSON.stringify(j, null, 2));
-  record('lazy-shell-desync -> check_lazy_app.js', gate(d, ['scripts/check_lazy_app.js']));
+  record('lazy-shell-desync -> check_lazy_app.js', gate(d, ['scripts/check_lazy_app.js']), /__FAULT__|drift|projection|LAZY-APP: FAIL/i);
 }
 
 const escaped = results.filter((r) => !r.caught);
@@ -166,6 +205,7 @@ if (escaped.length === 0) {
   console.log('PASS — every injected defect was caught. All gates are two-sided.');
   process.exit(0);
 }
-console.error('FAIL — these gates stayed GREEN on a planted defect (one-sided, untrustworthy):');
-for (const e of escaped) console.error(`  ✗ ${e.cls}`);
+console.error('FAIL — these gate-classes did not catch their planted defect for the right reason:');
+for (const e of escaped) console.error(`  ✗ ${e.cls}  [${e.reason}]`);
+console.error('  (ESCAPED = gate passed; TIMEOUT = gate hung; WRONG-REASON = failed but not on the planted defect)');
 process.exit(1);

@@ -247,7 +247,14 @@ for (const tid of Object.keys(C.TRADITION_EXTRAS)) {
       if (!treeIds.has(ref)) errors.push(['BROKEN_REF', 'extras.crossRefs', tid, ref]);
     }
   }
-  if (e.axes) {
+  // Axes are REQUIRED, not optional. The lazy-loaded app materializes a 13-key
+  // zero-vector for any tradition whose browse-index axes are absent, while the
+  // embedded build reads absent axes as null (hiding find-similar, flattening the
+  // fingerprint) — so a missing axes object silently makes the shipped app
+  // diverge from the embedded build. Demanding axes here closes that at the root.
+  if (!e.axes || typeof e.axes !== 'object') {
+    errors.push(['MISSING_AXES', 'extras.axes', tid, 'axes object is required']);
+  } else {
     for (const ax of REQ_AXES) {
       const v = e.axes[ax];
       if (v === undefined || v === null) errors.push(['MISSING_AXIS', 'extras.axes', tid, ax]);
