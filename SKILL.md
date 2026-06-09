@@ -502,7 +502,10 @@ const fs=require('fs'),os=require('os'),path=require('path');
 const {execFileSync}=require('child_process');
 const {JSDOM}=require('jsdom');                 // devDependency — needs `npm ci` first
 const tmp=path.join(os.tmpdir(),`codex_${process.pid}.html`);
-execFileSync('node',[path.join('scripts','build_html.js'),`--out=${tmp}`,'--quiet'],{stdio:['ignore','ignore','inherit']});
+// --embedded: the default build is the lazy shell, which boots by fetching api/
+// (jsdom here has no fetch). The embedded build carries the tables in-page and
+// boots synchronously — what this headless harness needs.
+execFileSync('node',[path.join('scripts','build_html.js'),`--out=${tmp}`,'--embedded','--quiet'],{stdio:['ignore','ignore','inherit']});
 const html=fs.readFileSync(tmp,'utf8'); fs.unlinkSync(tmp);
 const dom=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,beforeParse(w){
   w.storage={async get(){return null;},async set(){},async delete(){},async list(){return{keys:[]};}};
