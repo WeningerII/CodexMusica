@@ -24,13 +24,19 @@ const { buildMergedContext, scoreVariant } = require('./score.js');
 
 const args = process.argv.slice(2);
 const flags = {};
+// Accept both --flag=value and --flag value (the latter previously became
+// flags.flag === true, then failed downstream as "Unknown tradition: true").
+// BOOLEAN_FLAGS never consume the next token.
+const BOOLEAN_FLAGS = new Set(['filtered']);
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
-  if (a.startsWith('--')) {
-    const eq = a.indexOf('=');
-    if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
-    else flags[a.slice(2)] = true;
-  }
+  if (!a.startsWith('--')) continue;
+  const eq = a.indexOf('=');
+  if (eq > 0) { flags[a.slice(2, eq)] = a.slice(eq + 1); continue; }
+  const name = a.slice(2);
+  const next = args[i + 1];
+  if (!BOOLEAN_FLAGS.has(name) && next !== undefined && !next.startsWith('--')) { flags[name] = next; i++; }
+  else flags[name] = true;
 }
 
 if (!flags.tradition) {
@@ -177,7 +183,7 @@ if (t.chain_archetype) {
     console.log(`  era=${arch.era || '?'}  region=${arch.region || '?'}`);
     console.log(`  components: mic=${arch.components?.mic} pre=${arch.components?.pre} console=${arch.components?.console} medium=${arch.components?.medium}`);
     console.log(`  comp=${arch.components?.comp || '?'} eq=${arch.components?.eq || '?'}`);
-    console.log(`  fx=${(arch.fx || []).join(', ') || '(none)'}`);
+    console.log(`  fx=${(arch.components?.fx || []).join(', ') || '(none)'}`);
   } else {
     console.log(`  archetype=${t.chain_archetype} (NOT FOUND)`);
   }

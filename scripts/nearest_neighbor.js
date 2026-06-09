@@ -380,7 +380,13 @@ if (type === 'tradition') {
     const target = {};
     for (const pair of String(flags.axes).split(',')) {
       const [k, v] = pair.split(':');
-      if (k && v !== undefined) target[k.trim()] = parseInt(v);
+      if (k && v !== undefined) {
+        const n = parseInt(v, 10);
+        // A non-numeric value would become NaN, making every distance NaN and
+        // the "top by distance" table just catalog order with score=NaN.
+        if (!Number.isInteger(n)) { console.error(`--axes: "${k.trim()}" has a non-integer value "${v}"`); process.exit(2); }
+        target[k.trim()] = n;
+      }
     }
     results = tradition_byAxes(target);
     header = `Top ${Math.min(limit, results.length)} traditions by axis distance:`;
