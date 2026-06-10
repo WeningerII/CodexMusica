@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 1113,
+  "count": 1119,
   "items": [
     {
       "id": "honky_tonk",
@@ -43489,6 +43489,233 @@
       ],
       "crossRefs": [
         "experimentalElec.idmGlitch"
+      ]
+    },
+    {
+      "id": "gengetone",
+      "name": "Gengetone",
+      "family": "global",
+      "lineage": "Nairobi group-rap street-pop that exploded circa 2018-2019 (Boondocks Gang, Sailors, Ethic Entertainment) as a raw, raunchy, call-and-response descendant of early-2000s genge — Sheng-language hooks chanted over dembow-and-dancehall-leaning riddims and deliberately lo-fi DIY production",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        -2,
+        0,
+        2,
+        1,
+        -1,
+        1,
+        0,
+        2,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "sampler_classic",
+        "analog_poly_synth"
+      ],
+      "description": "Nairobi group-rap street-pop that broke circa 2018: raw, raunchy, call-and-response Sheng hooks chanted by crews over dembow-and-dancehall-leaning riddims and deliberately lo-fi DIY production. A faster, harder, more collective descendant of early-2000s genge, tied to the Boondocks Gang and Sailors wave.",
+      "exemplars": [
+        "Boondocks Gang — Rieng",
+        "Sailors — Wamlambez",
+        "Ethic Entertainment — Lamba Lolo"
+      ],
+      "crossRefs": [
+        "mcRhythm.afroDiasporic",
+        "mcRhythm.usHipHop"
+      ]
+    },
+    {
+      "id": "manele",
+      "name": "Manele",
+      "family": "global",
+      "lineage": "Romanian Romani party-pop risen from the lăutari wedding circuit through 1990s dedicații cassette culture to streaming-era dominance (Florin Salam, Adrian Minune, Dani Mocanu) — melismatic Turkish-tinged vocal lines over arranger-keyboard orientale grooves and programmed dembow-leaning percussion",
+      "parent": "functionalSong.europop",
+      "axes": [
+        -1,
+        0,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "rompler_workstation",
+        "accordion",
+        "clarinet",
+        "darbuka"
+      ],
+      "description": "Romanian Romani party-pop: melismatic, Turkish-and-Arab-tinged vocal lines in dense ornament over arranger-keyboard orientale grooves, programmed dembow-leaning percussion, and hard-AutoTuned gloss. Born on the lăutari wedding circuit, scaled through 1990s dedicații cassettes to streaming dominance — celebratory, status-flaunting, and contested in equal measure.",
+      "exemplars": [
+        "Florin Salam",
+        "Adrian Minune",
+        "Dani Mocanu"
+      ],
+      "crossRefs": [
+        "functionalSong.midEastNAfricanPop",
+        "wedding.european"
+      ]
+    },
+    {
+      "id": "chalga",
+      "name": "Chalga",
+      "family": "global",
+      "lineage": "Bulgarian pop-folk industrialized by the Payner and Planeta label-TV complex from the mid-1990s — kyuchek-driven Romani-Turkish dance grooves under glossy club production and heavily ornamented pop vocals (Azis, Preslava, Galena)",
+      "parent": "functionalSong.europop",
+      "axes": [
+        -1,
+        0,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "rompler_workstation",
+        "clarinet",
+        "darbuka"
+      ],
+      "description": "Bulgarian pop-folk (\"chalga\"): kyuchek-driven Romani-Turkish dance grooves in aksak meters under glossy, club-loud production — heavily ornamented pop vocals, arranger-keyboard orientale leads, and clarinet hooks, industrialized by the Payner label-TV complex into the soundtrack of the chalgoteka.",
+      "exemplars": [
+        "Azis",
+        "Preslava",
+        "Galena"
+      ],
+      "crossRefs": [
+        "functionalSong.midEastNAfricanPop",
+        "drinkingSong.balkan"
+      ]
+    },
+    {
+      "id": "marrabenta",
+      "name": "Marrabenta",
+      "family": "global",
+      "lineage": "Mozambican urban dance-song born in 1950s Lourenço Marques — the galloping majika rhythm born on homemade oil-can guitars and electrified across the 1960s-1970s into orchestra-scale dance bands, voiced in Ronga and Changana and canonized from Rádio Moçambique and the Gallo sessions by Fany Pfumo, Dilon Djindji and Orchestra Marrabenta Star",
+      "parent": "functionalSong.africanPop",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Mozambican urban dance-song: a galloping, up-tempo majika groove under bright interlocking guitars and warm Ronga and Changana call-and-response vocals — born in 1950s Lourenço Marques dance halls on homemade oil-can guitars, electrified across the 1960s-1970s into orchestra-scale dance bands, and canonized post-independence as the sound of Maputo.",
+      "exemplars": [
+        "Fany Pfumo",
+        "Dilon Djindji",
+        "Orchestra Marrabenta Star de Moçambique"
+      ],
+      "crossRefs": [
+        "groovePercussion.centralEastSouthAfrican"
+      ]
+    },
+    {
+      "id": "murga_uruguaya",
+      "name": "Murga uruguaya",
+      "family": "global",
+      "lineage": "Montevidean carnival chorus-theatre — a massed male chorus belting satirical cuplés in raw block harmony over the cuerda de murga battery (bombo with mounted platillos, snapping redoblante), staged on neighborhood tablados each Carnaval from the 1910s Cádiz import to Agarrate Catalina",
+      "parent": "carnivalProcessional.riverPlate",
+      "axes": [
+        1,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        -1,
+        -2,
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "choir_ensemble",
+        "bombo_andino",
+        "drumline_school_marching"
+      ],
+      "description": "Montevidean carnival chorus-theatre: a massed male chorus seventeen singers strong, belting satirical topical cuplés in raw chest-register block harmony, driven by the cuerda de murga battery — bombo with mounted platillos and snapping redoblante — on open-air neighborhood tablados through Carnaval season. Sung social commentary: greasepaint, parody, and roar.",
+      "exemplars": [
+        "Agarrate Catalina",
+        "Falta y Resto",
+        "Araca la Cana"
+      ],
+      "crossRefs": [
+        "groovePercussion.latinAm",
+        "protestSong.iberianLatin"
+      ]
+    },
+    {
+      "id": "shangaan_electro",
+      "name": "Shangaan electro",
+      "family": "electronic",
+      "lineage": "Ultra-fast Tsonga dance music from Limpopo and Soweto codified by producer Nozinja around 2005-2010 (Tshetsha Boys, Zinja Hlungwani) — 170-189bpm MIDI-marimba and organ presets over skeletal, often kick-less drum programming, chanted Xitsonga hooks answered by the dance troupe, and the whirlwind xibelani dance culture",
+      "parent": "electronicDance.africanDance",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "rompler_workstation",
+        "sampler_drum_machine"
+      ],
+      "description": "170-189bpm Tsonga dance music from Limpopo and Soweto: bright MIDI-marimba and organ presets spraying interlocked sixteenth-note runs over skeletal, often kick-less drum programming, with chanted Xitsonga hooks answered by the troupe — DIY preset-keyboard production built for the whirlwind xibelani dance.",
+      "exemplars": [
+        "Nozinja",
+        "Tshetsha Boys",
+        "Zinja Hlungwani"
+      ],
+      "crossRefs": [
+        "groovePercussion.centralEastSouthAfrican",
+        "electronicDance.footwork"
       ]
     }
   ]

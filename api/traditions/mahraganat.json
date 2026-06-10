@@ -3,14 +3,14 @@
   "name": "Mahraganat (Egyptian)",
   "family": "global",
   "lineage": "Cairo working-class digital-electronic shaabi descendant tradition — codified circa 2007-2010 through the working-class districts of Salam City and El-Marg, with DJ Figo, Sadat, Alaa Fifty Cent, Oka, and Wegz as the canonical exponents — characterized by Casio-and-FL-Studio-produced backing tracks, autotuned street-vernacular Arabic vocals, wedding-party performance context, and the Mahraganat festival circuit",
-  "recipe": "classic 2007-2010 mahraganat, functional Song, mid east n African pop branch, intl hip hop MC rhythm french rap korean rap. extended whistle, rap, chest resonance low mid, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog poly synth, chopped sampler. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 430,
-  "score": 220.208,
+  "recipe": "classic 2007-2010 mahraganat, functional Song, mid east n African pop branch, intl hip hop MC rhythm gengetone french rap. extended whistle, rap, chest resonance low mid, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog poly synth, pitched chopped sampler. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 437,
+  "score": 184.907,
   "config": {
     "traditions": [
       "mahraganat",
-      "french_rap",
-      "k_rap"
+      "gengetone",
+      "french_rap"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "korean_minsogak_vocal_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 7.8855,
-          "voice_quality": 21.526500000000002,
+          "voice_register": 6.9225,
+          "voice_quality": 19.9015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.95,
-          "voice_articulation": 8.895,
+          "voice_articulation": 6.419999999999999,
           "voice_microtone": 7.280000000000001,
-          "voice_tradition": 12.505999999999997,
-          "voice_mechanism_compound": 2.987,
-          "voice_estill_quality": 2.1555,
-          "voice_speech_song": 19.354999999999997,
-          "voice_ensemble_config": 14.169999999999996,
-          "voice_ornament_system": 10.149999999999999,
-          "voice_pitch_organization": 3.4445,
-          "voice_processing_chain": 15.295000000000002,
-          "voice_multitrack_stack": 5.2
+          "voice_tradition": 11.245000000000003,
+          "voice_mechanism_compound": 2.8369999999999997,
+          "voice_estill_quality": 2.0054999999999996,
+          "voice_speech_song": 17.685,
+          "voice_ensemble_config": 13.454999999999997,
+          "voice_ornament_system": 3.3710000000000004,
+          "voice_pitch_organization": 3.3710000000000004,
+          "voice_processing_chain": 12.594999999999999,
+          "voice_multitrack_stack": 4.647499999999999
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 9.0915,
+          "tr808_voice": 6.7665,
           "drum_machine_808_context": 1.8199999999999998,
-          "tr808_production_origin": 1.845
+          "tr808_production_origin": 1.695
         }
       },
       {
@@ -70,13 +70,13 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 10.1665,
+          "electronic_technique": 7.4665,
           "poly_archetypes": 1,
-          "poly_voices": 0.24,
+          "poly_voices": 0.435,
           "poly_maker_lineage": -0.7350000000000001
         }
       },
@@ -84,17 +84,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_archetypes": "emu_sp1200",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 8.799999999999999,
-          "sampler_archetypes": 15.339999999999998,
-          "sampler_bit_depth": 1.8199999999999998,
-          "sampler_workflow": 9.249999999999998,
-          "sampler_classic_context": 24.894999999999996
+          "electronic_technique": 6.475,
+          "sampler_archetypes": 12.577499999999999,
+          "sampler_bit_depth": 2.9274999999999998,
+          "sampler_workflow": 6.725499999999999,
+          "sampler_classic_context": 20.7675
         }
       }
     ],

@@ -1119,6 +1119,12 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/kpop.json</loc><lastmod>2026-06-10</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/afrobeats.json</loc><lastmod>2026-06-10</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/darkpsy.json</loc><lastmod>2026-06-10</lastmod></url>
+  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/gengetone.json</loc><lastmod>2026-06-10</lastmod></url>
+  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/manele.json</loc><lastmod>2026-06-10</lastmod></url>
+  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/chalga.json</loc><lastmod>2026-06-10</lastmod></url>
+  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/marrabenta.json</loc><lastmod>2026-06-10</lastmod></url>
+  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/murga_uruguaya.json</loc><lastmod>2026-06-10</lastmod></url>
+  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/shangaan_electro.json</loc><lastmod>2026-06-10</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/instruments/choir_ensemble.json</loc><lastmod>2026-06-10</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/instruments/griot_voice.json</loc><lastmod>2026-06-10</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/instruments/pansori_voice.json</loc><lastmod>2026-06-10</lastmod></url>
@@ -1398,6 +1404,7 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/instruments/modular_synth.json</loc><lastmod>2026-06-10</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/instruments/monosynth_acid_bass.json</loc><lastmod>2026-06-10</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/instruments/ondes_martenot.json</loc><lastmod>2026-06-10</lastmod></url>
+  <url><loc>https://weningerii.github.io/CodexMusica/api/instruments/rompler_workstation.json</loc><lastmod>2026-06-10</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/instruments/sampler_classic.json</loc><lastmod>2026-06-10</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/instruments/sampler_drum_machine.json</loc><lastmod>2026-06-10</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/instruments/string_machine.json</loc><lastmod>2026-06-10</lastmod></url>
