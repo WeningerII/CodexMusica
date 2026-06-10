@@ -3,8 +3,8 @@
   "name": "Yu opera (Henan bangzi)",
   "family": "classical",
   "lineage": "Yu opera Henan provincial Chinese opera tradition, the largest of the bangzi (wooden-clapper) opera family by audience and the second-largest Chinese opera tradition after jingju by aggregate national reach. Origin in seventeenth-eighteenth century Henan from earlier folk-music synthesis with qinqiang influences. Distinguished from neighboring qinqiang by softer, more lyrical vocal register and accessible Henan-dialect Mandarin language. Canonical play Hua Mulan (the female-warrior legend) constitutes the type-specimen of yu opera's strong female-protagonist tradition. The post-1949 Henan Yu Opera Theatre under Chang Xiangyu consolidated the modern repertoire.",
-  "recipe": "classic North American late-1940s yu opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, equal tempered. python skin silk canonical traditional sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 463,
+  "recipe": "classic North American late-1940s yu opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, equal tempered. python skin silk canonical traditional padauk mid tier sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 479,
   "score": 242.349,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.960000000000001,
-          "voice_quality": 8.05,
+          "voice_register": 5.385000000000001,
+          "voice_quality": 18.124999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
-          "voice_articulation": 0.2025,
-          "voice_microtone": 1.7735,
-          "voice_tradition": 26.129999999999995,
-          "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 29.373500000000007,
-          "voice_speech_song": 27.14600000000001,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 26.30500000000001,
-          "voice_pitch_organization": 6.861750000000002,
-          "voice_processing_chain": 5.069999999999999,
-          "voice_multitrack_stack": 1.69
+          "voice_vibrato": 3.185,
+          "voice_articulation": 0.195,
+          "voice_microtone": 2.1985,
+          "voice_tradition": 35.80725,
+          "voice_mechanism_compound": 4.4,
+          "voice_estill_quality": 37.8235,
+          "voice_speech_song": 34.646,
+          "voice_ensemble_config": 9.944999999999999,
+          "voice_ornament_system": 33.805,
+          "voice_pitch_organization": 17.686749999999996,
+          "voice_processing_chain": 6.23375,
+          "voice_multitrack_stack": 2.275
         }
       },
       {
@@ -62,12 +62,12 @@
           "sanxian_body_wood": "sanxian_padauk"
         },
         "scores": {
-          "plucked_traditional_technique": 2.563,
-          "sanxian_size": 1.69,
-          "sanxian_context": 1.69,
+          "plucked_traditional_technique": 4.563,
+          "sanxian_size": 3.965,
+          "sanxian_context": 4.225,
           "sanxian_head": 1.625,
           "sanxian_strings": 1.69,
-          "sanxian_body_wood": 0.4305
+          "sanxian_body_wood": 1.365
         }
       },
       {
@@ -80,8 +80,8 @@
           "janggu_lineage": "janggu_pansori_godo"
         },
         "scores": {
-          "janggu_use": 1.69,
-          "janggu_construction": 1.69,
+          "janggu_use": 2.34,
+          "janggu_construction": 4.42,
           "janggu_shell_wood": 1.69,
           "janggu_head": 1.69,
           "janggu_lineage": 1.69

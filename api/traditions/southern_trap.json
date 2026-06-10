@@ -3,8 +3,8 @@
   "name": "Trap (southern)",
   "family": "hip_hop",
   "lineage": "Southern trap subgenre codified through Atlanta’s 2000s street-rap scene — T.I.’s Trap Muzik (2003), Young Jeezy’s Let’s Get It: Thug Motivation 101 (2005), Gucci Mane, and Three 6 Mafia’s earlier Memphis groundwork; characterized by 70-80 BPM-doubled trap-hi-hat patterns, 808-bass-and-kick programming, and street-narrative lyrical subject matter",
-  "recipe": "classic Southern American mid-2000s trap, mc Rhythm, southern branch, house electronic dance deep house chicago house. thick, rap, narrative, gospel pentecostal. drum machine analog, sub bass analog synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 399,
+  "recipe": "classic Southern American mid-2000s trap, mc Rhythm, southern branch, house electronic dance deep house chicago house. thick, rap, chest resonance low mid, narrative. drum machine analog, sub bass analog synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 404,
   "score": 152.24,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.585,
+          "voice_register": 12.934999999999997,
           "voice_quality": 8.8,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.37499999999999994,
-          "voice_articulation": 4,
-          "voice_microtone": 0.39,
-          "voice_tradition": 4.485,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.9599999999999997,
-          "voice_speech_song": 8.809999999999999,
-          "voice_ensemble_config": 7.2799999999999985,
-          "voice_ornament_system": 0.585,
-          "voice_pitch_organization": 1.2,
-          "voice_processing_chain": 6.65,
-          "voice_multitrack_stack": 1.5600000000000003
+          "voice_vibrato": 0.845,
+          "voice_articulation": 9.299999999999999,
+          "voice_microtone": 3.425,
+          "voice_tradition": 9.735,
+          "voice_mechanism_compound": 1.365,
+          "voice_estill_quality": 8.849999999999998,
+          "voice_speech_song": 18.589999999999996,
+          "voice_ensemble_config": 18.525,
+          "voice_ornament_system": 1.2349999999999999,
+          "voice_pitch_organization": 2.36,
+          "voice_processing_chain": 9.389999999999999,
+          "voice_multitrack_stack": 3.8349999999999995
         }
       },
       {
@@ -61,10 +61,10 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.39,
+          "kick_voice": 2.5999999999999996,
           "snare_voice": 0.045,
-          "hat_voice": 0.045,
-          "shuffle_quantize": 0.5399999999999999
+          "hat_voice": 0.195,
+          "shuffle_quantize": 3.0699999999999994
         }
       },
       {
@@ -77,10 +77,10 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 20.654999999999998,
-          "oscillator": 3.805,
-          "filter_topology": 2.6,
-          "envelope": 0.39,
+          "electronic_technique": 21.304999999999996,
+          "oscillator": 4.455,
+          "filter_topology": 4.245,
+          "envelope": 0.585,
           "modulation": 0.15
         }
       }

@@ -3,8 +3,8 @@
   "name": "Vietnamese chamber (nhạc tài tử and ca trù)",
   "family": "global",
   "lineage": "Vietnamese traditional chamber-music heritage spanning two distinct regional traditions — nhạc tài tử (Music of the Talented Amateurs), the Southern Vietnamese (Mekong Delta) chamber tradition of the 19th-century educated-amateur scholar-musician class, performed in private homes with đàn tranh (16-string Vietnamese zither), đàn bầu (Vietnamese monochord), đàn nguyệt (moon-shaped lute), đàn tỳ bà (pear-shaped lute), sáo trúc (bamboo flute), with characteristic improvisation and modal variation; ca trù (the Northern Vietnamese sung-poetry tradition), performed by female ca nương vocalist accompanied by đàn đáy (three-string lute) and phách (wooden percussion clapper)",
-  "recipe": "classic North American mid-1970s vietnamese chamber, art Music, southeast Asian branch, east Asian art music, south Asian art music beijing opera cantonese opera. vocal fry, pressed, chest resonance low mid, bend inflected. dan bau, paulownia dan tranh. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 480,
+  "recipe": "classic North American mid-1970s vietnamese chamber, art Music, southeast Asian branch, east Asian art music, south Asian art music beijing opera cantonese opera. vocal fry, pressed, chest resonance low mid, rhythmic. dan bau, paulownia dan tranh. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 474,
   "score": 206.232,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.17,
-          "voice_quality": 1.885,
+          "voice_register": 2.145,
+          "voice_quality": 19.549999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3399999999999994,
-          "voice_articulation": 0.39,
+          "voice_vibrato": 3.77,
+          "voice_articulation": 0.975,
           "voice_microtone": 1.4949999999999999,
-          "voice_tradition": 7.6049999999999995,
-          "voice_mechanism_compound": 5.069999999999999,
-          "voice_estill_quality": 3.575,
-          "voice_speech_song": 6.174999999999999,
-          "voice_ensemble_config": 5.329999999999999,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 17.559999999999995,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 0.9749999999999999
+          "voice_tradition": 35.457499999999996,
+          "voice_mechanism_compound": 7.084999999999999,
+          "voice_estill_quality": 22.384999999999998,
+          "voice_speech_song": 18.81,
+          "voice_ensemble_config": 17.224999999999994,
+          "voice_ornament_system": 17.849999999999998,
+          "voice_pitch_organization": 31.084999999999994,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 3.3150000000000004
         }
       },
       {
@@ -73,10 +73,10 @@
           "dan_tranh_body_wood": "dan_tranh_paulownia"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
-          "dan_tranh_use": 2.1449999999999996,
-          "dan_tranh_strings": 2.08,
-          "dan_tranh_string_material": 0.46499999999999997,
+          "plucked_traditional_technique": 5.715,
+          "dan_tranh_use": 2.925,
+          "dan_tranh_strings": 5.85,
+          "dan_tranh_string_material": 0.39,
           "dan_tranh_body_wood": 1.6799999999999997
         }
       }

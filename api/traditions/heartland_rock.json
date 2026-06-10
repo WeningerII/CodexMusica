@@ -3,8 +3,8 @@
   "name": "Heartland rock",
   "family": "rock",
   "lineage": "Late-1970s through 1980s American populist working-class rock genre with social-realist lyrical content addressing economic decline, blue-collar life, and small-town America — codified through Bruce Springsteen (Born to Run 1975, The River 1980, Born in the USA 1984), Bob Seger (Night Moves 1976), John Mellencamp (Scarecrow 1985), Tom Petty and the Heartbreakers (Damn the Torpedoes 1979), and continuing through Steve Earle",
-  "recipe": "classic North American 1977-1979 heartland rock, distorted Rock, late analog major branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, melodic, equal tempered, Mediterranean demotic vocal. Fender blackface amp American 60s amp spring reverb bright single coil electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, harmonica. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 794,
+  "recipe": "classic North American 1977-1979 heartland rock, distorted Rock, late analog major branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, incomplete closure resting, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ, pearwood marine band tradition brass traditional solo canonical chromatic harmonica. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 946,
   "score": 408.02,
   "config": {
     "traditions": [
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 16.849999999999994,
-          "voice_quality": 0.325,
+          "voice_register": 37.474999999999994,
+          "voice_quality": 2.16,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.975,
-          "voice_articulation": 0.13000000000000003,
+          "voice_vibrato": 6.909999999999998,
+          "voice_articulation": 1.9249999999999998,
           "voice_microtone": 14.854999999999995,
-          "voice_tradition": 1.2349999999999999,
-          "voice_mechanism_compound": 2.47,
-          "voice_estill_quality": 3.315000000000001,
-          "voice_speech_song": 7.864999999999998,
-          "voice_ensemble_config": 7.2799999999999985,
-          "voice_ornament_system": 0.7149999999999997,
-          "voice_pitch_organization": 0.78,
+          "voice_tradition": 22.554999999999993,
+          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_estill_quality": 11.289999999999997,
+          "voice_speech_song": 16.249999999999996,
+          "voice_ensemble_config": 12.804999999999994,
+          "voice_ornament_system": 3.1200000000000006,
+          "voice_pitch_organization": 1.6899999999999997,
           "voice_processing_chain": 5.5200000000000005,
           "voice_multitrack_stack": 5.93
         }
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 1.49,
-          "amp_make": 7.555,
-          "body_wood": 0.285,
-          "neck_wood": 0.43499999999999994,
-          "fretboard": 0.285,
+          "electric_technique": 8.579999999999998,
+          "amp_make": 10.524999999999997,
+          "body_wood": 1.4349999999999998,
+          "neck_wood": 1.4349999999999998,
+          "fretboard": 1.3849999999999998,
           "pickup_magnet": 0.285,
           "string_material": 0.8550000000000002,
-          "string_gauge": 0.285,
+          "string_gauge": 1.4349999999999998,
           "bridge": 0.09,
-          "scale_length": 0.5700000000000001,
+          "scale_length": 1.4949999999999999,
           "finish": 0,
-          "string_tuning": 7.274999999999999
+          "string_tuning": 8.575
         }
       },
       {
@@ -96,14 +96,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 7.739999999999998,
-          "body_wood": 0.5700000000000001,
+          "electric_technique": 2.87,
+          "amp_make": 10.049999999999997,
+          "body_wood": 1.4949999999999999,
           "pickup_config": 0.135,
           "string_type": 16.094999999999995,
-          "scale_length_b": 0.28500000000000003,
+          "scale_length_b": 1.4349999999999998,
           "fretted_or_not": 0.135,
-          "bass_technique": 14.994999999999996
+          "bass_technique": 15.144999999999998
         }
       },
       {
@@ -122,16 +122,16 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 6.889999999999999,
+          "percussion_technique": 12.414999999999994,
           "shell_wood": 0.69,
           "shell_thickness": 0.09,
-          "bearing_edges": 0.48,
-          "drumhead": 0.38999999999999996,
-          "snare_wires": 0.33,
+          "bearing_edges": 1.4949999999999999,
+          "drumhead": 1.4949999999999999,
+          "snare_wires": 1.48,
           "cymbal_alloy": 15.184999999999995,
           "cymbal_hammering": 14.899999999999995,
           "cymbal_lathing": 15.034999999999995,
-          "cymbal_finish": 0.57,
+          "cymbal_finish": 0.285,
           "drum_technique": 14.999999999999996
         }
       },
@@ -146,12 +146,12 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": -0.07,
+          "keyboard_technique": 1.645,
           "drawbar_setting": 15.044999999999996,
           "rotary_speed": 14.949999999999996,
           "percussion_setting": 6.749999999999999,
-          "tonewheel_model": 5.75,
-          "leslie_cabinet_model": -0.035
+          "tonewheel_model": 7.049999999999999,
+          "leslie_cabinet_model": 1.2499999999999998
         }
       },
       {
@@ -166,13 +166,13 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "free_reed_technique": 1.54,
+          "free_reed_technique": 24.014999999999993,
           "harmonica_type": 0.39,
-          "harmonica_comb": -0.035,
-          "harmonica_reed": -0.035,
-          "harmonica_technique": 1.54,
+          "harmonica_comb": 1.105,
+          "harmonica_reed": 1.3649999999999998,
+          "harmonica_technique": 24.014999999999993,
           "harmonica_maker_school": 0.43500000000000005,
-          "harmonica_tuning": 0.33
+          "harmonica_tuning": 1.6849999999999996
         }
       }
     ],

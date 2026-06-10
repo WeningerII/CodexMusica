@@ -3,8 +3,8 @@
   "name": "Korean gagok lyric-song",
   "family": "classical",
   "lineage": "Korean gagok lyric-song tradition. Gagok is the formal courtly literary-chamber lyric-song genre of the Joseon-dynasty literati class (yangban), with origins traced to the late Goryeo through middle-Joseon periods (fifteenth-seventeenth centuries) and the canonical repertoire codified through the Cheong-gu-yeong-eon and Hae-dong-ga-yo song-book anthologies. Performance configuration: solo singer (male or female, with distinct namchang men's-repertoire and yeochang women's-repertoire repertoires) accompanied by the canonical jeongak ensemble — geomungo (six-string fretted board-zither, struck with bamboo plectrum), gayageum (twelve-string moveable-bridge plucked board-zither), daegeum (large bamboo end-blown flute), piri (cylindrical-bore double-reed pipe), haegeum (two-string upright fiddle), and janggu (hourglass barrel-drum). Twenty-six canonical men's songs and fifteen canonical women's songs constitute the core repertoire. Sijo poetic-form (three-line structure: initial verse, parallel verse, conclusion-with-twist) provides the lyric base. Slow tempo (a single song can take ten to fifteen minutes), wide melisma, and characteristic pitch-and-amplitude vibrato (nonghyeon) define the vocal aesthetic. Cho Soon-ja and Lee Dong-gyu among the twentieth-century canonical performers; the National Gugak Center maintains the institutional transmission. Distinguished from sijo (the closely-related but more austere sung-poetry form) by gagok's full ensemble accompaniment and longer melodic-elaboration register; distinguished from gasa (the longer narrative-lyric form) by gagok's strict sijo-poetic-meter base; distinguished from minyo folk-song by gagok's literary-chamber-with-jeongak-ensemble functional context.",
-  "recipe": "classic North American mid-1970s korean gagok lyric-song, art Music, east Asian branch, east Asian beijing opera. thick, pressed, chest resonance low mid, narrative. silk court paulownia canonical Korean geomungo, court paulownia Korean gayageum, traditional membrane buzz bamboo daegeum, Korean court ensemble small piri higher pitched bamboo canonical Korean arundo donax large canonical Korean gugak piri, silk canonical Korean court paulownia canonical Korean haegeum, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. korean pungnyu pavilion. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 734,
+  "recipe": "classic North American mid-1970s korean gagok lyric-song, art Music, east Asian branch, east Asian beijing opera. thick, pressed, chest resonance low mid, narrative. silk court paulownia canonical Korean geomungo, court paulownia Korean gayageum, traditional membrane buzz bamboo daegeum, Korean court ensemble small piri higher pitched bamboo canonical Korean arundo donax large canonical Korean gugak piri, silk canonical Korean court paulownia canonical Korean legato haegeum, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. korean pungnyu pavilion. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 741,
   "score": 333.311,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.2550000000000003,
-          "voice_quality": 1.2349999999999999,
+          "voice_register": 2.9050000000000002,
+          "voice_quality": 10.124999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
-          "voice_articulation": 0.9814999999999998,
+          "voice_vibrato": 3.1849999999999996,
+          "voice_articulation": 1.1314999999999997,
           "voice_microtone": 1.2349999999999999,
-          "voice_tradition": 14.2735,
-          "voice_mechanism_compound": 6.89,
-          "voice_estill_quality": 10.14,
-          "voice_speech_song": 23.465,
-          "voice_ensemble_config": 14.430000000000001,
-          "voice_ornament_system": 10.05,
-          "voice_pitch_organization": 7.178624999999999,
-          "voice_processing_chain": 6.9236249999999995,
-          "voice_multitrack_stack": 3.318
+          "voice_tradition": 27.8525,
+          "voice_mechanism_compound": 8.709999999999999,
+          "voice_estill_quality": 20.881499999999996,
+          "voice_speech_song": 30.225,
+          "voice_ensemble_config": 21.319999999999997,
+          "voice_ornament_system": 15.137249999999998,
+          "voice_pitch_organization": 7.87925,
+          "voice_processing_chain": 8.098625,
+          "voice_multitrack_stack": 4.55
         }
       },
       {
@@ -61,10 +61,10 @@
           "geomungo_top_wood": "geomungo_paulownia"
         },
         "scores": {
-          "plucked_traditional_technique": 2.563,
+          "plucked_traditional_technique": 6.188,
           "geomungo_use": 1.18675,
-          "geomungo_technique": 2.8600000000000003,
-          "geomungo_strings": 8.059999999999999,
+          "geomungo_technique": 5.525,
+          "geomungo_strings": 8.645,
           "geomungo_top_wood": 9.583625
         }
       },
@@ -78,11 +78,11 @@
           "gayageum_strings": "gayageum_silk_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 2.563,
-          "gayageum_type": 1.3,
-          "gayageum_technique": 2.6,
+          "plucked_traditional_technique": 6.188,
+          "gayageum_type": 3.769999999999999,
+          "gayageum_technique": 3.6399999999999997,
           "gayageum_top_wood": 9.583625,
-          "gayageum_strings": -1.05
+          "gayageum_strings": -0.7350000000000001
         }
       },
       {
@@ -104,9 +104,9 @@
           "piri_reed": "piri_arundo_large_canonical"
         },
         "scores": {
-          "piri_size": 8.95575,
+          "piri_size": 10.005749999999999,
           "piri_body_wood": 11.938375,
-          "piri_reed": 11.586625
+          "piri_reed": 11.736624999999998
         }
       },
       {
@@ -118,9 +118,9 @@
           "haegeum_body_wood": "haegeum_paulownia_body"
         },
         "scores": {
-          "bowed_technique": 2.563,
-          "haegeum_use": 1.3,
-          "haegeum_strings": 10.495625,
+          "bowed_technique": 6.188,
+          "haegeum_use": 3.1849999999999996,
+          "haegeum_strings": 10.945625,
           "haegeum_body_wood": 9.583625
         }
       },
@@ -134,8 +134,8 @@
           "janggu_lineage": "janggu_pansori_godo"
         },
         "scores": {
-          "janggu_use": 5.340999999999999,
-          "janggu_construction": 2.9899999999999998,
+          "janggu_use": 5.641,
+          "janggu_construction": 4.615,
           "janggu_shell_wood": 9.583625,
           "janggu_head": 9.478625,
           "janggu_lineage": 7.073624999999999

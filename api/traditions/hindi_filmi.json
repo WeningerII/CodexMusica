@@ -3,8 +3,8 @@
   "name": "Hindi filmi (Bollywood)",
   "family": "global",
   "lineage": "Hindi-language Bombay film-song playback tradition codified 1940s-onward, with first-wave golden-age 1940s-1960s through Naushad (Mughal-e-Azam 1960, the template-setting orchestrated-classical-folk-fusion music director), S.D. Burman (Pyaasa 1957, Aradhana 1969), Shankar-Jaikishan (Awaara 1951, Sangam 1964), Madan Mohan, Roshan, Salil Chowdhury; second-wave funk-fusion era 1970s-1980s through R.D. Burman (Hare Rama Hare Krishna 1971, Sholay 1975, the bossa-and-disco-and-funk-fusion auteur), Laxmikant-Pyarelal, Kalyanji-Anandji, Bappi Lahiri (the disco-filmi specialist); third-wave 1990s-onward through A.R. Rahman (Roja 1992, Bombay 1995, Dil Se 1998, Slumdog Millionaire 2008 global Oscar breakthrough), Vishal-Shekhar, Pritam, Amit Trivedi; the canonical playback singer lineage of Lata Mangeshkar (1929-2022, the 30000-song discography defining the female playback voice from 1948 onward), Mohammed Rafi (1924-1980, the male romantic-and-classical voice), Asha Bhosle (1933-, the cabaret-and-folk-versatile voice), Mukesh, Kishore Kumar (the 1970s comic-and-romantic voice and R.D. Burman collaborator), Manna Dey, Hemant Kumar",
-  "recipe": "classic North American early-1920s hindi filmi, functional Song, south Asian pop branch, indian classical improv improv on frame thumrī carnatic vocal. thick, low dynamic level, chest resonance low mid, punctuated. vocal female straight harmonium indian, indian rosewood rosewood copper tabla, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century continuous-airflow legato bansuri, closed jawari ravi shankar canon articulate less buzz maihar gharana allauddin khan lineage sitar, goat skin syahi rope laced steel ring dholak, steel modern tun indian cedar alternative shivkumar sharma canonical lineage santoor, classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras bismillah khan banaras lineage canonical Hindustani shehnai.",
-  "recipe_chars": 934,
+  "recipe": "classic North American early-1920s hindi filmi, functional Song, south Asian pop branch, indian classical improv improv on frame thumrī carnatic vocal. thick, low dynamic level, chest resonance low mid, equal tempered. vocal female straight harmonium indian, indian rosewood rosewood copper tabla, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century continuous-airflow legato bansuri, closed jawari ravi shankar canon articulate less buzz maihar gharana allauddin khan lineage sitar, goat skin syahi rope laced steel ring dholak, steel modern tun indian cedar alternative shivkumar sharma canonical lineage santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai.",
+  "recipe_chars": 928,
   "score": 664.76,
   "config": {
     "traditions": [
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 13.044999999999998,
-          "voice_quality": 3.0000000000000004,
+          "voice_register": 13.319999999999999,
+          "voice_quality": 3.835,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.069999999999999,
-          "voice_articulation": 0.615,
-          "voice_microtone": 8.049999999999999,
-          "voice_tradition": 22.555,
-          "voice_mechanism_compound": 9.649999999999999,
-          "voice_estill_quality": 12.314999999999998,
-          "voice_speech_song": 16.574999999999996,
-          "voice_ensemble_config": 15.599999999999998,
-          "voice_ornament_system": 16.619999999999997,
-          "voice_pitch_organization": 13.599999999999998,
+          "voice_vibrato": 11.829999999999997,
+          "voice_articulation": 0.195,
+          "voice_microtone": 8.325,
+          "voice_tradition": 40.705,
+          "voice_mechanism_compound": 20.275,
+          "voice_estill_quality": 23.73999999999999,
+          "voice_speech_song": 21.739999999999995,
+          "voice_ensemble_config": 21.124999999999996,
+          "voice_ornament_system": 29.769999999999992,
+          "voice_pitch_organization": 26.949999999999996,
           "voice_processing_chain": 14.795,
           "voice_multitrack_stack": 6.6899999999999995
         }
@@ -61,10 +61,10 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 7.345,
-          "harmonium_action": 4.185,
-          "harmonium_voicing": 1.3,
-          "harmonium_use": 5.069999999999999
+          "free_reed_technique": 7.945,
+          "harmonium_action": 4.159999999999999,
+          "harmonium_voicing": 5.719999999999999,
+          "harmonium_use": 14.169999999999998
         }
       },
       {
@@ -75,9 +75,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 7.475,
-          "tabla_bayan": 5.069999999999999,
-          "tabla_syahi": 1.17
+          "tabla_dayan": 15.794999999999998,
+          "tabla_bayan": 10.594999999999999,
+          "tabla_syahi": 3.4450000000000003
         }
       },
       {
@@ -95,16 +95,16 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 9.985,
+          "bowed_technique": 20.609999999999996,
           "orch_strings": 0.195,
-          "orch_top_wood": 9.75,
-          "orch_back_wood": 10.044999999999998,
-          "orch_varnish": 9.7,
-          "orch_setup_period": 8.739999999999998,
-          "orch_bow": 2.6,
-          "orch_bow_stick": 12.544999999999998,
-          "orch_articulation": 1.17,
-          "orch_rosin": 9.895
+          "orch_top_wood": 20.374999999999996,
+          "orch_back_wood": 20.99,
+          "orch_varnish": 20.749999999999996,
+          "orch_setup_period": 19.79,
+          "orch_bow": 4.2749999999999995,
+          "orch_bow_stick": 27.484999999999996,
+          "orch_articulation": 1.95,
+          "orch_rosin": 20.944999999999997
         }
       },
       {
@@ -117,11 +117,11 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 9.745,
-          "bansuri_length": 5.99,
-          "bansuri_ornament": 1.95,
-          "bansuri_body_material": 4.8100000000000005,
-          "bansuri_lineage": 1.3
+          "wind_articulation": 20.519999999999996,
+          "bansuri_length": 6.14,
+          "bansuri_ornament": 11.049999999999997,
+          "bansuri_body_material": 8.905000000000001,
+          "bansuri_lineage": 7.084999999999999
         }
       },
       {
@@ -139,16 +139,16 @@
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 9.945,
-          "sitar_neck": 0.195,
+          "plucked_traditional_technique": 20.569999999999997,
+          "sitar_neck": 0.845,
           "sitar_resonator": 0.195,
           "sitar_jawari": 0.195,
           "sitar_taraf": 0,
           "sitar_frets": 0.045,
-          "sitar_pluck": 5.069999999999999,
-          "sitar_main_strings": -1.155,
-          "sitar_jawari_style": 1.69,
-          "sitar_gharana": 3.38
+          "sitar_pluck": 10.594999999999999,
+          "sitar_main_strings": -0.595,
+          "sitar_jawari_style": 2.34,
+          "sitar_gharana": 6.175
         }
       },
       {
@@ -160,8 +160,8 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 2.4699999999999998,
-          "dholak_construction": 2.28,
+          "dholak_use": 3.25,
+          "dholak_construction": 3.3799999999999994,
           "dholak_head": 1.045,
           "dholak_tensioning": 1
         }
@@ -177,12 +177,12 @@
           "santoor_lineage": "santoor_shivkumar_sharma_canon"
         },
         "scores": {
-          "plucked_traditional_technique": 9.945,
-          "santoor_courses": 5.069999999999999,
-          "santoor_mallets": 0.195,
-          "santoor_strings": 4.419999999999999,
-          "santoor_body_wood": 2.47,
-          "santoor_lineage": 2.9899999999999998
+          "plucked_traditional_technique": 20.569999999999997,
+          "santoor_courses": 10.594999999999999,
+          "santoor_mallets": 0.845,
+          "santoor_strings": 10.334999999999999,
+          "santoor_body_wood": 5.265000000000001,
+          "santoor_lineage": 4.485
         }
       },
       {
@@ -195,11 +195,11 @@
           "shehnai_lineage": "shehnai_bismillah_khan_banaras"
         },
         "scores": {
-          "shehnai_register": 0.39,
-          "shehnai_use": 8.709999999999999,
-          "shehnai_body_wood": 4.485000000000001,
-          "shehnai_reed": 1.3,
-          "shehnai_lineage": 3.77
+          "shehnai_register": 7.215,
+          "shehnai_use": 18.46,
+          "shehnai_body_wood": 8.320000000000002,
+          "shehnai_reed": 2.69,
+          "shehnai_lineage": 7.8
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Anarcho-punk (Crass)",
   "family": "rock_punk",
   "lineage": "British post-1977 punk substyle centered on the Crass collective at Dial House (Essex commune, founded 1967, music project 1977-1984) and the parallel Poison Girls, Flux of Pink Indians, and Conflict scenes. Combines aggressive punk musical-aesthetic with explicit anarchist-pacifist-feminist-vegan political content, DIY-distribution-and-production self-organization, and rigorous anti-commercial cultural-stance. The 1980 Reality Asylum, 1981 Penis Envy, and 1982 Christ — The Album consolidated the canonical anarcho-punk register.",
-  "recipe": "classic North American mid-1980s anarcho-punk, distorted Rock, punk branch, regional distorted rock latin rock rasin. thick, declaimed, equal tempered, beatbox. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 631,
+  "recipe": "classic North American mid-1980s anarcho-punk, distorted Rock, punk branch, regional distorted rock latin rock rasin. thick, declaimed, nervy, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 625,
   "score": 427.373,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 5.327750000000003,
-          "voice_quality": 1.4,
+          "voice_register": 22.577749999999995,
+          "voice_quality": 1.9699999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
-          "voice_articulation": 0.24,
-          "voice_microtone": 5.5950000000000015,
-          "voice_tradition": 1.4949999999999999,
-          "voice_mechanism_compound": 2.665000000000001,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 8.384999999999998,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 0.845,
+          "voice_microtone": 22.845,
+          "voice_tradition": 2.73,
+          "voice_mechanism_compound": 4.615000000000001,
+          "voice_estill_quality": 4.030000000000001,
+          "voice_speech_song": 15.989999999999997,
           "voice_ensemble_config": 16.235,
-          "voice_ornament_system": 0.045,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 5.02525,
-          "voice_multitrack_stack": 0.615
+          "voice_ornament_system": 0.7749999999999999,
+          "voice_pitch_organization": 2.52525,
+          "voice_processing_chain": 5.67525,
+          "voice_multitrack_stack": 4.4525
         }
       },
       {
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": 15.95,
-          "amp_make": 25.154999999999998,
-          "body_wood": 0.38025,
-          "neck_wood": 0.39,
-          "fretboard": 0.39,
+          "amp_make": 34.12499999999999,
+          "body_wood": 0.845,
+          "neck_wood": 0.845,
+          "fretboard": 0.845,
           "pickup_magnet": 0.045,
           "pickup_winding": 0.21,
-          "string_material": 0.39,
+          "string_material": 0.845,
           "bridge": 0.29025,
-          "scale_length": 0.3705,
+          "scale_length": 1.4300000000000002,
           "string_gauge": 0.18525,
           "finish": 0,
-          "string_tuning": 4.55
+          "string_tuning": 15.210000000000004
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 17.995,
-          "amp_make": 4.42,
+          "electric_technique": 18.97,
+          "amp_make": 13.455000000000002,
           "body_wood": 0.3705,
           "pickup_config": 0.18525,
-          "string_type": 7.15,
+          "string_type": 29.575000000000003,
           "scale_length_b": 0.18525,
-          "fretted_or_not": 0.195,
-          "bass_technique": 21.545
+          "fretted_or_not": 0.845,
+          "bass_technique": 38.795
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 16,
-          "shell_wood": 0.39,
+          "percussion_technique": 20.214999999999996,
+          "shell_wood": 0.845,
           "shell_thickness": 0.09,
           "bearing_edges": 0.18525,
-          "drumhead": 0.39,
+          "drumhead": 0.845,
           "snare_wires": 0.18525,
-          "cymbal_alloy": 21.84,
-          "cymbal_hammering": 5.9655000000000005,
-          "cymbal_lathing": 5.49,
-          "cymbal_finish": 0.39,
-          "drum_technique": 16
+          "cymbal_alloy": 39.74,
+          "cymbal_hammering": 23.865500000000004,
+          "cymbal_lathing": 22.740000000000002,
+          "cymbal_finish": 0.845,
+          "drum_technique": 22.750000000000004
         }
       }
     ],

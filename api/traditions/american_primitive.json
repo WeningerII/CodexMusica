@@ -24,10 +24,10 @@
         },
         "scores": {
           "acoustic_technique": 5.6000000000000005,
-          "string_tuning": 5.340000000000001,
-          "top_wood": 1.2850000000000001,
-          "back_sides": 2.535,
-          "string_acoustic": 1.78
+          "string_tuning": 6.140000000000001,
+          "top_wood": 1.585,
+          "back_sides": 7.280000000000001,
+          "string_acoustic": 1.93
         }
       },
       {
@@ -38,9 +38,9 @@
           "twelve_string_strings": "silk_steel_12"
         },
         "scores": {
-          "twelve_string_body": 0.345,
-          "twelve_string_tuning": 11.479999999999999,
-          "twelve_string_strings": 1.78
+          "twelve_string_body": 0.49499999999999994,
+          "twelve_string_tuning": 13.229999999999999,
+          "twelve_string_strings": 1.93
         }
       },
       {
@@ -51,7 +51,7 @@
           "resonator_technique": "resonator_bottleneck_slide_fingerpicked"
         },
         "scores": {
-          "resonator_body": 2.08,
+          "resonator_body": 4.615,
           "resonator_strings": 3.65,
           "resonator_technique": 5.845
         }

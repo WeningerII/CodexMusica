@@ -23,9 +23,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 10.41,
-          "oscillator": 1.24,
-          "filter_topology": 2.47,
+          "electronic_technique": 28.685,
+          "oscillator": 1.39,
+          "filter_topology": 4.29,
           "envelope": 0.39,
           "modulation": 0
         }
@@ -39,10 +39,10 @@
           "shuffle_quantize": "shuffle_high"
         },
         "scores": {
-          "kick_voice": 2.095,
+          "kick_voice": 2.395,
           "snare_voice": 0.7,
           "hat_voice": 0,
-          "shuffle_quantize": 1.515
+          "shuffle_quantize": 0.845
         }
       },
       {
@@ -55,11 +55,11 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 10.41,
-          "fm_algorithm": 0.9299999999999999,
+          "electronic_technique": 28.685,
+          "fm_algorithm": 1.0799999999999998,
           "fm_modulator_ratio": 0.39,
-          "fm_polyphony": 0.9450000000000001,
-          "fm_model_lineage": 11.244999999999997
+          "fm_polyphony": 0.845,
+          "fm_model_lineage": 24.31
         }
       }
     ],

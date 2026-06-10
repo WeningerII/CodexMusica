@@ -3,8 +3,8 @@
   "name": "Bengali ghum-paranir gan (cradle song)",
   "family": "global",
   "lineage": "Bengali cradle-song tradition continuous from medieval Bengal domestic-vocal practice through Rabindra-sangeet appropriation (Tagore composed multiple cradle-songs) into modern Bangla-language domestic singing across West Bengal and Bangladesh",
-  "recipe": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song rabindra sangeet hindi filmi. thick, chest resonance low mid, continuous-phonation, equal tempered. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 399,
+  "recipe": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song rabindra sangeet hindi filmi. thick, declaimed, chest resonance low mid, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 394,
   "score": 163.445,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.6949999999999994,
-          "voice_quality": 0.325,
+          "voice_register": 14.870000000000003,
+          "voice_quality": 2.1149999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 3.769999999999999,
           "voice_articulation": 1.495,
-          "voice_microtone": 3.3799999999999994,
-          "voice_tradition": 11.7,
-          "voice_mechanism_compound": 0.6499999999999999,
-          "voice_estill_quality": 0.9099999999999999,
-          "voice_speech_song": 8.515,
-          "voice_ensemble_config": 3.1200000000000006,
-          "voice_ornament_system": 6.370000000000001,
-          "voice_pitch_organization": 6.415000000000001,
-          "voice_processing_chain": 1.6249999999999998,
-          "voice_multitrack_stack": 2.08
+          "voice_microtone": 12,
+          "voice_tradition": 27.915000000000003,
+          "voice_mechanism_compound": 7.149999999999999,
+          "voice_estill_quality": 9.224999999999998,
+          "voice_speech_song": 23.985,
+          "voice_ensemble_config": 14.364999999999997,
+          "voice_ornament_system": 17.32,
+          "voice_pitch_organization": 17.064999999999998,
+          "voice_processing_chain": 7.915,
+          "voice_multitrack_stack": 4.63
         }
       }
     ],

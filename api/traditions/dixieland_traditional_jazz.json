@@ -3,8 +3,8 @@
   "name": "Dixieland (traditional/New Orleans-Chicago)",
   "family": "jazz",
   "lineage": "Earliest documented jazz style (c.1905-1928) emerging from New Orleans through cornet-led front-line (cornet/trumpet, clarinet, trombone) playing collective polyphonic improvisation over banjo/guitar-bass-drums rhythm section. Original Dixieland Jass Band's 1917 Livery Stable Blues was the first commercial jazz recording. Distinguished from later swing era by Dixieland's collective-improvisation (vs solo-feature) ensemble principle and 2/4 march-derived rhythmic pulse.",
-  "recipe": "classic mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
-  "recipe_chars": 702,
+  "recipe": "classic mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, walnut warmer than maple scruggs stelling bluegrass setup mastertone flathead banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 689,
   "score": 453.235,
   "config": {
     "traditions": [
@@ -26,11 +26,11 @@
         "scores": {
           "wind_articulation": 15.144499999999997,
           "brass_size": 0.0975,
-          "trumpet_mouthpiece": 20.1845,
-          "brass_mute": 0,
+          "trumpet_mouthpiece": 30.0595,
+          "brass_mute": 0.375,
           "trumpet_technique": 15.144499999999997,
-          "trumpet_bell_metal": 0.8347499999999999,
-          "trumpet_maker_school": 2.8600000000000003
+          "trumpet_bell_metal": 0.195,
+          "trumpet_maker_school": 6.175
         }
       },
       {
@@ -44,8 +44,8 @@
         },
         "scores": {
           "wind_articulation": 15.144499999999997,
-          "clarinet_body": 1.2,
-          "clarinet_size": 0.19874999999999998,
+          "clarinet_body": 2.6465000000000005,
+          "clarinet_size": 0.195,
           "clarinet_reed": 0.0975,
           "clarinet_articulation": 0
         }
@@ -63,12 +63,12 @@
         },
         "scores": {
           "wind_articulation": 15.144499999999997,
-          "trombone_type": 16.25,
-          "trombone_mouthpiece": 17.6365,
-          "trombone_mute": 0.045,
-          "trombone_technique": 3.0500000000000003,
-          "trombone_bell_metal": 0.8347499999999999,
-          "trombone_maker_school": 2.8600000000000003
+          "trombone_type": 26.125,
+          "trombone_mouthpiece": 27.511499999999998,
+          "trombone_mute": 0.195,
+          "trombone_technique": 3.3500000000000005,
+          "trombone_bell_metal": 0.195,
+          "trombone_maker_school": 6.175
         }
       },
       {
@@ -79,9 +79,9 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
-          "upright_strings": 16.25,
-          "upright_play": 16.25
+          "acoustic_technique": 0.325,
+          "upright_strings": 26.125,
+          "upright_play": 26.125
         }
       },
       {
@@ -100,17 +100,17 @@
           "drum_technique": "brushes_jazz"
         },
         "scores": {
-          "percussion_technique": 10.01,
-          "shell_wood": 0.383,
+          "percussion_technique": 20.084999999999994,
+          "shell_wood": 0.845,
           "shell_thickness": 0,
           "bearing_edges": 0,
-          "drumhead": 20.1345,
+          "drumhead": 30.009499999999996,
           "snare_wires": 0,
-          "cymbal_alloy": 19.4315,
-          "cymbal_hammering": 17.95275,
-          "cymbal_lathing": 17.335,
-          "cymbal_finish": 0.0975,
-          "drum_technique": 16.25
+          "cymbal_alloy": 29.6815,
+          "cymbal_hammering": 28.577749999999998,
+          "cymbal_lathing": 27.659999999999997,
+          "cymbal_finish": 0.195,
+          "drum_technique": 26.125
         }
       },
       {
@@ -129,17 +129,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 3.3150000000000004,
+          "plucked_traditional_technique": 6.89,
           "banjo_back": 0.0975,
           "tone_ring": 0.04875,
-          "banjo_head": 1.69,
+          "banjo_head": 6.629999999999998,
           "banjo_pot": 1.0975,
           "banjo_play": 0,
-          "banjo_rim_wood": 0.24,
-          "banjo_neck_wood": 0.11,
-          "banjo_strings": 0.063,
-          "banjo_bridge": 0,
-          "banjo_setup_period": 1.625
+          "banjo_rim_wood": 1.04,
+          "banjo_neck_wood": 0.78,
+          "banjo_strings": 0.25999999999999945,
+          "banjo_bridge": 0.78,
+          "banjo_setup_period": 6.564999999999999
         }
       },
       {
@@ -153,10 +153,10 @@
         },
         "scores": {
           "wind_articulation": 15.144499999999997,
-          "cornet_pitch": 8.2335,
-          "cornet_context": 6.106249999999999,
-          "cornet_bell_metal": 1.69,
-          "cornet_maker_school": 10.4
+          "cornet_pitch": 10.6335,
+          "cornet_context": 7.50625,
+          "cornet_bell_metal": 2.275,
+          "cornet_maker_school": 17.225
         }
       }
     ],

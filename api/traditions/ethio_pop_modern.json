@@ -3,8 +3,8 @@
   "name": "Ethio-pop modern",
   "family": "global",
   "lineage": "Modern Amharic-language popular tradition descended from the 1960s-70s Ethio-jazz canon (Mulatu Astatke, Mahmoud Ahmed) — codified through Aster Aweke, Ejigayehu Shibabaw / Gigi, Teddy Afro, and Mahmoud Ahmed’s continued career; characterized by Amharic vocals over kignit-modal-melodic frameworks with Western pop production",
-  "recipe": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion acid jazz. thick, rap, tasteful, narrative. clean strummed single coil electric guitar, thomastik infeld low tension jazz warm walking fingerstyle electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 505,
+  "recipe": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion acid jazz. thick, rap, tasteful, narrative. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 589,
   "score": 508.221,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 14.594999999999994,
-          "voice_quality": 0.7735,
+          "voice_register": 43.34500000000001,
+          "voice_quality": 2.2425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.7995,
-          "voice_articulation": 0.9929999999999999,
-          "voice_microtone": 16.2095,
-          "voice_tradition": 17.284,
-          "voice_mechanism_compound": 2.9899999999999998,
-          "voice_estill_quality": 1.495,
-          "voice_speech_song": 3.575,
-          "voice_ensemble_config": 1.56,
-          "voice_ornament_system": 0.0315,
-          "voice_pitch_organization": 1.45,
-          "voice_processing_chain": 5.202999999999999,
-          "voice_multitrack_stack": 3.8815
+          "voice_articulation": 3.375,
+          "voice_microtone": 42.25950000000001,
+          "voice_tradition": 33.795,
+          "voice_mechanism_compound": 5.07,
+          "voice_estill_quality": 3.99,
+          "voice_speech_song": 11.894999999999998,
+          "voice_ensemble_config": 9.62,
+          "voice_ornament_system": 0.6499999999999999,
+          "voice_pitch_organization": 2.0149999999999997,
+          "voice_processing_chain": 9.3725,
+          "voice_multitrack_stack": 4.16
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 8.7,
-          "amp_make": 2.8600000000000003,
+          "electric_technique": 9.125,
+          "amp_make": 9.031500000000001,
           "body_wood": 0.7735,
-          "neck_wood": 0.39,
-          "fretboard": 0.39,
-          "pickup_magnet": 0.39,
-          "string_material": 0.39,
+          "neck_wood": 0.845,
+          "fretboard": 0.845,
+          "pickup_magnet": 0.845,
+          "string_material": 0.845,
           "string_gauge": 0.7735,
           "bridge": 2.936,
           "scale_length": 0.726,
           "finish": 0,
-          "string_tuning": 2.8545
+          "string_tuning": 3.964999999999999
         }
       },
       {
@@ -96,14 +96,14 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 2.8600000000000003,
+          "electric_technique": 4.825,
+          "amp_make": 7.897499999999999,
           "body_wood": 0.726,
           "pickup_config": 2.7995,
-          "string_type": 7.475,
+          "string_type": 33.7365,
           "scale_length_b": 2.9899999999999998,
           "fretted_or_not": 0.063,
-          "bass_technique": 5.9
+          "bass_technique": 27.375
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 6.89,
+          "percussion_technique": 37.2125,
           "shell_wood": 0.9099999999999999,
           "shell_thickness": 0,
-          "bearing_edges": 2.9899999999999998,
-          "drumhead": 14.5315,
+          "bearing_edges": 3.8349999999999995,
+          "drumhead": 34.550000000000004,
           "snare_wires": 0.363,
-          "cymbal_alloy": 8.731499999999999,
-          "cymbal_hammering": 14.45,
-          "cymbal_lathing": 14.45,
-          "cymbal_finish": 0.39,
-          "drum_technique": 6.89
+          "cymbal_alloy": 37.754999999999995,
+          "cymbal_hammering": 29.2615,
+          "cymbal_lathing": 27.675000000000004,
+          "cymbal_finish": 0.845,
+          "drum_technique": 37.2125
         }
       },
       {
@@ -145,9 +145,9 @@
         },
         "scores": {
           "electronic_technique": 8.8995,
-          "poly_archetypes": 1.638,
+          "poly_archetypes": 3.119999999999999,
           "poly_voices": 0.21,
-          "poly_maker_lineage": -1.225
+          "poly_maker_lineage": -0.665
         }
       }
     ],

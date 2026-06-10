@@ -3,8 +3,8 @@
   "name": "Currulao (Colombian Pacific)",
   "family": "global",
   "lineage": "Afro-Colombian marimba-and-percussion ensemble tradition of Pacific coastal region (Chocó, Valle del Cauca, Cauca, Nariño departments) and adjacent Ecuadorian Pacific coast. Marimba de chonta (wooden marimba with bamboo resonators), bombo and cununo drums, guasá tubular shakers, voice (often female-lead with chorus).",
-  "recipe": "classic modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion maracatu pagode. thick, punctuated, beatbox, m1 with m0 pulse borrowing. marimba orchestral, bombo andino. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 357,
+  "recipe": "classic modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion maracatu pagode. thick, intimate aspirated, chest resonance low mid, equal tempered. marimba orchestral, bombo andino. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 369,
   "score": 85.327,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.78,
-          "voice_quality": 0.21,
+          "voice_register": 2.3500000000000014,
+          "voice_quality": 6.294999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.38999999999999996,
-          "voice_articulation": 0.9299999999999999,
-          "voice_microtone": 0.045,
-          "voice_tradition": 6.175,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 6.629999999999999,
+          "voice_vibrato": 1.04,
+          "voice_articulation": 0.195,
+          "voice_microtone": 2.7500000000000004,
+          "voice_tradition": 10.01,
+          "voice_mechanism_compound": 6.5,
+          "voice_estill_quality": 6.500000000000001,
+          "voice_speech_song": 16.835,
+          "voice_ensemble_config": 17.939999999999998,
           "voice_ornament_system": 8.95,
-          "voice_pitch_organization": 0.75,
-          "voice_processing_chain": 2.07,
-          "voice_multitrack_stack": 1.69
+          "voice_pitch_organization": 1.5899999999999999,
+          "voice_processing_chain": 3.3149999999999995,
+          "voice_multitrack_stack": 2.9575
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "marimba_size": 0.15,
+          "marimba_size": 0.195,
           "marimba_orchestral_bar": 0.15
         }
       },
@@ -73,8 +73,8 @@
           "bombo_andino_shell_wood": "bombo_andino_ceibo"
         },
         "scores": {
-          "bombo_andino_construction": 1.17,
-          "bombo_andino_skin": 0.135,
+          "bombo_andino_construction": 1.235,
+          "bombo_andino_skin": 0.195,
           "bombo_andino_shell_wood": 0.6
         }
       }

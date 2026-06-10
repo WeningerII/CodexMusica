@@ -3,8 +3,8 @@
   "name": "70s Laurel Canyon",
   "family": "global",
   "lineage": "Early-1970s Laurel Canyon (Los Angeles hill-neighborhood) singer-songwriter scene centered around Joni Mitchell, Crosby Stills Nash and Young, Jackson Browne, the Eagles, Linda Ronstadt, Carole King — codified through the A and M / Sunset Sound / Wally Heider studio canon",
-  "recipe": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country. thick, incomplete closure resting, expressive, equal tempered. travis picked fingerpicked acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state supertramp canon block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood.",
-  "recipe_chars": 923,
+  "recipe": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country. thick, incomplete closure resting, expressive, equal tempered. travis picked fingerpicked acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state supertramp canon block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET.",
+  "recipe_chars": 996,
   "score": 216.755,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 8.926249999999998,
-          "voice_quality": 4.050000000000001,
+          "voice_register": 14.426249999999994,
+          "voice_quality": 4.275,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.25,
+          "voice_vibrato": 8,
           "voice_articulation": 0.007499999999999999,
-          "voice_microtone": 3.5500000000000007,
-          "voice_tradition": 3.9074999999999993,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 4.353750000000001,
-          "voice_speech_song": 8.224999999999998,
-          "voice_ensemble_config": 5.424999999999999,
-          "voice_ornament_system": 3.12875,
-          "voice_pitch_organization": 1.6,
-          "voice_processing_chain": 4.0575,
-          "voice_multitrack_stack": 3.5625
+          "voice_microtone": 4.300000000000001,
+          "voice_tradition": 4.2075000000000005,
+          "voice_mechanism_compound": 1.71125,
+          "voice_estill_quality": 9.60375,
+          "voice_speech_song": 10.624999999999996,
+          "voice_ensemble_config": 6.724999999999999,
+          "voice_ornament_system": 3.4787500000000002,
+          "voice_pitch_organization": 2.5999999999999996,
+          "voice_processing_chain": 6.5575,
+          "voice_multitrack_stack": 6.0625
         }
       },
       {
@@ -62,12 +62,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 8.405,
+          "acoustic_technique": 10.265,
           "string_tuning": 0,
-          "top_wood": 0.39,
-          "back_sides": 0.39,
-          "string_acoustic": 0.39,
-          "acoustic_om_technique": 8.405
+          "top_wood": 0.96875,
+          "back_sides": 0.96875,
+          "string_acoustic": 0.96875,
+          "acoustic_om_technique": 9.155
         }
       },
       {
@@ -84,11 +84,11 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 3.1500000000000004,
-          "grand_piano_size": 0.6,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 1.5425,
-          "piano_rim": 1.3649999999999998,
+          "keyboard_technique": 3.375,
+          "grand_piano_size": 0.9762500000000001,
+          "grand_piano_brand": 0.98375,
+          "piano_hammer": 1.8425,
+          "piano_rim": 1.815,
           "piano_soundboard": 0.7,
           "piano_pinblock": 0.25,
           "piano_plate": -0.05,
@@ -112,18 +112,18 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 3.305,
-          "amp_make": 3.1487500000000006,
-          "body_wood": 0.39,
-          "neck_wood": 0.39,
-          "fretboard": 0.325,
+          "electric_technique": 8.055,
+          "amp_make": 7.898750000000001,
+          "body_wood": 0.96875,
+          "neck_wood": 0.96875,
+          "fretboard": 0.91875,
           "pickup_magnet": 0.3075,
-          "string_material": 0.39,
-          "string_gauge": 0.39,
+          "string_material": 0.5475,
+          "string_gauge": 0.9762500000000001,
           "bridge": 0,
-          "scale_length": 0.39,
+          "scale_length": 1.04,
           "finish": 0,
-          "string_tuning": 1.66875
+          "string_tuning": 1.96875
         }
       },
       {
@@ -139,14 +139,14 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 3.1487500000000006,
-          "body_wood": 0.39,
+          "electric_technique": 0.06499999999999999,
+          "amp_make": 7.898750000000001,
+          "body_wood": 1.04,
           "pickup_config": 0,
-          "string_type": 4.1425,
-          "scale_length_b": 0.39,
+          "string_type": 4.8925,
+          "scale_length_b": 0.96875,
           "fretted_or_not": 0,
-          "bass_technique": 3.305
+          "bass_technique": 8.055
         }
       },
       {
@@ -165,17 +165,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 5.167499999999999,
-          "shell_wood": 0.3525,
+          "percussion_technique": 6.617499999999999,
+          "shell_wood": 0.5025,
           "shell_thickness": 0,
-          "bearing_edges": 0.39,
-          "drumhead": 0.9574999999999999,
-          "snare_wires": 0.39,
-          "cymbal_alloy": 3.76125,
-          "cymbal_hammering": 3.7,
-          "cymbal_lathing": 3.7,
+          "bearing_edges": 0.96875,
+          "drumhead": 0.96875,
+          "snare_wires": 0.96875,
+          "cymbal_alloy": 4.51125,
+          "cymbal_hammering": 4.45,
+          "cymbal_lathing": 4.45,
           "cymbal_finish": 0.3075,
-          "drum_technique": 5.167499999999999
+          "drum_technique": 6.617499999999999
         }
       },
       {
@@ -189,11 +189,11 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 3.1500000000000004,
-          "rhodes_model": 0.39,
-          "rhodes_use": 0.78,
-          "rhodes_tine_material": 1.61375,
-          "rhodes_hammer_tip": 2.3874999999999997,
+          "keyboard_technique": 3.375,
+          "rhodes_model": 0.9762500000000001,
+          "rhodes_use": 1.505,
+          "rhodes_tine_material": 2.76375,
+          "rhodes_hammer_tip": 3.8874999999999997,
           "rhodes_pickup_position": 1.6625
         }
       },
@@ -207,11 +207,11 @@
           "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
         },
         "scores": {
-          "keyboard_technique": 3.1500000000000004,
+          "keyboard_technique": 3.375,
           "wurlitzer_use": 0.022499999999999996,
-          "wurlitzer_ep_voice": 1.3425,
-          "wurlitzer_model": 1.725,
-          "wurlitzer_reed_material": 0.345
+          "wurlitzer_ep_voice": 1.6425,
+          "wurlitzer_model": 2.225,
+          "wurlitzer_reed_material": 0.49499999999999994
         }
       }
     ],

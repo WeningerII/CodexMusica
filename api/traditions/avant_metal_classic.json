@@ -3,8 +3,8 @@
   "name": "Avant-garde metal",
   "family": "global",
   "lineage": "Experimental-leaning metal subgenre codified through Voivod (Canadian dissonant prog-metal), Sigh (Japanese avant-black-metal), Mr. Bungle, Diabolic Masquerade, and the broader Tzadik / Hydra Head label ecosystem — characterized by atonal harmony, irregular meter, genre-collage composition, and prog-metal sectional architecture",
-  "recipe": "classic modern avant-garde metal, distorted Rock, avant branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. thick, false fold engaged, punctuated, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, machine hammered symmetric pattern organized rows unlathed natural finish drum kit, analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 610,
+  "recipe": "classic modern avant-garde metal, distorted Rock, avant branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. thick, false fold engaged, chest resonance low mid, punctuated. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows unlathed natural finish drum kit, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 651,
   "score": 302.266,
   "config": {
     "traditions": [
@@ -38,18 +38,18 @@
           "voice_quality": 1.2999999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
-          "voice_articulation": 0.7530000000000001,
+          "voice_vibrato": 1.795,
+          "voice_articulation": 0.845,
           "voice_microtone": 4.295000000000001,
-          "voice_tradition": 6.89,
+          "voice_tradition": 11.042000000000002,
           "voice_mechanism_compound": 26.5125,
-          "voice_estill_quality": 0.9449999999999998,
-          "voice_speech_song": 5.264999999999999,
-          "voice_ensemble_config": 5.199999999999999,
-          "voice_ornament_system": 0.19500000000000003,
-          "voice_pitch_organization": 2.3805000000000005,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 1.6155000000000004
+          "voice_estill_quality": 1.8849999999999996,
+          "voice_speech_song": 12.674999999999997,
+          "voice_ensemble_config": 13.454999999999997,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 14.821499999999999,
+          "voice_multitrack_stack": 4.55
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 25.584000000000003,
-          "amp_make": 11.9315,
-          "body_wood": 12.350000000000001,
-          "neck_wood": 0.39,
-          "fretboard": 0.435,
-          "pickup_magnet": 0.54,
+          "electric_technique": 27.584000000000003,
+          "amp_make": 13.081499999999998,
+          "body_wood": 15.535000000000002,
+          "neck_wood": 1.795,
+          "fretboard": 1.7449999999999999,
+          "pickup_magnet": 0.845,
           "pickup_winding": 0.105,
           "string_material": 0.39,
-          "bridge": 0.435,
-          "scale_length": 12.350000000000001,
-          "string_gauge": 0.39,
+          "bridge": 1.795,
+          "scale_length": 14.040000000000003,
+          "string_gauge": 1.795,
           "finish": 0.1365,
-          "string_tuning": 14.690000000000001
+          "string_tuning": 16.380000000000003
         }
       },
       {
@@ -98,12 +98,12 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.7,
-          "amp_make": 2.275,
-          "body_wood": 0.39,
-          "pickup_config": 0.435,
+          "electric_technique": 2.7,
+          "amp_make": 5.330000000000001,
+          "body_wood": 2.73,
+          "pickup_config": 0.845,
           "string_type": 5.85,
-          "scale_length_b": 0.39,
+          "scale_length_b": 1.795,
           "fretted_or_not": 0.3,
           "bass_technique": 5.25
         }
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 4.809999999999999,
+          "percussion_technique": 12.219999999999995,
           "shell_wood": 0.9239999999999999,
           "shell_thickness": 0.3,
-          "bearing_edges": 0.39,
-          "drumhead": 0.39,
-          "snare_wires": 0.39,
+          "bearing_edges": 1.795,
+          "drumhead": 1.795,
+          "snare_wires": 1.795,
           "cymbal_alloy": 28.686500000000006,
-          "cymbal_hammering": 5.304500000000001,
-          "cymbal_lathing": 5.435,
+          "cymbal_hammering": 6.604500000000002,
+          "cymbal_lathing": 9.835,
           "cymbal_finish": 0.39,
-          "drum_technique": 4.809999999999999
+          "drum_technique": 12.219999999999995
         }
       },
       {
@@ -146,10 +146,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 0.19500000000000003,
+          "electronic_technique": 3.2500000000000004,
           "poly_archetypes": 2.34,
-          "poly_voices": 0.345,
-          "poly_maker_lineage": -1.225
+          "poly_voices": 1.4949999999999999,
+          "poly_maker_lineage": 0.9099999999999999
         }
       }
     ],

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 1.365,
-          "voice_quality": 1.5599999999999996,
+          "voice_register": 1.865,
+          "voice_quality": 5.3100000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.275,
-          "voice_articulation": 0.75,
-          "voice_microtone": 0.24,
-          "voice_tradition": 3.185,
-          "voice_mechanism_compound": 1.5145,
-          "voice_estill_quality": 1.2349999999999997,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 0.6787500000000001,
-          "voice_processing_chain": 1.17,
-          "voice_multitrack_stack": 1.3
+          "voice_articulation": 1.3,
+          "voice_microtone": 0.5,
+          "voice_tradition": 14.072499999999998,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 15.274999999999999,
+          "voice_ensemble_config": 15.014999999999997,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 1.7599999999999998,
+          "voice_multitrack_stack": 1.95
         }
       },
       {
@@ -66,7 +66,7 @@
         "scores": {
           "free_reed_technique": 1.7999999999999998,
           "accordion_reed_material": 0.33,
-          "musette_offset": 1.2145000000000001,
+          "musette_offset": 1.7145000000000001,
           "reed_config": 0.045,
           "bellows": 0,
           "voicing_chamber": 0,
@@ -80,8 +80,8 @@
           "log_drum_context": "log_drum_sa_house"
         },
         "scores": {
-          "log_drum_voice": 0.7395,
-          "log_drum_context": 0.9296249999999999
+          "log_drum_voice": 1.3,
+          "log_drum_context": 4.549999999999999
         }
       }
     ],

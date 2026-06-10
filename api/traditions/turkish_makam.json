@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 2.7499999999999996,
-          "voice_quality": 1.5,
+          "voice_register": 4.3549999999999995,
+          "voice_quality": 2.73,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.579999999999998,
+          "voice_vibrato": 12.869999999999997,
           "voice_articulation": 1.6,
-          "voice_microtone": 13.833999999999996,
-          "voice_tradition": 31.459999999999994,
-          "voice_mechanism_compound": 22.257999999999996,
-          "voice_estill_quality": 18.213499999999996,
-          "voice_speech_song": 16.507999999999996,
-          "voice_ensemble_config": 7.669999999999998,
-          "voice_ornament_system": 24.317499999999995,
-          "voice_pitch_organization": 25.7545,
-          "voice_processing_chain": 1.95,
-          "voice_multitrack_stack": 3.6399999999999997
+          "voice_microtone": 21.383999999999997,
+          "voice_tradition": 46.22099999999999,
+          "voice_mechanism_compound": 34.407999999999994,
+          "voice_estill_quality": 27.538499999999992,
+          "voice_speech_song": 24.382999999999992,
+          "voice_ensemble_config": 12.479999999999997,
+          "voice_ornament_system": 39.145999999999994,
+          "voice_pitch_organization": 39.199999999999996,
+          "voice_processing_chain": 4.225,
+          "voice_multitrack_stack": 6.434999999999999
         }
       },
       {
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 16.499999999999996,
-          "oud_school": 3.970999999999999,
-          "oud_strings": 8.579999999999998,
-          "oud_pick": 0.39,
-          "oud_body_wood": 5.264999999999999,
-          "oud_soundboard_wood": 1.95,
-          "oud_string_material": 5.020999999999999
+          "plucked_traditional_technique": 24.374999999999993,
+          "oud_school": 5.784999999999999,
+          "oud_strings": 12.674999999999997,
+          "oud_pick": 0.585,
+          "oud_body_wood": 5.914999999999998,
+          "oud_soundboard_wood": 2.4050000000000002,
+          "oud_string_material": 5.329999999999999
         }
       },
       {
@@ -85,10 +85,10 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 16.499999999999996,
-          "qanun_strings": 8.579999999999998,
+          "plucked_traditional_technique": 24.374999999999993,
+          "qanun_strings": 12.674999999999997,
           "qanun_levers": -0.35,
-          "qanun_pick": 8.969999999999999,
+          "qanun_pick": 13.259999999999996,
           "qanun_body_wood": 5.329999999999998,
           "qanun_bridge_skin": 0.5594999999999999,
           "qanun_string_material": 0
@@ -104,11 +104,11 @@
           "ney_lineage": "ney_sufi_mevlevi"
         },
         "scores": {
-          "wind_articulation": 16.781499999999998,
-          "ney_use": 2.34,
-          "ney_pitch": 8.579999999999998,
-          "ney_body_material": 1.69,
-          "ney_lineage": 12.089999999999998
+          "wind_articulation": 24.656499999999994,
+          "ney_use": 5.135,
+          "ney_pitch": 12.674999999999997,
+          "ney_body_material": 3.6399999999999997,
+          "ney_lineage": 14.634499999999997
         }
       },
       {
@@ -121,11 +121,11 @@
           "kemence_strings": "kemence_goat_gut_historical"
         },
         "scores": {
-          "bowed_technique": 16.499999999999996,
-          "kemence_type": 7.799999999999999,
-          "kemence_context": 11.440000000000001,
-          "kemence_body_wood": 2.9449999999999994,
-          "kemence_strings": -0.35
+          "bowed_technique": 24.374999999999993,
+          "kemence_type": 10.015999999999998,
+          "kemence_context": 15.73,
+          "kemence_body_wood": 3.0949999999999993,
+          "kemence_strings": -0.28
         }
       },
       {
@@ -138,9 +138,9 @@
           "mey_reed": "mey_arundo_large_canonical"
         },
         "scores": {
-          "wind_articulation": 16.781499999999998,
-          "mey_size": 1.95,
-          "mey_context": 8.579999999999998,
+          "wind_articulation": 24.656499999999994,
+          "mey_size": 4.744999999999999,
+          "mey_context": 12.674999999999997,
           "mey_body_wood": 0.831,
           "mey_reed": 0.9810000000000001
         }
@@ -157,9 +157,9 @@
         "scores": {
           "wind_articulation": -0.15000000000000002,
           "zurna_size": 0.39,
-          "zurna_context": 8.25,
-          "zurna_body_wood": 3.769999999999999,
-          "zurna_reed": 3.549499999999999
+          "zurna_context": 8.624999999999998,
+          "zurna_body_wood": 3.9574999999999996,
+          "zurna_reed": 3.6994999999999996
         }
       },
       {
@@ -170,9 +170,9 @@
           "kanun_articulation": "kanun_tortoiseshell_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 16.499999999999996,
+          "plucked_traditional_technique": 24.374999999999993,
           "kanun_school": 18.912999999999997,
-          "kanun_articulation": 0.325
+          "kanun_articulation": 0.5199999999999999
         }
       },
       {
@@ -185,11 +185,11 @@
           "tanbur_persian_string_material": "tanbur_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 16.499999999999996,
-          "tanbur_use": 1.255,
-          "tanbur_persian_strings": 4.159999999999999,
+          "plucked_traditional_technique": 24.374999999999993,
+          "tanbur_use": 1.755,
+          "tanbur_persian_strings": 6.044999999999999,
           "tanbur_persian_body_wood": 0.7695000000000001,
-          "tanbur_persian_string_material": -0.35
+          "tanbur_persian_string_material": -0.28
         }
       }
     ],

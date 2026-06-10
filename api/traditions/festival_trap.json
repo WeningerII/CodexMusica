@@ -21,8 +21,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.925,
-          "drum_machine_808_context": 3.38,
+          "tr808_voice": 3.965,
+          "drum_machine_808_context": 5.915,
           "tr808_production_origin": 0.375
         }
       },
@@ -36,9 +36,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 21.744999999999997,
-          "oscillator": 1.7643749999999996,
-          "filter_topology": 2.2931249999999994,
+          "electronic_technique": 22.544999999999995,
+          "oscillator": 1.04,
+          "filter_topology": 1.69,
           "envelope": 0.42937499999999995,
           "modulation": 0.105
         }
@@ -54,10 +54,10 @@
         },
         "scores": {
           "electronic_technique": 2.35,
-          "sampler_archetypes": 3.15,
-          "sampler_bit_depth": 0.30937499999999996,
-          "sampler_workflow": 12.44,
-          "sampler_classic_context": 23.53
+          "sampler_archetypes": 4.0375,
+          "sampler_bit_depth": 1.56,
+          "sampler_workflow": 14.714999999999998,
+          "sampler_classic_context": 54.884375000000006
         }
       }
     ],

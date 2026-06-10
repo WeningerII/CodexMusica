@@ -3,8 +3,8 @@
   "name": "Sudanese aghani al-banat (\"girls' songs\")",
   "family": "global",
   "lineage": "Sudanese aghani al-banat women's vocal-and-percussion tradition of central and northern Sudan, performed at women's gatherings (subhia mid-morning gatherings, henna ceremonies, weddings). Performance configuration: lead singer (haggaaba) with all-female chorus and tar frame-drum in characteristic 6/8 swing. Lyric base spans courtship, marriage-celebration, and political-protest. Modal vocabulary draws on Sudanese seven-mode pentatonic-leaning system. The Khartoum-radio golden-age 1950s-1970s anchored documentation. Featured prominently in the 2018-2019 Sudanese revolution protest contexts.",
-  "recipe": "classic 2018-2019 sudanese aghani al-banat, ballad Poetry, west African griot branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, declaimed, chest resonance low mid, mande jeli vocal. walnut bent frame canonical Iranian tar frame drum. saharan desert encampment. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 440,
+  "recipe": "classic 2018-2019 sudanese aghani al-banat, ballad Poetry, west African griot branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, declaimed, chest resonance low mid, narrative. walnut bent frame canonical Iranian tar frame drum. saharan desert encampment. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 433,
   "score": 144.773,
   "config": {
     "traditions": [
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 1.69,
-          "voice_quality": 4.355000000000001,
+          "voice_quality": 8.642500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 0,
-          "voice_microtone": 0.24,
-          "voice_tradition": 16.639999999999997,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 2.4050000000000002,
-          "voice_pitch_organization": 1.2999999999999998,
-          "voice_processing_chain": 4.45,
-          "voice_multitrack_stack": 1.69
+          "voice_vibrato": 2.535,
+          "voice_articulation": 0.585,
+          "voice_microtone": 1.6700000000000002,
+          "voice_tradition": 33.8,
+          "voice_mechanism_compound": 7.6049999999999995,
+          "voice_estill_quality": 5.65775,
+          "voice_speech_song": 20.215,
+          "voice_ensemble_config": 20.15,
+          "voice_ornament_system": 4.61,
+          "voice_pitch_organization": 12.17775,
+          "voice_processing_chain": 7.699999999999999,
+          "voice_multitrack_stack": 5.034999999999999
         }
       },
       {
@@ -65,8 +65,8 @@
           "percussion_technique": -0.1,
           "tar_size": 0.39,
           "tar_frame_drum_context": 0.8602500000000001,
-          "tar_frame_shell_wood": 1.69,
-          "tar_frame_head": 0.9577499999999999
+          "tar_frame_shell_wood": 3.38,
+          "tar_frame_head": 0.845
         }
       }
     ],

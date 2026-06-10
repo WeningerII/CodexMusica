@@ -3,8 +3,8 @@
   "name": "Free improvisation (non-idiomatic)",
   "family": "global",
   "lineage": "Post-1960s European and American non-idiomatic improvisation tradition — codified through Derek Bailey’s Improvisation: Its Nature and Practice in Music (1980) as theoretical foundation, the Spontaneous Music Ensemble (London 1966 onward), AMM, Music Improvisation Company, the Globe Unity Orchestra, and the Bay Area / Knitting Factory NYC American scenes — characterized by genre-disavowal posture, no-pre-arranged-material premise, and timbre-and-extended-technique-foreground performance",
-  "recipe": "classic mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète electroacoustic composition. extended whistle, nervy, 31 tet, sprechgesang notated approximate pitch. treble-extended lyrical alto saxophone, steel plywood laminate European maple sycamore maple double bass, oak pre muffled edge muffled fx9 manganese bronze drum kit, granular synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 557,
+  "recipe": "classic mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète electroacoustic composition. extended whistle, nervy, equal tempered, 31 tet. alto yellow brass modern standard saxophone, steel plywood laminate European maple sycamore maple double bass, oak pre muffled edge muffled fx9 manganese bronze drum kit, glitched textural granular synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 556,
   "score": 124.628,
   "config": {
     "traditions": [
@@ -40,16 +40,16 @@
           "voice_effort": 0,
           "voice_vibrato": 1.4382307692307692,
           "voice_articulation": 0.004230769230769231,
-          "voice_microtone": 0.25769230769230766,
-          "voice_tradition": 5.2,
-          "voice_mechanism_compound": 0.39,
+          "voice_microtone": 1.714772727272727,
+          "voice_tradition": 8.373704836829837,
+          "voice_mechanism_compound": 0.78,
           "voice_estill_quality": 0.1975,
-          "voice_speech_song": 7.994999999999999,
-          "voice_ensemble_config": 7.54,
+          "voice_speech_song": 10.724999999999998,
+          "voice_ensemble_config": 10.27,
           "voice_ornament_system": 1.288230769230769,
           "voice_pitch_organization": 0.6134615384615384,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 1.56
+          "voice_processing_chain": 2.6650000000000005,
+          "voice_multitrack_stack": 3.1467948717948726
         }
       },
       {
@@ -67,10 +67,10 @@
           "wind_articulation": 0.8574999999999998,
           "sax_size": 1.3882307692307692,
           "sax_reed": 1.4382307692307692,
-          "sax_body_alloy": -0.05,
+          "sax_body_alloy": 1.9182342657342655,
           "sax_mouthpiece": 1.4382307692307692,
           "sax_technique": 0.7,
-          "sax_maker_school": 0.2315034965034965
+          "sax_maker_school": 0.9099999999999999
         }
       },
       {
@@ -90,14 +90,14 @@
         "scores": {
           "bowed_technique": 0.75,
           "bass_size": 0.0025,
-          "bass_strings": 1.6530034965034965,
-          "bass_top_wood": 1.5387762237762237,
-          "bass_back_wood": 1.4887762237762239,
-          "bass_varnish": -0.05,
-          "bass_setup_period": 1.0479423076923076,
+          "bass_strings": 2.3530034965034967,
+          "bass_top_wood": 1.7499999999999998,
+          "bass_back_wood": 3.0051923076923077,
+          "bass_varnish": 1.7499999999999998,
+          "bass_setup_period": 1.9514650349650347,
           "bass_play": 0.4538782051282052,
-          "bass_rosin": -0.035,
-          "bass_bow_stick": -0.05
+          "bass_rosin": 1.7384230769230766,
+          "bass_bow_stick": 1.965833333333333
         }
       },
       {
@@ -116,17 +116,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 7.54,
+          "percussion_technique": 10.27,
           "shell_wood": 1.4399615384615385,
-          "shell_thickness": 0.3184615384615385,
-          "bearing_edges": 1.6530034965034965,
-          "drumhead": 2.3238141025641026,
-          "snare_wires": 0.315,
-          "cymbal_alloy": 2.2099999999999995,
-          "cymbal_hammering": 1.2349999999999999,
-          "cymbal_lathing": 1.7949999999999997,
+          "shell_thickness": 0.45499999999999996,
+          "bearing_edges": 2.3530034965034967,
+          "drumhead": 4.123814102564102,
+          "snare_wires": 0.45499999999999996,
+          "cymbal_alloy": 8.900246794871796,
+          "cymbal_hammering": 2.73,
+          "cymbal_lathing": 5.545,
           "cymbal_finish": 1.4984615384615385,
-          "drum_technique": 7.54
+          "drum_technique": 10.27
         }
       },
       {
@@ -137,9 +137,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 1.7449999999999997,
-          "granular_use": 0.045,
-          "granular_synth_source": 2.6
+          "electronic_technique": 5.6450000000000005,
+          "granular_use": 0.195,
+          "granular_synth_source": 4.55
         }
       }
     ],

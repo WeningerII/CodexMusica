@@ -3,8 +3,8 @@
   "name": "Thai classical (piphat)",
   "family": "classical",
   "lineage": "Thai court-and-temple piphat tuned-percussion ensemble tradition in seven-equal-temperament tuning — codified through the Ayutthaya-era (1351-1767) royal court repertoire and continuing through the Bangkok Rattanakosin period; the piphat ensemble centered on the ranat-ek and ranat-thum xylophones, khong wong large gong-circle, and pi-nai oboe, performing the great repertoire of Phra Aphai Mani, naphat ceremonial works, and dance accompaniment for khon and lakhon",
-  "recipe": "classic early-1350s thai classical, art Music, Thai classical branch, east Asian art music tibetan ache lhamo opera beijing opera. ranat ek, khong wong yai, pi nai, jackwood barrel canonical Thai piphat calfskin khao suk taphon. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 380,
+  "recipe": "classic early-1350s thai classical, art Music, Thai classical branch, east Asian art music tibetan ache lhamo opera beijing opera. ranat ek, khong wong yai, pi nai, jackwood barrel canonical Thai piphat taphon. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 362,
   "score": 129.81,
   "config": {
     "traditions": [
@@ -19,7 +19,7 @@
           "ranat_ek_technique": "ranat_ek_kep"
         },
         "scores": {
-          "ranat_ek_technique": 27.409999999999997
+          "ranat_ek_technique": 29.009999999999994
         }
       },
       {
@@ -37,7 +37,7 @@
           "pi_nai_style": "pi_nai_piphat"
         },
         "scores": {
-          "pi_nai_style": 27.454999999999995
+          "pi_nai_style": 29.054999999999993
         }
       },
       {
@@ -49,8 +49,8 @@
         },
         "scores": {
           "taphon_technique": 25.249999999999996,
-          "taphon_shell_wood": 12.124999999999998,
-          "taphon_head": 1.5299999999999998
+          "taphon_shell_wood": 12.774999999999997,
+          "taphon_head": 0.845
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Norwegian stev (solo singing-game)",
   "family": "global",
   "lineage": "Norwegian stev solo-singing tradition of inland-Norway (Setesdal, Telemark, and adjacent mountain regions), comprising short improvised-or-traditional four-line quatrains sung unaccompanied. Two main streams: gamlestev (\"old stev\") canonical fixed-traditional-stanzas, and nystev (\"new stev\") improvised-on-occasion stanzas often performed in competitive-dialogic exchange between two singers. Performance: solo unaccompanied voice in characteristic narrow-range Norwegian-pentatonic-and-modal vocabulary with strict stev-meter four-stress-line. The Hilme inland-Norway lineage and the canonical nineteenth-century stev-singers (Jorunn Hilme, Talleiv Røysland) consolidated institutional documentation; the post-1970s Norwegian folk-music revival re-established practice.",
-  "recipe": "classic mid-1970s norwegian stev, ballad Poetry, Celtic balladic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. vocal fry, low dynamic level, melodic, blues inflected. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 341,
+  "recipe": "classic mid-1970s norwegian stev, ballad Poetry, Celtic balladic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. vocal fry, low dynamic level, melodic, unrestrained. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 338,
   "score": 166.315,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.185,
-          "voice_quality": 1.75,
+          "voice_register": 4.55,
+          "voice_quality": 4.095000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.655,
-          "voice_articulation": 0.375,
+          "voice_vibrato": 2.4449999999999994,
+          "voice_articulation": 1.25,
           "voice_microtone": 1.54,
-          "voice_tradition": 15.925,
-          "voice_mechanism_compound": 4.29,
-          "voice_estill_quality": 2.6,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 11.699999999999998,
-          "voice_ornament_system": 7.7375,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 3.72,
-          "voice_multitrack_stack": 1.9600000000000002
+          "voice_tradition": 33.215,
+          "voice_mechanism_compound": 8.384999999999998,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 26.585000000000004,
+          "voice_ensemble_config": 29.900000000000006,
+          "voice_ornament_system": 18.235000000000003,
+          "voice_pitch_organization": 4.029999999999999,
+          "voice_processing_chain": 4.970000000000001,
+          "voice_multitrack_stack": 7.084999999999999
         }
       }
     ],

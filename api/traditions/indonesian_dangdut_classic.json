@@ -3,8 +3,8 @@
   "name": "Indonesian dangdut (classical era)",
   "family": "global",
   "lineage": "Indonesian dangdut classical-era popular-music genre emerging in late-1960s-early-1970s Jakarta from the synthesis of Indian-filmi melodic-vocal aesthetic (transmitted through Indonesian audiences' exposure to Bollywood cinema), Malay folk-ballad melodic-vocabulary, and Arabian peninsular orkes melayu instrumental conventions. The name derives from the canonical onomatopoeic \"dang...dut\" rhythmic-figure played on the tabla-derived gendang drum. Rhoma Irama (born 1946) is the canonical king-of-dangdut figure whose 1970s-1980s recordings consolidated the genre; Elvy Sukaesih (born 1951) is the queen-of-dangdut counterpart. Distinguished from broader Malay orkes melayu by dangdut's Indian-filmi-influenced vocal-ornament style.",
-  "recipe": "classic North American 1967-1969 indonesian dangdut, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan jùjú. thick, declaimed, melodic, rhythmic. indian rosewood rosewood copper tabla, powell boston canonical American orchestral legato flute, mahogany pyramid pure nickel bass British mid 60s era electric bass. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 581,
+  "recipe": "classic North American 1967-1969 indonesian dangdut, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan jùjú. thick, declaimed, melodic, rhythmic. indian rosewood rosewood copper tabla, powell boston canonical American orchestral legato flute, pyramid pure nickel bass British mid 60s era electric bass. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 572,
   "score": 198.886,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 8.240000000000002,
-          "voice_quality": 1.56,
+          "voice_register": 12.415000000000003,
+          "voice_quality": 3.040000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3149999999999995,
-          "voice_articulation": 1.69,
-          "voice_microtone": 3.6950000000000007,
-          "voice_tradition": 12.932499999999997,
+          "voice_vibrato": 4.268,
+          "voice_articulation": 3.12,
+          "voice_microtone": 6.245000000000001,
+          "voice_tradition": 35.7175,
           "voice_mechanism_compound": 5.6499999999999995,
-          "voice_estill_quality": 8.254999999999999,
-          "voice_speech_song": 6.04,
-          "voice_ensemble_config": 3.25,
-          "voice_ornament_system": 8.774999999999999,
-          "voice_pitch_organization": 9.535,
-          "voice_processing_chain": 10.75,
-          "voice_multitrack_stack": 8.665
+          "voice_estill_quality": 9.704999999999998,
+          "voice_speech_song": 11.114999999999997,
+          "voice_ensemble_config": 8.45,
+          "voice_ornament_system": 8.924999999999999,
+          "voice_pitch_organization": 17.485,
+          "voice_processing_chain": 16.425,
+          "voice_multitrack_stack": 13.814999999999998
         }
       },
       {
@@ -62,7 +62,7 @@
         "scores": {
           "tabla_dayan": 4.955,
           "tabla_bayan": 2.3,
-          "tabla_syahi": 1.69
+          "tabla_syahi": 3.769999999999999
         }
       },
       {
@@ -76,9 +76,9 @@
         },
         "scores": {
           "wind_articulation": 5.75,
-          "flute_size": 0.8250000000000001,
+          "flute_size": 0.845,
           "flute_material": 0.24,
-          "flute_technique": 1.4299999999999995,
+          "flute_technique": 3.965,
           "flute_maker_school": 2.84
         }
       },
@@ -95,14 +95,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 0,
-          "body_wood": 1.26,
+          "electric_technique": 0.27499999999999997,
+          "amp_make": 0.585,
+          "body_wood": 0.845,
           "pickup_config": 0,
-          "string_type": 2.8600000000000003,
-          "scale_length_b": 0.72,
-          "fretted_or_not": 0.24,
-          "bass_technique": -0.035
+          "string_type": 3.9,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 0.845,
+          "bass_technique": 0.27499999999999997
         }
       }
     ],

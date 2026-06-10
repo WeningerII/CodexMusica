@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.78,
-          "voice_quality": 9.645000000000001,
+          "voice_register": 2.650000000000001,
+          "voice_quality": 28.42,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.445,
-          "voice_articulation": 1.69,
-          "voice_microtone": 0.045,
-          "voice_tradition": 0.8449999999999999,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 7.994999999999999,
-          "voice_ensemble_config": 7.93,
+          "voice_vibrato": 1.595,
+          "voice_articulation": 1.885,
+          "voice_microtone": 2.6250000000000004,
+          "voice_tradition": 4.16,
+          "voice_mechanism_compound": 4.55,
+          "voice_estill_quality": 4.5825,
+          "voice_speech_song": 19.499999999999996,
+          "voice_ensemble_config": 17.614999999999995,
           "voice_ornament_system": 1.5,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 6.69,
-          "voice_multitrack_stack": 1.69
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 8.095,
+          "voice_multitrack_stack": 2.5024999999999995
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 7.075,
-          "drum_machine_808_context": 7.965,
+          "tr808_voice": 7.375000000000001,
+          "drum_machine_808_context": 9.415000000000001,
           "tr808_production_origin": 0.495
         }
       },
@@ -75,10 +75,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 7.0200000000000005,
-          "oscillator": 7.125,
-          "filter_topology": 7.125,
-          "envelope": 1.69,
+          "electronic_technique": 7.4700000000000015,
+          "oscillator": 7.425000000000001,
+          "filter_topology": 7.575000000000001,
+          "envelope": 1.885,
           "modulation": 0.21
         }
       }

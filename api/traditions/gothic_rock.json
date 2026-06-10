@@ -3,8 +3,8 @@
   "name": "Gothic rock",
   "family": "rock_punk",
   "lineage": "Late-1970s through 1980s post-punk-derived dark atmospheric rock — codified through Bauhaus (Bela Lugosi’s Dead 1979), Siouxsie and the Banshees, The Cure (Pornography 1982, Disintegration 1989), Joy Division’s Closer (1980), and the Birthday Party / Nick Cave lineage; characterized by chorused-and-flanged guitar atmospherics, theatrical-baritone vocals, and gothic-literary lyrical subject matter",
-  "recipe": "classic North American 1977-1979 gothic rock, distorted Rock, gothic rock branch, alternative distorted rock, experimental distorted rock grunge. thick, incomplete closure resting, melodic, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, walnut pre muffled edge muffled machine hammered symmetric pattern drum kit, analog synth, string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 678,
+  "recipe": "classic North American 1977-1979 gothic rock, distorted Rock, gothic rock branch, alternative distorted rock, experimental distorted rock grunge. thick, incomplete closure resting, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, walnut pre muffled edge muffled machine hammered symmetric pattern drum kit, pad like lead analog synth, sustained pad string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 700,
   "score": 730.965,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 22.879999999999992,
-          "voice_quality": 1.8500000000000008,
+          "voice_register": 52.83000000000002,
+          "voice_quality": 6.15,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.95,
-          "voice_articulation": 0.495,
-          "voice_microtone": 21.049999999999997,
-          "voice_tradition": 3.835000000000001,
-          "voice_mechanism_compound": 6.565000000000001,
-          "voice_estill_quality": 1.755,
-          "voice_speech_song": 12.935000000000002,
-          "voice_ensemble_config": 12.870000000000001,
-          "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 0.5549999999999999,
-          "voice_processing_chain": 6.785,
-          "voice_multitrack_stack": 6.305
+          "voice_vibrato": 3.2199999999999998,
+          "voice_articulation": 1.2349999999999999,
+          "voice_microtone": 45.05000000000001,
+          "voice_tradition": 7.215,
+          "voice_mechanism_compound": 18.37,
+          "voice_estill_quality": 7.735000000000004,
+          "voice_speech_song": 27.105000000000008,
+          "voice_ensemble_config": 25.805000000000007,
+          "voice_ornament_system": 3.5750000000000006,
+          "voice_pitch_organization": 2.085,
+          "voice_processing_chain": 11.045,
+          "voice_multitrack_stack": 12.255
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 9.355,
-          "amp_make": 19.564999999999998,
-          "body_wood": 1.17,
+          "electric_technique": 14.605,
+          "amp_make": 39.0975,
+          "body_wood": 2.08,
           "neck_wood": 2.305,
-          "fretboard": 1.17,
-          "pickup_magnet": 0.39,
+          "fretboard": 1.95,
+          "pickup_magnet": 0.65,
           "string_material": 2.2,
-          "string_gauge": 2.34,
+          "string_gauge": 3.1849999999999996,
           "bridge": 0.78,
-          "scale_length": 1.17,
+          "scale_length": 2.015,
           "finish": 0.3,
-          "string_tuning": 12.219999999999999
+          "string_tuning": 25.285
         }
       },
       {
@@ -96,14 +96,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 6.949999999999999,
-          "amp_make": 11.764999999999999,
-          "body_wood": 1.17,
-          "pickup_config": 0.8850000000000001,
-          "string_type": 26.65,
-          "scale_length_b": 1.17,
+          "electric_technique": 10.575,
+          "amp_make": 24.7325,
+          "body_wood": 2.015,
+          "pickup_config": 0.845,
+          "string_type": 49.980000000000004,
+          "scale_length_b": 2.015,
           "fretted_or_not": 0.105,
-          "bass_technique": 27.5
+          "bass_technique": 51.875
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 12.870000000000001,
+          "percussion_technique": 27.495000000000008,
           "shell_wood": 2.8,
-          "shell_thickness": 0.43499999999999994,
-          "bearing_edges": 1.17,
-          "drumhead": 1.4,
-          "snare_wires": 1.17,
-          "cymbal_alloy": 29.9,
-          "cymbal_hammering": 21.544999999999998,
-          "cymbal_lathing": 21.395,
-          "cymbal_finish": 2.89,
-          "drum_technique": 20.799999999999997
+          "shell_thickness": 1.8849999999999998,
+          "bearing_edges": 2.015,
+          "drumhead": 4.445,
+          "snare_wires": 3.7049999999999996,
+          "cymbal_alloy": 56.4,
+          "cymbal_hammering": 45.545,
+          "cymbal_lathing": 46.045,
+          "cymbal_finish": 4.1899999999999995,
+          "drum_technique": 41.55
         }
       },
       {
@@ -145,10 +145,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 1.3649999999999998,
-          "oscillator": 1.95,
-          "filter_topology": 2.34,
-          "envelope": 0.78,
+          "electronic_technique": 4.6000000000000005,
+          "oscillator": 5.329999999999999,
+          "filter_topology": 4.029999999999999,
+          "envelope": 1.4949999999999999,
           "modulation": 0.105
         }
       },
@@ -161,10 +161,10 @@
           "sm_voicing": "sm_brass"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": 3.25,
           "sm_voice_count": 0.39,
-          "sm_chorus": 0.3,
-          "sm_voicing": 0.39
+          "sm_chorus": 0.845,
+          "sm_voicing": 0.65
         }
       }
     ],

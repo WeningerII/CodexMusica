@@ -3,8 +3,8 @@
   "name": "Slacker rock (early-1990s American lo-fi indie)",
   "family": "rock_punk",
   "lineage": "Early-1990s American indie rock substyle characterized by deliberately-loose performance aesthetic, lo-fi production, deadpan vocal delivery, and oblique-fragmentary lyrical content. Pavement (Stockton, 1989-1999) is the canonical type-specimen; parallel acts include Sebadoh, Guided by Voices, Silver Jews, and Built to Spill. Distinguished from broader indie rock by slacker rock's explicit casual-attitudinal aesthetic and emphasis on rough-edged production.",
-  "recipe": "classic North American slacker rock, distorted Rock, alternative branch, experimental distorted rock chillwave post-rock. thick, chest resonance low mid, equal tempered, 31 tet. marshall plexi amp British rock amp arpeggiated clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb proco RAT.",
-  "recipe_chars": 611,
+  "recipe": "classic North American slacker rock, distorted Rock, alternative branch, experimental distorted rock chillwave post-rock. thick, low dynamic level, chest resonance low mid, equal tempered. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oak machine hammered symmetric pattern organized rows full lathed drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb proco RAT.",
+  "recipe_chars": 615,
   "score": 393.012,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 17.840999999999994,
-          "voice_quality": 0.273,
+          "voice_register": 25.615999999999993,
+          "voice_quality": 1.4949999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8174999999999999,
+          "voice_vibrato": 1.69,
           "voice_articulation": 0.318,
-          "voice_microtone": 17.604999999999997,
-          "voice_tradition": 3.185000000000001,
-          "voice_mechanism_compound": 2.665000000000001,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 0.1365,
-          "voice_pitch_organization": 4.68,
-          "voice_processing_chain": 5.069999999999999,
-          "voice_multitrack_stack": 1.69
+          "voice_microtone": 25.729999999999997,
+          "voice_tradition": 9.3235,
+          "voice_mechanism_compound": 4.615000000000001,
+          "voice_estill_quality": 6.2075000000000005,
+          "voice_speech_song": 12.512499999999998,
+          "voice_ensemble_config": 11.699999999999996,
+          "voice_ornament_system": 3.1700000000000004,
+          "voice_pitch_organization": 7.215,
+          "voice_processing_chain": 6.76,
+          "voice_multitrack_stack": 2.9575000000000005
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 9.067999999999998,
-          "amp_make": 9.1,
-          "body_wood": 0.4995,
-          "neck_wood": 0.4995,
-          "fretboard": 0.49499999999999994,
+          "electric_technique": 14.818000000000001,
+          "amp_make": 12.544999999999998,
+          "body_wood": 3.575,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4949999999999999,
           "pickup_magnet": 0,
-          "pickup_winding": 0.7725000000000002,
-          "string_material": 0.49499999999999994,
-          "bridge": 0.4995,
-          "scale_length": 0.9990000000000001,
-          "string_gauge": 0.4995,
+          "pickup_winding": 0.845,
+          "string_material": 1.4949999999999999,
+          "bridge": 0.845,
+          "scale_length": 4.225,
+          "string_gauge": 0.845,
           "finish": 0,
-          "string_tuning": 10.92
+          "string_tuning": 18.395
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9000000000000001,
-          "amp_make": 9.165,
-          "body_wood": 0.9990000000000001,
-          "pickup_config": 1.0399999999999998,
-          "string_type": 23.075,
-          "scale_length_b": 0.4995,
+          "electric_technique": 4.825,
+          "amp_make": 12.61,
+          "body_wood": 0.845,
+          "pickup_config": 1.4364999999999999,
+          "string_type": 29.868000000000002,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0,
-          "bass_technique": 17.7
+          "bass_technique": 24.325
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 4.9399999999999995,
-          "shell_wood": 0.7994999999999999,
+          "percussion_technique": 11.699999999999996,
+          "shell_wood": 1.4949999999999999,
           "shell_thickness": 0.3045,
-          "bearing_edges": 0.636,
-          "drumhead": 0.573,
-          "snare_wires": 0.7725,
-          "cymbal_alloy": 18.145,
-          "cymbal_hammering": 17.7715,
-          "cymbal_lathing": 17.7865,
-          "cymbal_finish": 0.49499999999999994,
-          "drum_technique": 17.75
+          "bearing_edges": 0.845,
+          "drumhead": 1.4949999999999999,
+          "snare_wires": 0.845,
+          "cymbal_alloy": 25.919999999999998,
+          "cymbal_hammering": 25.3215,
+          "cymbal_lathing": 25.3365,
+          "cymbal_finish": 1.4949999999999999,
+          "drum_technique": 24.375
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Palm-wine guitar",
   "family": "global",
   "lineage": "West African coastal acoustic-guitar songcraft tradition, codified through the early-twentieth-century Sierra Leonean and Liberian port-city repertoire and the Ghanaian Sékou Diabaté and S.E. Rogie 1950s-1960s acoustic-guitar lineage — characterized by relaxed two-finger picking patterns over Krio/English-Creole melodic vocal lines, played at outdoor gatherings drinking the eponymous fermented palm sap",
-  "recipe": "classic North American mid-1950s palm-wine guitar, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. parlor acoustic guitar, pearwood marine band tradition lead chromatic harmonica. wooden barn. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 374,
+  "recipe": "classic North American mid-1950s palm-wine guitar, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. strummed open chord ringing overtones parlor acoustic guitar, pearwood marine band tradition double brass chromatic canon solo canonical chromatic harmonica. wooden barn. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 451,
   "score": 42.283,
   "config": {
     "traditions": [
@@ -23,11 +23,11 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 1.6999999999999997,
-          "string_tuning": 1.3499999999999999,
+          "acoustic_technique": 6.574999999999999,
+          "string_tuning": 1.8499999999999999,
           "top_wood_parlor": 0.7,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.384
+          "string_acoustic_parlor": 0.585
         }
       },
       {
@@ -42,13 +42,13 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "free_reed_technique": 2.535,
-          "harmonica_type": 0.8234999999999999,
-          "harmonica_comb": 2.5999999999999996,
-          "harmonica_reed": 0.9099999999999999,
-          "harmonica_technique": 2.535,
+          "free_reed_technique": 2.925,
+          "harmonica_type": 1.8849999999999996,
+          "harmonica_comb": 5.59,
+          "harmonica_reed": 4.1499999999999995,
+          "harmonica_technique": 4.609,
           "harmonica_maker_school": 0.15,
-          "harmonica_tuning": 0.39
+          "harmonica_tuning": 4.214499999999999
         }
       }
     ],

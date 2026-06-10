@@ -3,8 +3,8 @@
   "name": "Irish rebel song",
   "family": "global",
   "lineage": "Irish rebel-song tradition continuous from 18th-century 1798-United-Irishmen rebellion songs (\"The Wearing of the Green\" \"Bold Robert Emmet\") through 19th-century Young Ireland and Fenian songbook through 1916 Easter Rising era through Northern-Irish Troubles 1968-1998 era continuous into modern Irish-traditional-music repertoire",
-  "recipe": "classic late-1790s irish rebel song, protest Song, European branch, anglo American protest song, Celtic balladic ballad poetry, Celtic traditional improv on frame newfoundland outport balladry child ballad revival. thick, incomplete closure resting, melodic, continuous-phonation. dadgad tuning fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base fiddle, African blackwood boxwood premium pre modern melodic tin whistle. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 581,
+  "recipe": "classic late-1790s irish rebel song, protest Song, European branch, anglo American protest song, Celtic balladic ballad poetry, Celtic traditional improv on frame newfoundland outport balladry child ballad revival. thick, incomplete closure resting, melodic, continuous-phonation. dadgad tuning martin lifespan fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base fiddle, African blackwood boxwood premium pre modern melodic tin whistle. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 597,
   "score": 206.79,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.295,
-          "voice_quality": 3.575,
+          "voice_register": 8.670000000000002,
+          "voice_quality": 6.1899999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 2.38,
           "voice_articulation": 3.1249999999999996,
-          "voice_microtone": 1.7000000000000002,
-          "voice_tradition": 8.319999999999999,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.39,
-          "voice_speech_song": 10.985,
-          "voice_ensemble_config": 5.459999999999999,
-          "voice_ornament_system": 7.3500000000000005,
+          "voice_microtone": 3,
+          "voice_tradition": 24.634999999999998,
+          "voice_mechanism_compound": 1.625,
+          "voice_estill_quality": 2.5349999999999997,
+          "voice_speech_song": 18.394999999999996,
+          "voice_ensemble_config": 11.309999999999995,
+          "voice_ornament_system": 11.624999999999998,
           "voice_pitch_organization": 3.1249999999999996,
-          "voice_processing_chain": 0.44999999999999996,
-          "voice_multitrack_stack": 1.0399999999999991
+          "voice_processing_chain": 1.8200000000000003,
+          "voice_multitrack_stack": 1.234999999999999
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 4.185,
-          "string_tuning": 6.3999999999999995,
+          "acoustic_technique": 13.705,
+          "string_tuning": 19.125,
           "top_wood": 0.745,
           "back_sides": 0.745,
-          "string_acoustic": 0.39,
-          "acoustic_om_technique": 4.185
+          "string_acoustic": 1.2349999999999999,
+          "acoustic_om_technique": 13.705
         }
       },
       {
@@ -81,11 +81,11 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 3.4949999999999997,
-          "fiddle_strings": 1.69,
-          "fiddle_bow": 3.88,
+          "bowed_technique": 7.619999999999999,
+          "fiddle_strings": 2.9899999999999998,
+          "fiddle_bow": 5.13,
           "fiddle_mute": 0.7,
-          "fiddle_articulation": 0.39
+          "fiddle_articulation": 1.04
         }
       },
       {
@@ -97,10 +97,10 @@
           "whistle_body_material": "whistle_wood_premium"
         },
         "scores": {
-          "wind_articulation": 4.834999999999999,
-          "whistle_key": 13.899999999999997,
+          "wind_articulation": 13.084999999999999,
+          "whistle_key": 17.274999999999995,
           "whistle_ornament": 2.36,
-          "whistle_body_material": 2.015
+          "whistle_body_material": 2.8600000000000003
         }
       }
     ],

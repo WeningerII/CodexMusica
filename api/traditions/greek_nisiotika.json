@@ -3,8 +3,8 @@
   "name": "Greek nisiotika (island music)",
   "family": "global",
   "lineage": "Greek nisiotika (\"island music\") folk-popular music tradition of the Greek Aegean Sea islands — Naxos, Mykonos, Tinos, Andros, Skyros, Lesbos, Chios, Samos, and adjacent islands — distinguished from mainland Greek demotic music by characteristic island-dance-rhythm repertoire (the syrtos, sousta, ballos), instrumental signature (lyra Cretan-style three-string fiddle on some islands, violin elsewhere, laouto long-neck lute, and santouri hammered-dulcimer), and the broader Aegean-island maritime-cultural orientation. The mid-twentieth-century commercial-recording era at Columbia, HMV, and Pathé Athens documented the canonical island repertoire. Distinguished from the parallel Cretan lyra tradition by nisiotika's broader-Aegean-island-network and lighter dance-emphasis register.",
-  "recipe": "classic modern greek nisiotika, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut ribs canonical mid tier western red cedar modern alternative pyramid oud, Baroque setup short neck shorter fingerboard lighter bass bar brazilwood violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, mulberry canonical cretan gut pre modern cretan cretan lyra. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 719,
+  "recipe": "classic modern greek nisiotika, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut ribs canonical mid tier western red cedar modern alternative pyramid oud, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, mulberry canonical cretan gut pre modern cretan cretan lyra. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 721,
   "score": 173.233,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 3.140000000000001,
-          "voice_quality": 3.185000000000001,
+          "voice_register": 5.265000000000001,
+          "voice_quality": 3.9965000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 0.885,
-          "voice_microtone": 0.15,
-          "voice_tradition": 26.393499999999996,
-          "voice_mechanism_compound": 1.8914999999999997,
-          "voice_estill_quality": 1.0949999999999998,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 0.345,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 4.6450000000000005,
-          "voice_multitrack_stack": 1.9949999999999997
+          "voice_vibrato": 2.535,
+          "voice_articulation": 0.845,
+          "voice_microtone": 0.45499999999999996,
+          "voice_tradition": 30.4185,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 14.754999999999995,
+          "voice_ensemble_config": 14.689999999999994,
+          "voice_ornament_system": 2.469999999999999,
+          "voice_pitch_organization": 8.334999999999997,
+          "voice_processing_chain": 6.270000000000001,
+          "voice_multitrack_stack": 3.0875
         }
       },
       {
@@ -65,11 +65,11 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.035,
-          "oud_school": 1.69,
-          "oud_strings": 1.26,
-          "oud_pick": 1.69,
-          "oud_body_wood": 3.185,
-          "oud_soundboard_wood": 1.6575,
+          "oud_school": 4.615,
+          "oud_strings": 0.65,
+          "oud_pick": 3.38,
+          "oud_body_wood": 3.835,
+          "oud_soundboard_wood": 1.8850000000000002,
           "oud_string_material": 1.495
         }
       },
@@ -89,15 +89,15 @@
         },
         "scores": {
           "bowed_technique": 3.0500000000000007,
-          "orch_strings": 0.8700000000000001,
-          "orch_top_wood": -0.035,
-          "orch_back_wood": -0.035,
+          "orch_strings": 0.65,
+          "orch_top_wood": 1.625,
+          "orch_back_wood": 0.78,
           "orch_varnish": -0.035,
-          "orch_setup_period": 3.2500000000000004,
-          "orch_bow": 3.3799999999999994,
-          "orch_bow_stick": 1.595,
+          "orch_setup_period": 5.470000000000001,
+          "orch_bow": 5.915,
+          "orch_bow_stick": 2.245,
           "orch_articulation": 0.573,
-          "orch_rosin": -0.035
+          "orch_rosin": 0.78
         }
       },
       {
@@ -107,7 +107,7 @@
           "cimbalom_mallet": "cimbalom_hard_wood"
         },
         "scores": {
-          "cimbalom_size": 11.829999999999997,
+          "cimbalom_size": 19.434999999999995,
           "cimbalom_mallet": 0.24
         }
       },
@@ -122,10 +122,10 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "lyra_strings": 1.558,
-          "lyra_use": 1.69,
+          "lyra_strings": 2.208,
+          "lyra_use": 3.233,
           "lyra_body_wood": 4.095,
-          "lyra_string_material": 2.9265
+          "lyra_string_material": 3.4265
         }
       }
     ],

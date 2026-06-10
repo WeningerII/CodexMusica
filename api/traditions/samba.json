@@ -3,8 +3,8 @@
   "name": "Samba",
   "family": "global",
   "lineage": "Brazilian Rio carnival and samba-canção tradition, codified through the early-twentieth-century Rio favelas and the 1917 first-recorded-samba \"Pelo Telefone\" — through Cartola, Noel Rosa, and Ataulfo Alves codifying samba-canção lyric tradition, then Pixinguinha as the orchestrating bandleader, with samba-de-roda Bahian roots and samba-enredo carnival-school evolution",
-  "recipe": "classic North American late-1910s samba, groove Percussion, Brazilian branch, Brazilian song functional song bossa nova brazilian samba de roda do recôncavo. thick, intimate aspirated, rhythmic, equal tempered. low mid rich spectrum cedar classical nylon-string guitar, samba foundation mahogany samba canon cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, samba tradition metal construction repinique, snappy samba tradition metal construction reco reco, samba tradition metal construction ganza, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian cuica, agogo. escola samba quadra. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
-  "recipe_chars": 981,
+  "recipe": "classic North American late-1910s samba, groove Percussion, Brazilian branch, Brazilian song functional song bossa nova brazilian samba de roda do recôncavo. thick, intimate aspirated, pure, rhythmic. low mid rich spectrum cedar classical nylon-string guitar, samba foundation mahogany samba canon strummed cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, samba tradition metal construction repinique, snappy samba tradition metal construction reco reco, samba tradition metal construction ganza, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian hands layered cuica, agogo. escola samba quadra. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET.",
+  "recipe_chars": 985,
   "score": 535,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 2.7949999999999995,
-          "voice_quality": 24.23,
+          "voice_register": 5.820000000000001,
+          "voice_quality": 44.30500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.495,
-          "voice_articulation": 0.645,
-          "voice_microtone": 2.1550000000000002,
-          "voice_tradition": 4.875,
-          "voice_mechanism_compound": 2.47,
-          "voice_estill_quality": 2.275,
-          "voice_speech_song": 10.075,
-          "voice_ensemble_config": 7.799999999999999,
-          "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 1.6
+          "voice_vibrato": 1.885,
+          "voice_articulation": 1.04,
+          "voice_microtone": 4.530000000000001,
+          "voice_tradition": 18.056,
+          "voice_mechanism_compound": 6.045,
+          "voice_estill_quality": 5.850000000000001,
+          "voice_speech_song": 22.490000000000002,
+          "voice_ensemble_config": 16.314999999999998,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 2.87,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 3.38
         }
       },
       {
@@ -63,12 +63,12 @@
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 0.745,
+          "acoustic_technique": 1.7,
           "string_tuning": 0,
-          "top_wood_classical": 1.7715,
-          "bracing_classical": 0.7214999999999999,
-          "string_classical": 0.15,
-          "attack_technique_cl": 0.75
+          "top_wood_classical": 2.795,
+          "bracing_classical": 0.65,
+          "string_classical": 0.195,
+          "attack_technique_cl": 3.125
         }
       },
       {
@@ -81,11 +81,11 @@
           "cavaquinho_strings": "cavaquinho_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 1.3649999999999998,
-          "cavaquinho_origin": 12.09,
-          "cavaquinho_context": 12.869999999999997,
-          "cavaquinho_body_wood": 11.011500000000002,
-          "cavaquinho_strings": -1.05
+          "plucked_traditional_technique": 3.25,
+          "cavaquinho_origin": 18.9565,
+          "cavaquinho_context": 29.964999999999996,
+          "cavaquinho_body_wood": 16.911500000000004,
+          "cavaquinho_strings": -0.06999999999999988
         }
       },
       {
@@ -99,12 +99,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": -0.1,
-          "pandeiro_size": 10.906500000000001,
-          "pandeiro_context": 3.619999999999999,
-          "pandeiro_head": 4.9399999999999995,
-          "pandeiro_shell_wood": 4.9399999999999995,
-          "pandeiro_jingles": 4.9399999999999995
+          "percussion_technique": 7.125,
+          "pandeiro_size": 16.806500000000003,
+          "pandeiro_context": 8.775000000000002,
+          "pandeiro_head": 13.975,
+          "pandeiro_shell_wood": 13.975,
+          "pandeiro_jingles": 13.975
         }
       },
       {
@@ -116,8 +116,8 @@
         },
         "scores": {
           "surdo_size": 1.305,
-          "surdo_skin": 6.759999999999999,
-          "surdo_shell": 1.4299999999999995
+          "surdo_skin": 9.294999999999998,
+          "surdo_shell": 3.769999999999999
         }
       },
       {
@@ -128,9 +128,9 @@
           "tamborim_shell": "tamborim_aluminum_canonical"
         },
         "scores": {
-          "tamborim_skin": 3.4099999999999993,
-          "tamborim_striker": 15.0065,
-          "tamborim_shell": 3.3799999999999994
+          "tamborim_skin": 3.709999999999999,
+          "tamborim_striker": 21.556500000000003,
+          "tamborim_shell": 5.719999999999999
         }
       },
       {
@@ -140,8 +140,8 @@
           "repinique_technique": "repinique_one_stick_one_hand"
         },
         "scores": {
-          "repinique_shell": 14.6195,
-          "repinique_technique": 14.6195
+          "repinique_shell": 22.669500000000003,
+          "repinique_technique": 22.669500000000003
         }
       },
       {
@@ -150,7 +150,7 @@
           "reco_source": "reco_metal_springs"
         },
         "scores": {
-          "reco_source": 14.6195
+          "reco_source": 22.669500000000003
         }
       },
       {
@@ -159,7 +159,7 @@
           "ganza_source": "ganza_metal_cylinder"
         },
         "scores": {
-          "ganza_source": 14.6195
+          "ganza_source": 22.669500000000003
         }
       },
       {
@@ -172,11 +172,11 @@
           "cuica_head": "cuica_calfskin_canonical"
         },
         "scores": {
-          "percussion_technique": -0.1,
-          "cuica_size": 11.310000000000002,
-          "cuica_context": 3.769999999999999,
-          "cuica_shell_material": 14.3,
-          "cuica_head": 5.329999999999999
+          "percussion_technique": 7.125,
+          "cuica_size": 18.6915,
+          "cuica_context": 6.305,
+          "cuica_shell_material": 31.005000000000003,
+          "cuica_head": 14.365
         }
       },
       {
@@ -186,8 +186,8 @@
           "agogo_context": "agogo_bateria"
         },
         "scores": {
-          "agogo_bell": 11.238000000000001,
-          "agogo_context": 3.619999999999999
+          "agogo_bell": 17.788,
+          "agogo_context": 3.919999999999999
         }
       }
     ],

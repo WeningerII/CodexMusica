@@ -3,8 +3,8 @@
   "name": "Irish spinning song (amhrán snímh)",
   "family": "global",
   "lineage": "Irish-Gaelic spinning-and-domestic-labor song tradition continuous from medieval-and-early-modern Irish-rural domestic-textile-labor practice through 19th-20th century continuous performance into modern Irish-Gaelic-and-Scottish-Gaelic revival",
-  "recipe": "classic modern irish spinning song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, Celtic balladic ballad poetry scottish gaelic tàladh sean-nós solo singing. declaimed, tasteful, continuous-phonation, Scottish Gaelic vocal. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 407,
+  "recipe": "classic modern irish spinning song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, Celtic balladic ballad poetry scottish gaelic tàladh sean-nós solo singing. vocal fry, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 395,
   "score": 118.399,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 3.0012499999999998,
+          "voice_quality": 3.5162500000000008,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3799999999999994,
-          "voice_articulation": 3.3799999999999994,
+          "voice_vibrato": 4.225,
+          "voice_articulation": 4.614999999999999,
           "voice_microtone": 0,
-          "voice_tradition": 21.13375,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.39,
-          "voice_speech_song": 9.554999999999998,
-          "voice_ensemble_config": 6.109999999999999,
-          "voice_ornament_system": 6.581250000000001,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 0.585,
-          "voice_multitrack_stack": 0.39
+          "voice_tradition": 40.40875,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 1.69,
+          "voice_speech_song": 16.314999999999994,
+          "voice_ensemble_config": 11.829999999999995,
+          "voice_ornament_system": 14.98125,
+          "voice_pitch_organization": 4.614999999999999,
+          "voice_processing_chain": 2.85625,
+          "voice_multitrack_stack": 3.769999999999999
         }
       }
     ],

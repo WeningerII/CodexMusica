@@ -3,8 +3,8 @@
   "name": "Glitch (late-1990s through 2000s German-and-Austrian digital-error electronic)",
   "family": "electronic",
   "lineage": "Late-1990s and 2000s electronic subgenre developed primarily in Germany (Oval, Mille Plateaux label) and Austria (Fennesz), characterized by deliberate use of digital-error sounds (CD-skips, microsound cuts, glitches) as primary compositional material. Oval's 94diskont (1995), Fennesz's Endless Summer (2001), and the broader Mille Plateaux Records and Touch Records rosters anchor the canonical glitch aesthetic.",
-  "recipe": "classic glitch, experimental Elec, idm glitch branch, ambient experimental electric dark ambient hauntology. analog synth, glitched textural sampler, basswood humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ring modulator.",
-  "recipe_chars": 394,
+  "recipe": "classic glitch, experimental Elec, idm glitch branch, ambient experimental electric dark ambient hauntology. pad like pad analog synth, glitched textural sampler, modeled amp modern rig basswood humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ring modulator.",
+  "recipe_chars": 430,
   "score": 93.962,
   "config": {
     "traditions": [
@@ -23,10 +23,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 1.9849999999999997,
+          "electronic_technique": 11.86,
           "oscillator": 0.435,
           "filter_topology": 0.6495,
-          "envelope": 0.9099999999999999,
+          "envelope": 6.044999999999999,
           "modulation": 0.045
         }
       },
@@ -40,11 +40,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 9.49,
+          "electronic_technique": 15.865,
           "sampler_archetypes": 0.5849999999999999,
           "sampler_bit_depth": 0.43499999999999994,
-          "sampler_workflow": 9.25,
-          "sampler_classic_context": 7.994999999999999
+          "sampler_workflow": 15.625,
+          "sampler_classic_context": 19.402499999999996
         }
       },
       {
@@ -65,19 +65,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 2.6143750000000003,
-          "body_wood": 1.69,
+          "electric_technique": 1.0724999999999998,
+          "amp_make": 3.2643750000000002,
+          "body_wood": 3.38,
           "neck_wood": 0.6045,
           "fretboard": 0.39,
           "pickup_magnet": 0.15,
           "pickup_winding": 0.15,
           "string_material": 0.39,
           "bridge": 0.6045,
-          "scale_length": 1.69,
+          "scale_length": 3.38,
           "string_gauge": 0.6495,
           "finish": 0,
-          "string_tuning": 1.69
+          "string_tuning": 3.38
         }
       }
     ],

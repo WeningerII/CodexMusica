@@ -3,8 +3,8 @@
   "name": "Tribal guarachero",
   "family": "global",
   "lineage": "Mexican-American electronic dance subgenre codified circa 2008-2012 in Monterrey, Mexico — characterized by 130-140 BPM accelerated cumbia rhythm with synth-flute melodies and tribal-drum patterns; DJ Erick Rincón, DJ Otto, and the 3BallMTY collective as canonical exponents",
-  "recipe": "classic 2008-2012 tribal guarachero, electronic Dance, Latin electric branch, Latin am groove percussion cumbia peruana cumbia colombiana. thick, full chest belt, chest resonance low mid, rhythmic. TR-808, sampler, digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 381,
+  "recipe": "classic 2008-2012 tribal guarachero, electronic Dance, Latin electric branch, Latin am groove percussion cumbia peruana cumbia colombiana. thick, full chest belt, chest resonance low mid, rhythmic. TR-808, melodic pitched sampler, digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 397,
   "score": 146.485,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.77,
-          "voice_quality": 2.045,
+          "voice_register": 1.9399999999999995,
+          "voice_quality": 22.695,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.6,
-          "voice_articulation": 0.8400000000000001,
-          "voice_microtone": 0.3,
-          "voice_tradition": 1.2349999999999999,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 3.7049999999999996,
-          "voice_ensemble_config": 3.6399999999999997,
-          "voice_ornament_system": 0.135,
-          "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 8.969999999999999,
-          "voice_multitrack_stack": 1.26
+          "voice_vibrato": 1.3,
+          "voice_articulation": 1.4949999999999999,
+          "voice_microtone": 0.9999999999999998,
+          "voice_tradition": 6.174999999999999,
+          "voice_mechanism_compound": 5.135,
+          "voice_estill_quality": 5.124999999999999,
+          "voice_speech_song": 15.535000000000002,
+          "voice_ensemble_config": 15.21,
+          "voice_ornament_system": 4.1899999999999995,
+          "voice_pitch_organization": 1.95,
+          "voice_processing_chain": 10.934999999999999,
+          "voice_multitrack_stack": 4.355
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0,
-          "drum_machine_808_context": 2.954999999999999,
+          "tr808_voice": 2.2749999999999995,
+          "drum_machine_808_context": 2.9899999999999998,
           "tr808_production_origin": 0.7350000000000001
         }
       },
@@ -76,10 +76,10 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sampler_archetypes": 0.3,
-          "sampler_bit_depth": 0.9,
-          "sampler_workflow": -0.035,
-          "sampler_classic_context": 5.9799999999999995
+          "sampler_archetypes": 1.2349999999999999,
+          "sampler_bit_depth": 0.65,
+          "sampler_workflow": 1.17,
+          "sampler_classic_context": 20.540000000000003
         }
       },
       {
@@ -90,9 +90,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "va_archetypes": 0.44999999999999996,
-          "digital_subtractive_context": 3.769999999999999
+          "electronic_technique": 2.7950000000000004,
+          "va_archetypes": 0.65,
+          "digital_subtractive_context": 15.730000000000004
         }
       }
     ],

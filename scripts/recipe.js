@@ -64,7 +64,14 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
-const maxChars = parseInt(flags['max-chars']) || 1000;
+let maxChars = 1000;
+if (flags['max-chars'] !== undefined) {
+  maxChars = parseInt(flags['max-chars'], 10);
+  if (!Number.isInteger(maxChars) || maxChars <= 0) {
+    console.error(`--max-chars must be a positive integer; got "${flags['max-chars']}"`);
+    process.exit(2);
+  }
+}
 
 // === Customization opts: --exclude-instrument / --swap-variant / --staple-mode ===
 //
@@ -227,6 +234,15 @@ const opts = parseOpts(flags, primaryTradId, stapleIds);
 
 const TRAD_IDS = new Set(C.TRADITIONS.map(t => t.id));
 
+// Only --diff consumes positional args. In every other mode a stray positional
+// (e.g. `--tradition afrobeat post_punk`) was silently ignored — producing a
+// plausible but wrong recipe. Reject it, pointing at the blend form.
+if (!flags.diff && positional.length) {
+  console.error(`Unexpected argument(s): ${positional.join(' ')}`);
+  console.error(`  (for a blend use: recipe.js --traditions ${[flags.tradition, ...positional].filter(Boolean).join(',')})`);
+  process.exit(2);
+}
+
 if (flags.tradition) {
   seed = seedFromTradition(flags.tradition, [], opts);
   if (!seed) { console.error(`Unknown tradition: ${flags.tradition}`); process.exit(2); }
@@ -239,6 +255,7 @@ if (flags.tradition) {
   // single --tradition path and of --exclude/--add/--swap.
   const unknown = ids.filter(id => !TRAD_IDS.has(id));
   if (unknown.length) { console.error(`Unknown tradition id(s): ${unknown.join(', ')}`); process.exit(2); }
+  if (ids.length > 3) console.error(`note: blending ${ids.length} traditions; recipes are tuned for up to 3, so output may be noisy.`);
   seed = seedFromTradition(ids[0], ids.slice(1), opts);
   if (!seed) { console.error(`Unknown tradition: ${ids[0]}`); process.exit(2); }
 } else if (flags.diff) {
@@ -248,7 +265,14 @@ if (flags.tradition) {
   // Validate both ids — a bogus SECONDARY is otherwise silently dropped (exit 0).
   const unknown = [idA, idB].filter(id => !TRAD_IDS.has(id));
   if (unknown.length) { console.error(`Unknown tradition id(s): ${unknown.join(', ')}`); process.exit(2); }
-  const weight = flags.weight !== undefined ? parseFloat(flags.weight) : 0.5;
+  let weight = 0.5;
+  if (flags.weight !== undefined) {
+    weight = parseFloat(flags.weight);
+    if (!Number.isFinite(weight) || weight < 0 || weight > 1) {
+      console.error(`--weight must be a number in [0,1]; got "${flags.weight}"`);
+      process.exit(2);
+    }
+  }
   seed = seedDiff(idA, idB, weight, opts);
   if (!seed) { console.error('Unknown tradition'); process.exit(2); }
 } else if (flags['axis-target']) {

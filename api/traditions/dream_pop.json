@@ -3,8 +3,8 @@
   "name": "Dream pop",
   "family": "global",
   "lineage": "1980s-onward atmospheric guitar pop genre codified through the 4AD label catalog (Cocteau Twins, Treasure 1984, Heaven or Las Vegas 1990 the dream pop album), the Mazzy Star California canon (She Hangs Brightly 1990, So Tonight That I Might See 1993 with Hope Sandoval female-vocal-foreground), Galaxie 500 (the New England slowcore-adjacent canon), Beach House (Baltimore modern dream pop, Teen Dream 2010, Bloom 2012)",
-  "recipe": "classic North American mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bedroom pop. thick, larynx lowered, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix deluxe memory man chorus.",
-  "recipe_chars": 800,
+  "recipe": "classic North American mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bedroom pop. thick, larynx lowered, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oak pre muffled edge muffled hot rolled annealed drum kit, sequential dave smith lineage canonical prophet 5 1978 san jose ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix deluxe memory man chorus.",
+  "recipe_chars": 854,
   "score": 633.615,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 21.829999999999995,
+          "voice_register": 47.95500000000002,
           "voice_quality": 1.1999999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.9750000000000001,
-          "voice_articulation": 0.585,
-          "voice_microtone": 21.299999999999997,
-          "voice_tradition": 18.695,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 6.5649999999999995,
-          "voice_ensemble_config": 4.549999999999999,
-          "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 3.2249999999999996,
-          "voice_processing_chain": 3.495,
-          "voice_multitrack_stack": 3.6399999999999997
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 0.845,
+          "voice_microtone": 44.17500000000002,
+          "voice_tradition": 25.97,
+          "voice_mechanism_compound": 8.027500000000002,
+          "voice_estill_quality": 6.630000000000003,
+          "voice_speech_song": 20.54,
+          "voice_ensemble_config": 17.03,
+          "voice_ornament_system": 1.575,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 6.467499999999999,
+          "voice_multitrack_stack": 8.2875
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 16.189999999999998,
-          "amp_make": 7.955,
-          "body_wood": 0.9750000000000001,
-          "neck_wood": 0.9750000000000001,
-          "fretboard": 0.3,
-          "pickup_magnet": 0.195,
-          "string_material": 0.15,
-          "string_gauge": 0.9750000000000001,
+          "electric_technique": 22.964999999999996,
+          "amp_make": 14.105000000000002,
+          "body_wood": 1.69,
+          "neck_wood": 1.6899999999999997,
+          "fretboard": 0.78,
+          "pickup_magnet": 0.65,
+          "string_material": 0.65,
+          "string_gauge": 1.2349999999999999,
           "bridge": 0.195,
-          "scale_length": 1.9500000000000002,
+          "scale_length": 0.845,
           "finish": 0,
-          "string_tuning": 2.8600000000000003
+          "string_tuning": 16.055
         }
       },
       {
@@ -96,14 +96,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 2.7950000000000004,
-          "body_wood": 1.9500000000000002,
-          "pickup_config": 0,
-          "string_type": 9.75,
-          "scale_length_b": 0.9750000000000001,
+          "electric_technique": 1.85,
+          "amp_make": 13.682500000000003,
+          "body_wood": 0.845,
+          "pickup_config": 1.0399999999999998,
+          "string_type": 31.52500000000001,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.105,
-          "bass_technique": 5.45
+          "bass_technique": 23.125000000000007
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 4.159999999999999,
-          "shell_wood": 0.585,
-          "shell_thickness": 0.43499999999999994,
-          "bearing_edges": 1.17,
-          "drumhead": 18.695,
-          "snare_wires": 1.365,
-          "cymbal_alloy": 21.89,
-          "cymbal_hammering": 24.645000000000003,
-          "cymbal_lathing": 24.494999999999997,
-          "cymbal_finish": 0.38999999999999996,
-          "drum_technique": 5.5
+          "percussion_technique": 17.485,
+          "shell_wood": 2.145,
+          "shell_thickness": 1.4949999999999999,
+          "bearing_edges": 0.845,
+          "drumhead": 24.82,
+          "snare_wires": 2.5349999999999997,
+          "cymbal_alloy": 45.415000000000006,
+          "cymbal_hammering": 47.52,
+          "cymbal_lathing": 48.02,
+          "cymbal_finish": 1.6899999999999997,
+          "drum_technique": 22.250000000000007
         }
       },
       {
@@ -144,10 +144,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 16.099999999999998,
-          "poly_archetypes": 2.8600000000000003,
+          "electronic_technique": 22.724999999999998,
+          "poly_archetypes": 11.570000000000002,
           "poly_voices": 0,
-          "poly_maker_lineage": 0.325
+          "poly_maker_lineage": 1.17
         }
       },
       {
@@ -160,11 +160,11 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 16.099999999999998,
-          "fm_algorithm": 0.39,
+          "electronic_technique": 22.724999999999998,
+          "fm_algorithm": 2.0799999999999996,
           "fm_modulator_ratio": 0.39,
-          "fm_polyphony": 0.195,
-          "fm_model_lineage": 9.555
+          "fm_polyphony": 0.845,
+          "fm_model_lineage": 16.574999999999996
         }
       }
     ],

@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.865,
-          "voice_quality": 5.885000000000001,
+          "voice_register": 6.375,
+          "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5100000000000002,
-          "voice_articulation": 3.1999999999999997,
-          "voice_microtone": 7.734999999999999,
-          "voice_tradition": 24.244999999999997,
-          "voice_mechanism_compound": 13.519999999999998,
-          "voice_estill_quality": 10.399999999999999,
-          "voice_speech_song": 18.785000000000004,
-          "voice_ensemble_config": 18.330000000000002,
-          "voice_ornament_system": 10.14,
-          "voice_pitch_organization": 13.129999999999999,
-          "voice_processing_chain": 5.765000000000001,
+          "voice_vibrato": 10.595,
+          "voice_articulation": 3.6999999999999997,
+          "voice_microtone": 27.93,
+          "voice_tradition": 50.31,
+          "voice_mechanism_compound": 25.635,
+          "voice_estill_quality": 24.575,
+          "voice_speech_song": 38.57750000000001,
+          "voice_ensemble_config": 34.45,
+          "voice_ornament_system": 38.425000000000004,
+          "voice_pitch_organization": 39.90500000000001,
+          "voice_processing_chain": 6.695,
           "voice_multitrack_stack": 8.299999999999999
         }
       },
@@ -63,12 +63,12 @@
           "duduk_lineage": "duduk_djivan_gasparyan"
         },
         "scores": {
-          "wind_articulation": 4.289999999999999,
+          "wind_articulation": 16.665000000000003,
           "duduk_use": 5.865,
           "duduk_pitch": 2.3,
-          "duduk_body_wood": 18.025000000000002,
-          "duduk_reed": 16.680000000000003,
-          "duduk_lineage": 21.840000000000003
+          "duduk_body_wood": 19.825000000000003,
+          "duduk_reed": 18.480000000000004,
+          "duduk_lineage": 26.240000000000002
         }
       }
     ],

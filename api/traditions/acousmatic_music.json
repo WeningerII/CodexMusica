@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 5.690000000000001,
+          "electronic_technique": 10.315000000000003,
           "sampler_archetypes": 3.25,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": 6.539375000000001,
-          "sampler_classic_context": 5.4
+          "sampler_bit_depth": 0.7149999999999999,
+          "sampler_workflow": 11.814375000000002,
+          "sampler_classic_context": 14.750000000000002
         }
       },
       {
@@ -38,7 +38,7 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": 0.8249999999999998,
           "tape_voice": 0.32999999999999996,
           "tape_state": 0.045
         }

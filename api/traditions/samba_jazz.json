@@ -3,8 +3,8 @@
   "name": "Samba-jazz",
   "family": "global",
   "lineage": "Rio de Janeiro 1962-1970 small-group jazz-samba tradition centered on the Forma and Som Maior label catalog — codified through Sergio Mendes’s Bossa Rio (1964) and Brasil 66, Tamba Trio (Luiz Eça-Bebeto-Helcio Milito), Sambalanço Trio, Edu Lobo, and Milton Banana Trio; characterized by piano-trio-plus-singer instrumentation, advanced-harmonic vocabulary, and energetic-up-tempo samba-derived rhythmic foundation",
-  "recipe": "classic North American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, tight backbore high register lead trumpet trumpet, flute. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 655,
+  "recipe": "classic North American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lead trumpet ensemble trumpet, yamaha modern Japanese mid to premium flute. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 673,
   "score": 274.587,
   "config": {
     "traditions": [
@@ -27,15 +27,15 @@
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 0.26,
-          "grand_piano_size": 0.24,
+          "keyboard_technique": 1.2999999999999998,
+          "grand_piano_size": 0.39,
           "grand_piano_brand": 0.75,
-          "piano_hammer": 1.2349999999999999,
-          "piano_rim": 1.2349999999999999,
-          "piano_soundboard": 1.2349999999999999,
-          "piano_pinblock": -0.05,
-          "piano_plate": 0.295,
-          "piano_pitch_standard": 1.2349999999999999
+          "piano_hammer": 1.9825,
+          "piano_rim": 4.094999999999999,
+          "piano_soundboard": 3.6724999999999994,
+          "piano_pinblock": 0.4225,
+          "piano_plate": 0.6174999999999999,
+          "piano_pitch_standard": 2.1774999999999998
         }
       },
       {
@@ -47,8 +47,8 @@
         },
         "scores": {
           "acoustic_technique": 0.325,
-          "upright_strings": 14.749999999999996,
-          "upright_play": 14.749999999999996
+          "upright_strings": 15.874999999999996,
+          "upright_play": 15.874999999999996
         }
       },
       {
@@ -67,17 +67,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 18.849999999999994,
+          "percussion_technique": 30.387499999999996,
           "shell_wood": 0.75,
           "shell_thickness": 0.15,
           "bearing_edges": 0.78,
-          "drumhead": 15.434999999999995,
-          "snare_wires": 0.345,
-          "cymbal_alloy": 16.899999999999995,
-          "cymbal_hammering": 17.114999999999995,
-          "cymbal_lathing": 18.249999999999996,
+          "drumhead": 16.56,
+          "snare_wires": 0.195,
+          "cymbal_alloy": 19.149999999999995,
+          "cymbal_hammering": 19.99,
+          "cymbal_lathing": 21.025,
           "cymbal_finish": 0.75,
-          "drum_technique": 18.849999999999994
+          "drum_technique": 30.387499999999996
         }
       },
       {
@@ -87,8 +87,8 @@
           "context": "sb_quadra"
         },
         "scores": {
-          "sections": 0.39,
-          "context": 0.09
+          "sections": 0.78,
+          "context": 0.195
         }
       },
       {
@@ -103,13 +103,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.9,
+          "wind_articulation": 2.015,
           "sax_size": 1.65,
           "sax_reed": 0.75,
-          "sax_body_alloy": 15.139999999999997,
+          "sax_body_alloy": 17.064999999999998,
           "sax_mouthpiece": 0.75,
-          "sax_technique": 14.749999999999996,
-          "sax_maker_school": 13.734999999999996
+          "sax_technique": 15.874999999999996,
+          "sax_maker_school": 14.859999999999998
         }
       },
       {
@@ -124,11 +124,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.9,
+          "wind_articulation": 2.015,
           "brass_size": 0.75,
-          "trumpet_mouthpiece": 15.814999999999996,
-          "brass_mute": 0.3,
-          "trumpet_technique": 0.7999999999999998,
+          "trumpet_mouthpiece": 17.539999999999996,
+          "brass_mute": 0.375,
+          "trumpet_technique": 2.015,
           "trumpet_bell_metal": 0.84,
           "trumpet_maker_school": 0.9450000000000001
         }
@@ -143,11 +143,11 @@
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 0.9,
+          "wind_articulation": 0.9849999999999999,
           "flute_size": 0.75,
           "flute_material": 0.78,
-          "flute_technique": 0.39,
-          "flute_maker_school": 0.9450000000000001
+          "flute_technique": 0.78,
+          "flute_maker_school": 1.04
         }
       }
     ],

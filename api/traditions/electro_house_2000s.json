@@ -3,8 +3,8 @@
   "name": "Electro house (2000s)",
   "family": "electronic",
   "lineage": "Mid-to-late-2000s house subgenre characterized by aggressive distorted-synth-lead production, heavy compression, four-on-the-floor beat with prominent off-beat bass, and explicit big-room festival-targeting. Justice's Cross (2007), Daft Punk's Discovery-influenced production legacy, and the broader French house lineage anchored the canonical aesthetic. The genre spawned the broader EDM-festival era of 2008-2012.",
-  "recipe": "classic electro house, electronic Dance, house branch, thrash metal, industrial noise experimental electric djent. TR-808, plucked short envelope analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 353,
+  "recipe": "classic electro house, electronic Dance, house branch, thrash metal, industrial noise experimental electric djent. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, plucked short envelope analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 448,
   "score": 26.019,
   "config": {
     "traditions": [
@@ -21,9 +21,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 1.625,
-          "drum_machine_808_context": 3.3539999999999996,
-          "tr808_production_origin": 0.424
+          "tr808_voice": 2.47,
+          "drum_machine_808_context": 4.004,
+          "tr808_production_origin": 1.7550000000000003
         }
       },
       {
@@ -37,9 +37,9 @@
         },
         "scores": {
           "electronic_technique": 3.2,
-          "oscillator": 1.69,
-          "filter_topology": 3.38,
-          "envelope": 0.6749999999999999,
+          "oscillator": 2.535,
+          "filter_topology": 5.720000000000001,
+          "envelope": 0.845,
           "modulation": 0.09
         }
       }

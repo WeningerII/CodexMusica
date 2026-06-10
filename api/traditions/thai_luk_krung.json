@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 18.894999999999996,
-          "voice_quality": 2.2749999999999995,
+          "voice_register": 23.319999999999997,
+          "voice_quality": 6.085,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 0.7349999999999999,
-          "voice_microtone": 20.04949999999999,
-          "voice_tradition": 10.359,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 9.945,
-          "voice_ensemble_config": 6.759999999999999,
-          "voice_ornament_system": 2.6750000000000003,
-          "voice_pitch_organization": 13.164499999999999,
-          "voice_processing_chain": 4.5714999999999995,
-          "voice_multitrack_stack": 2.1630000000000003
+          "voice_vibrato": 2.015,
+          "voice_articulation": 2.145,
+          "voice_microtone": 22.44949999999999,
+          "voice_tradition": 27.563999999999993,
+          "voice_mechanism_compound": 8.71,
+          "voice_estill_quality": 7.5075,
+          "voice_speech_song": 29.087500000000006,
+          "voice_ensemble_config": 19.695000000000004,
+          "voice_ornament_system": 3.475,
+          "voice_pitch_organization": 14.314499999999999,
+          "voice_processing_chain": 6.305,
+          "voice_multitrack_stack": 5.07
         }
       },
       {
@@ -68,13 +68,13 @@
         "scores": {
           "keyboard_technique": 6.245,
           "grand_piano_size": 0.54,
-          "grand_piano_brand": 2.9765,
-          "piano_hammer": 5.4815000000000005,
-          "piano_rim": 8.06,
-          "piano_soundboard": 7.8575,
-          "piano_pinblock": -0.05,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "grand_piano_brand": 3.1265,
+          "piano_hammer": 7.1565,
+          "piano_rim": 12.138,
+          "piano_soundboard": 9.5325,
+          "piano_pinblock": 4.49,
+          "piano_plate": 3.75,
+          "piano_pitch_standard": 7.5649999999999995
         }
       },
       {
@@ -106,17 +106,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 10.009999999999998,
+          "percussion_technique": 22.619999999999997,
           "shell_wood": 1.585,
           "shell_thickness": 0,
           "bearing_edges": 0.63,
-          "drumhead": 10.5625,
+          "drumhead": 11.375,
           "snare_wires": 0.54,
           "cymbal_alloy": 10.944999999999997,
-          "cymbal_hammering": 11.786499999999998,
-          "cymbal_lathing": 10.524999999999999,
+          "cymbal_hammering": 13.0865,
+          "cymbal_lathing": 12.474999999999998,
           "cymbal_finish": 1.45,
-          "drum_technique": 10.009999999999998
+          "drum_technique": 22.619999999999997
         }
       }
     ],

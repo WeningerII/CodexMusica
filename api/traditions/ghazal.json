@@ -3,8 +3,8 @@
   "name": "Ghazal",
   "family": "global",
   "lineage": "Persian-Urdu (and Pashto, Bengali, Hindi) classical lyric-poetry vocal song-form built on the rhyming-couplet ghazal poetic structure originated in 7th-century Arabic poetry, refined in 13th-century Persian poetry (Rumi, Hafez), and developed into a vocal-musical canon through the Mughal-era courts; Indian subcontinental ghazal singers: Begum Akhtar, Mehdi Hassan, Ghulam Ali, Jagjit Singh, Farida Khanum",
-  "recipe": "classic North American mid-1970s ghazal, ballad Poetry, med east poetic branch, vocal drone modal pansori armenian duduk-accompanied chant. vocal fry, declaimed, chest resonance low mid, narrative. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla, gut 3 main playing strings tun cedar legato sarangi. tehran classical dastgah context. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 502,
+  "recipe": "classic North American mid-1970s ghazal, ballad Poetry, med east poetic branch, vocal drone modal pansori armenian duduk-accompanied chant. vocal fry, declaimed, chest resonance low mid, narrative. vocal male straight harmonium indian, indian rosewood rosewood copper tabla, gut 3 main playing strings tun cedar legato sarangi. tehran classical dastgah context. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 493,
   "score": 306.597,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.29,
-          "voice_quality": 3.185,
+          "voice_register": 10.919999999999998,
+          "voice_quality": 7.182499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.175,
-          "voice_articulation": 0.615,
-          "voice_microtone": 2.3950000000000005,
-          "voice_tradition": 16.189999999999998,
-          "voice_mechanism_compound": 12.834999999999999,
-          "voice_estill_quality": 7.995,
-          "voice_speech_song": 7.344999999999998,
-          "voice_ensemble_config": 6.24,
-          "voice_ornament_system": 12.805,
-          "voice_pitch_organization": 13.09,
-          "voice_processing_chain": 4.16,
-          "voice_multitrack_stack": 4.29
+          "voice_vibrato": 5.0249999999999995,
+          "voice_articulation": 2.815,
+          "voice_microtone": 5.52,
+          "voice_tradition": 28.6,
+          "voice_mechanism_compound": 18.035,
+          "voice_estill_quality": 16.424999999999997,
+          "voice_speech_song": 20.8,
+          "voice_ensemble_config": 18.719999999999995,
+          "voice_ornament_system": 18.005,
+          "voice_pitch_organization": 19.59,
+          "voice_processing_chain": 10.789999999999996,
+          "voice_multitrack_stack": 12.61
         }
       },
       {
@@ -61,10 +61,10 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 0.195,
-          "harmonium_action": 4.68,
-          "harmonium_voicing": 4.29,
-          "harmonium_use": 7.54
+          "free_reed_technique": 3.165,
+          "harmonium_action": 12.155,
+          "harmonium_voicing": 10.919999999999998,
+          "harmonium_use": 15.924999999999997
         }
       },
       {
@@ -75,9 +75,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 3.6900000000000004,
-          "tabla_bayan": 3.25,
-          "tabla_syahi": 3.769999999999999
+          "tabla_dayan": 5.54,
+          "tabla_bayan": 5.445,
+          "tabla_syahi": 8.254999999999999
         }
       },
       {
@@ -91,12 +91,12 @@
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "bowed_technique": 6.625,
-          "sarangi_belly": 4.29,
-          "sarangi_taraf": 0.51,
-          "sarangi_bow": 0.54,
-          "sarangi_main_strings": 4.225,
-          "sarangi_body_wood": 1.2149999999999996
+          "bowed_technique": 10.65,
+          "sarangi_belly": 12.415,
+          "sarangi_taraf": 0.845,
+          "sarangi_bow": 0.65,
+          "sarangi_main_strings": 14.299999999999997,
+          "sarangi_body_wood": 2.795
         }
       }
     ],

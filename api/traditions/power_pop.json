@@ -3,8 +3,8 @@
   "name": "Power pop",
   "family": "global",
   "lineage": "Late-1960s through 1970s British Invasion-derived guitar-pop subgenre codified through the Who (the term power pop was coined by Pete Townshend to describe the Whos sound), Big Star (the Memphis power-pop band, #1 Record 1972, Radio City 1974), Badfinger (the Apple Records 1970-72 power-pop voice), Cheap Trick (the mainstream-commercial post-Big-Star extension), the Raspberries, the Knack (My Sharona 1979 the commercial breakthrough); foundational sound: melodic-hook-centric three-minute songs with chord-driven electric guitars, harmony vocals, and tight rhythm-section foundation",
-  "recipe": "classic North American 1967-1969 power pop, functional Song, pop rock branch, alternative distorted rock modern indie rock slacker rock. thick, melodic, rhythmic, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 792,
+  "recipe": "classic North American 1967-1969 power pop, functional Song, pop rock branch, alternative distorted rock modern indie rock slacker rock. thick, low dynamic level, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 769,
   "score": 615.29,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 29.079999999999995,
-          "voice_quality": 0.39,
+          "voice_register": 48.45500000000003,
+          "voice_quality": 0.6499999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
+          "voice_vibrato": 2.47,
           "voice_articulation": 0.585,
-          "voice_microtone": 27.549999999999997,
-          "voice_tradition": 23.944999999999997,
-          "voice_mechanism_compound": 2.47,
-          "voice_estill_quality": 2.275,
-          "voice_speech_song": 7.085,
-          "voice_ensemble_config": 5.59,
+          "voice_microtone": 46.92500000000001,
+          "voice_tradition": 27.52,
+          "voice_mechanism_compound": 3.575000000000001,
+          "voice_estill_quality": 3.120000000000001,
+          "voice_speech_song": 12.999999999999998,
+          "voice_ensemble_config": 11.504999999999997,
           "voice_ornament_system": 0.8999999999999999,
-          "voice_pitch_organization": 3.2249999999999996,
-          "voice_processing_chain": 7.344999999999999,
-          "voice_multitrack_stack": 4.485
+          "voice_pitch_organization": 3.185,
+          "voice_processing_chain": 11.175,
+          "voice_multitrack_stack": 5.005
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 24.839999999999996,
-          "amp_make": 6.5,
-          "body_wood": 0.9750000000000001,
-          "neck_wood": 0.9750000000000001,
-          "fretboard": 0.3,
+          "electric_technique": 26.465,
+          "amp_make": 15.729999999999997,
+          "body_wood": 0.845,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
           "pickup_magnet": 0.195,
           "string_material": 0.15,
           "string_gauge": 1.17,
           "bridge": 0.195,
-          "scale_length": 1.9500000000000002,
+          "scale_length": 0.845,
           "finish": 0,
-          "string_tuning": 10.919999999999998
+          "string_tuning": 21.84
         }
       },
       {
@@ -101,19 +101,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 24.839999999999996,
-          "amp_make": 6.5,
-          "body_wood": 0.9750000000000001,
-          "neck_wood": 0.9750000000000001,
-          "fretboard": 0.3,
+          "electric_technique": 26.465,
+          "amp_make": 15.729999999999997,
+          "body_wood": 1.2350000000000003,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
           "pickup_magnet": 0,
           "pickup_winding": 1.02,
           "string_material": 0.15,
-          "bridge": 0.9750000000000001,
-          "scale_length": 1.9500000000000002,
+          "bridge": 0.845,
+          "scale_length": 2.4700000000000006,
           "string_gauge": 1.17,
           "finish": 0,
-          "string_tuning": 10.919999999999998
+          "string_tuning": 21.84
         }
       },
       {
@@ -129,14 +129,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.035,
-          "amp_make": 6.380000000000001,
-          "body_wood": 1.9500000000000002,
-          "pickup_config": 0,
-          "string_type": 8.125,
-          "scale_length_b": 0.9750000000000001,
+          "electric_technique": 2.7,
+          "amp_make": 14.429999999999996,
+          "body_wood": 0.845,
+          "pickup_config": 1.8199999999999998,
+          "string_type": 31.2,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.105,
-          "bass_technique": 7
+          "bass_technique": 24.75
         }
       },
       {
@@ -155,17 +155,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 5.59,
+          "percussion_technique": 11.504999999999997,
           "shell_wood": 1.02,
           "shell_thickness": 0.43499999999999994,
-          "bearing_edges": 1.17,
-          "drumhead": 21.945,
-          "snare_wires": 1.365,
-          "cymbal_alloy": 28.14,
-          "cymbal_hammering": 27.745,
-          "cymbal_lathing": 28.494999999999997,
+          "bearing_edges": 0.845,
+          "drumhead": 24.87,
+          "snare_wires": 0.845,
+          "cymbal_alloy": 47.515,
+          "cymbal_hammering": 48.42,
+          "cymbal_lathing": 49.169999999999995,
           "cymbal_finish": 0.38999999999999996,
-          "drum_technique": 6.55
+          "drum_technique": 24.299999999999997
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Drift phonk (2020s TikTok)",
   "family": "electronic",
   "lineage": "2019-onward extension of phonk into faster-tempo (140-160 BPM) dance-oriented variant, often heavily associated with TikTok car-drifting video content. Characterized by 4/4 dance-beat-derived structure with chopped-vocal phonk-sampling aesthetic, aggressive cowbell-percussion, and explicit Russian-and-Eastern-European-producer geographic-cultural orientation (the Russian phonk scene through Kordhell, MoonDeity, and Pharmacist became the dominant 2021-2023 international scene).",
-  "recipe": "classic Southern American drift phonk, mc Rhythm, southern branch, house electronic dance latin house fidget house. vocal fry, rap, narrative, beatbox. chopped sampler, TR-808, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 379,
+  "recipe": "classic Southern American drift phonk, mc Rhythm, southern branch, house electronic dance latin house fidget house. vocal fry, rap, melodic, narrative. chopped sampler, TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 388,
   "score": 166.015,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 4,
+          "voice_register": 3.9650000000000003,
+          "voice_quality": 4.6499999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.37499999999999994,
+          "voice_vibrato": 0.5199999999999999,
           "voice_articulation": 2.1,
-          "voice_microtone": 0.09,
-          "voice_tradition": 6.305,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 0.045,
-          "voice_pitch_organization": 0.54,
-          "voice_processing_chain": 4.965,
-          "voice_multitrack_stack": 3.38
+          "voice_microtone": 0.6,
+          "voice_tradition": 11.309999999999999,
+          "voice_mechanism_compound": 5.309999999999999,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 15.794999999999998,
+          "voice_ensemble_config": 16.769999999999996,
+          "voice_ornament_system": 0.39499999999999996,
+          "voice_pitch_organization": 0.845,
+          "voice_processing_chain": 10.615000000000002,
+          "voice_multitrack_stack": 7.3450000000000015
         }
       },
       {
@@ -66,7 +66,7 @@
           "sampler_archetypes": 3.55,
           "sampler_bit_depth": 0.52,
           "sampler_workflow": 3.45,
-          "sampler_classic_context": 12.61
+          "sampler_classic_context": 46.247499999999995
         }
       },
       {
@@ -77,8 +77,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.925,
-          "drum_machine_808_context": 1.65,
+          "tr808_voice": 4.1049999999999995,
+          "drum_machine_808_context": 1.8200000000000003,
           "tr808_production_origin": 0.375
         }
       },
@@ -92,11 +92,11 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 2.7950000000000004,
-          "oscillator": 0.705,
-          "filter_topology": 0.65,
-          "envelope": 0.3,
-          "modulation": 0.15
+          "electronic_technique": 4.005,
+          "oscillator": 1.4949999999999999,
+          "filter_topology": 1.95,
+          "envelope": 0.845,
+          "modulation": 0.8
         }
       }
     ],

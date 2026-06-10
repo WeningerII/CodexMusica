@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 23.289999999999992,
-          "voice_quality": 21.583749999999995,
+          "voice_register": 65.04,
+          "voice_quality": 21.883749999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.09,
+          "voice_vibrato": 23.490000000000002,
           "voice_articulation": 18,
-          "voice_microtone": 0.75125,
-          "voice_tradition": 18.997499999999995,
-          "voice_mechanism_compound": 1.26375,
-          "voice_estill_quality": 17.889999999999997,
-          "voice_speech_song": 8.125,
+          "voice_microtone": 22.035000000000004,
+          "voice_tradition": 19.797499999999996,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 25.80875,
+          "voice_speech_song": 20.54,
           "voice_ensemble_config": 17.945,
           "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 0.6,
-          "voice_processing_chain": 2.9899999999999998,
-          "voice_multitrack_stack": 0.9099999999999999
+          "voice_pitch_organization": 0.45499999999999996,
+          "voice_processing_chain": 6.697499999999998,
+          "voice_multitrack_stack": 4.55
         }
       },
       {
@@ -60,7 +60,7 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 18.249999999999996,
+          "keyboard_technique": 24,
           "upright_use": 0.24374999999999997,
           "upright_piano_size": 0.39
         }
@@ -73,9 +73,9 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
-          "upright_strings": 1.05125,
-          "upright_play": 0.15
+          "acoustic_technique": 0.325,
+          "upright_strings": 5.249999999999999,
+          "upright_play": 5.249999999999999
         }
       },
       {
@@ -86,9 +86,9 @@
           "pump_organ_stops": "pump_organ_bourdon_stop"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "pump_organ_construction": 8.58,
-          "pump_organ_stops": 0.8562500000000001
+          "keyboard_technique": 1.24875,
+          "pump_organ_construction": 17.94,
+          "pump_organ_stops": 0.78
         }
       }
     ],

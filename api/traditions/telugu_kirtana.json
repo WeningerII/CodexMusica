@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.885,
-          "voice_quality": 7.340000000000001,
+          "voice_register": 1.69,
+          "voice_quality": 15.489999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9899999999999998,
+          "voice_vibrato": 4.9399999999999995,
           "voice_articulation": 0.47999999999999987,
           "voice_microtone": 1.69,
-          "voice_tradition": 27.925,
-          "voice_mechanism_compound": 5.6499999999999995,
-          "voice_estill_quality": 7.345000000000001,
-          "voice_speech_song": 6.305,
-          "voice_ensemble_config": 3.3799999999999994,
-          "voice_ornament_system": 28.52,
-          "voice_pitch_organization": 29.39,
-          "voice_processing_chain": 2.1149999999999998,
-          "voice_multitrack_stack": 1.3199999999999998
+          "voice_tradition": 33.175,
+          "voice_mechanism_compound": 9.399999999999999,
+          "voice_estill_quality": 11.714999999999998,
+          "voice_speech_song": 14.819999999999999,
+          "voice_ensemble_config": 11.309999999999997,
+          "voice_ornament_system": 35.145,
+          "voice_pitch_organization": 36.015,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 2.535
         }
       },
       {
@@ -60,9 +60,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 2.925,
-          "tabla_bayan": 2.9899999999999998,
-          "tabla_syahi": 2.82
+          "tabla_dayan": 5.329999999999999,
+          "tabla_bayan": 4.9399999999999995,
+          "tabla_syahi": 4.419999999999999
         }
       },
       {
@@ -76,12 +76,12 @@
           "tanpura_body_wood": "tanpura_gourd_body"
         },
         "scores": {
-          "plucked_traditional_technique": 5.75,
-          "tanpura_size": 2.6099999999999994,
-          "tanpura_jawari": 5.75,
+          "plucked_traditional_technique": 9.5,
+          "tanpura_size": 2.34,
+          "tanpura_jawari": 9.5,
           "tanpura_strings": 1.69,
-          "tanpura_string_material": 1.69,
-          "tanpura_body_wood": 1.69
+          "tanpura_string_material": 3.38,
+          "tanpura_body_wood": 2.535
         }
       }
     ],

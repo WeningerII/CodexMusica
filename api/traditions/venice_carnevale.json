@@ -3,8 +3,8 @@
   "name": "Venetian Carnevale (masquerade-ball processional)",
   "family": "global",
   "lineage": "Venetian Carnevale tradition documented from medieval-Venetian Carnival celebration (the documented Venetian-Carnevale lineage extends to 11th-12th-century with the canonical post-1268 Doge-mandated Giovedi Grasso celebration) through 18th-century peak-Carnevale era through 1797-Napoleonic suppression through 1979 modern-revival into modern Venice Carnevale continuous practice",
-  "recipe": "classic late-1260s venetian carnevale, carnival Processional, European branch, American south carnival processional, European wedding, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian wedding cantu and launeddas music. false fold engaged, tasteful, continuous-phonation, Mediterranean demotic vocal. concert modern carbon fiber classical nylon-string guitar, synthetic magic rosin modern acrylic base drone like fiddle, boxwood canonical renaissance Baroque recorder. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 658,
+  "recipe": "classic late-1260s venetian carnevale, carnival Processional, European branch, American south carnival processional, European wedding, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian wedding cantu and launeddas music. vocal fry, false fold engaged, tasteful, continuous-phonation. cedar concert modern carbon fiber classical nylon-string guitar, synthetic magic rosin modern acrylic base drone like fiddle, boxwood canonical renaissance Baroque continuous-airflow legato recorder. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 672,
   "score": 194.6,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 3.185,
+          "voice_register": 3.185,
+          "voice_quality": 14.329999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3799999999999994,
-          "voice_articulation": 1.69,
-          "voice_microtone": 0.15,
-          "voice_tradition": 7.664999999999999,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 2.385,
-          "voice_speech_song": 3.055,
-          "voice_ensemble_config": 2.99,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 2.8600000000000003,
-          "voice_processing_chain": 1.885,
-          "voice_multitrack_stack": 0.39
+          "voice_vibrato": 4.225,
+          "voice_articulation": 3.575,
+          "voice_microtone": 2.7199999999999998,
+          "voice_tradition": 31.669999999999995,
+          "voice_mechanism_compound": 8.32,
+          "voice_estill_quality": 5.7200000000000015,
+          "voice_speech_song": 15.827500000000004,
+          "voice_ensemble_config": 18.915000000000003,
+          "voice_ornament_system": 2.994999999999999,
+          "voice_pitch_organization": 6.11,
+          "voice_processing_chain": 4.275,
+          "voice_multitrack_stack": 4.68
         }
       },
       {
@@ -63,12 +63,12 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 0.8499999999999999,
+          "acoustic_technique": 2.4999999999999996,
           "string_tuning": 0,
-          "top_wood_classical": 0.39,
-          "bracing_classical": 3.3799999999999994,
-          "string_classical": 3.3799999999999994,
-          "attack_technique_cl": 0.195
+          "top_wood_classical": 1.885,
+          "bracing_classical": 4.225,
+          "string_classical": 5.01,
+          "attack_technique_cl": 1.67
         }
       },
       {
@@ -81,11 +81,11 @@
           "fiddle_articulation": "sul_pont"
         },
         "scores": {
-          "bowed_technique": 4.115,
-          "fiddle_strings": 3.3799999999999994,
-          "fiddle_bow": 7.474999999999999,
-          "fiddle_mute": 0.315,
-          "fiddle_articulation": 0.26999999999999996
+          "bowed_technique": 8.09,
+          "fiddle_strings": 4.225,
+          "fiddle_bow": 9.099999999999998,
+          "fiddle_mute": 0.45499999999999996,
+          "fiddle_articulation": 0.545
         }
       },
       {
@@ -97,10 +97,10 @@
           "recorder_body_wood": "recorder_boxwood_canonical"
         },
         "scores": {
-          "wind_articulation": 1.56,
-          "recorder_size": 0.39,
-          "recorder_context": 3.3799999999999994,
-          "recorder_body_wood": 3.3149999999999995
+          "wind_articulation": 5.6225000000000005,
+          "recorder_size": 1.5850000000000002,
+          "recorder_context": 6.5649999999999995,
+          "recorder_body_wood": 5.025
         }
       }
     ],

@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 12.989625,
-          "voice_quality": 2.795,
+          "voice_quality": 13.1625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.15,
-          "voice_articulation": 1.395,
+          "voice_articulation": 6.87,
           "voice_microtone": 10.199499999999997,
-          "voice_tradition": 16.388625,
+          "voice_tradition": 17.038625,
           "voice_mechanism_compound": 0.95775,
           "voice_estill_quality": 0,
-          "voice_speech_song": 6.954999999999999,
-          "voice_ensemble_config": 4.55,
+          "voice_speech_song": 13.519999999999998,
+          "voice_ensemble_config": 11.114999999999997,
           "voice_ornament_system": 5.5,
-          "voice_pitch_organization": 1.5172499999999998,
-          "voice_processing_chain": 3.145,
-          "voice_multitrack_stack": 3.185
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 9.270000000000001,
+          "voice_multitrack_stack": 12.164
         }
       },
       {
@@ -62,11 +62,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.45,
-          "sampler_archetypes": 2.65,
+          "electronic_technique": 6.925000000000001,
+          "sampler_archetypes": 12.09,
           "sampler_bit_depth": 1.3,
-          "sampler_workflow": 1.768125,
-          "sampler_classic_context": 11.4
+          "sampler_workflow": 8.55,
+          "sampler_classic_context": 20.994999999999997
         }
       },
       {
@@ -79,7 +79,7 @@
         "scores": {
           "electronic_technique": 11,
           "va_archetypes": 0.2265,
-          "digital_subtractive_context": 4.68
+          "digital_subtractive_context": 11.244999999999997
         }
       },
       {
@@ -90,8 +90,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 1.7415,
-          "drum_machine_808_context": 2.6,
+          "tr808_voice": 7.916500000000001,
+          "drum_machine_808_context": 3.5100000000000002,
           "tr808_production_origin": 1.195
         }
       },
@@ -109,10 +109,10 @@
         },
         "scores": {
           "electric_technique": -0.05,
-          "amp_make": 1.17,
-          "body_wood": 0.426,
+          "amp_make": 2.6650000000000005,
+          "body_wood": 0.65,
           "pickup_config": 1.15,
-          "string_type": 1.3,
+          "string_type": 1.4299999999999997,
           "scale_length_b": 1.15,
           "fretted_or_not": 0.1365,
           "bass_technique": 2.8
@@ -127,8 +127,8 @@
         },
         "scores": {
           "multitrack_stack_density": 1.12375,
-          "multitrack_stack_era_aesthetic": 1.885,
-          "multitrack_stack_processing": 3.0265
+          "multitrack_stack_era_aesthetic": 10.3,
+          "multitrack_stack_processing": 4.3365
         }
       }
     ],

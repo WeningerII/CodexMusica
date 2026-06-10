@@ -3,8 +3,8 @@
   "name": "Bolero mexicano",
   "family": "pop",
   "lineage": "Mexican adaptation of the broader Latin-American bolero, developed in mid-twentieth-century Mexico City through Agustín Lara (1897-1970) and the 1940s-1950s Mexican-cinema golden-age. Solo voice with piano-or-trio accompaniment, slow 2/4 meter with the canonical bolero rhythmic figure, intensely romantic-melancholic register. Distinguished from Cuban bolero by Mexican-Spanish lyrical register and elaborate harmonic-vocabulary.",
-  "recipe": "classic tropical early-1890s bolero mexicano, functional Song, Mexican branch, Latin am troubadour ballad poetry filin milonga. thick, full chest belt, chest resonance low mid, rhythmic. cedar phosphor bronze bronze parlor acoustic guitar, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, upright bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 531,
+  "recipe": "classic tropical early-1890s bolero mexicano, functional Song, Mexican branch, Latin am troubadour ballad poetry filin milonga. thick, full chest belt, chest resonance low mid, rhythmic. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 555,
   "score": 139.732,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 3.1325000000000003,
+          "voice_register": 11.389999999999997,
           "voice_quality": 11.599999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 1.63,
-          "voice_microtone": 2.250000000000001,
-          "voice_tradition": 1.3649999999999998,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 5.265,
-          "voice_ensemble_config": 6.759999999999999,
-          "voice_ornament_system": 1.56,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 3.3150000000000004,
-          "voice_multitrack_stack": 1.69
+          "voice_vibrato": 2.275,
+          "voice_articulation": 1.9299999999999997,
+          "voice_microtone": 7.675,
+          "voice_tradition": 6.37625,
+          "voice_mechanism_compound": 5.914999999999998,
+          "voice_estill_quality": 5.915,
+          "voice_speech_song": 14.819999999999997,
+          "voice_ensemble_config": 11.894999999999996,
+          "voice_ornament_system": 1.755,
+          "voice_pitch_organization": 2.73,
+          "voice_processing_chain": 3.5100000000000002,
+          "voice_multitrack_stack": 3.185
         }
       },
       {
@@ -62,11 +62,11 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 2.69375,
+          "acoustic_technique": 7.745000000000001,
           "string_tuning": 0,
-          "top_wood_parlor": 1.69,
+          "top_wood_parlor": 2.08,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 1.69
+          "string_acoustic_parlor": 2.08
         }
       },
       {
@@ -83,15 +83,15 @@
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 2.69375,
-          "grand_piano_size": 1.69,
-          "grand_piano_brand": 3.38,
-          "piano_hammer": 3.3150000000000004,
-          "piano_rim": 3.185,
+          "keyboard_technique": 4.42,
+          "grand_piano_size": 2.08,
+          "grand_piano_brand": 3.7700000000000005,
+          "piano_hammer": 5.3625,
+          "piano_rim": 4.2575,
           "piano_soundboard": 2.45,
-          "piano_pinblock": -0.05,
-          "piano_plate": -0.05,
-          "piano_pitch_standard": -0.035
+          "piano_pinblock": 0.7149999999999999,
+          "piano_plate": 0.325,
+          "piano_pitch_standard": 0.6824999999999999
         }
       },
       {
@@ -102,9 +102,9 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
-          "upright_strings": 0.24375000000000002,
-          "upright_play": 1.63
+          "acoustic_technique": 2.9937500000000004,
+          "upright_strings": 5.375,
+          "upright_play": 5.375
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Spiritual jazz",
   "family": "jazz",
   "lineage": "Late-1960s/1970s African-American jazz movement combining modal-and-free harmonic vocabulary with explicit religious / political / Afro-diasporic content — Pharoah Sanders, Alice Coltrane, Don Cherry, Lonnie Liston Smith, the Strata-East and Impulse! catalogs",
-  "recipe": "classic British 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, declaimed, melodic, punctuated. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator a 442 European orchestral prepared grand piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze over hammered drum kit, hardwood calabash mbira, tabla, drone like modal sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 740,
+  "recipe": "classic British 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, declaimed, melodic, punctuated. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze over hammered drum kit, hardwood calabash mbira, tabla, teak bone open jawari vilayat khan canon long sustain sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 775,
   "score": 423.4,
   "config": {
     "traditions": [
@@ -25,12 +25,12 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 6.550000000000001,
-          "sax_size": 0.3,
+          "wind_articulation": 6.775,
+          "sax_size": 0.65,
           "sax_reed": 0.3,
-          "sax_body_alloy": 17.399999999999995,
-          "sax_mouthpiece": 0.3,
-          "sax_technique": 17.294999999999998,
+          "sax_body_alloy": 19.899999999999995,
+          "sax_mouthpiece": 0.9500000000000001,
+          "sax_technique": 17.445,
           "sax_maker_school": 15.499999999999996
         }
       },
@@ -49,14 +49,14 @@
         },
         "scores": {
           "keyboard_technique": 3.7,
-          "grand_piano_size": 0.3,
-          "grand_piano_brand": 0.345,
-          "piano_hammer": 2.6,
-          "piano_rim": 3.9650000000000003,
-          "piano_soundboard": 0.7149999999999999,
-          "piano_pinblock": -0.05,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": 2.275
+          "grand_piano_size": 0.65,
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 3.64,
+          "piano_rim": 6.89,
+          "piano_soundboard": 3.9999999999999996,
+          "piano_pinblock": 3.25,
+          "piano_plate": 3.295,
+          "piano_pitch_standard": 5.19
         }
       },
       {
@@ -67,7 +67,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": -0.05,
+          "acoustic_technique": 0.6,
           "upright_strings": 17.249999999999996,
           "upright_play": 17.294999999999998
         }
@@ -88,17 +88,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 17.159999999999993,
+          "percussion_technique": 26.942499999999995,
           "shell_wood": 0.44999999999999996,
           "shell_thickness": 0,
-          "bearing_edges": 0.44999999999999996,
-          "drumhead": 17.199999999999996,
-          "snare_wires": 0.3,
-          "cymbal_alloy": 18.334999999999994,
-          "cymbal_hammering": 17.999999999999996,
-          "cymbal_lathing": 18.419999999999998,
-          "cymbal_finish": 0.3,
-          "drum_technique": 17.249999999999996
+          "bearing_edges": 0.65,
+          "drumhead": 19.749999999999996,
+          "snare_wires": 0.65,
+          "cymbal_alloy": 18.859999999999996,
+          "cymbal_hammering": 18.649999999999995,
+          "cymbal_lathing": 18.794999999999995,
+          "cymbal_finish": 0.44999999999999996,
+          "drum_technique": 26.942499999999995
         }
       },
       {
@@ -122,22 +122,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 17.439999999999994,
-          "voice_quality": 4.545000000000001,
+          "voice_register": 20.039999999999996,
+          "voice_quality": 4.695000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.1049999999999998,
-          "voice_articulation": 0.69,
-          "voice_microtone": 17.299999999999994,
-          "voice_tradition": 18.149999999999995,
-          "voice_mechanism_compound": 5.459999999999999,
-          "voice_estill_quality": 2.5999999999999996,
-          "voice_speech_song": 7.604999999999997,
-          "voice_ensemble_config": 7.149999999999998,
+          "voice_articulation": 0.585,
+          "voice_microtone": 19.324999999999996,
+          "voice_tradition": 18.449999999999996,
+          "voice_mechanism_compound": 8.844999999999999,
+          "voice_estill_quality": 9.02,
+          "voice_speech_song": 18.785,
+          "voice_ensemble_config": 16.444999999999997,
           "voice_ornament_system": 4.65,
-          "voice_pitch_organization": 2.3000000000000003,
-          "voice_processing_chain": 2.4000000000000004,
-          "voice_multitrack_stack": 4.3500000000000005
+          "voice_pitch_organization": 4.450000000000001,
+          "voice_processing_chain": 3.595,
+          "voice_multitrack_stack": 5.450000000000001
         }
       },
       {
@@ -149,10 +149,10 @@
           "mbira_buzz": "bottle_caps"
         },
         "scores": {
-          "tine_material": 0.3,
+          "tine_material": 0.8450000000000001,
           "mbira_board": 1.5149999999999997,
           "mbira_resonator": 1.5149999999999997,
-          "mbira_buzz": 0.15
+          "mbira_buzz": 0.8
         }
       },
       {
@@ -163,9 +163,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 0.15,
-          "tabla_bayan": 0.15,
-          "tabla_syahi": 1.515
+          "tabla_dayan": 0.25,
+          "tabla_bayan": 0.9500000000000001,
+          "tabla_syahi": 3.12
         }
       },
       {
@@ -183,16 +183,16 @@
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 3.65,
-          "sitar_neck": 0.3,
-          "sitar_resonator": 0,
-          "sitar_jawari": 0.3,
-          "sitar_taraf": 0,
-          "sitar_frets": 0,
-          "sitar_pluck": 0,
-          "sitar_main_strings": -1.2,
-          "sitar_jawari_style": 0,
-          "sitar_gharana": 0.39
+          "plucked_traditional_technique": 7.7250000000000005,
+          "sitar_neck": 1.6,
+          "sitar_resonator": 0.8,
+          "sitar_jawari": 1.1,
+          "sitar_taraf": 0.8,
+          "sitar_frets": 0.9500000000000001,
+          "sitar_pluck": 0.44999999999999996,
+          "sitar_main_strings": 0.195,
+          "sitar_jawari_style": 1,
+          "sitar_gharana": 0.78
         }
       }
     ],

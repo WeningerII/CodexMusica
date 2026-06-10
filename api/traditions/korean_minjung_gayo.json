@@ -3,8 +3,8 @@
   "name": "Korean minjung gayo (민중가요, people's song)",
   "family": "global",
   "lineage": "Korean minjung gayo (\"people's song\") democracy-movement protest-song tradition continuous from late-1970s anti-Park-Chung-hee resistance through the May 1980 Gwangju Uprising through 1980s anti-Chun-Doo-hwan student-and-labor-movement era; canonical anthems include \"Imjin River\" and \"Marching for our beloved\" (\"님을 위한 행진곡\")",
-  "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry shidaiqu enka. thick, melodic, continuous-phonation, equal tempered. indian rosewood rosewood flatwound thomastik fingerpicked acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 441,
+  "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry shidaiqu enka. thick, chest mix belt, melodic, continuous-phonation. indian rosewood rosewood flatwound thomastik strummed acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 437,
   "score": 215.948,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.2099999999999995,
-          "voice_quality": 0.325,
+          "voice_register": 21.67499999999999,
+          "voice_quality": 3.1250000000000013,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.585,
+          "voice_vibrato": 3.9,
           "voice_articulation": 1.69,
-          "voice_microtone": 2.3399999999999994,
-          "voice_tradition": 15.049999999999997,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.39,
-          "voice_speech_song": 13.324999999999998,
-          "voice_ensemble_config": 4.809999999999999,
-          "voice_ornament_system": 11.299999999999999,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 7.155,
-          "voice_multitrack_stack": 3.3150000000000004
+          "voice_microtone": 22.894999999999996,
+          "voice_tradition": 31.687500000000004,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 36.14000000000001,
+          "voice_ensemble_config": 23.595000000000013,
+          "voice_ornament_system": 13.774999999999999,
+          "voice_pitch_organization": 9.894999999999996,
+          "voice_processing_chain": 11.205,
+          "voice_multitrack_stack": 7.02
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 1.8349999999999997,
+          "acoustic_technique": 13.084999999999999,
           "string_tuning": 0,
-          "top_wood": 0.33,
-          "back_sides": 1.4899999999999998,
-          "string_acoustic": 1.1549999999999998,
-          "acoustic_om_technique": 1.6949999999999996
+          "top_wood": 0.845,
+          "back_sides": 2.1399999999999997,
+          "string_acoustic": 3.5749999999999993,
+          "acoustic_om_technique": 2.0699999999999994
         }
       }
     ],

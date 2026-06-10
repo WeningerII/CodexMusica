@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 3.8349999999999995,
-          "voice_quality": 6.045,
+          "voice_register": 38.67499999999999,
+          "voice_quality": 26.104999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0314999999999994,
-          "voice_articulation": 0.7545,
-          "voice_microtone": 0.6499999999999998,
-          "voice_tradition": 14.104999999999997,
-          "voice_mechanism_compound": 3.7700000000000005,
-          "voice_estill_quality": 2.275,
-          "voice_speech_song": 9.424999999999999,
-          "voice_ensemble_config": 4.29,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 3.0549999999999997,
-          "voice_processing_chain": 2.47,
-          "voice_multitrack_stack": 3.77
+          "voice_vibrato": 9.62,
+          "voice_articulation": 0.845,
+          "voice_microtone": 10.384999999999998,
+          "voice_tradition": 30.939999999999998,
+          "voice_mechanism_compound": 33.247499999999995,
+          "voice_estill_quality": 7.605,
+          "voice_speech_song": 19.109999999999992,
+          "voice_ensemble_config": 15.664999999999996,
+          "voice_ornament_system": 7.1175,
+          "voice_pitch_organization": 36.85499999999999,
+          "voice_processing_chain": 4.355,
+          "voice_multitrack_stack": 5.194500000000001
         }
       },
       {
@@ -59,8 +59,8 @@
           "style": "pw_northern"
         },
         "scores": {
-          "members": 1.69,
-          "style": 1.69
+          "members": 3.38,
+          "style": 3.38
         }
       }
     ],

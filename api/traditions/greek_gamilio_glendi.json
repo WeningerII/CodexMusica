@@ -3,8 +3,8 @@
   "name": "Greek gamílio glendí (γαμήλιο γλέντι, wedding feast music)",
   "family": "global",
   "lineage": "Greek wedding-music tradition continuous from Byzantine-era through Ottoman-period through 19th-20th-century modern-Greek continuous practice; regionally distributed with strongest preservation in Crete, Mani, Epirus, and Pontic-Greek diaspora",
-  "recipe": "classic modern greek gamílio glendí, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal lebanese-arab wedding takht persian aroosi. thick, low dynamic level, chest resonance low mid, continuous-phonation. walnut staves canonical Greek bouzouki, mulberry canonical cretan steel modern cretan lyra, grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian darbuka. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 707,
+  "recipe": "classic modern greek gamílio glendí, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal lebanese-arab wedding takht persian aroosi. thick, low dynamic level, chest resonance low mid, continuous-phonation. walnut staves canonical Greek steel canonical octave unison pairs ornamented bouzouki, mulberry canonical cretan steel modern legato cretan lyra, grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 806,
   "score": 230.717,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.495,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 2.47,
+          "voice_quality": 3.185,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.015,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 1.745,
-          "voice_tradition": 24.244999999999994,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 3.575,
-          "voice_ensemble_config": 3.5100000000000002,
-          "voice_ornament_system": 1.2349999999999997,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 0.99,
-          "voice_multitrack_stack": 1.4249999999999998
+          "voice_vibrato": 2.9899999999999998,
+          "voice_articulation": 5.01,
+          "voice_microtone": 6.910000000000001,
+          "voice_tradition": 27.949999999999996,
+          "voice_mechanism_compound": 17.849999999999998,
+          "voice_estill_quality": 6.475,
+          "voice_speech_song": 14.9175,
+          "voice_ensemble_config": 10.594999999999995,
+          "voice_ornament_system": 18.779999999999998,
+          "voice_pitch_organization": 18.975,
+          "voice_processing_chain": 1.8199999999999998,
+          "voice_multitrack_stack": 2.34
         }
       },
       {
@@ -62,11 +62,11 @@
           "bouzouki_strings": "bouzouki_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 2.0799999999999996,
-          "bouzouki_courses": 1.69,
-          "bouzouki_pick": 1.69,
-          "bouzouki_body_wood": 7.449999999999998,
-          "bouzouki_strings": 0.78
+          "plucked_traditional_technique": 4.94,
+          "bouzouki_courses": 2.535,
+          "bouzouki_pick": 2.535,
+          "bouzouki_body_wood": 7.899999999999999,
+          "bouzouki_strings": 1.365
         }
       },
       {
@@ -79,11 +79,11 @@
           "lyra_string_material": "lyra_steel_modern"
         },
         "scores": {
-          "bowed_technique": -0.05,
+          "bowed_technique": 5.75,
           "lyra_strings": 0.375,
           "lyra_use": 0.57,
-          "lyra_body_wood": 1.17,
-          "lyra_string_material": 2.4699999999999998
+          "lyra_body_wood": 1.7550000000000001,
+          "lyra_string_material": 3.9
         }
       },
       {
@@ -96,9 +96,9 @@
           "clarinet_articulation": "doina_clarinet"
         },
         "scores": {
-          "wind_articulation": 3.25,
-          "clarinet_body": 4.005000000000001,
-          "clarinet_size": 1.02,
+          "wind_articulation": 10.665,
+          "clarinet_body": 11.43,
+          "clarinet_size": 2.9899999999999998,
           "clarinet_reed": 0,
           "clarinet_articulation": 0.43499999999999994
         }
@@ -115,13 +115,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 0.7799999999999998,
+          "free_reed_technique": 8.235,
           "accordion_reed_material": 0.15,
           "musette_offset": 0.6,
-          "reed_config": 0.8049999999999999,
+          "reed_config": 1.1549999999999998,
           "bellows": 0.44999999999999996,
           "voicing_chamber": 0,
-          "accordion_maker_school": 3.77
+          "accordion_maker_school": 10.334999999999999
         }
       },
       {
@@ -133,10 +133,10 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": -0.07,
-          "darbuka_material": 1.69,
-          "darbuka_skin": 2.4699999999999998,
-          "darbuka_regional_style": 0.78
+          "percussion_technique": 0.26,
+          "darbuka_material": 2.73,
+          "darbuka_skin": 3.9,
+          "darbuka_regional_style": 1.365
         }
       }
     ],

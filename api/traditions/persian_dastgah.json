@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.08,
-          "voice_quality": 2.7950000000000004,
+          "voice_register": 4.225,
+          "voice_quality": 3.835,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.719999999999999,
+          "voice_vibrato": 8.879999999999999,
           "voice_articulation": 0.39,
-          "voice_microtone": 3.83,
-          "voice_tradition": 28.314999999999998,
-          "voice_mechanism_compound": 21.295,
-          "voice_estill_quality": 13.269999999999996,
-          "voice_speech_song": 10.899999999999999,
-          "voice_ensemble_config": 5.589999999999998,
-          "voice_ornament_system": 22.42,
-          "voice_pitch_organization": 22.270000000000003,
-          "voice_processing_chain": 3.25,
-          "voice_multitrack_stack": 2.47
+          "voice_microtone": 13.379999999999999,
+          "voice_tradition": 39.29,
+          "voice_mechanism_compound": 31.82,
+          "voice_estill_quality": 20.47,
+          "voice_speech_song": 17.15,
+          "voice_ensemble_config": 10.594999999999994,
+          "voice_ornament_system": 32.945,
+          "voice_pitch_organization": 32.795,
+          "voice_processing_chain": 5.720000000000001,
+          "voice_multitrack_stack": 4.615
         }
       },
       {
@@ -63,11 +63,11 @@
           "tar_tradition": "tar_radif_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 11,
-          "tar_belly": 0.39,
-          "tar_pick": 5.654999999999999,
+          "plucked_traditional_technique": 17.25,
+          "tar_belly": 0.585,
+          "tar_pick": 8.44,
           "tar_body_wood": 0.495,
-          "tar_string_material": -1.05,
+          "tar_string_material": -0.9800000000000001,
           "tar_tradition": 4.050000000000001
         }
       },
@@ -82,11 +82,11 @@
           "setar_tradition": "setar_radif_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 11,
-          "setar_strings": -0.035,
-          "setar_pluck": 5.719999999999999,
-          "setar_body_wood": 3.769999999999999,
-          "setar_string_material": 0.4550000000000002,
+          "plucked_traditional_technique": 17.25,
+          "setar_strings": 0.12999999999999998,
+          "setar_pluck": 8.49,
+          "setar_body_wood": 5.719999999999999,
+          "setar_string_material": 0.6500000000000002,
           "setar_tradition": 5.050000000000001
         }
       },
@@ -98,9 +98,9 @@
           "santur_technique": "santur_mizrab"
         },
         "scores": {
-          "plucked_traditional_technique": 11,
-          "santur_school": 5.9799999999999995,
-          "santur_technique": 0.18
+          "plucked_traditional_technique": 17.25,
+          "santur_school": 8.705,
+          "santur_technique": 0.195
         }
       },
       {
@@ -113,11 +113,11 @@
           "kamancheh_strings": "kamancheh_gut_historical"
         },
         "scores": {
-          "bowed_technique": 11,
-          "kamancheh_belly": 5.719999999999999,
-          "kamancheh_use": 12.869999999999997,
-          "kamancheh_body_wood": 3.769999999999999,
-          "kamancheh_strings": -1.05
+          "bowed_technique": 17.25,
+          "kamancheh_belly": 9.075,
+          "kamancheh_use": 17.44,
+          "kamancheh_body_wood": 5.719999999999999,
+          "kamancheh_strings": -0.9800000000000001
         }
       },
       {
@@ -127,8 +127,8 @@
           "tombak_school": "tombak_tehran"
         },
         "scores": {
-          "tombak_wood": 5.719999999999999,
-          "tombak_school": 7.89
+          "tombak_wood": 8.49,
+          "tombak_school": 10.389999999999999
         }
       },
       {
@@ -142,9 +142,9 @@
         },
         "scores": {
           "daf_rings": 1.275,
-          "daf_context": 11.309999999999999,
-          "daf_shell_wood": 4.68,
-          "daf_head_material": 0.9299999999999999,
+          "daf_context": 17.014999999999997,
+          "daf_shell_wood": 9.034999999999998,
+          "daf_head_material": 0.65,
           "daf_jingle_metal": 1.3
         }
       },
@@ -159,9 +159,9 @@
         },
         "scores": {
           "percussion_technique": -0.07,
-          "tar_size": 1.3199999999999998,
-          "tar_frame_drum_context": 3.769999999999999,
-          "tar_frame_shell_wood": 2.21,
+          "tar_size": 0.195,
+          "tar_frame_drum_context": 7.02,
+          "tar_frame_shell_wood": 4.615,
           "tar_frame_head": 1.185
         }
       },
@@ -175,11 +175,11 @@
           "tanbur_persian_string_material": "tanbur_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 11,
+          "plucked_traditional_technique": 17.25,
           "tanbur_use": 1.2000000000000002,
-          "tanbur_persian_strings": 2.9899999999999998,
+          "tanbur_persian_strings": 4.029999999999999,
           "tanbur_persian_body_wood": 0.44999999999999996,
-          "tanbur_persian_string_material": -1.05
+          "tanbur_persian_string_material": -0.9800000000000001
         }
       }
     ],

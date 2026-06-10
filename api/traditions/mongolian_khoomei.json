@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 35.43,
+          "voice_register": 38.88,
           "voice_quality": 36.51,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.574999999999999,
-          "voice_articulation": 2.5,
+          "voice_vibrato": 6.574999999999999,
+          "voice_articulation": 3.75,
           "voice_microtone": 9.065,
           "voice_tradition": 38.89000000000001,
-          "voice_mechanism_compound": 30.684999999999995,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 7.215,
-          "voice_ensemble_config": 10.01,
-          "voice_ornament_system": 2.405,
-          "voice_pitch_organization": 37.474999999999994,
-          "voice_processing_chain": 4.095,
-          "voice_multitrack_stack": 2.6
+          "voice_mechanism_compound": 34.135000000000005,
+          "voice_estill_quality": 7.67,
+          "voice_speech_song": 25.415,
+          "voice_ensemble_config": 25.35,
+          "voice_ornament_system": 15.47,
+          "voice_pitch_organization": 42.42499999999999,
+          "voice_processing_chain": 7.15,
+          "voice_multitrack_stack": 8.775
         }
       },
       {
@@ -62,11 +62,11 @@
           "morin_khuur_strings": "morin_khuur_horsehair_canonical"
         },
         "scores": {
-          "bowed_technique": 2.7300000000000004,
-          "morin_khuur_use": 30.404999999999998,
-          "morin_khuur_construction": 4.29,
-          "morin_khuur_body_wood": 9.56,
-          "morin_khuur_strings": 1.69
+          "bowed_technique": 4.680000000000001,
+          "morin_khuur_use": 33.855,
+          "morin_khuur_construction": 6.89,
+          "morin_khuur_body_wood": 10.06,
+          "morin_khuur_strings": 2.795
         }
       },
       {
@@ -76,7 +76,7 @@
           "tovshuur_body": "tovshuur_carved_wood_hide"
         },
         "scores": {
-          "tovshuur_strings": 13.780000000000001,
+          "tovshuur_strings": 16.17,
           "tovshuur_body": 3.0199999999999996
         }
       }

@@ -3,8 +3,8 @@
   "name": "Singer-songwriter folk",
   "family": "vernacular",
   "lineage": "Post-folk-revival American songwriter tradition combining Greenwich Village 60s confessional vocabulary with Laurel Canyon 70s intimate production aesthetic — voice and acoustic guitar at minimum, often expanded with piano and modest band",
-  "recipe": "classic tropical mid-1950s singer-songwriter folk, ballad Poetry, anglo singer song branch, americana country gothic country. thick, incomplete closure resting, melodic, narrative. fingerpicked acoustic guitar, pearwood marine band tradition straight harmonica, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 537,
+  "recipe": "classic tropical mid-1950s singer-songwriter folk, ballad Poetry, anglo singer song branch, americana country gothic country. thick, incomplete closure resting, melodic, narrative. walnut fingerpicked acoustic guitar, pearwood marine band tradition brass traditional straight harmonica, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 562,
   "score": 249.713,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 9.715499999999997,
+          "voice_register": 27.240499999999997,
           "voice_quality": 9.754500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0774285714285714,
-          "voice_articulation": 0.5199999999999999,
-          "voice_microtone": 0.7329642857142857,
-          "voice_tradition": 11.829999999999997,
-          "voice_mechanism_compound": 2.6,
-          "voice_estill_quality": 4.745,
-          "voice_speech_song": 6.175,
-          "voice_ensemble_config": 4.55,
-          "voice_ornament_system": 3.835,
-          "voice_pitch_organization": 0.39921428571428574,
-          "voice_processing_chain": 2.08,
-          "voice_multitrack_stack": 0.78
+          "voice_vibrato": 12.85242857142857,
+          "voice_articulation": 0.7149999999999997,
+          "voice_microtone": 2.7135000000000007,
+          "voice_tradition": 15.983142857142857,
+          "voice_mechanism_compound": 4.029999999999999,
+          "voice_estill_quality": 16.84810714285714,
+          "voice_speech_song": 13.065000000000001,
+          "voice_ensemble_config": 8.32,
+          "voice_ornament_system": 4.94,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 3.4450000000000003,
+          "voice_multitrack_stack": 1.4299999999999997
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 20.971499999999995,
-          "string_tuning": 0,
+          "acoustic_technique": 25.5965,
+          "string_tuning": 0.9099999999999999,
           "top_wood": 0.21449999999999997,
-          "back_sides": 0.39,
+          "back_sides": 1.2349999999999999,
           "string_acoustic": 0.46125,
-          "acoustic_om_technique": 20.971499999999995
+          "acoustic_om_technique": 25.5965
         }
       },
       {
@@ -83,13 +83,13 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 13.297714285714282,
+          "free_reed_technique": 27.19771428571428,
           "harmonica_type": 0.39,
-          "harmonica_comb": 3.2500000000000004,
-          "harmonica_reed": 0.26,
-          "harmonica_technique": 13.297714285714282,
-          "harmonica_maker_school": 0.25575,
-          "harmonica_tuning": 0.5927142857142857
+          "harmonica_comb": 5.785,
+          "harmonica_reed": 1.7145000000000001,
+          "harmonica_technique": 27.19771428571428,
+          "harmonica_maker_school": 0.9099999999999999,
+          "harmonica_tuning": 0.65
         }
       },
       {
@@ -106,15 +106,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 3.4,
+          "keyboard_technique": 4.05,
           "grand_piano_size": 0.21449999999999997,
-          "grand_piano_brand": 0.9225,
-          "piano_hammer": 2.712428571428571,
-          "piano_rim": 2.925,
-          "piano_soundboard": 1.625,
+          "grand_piano_brand": 1.235,
+          "piano_hammer": 3.212428571428571,
+          "piano_rim": 3.7700000000000005,
+          "piano_soundboard": 1.8199999999999998,
           "piano_pinblock": -0.05,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": 0.325
+          "piano_plate": 0.06499999999999999,
+          "piano_pitch_standard": 0.975
         }
       }
     ],

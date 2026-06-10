@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 22.047499999999996,
-          "voice_quality": 19.149999999999995,
+          "voice_register": 32.8975,
+          "voice_quality": 24.549999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.665,
-          "voice_articulation": 3.2743750000000005,
-          "voice_microtone": 7.614999999999999,
-          "voice_tradition": 7.615499999999999,
-          "voice_mechanism_compound": 1.75825,
-          "voice_estill_quality": 4.5531250000000005,
-          "voice_speech_song": 6.406374999999999,
-          "voice_ensemble_config": 6.416249999999999,
+          "voice_vibrato": 5.215,
+          "voice_articulation": 3.6243750000000006,
+          "voice_microtone": 10.665,
+          "voice_tradition": 11.240499999999999,
+          "voice_mechanism_compound": 2.40825,
+          "voice_estill_quality": 6.3031250000000005,
+          "voice_speech_song": 8.456374999999998,
+          "voice_ensemble_config": 7.866249999999999,
           "voice_ornament_system": 1.4495,
-          "voice_pitch_organization": 1.645,
-          "voice_processing_chain": 2.814,
-          "voice_multitrack_stack": 1.3495000000000001
+          "voice_pitch_organization": 2.2950000000000004,
+          "voice_processing_chain": 3.4640000000000004,
+          "voice_multitrack_stack": 1.4995
         }
       },
       {
@@ -62,12 +62,12 @@
           "acoustic_om_technique": "om_bottleneck_slide"
         },
         "scores": {
-          "acoustic_technique": 8.119875,
-          "string_tuning": 12.25,
+          "acoustic_technique": 10.994875,
+          "string_tuning": 15.974999999999998,
           "top_wood": 0.0045,
           "back_sides": 0.0045,
-          "string_acoustic": 0.345,
-          "acoustic_om_technique": 22.249999999999996
+          "string_acoustic": 0.49499999999999994,
+          "acoustic_om_technique": 32.625
         }
       },
       {
@@ -82,13 +82,13 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 4.365,
+          "free_reed_technique": 7.165000000000001,
           "harmonica_type": 0.05749999999999999,
-          "harmonica_comb": 19.932999999999996,
-          "harmonica_reed": 16.7135,
-          "harmonica_technique": 20.0135,
-          "harmonica_maker_school": 15.614999999999997,
-          "harmonica_tuning": 7.614999999999999
+          "harmonica_comb": 28.207999999999995,
+          "harmonica_reed": 24.3385,
+          "harmonica_technique": 29.6385,
+          "harmonica_maker_school": 23.24,
+          "harmonica_tuning": 10.665
         }
       },
       {
@@ -101,9 +101,9 @@
           "dulcimer_string_material": "dulcimer_phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 8.119875,
-          "dulcimer_strings": 0.39,
-          "dulcimer_tuning": 0.39,
+          "acoustic_technique": 10.994875,
+          "dulcimer_strings": 1.04,
+          "dulcimer_tuning": 1.04,
           "dulcimer_body_wood": 0.6044999999999999,
           "dulcimer_string_material": 0
         }

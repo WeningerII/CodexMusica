@@ -3,8 +3,8 @@
   "name": "Polish góralski (Tatra highlander)",
   "family": "global",
   "lineage": "Polish góralski Tatra-Mountain highlander music-and-dance tradition of the Podhale region in southern Poland, performed by the Polish góral mountain-folk community. The kapela góralska ensemble centers on the prymista (lead violinist) accompanied by sekund (second-violin) and basy (three-string Tatra-style upright-bass), with characteristic open-string drone-and-shifted-tonal-center modal vocabulary distinct from broader Polish lowland folk-music. Performance contexts span village-festival celebrations, wedding ceremonies, and (since 1968) the international Folk-Music Festival in Zakopane. The post-1980 Tatra-cultural-revival under the local Highlander Union has consolidated institutional preservation. Distinguished from Slovak fujara solo and Czech moravian folk by Polish góralski Podhale-Tatra specific stylistic-conventions.",
-  "recipe": "classic late-1960s polish góralski, functional Song, europop branch, Celtic balladic ballad poetry breton folk newfoundland outport balladry. thick, incomplete closure resting, equal tempered, Scottish Gaelic vocal. half rectified French Polish shellac pad modern setup longer neck violin orchestral. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 447,
+  "recipe": "classic late-1960s polish góralski, functional Song, europop branch, Celtic balladic ballad poetry breton folk newfoundland outport balladry. thick, incomplete closure resting, melodic, unrestrained. half rectified sitka spruce hard rock maple acer saccharum French Polish violin orchestral. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 438,
   "score": 175.662,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 12.544999999999996,
-          "voice_quality": 2.14,
+          "voice_register": 18.820000000000004,
+          "voice_quality": 5.915000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.48375,
-          "voice_articulation": 0.135,
-          "voice_microtone": 1.295,
-          "voice_tradition": 22.489999999999995,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 10.334999999999999,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 2.1449999999999996,
-          "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 5.069999999999999,
-          "voice_multitrack_stack": 1.69
+          "voice_vibrato": 2.035,
+          "voice_articulation": 0.78,
+          "voice_microtone": 2.48875,
+          "voice_tradition": 35.8475,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 5.495,
+          "voice_speech_song": 20.539999999999996,
+          "voice_ensemble_config": 15.274999999999995,
+          "voice_ornament_system": 9.586249999999998,
+          "voice_pitch_organization": 2.4050000000000002,
+          "voice_processing_chain": 5.459999999999999,
+          "voice_multitrack_stack": 1.885
         }
       },
       {
@@ -67,16 +67,16 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.7449999999999997,
-          "orch_strings": 6.645,
-          "orch_top_wood": -0.035,
-          "orch_back_wood": -0.035,
-          "orch_varnish": 6.1499999999999995,
-          "orch_setup_period": 1.56,
-          "orch_bow": 1.69,
-          "orch_bow_stick": -0.035,
-          "orch_articulation": 0.285,
-          "orch_rosin": -0.035
+          "bowed_technique": 7.119999999999999,
+          "orch_strings": 7.145,
+          "orch_top_wood": 1.9849999999999999,
+          "orch_back_wood": 2.275,
+          "orch_varnish": 7.824999999999999,
+          "orch_setup_period": 3.40375,
+          "orch_bow": 3.9699999999999998,
+          "orch_bow_stick": 2.10875,
+          "orch_articulation": 0.65,
+          "orch_rosin": 2.5675
         }
       }
     ],

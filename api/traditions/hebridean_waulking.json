@@ -3,8 +3,8 @@
   "name": "Hebridean waulking song (òrain luaidh)",
   "family": "global",
   "lineage": "Scottish-Hebridean Gaelic waulking-song (òrain luaidh) tradition continuous from medieval-and-early-modern Hebridean Gaelic wool-fulling labor practice through 19th-20th century continuous performance into modern Scottish-Gaelic revival",
-  "recipe": "classic modern hebridean waulking song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, sub saharan African field work, north Southeast Asian baltic Southeast Asian shanty scottish hebridean iorram mande-wolof west-african harvest-and-field song. declaimed, tasteful, unrestrained, Scottish Gaelic vocal. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 468,
+  "recipe": "classic modern hebridean waulking song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, sub saharan African field work, north Southeast Asian baltic Southeast Asian shanty scottish hebridean iorram mande-wolof west-african harvest-and-field song. vocal fry, declaimed, tasteful, unrestrained. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 456,
   "score": 124.789,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 0.975,
+          "voice_quality": 3.588500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3799999999999994,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 0,
-          "voice_tradition": 29.965,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.39,
-          "voice_speech_song": 6.175,
-          "voice_ensemble_config": 3.1200000000000006,
-          "voice_ornament_system": 4.3055,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 0.78
+          "voice_vibrato": 4.225,
+          "voice_articulation": 8.125,
+          "voice_microtone": 0.8125,
+          "voice_tradition": 46.358000000000004,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 0.78,
+          "voice_speech_song": 18.005,
+          "voice_ensemble_config": 10.659999999999998,
+          "voice_ornament_system": 10.985,
+          "voice_pitch_organization": 6.759999999999999,
+          "voice_processing_chain": 2.145,
+          "voice_multitrack_stack": 1.56
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Saltarello (central Italian leaping dance)",
   "family": "global",
   "lineage": "Saltarello central-and-southern Italian folk-dance-and-music tradition of Lazio, Abruzzo, Marche, and Molise regions, characterized by fast triple-meter or 6/8 leaping-dance with characteristic accelerating tempo. Origin documented in fourteenth-century Italian musical manuscripts (the Saltarello primo and secondo in the Add MS 29987 British Library manuscript) and preserved in continuous folk-tradition through the medieval-Renaissance-modern transition. Performance: tambourine-led ensemble with accordion, fiddle, organetto button-accordion, and chorus. Distinguished from tarantella by saltarello's central-Italian regional base and characteristic standing-leap (vs spinning) choreographic register. The post-1970s Italian-folk-revival reactivated the genre in the original regional contexts.",
-  "recipe": "classic mid-1970s saltarello, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. thick, declaimed, overtone rich sustained, continuous-phonation. tambourine orch, castagnari Italian premium folk music straight accordion. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 535,
+  "recipe": "classic mid-1970s saltarello, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. thick, declaimed, overtone rich sustained, continuous-phonation. tambourine orch, brass castagnari Italian premium folk music straight accordion. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 541,
   "score": 255.74,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 11.25,
-          "voice_quality": 3.4450000000000003,
+          "voice_register": 12.5,
+          "voice_quality": 9.514999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.495,
-          "voice_articulation": 1.495,
-          "voice_microtone": 2.1350000000000002,
-          "voice_tradition": 20.734999999999996,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 18.34,
-          "voice_speech_song": 11.765,
-          "voice_ensemble_config": 11.7,
+          "voice_vibrato": 1.7550000000000001,
+          "voice_articulation": 1.995,
+          "voice_microtone": 7.880000000000002,
+          "voice_tradition": 37.595000000000006,
+          "voice_mechanism_compound": 22.58,
+          "voice_estill_quality": 23.29,
+          "voice_speech_song": 28.73,
+          "voice_ensemble_config": 29.120000000000005,
           "voice_ornament_system": 15.399999999999999,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 4.45,
-          "voice_multitrack_stack": 4.859999999999999
+          "voice_pitch_organization": 7.620000000000001,
+          "voice_processing_chain": 7.67,
+          "voice_multitrack_stack": 2.9899999999999998
         }
       },
       {
@@ -59,8 +59,8 @@
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 0,
-          "tambourine_orch_context": 0
+          "tambourine_orch_jingle": 0.585,
+          "tambourine_orch_context": 0.78
         }
       },
       {
@@ -75,13 +75,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 11.014999999999999,
-          "accordion_reed_material": 0.66,
-          "musette_offset": 1.4699999999999998,
+          "free_reed_technique": 12.764999999999999,
+          "accordion_reed_material": 1.7550000000000001,
+          "musette_offset": 2.4050000000000002,
           "reed_config": 0.195,
-          "bellows": 0.22499999999999998,
+          "bellows": 0.65,
           "voicing_chamber": 0,
-          "accordion_maker_school": 12.989999999999998
+          "accordion_maker_school": 14.489999999999998
         }
       }
     ],

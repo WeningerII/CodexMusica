@@ -32,13 +32,19 @@ const { seedFromTradition } = require('./search.js');
 
 const args = process.argv.slice(2);
 const flags = {};
+// Accept both --flag=value and --flag value (the latter previously became
+// flags.flag === true, then failed downstream as "Unknown tradition: true").
+// BOOLEAN_FLAGS never consume the next token.
+const BOOLEAN_FLAGS = new Set(['no-instruments']);
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
-  if (a.startsWith('--')) {
-    const eq = a.indexOf('=');
-    if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
-    else flags[a.slice(2)] = true;
-  }
+  if (!a.startsWith('--')) continue;
+  const eq = a.indexOf('=');
+  if (eq > 0) { flags[a.slice(2, eq)] = a.slice(eq + 1); continue; }
+  const name = a.slice(2);
+  const next = args[i + 1];
+  if (!BOOLEAN_FLAGS.has(name) && next !== undefined && !next.startsWith('--')) { flags[name] = next; i++; }
+  else flags[name] = true;
 }
 
 if (!flags.tradition) {
@@ -47,7 +53,12 @@ if (!flags.tradition) {
 }
 
 const tid = flags.tradition;
-const staples = flags.staples ? flags.staples.split(',') : [];
+const staples = flags.staples ? flags.staples.split(',').map(s => s.trim()).filter(Boolean) : [];
+// Validate staple ids up front — seedFromTradition silently drops an unknown
+// staple, so a typo would otherwise vanish while the header still claims it.
+const _tradIds = new Set(C.TRADITIONS.map(t => t.id));
+const _badStaples = staples.filter(s => !_tradIds.has(s));
+if (_badStaples.length) { console.error(`Unknown staple tradition id(s): ${_badStaples.join(', ')}`); process.exit(2); }
 const mode = flags.mode || 'stack';
 const topN = parseInt(flags.top) || 50;
 const showInstruments = !flags['no-instruments'];
@@ -245,12 +256,15 @@ function buildBag(seed) {
   if (seed.archetype) bag.push(...harvestArchetype(seed.archetype));
   // Aesthetic (when present)
   if (seed.aesthetic) bag.push(...harvestAesthetic(seed.aesthetic));
-  // Chain components — archetype provides the base layer, inline_chain overrides
-  // per-field. Inline doesn't always set every component (a tradition may set
-  // mic/pre/console/medium but rely on the archetype for comp/eq/fx).
+  // Chain components — match the ENGINE (translate.js / scoreConfig): when an
+  // archetype is set, ITS components are used wholesale and inline_chain is
+  // ignored; inline_chain only applies as the fallback for traditions WITHOUT an
+  // archetype. (The old inline-overrides-archetype merge here disagreed with the
+  // compiled recipe, so this viewer attributed the wrong gear for any tradition
+  // that carries both.)
   const arch = seed.archetype && C.CHAIN_ARCHETYPES.find(a => a.id === seed.archetype);
   const archComponents = (arch && arch.components) || {};
-  const chain = { ...archComponents, ...(seed.inline_chain || {}) };
+  const chain = arch ? archComponents : (seed.inline_chain || {});
   for (const sectionId of ['mic', 'pre', 'console', 'comp', 'eq', 'medium', 'amp']) {
     const itemId = chain[sectionId];
     if (itemId) bag.push(...harvestChainItem(sectionId, itemId));

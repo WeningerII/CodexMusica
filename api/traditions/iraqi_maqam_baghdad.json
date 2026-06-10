@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 1.354,
-          "voice_quality": 4.095000000000001,
+          "voice_register": 2.145,
+          "voice_quality": 5.135,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.629999999999999,
+          "voice_vibrato": 10.075,
           "voice_articulation": 0,
-          "voice_microtone": 29.9405,
-          "voice_tradition": 46.240125000000006,
-          "voice_mechanism_compound": 20.744999999999997,
-          "voice_estill_quality": 15.889249999999997,
-          "voice_speech_song": 18.395000000000003,
-          "voice_ensemble_config": 19.630000000000003,
-          "voice_ornament_system": 40.373125,
-          "voice_pitch_organization": 40.359625,
-          "voice_processing_chain": 5.59,
-          "voice_multitrack_stack": 2.09
+          "voice_microtone": 39.4405,
+          "voice_tradition": 56.690125,
+          "voice_mechanism_compound": 31.27,
+          "voice_estill_quality": 23.08925,
+          "voice_speech_song": 23.595000000000002,
+          "voice_ensemble_config": 24.635000000000005,
+          "voice_ornament_system": 52.673125000000006,
+          "voice_pitch_organization": 52.359625,
+          "voice_processing_chain": 8.06,
+          "voice_multitrack_stack": 2.2399999999999998
         }
       },
       {
@@ -60,9 +60,9 @@
           "santur_technique": "santur_mizrab"
         },
         "scores": {
-          "plucked_traditional_technique": 32.95012500000001,
-          "santur_school": 4.29,
-          "santur_technique": 0.12999999999999998
+          "plucked_traditional_technique": 35.100125000000006,
+          "santur_school": 7.15,
+          "santur_technique": 0.195
         }
       },
       {
@@ -73,9 +73,9 @@
           "joza_tradition": "joza_chalghi_canonical"
         },
         "scores": {
-          "bowed_technique": 12.75,
-          "joza_body": 8.787875,
-          "joza_tradition": 34.35725000000001
+          "bowed_technique": 19,
+          "joza_body": 8.937875,
+          "joza_tradition": 36.75725
         }
       },
       {
@@ -88,11 +88,11 @@
           "riq_jingles": "riq_brass_jingles"
         },
         "scores": {
-          "riq_size": 6.629999999999999,
-          "riq_context": 5.5108749999999995,
-          "riq_shell_wood": 7.215,
-          "riq_head_material": 7.279999999999999,
-          "riq_jingles": 6.83125
+          "riq_size": 11.114999999999998,
+          "riq_context": 5.810874999999999,
+          "riq_shell_wood": 9.441875,
+          "riq_head_material": 8.569374999999999,
+          "riq_jingles": 7.63125
         }
       },
       {
@@ -105,9 +105,9 @@
         },
         "scores": {
           "percussion_technique": 2.4699999999999998,
-          "darbuka_material": 7.120374999999999,
-          "darbuka_skin": 5.329999999999999,
-          "darbuka_regional_style": 24.504500000000004
+          "darbuka_material": 8.270375,
+          "darbuka_skin": 6.825,
+          "darbuka_regional_style": 25.804500000000004
         }
       },
       {
@@ -118,7 +118,7 @@
         },
         "scores": {
           "naqqarat_body": 11.355875000000001,
-          "naqqarat_tradition": 18.884375
+          "naqqarat_tradition": 19.684375000000003
         }
       }
     ],

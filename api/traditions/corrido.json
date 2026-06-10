@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.983125,
-          "voice_quality": 9.219999999999995,
+          "voice_register": 7.4831249999999985,
+          "voice_quality": 27.194999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.08,
-          "voice_articulation": 5.934999999999999,
-          "voice_microtone": 0.30374999999999996,
-          "voice_tradition": 7.539999999999998,
-          "voice_mechanism_compound": 3.769999999999999,
-          "voice_estill_quality": 4.19,
-          "voice_speech_song": 14.234999999999994,
-          "voice_ensemble_config": 9.619999999999997,
-          "voice_ornament_system": 1.17,
-          "voice_pitch_organization": 2.6,
-          "voice_processing_chain": 5.449375000000001,
-          "voice_multitrack_stack": 3.445625
+          "voice_vibrato": 3.25,
+          "voice_articulation": 6.2349999999999985,
+          "voice_microtone": 0.845,
+          "voice_tradition": 14.3325,
+          "voice_mechanism_compound": 7.344999999999999,
+          "voice_estill_quality": 14.864999999999998,
+          "voice_speech_song": 30.809999999999988,
+          "voice_ensemble_config": 20.01999999999999,
+          "voice_ornament_system": 1.3649999999999998,
+          "voice_pitch_organization": 3.445,
+          "voice_processing_chain": 6.774375,
+          "voice_multitrack_stack": 4.7124999999999995
         }
       },
       {
@@ -63,12 +63,12 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 9.784999999999995,
+          "acoustic_technique": 16.285,
           "string_tuning": 0,
-          "top_wood_classical": 3.38,
-          "bracing_classical": 1.69,
-          "string_classical": 2.015,
-          "attack_technique_cl": 2.08
+          "top_wood_classical": 5.265,
+          "bracing_classical": 2.396875,
+          "string_classical": 2.4050000000000002,
+          "attack_technique_cl": 2.47
         }
       },
       {
@@ -83,13 +83,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 6.560625,
-          "accordion_reed_material": 2.08,
+          "free_reed_technique": 11.510625,
+          "accordion_reed_material": 2.3912500000000003,
           "musette_offset": 1,
           "reed_config": 0.195,
           "bellows": 0.495,
           "voicing_chamber": 0,
-          "accordion_maker_school": 4.16
+          "accordion_maker_school": 6.629999999999999
         }
       },
       {
@@ -102,10 +102,10 @@
           "bajo_back_wood": "bajo_mahogany_back"
         },
         "scores": {
-          "plucked_traditional_technique": 4.094999999999999,
-          "bajo_courses": 5.790625,
-          "bajo_top": 2.08,
-          "bajo_strings": 2.6,
+          "plucked_traditional_technique": 9.470624999999998,
+          "bajo_courses": 9.940625,
+          "bajo_top": 2.47,
+          "bajo_strings": 5.03,
           "bajo_back_wood": 0
         }
       },
@@ -119,11 +119,11 @@
           "guitarron_technique": "guitarron_octave_pair_plucking"
         },
         "scores": {
-          "guitarron_body": 0.39,
-          "guitarron_body_wood": 5.07,
+          "guitarron_body": 1.235,
+          "guitarron_body_wood": 7.994999999999999,
           "guitarron_strings": 1.17,
-          "guitarron_string_material": 2.73,
-          "guitarron_technique": 5.720000000000001
+          "guitarron_string_material": 4.68,
+          "guitarron_technique": 11.245000000000001
         }
       }
     ],

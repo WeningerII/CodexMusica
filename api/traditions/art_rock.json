@@ -3,8 +3,8 @@
   "name": "Art rock",
   "family": "rock_punk",
   "lineage": "Late-1960s through 1980s art-school avant-garde-influenced rock genre — codified through David Bowie (the Hunky Dory through Scary Monsters arc 1971-1980, with the Berlin Trilogy Low / Heroes / Lodger 1977-79 as the Brian-Eno-collaboration period), Roxy Music (Roxy Music 1972, For Your Pleasure 1973), Brian Eno (the post-Roxy solo canon Another Green World 1975, Music for Airports 1978), Talking Heads (the Eno-produced trilogy More Songs About Buildings and Food 1978, Fear of Music 1979, Remain in Light 1980), Peter Gabriel (his post-Genesis Eno-influenced canon)",
-  "recipe": "classic British mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock psychedelic rock britpop. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, fast decay focused low short envelope analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key block chord mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 963,
+  "recipe": "classic British mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock psychedelic rock britpop. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, fast decay focused low short envelope analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, gold brass warmer tone multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical.",
+  "recipe_chars": 990,
   "score": 745.057,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 29.289999999999996,
-          "voice_quality": 1.1049999999999998,
+          "voice_register": 44.14000000000002,
+          "voice_quality": 2.7950000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
+          "voice_vibrato": 4.029999999999999,
           "voice_articulation": 0.39999999999999997,
-          "voice_microtone": 29.705,
-          "voice_tradition": 6.535,
-          "voice_mechanism_compound": 3.9650000000000007,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 10.204999999999997,
-          "voice_ensemble_config": 10.659999999999995,
-          "voice_ornament_system": 0.585,
-          "voice_pitch_organization": 1.77,
-          "voice_processing_chain": 8.060000000000002,
-          "voice_multitrack_stack": 7.115
+          "voice_microtone": 44.13,
+          "voice_tradition": 8.684999999999999,
+          "voice_mechanism_compound": 6.825,
+          "voice_estill_quality": 4.160000000000001,
+          "voice_speech_song": 16.769999999999992,
+          "voice_ensemble_config": 16.834999999999994,
+          "voice_ornament_system": 3.325,
+          "voice_pitch_organization": 2.9899999999999998,
+          "voice_processing_chain": 11.200000000000001,
+          "voice_multitrack_stack": 12.469999999999999
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 6.745,
-          "amp_make": 13.584999999999999,
-          "body_wood": 1.3,
-          "neck_wood": 1.3,
-          "fretboard": 1.2349999999999999,
+          "electric_technique": 9.099999999999998,
+          "amp_make": 22.944999999999997,
+          "body_wood": 2.9899999999999998,
+          "neck_wood": 2.9899999999999998,
+          "fretboard": 2.925,
           "pickup_magnet": 1.195,
-          "string_material": 0.78,
-          "string_gauge": 1.3,
+          "string_material": 1.17,
+          "string_gauge": 2.9899999999999998,
           "bridge": 1,
-          "scale_length": 1.3,
+          "scale_length": 2.9899999999999998,
           "finish": 0.435,
-          "string_tuning": 13.910000000000002
+          "string_tuning": 22.360000000000003
         }
       },
       {
@@ -96,14 +96,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.5849999999999997,
-          "amp_make": 11.765,
-          "body_wood": 1.3,
+          "electric_technique": 3.5849999999999995,
+          "amp_make": 21.06,
+          "body_wood": 2.9899999999999998,
           "pickup_config": 0,
-          "string_type": 32.175000000000004,
-          "scale_length_b": 1.3,
+          "string_type": 43.975,
+          "scale_length_b": 2.9899999999999998,
           "fretted_or_not": 0,
-          "bass_technique": 24.385000000000005
+          "bass_technique": 35.885
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 9.359999999999996,
-          "shell_wood": 1.3,
+          "percussion_technique": 16.28249999999999,
+          "shell_wood": 1.56,
           "shell_thickness": 0,
-          "bearing_edges": 1.3,
-          "drumhead": 6.789999999999999,
-          "snare_wires": 1.3,
-          "cymbal_alloy": 29.830000000000002,
-          "cymbal_hammering": 29.69,
-          "cymbal_lathing": 29.540000000000003,
-          "cymbal_finish": 0.78,
-          "drum_technique": 22.840000000000003
+          "bearing_edges": 2.9899999999999998,
+          "drumhead": 8.79,
+          "snare_wires": 2.9899999999999998,
+          "cymbal_alloy": 43.33,
+          "cymbal_hammering": 43.190000000000005,
+          "cymbal_lathing": 43.040000000000006,
+          "cymbal_finish": 1.17,
+          "drum_technique": 34.34
         }
       },
       {
@@ -145,9 +145,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 7.1499999999999995,
-          "oscillator": 0.9099999999999999,
-          "filter_topology": 2.21,
+          "electronic_technique": 9.149999999999999,
+          "oscillator": 2.8600000000000003,
+          "filter_topology": 5.85,
           "envelope": 1,
           "modulation": 0.195
         }
@@ -162,11 +162,11 @@
           "mellotron_tape_material": "mellotron_polyester_tape_canonical"
         },
         "scores": {
-          "keyboard_technique": 7.075,
-          "mellotron_voice": 12.610000000000001,
-          "mellotron_context": 2.08,
-          "mellotron_model": 15.925,
-          "mellotron_tape_material": 0.825
+          "keyboard_technique": 9.074999999999998,
+          "mellotron_voice": 18.59,
+          "mellotron_context": 3.12,
+          "mellotron_model": 23.79,
+          "mellotron_tape_material": 1.8849999999999996
         }
       },
       {
@@ -183,14 +183,14 @@
           "piano_pitch_standard": "a_415_baroque"
         },
         "scores": {
-          "keyboard_technique": 8,
-          "grand_piano_size": 1.3,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 11.7,
-          "piano_rim": 12.09,
-          "piano_soundboard": 6.789999999999999,
-          "piano_pinblock": -0.05,
-          "piano_plate": 0.995,
+          "keyboard_technique": 9.25,
+          "grand_piano_size": 2.9899999999999998,
+          "grand_piano_brand": 3.3799999999999994,
+          "piano_hammer": 20.345000000000002,
+          "piano_rim": 20.93,
+          "piano_soundboard": 8.79,
+          "piano_pinblock": 1.95,
+          "piano_plate": 1.9949999999999999,
           "piano_pitch_standard": 3.275
         }
       },
@@ -207,10 +207,10 @@
         },
         "scores": {
           "wind_articulation": 6.2,
-          "sax_size": 1.3,
-          "sax_reed": 0.78,
-          "sax_body_alloy": -0.035,
-          "sax_mouthpiece": 1,
+          "sax_size": 2.9899999999999998,
+          "sax_reed": 1.17,
+          "sax_body_alloy": 2.2350000000000003,
+          "sax_mouthpiece": 1.17,
           "sax_technique": 6.25,
           "sax_maker_school": 0.24
         }
@@ -224,9 +224,9 @@
           "sm_voicing": "sm_cellos"
         },
         "scores": {
-          "electronic_technique": 1.4949999999999999,
+          "electronic_technique": 1.6449999999999998,
           "sm_voice_count": 0.39,
-          "sm_chorus": 0.9099999999999999,
+          "sm_chorus": 2.8600000000000003,
           "sm_voicing": 1
         }
       }

@@ -3,8 +3,8 @@
   "name": "Black metal",
   "family": "rock_punk",
   "lineage": "Late-1980s onward extreme metal subgenre characterized by tremolo-picked treble-guitar, blast-beat drumming, false-fold ventricular shriek vocal, lo-fi production aesthetic, and anti-Christian thematic vocabulary — codified through the Norwegian second wave: Mayhem (De Mysteriis Dom Sathanas 1994), Burzum (Filosofem 1996), Darkthrone (Transilvanian Hunger 1994), Emperor (In the Nightside Eclipse 1994), Immortal",
-  "recipe": "classic North American 1987-1989 black metal, distorted Rock, black branch, doom metal stoner metal. thick, false fold engaged, nervy, equal tempered. orange amp British heavy crunch maple pau ferro ceramic single coil electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape boss DS-1.",
-  "recipe_chars": 524,
+  "recipe": "classic North American 1987-1989 black metal, distorted Rock, black branch, doom metal stoner metal. thick, false fold engaged, nervy, equal tempered. orange amp British heavy crunch mahogany maple pau ferro single coil electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape boss DS-1.",
+  "recipe_chars": 546,
   "score": 473.679,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 5.379500000000003,
+          "voice_register": 23.704499999999996,
           "voice_quality": 11.042499999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.2795,
+          "voice_vibrato": 2.8795,
           "voice_articulation": 0.39,
-          "voice_microtone": 5.250000000000002,
-          "voice_tradition": 2.275,
-          "voice_mechanism_compound": 22.293,
-          "voice_estill_quality": 1.536,
-          "voice_speech_song": 5.134999999999999,
-          "voice_ensemble_config": 4.68,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.8435000000000001,
-          "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 4.9055
+          "voice_microtone": 18.424999999999997,
+          "voice_tradition": 4.095000000000001,
+          "voice_mechanism_compound": 40.918,
+          "voice_estill_quality": 1.836,
+          "voice_speech_song": 13.259999999999996,
+          "voice_ensemble_config": 12.024999999999995,
+          "voice_ornament_system": 0.6499999999999999,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 6.694999999999999,
+          "voice_multitrack_stack": 5.430499999999999
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 19.3025,
-          "amp_make": 7.215,
-          "body_wood": 0.78,
-          "neck_wood": 2.2795,
-          "fretboard": 2.2795,
-          "pickup_magnet": 2.2795,
-          "string_material": 2.2795,
-          "string_gauge": 0.78,
-          "bridge": 0.39,
-          "scale_length": 0.78,
+          "electric_technique": 36.902499999999996,
+          "amp_make": 29.135000000000005,
+          "body_wood": 1.3649999999999998,
+          "neck_wood": 2.8795,
+          "fretboard": 2.8795,
+          "pickup_magnet": 2.8795,
+          "string_material": 2.8795,
+          "string_gauge": 1.755,
+          "bridge": 0.771,
+          "scale_length": 1.3649999999999998,
           "finish": 0.705,
-          "string_tuning": 3.6400000000000006
+          "string_tuning": 12.675
         }
       },
       {
@@ -96,14 +96,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.7155,
-          "amp_make": 4.225,
-          "body_wood": 0.78,
+          "electric_technique": 20.5155,
+          "amp_make": 29.135000000000005,
+          "body_wood": 1.3649999999999998,
           "pickup_config": 1.405,
-          "string_type": 7.15,
-          "scale_length_b": 0.78,
-          "fretted_or_not": 0.0495,
-          "bass_technique": 7.518000000000001
+          "string_type": 24.720499999999998,
+          "scale_length_b": 1.3649999999999998,
+          "fretted_or_not": 0.195,
+          "bass_technique": 20.693
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 4.68,
-          "shell_wood": 2.2795,
-          "shell_thickness": 0.0495,
-          "bearing_edges": 2.2795,
-          "drumhead": 2.2795,
-          "snare_wires": 0.78,
-          "cymbal_alloy": 21.229499999999998,
-          "cymbal_hammering": 5.4,
-          "cymbal_lathing": 5.4495000000000005,
-          "cymbal_finish": 2.2795,
-          "drum_technique": 5.5
+          "percussion_technique": 12.024999999999995,
+          "shell_wood": 4.225,
+          "shell_thickness": 0.195,
+          "bearing_edges": 2.8795,
+          "drumhead": 2.8795,
+          "snare_wires": 1.3649999999999998,
+          "cymbal_alloy": 49.7545,
+          "cymbal_hammering": 18.575,
+          "cymbal_lathing": 18.774499999999996,
+          "cymbal_finish": 2.8795,
+          "drum_technique": 18.25
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Japanese taue-uta (田植唄, rice-planting songs)",
   "family": "global",
   "lineage": "Japanese taue-uta (田植唄, \"rice-planting songs\") tradition continuous from premodern Japanese-agricultural village-labor practice through Edo-period continuous performance into modern Japanese-and-Japanese-diaspora continuous rural practice (where it survives) and into intangible-heritage status for certain regional variants; foundational repertoire integrates rice-paddy planting and weeding-songs with characteristic Japanese-folk pentatonic vocabulary",
-  "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta korean jajanga. thick, tasteful, continuous-phonation, min yo. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 445,
+  "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta korean jajanga. thick, yodel, tasteful, continuous-phonation. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 444,
   "score": 144.514,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.0000000000000004,
-          "voice_quality": 0.325,
+          "voice_register": 5.649999999999999,
+          "voice_quality": 0.9099999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 5.545,
-          "voice_microtone": 0,
-          "voice_tradition": 33.99875,
-          "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 1.1049999999999998,
-          "voice_speech_song": 5.784999999999999,
-          "voice_ensemble_config": 6.109999999999999,
-          "voice_ornament_system": 4.345000000000001,
-          "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 0.69,
-          "voice_multitrack_stack": 1.9192499999999997
+          "voice_vibrato": 2.925,
+          "voice_articulation": 6.76,
+          "voice_microtone": 2.5999999999999996,
+          "voice_tradition": 50.77374999999999,
+          "voice_mechanism_compound": 2.5349999999999997,
+          "voice_estill_quality": 1.4949999999999997,
+          "voice_speech_song": 14.689999999999998,
+          "voice_ensemble_config": 10.919999999999998,
+          "voice_ornament_system": 18.020000000000003,
+          "voice_pitch_organization": 6.76,
+          "voice_processing_chain": 2.4049999999999994,
+          "voice_multitrack_stack": 2.7299999999999995
         }
       },
       {
@@ -67,10 +67,10 @@
           "plucked_traditional_technique": -0.05,
           "shamisen_size": 0,
           "shamisen_skin": 0,
-          "shamisen_pick": 1.69,
-          "shamisen_neck_wood": 0,
-          "shamisen_strings": 1.69,
-          "shamisen_tradition": 2.08
+          "shamisen_pick": 2.925,
+          "shamisen_neck_wood": 0.12999999999999998,
+          "shamisen_strings": 2.925,
+          "shamisen_tradition": 6.759999999999999
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Sardinian wedding cantu and launeddas music",
   "family": "global",
   "lineage": "Sardinian wedding-music tradition continuous from pre-Christian Sardinian rural practice through medieval-and-early-modern continuous performance; the launeddas (triple-clarinet) is the canonical Sardinian wedding-music instrument and the cantu a tenore polyphonic male-quartet vocal also features at weddings",
-  "recipe": "classic modern sardinian wedding cantu and launeddas music, wedding, European branch, vocal drone modal, wind pipe drone modal, Mediterranean ballad ballad poetry sevdalinka bulgarian women's choir. thick, false fold engaged, tasteful, continuous-phonation. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, castagnari Italian premium folk music accordion, grenadilla African blackwood traditional continuous-airflow legato clarinet. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 675,
+  "recipe": "classic modern sardinian wedding cantu and launeddas music, wedding, European branch, vocal drone modal, wind pipe drone modal, Mediterranean ballad ballad poetry sevdalinka bulgarian women's choir. thick, false fold engaged, tasteful, continuous-phonation. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, castagnari Italian premium folk music drone like accordion, grenadilla African blackwood traditional continuous-airflow legato clarinet. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 686,
   "score": 205.457,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 2.9899999999999998,
-          "voice_quality": 20.909999999999997,
+          "voice_register": 5.890000000000001,
+          "voice_quality": 21.185,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.5149999999999997,
-          "voice_microtone": 2.21,
-          "voice_tradition": 27.819999999999997,
-          "voice_mechanism_compound": 2.6,
-          "voice_estill_quality": 2.21,
-          "voice_speech_song": 5.395,
-          "voice_ensemble_config": 5.55,
-          "voice_ornament_system": 0.9000000000000001,
-          "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 4.095,
-          "voice_multitrack_stack": 3.3799999999999994
+          "voice_vibrato": 2.295,
+          "voice_articulation": 3.664999999999999,
+          "voice_microtone": 3.7375,
+          "voice_tradition": 43.94,
+          "voice_mechanism_compound": 6.305,
+          "voice_estill_quality": 4.29,
+          "voice_speech_song": 15.404999999999994,
+          "voice_ensemble_config": 14.234999999999994,
+          "voice_ornament_system": 1.3649999999999998,
+          "voice_pitch_organization": 4.810000000000001,
+          "voice_processing_chain": 5.720000000000001,
+          "voice_multitrack_stack": 6.630000000000001
         }
       },
       {
@@ -62,11 +62,11 @@
           "launeddas_reed": "launeddas_idioglot_canonical"
         },
         "scores": {
-          "wind_articulation": 3.3149999999999995,
+          "wind_articulation": 5.135,
           "launeddas_pipes": 6.789999999999999,
-          "launeddas_breath": 3.2749999999999995,
+          "launeddas_breath": 3.4249999999999994,
           "launeddas_material": 9.229999999999999,
-          "launeddas_reed": 9.229999999999999
+          "launeddas_reed": 9.424999999999999
         }
       },
       {
@@ -81,13 +81,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 2.4699999999999998,
+          "free_reed_technique": 4.290000000000001,
           "accordion_reed_material": 0.39,
           "musette_offset": 1.2750000000000001,
           "reed_config": 0.7,
           "bellows": 0.42000000000000004,
           "voicing_chamber": 0,
-          "accordion_maker_school": 6.759999999999999
+          "accordion_maker_school": 8.384999999999998
         }
       },
       {
@@ -100,11 +100,11 @@
           "clarinet_articulation": "doina_clarinet"
         },
         "scores": {
-          "wind_articulation": 3.175,
-          "clarinet_body": 3.6750000000000003,
-          "clarinet_size": 0.8550000000000001,
+          "wind_articulation": 4.124999999999999,
+          "clarinet_body": 5.7250000000000005,
+          "clarinet_size": 1.625,
           "clarinet_reed": 0,
-          "clarinet_articulation": 0.045
+          "clarinet_articulation": 0.195
         }
       }
     ],

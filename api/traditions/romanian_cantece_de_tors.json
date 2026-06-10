@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 6.885,
-          "voice_quality": 3.185,
+          "voice_register": 8.509999999999996,
+          "voice_quality": 9.924999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.3799999999999994,
+          "voice_vibrato": 4.225,
+          "voice_articulation": 6.759999999999999,
           "voice_microtone": 0,
-          "voice_tradition": 16.639999999999997,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.39,
-          "voice_speech_song": 2.8600000000000003,
-          "voice_ensemble_config": 1.4299999999999997,
-          "voice_ornament_system": 2.5237499999999997,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 1.4949999999999999,
-          "voice_multitrack_stack": 0.39
+          "voice_tradition": 33.8325,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 0.975,
+          "voice_speech_song": 10.659999999999998,
+          "voice_ensemble_config": 5.9475,
+          "voice_ornament_system": 8.24875,
+          "voice_pitch_organization": 6.759999999999999,
+          "voice_processing_chain": 1.885,
+          "voice_multitrack_stack": 0.975
         }
       }
     ],

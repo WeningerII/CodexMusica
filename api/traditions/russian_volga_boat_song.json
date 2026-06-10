@@ -3,8 +3,8 @@
   "name": "Russian Volga boat-haulers' work song (бурлацкая песня)",
   "family": "global",
   "lineage": "Russian Volga boat-haulers (бурлаки burlaki) work-song tradition documented from 17th-19th century Russian river-haulage-laborer practice (the burlaki towed cargo-barges upstream against the Volga current by rope-and-shoulder before steam-tug-substitution in the 1860s-1880s) through 19th-century Russian-Romantic-era documentation into 20th-century revival; the canonical \"Эй, ухнем!\" (Ey, ukhnem!, \"Hey, heave-ho!\") is the foundational repertoire",
-  "recipe": "classic mid-1860s russian volga boat-haulers' work song, sea Shanty, north Southeast Asian baltic branch, Slavic balkan field work, European protest song, Slavic bard ballad poetry italian canti partigiani russian zhnitvenye pesni. low dynamic level, tasteful, unrestrained, Mediterranean demotic vocal. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 442,
+  "recipe": "classic mid-1860s russian volga boat-haulers' work song, sea Shanty, north Southeast Asian baltic branch, Slavic balkan field work, European protest song, Slavic bard ballad poetry italian canti partigiani russian zhnitvenye pesni. thick, low dynamic level, tasteful, unrestrained. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 420,
   "score": 93.735,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 4.875,
+          "voice_register": 3.874999999999999,
+          "voice_quality": 5.720000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.1700000000000002,
-          "voice_articulation": 3.795,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 4.875,
           "voice_microtone": 0.045,
-          "voice_tradition": 4.484999999999999,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.7849999999999999,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 1.95,
-          "voice_ornament_system": 0.6499999999999999,
-          "voice_pitch_organization": 3.795,
-          "voice_processing_chain": 2.08,
-          "voice_multitrack_stack": 0.78
+          "voice_tradition": 17.3875,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 9.484999999999998,
+          "voice_speech_song": 17.484999999999992,
+          "voice_ensemble_config": 7.734999999999999,
+          "voice_ornament_system": 9.2,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 3.3150000000000004,
+          "voice_multitrack_stack": 2.4374999999999996
         }
       }
     ],

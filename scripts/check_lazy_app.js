@@ -215,7 +215,12 @@ function normCatalog(cat) {
 
     // Rendered browse surfaces — exact innerHTML equality.
     for (const q of Object.keys(embed.pickers)) {
-      if (embed.pickers[q] !== lazy.pickers[q]) {
+      if (embed.pickers[q] === '(no picker element)' || lazy.pickers[q] === '(no picker element)') {
+        // Without this guard a missing #picker-trad would make BOTH builds record
+        // the same sentinel and the comparison would pass vacuously — the rendered
+        // surface half of the gate must actually render something.
+        fail(`renderTradPicker for query ${q}: #picker-trad element absent — comparison would be vacuous`);
+      } else if (embed.pickers[q] !== lazy.pickers[q]) {
         fail(`renderTradPicker drift for query ${q} — a browse render path read a field the index doesn't carry`);
       } else {
         note(`picker ${q}: ${embed.pickers[q].length} chars, identical`);

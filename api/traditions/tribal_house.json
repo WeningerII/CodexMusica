@@ -3,8 +3,8 @@
   "name": "Tribal house",
   "family": "electronic",
   "lineage": "1990s house subgenre developed in New York and Chicago characterized by heavy world-percussion sampling (Afro-Cuban congas, African djembe-and-talking-drum, Brazilian batucada), tribal-chant vocal-sampling, and minimalist-melodic-percussion-focused arrangement. Junior Vasquez, Danny Tenaglia, Roger Sanchez, and the Sound Factory NYC scene defined the canonical 1990s tribal house aesthetic.",
-  "recipe": "classic mid-1990s tribal house, electronic Dance, house branch, west African groove percussion indonesian jaipongan jùjú. vocal fry, melodic, rhythmic, Yoruba tonal vocal. TR-808, fast decay focused low analog synth, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, open slap hand drum djembe. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 527,
+  "recipe": "classic mid-1990s tribal house, electronic Dance, house branch, west African groove percussion indonesian jaipongan jùjú. vocal fry, declaimed, melodic, rhythmic. TR-808, fast decay focused low analog synth, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, open slap hand drum djembe. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 518,
   "score": 146.303,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 0.22499999999999998,
+          "voice_register": 3.769999999999999,
+          "voice_quality": 3.040000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 0.885,
-          "voice_microtone": 0.045,
-          "voice_tradition": 10.4,
-          "voice_mechanism_compound": 1.755,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 0.345,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 6.945,
-          "voice_multitrack_stack": 3.38
+          "voice_vibrato": 2.8600000000000003,
+          "voice_articulation": 1.4299999999999997,
+          "voice_microtone": 1.4699999999999998,
+          "voice_tradition": 38.83749999999999,
+          "voice_mechanism_compound": 1.8850000000000002,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 14.234999999999996,
+          "voice_ensemble_config": 13.519999999999996,
+          "voice_ornament_system": 2.73,
+          "voice_pitch_organization": 8.485,
+          "voice_processing_chain": 11.92,
+          "voice_multitrack_stack": 5.85
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0.045,
-          "drum_machine_808_context": 0.855,
+          "tr808_voice": 0.195,
+          "drum_machine_808_context": 3.0224999999999995,
           "tr808_production_origin": 0.345
         }
       },
@@ -75,9 +75,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "oscillator": 1.2000000000000002,
-          "filter_topology": 1.095,
+          "electronic_technique": 1.9174999999999998,
+          "oscillator": 0.46499999999999997,
+          "filter_topology": 0.845,
           "envelope": 1.585,
           "modulation": 0
         }
@@ -91,7 +91,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 5.850000000000001,
+          "percussion_technique": 7.735,
           "conga_set": 0.375,
           "conga_skin": 3.17525,
           "conga_shell_wood": 2.98025
@@ -106,10 +106,10 @@
           "djembe_play": "djembe_traditional_3"
         },
         "scores": {
-          "percussion_technique": 5.850000000000001,
-          "djembe_wood": 1.215,
+          "percussion_technique": 7.735,
+          "djembe_wood": 1.04,
           "djembe_skin": 0.195,
-          "djembe_play": 0.39
+          "djembe_play": 0.845
         }
       }
     ],

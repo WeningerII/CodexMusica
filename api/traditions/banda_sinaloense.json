@@ -3,8 +3,8 @@
   "name": "Banda sinaloense",
   "family": "global",
   "lineage": "Mexican brass-band tradition of Sinaloa state, derived from late-nineteenth-century German-immigrant military-band tradition adapted to Mexican-rural-popular celebration-music. Large ensemble of clarinets, trumpets, trombones, sousaphone, tambora, tarola, voice — entirely brass-and-percussion. Repertoire spans ranchera, corrido, cumbia. Banda El Recodo (founded 1938) anchors the canonical sound.",
-  "recipe": "classic late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline. thick, full chest belt, Scottish Gaelic vocal, m1 with m0 pulse borrowing. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition clarinet, banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 881,
+  "recipe": "classic late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline. thick, full chest belt, unrestrained, Scottish Gaelic vocal. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition clarinet, banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 867,
   "score": 111.757,
   "config": {
     "traditions": [
@@ -37,18 +37,18 @@
           "voice_quality": 5.948750000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.21675,
-          "voice_articulation": 0.23025,
-          "voice_microtone": 0,
-          "voice_tradition": 3.25,
+          "voice_vibrato": 0.45499999999999996,
+          "voice_articulation": 1.4915,
+          "voice_microtone": 0.12999999999999998,
+          "voice_tradition": 5.36,
           "voice_mechanism_compound": 1.09875,
-          "voice_estill_quality": 3.2030000000000003,
-          "voice_speech_song": 3.575,
-          "voice_ensemble_config": 3.2500000000000004,
+          "voice_estill_quality": 3.353,
+          "voice_speech_song": 7.345000000000001,
+          "voice_ensemble_config": 6.825,
           "voice_ornament_system": 1.56,
           "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 2.8684999999999996,
-          "voice_multitrack_stack": 0.5039999999999999
+          "voice_processing_chain": 3.1979999999999995,
+          "voice_multitrack_stack": 0.9099999999999999
         }
       },
       {
@@ -63,13 +63,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.4394999999999998,
+          "wind_articulation": 2.5999999999999996,
           "brass_size": 0.04875,
-          "trumpet_mouthpiece": 1.625,
+          "trumpet_mouthpiece": 2.3995,
           "brass_mute": 0.04875,
-          "trumpet_technique": 1.4394999999999998,
+          "trumpet_technique": 2.5999999999999996,
           "trumpet_bell_metal": 4.3995,
-          "trumpet_maker_school": 2.6
+          "trumpet_maker_school": 5.069999999999999
         }
       },
       {
@@ -84,13 +84,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 1.4394999999999998,
+          "wind_articulation": 2.5999999999999996,
           "trombone_type": 0.08025,
-          "trombone_mouthpiece": 1.625,
+          "trombone_mouthpiece": 2.3680000000000003,
           "trombone_mute": 0.04875,
-          "trombone_technique": 0.41175,
-          "trombone_bell_metal": 4.4445,
-          "trombone_maker_school": 2.6
+          "trombone_technique": 0.845,
+          "trombone_bell_metal": 4.5945,
+          "trombone_maker_school": 5.915
         }
       },
       {
@@ -104,12 +104,12 @@
           "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": -0.035,
-          "tuba_pitch": 2.7215,
-          "tuba_context": 7.665499999999999,
+          "wind_articulation": 0.39,
+          "tuba_pitch": 3.3799999999999994,
+          "tuba_context": 9.7655,
           "tuba_bell_metal": 4.3995,
-          "tuba_valve_system": 3.068,
-          "tuba_maker_school": 7.120999999999999
+          "tuba_valve_system": 4.419999999999999,
+          "tuba_maker_school": 7.420999999999999
         }
       },
       {
@@ -122,11 +122,11 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": -0.035,
-          "clarinet_body": 3.25,
+          "wind_articulation": 2.5999999999999996,
+          "clarinet_body": 4.49075,
           "clarinet_size": 0.0975,
-          "clarinet_reed": 0.04875,
-          "clarinet_articulation": 0.105
+          "clarinet_reed": 0.195,
+          "clarinet_articulation": 0.45499999999999996
         }
       },
       {
@@ -136,7 +136,7 @@
           "banda_sinaloense_context": "banda_sinaloense_norteno"
         },
         "scores": {
-          "sections": 0.3045,
+          "sections": 0.845,
           "banda_sinaloense_context": 1.69
         }
       }

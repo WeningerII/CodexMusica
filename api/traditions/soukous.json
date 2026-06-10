@@ -3,8 +3,8 @@
   "name": "Soukous",
   "family": "global",
   "lineage": "Congolese fast-tempo dance derivation of Congolese rumba, codified through Tabu Ley Rochereau, Sam Mangwana, Papa Wemba (Viva la Musica band), Pepe Kalle, Kanda Bongo Man (the mid-1980s Paris-recorded breakthrough), Diblo Dibala — characterized by the structural chanson-then-sebene form with sebene section accelerated to 130-180 BPM and the mi-solo / mi-composé interlocking-guitar foreground",
-  "recipe": "classic West African 1984-1986 soukous, groove Percussion, central east south African branch, African pop functional song congolese rumba isicathamiya. thick, declaimed, chest resonance low mid, rhythmic. mahogany rosewood single coil electric guitar, alder thomastik infeld low tension jazz warm electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, mule hide canonical Cuban premium congas. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 657,
+  "recipe": "classic West African 1984-1986 soukous, groove Percussion, central east south African branch, African pop functional song congolese rumba isicathamiya. thick, declaimed, chest resonance low mid, rhythmic. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, mule hide canonical Cuban premium oak staved canonical Cuban congas. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 707,
   "score": 242.197,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.2099999999999995,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 12.319999999999997,
+          "voice_quality": 3.795,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.675,
-          "voice_articulation": 0.78,
-          "voice_microtone": 2.8850000000000002,
-          "voice_tradition": 11.569999999999999,
-          "voice_mechanism_compound": 2.47,
-          "voice_estill_quality": 2.275,
-          "voice_speech_song": 5.265,
-          "voice_ensemble_config": 4.29,
-          "voice_ornament_system": 0.585,
-          "voice_pitch_organization": 2.29,
-          "voice_processing_chain": 4.8100000000000005,
-          "voice_multitrack_stack": 3.04
+          "voice_vibrato": 2.125,
+          "voice_articulation": 1.9499999999999997,
+          "voice_microtone": 11.659999999999997,
+          "voice_tradition": 29.7375,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 4.550000000000001,
+          "voice_speech_song": 19.435,
+          "voice_ensemble_config": 16.25,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 2.8150000000000004,
+          "voice_processing_chain": 5.46,
+          "voice_multitrack_stack": 5.59
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 1.7449999999999997,
-          "amp_make": 1.4299999999999997,
-          "body_wood": 1.675,
-          "neck_wood": 1.675,
-          "fretboard": 1.69,
-          "pickup_magnet": 0.39,
+          "electric_technique": 6.77,
+          "amp_make": 1.9249999999999998,
+          "body_wood": 2.125,
+          "neck_wood": 2.125,
+          "fretboard": 2.075,
+          "pickup_magnet": 0.585,
           "string_material": 0.15,
-          "string_gauge": 1.675,
-          "bridge": 1.54,
-          "scale_length": 1.69,
+          "string_gauge": 2.125,
+          "bridge": 1.69,
+          "scale_length": 2.275,
           "finish": 0,
-          "string_tuning": 1.14
+          "string_tuning": 1.29
         }
       },
       {
@@ -97,13 +97,13 @@
         },
         "scores": {
           "electric_technique": -0.035,
-          "amp_make": 1.4299999999999997,
-          "body_wood": 2.135,
+          "amp_make": 1.9249999999999998,
+          "body_wood": 2.4349999999999996,
           "pickup_config": 1,
-          "string_type": 1.675,
-          "scale_length_b": 1.675,
+          "string_type": 5.844999999999999,
+          "scale_length_b": 2.125,
           "fretted_or_not": 0.195,
-          "bass_technique": 0.75
+          "bass_technique": 4.374999999999999
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 4.68,
-          "shell_wood": 0.78,
+          "percussion_technique": 17.485,
+          "shell_wood": 0.975,
           "shell_thickness": 0,
-          "bearing_edges": 1.69,
-          "drumhead": 1.8799999999999997,
-          "snare_wires": 1.675,
-          "cymbal_alloy": 1.9399999999999997,
-          "cymbal_hammering": 1.6949999999999996,
-          "cymbal_lathing": 3.3699999999999997,
+          "bearing_edges": 2.275,
+          "drumhead": 7.629999999999999,
+          "snare_wires": 2.125,
+          "cymbal_alloy": 6.815,
+          "cymbal_hammering": 7.145,
+          "cymbal_lathing": 7.495,
           "cymbal_finish": 0.195,
-          "drum_technique": 4.68
+          "drum_technique": 17.485
         }
       },
       {
@@ -144,10 +144,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": -0.07,
-          "conga_set": 0.39,
-          "conga_skin": 1.135,
-          "conga_shell_wood": 0.9149999999999998
+          "percussion_technique": 1.8199999999999998,
+          "conga_set": 0.78,
+          "conga_skin": 2.2749999999999995,
+          "conga_shell_wood": 2.2749999999999995
         }
       }
     ],

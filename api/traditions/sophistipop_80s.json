@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 45.78650000000002,
-          "voice_quality": 2.650000000000002,
+          "voice_register": 65.16150000000003,
+          "voice_quality": 5.728000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.5715,
+          "voice_vibrato": 3.3714999999999997,
           "voice_articulation": 3.1000000000000005,
-          "voice_microtone": 42.60000000000002,
-          "voice_tradition": 37.03850000000001,
-          "voice_mechanism_compound": 1.69,
+          "voice_microtone": 61.97500000000002,
+          "voice_tradition": 45.938500000000005,
+          "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 3.2600000000000007,
-          "voice_speech_song": 6.954999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
+          "voice_speech_song": 11.634999999999998,
+          "voice_ensemble_config": 7.865,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 1.615,
-          "voice_processing_chain": 6.2589999999999995,
-          "voice_multitrack_stack": 4.874999999999999
+          "voice_processing_chain": 10.809,
+          "voice_multitrack_stack": 9.737
         }
       },
       {
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 28.50450000000001,
-          "grand_piano_size": 2.843,
-          "grand_piano_brand": 2.9899999999999998,
-          "piano_hammer": 28.83600000000001,
-          "piano_rim": 28.32150000000001,
-          "piano_soundboard": 28.20000000000001,
-          "piano_pinblock": -0.05,
-          "piano_plate": -0.05,
-          "piano_pitch_standard": -0.035
+          "keyboard_technique": 32.254500000000014,
+          "grand_piano_size": 4.443,
+          "grand_piano_brand": 4.6739999999999995,
+          "piano_hammer": 35.13600000000002,
+          "piano_rim": 34.77150000000001,
+          "piano_soundboard": 34.500000000000014,
+          "piano_pinblock": 2.5130000000000003,
+          "piano_plate": 4.029999999999999,
+          "piano_pitch_standard": 3.136
         }
       },
       {
@@ -91,13 +91,13 @@
         },
         "scores": {
           "electric_technique": 3.1500000000000004,
-          "amp_make": 7.117000000000001,
-          "body_wood": 2.948,
-          "pickup_config": 0.7095,
-          "string_type": 13.4575,
-          "scale_length_b": 2.5715,
+          "amp_make": 9.267,
+          "body_wood": 3.7479999999999998,
+          "pickup_config": 1.3,
+          "string_type": 28.2075,
+          "scale_length_b": 3.3714999999999997,
           "fretted_or_not": 0,
-          "bass_technique": 10.75
+          "bass_technique": 25.5
         }
       },
       {
@@ -116,17 +116,17 @@
           "drum_technique": "brushes_jazz"
         },
         "scores": {
-          "percussion_technique": 10.529999999999998,
+          "percussion_technique": 23.302499999999995,
           "shell_wood": 0.0735,
           "shell_thickness": 0,
-          "bearing_edges": 2.5715,
-          "drumhead": 28.23150000000001,
-          "snare_wires": 2.5715,
-          "cymbal_alloy": 32.031500000000015,
-          "cymbal_hammering": 32.21250000000001,
-          "cymbal_lathing": 32.13900000000001,
-          "cymbal_finish": 0.2265,
-          "drum_technique": 10.75
+          "bearing_edges": 3.3714999999999997,
+          "drumhead": 34.531500000000015,
+          "snare_wires": 3.3714999999999997,
+          "cymbal_alloy": 36.656500000000015,
+          "cymbal_hammering": 39.38750000000002,
+          "cymbal_lathing": 39.314000000000014,
+          "cymbal_finish": 0.845,
+          "drum_technique": 25.5
         }
       },
       {
@@ -142,12 +142,12 @@
         },
         "scores": {
           "wind_articulation": 3.3915,
-          "sax_size": 3.1500000000000004,
+          "sax_size": 3.3714999999999997,
           "sax_reed": 0.0315,
-          "sax_body_alloy": 10.7945,
+          "sax_body_alloy": 28.0945,
           "sax_mouthpiece": 0.105,
-          "sax_technique": 10.75,
-          "sax_maker_school": 13
+          "sax_technique": 25.5,
+          "sax_maker_school": 27.8175
         }
       }
     ],

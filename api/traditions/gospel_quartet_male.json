@@ -3,8 +3,8 @@
   "name": "Gospel quartet (male)",
   "family": "global",
   "lineage": "Black-American male-quartet gospel tradition that emerged from late-19th-century Fisk Jubilee Singers university choirs and the parallel post-WWI Black Church male-quartet tradition — codified through the Golden Gate Quartet (the pre-WWII quartet, founded 1934), the Soul Stirrers (where Sam Cooke fronted before his secular pop crossover), the Dixie Hummingbirds, the Mighty Clouds of Joy, the Swan Silvertones, the Five Blind Boys of Alabama, the Pilgrim Travelers — most active 1930s-60s, with the modern continuation through the Williams Brothers and the broader gospel-quartet circuit",
-  "recipe": "classic North American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel southern gospel piano-bass. thick, declaimed, ornamental, equal tempered. five voice polyphonic regional andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 905,
+  "recipe": "classic North American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel southern gospel piano-bass. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part five voice polyphonic regional andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 935,
   "score": 636.16,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 24.851625,
-          "voice_quality": 25.382124999999995,
+          "voice_register": 49.42662500000001,
+          "voice_quality": 49.15712500000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.043875,
-          "voice_articulation": 20,
-          "voice_microtone": 2.250000000000001,
-          "voice_tradition": 28.667625,
+          "voice_vibrato": 2.569375,
+          "voice_articulation": 39.375,
+          "voice_microtone": 4.25,
+          "voice_tradition": 48.192625,
           "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 22.74,
-          "voice_speech_song": 2.925,
-          "voice_ensemble_config": 19.937124999999998,
-          "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 0.25725,
-          "voice_processing_chain": 2.3339999999999996,
-          "voice_multitrack_stack": 1.0932499999999998
+          "voice_estill_quality": 42.76500000000001,
+          "voice_speech_song": 13.194999999999999,
+          "voice_ensemble_config": 39.31212500000001,
+          "voice_ornament_system": 9.15,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 2.145,
+          "voice_multitrack_stack": 1.8199999999999998
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 0.9794999999999999,
+          "choir_size": 1.95,
           "choir_polyphonic_configuration": 1.638625,
           "choir_regional_canonical_configuration": 1.550875,
-          "choir_ensemble_repertoire": 1.3
+          "choir_ensemble_repertoire": 4.9399999999999995
         }
       },
       {
@@ -81,15 +81,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 28.160249999999998,
-          "grand_piano_size": 0.088875,
+          "keyboard_technique": 47.685249999999996,
+          "grand_piano_size": 0.195,
           "grand_piano_brand": 0.49049999999999994,
-          "piano_hammer": 3.855875,
-          "piano_rim": 8.663499999999999,
-          "piano_soundboard": 5,
-          "piano_pinblock": 2.6,
-          "piano_plate": 2.5,
-          "piano_pitch_standard": 2.954125
+          "piano_hammer": 5.480875,
+          "piano_rim": 11.5885,
+          "piano_soundboard": 6.625,
+          "piano_pinblock": 4.725,
+          "piano_plate": 4.27,
+          "piano_pitch_standard": 5.079125
         }
       },
       {
@@ -103,12 +103,12 @@
           "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 28.160249999999998,
-          "drawbar_setting": 20.082125,
-          "rotary_speed": 19.95,
-          "percussion_setting": 0.23324999999999999,
-          "tonewheel_model": 23.269999999999996,
-          "leslie_cabinet_model": 0.07912499999999999
+          "keyboard_technique": 47.685249999999996,
+          "drawbar_setting": 39.607124999999996,
+          "rotary_speed": 39.325,
+          "percussion_setting": 0.195,
+          "tonewheel_model": 43.20525,
+          "leslie_cabinet_model": 0.585
         }
       },
       {
@@ -125,13 +125,13 @@
         },
         "scores": {
           "electric_technique": 2.4000000000000004,
-          "amp_make": 5.9666250000000005,
+          "amp_make": 7.566625,
           "body_wood": 0.08775000000000001,
-          "pickup_config": 0,
-          "string_type": 3.185,
-          "scale_length_b": 0.043875,
+          "pickup_config": 0.3899999999999998,
+          "string_type": 4.9725,
+          "scale_length_b": 0.1949999999999999,
           "fretted_or_not": 0.045,
-          "bass_technique": 2.5
+          "bass_technique": 4.125
         }
       },
       {
@@ -150,17 +150,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 2.8600000000000003,
-          "shell_wood": 0.045,
+          "percussion_technique": 9.49,
+          "shell_wood": 0.195,
           "shell_thickness": 0,
-          "bearing_edges": 0.043875,
-          "drumhead": 6.0195,
+          "bearing_edges": 0.1949999999999999,
+          "drumhead": 7.6445,
           "snare_wires": 0.043875,
-          "cymbal_alloy": 2.45,
-          "cymbal_hammering": 4.987125,
-          "cymbal_lathing": 5.0771250000000006,
-          "cymbal_finish": 0.045,
-          "drum_technique": 2.8600000000000003
+          "cymbal_alloy": 2.9308749999999995,
+          "cymbal_hammering": 6.612124999999999,
+          "cymbal_lathing": 6.852125,
+          "cymbal_finish": 0.195,
+          "drum_technique": 9.49
         }
       },
       {
@@ -170,8 +170,8 @@
           "tambourine_orch_context": "tambourine_orch_orch"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.15,
-          "tambourine_orch_context": 0.15
+          "tambourine_orch_jingle": 0.65,
+          "tambourine_orch_context": 0.65
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Amapiano",
   "family": "global",
   "lineage": "South African Pretoria-Johannesburg late-2010s house-jazz hybrid characterized by deep log-drum sub-bass figures, jazzy keys, and slowed 110-115 BPM tempo — codified through Kabza De Small, DJ Maphorisa, Mas Musiq, MFR Souls, and Vigro Deep from 2017 onward, exploding internationally 2020-2023",
-  "recipe": "classic 2020-2023 amapiano, electronic Dance, African dance branch, central east south African groove percussion ndombolo soukous. thick, low dynamic level, chest resonance low mid, equal tempered. log drum, rhodes electric, low sub bass digital subtractive, TR-808, sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 420,
+  "recipe": "classic 2020-2023 amapiano, electronic Dance, African dance branch, central east south African groove percussion ndombolo soukous. thick, low dynamic level, chest resonance low mid, punctuated. log drum, rhodes electric, low sub bass digital subtractive, TR-808, sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 416,
   "score": 160.988,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.666500000000002,
-          "voice_quality": 0.8919999999999999,
+          "voice_register": 5.716500000000001,
+          "voice_quality": 1.625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.9099999999999999,
-          "voice_articulation": 0.39862499999999995,
-          "voice_microtone": 3.750000000000001,
-          "voice_tradition": 13,
-          "voice_mechanism_compound": 1.584,
-          "voice_estill_quality": 0.39149999999999996,
-          "voice_speech_song": 4.874999999999999,
-          "voice_ensemble_config": 5.199999999999999,
-          "voice_ornament_system": 1.708,
-          "voice_pitch_organization": 1.53175,
-          "voice_processing_chain": 4.5945,
-          "voice_multitrack_stack": 4.7212499999999995
+          "voice_vibrato": 1.8200000000000003,
+          "voice_articulation": 1.17,
+          "voice_microtone": 5.8,
+          "voice_tradition": 25.561875,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 1.4299999999999997,
+          "voice_speech_song": 9.359999999999998,
+          "voice_ensemble_config": 9.034999999999998,
+          "voice_ornament_system": 2.008,
+          "voice_pitch_organization": 3.2500000000000004,
+          "voice_processing_chain": 6.11,
+          "voice_multitrack_stack": 5.52125
         }
       },
       {
@@ -59,8 +59,8 @@
           "log_drum_context": "log_drum_amapiano"
         },
         "scores": {
-          "log_drum_voice": 2.08,
-          "log_drum_context": 11.83
+          "log_drum_voice": 2.8599999999999994,
+          "log_drum_context": 18.265
         }
       },
       {
@@ -74,11 +74,11 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "rhodes_model": 5.268625,
-          "rhodes_use": 1.17,
-          "rhodes_tine_material": 0.39,
-          "rhodes_hammer_tip": -0.7,
+          "keyboard_technique": 1.7114999999999998,
+          "rhodes_model": 6.593624999999999,
+          "rhodes_use": 3.1849999999999996,
+          "rhodes_tine_material": 0.78,
+          "rhodes_hammer_tip": -0.35,
           "rhodes_pickup_position": 0.39
         }
       },
@@ -90,9 +90,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 3.9650000000000007,
-          "va_archetypes": 0.4545,
-          "digital_subtractive_context": 4.939999999999999
+          "electronic_technique": 4.634,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 9.164999999999997
         }
       },
       {
@@ -103,8 +103,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 4.0440000000000005,
-          "drum_machine_808_context": 4.16,
+          "tr808_voice": 4.344,
+          "drum_machine_808_context": 4.745,
           "tr808_production_origin": 0.18712499999999999
         }
       },
@@ -120,9 +120,9 @@
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.6499999999999999,
-          "sampler_workflow": -0.035,
-          "sampler_classic_context": 14.494999999999997
+          "sampler_bit_depth": 1.3,
+          "sampler_workflow": 0.5199999999999999,
+          "sampler_classic_context": 20.149999999999995
         }
       }
     ],

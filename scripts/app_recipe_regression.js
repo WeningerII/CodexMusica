@@ -101,9 +101,17 @@ function snapshotFromHtml(html) {
     process.exit(1);
   }
 
-  if (UPDATE || !fs.existsSync(SNAP)) {
+  // A missing snapshot is a FAILURE unless --update is explicit. Auto-creating it
+  // and exiting 0 turned a deleted/renamed baseline into a self-blessing no-op
+  // that asserts nothing (and silently writes a new baseline from whatever the
+  // current — possibly broken — behavior is).
+  if (!fs.existsSync(SNAP) && !UPDATE) {
+    console.error(`APP RECIPE REGRESSION: FAIL — no snapshot at ${SNAP}. Run with --update to create one.`);
+    process.exit(2);
+  }
+  if (UPDATE) {
     fs.writeFileSync(SNAP, JSON.stringify(snap, null, 2) + '\n');
-    console.error(`APP RECIPE REGRESSION: snapshot ${UPDATE ? 'updated' : 'created'} — ${keys.length} entries`);
+    console.error(`APP RECIPE REGRESSION: snapshot updated — ${keys.length} entries`);
     process.exit(0);
   }
 

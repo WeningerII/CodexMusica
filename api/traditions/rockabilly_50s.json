@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 18.924999999999994,
-          "voice_quality": 3.2950000000000004,
+          "voice_register": 63.15000000000001,
+          "voice_quality": 4.905,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.379999999999999,
-          "voice_articulation": 0.78,
-          "voice_microtone": 7.15,
-          "voice_tradition": 2.7300000000000004,
-          "voice_mechanism_compound": 3.769999999999999,
-          "voice_estill_quality": 12.574999999999998,
-          "voice_speech_song": 6.825,
-          "voice_ensemble_config": 4.159999999999999,
+          "voice_vibrato": 10.905,
+          "voice_articulation": 1.56,
+          "voice_microtone": 38.150000000000006,
+          "voice_tradition": 16.509999999999994,
+          "voice_mechanism_compound": 4.9399999999999995,
+          "voice_estill_quality": 15.999999999999998,
+          "voice_speech_song": 20.539999999999992,
+          "voice_ensemble_config": 13.714999999999995,
           "voice_ornament_system": 2.2,
           "voice_pitch_organization": 1.435,
-          "voice_processing_chain": 3.3900000000000006,
-          "voice_multitrack_stack": 5.59
+          "voice_processing_chain": 9.815000000000001,
+          "voice_multitrack_stack": 10.237499999999999
         }
       },
       {
@@ -63,11 +63,11 @@
           "semi_hollow_context": "semi_hollow_rockabilly_gretsch"
         },
         "scores": {
-          "electric_technique": 1.8799999999999997,
-          "amp_make": 18.59,
-          "semi_archetypes": 3,
-          "semi_hollow_pickup": 3.965,
-          "semi_hollow_strings": 0.18,
+          "electric_technique": 15.329999999999998,
+          "amp_make": 21.264999999999997,
+          "semi_archetypes": 17.809999999999995,
+          "semi_hollow_pickup": 13.779999999999994,
+          "semi_hollow_strings": 0.39,
           "semi_hollow_context": 4.3
         }
       },
@@ -88,18 +88,18 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 10.49,
-          "amp_make": 18.59,
-          "body_wood": 3.3799999999999994,
-          "neck_wood": 3.3799999999999994,
-          "fretboard": 3.3149999999999995,
-          "pickup_magnet": 0.18,
-          "string_material": 0.27,
-          "string_gauge": 3.3799999999999994,
-          "bridge": 0.15,
-          "scale_length": 3.3799999999999994,
+          "electric_technique": 15.329999999999998,
+          "amp_make": 21.264999999999997,
+          "body_wood": 5.249999999999999,
+          "neck_wood": 5.249999999999999,
+          "fretboard": 5.109999999999999,
+          "pickup_magnet": 0.195,
+          "string_material": 0.39,
+          "string_gauge": 5.659999999999999,
+          "bridge": 0.65,
+          "scale_length": 5.459999999999999,
           "finish": 0.09,
-          "string_tuning": 4.8100000000000005
+          "string_tuning": 14.884999999999998
         }
       },
       {
@@ -110,9 +110,9 @@
           "upright_play": "slap_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
-          "upright_strings": 0.22499999999999998,
-          "upright_play": 3.69
+          "acoustic_technique": 0.12999999999999998,
+          "upright_strings": 0.39,
+          "upright_play": 3.84
         }
       },
       {
@@ -131,17 +131,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 4.29,
+          "percussion_technique": 17.029999999999994,
           "shell_wood": 1.045,
-          "shell_thickness": 0.045,
-          "bearing_edges": 3.3799999999999994,
-          "drumhead": 3.3799999999999994,
-          "snare_wires": 3.3799999999999994,
-          "cymbal_alloy": 7.784999999999999,
-          "cymbal_hammering": 7.345000000000001,
-          "cymbal_lathing": 7.015000000000001,
-          "cymbal_finish": 0.375,
-          "drum_technique": 5.045
+          "shell_thickness": 0.195,
+          "bearing_edges": 5.01,
+          "drumhead": 13.839999999999998,
+          "snare_wires": 5.01,
+          "cymbal_alloy": 38.934999999999995,
+          "cymbal_hammering": 38.92,
+          "cymbal_lathing": 38.589999999999996,
+          "cymbal_finish": 0.195,
+          "drum_technique": 24.42
         }
       }
     ],

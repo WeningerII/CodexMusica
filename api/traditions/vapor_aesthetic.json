@@ -23,10 +23,10 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 3.9445,
+          "electronic_technique": 4.819500000000001,
           "oscillator": 0.813,
           "filter_topology": 1.1580000000000001,
-          "envelope": 1.95,
+          "envelope": 2.4050000000000002,
           "modulation": 0.15
         }
       },
@@ -40,11 +40,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 7.6129999999999995,
+          "electronic_technique": 15.988000000000001,
           "sampler_archetypes": 0.105,
           "sampler_bit_depth": 0.3045,
-          "sampler_workflow": 7.25,
-          "sampler_classic_context": 5.4
+          "sampler_workflow": 15.625000000000002,
+          "sampler_classic_context": 13.552499999999997
         }
       }
     ],

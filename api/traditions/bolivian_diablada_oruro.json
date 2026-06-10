@@ -3,8 +3,8 @@
   "name": "Bolivian diablada de Oruro (Carnaval de Oruro)",
   "family": "global",
   "lineage": "Bolivian Carnaval de Oruro diablada (devil-dance) processional tradition continuous from pre-Hispanic Andean ritual-dance practice through Spanish-colonial-era integration with Christian-Catholic devil-dance imagery (the post-1606 syncretism of Andean-Tio-deity worship with Catholic-devil-iconography) into modern Carnaval de Oruro continuous practice",
-  "recipe": "classic mid-1600s bolivian diablada de oruro, carnival Processional, andean branch, European carnival processional, americas wedding, iberian Latin protest song andean matrimonio huayno cologne karneval. forward-resonance, tasteful, continuous-phonation, andean quechua vocal. pvc continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, yamaha xeno modern Japanese continuous-airflow legato standard rim orchestral balance trumpet, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 694,
+  "recipe": "classic mid-1600s bolivian diablada de oruro, carnival Processional, andean branch, European carnival processional, americas wedding, iberian Latin protest song andean matrimonio huayno cologne karneval. thick, forward-resonance, tasteful, continuous-phonation. pvc continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato standard rim trumpet, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 707,
   "score": 280.589,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 0.1604464285714286,
-          "voice_quality": 12.306428571428567,
+          "voice_register": 0.515357142857143,
+          "voice_quality": 25.30642857142856,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 0.003214285714285714,
-          "voice_tradition": 17.05946428571428,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 11.653214285714284,
-          "voice_speech_song": 2.7950000000000004,
-          "voice_ensemble_config": 11.836964285714282,
-          "voice_ornament_system": 14.751964285714283,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 1.532142857142857,
-          "voice_multitrack_stack": 0.39
+          "voice_vibrato": 4.42,
+          "voice_articulation": 5.809374999999999,
+          "voice_microtone": 0.9200000000000002,
+          "voice_tradition": 35.80946428571428,
+          "voice_mechanism_compound": 4.165803571428571,
+          "voice_estill_quality": 20.15321428571428,
+          "voice_speech_song": 9.23,
+          "voice_ensemble_config": 20.48696428571428,
+          "voice_ornament_system": 27.17696428571428,
+          "voice_pitch_organization": 5.809374999999999,
+          "voice_processing_chain": 1.682142857142857,
+          "voice_multitrack_stack": 0.975
         }
       },
       {
@@ -60,9 +60,9 @@
           "quena_pitch": "quena_g"
         },
         "scores": {
-          "wind_articulation": 3.25,
-          "quena_material": 3.0387500000000003,
-          "quena_pitch": 0.75
+          "wind_articulation": 5.709375,
+          "quena_material": 4.81,
+          "quena_pitch": 5.249999999999999
         }
       },
       {
@@ -72,8 +72,8 @@
           "siku_size": "siku_malta"
         },
         "scores": {
-          "siku_construction": 7.799999999999999,
-          "siku_size": 0.39
+          "siku_construction": 13.276874999999997,
+          "siku_size": 0.78
         }
       },
       {
@@ -88,13 +88,13 @@
           "trumpet_maker_school": "trumpet_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 3.25,
-          "brass_size": 0.09321428571428571,
-          "trumpet_mouthpiece": 3.245,
+          "wind_articulation": 5.709375,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 8.495,
           "brass_mute": 0.012857142857142855,
-          "trumpet_technique": 0.19500000000000003,
-          "trumpet_bell_metal": 0.78,
-          "trumpet_maker_school": 1.69
+          "trumpet_technique": 0.585,
+          "trumpet_bell_metal": 2.21,
+          "trumpet_maker_school": 4.42
         }
       },
       {
@@ -113,17 +113,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 1.8199999999999998,
-          "shell_wood": 0.3570535714285714,
+          "percussion_technique": 7.8,
+          "shell_wood": 0.5070535714285713,
           "shell_thickness": 0.012857142857142855,
-          "bearing_edges": 1.69,
-          "drumhead": 4.701428571428572,
+          "bearing_edges": 4.42,
+          "drumhead": 10.60142857142857,
           "snare_wires": 0.2217857142857143,
-          "cymbal_alloy": 4.16,
-          "cymbal_hammering": 3.198214285714286,
-          "cymbal_lathing": 3.153214285714286,
+          "cymbal_alloy": 9.567589285714284,
+          "cymbal_hammering": 8.598214285714285,
+          "cymbal_lathing": 8.403214285714284,
           "cymbal_finish": 0.09321428571428571,
-          "drum_technique": 1.8199999999999998
+          "drum_technique": 7.8
         }
       }
     ],

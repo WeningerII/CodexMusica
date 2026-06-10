@@ -3,8 +3,8 @@
   "name": "American political hip-hop and conscious rap",
   "family": "global",
   "lineage": "American political hip-hop tradition continuous from 1980s Boogie-Down-Productions-and-Public-Enemy era through 1990s-2000s Native-Tongues-and-Rawkus-Records-era conscious rap into the 2010s-onward Black-Lives-Matter-era political hip-hop; centered on Public Enemy, KRS-One Boogie Down Productions, A Tribe Called Quest, Mos Def and Talib Kweli Black Star, Kendrick Lamar, Killer Mike Run the Jewels",
-  "recipe": "classic mid-1980s american political hip-hop and conscious rap, protest Song, urban American branch, anglo American protest song, MC rhythm, bass system conscious hip-hop french rap. rap, tasteful, narrative, beatbox. sampled chopped turntable, sampled chopped sampler drum machine, chopped sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 487,
+  "recipe": "classic mid-1980s american political hip-hop and conscious rap, protest Song, urban American branch, anglo American protest song, MC rhythm, bass system conscious hip-hop french rap. thick, rap, tasteful, narrative. sampled chopped turntable, sampled chopped sampler drum machine, chopped sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 485,
   "score": 379.746,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 21.1575,
+          "voice_register": 8.544999999999996,
+          "voice_quality": 42.857499999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.6749999999999999,
-          "voice_articulation": 6.6,
-          "voice_microtone": 0.49999999999999983,
-          "voice_tradition": 7.004999999999999,
-          "voice_mechanism_compound": 2.8300000000000005,
-          "voice_estill_quality": 0.585,
-          "voice_speech_song": 19.697499999999994,
-          "voice_ensemble_config": 8.969999999999999,
-          "voice_ornament_system": 0.9099999999999999,
+          "voice_vibrato": 1.105,
+          "voice_articulation": 19.574999999999996,
+          "voice_microtone": 4.925,
+          "voice_tradition": 16.005,
+          "voice_mechanism_compound": 3.4800000000000004,
+          "voice_estill_quality": 4.1450000000000005,
+          "voice_speech_song": 40.897499999999994,
+          "voice_ensemble_config": 20.734999999999992,
+          "voice_ornament_system": 1.105,
           "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 15.629999999999997,
-          "voice_multitrack_stack": 5.460000000000001
+          "voice_processing_chain": 33.98,
+          "voice_multitrack_stack": 6.785
         }
       },
       {
@@ -59,8 +59,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 6.529,
-          "turntable_technique": 6.194999999999999
+          "electronic_technique": 15.378999999999998,
+          "turntable_technique": 15.719999999999999
         }
       },
       {
@@ -72,9 +72,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 6.529,
-          "sample_bitdepth": 0.945,
-          "sample_swing": 10.139999999999999,
+          "electronic_technique": 15.378999999999998,
+          "sample_bitdepth": 1.3,
+          "sample_swing": 25.479999999999997,
           "sample_processing": 0.39
         }
       },
@@ -88,11 +88,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.529,
-          "sampler_archetypes": 10.139999999999999,
-          "sampler_bit_depth": 1.6199999999999997,
-          "sampler_workflow": 6.54,
-          "sampler_classic_context": 17.484999999999996
+          "electronic_technique": 15.378999999999998,
+          "sampler_archetypes": 25.479999999999997,
+          "sampler_bit_depth": 1.3,
+          "sampler_workflow": 15.983999999999998,
+          "sampler_classic_context": 39.65
         }
       }
     ],

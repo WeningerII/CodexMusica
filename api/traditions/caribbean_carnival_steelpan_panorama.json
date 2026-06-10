@@ -20,8 +20,8 @@
           "steelpan_context": "steelpan_orchestra"
         },
         "scores": {
-          "steelpan_voice": 0.9915000000000002,
-          "steelpan_context": 5.058
+          "steelpan_voice": 1.2349999999999999,
+          "steelpan_context": 5.707999999999999
         }
       },
       {
@@ -39,14 +39,14 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "cello_strings": 1.69,
-          "cello_top_wood": 3.25,
-          "cello_back_wood": 3.295,
-          "cello_varnish": 3.9114999999999998,
-          "cello_setup_period": 4.3715,
-          "cello_bow_grip": 0.15,
-          "cello_rosin": 3.695,
-          "cello_bow_stick": 3.445
+          "cello_strings": 2.535,
+          "cello_top_wood": 4.875,
+          "cello_back_wood": 4.92,
+          "cello_varnish": 5.5365,
+          "cello_setup_period": 5.9965,
+          "cello_bow_grip": 0.65,
+          "cello_rosin": 5.82,
+          "cello_bow_stick": 5.07
         }
       }
     ],

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 4.16,
-          "voice_quality": 3.045000000000001,
+          "voice_register": 5.135,
+          "voice_quality": 13.719999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.38999999999999996,
-          "voice_articulation": 1.69,
-          "voice_microtone": 3.150000000000001,
-          "voice_tradition": 8.385,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 10.205,
-          "voice_ensemble_config": 6.24,
-          "voice_ornament_system": 0,
+          "voice_articulation": 2.275,
+          "voice_microtone": 4.750000000000001,
+          "voice_tradition": 9.620000000000001,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 2.5024999999999995,
+          "voice_speech_song": 21.839999999999996,
+          "voice_ensemble_config": 15.404999999999998,
+          "voice_ornament_system": 0.7149999999999999,
           "voice_pitch_organization": 0.75,
-          "voice_processing_chain": 3.785,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 5.545000000000001,
+          "voice_multitrack_stack": 3.7375000000000007
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 3.2,
-          "amp_make": 1.2799999999999998,
+          "electric_technique": 5.625,
+          "amp_make": 1.7049999999999996,
           "body_wood": 0.21,
-          "neck_wood": 0.195,
-          "fretboard": 0.69,
-          "pickup_magnet": 0.15,
+          "neck_wood": 0.65,
+          "fretboard": 0.3,
+          "pickup_magnet": 0.65,
           "string_material": 0.15,
           "string_gauge": 0.21,
-          "bridge": 0.84,
-          "scale_length": 0.39,
+          "bridge": 0.845,
+          "scale_length": 0.195,
           "finish": 0,
-          "string_tuning": 2.0249999999999995
+          "string_tuning": 1.04
         }
       },
       {
@@ -90,8 +90,8 @@
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 1.58,
-          "tambourine_orch_context": 3.3150000000000004
+          "tambourine_orch_jingle": 1.73,
+          "tambourine_orch_context": 4.29
         }
       }
     ],

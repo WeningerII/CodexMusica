@@ -3,8 +3,8 @@
   "name": "Gabber",
   "family": "electronic",
   "lineage": "Mid-1990s Rotterdam hard-electronic-dance subgenre characterized by 180-200 bpm distorted-kick-drum dominance, aggressive sub-bass, and explicit working-class-Rotterdam subcultural identity — codified through DJ Paul Elstak, Rob Gee, Neophyte, the Rotterdam Records label, and the genre's explicit anti-Amsterdam-house cultural posture",
-  "recipe": "classic 1994-1996 gabber, electronic Dance, hardstyle branch, techno electronic dance peak-time techno detroit techno. digital subtractive, TR-909, sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 301,
+  "recipe": "classic 1994-1996 gabber, electronic Dance, hardstyle branch, techno electronic dance peak-time techno detroit techno. sub bass digital subtractive, roland tr 8s modern aira digital recreation TR-909, sound design field sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 373,
   "score": 66.139,
   "config": {
     "traditions": [
@@ -21,9 +21,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 2.7950000000000004,
+          "electronic_technique": 4.581,
           "va_archetypes": 0.07199999999999998,
-          "digital_subtractive_context": 6.109999999999998
+          "digital_subtractive_context": 13.454999999999997
         }
       },
       {
@@ -34,9 +34,9 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 3.49,
-          "drum_machine_909_context": 1.625,
-          "tr909_production_origin": 0.735
+          "tr909_voice": 6.515000000000001,
+          "drum_machine_909_context": 7.845999999999998,
+          "tr909_production_origin": 1.185
         }
       },
       {
@@ -49,11 +49,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": 1.7499999999999998,
           "sampler_archetypes": 0.325,
-          "sampler_bit_depth": 1.17,
-          "sampler_workflow": 0.75,
-          "sampler_classic_context": 12.739999999999997
+          "sampler_bit_depth": 1.8199999999999998,
+          "sampler_workflow": 1.8524999999999998,
+          "sampler_classic_context": 25.512499999999996
         }
       }
     ],

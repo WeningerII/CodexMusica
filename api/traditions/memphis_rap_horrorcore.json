@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 14.288250000000001,
+          "voice_register": 2.08,
+          "voice_quality": 23.363250000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9899999999999998,
-          "voice_articulation": 5.7615,
+          "voice_vibrato": 4.098249999999999,
+          "voice_articulation": 11.561500000000002,
           "voice_microtone": 0.168,
-          "voice_tradition": 7.9855,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 13.33225,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 0.105,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 7.7765,
-          "voice_multitrack_stack": 6.499999999999999
+          "voice_tradition": 11.8855,
+          "voice_mechanism_compound": 4.159999999999999,
+          "voice_estill_quality": 4.16,
+          "voice_speech_song": 22.40725,
+          "voice_ensemble_config": 13.714999999999995,
+          "voice_ornament_system": 0.175,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 15.401499999999999,
+          "voice_multitrack_stack": 7.6375
         }
       },
       {
@@ -59,9 +59,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 6.27075,
-          "drum_machine_808_context": 1.69,
-          "tr808_production_origin": 1.625
+          "tr808_voice": 10.170750000000002,
+          "drum_machine_808_context": 3.77,
+          "tr808_production_origin": 2.6650000000000005
         }
       },
       {
@@ -74,9 +74,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 6.356000000000001,
-          "oscillator": 1.02075,
-          "filter_topology": 2.9899999999999998,
+          "electronic_technique": 11.431000000000001,
+          "oscillator": 0.39,
+          "filter_topology": 4.225,
           "envelope": 0.29025,
           "modulation": 0
         }

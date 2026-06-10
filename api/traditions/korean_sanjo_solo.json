@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 1.56,
+          "voice_register": 3.38,
+          "voice_quality": 2.925000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.78,
-          "voice_articulation": 1.69,
-          "voice_microtone": 1.2149999999999999,
-          "voice_tradition": 13.455,
-          "voice_mechanism_compound": 4.1499999999999995,
-          "voice_estill_quality": 6.815,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 9.36,
-          "voice_ornament_system": 9.299999999999999,
-          "voice_pitch_organization": 5.35,
-          "voice_processing_chain": 2.2199999999999998,
-          "voice_multitrack_stack": 3.38
+          "voice_vibrato": 8.645,
+          "voice_articulation": 2.08,
+          "voice_microtone": 0.39,
+          "voice_tradition": 39.105000000000004,
+          "voice_mechanism_compound": 16.15,
+          "voice_estill_quality": 19.464999999999996,
+          "voice_speech_song": 17.215,
+          "voice_ensemble_config": 11.724999999999998,
+          "voice_ornament_system": 27.994999999999997,
+          "voice_pitch_organization": 26.65,
+          "voice_processing_chain": 3.2500000000000004,
+          "voice_multitrack_stack": 5.46
         }
       },
       {
@@ -62,8 +62,8 @@
           "janggu_lineage": "janggu_pansori_godo"
         },
         "scores": {
-          "janggu_use": 6.89,
-          "janggu_construction": 1.69,
+          "janggu_use": 13.129999999999999,
+          "janggu_construction": 3.5100000000000002,
           "janggu_shell_wood": 3.5999999999999996,
           "janggu_head": 3.5999999999999996,
           "janggu_lineage": 2.6
@@ -80,10 +80,10 @@
         },
         "scores": {
           "pansori_phonation_mechanism": 1.3,
-          "pansori_sigimsae_ornament": 2.84,
+          "pansori_sigimsae_ornament": 2.9899999999999993,
           "pansori_jangdan_cycle": 3.38,
           "pansori_chuimsae_response": 2.3,
-          "pansori_voice_repertoire": 3.38
+          "pansori_voice_repertoire": 5.915000000000001
         }
       },
       {
@@ -96,11 +96,11 @@
           "gayageum_strings": "gayageum_nylon_coated_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 4.445,
-          "gayageum_type": 7.244999999999999,
-          "gayageum_technique": 3.38,
+          "plucked_traditional_technique": 16.595,
+          "gayageum_type": 8.45,
+          "gayageum_technique": 5.2,
           "gayageum_top_wood": 3.5999999999999996,
-          "gayageum_strings": -1.155
+          "gayageum_strings": -1.0650000000000002
         }
       },
       {
@@ -113,9 +113,9 @@
           "geomungo_top_wood": "geomungo_paulownia"
         },
         "scores": {
-          "plucked_traditional_technique": 4.445,
+          "plucked_traditional_technique": 16.595,
           "geomungo_use": 3.7949999999999995,
-          "geomungo_technique": 5.329999999999999,
+          "geomungo_technique": 6.825,
           "geomungo_strings": 1.69,
           "geomungo_top_wood": 3.5999999999999996
         }
@@ -129,9 +129,9 @@
           "haegeum_body_wood": "haegeum_paulownia_body"
         },
         "scores": {
-          "bowed_technique": 4.445,
-          "haegeum_use": 2.21,
-          "haegeum_strings": 4.0649999999999995,
+          "bowed_technique": 16.595,
+          "haegeum_use": 8.645,
+          "haegeum_strings": 5.2,
           "haegeum_body_wood": 3.5999999999999996
         }
       },
@@ -143,7 +143,7 @@
         },
         "scores": {
           "daegeum_body": 0,
-          "daegeum_context": 0.735
+          "daegeum_context": 0.845
         }
       },
       {
@@ -156,7 +156,7 @@
           "ajaeng_string_material": "ajaeng_silk_canonical"
         },
         "scores": {
-          "bowed_technique": 4.445,
+          "bowed_technique": 16.595,
           "ajaeng_strings": 0.38999999999999996,
           "ajaeng_bow": 3.5999999999999996,
           "ajaeng_body_wood": 3.5999999999999996,

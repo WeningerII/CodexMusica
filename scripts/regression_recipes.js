@@ -1421,5 +1421,10 @@ if (missing.length > 0) {
   console.log(`  These will persist in the snapshot until --update is run.\n`);
 }
 
-if (diffs.length > 0) process.exit(1);
+// A fixture present in code but ABSENT from the snapshot (newFixtures), or a
+// snapshot entry whose fixture vanished (missing), means the baseline no longer
+// covers what it claims to — an emptied or truncated snapshot would otherwise
+// make every fixture "new" and the run pass vacuously. Both are failures: the
+// only path to green is an explicit, reviewed --update.
+if (diffs.length > 0 || newFixtures.length > 0 || missing.length > 0) process.exit(1);
 process.exit(0);

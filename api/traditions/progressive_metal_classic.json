@@ -3,8 +3,8 @@
   "name": "Progressive metal",
   "family": "global",
   "lineage": "Metal-prog-rock hybrid subgenre codified through Queensrÿche (Operation: Mindcrime 1988), Fates Warning (Awaken the Guardian 1986), Dream Theater (Images and Words 1992), Symphony X, and Watchtower; characterized by operatic-clean-vocal performances, virtuosic-twin-guitar lead lines, complex multi-meter compositions, and the conceptual-album / fantasy-narrative lyrical subject-matter tradition",
-  "recipe": "classic late-1980s progressive metal, distorted Rock, prog branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, nervy, narrative, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 634,
+  "recipe": "classic late-1980s progressive metal, distorted Rock, prog branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, nervy, narrative, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 680,
   "score": 511.349,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 10.89499999999999,
+          "voice_register": 36.445000000000014,
           "voice_quality": 0.313125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.55125,
-          "voice_articulation": 1.0999999999999999,
-          "voice_microtone": 10.918124999999996,
-          "voice_tradition": 3.1368750000000003,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 4.675000000000001,
+          "voice_microtone": 33.91812500000001,
+          "voice_tradition": 31.20562500000001,
           "voice_mechanism_compound": 14.389374999999996,
-          "voice_estill_quality": 1.755,
-          "voice_speech_song": 7.344999999999998,
-          "voice_ensemble_config": 6.889999999999999,
-          "voice_ornament_system": 0.19500000000000003,
-          "voice_pitch_organization": 0.9099999999999999,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 1.730625
+          "voice_estill_quality": 4.45875,
+          "voice_speech_song": 15.404999999999998,
+          "voice_ensemble_config": 14.494999999999996,
+          "voice_ornament_system": 1.0399999999999998,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 8.566875000000001,
+          "voice_multitrack_stack": 4.225
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 14.444999999999997,
-          "amp_make": 8.688125,
-          "body_wood": 6.499999999999999,
-          "neck_wood": 0.39,
-          "fretboard": 0.39,
+          "electric_technique": 16.445,
+          "amp_make": 9.488125,
+          "body_wood": 8.133125,
+          "neck_wood": 1.2349999999999999,
+          "fretboard": 1.2349999999999999,
           "pickup_magnet": 0.3,
           "pickup_winding": 0.313125,
-          "string_material": 0.39,
+          "string_material": 1.2349999999999999,
           "bridge": 0.313125,
-          "scale_length": 6.889999999999999,
+          "scale_length": 9.305,
           "string_gauge": 0.66375,
           "finish": 0,
-          "string_tuning": 11.699999999999998
+          "string_tuning": 14.108125
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 0.2,
-          "amp_make": 5.134999999999999,
+          "electric_technique": 2.4000000000000004,
+          "amp_make": 9.55875,
           "body_wood": 0.4125,
           "pickup_config": 0.39,
-          "string_type": 10.660624999999998,
+          "string_type": 30.97500000000001,
           "scale_length_b": 0.3,
           "fretted_or_not": 0.305625,
-          "bass_technique": 9.499999999999996
+          "bass_technique": 24.750000000000007
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 10.139999999999999,
-          "shell_wood": 0.39,
+          "percussion_technique": 38.80499999999999,
+          "shell_wood": 1.2349999999999999,
           "shell_thickness": 0.024375,
-          "bearing_edges": 0.39,
-          "drumhead": 2.2099999999999995,
+          "bearing_edges": 1.2349999999999999,
+          "drumhead": 30.925000000000004,
           "snare_wires": 0.20625,
-          "cymbal_alloy": 22.428124999999998,
-          "cymbal_hammering": 9.149999999999997,
-          "cymbal_lathing": 9.485624999999995,
-          "cymbal_finish": 0.39,
-          "drum_technique": 10.139999999999999
+          "cymbal_alloy": 33.41312500000001,
+          "cymbal_hammering": 26.750000000000007,
+          "cymbal_lathing": 24.750000000000007,
+          "cymbal_finish": 1.2349999999999999,
+          "drum_technique": 38.80499999999999
         }
       },
       {
@@ -146,10 +146,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 1.21125,
-          "poly_archetypes": 4.809999999999999,
+          "electronic_technique": 1.2425,
+          "poly_archetypes": 5.654999999999999,
           "poly_voices": 0.3,
-          "poly_maker_lineage": -0.17499999999999996
+          "poly_maker_lineage": 1.365
         }
       }
     ],

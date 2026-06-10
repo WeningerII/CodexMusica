@@ -3,8 +3,8 @@
   "name": "Baião",
   "family": "global",
   "lineage": "Brazilian Northeast rural-pastoral rhythm-and-song-form codified 1946-onward by accordion-zabumba-triangle pé-de-serra trio-instrumentation, named after the rural-stick-dance baião already documented 19th-century in Pernambuco-and-Bahia agreste-interior. The characteristic baião zabumba-pattern emphasizes the third sixteenth (the 'lifted' beat) and the eighth-note dotted accentuation, with sanfona-accordion delivering descant melody-and-chord-accompaniment. Lyrically focused on rural-Northeast everyday-life: drought (seca), cattle-ranching (vaqueiro), migration to Southern Brazilian cities, religious-folkloric culture (cordel literature, feast-days). The 1960s-MPB-tropicalia generation reframed baião as a national-symbol of Brazilian-northeastern identity in opposition to coastal-cosmopolitan bossa-nova-and-Rio-elite.",
-  "recipe": "classic North American modern baião, groove Percussion, Brazilian branch, Brazilian song functional song brazilian samba de roda do recôncavo pisadinha and arrocha. extended whistle, intimate aspirated, pure, punctuated. castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, triangulo forro, low mid rich spectrum cedar classical nylon-string guitar. estudio rozenblit recife. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 567,
+  "recipe": "classic North American modern baião, groove Percussion, Brazilian branch, Brazilian song functional song brazilian samba de roda do recôncavo pisadinha and arrocha. extended whistle, intimate aspirated, pure, punctuated. castagnari Italian premium folk music accordion, forró tradition baião tradition low stick with high bacalhau buzz zabumba, forró tradition open closed alternation triangulo forro, cedar strummed open chord ringing overtones classical nylon-string guitar. estudio rozenblit recife. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 634,
   "score": 137.383,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 0.7214999999999999,
+          "voice_register": 3.6725000000000003,
           "voice_quality": 7.7115,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.5715,
-          "voice_articulation": 0.78,
-          "voice_microtone": 0.0315,
-          "voice_tradition": 1.885,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 2.405,
-          "voice_speech_song": 10.335,
-          "voice_ensemble_config": 6.76,
-          "voice_ornament_system": 1.1309999999999998,
-          "voice_pitch_organization": 1.195,
-          "voice_processing_chain": 2.9899999999999998,
-          "voice_multitrack_stack": 1.3
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 1.4300000000000002,
+          "voice_microtone": 2.730000000000001,
+          "voice_tradition": 13.097499999999998,
+          "voice_mechanism_compound": 5.330000000000001,
+          "voice_estill_quality": 6.03,
+          "voice_speech_song": 21.970000000000002,
+          "voice_ensemble_config": 14.495000000000001,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 3.7199999999999998,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 2.08
         }
       },
       {
@@ -64,13 +64,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 1.1049999999999998,
+          "free_reed_technique": 1.56,
           "accordion_reed_material": 0.495,
           "musette_offset": 1,
           "reed_config": 1.3,
           "bellows": 0.5715,
-          "voicing_chamber": 0.5414999999999999,
-          "accordion_maker_school": 2.5304999999999995
+          "voicing_chamber": 1.4949999999999999,
+          "accordion_maker_school": 2.145
         }
       },
       {
@@ -80,8 +80,8 @@
           "zabumba_technique": "zabumba_baiao_pattern"
         },
         "scores": {
-          "zabumba_shell": 1.1565,
-          "zabumba_technique": 3.38
+          "zabumba_shell": 0.845,
+          "zabumba_technique": 9.165000000000001
         }
       },
       {
@@ -91,8 +91,8 @@
           "triangulo_pattern": "triangulo_forro_pattern"
         },
         "scores": {
-          "triangulo_size": 0.39,
-          "triangulo_pattern": 0.39
+          "triangulo_size": 2.535,
+          "triangulo_pattern": 2.535
         }
       },
       {
@@ -106,10 +106,10 @@
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 2.265,
+          "acoustic_technique": 4.14,
           "string_tuning": 0,
-          "top_wood_classical": 2.9899999999999998,
-          "bracing_classical": 0.7214999999999999,
+          "top_wood_classical": 5.784999999999999,
+          "bracing_classical": 0.845,
           "string_classical": 0.16499999999999998,
           "attack_technique_cl": 2.5
         }

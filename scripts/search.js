@@ -350,6 +350,27 @@ function search(seed, options = {}) {
     trace.push({ score: currentScore, desc: bestDesc });
   }
 
+  // Refresh per-slot score bookkeeping under the FINAL config. The hill-climb
+  // swaps variants (and auto-staple grows the tradition stack), but `scores`
+  // was written once at seed time — so translate's surfacing gates were reading
+  // the REPLACED variant's score under the SEED stack and silently dropped
+  // descriptors the final pick actually earns (afrobeat's Ampeg B-15 amp and
+  // conga-skin descriptors were the proving case). Context convention mirrors
+  // scoreConfig exactly: per-part isolated provider at weight 0.5, neighbors on.
+  const getFinalCtx = makeContextProvider(current.traditions, 0.5);
+  for (const inst of current.instruments || []) {
+    const cataInst = C.INSTRUMENTS.find((x) => x.id === inst.id);
+    if (!cataInst) continue;
+    inst.scores = inst.scores || {};
+    for (const part of cataInst.parts || []) {
+      const vid = (inst.slots || {})[part.id];
+      if (!vid) continue;
+      const variant = (part.variants || []).find((v) => v.id === vid);
+      if (!variant) continue;
+      inst.scores[part.id] = scoreVariant(variant, getFinalCtx(part.id), { useNeighbors: true, skipSignals: true }).score;
+    }
+  }
+
   return { config: current, score: currentScore, trace, breakdown: scoreConfig(current).breakdown };
 }
 

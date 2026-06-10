@@ -3,8 +3,8 @@
   "name": "Progressive trance",
   "family": "global",
   "lineage": "Late-1990s and 2000s long-arc trance subgenre characterized by 7-12-minute track lengths with extended dynamic build-and-release arcs — codified through Sasha and John Digweed’s Northern Exposure mixes (1996-1999), Hernán Cattáneo’s Buenos Aires DJ sets, and the GU (Global Underground) mix-CD series",
-  "recipe": "classic 1996-1999 progressive trance, electronic Dance, trance branch, ambient experimental electric dungeon synth vaporwave aesthetic. sustained pad analog poly synth, sustained pad digital subtractive, TR-909, sound design field sampler. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 397,
+  "recipe": "classic 1996-1999 progressive trance, electronic Dance, trance branch, ambient experimental electric dungeon synth vaporwave aesthetic. sustained pad analog poly synth, sustained pad digital subtractive, TR-909, field textural sampler. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 393,
   "score": 81.735,
   "config": {
     "traditions": [
@@ -22,10 +22,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 3.185,
+          "electronic_technique": 10.184999999999999,
           "poly_archetypes": 1.5299999999999998,
           "poly_voices": 1.5299999999999998,
-          "poly_maker_lineage": -1.225
+          "poly_maker_lineage": -0.31499999999999995
         }
       },
       {
@@ -36,9 +36,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 3.185,
+          "electronic_technique": 10.184999999999999,
           "va_archetypes": 5.599999999999999,
-          "digital_subtractive_context": 11.439999999999996
+          "digital_subtractive_context": 17.354999999999997
         }
       },
       {
@@ -64,11 +64,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.9399999999999997,
+          "electronic_technique": 7.49,
           "sampler_archetypes": 0.5849999999999999,
           "sampler_bit_depth": 0.43499999999999994,
-          "sampler_workflow": 2.2099999999999995,
-          "sampler_classic_context": 11.959999999999997
+          "sampler_workflow": 8.04,
+          "sampler_classic_context": 17.874999999999996
         }
       }
     ],

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 36.63675,
-          "voice_quality": 26.928749999999997,
+          "voice_register": 48.81174999999999,
+          "voice_quality": 36.42875,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.799999999999999,
-          "voice_articulation": 1.445,
-          "voice_microtone": 13.848999999999998,
-          "voice_tradition": 35.092999999999996,
-          "voice_mechanism_compound": 33.61725,
-          "voice_estill_quality": 2.7950000000000004,
-          "voice_speech_song": 12.414999999999996,
-          "voice_ensemble_config": 10.139999999999997,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 32.623749999999994,
-          "voice_processing_chain": 1.4,
-          "voice_multitrack_stack": 2.4699999999999998
+          "voice_vibrato": 8.384999999999998,
+          "voice_articulation": 2.8349999999999995,
+          "voice_microtone": 19.299,
+          "voice_tradition": 49.64299999999999,
+          "voice_mechanism_compound": 47.592249999999986,
+          "voice_estill_quality": 3.640000000000001,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 15.534999999999995,
+          "voice_ornament_system": 3.5249999999999995,
+          "voice_pitch_organization": 44.798749999999984,
+          "voice_processing_chain": 1.56,
+          "voice_multitrack_stack": 3.445
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "igil_body": 7.93,
+          "igil_body": 11.894999999999998,
           "igil_string": 0,
-          "igil_body_wood": 6.142499999999999,
-          "igil_tradition": 5.069999999999999
+          "igil_body_wood": 7.892499999999998,
+          "igil_tradition": 7.149999999999998
         }
       },
       {
@@ -76,7 +76,7 @@
           "tovshuur_body": "tovshuur_carved_wood_hide"
         },
         "scores": {
-          "tovshuur_strings": 11.699999999999998,
+          "tovshuur_strings": 18.083499999999997,
           "tovshuur_body": 0.39
         }
       },
@@ -90,11 +90,11 @@
           "morin_khuur_strings": "morin_khuur_horsehair_canonical"
         },
         "scores": {
-          "bowed_technique": 2.6000000000000005,
-          "morin_khuur_use": 14.20075,
-          "morin_khuur_construction": 0.69,
-          "morin_khuur_body_wood": 5.459999999999999,
-          "morin_khuur_strings": 2.08
+          "bowed_technique": 2.99,
+          "morin_khuur_use": 22.000749999999996,
+          "morin_khuur_construction": 0.845,
+          "morin_khuur_body_wood": 8.338999999999999,
+          "morin_khuur_strings": 2.275
         }
       }
     ],

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 5.85,
-          "voice_quality": 7.3450000000000015,
+          "voice_register": 21.904999999999998,
+          "voice_quality": 16.1525,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.29,
+          "voice_vibrato": 7.279999999999999,
           "voice_articulation": 1.625,
-          "voice_microtone": 2.7,
-          "voice_tradition": 11.634999999999994,
-          "voice_mechanism_compound": 13.715,
-          "voice_estill_quality": 4.485,
-          "voice_speech_song": 11.569999999999999,
-          "voice_ensemble_config": 14.819999999999999,
-          "voice_ornament_system": 4.16,
-          "voice_pitch_organization": 6.369999999999999,
-          "voice_processing_chain": 7.279999999999999,
-          "voice_multitrack_stack": 6.309624999999999
+          "voice_microtone": 3.95,
+          "voice_tradition": 20.2475,
+          "voice_mechanism_compound": 25.330000000000002,
+          "voice_estill_quality": 15.980999999999998,
+          "voice_speech_song": 22.879999999999995,
+          "voice_ensemble_config": 28.144999999999996,
+          "voice_ornament_system": 8.2,
+          "voice_pitch_organization": 23.139999999999997,
+          "voice_processing_chain": 10.075,
+          "voice_multitrack_stack": 7.309624999999999
         }
       },
       {
@@ -59,8 +59,8 @@
           "rolmo_tradition": "rolmo_yang_chant_ensemble_canonical"
         },
         "scores": {
-          "rolmo_body": 17.819249999999997,
-          "rolmo_tradition": 25.5281875
+          "rolmo_body": 25.01925,
+          "rolmo_tradition": 29.8281875
         }
       },
       {
@@ -70,8 +70,8 @@
           "rgya_gling_tradition": "rgya_gling_monastic_ceremonial_canonical"
         },
         "scores": {
-          "rgya_gling_body": 17.808562499999997,
-          "rgya_gling_tradition": 17.222749999999998
+          "rgya_gling_body": 25.0085625,
+          "rgya_gling_tradition": 22.92275
         }
       },
       {
@@ -81,8 +81,8 @@
           "dung_chen_tradition": "dung_chen_gelug_yang_chant_canonical"
         },
         "scores": {
-          "dung_chen_body": 14.133062499999998,
-          "dung_chen_tradition": 25.634625
+          "dung_chen_body": 18.8330625,
+          "dung_chen_tradition": 30.734625
         }
       },
       {
@@ -92,8 +92,8 @@
           "damaru_tradition": "damaru_gelug_ritual_canonical"
         },
         "scores": {
-          "damaru_body": 14.502999999999998,
-          "damaru_tradition": 20.02
+          "damaru_body": 20.703,
+          "damaru_tradition": 28.1250625
         }
       },
       {
@@ -108,13 +108,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.095000000000001,
-          "brass_size": 2.55,
-          "trumpet_mouthpiece": 5.915,
-          "brass_mute": 2.8449999999999998,
-          "trumpet_technique": 4.095000000000001,
-          "trumpet_bell_metal": 3.38,
-          "trumpet_maker_school": 1.69
+          "wind_articulation": 5.59,
+          "brass_size": 2.145,
+          "trumpet_mouthpiece": 9.475999999999999,
+          "brass_mute": 7.67,
+          "trumpet_technique": 5.59,
+          "trumpet_bell_metal": 4.875,
+          "trumpet_maker_school": 3.185
         }
       }
     ],

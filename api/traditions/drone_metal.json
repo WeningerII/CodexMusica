@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 24.159772727272724,
-          "amp_make": 8.125,
-          "body_wood": 8.319999999999999,
-          "neck_wood": 0.5700000000000001,
-          "fretboard": 0.5700000000000001,
+          "electric_technique": 41.08477272727273,
+          "amp_make": 30.487045454545452,
+          "body_wood": 16.12,
+          "neck_wood": 0.195,
+          "fretboard": 0.195,
           "pickup_magnet": 0.195,
-          "pickup_winding": 0.33204545454545453,
-          "string_material": 0.5700000000000001,
-          "bridge": 0.3770454545454545,
-          "scale_length": 8.319999999999999,
-          "string_gauge": 1.1440909090909093,
+          "pickup_winding": 0.195,
+          "string_material": 0.195,
+          "bridge": 0.39,
+          "scale_length": 16.509999999999998,
+          "string_gauge": 1.4299999999999997,
           "finish": 0,
-          "string_tuning": 14.559999999999999
+          "string_tuning": 26.585
         }
       },
       {
@@ -59,14 +59,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 6.475,
-          "amp_make": 6.955000000000001,
-          "body_wood": 0.7090909090909092,
+          "electric_technique": 25.2,
+          "amp_make": 30.487045454545452,
+          "body_wood": 0.195,
           "pickup_config": 0.39,
-          "string_type": 11.7,
-          "scale_length_b": 0.5611363636363635,
-          "fretted_or_not": 0.045,
-          "bass_technique": 8.145
+          "string_type": 20.475,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.195,
+          "bass_technique": 14.82
         }
       },
       {
@@ -85,17 +85,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 8.189999999999998,
-          "shell_wood": 2.194090909090909,
-          "shell_thickness": 0.045,
-          "bearing_edges": 0.7200000000000001,
-          "drumhead": 1.625,
-          "snare_wires": 0.3770454545454546,
-          "cymbal_alloy": 24.52,
-          "cymbal_hammering": 7.992045454545455,
-          "cymbal_lathing": 8.44,
-          "cymbal_finish": 0.5700000000000001,
-          "drum_technique": 8.189999999999998
+          "percussion_technique": 15.014999999999997,
+          "shell_wood": 2.21,
+          "shell_thickness": 0.195,
+          "bearing_edges": 0.195,
+          "drumhead": 3.055,
+          "snare_wires": 0.195,
+          "cymbal_alloy": 45.970000000000006,
+          "cymbal_hammering": 14.667045454545454,
+          "cymbal_lathing": 15.265,
+          "cymbal_finish": 0.5468181818181818,
+          "drum_technique": 15.014999999999997
         }
       },
       {
@@ -110,13 +110,13 @@
           "baritone_electric_pickup": "baritone_dual_humbucker"
         },
         "scores": {
-          "electric_technique": 17.18,
-          "amp_make": 8.125,
-          "baritone_use": 0.13704545454545453,
-          "baritone_electric_tuning": 9.099999999999998,
-          "baritone_electric_scale": 8.319999999999999,
-          "baritone_electric_strings": 18.4,
-          "baritone_electric_pickup": 16.195
+          "electric_technique": 32.23,
+          "amp_make": 30.487045454545452,
+          "baritone_use": 0.195,
+          "baritone_electric_tuning": 16.9,
+          "baritone_electric_scale": 17.615000000000002,
+          "baritone_electric_strings": 34.725,
+          "baritone_electric_pickup": 30.82
         }
       }
     ],

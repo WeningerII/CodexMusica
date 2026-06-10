@@ -3,8 +3,8 @@
   "name": "Microhouse (Kompakt-era)",
   "family": "global",
   "lineage": "Late-1990s and 2000s clicks-and-cuts microhouse subgenre codified through Akufen (Quebec), Matthew Herbert’s Around the House (1998), Luomo / Vladislav Delay, and the Force Inc / Mille Plateaux label catalog — characterized by tiny-sample-fragment production, glitch-and-skip percussion programming, and academic-electroacoustic compositional sensibility",
-  "recipe": "classic 1997-1999 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric chiptune / 8-bit. digital subtractive, glitched textural sampler, TR-909, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 338,
+  "recipe": "classic 1997-1999 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric chiptune / 8-bit. digital subtractive, glitched textural sampler, roland tr 8s modern aira digital recreation TR-909, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 382,
   "score": 74.815,
   "config": {
     "traditions": [
@@ -21,9 +21,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.19500000000000003,
+          "electronic_technique": 0.9431249999999999,
           "va_archetypes": 0.024,
-          "digital_subtractive_context": 7.279999999999999
+          "digital_subtractive_context": 14.689999999999998
         }
       },
       {
@@ -36,11 +36,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 3.8044999999999995,
+          "electronic_technique": 12.1795,
           "sampler_archetypes": 0.105,
           "sampler_bit_depth": 0.020999999999999998,
-          "sampler_workflow": 3.968,
-          "sampler_classic_context": 15.34
+          "sampler_workflow": 12.343,
+          "sampler_classic_context": 23.8875
         }
       },
       {
@@ -51,9 +51,9 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 6.685,
-          "drum_machine_909_context": 0.9101250000000001,
-          "tr909_production_origin": 0.3555
+          "tr909_voice": 8.21,
+          "drum_machine_909_context": 1.69,
+          "tr909_production_origin": 1.4949999999999999
         }
       },
       {
@@ -69,8 +69,8 @@
           "electronic_technique": 0.19500000000000003,
           "mono_oscillator": 0.015,
           "mono_filter": 0.39712499999999995,
-          "mono_archetypes": 0.435,
-          "mono_maker_lineage": -1.435
+          "mono_archetypes": 0.845,
+          "mono_maker_lineage": -0.525
         }
       }
     ],

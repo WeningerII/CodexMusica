@@ -3,8 +3,8 @@
   "name": "D-beat (Swedish hardcore)",
   "family": "rock_punk",
   "lineage": "Punk subgenre named for the distinctive 1-and-3 kick / 2-and-4 snare beat-pattern codified by Discharge (UK 1977-onward). Swedish D-beat-revival scene centered on Anti-Cimex, Mob 47, and (in the 1990s D-beat wave) Driller Killer and Wolfpack drove international circulation. Characterized by Discharge-derived beat-pattern, distorted-bass-and-guitar tone, and bleak anti-war anti-government political content.",
-  "recipe": "classic North American modern d-beat, distorted Rock, punk branch, thrash metal groove metal djent. thick, chest resonance low mid, punctuated, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 658,
+  "recipe": "classic North American modern d-beat, distorted Rock, punk branch, thrash metal groove metal djent. thick, low dynamic level, chest resonance low mid, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 661,
   "score": 374.332,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 6.656500000000001,
-          "voice_quality": 0,
+          "voice_register": 12.506499999999997,
+          "voice_quality": 2.1449999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.223,
-          "voice_articulation": 0.9175,
-          "voice_microtone": 5.355000000000002,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 2.535,
+          "voice_microtone": 10.905,
           "voice_tradition": 1.4949999999999999,
-          "voice_mechanism_compound": 10.01,
+          "voice_mechanism_compound": 28.7675,
           "voice_estill_quality": 1.4449999999999998,
-          "voice_speech_song": 10.075,
-          "voice_ensemble_config": 10.8245,
+          "voice_speech_song": 15.144999999999996,
+          "voice_ensemble_config": 15.079999999999995,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.4625,
+          "voice_pitch_organization": 2.5349999999999997,
           "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 1.5655000000000001
+          "voice_multitrack_stack": 7.050499999999999
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 9.74,
-          "amp_make": 15.209999999999999,
-          "body_wood": 1.2545000000000002,
-          "neck_wood": 1.223,
-          "fretboard": 0.7729999999999999,
-          "pickup_magnet": 0.8780000000000001,
-          "pickup_winding": 0.105,
+          "electric_technique": 30.546000000000003,
+          "amp_make": 21.174249999999997,
+          "body_wood": 15.015,
+          "neck_wood": 2.34,
+          "fretboard": 2.2749999999999995,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 0.45499999999999996,
           "string_material": 0.258,
-          "bridge": 1.223,
-          "scale_length": 2.4459999999999997,
-          "string_gauge": 1.5870000000000002,
+          "bridge": 2.34,
+          "scale_length": 11.83,
+          "string_gauge": 3.1849999999999996,
           "finish": 0,
-          "string_tuning": 3.7700000000000005
+          "string_tuning": 17.485
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 6.9815,
-          "amp_make": 4.485,
-          "body_wood": 2.4459999999999997,
-          "pickup_config": 0.7729999999999999,
-          "string_type": 7.15,
-          "scale_length_b": 1.223,
-          "fretted_or_not": 0.195,
-          "bass_technique": 12.5315
+          "electric_technique": 9.956499999999998,
+          "amp_make": 6.890000000000001,
+          "body_wood": 3.1849999999999996,
+          "pickup_config": 0.845,
+          "string_type": 13.162500000000001,
+          "scale_length_b": 2.34,
+          "fretted_or_not": 0.845,
+          "bass_technique": 17.1565
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 10.009999999999998,
-          "shell_wood": 0.6489999999999999,
+          "percussion_technique": 15.079999999999995,
+          "shell_wood": 0.845,
           "shell_thickness": 0,
-          "bearing_edges": 1.223,
-          "drumhead": 1.223,
-          "snare_wires": 1.223,
-          "cymbal_alloy": 14.508,
-          "cymbal_hammering": 8.2275,
-          "cymbal_lathing": 5.4,
+          "bearing_edges": 2.34,
+          "drumhead": 2.34,
+          "snare_wires": 2.34,
+          "cymbal_alloy": 34.38300000000001,
+          "cymbal_hammering": 14.427500000000002,
+          "cymbal_lathing": 10.950000000000001,
           "cymbal_finish": 0.258,
-          "drum_technique": 10.009999999999998
+          "drum_technique": 15.079999999999995
         }
       }
     ],

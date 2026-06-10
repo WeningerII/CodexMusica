@@ -3,8 +3,8 @@
   "name": "Contemporary urban gospel",
   "family": "global",
   "lineage": "Late-twentieth-century-onward African-American gospel music tradition modernizing the traditional church-choir-and-piano repertoire through R-and-B, funk, hip-hop, and quiet-storm production techniques — codified through Kirk Franklin (Why We Sing 1993), Mary Mary, Yolanda Adams, Donnie McClurkin, Israel and New Breed, with the genre serving as the contemporary mainstream of African-American sacred music",
-  "recipe": "classic early-1990s contemporary urban gospel, ritual Devotional, black gospel branch, soul R&B functional song doo-wop alt-r&b. thick, declaimed, nervy, ornamental. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, brushes-and-sticks drum kit, field sampler, contemporary full choir southern black gospel. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 775,
+  "recipe": "classic early-1990s contemporary urban gospel, ritual Devotional, black gospel branch, soul R&B functional song doo-wop alt-r&b. thick, declaimed, nervy, ornamental. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, field textural sampler, contemporary full choir southern black gospel. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 831,
   "score": 443.42,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 16.024999999999995,
-          "voice_quality": 17.579999999999995,
+          "voice_register": 30.424999999999997,
+          "voice_quality": 19.704999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8,
-          "voice_articulation": 13.999999999999998,
-          "voice_microtone": 0.75,
-          "voice_tradition": 17.519999999999996,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 15.977499999999997,
-          "voice_speech_song": 6.825,
-          "voice_ensemble_config": 14.784999999999997,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 1.5999999999999999,
-          "voice_processing_chain": 2.8075,
-          "voice_multitrack_stack": 1.17
+          "voice_vibrato": 0.845,
+          "voice_articulation": 15.249999999999998,
+          "voice_microtone": 7.675000000000001,
+          "voice_tradition": 24.169999999999998,
+          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_estill_quality": 22.4775,
+          "voice_speech_song": 18.264999999999997,
+          "voice_ensemble_config": 17.884999999999998,
+          "voice_ornament_system": 4.525,
+          "voice_pitch_organization": 2.73,
+          "voice_processing_chain": 5.589999999999998,
+          "voice_multitrack_stack": 5.817499999999999
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 1.8,
-          "choir_polyphonic_configuration": 1.275,
-          "choir_regional_canonical_configuration": 0.7525000000000002,
-          "choir_ensemble_repertoire": 2.6
+          "choir_size": 1.17,
+          "choir_polyphonic_configuration": 5.329999999999998,
+          "choir_regional_canonical_configuration": 0.585,
+          "choir_ensemble_repertoire": 5.9799999999999995
         }
       },
       {
@@ -78,12 +78,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 16.634999999999998,
-          "rhodes_model": 0.5249999999999999,
-          "rhodes_use": 0.5249999999999999,
+          "keyboard_technique": 23.134999999999998,
+          "rhodes_model": 0.195,
+          "rhodes_use": 4.874999999999998,
           "rhodes_tine_material": 0.39,
-          "rhodes_hammer_tip": -0.7,
-          "rhodes_pickup_position": 1.44
+          "rhodes_hammer_tip": -0.03500000000000003,
+          "rhodes_pickup_position": 1.04
         }
       },
       {
@@ -100,15 +100,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 16.634999999999998,
-          "grand_piano_size": 0.5249999999999999,
-          "grand_piano_brand": 2.9899999999999998,
-          "piano_hammer": 2.925,
-          "piano_rim": 5.005,
-          "piano_soundboard": 2.015,
+          "keyboard_technique": 23.134999999999998,
+          "grand_piano_size": 0.195,
+          "grand_piano_brand": 3.625,
+          "piano_hammer": 5.85,
+          "piano_rim": 8.565,
+          "piano_soundboard": 5.25,
           "piano_pinblock": 0.85,
-          "piano_plate": 2.9899999999999998,
-          "piano_pitch_standard": 0.975
+          "piano_plate": 4.029999999999999,
+          "piano_pitch_standard": 1.3649999999999998
         }
       },
       {
@@ -124,14 +124,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 4.2,
-          "amp_make": 5.07,
-          "body_wood": 1.0500000000000003,
+          "electric_technique": 9.45,
+          "amp_make": 14.342499999999998,
+          "body_wood": 0.195,
           "pickup_config": 0.39,
-          "string_type": 2.2099999999999995,
-          "scale_length_b": 0.5249999999999999,
+          "string_type": 10.464999999999998,
+          "scale_length_b": 0.39,
           "fretted_or_not": 0.105,
-          "bass_technique": 4.2
+          "bass_technique": 9.45
         }
       },
       {
@@ -150,17 +150,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 5.85,
-          "shell_wood": 0.8900000000000001,
+          "percussion_technique": 14.689999999999996,
+          "shell_wood": 1.04,
           "shell_thickness": 0,
-          "bearing_edges": 0.5249999999999999,
-          "drumhead": 0.8,
-          "snare_wires": 0.5249999999999999,
-          "cymbal_alloy": 0.9099999999999999,
-          "cymbal_hammering": 0.8449999999999999,
-          "cymbal_lathing": 0.945,
-          "cymbal_finish": 0.8,
-          "drum_technique": 5.85
+          "bearing_edges": 1.2349999999999999,
+          "drumhead": 5.34,
+          "snare_wires": 0.195,
+          "cymbal_alloy": 7.51,
+          "cymbal_hammering": 8.515,
+          "cymbal_lathing": 8.319999999999999,
+          "cymbal_finish": 0.845,
+          "drum_technique": 14.689999999999996
         }
       },
       {
@@ -173,11 +173,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.945,
+          "electronic_technique": 3.7,
           "sampler_archetypes": 3.38,
           "sampler_bit_depth": 0.39,
-          "sampler_workflow": 2.37,
-          "sampler_classic_context": 8.84
+          "sampler_workflow": 5.285,
+          "sampler_classic_context": 23.984999999999992
         }
       },
       {
@@ -190,7 +190,7 @@
         "scores": {
           "voices": 0.7775000000000001,
           "accompaniment": 2.9899999999999998,
-          "era": 5.9799999999999995
+          "era": 16.444999999999997
         }
       }
     ],

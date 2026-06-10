@@ -3,8 +3,8 @@
   "name": "Tappa (Punjabi-origin Hindustani semi-classical)",
   "family": "global",
   "lineage": "Hindustani semi-classical vocal genre originating in late-18th-century Punjab through Mian Ghulam Nabi Shori (Shori Mian), who adapted Punjabi camel-driver folk songs into a fast-melisma classical-vocal genre — characterized by its rapid-fire intricate ornamental melisma patterns (different from khayal sustained-then-fast structure) and continued through the Banaras gharana lineage (Girija Devi, Naina Devi, Shobha Gurtu)",
-  "recipe": "classic North American mid-1970s tappa, improv On Frame, indian classical improv branch, south Asian art music sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, ornamental. indian rosewood rosewood copper tabla, vocal male straight harmonium indian, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 487,
+  "recipe": "classic North American mid-1970s tappa, improv On Frame, indian classical improv branch, south Asian art music sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, ornamental. indian rosewood rosewood copper tabla, vocal male straight harmonium indian, gut 3 main playing strings tun cedar legato sarangi. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 497,
   "score": 269.846,
   "config": {
     "traditions": [
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 2.9899999999999998,
-          "voice_quality": 1.4949999999999999,
+          "voice_quality": 5.592500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.24,
+          "voice_vibrato": 9.23,
           "voice_articulation": 0.9814999999999999,
-          "voice_microtone": 1.3,
-          "voice_tradition": 20.214999999999996,
-          "voice_mechanism_compound": 11.899999999999999,
-          "voice_estill_quality": 12.918999999999999,
-          "voice_speech_song": 12.634499999999997,
-          "voice_ensemble_config": 2.8600000000000003,
-          "voice_ornament_system": 19.717499999999998,
-          "voice_pitch_organization": 14.481999999999998,
+          "voice_microtone": 2.145,
+          "voice_tradition": 37.857,
+          "voice_mechanism_compound": 17.65,
+          "voice_estill_quality": 18.668999999999997,
+          "voice_speech_song": 18.384499999999996,
+          "voice_ensemble_config": 8.254999999999999,
+          "voice_ornament_system": 31.781,
+          "voice_pitch_organization": 31.906999999999996,
           "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 3.3799999999999994
+          "voice_multitrack_stack": 4.225
         }
       },
       {
@@ -60,9 +60,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 8.515,
-          "tabla_bayan": 6.24,
-          "tabla_syahi": 1.69
+          "tabla_dayan": 11.504999999999999,
+          "tabla_bayan": 9.23,
+          "tabla_syahi": 2.535
         }
       },
       {
@@ -74,10 +74,10 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 3.319,
+          "free_reed_technique": 3.9690000000000003,
           "harmonium_action": 4.29,
-          "harmonium_voicing": 2.9899999999999998,
-          "harmonium_use": 9.23
+          "harmonium_voicing": 3.8349999999999995,
+          "harmonium_use": 12.219999999999999
         }
       },
       {
@@ -91,12 +91,12 @@
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "bowed_technique": 13.0315,
+          "bowed_technique": 18.7815,
           "sarangi_belly": 2.9899999999999998,
           "sarangi_taraf": 0.0315,
           "sarangi_bow": 0.1365,
-          "sarangi_main_strings": 2.925,
-          "sarangi_body_wood": 0.585
+          "sarangi_main_strings": 5.46,
+          "sarangi_body_wood": 2.5349999999999997
         }
       }
     ],

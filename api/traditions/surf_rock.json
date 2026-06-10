@@ -3,8 +3,8 @@
   "name": "Surf rock",
   "family": "rock_punk",
   "lineage": "Early-1960s southern California instrumental rock genre built on reverb-drenched single-coil-guitar lead lines and the wet-spring-reverb-tank sound — codified through Dick Dale (Surfer's Choice 1962, Misirlou), The Ventures (Walk Don't Run 1960), The Surfaris (Wipe Out 1963), The Chantays (Pipeline 1963), and the surfing-subculture commercial scene around Hermosa Beach and the South Bay",
-  "recipe": "classic North American 1960-1963 surf rock, distorted Rock, surf rock branch, classic distorted rock, pop rock functional song new wave yacht rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips spring reverb tremolo.",
-  "recipe_chars": 595,
+  "recipe": "classic North American 1960-1963 surf rock, distorted Rock, surf rock branch, classic distorted rock, pop rock functional song new wave yacht rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips spring reverb tremolo.",
+  "recipe_chars": 702,
   "score": 480.285,
   "config": {
     "traditions": [
@@ -30,18 +30,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 12.844999999999995,
-          "amp_make": 19.819999999999993,
-          "body_wood": 0.8943750000000001,
-          "neck_wood": 0.8943750000000001,
-          "fretboard": 0.69,
-          "pickup_magnet": 0.39,
-          "string_material": 0.195,
-          "string_gauge": 0.8943750000000001,
-          "bridge": 0.3,
-          "scale_length": 1.7887500000000003,
+          "electric_technique": 16.82,
+          "amp_make": 27.56,
+          "body_wood": 2.275,
+          "neck_wood": 2.275,
+          "fretboard": 2.21,
+          "pickup_magnet": 0.8878125,
+          "string_material": 0.585,
+          "string_gauge": 2.925,
+          "bridge": 0.5,
+          "scale_length": 2.275,
           "finish": 0.45,
-          "string_tuning": 11.569999999999999
+          "string_tuning": 23.335
         }
       },
       {
@@ -57,14 +57,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.6434374999999999,
-          "amp_make": 11.309999999999997,
-          "body_wood": 1.7887500000000003,
+          "electric_technique": 4.693437499999999,
+          "amp_make": 22.035,
+          "body_wood": 3.055,
           "pickup_config": 0.6,
-          "string_type": 26.65,
-          "scale_length_b": 0.8943750000000001,
+          "string_type": 48.8509375,
+          "scale_length_b": 2.275,
           "fretted_or_not": 0,
-          "bass_technique": 21.193437499999998
+          "bass_technique": 45.86843749999999
         }
       },
       {
@@ -83,17 +83,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 10.789999999999996,
-          "shell_wood": 1.1278124999999999,
+          "percussion_technique": 21.514999999999997,
+          "shell_wood": 1.7278125,
           "shell_thickness": 0,
-          "bearing_edges": 1.0893750000000002,
-          "drumhead": 2.0928125,
-          "snare_wires": 0.8943750000000001,
-          "cymbal_alloy": 24.4378125,
-          "cymbal_hammering": 23.034374999999997,
-          "cymbal_lathing": 22.592812499999997,
+          "bearing_edges": 2.275,
+          "drumhead": 16.142812499999998,
+          "snare_wires": 2.275,
+          "cymbal_alloy": 58.8378125,
+          "cymbal_hammering": 58.00937499999999,
+          "cymbal_lathing": 57.41781249999999,
           "cymbal_finish": 1.0378124999999998,
-          "drum_technique": 20.5928125
+          "drum_technique": 41.2178125
         }
       },
       {
@@ -108,13 +108,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.5978125,
-          "sax_size": 1.1015625,
-          "sax_reed": 0.1378125,
-          "sax_body_alloy": 0.5928125,
-          "sax_mouthpiece": 0.39,
-          "sax_technique": 0.5978125,
-          "sax_maker_school": 0
+          "wind_articulation": 1.4199999999999997,
+          "sax_size": 2.275,
+          "sax_reed": 0.585,
+          "sax_body_alloy": 3.4250000000000003,
+          "sax_mouthpiece": 0.8878125,
+          "sax_technique": 2.75,
+          "sax_maker_school": 3.5100000000000002
         }
       }
     ],

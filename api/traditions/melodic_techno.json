@@ -3,8 +3,8 @@
   "name": "Melodic techno (2010s emotional-arpeggiated techno)",
   "family": "electronic",
   "lineage": "2010s techno subgenre emphasizing emotional-melodic-development over rhythmic-functional dance-floor utility, with characteristic long arpeggiated-synth lead-melodies and sweeping-orchestral pad textures. Tale of Us (Italian duo Carmine Conte and Matteo Milleri) and their Afterlife label (founded 2016) anchored the canonical sound. Mind Against, Mathame, Adriatique, and the broader Innervisions-Diynamic-Afterlife label network defined the contemporary roster.",
-  "recipe": "classic melodic techno, electronic Dance, techno branch, house electronic dance melodic house fidget house. extended whistle, rap, melodic, punctuated. TR-808, analog synth, a 440 modern pitch us standard grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 411,
+  "recipe": "classic melodic techno, electronic Dance, techno branch, house electronic dance melodic house fidget house. extended whistle, rap, melodic, punctuated. TR-808, sustained pad analog synth, a 440 modern pitch us standard grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 425,
   "score": 121.819,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.5600000000000003,
-          "voice_quality": 1.56,
+          "voice_register": 1.56,
+          "voice_quality": 3.0437500000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.925,
-          "voice_articulation": 1.69,
-          "voice_microtone": 0.09,
-          "voice_tradition": 3.575,
-          "voice_mechanism_compound": 1.69,
+          "voice_vibrato": 5.637499999999999,
+          "voice_articulation": 3.18875,
+          "voice_microtone": 0.6,
+          "voice_tradition": 4.2250000000000005,
+          "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 4.585,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 6.629999999999999,
+          "voice_speech_song": 15.989999999999998,
+          "voice_ensemble_config": 15.924999999999997,
           "voice_ornament_system": 3.1500000000000004,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 8.95875,
-          "voice_multitrack_stack": 6.5512500000000005
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 16.50875,
+          "voice_multitrack_stack": 9.42625
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0,
-          "drum_machine_808_context": 1.5,
-          "tr808_production_origin": 0.43875000000000003
+          "tr808_voice": 1.2349999999999999,
+          "drum_machine_808_context": 1.625,
+          "tr808_production_origin": 0.845
         }
       },
       {
@@ -75,10 +75,10 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 2.25,
-          "oscillator": 1.69,
-          "filter_topology": 0.9450000000000002,
-          "envelope": 1.69,
+          "electronic_technique": 3.975,
+          "oscillator": 2.535,
+          "filter_topology": 1.3,
+          "envelope": 3.1437500000000003,
           "modulation": 1.3
         }
       },
@@ -99,9 +99,9 @@
           "keyboard_technique": 2.2,
           "grand_piano_size": 1.345,
           "grand_piano_brand": 2.93,
-          "piano_hammer": -0.035,
-          "piano_rim": -0.035,
-          "piano_soundboard": -0.035,
+          "piano_hammer": 0.69,
+          "piano_rim": 0.78,
+          "piano_soundboard": 0.7149999999999999,
           "piano_pinblock": -0.05,
           "piano_plate": -0.05,
           "piano_pitch_standard": 1.625

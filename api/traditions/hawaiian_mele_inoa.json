@@ -3,8 +3,8 @@
   "name": "Hawaiian mele inoa (name-song / praise-chant)",
   "family": "global",
   "lineage": "Hawaiian praise-and-name-chant tradition continuous from pre-contact Hawaiian ritual-practice through 19th-century Hawaiian-Kingdom-era continuous performance and publication into 20th-century Hawaiian-cultural-revival; the mele inoa is the canonical Hawaiian praise-chant-form naming the praise-receiver through genealogical-and-place-name lineage",
-  "recipe": "classic modern hawaiian mele inoa, praise Song, oceania pacific branch, oceania pacific funeral lament, indigenous ritual devotional, indian bard ballad poetry inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. declaimed, continuous-phonation, polynesian oli chant, ingressive egressive paired breath. hawaiian heiau outdoor lava stone temple. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 494,
+  "recipe": "classic modern hawaiian mele inoa, praise Song, oceania pacific branch, oceania pacific funeral lament, indigenous ritual devotional, indian bard ballad poetry inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, continuous-phonation. hawaiian heiau outdoor lava stone temple. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 468,
   "score": 207.836,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 20.470124999999992,
+          "voice_register": 6.865,
+          "voice_quality": 25.970124999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.44999999999999996,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 0.38999999999999996,
-          "voice_tradition": 42.25,
-          "voice_mechanism_compound": 1.845,
-          "voice_estill_quality": 1.0136249999999998,
-          "voice_speech_song": 9.034999999999998,
-          "voice_ensemble_config": 6.109999999999999,
-          "voice_ornament_system": 7.475000000000001,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 1.4949999999999999,
-          "voice_multitrack_stack": 1.4549999999999998
+          "voice_vibrato": 1.7550000000000001,
+          "voice_articulation": 4.01275,
+          "voice_microtone": 6.395000000000001,
+          "voice_tradition": 52.55425,
+          "voice_mechanism_compound": 21.695,
+          "voice_estill_quality": 6.24,
+          "voice_speech_song": 26,
+          "voice_ensemble_config": 23.53,
+          "voice_ornament_system": 9.100000000000001,
+          "voice_pitch_organization": 7.343625,
+          "voice_processing_chain": 5.07,
+          "voice_multitrack_stack": 3.38
         }
       }
     ],

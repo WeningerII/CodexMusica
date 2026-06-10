@@ -3,8 +3,8 @@
   "name": "Bulgarian womens diaphonic three-voice polyphony",
   "family": "global",
   "lineage": "Bulgarian womens unaccompanied three-voice diaphonic polyphony with open-throated high-pressure phonation, deliberate parallel-second-seventh-ninth cluster harmony, minimal vibrato, and Filip Kutev Choir state-ensemble canonical preservation — the Le Mystère des Voix Bulgares international canon (Marcel Cellier ethnomusicology-recording lineage 1975-onward) brought the tradition into the global-recording marketplace, with regional sub-traditions Shopski (West Bulgarian Sofia-Pirin region, the canonical paired-second-seventh-cluster), Rodopski (Rhodope mountains drone-with-ornament tradition), Pirin (Macedonian-Bulgarian border tradition), Thracian; the Plovdiv Academy of Music and Dance Arts and the Sofia State Folk Choir infrastructure preserve the academic-conservatoire lineage",
-  "recipe": "classic modern bulgarian womens diaphonic three-voice polyphony, drone Modal, vocal branch, Slavic bard ballad poetry, Mediterranean ballad ballad poetry italian southern folk cante jondo siguiriya. thick, declaimed, continuous-phonation, Mediterranean demotic vocal. choir bulgarian womens, a cappella small 3 to 8 one per part three voice polyphonic regional bulgarian women three voice diaphonic cluster global traditional polyphonic choir ensemble, rhodope plum canonical rhodope cane arundo donax single reed canonical bulgarian whole goatskin fleece outside canonical rhodope melodic gaida bulgarian, plum canonical bulgarian melodic kaval. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 791,
+  "recipe": "classic modern bulgarian womens diaphonic three-voice polyphony, drone Modal, vocal branch, Slavic bard ballad poetry, Mediterranean ballad ballad poetry italian southern folk cante jondo siguiriya. thick, declaimed, nervy, continuous-phonation. choir bulgarian womens, a cappella small 3 to 8 one per part three voice polyphonic regional bulgarian women three voice diaphonic cluster global traditional polyphonic choir ensemble, rhodope plum canonical rhodope cane arundo donax single reed canonical bulgarian whole goatskin fleece outside canonical rhodope melodic gaida bulgarian, plum canonical bulgarian melodic kaval. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 769,
   "score": 249.495,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.835,
-          "voice_quality": 3.3500000000000014,
+          "voice_register": 4.9750000000000005,
+          "voice_quality": 5.5200000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
-          "voice_articulation": 1.69,
-          "voice_microtone": 0.39,
-          "voice_tradition": 22.490000000000002,
-          "voice_mechanism_compound": 7.409999999999999,
-          "voice_estill_quality": 7.405,
-          "voice_speech_song": 6.564999999999999,
-          "voice_ensemble_config": 20.154999999999994,
-          "voice_ornament_system": 4.029999999999999,
-          "voice_pitch_organization": 3.769999999999999,
-          "voice_processing_chain": 4.159999999999999,
-          "voice_multitrack_stack": 3.289999999999999
+          "voice_vibrato": 1.3449999999999998,
+          "voice_articulation": 1.8399999999999999,
+          "voice_microtone": 2.875,
+          "voice_tradition": 30.384999999999998,
+          "voice_mechanism_compound": 9.8,
+          "voice_estill_quality": 13.139999999999997,
+          "voice_speech_song": 13.974999999999994,
+          "voice_ensemble_config": 22.179999999999996,
+          "voice_ornament_system": 6.8999999999999995,
+          "voice_pitch_organization": 5.084999999999999,
+          "voice_processing_chain": 5.085,
+          "voice_multitrack_stack": 3.965
         }
       },
       {
@@ -60,7 +60,7 @@
         },
         "scores": {
           "technique": 0.15,
-          "arrangement": 1.3
+          "arrangement": 2.6
         }
       },
       {
@@ -72,10 +72,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 4.039999999999999,
-          "choir_polyphonic_configuration": 12.504999999999999,
-          "choir_regional_canonical_configuration": 27.119999999999994,
-          "choir_ensemble_repertoire": 6.759999999999999
+          "choir_size": 6.825,
+          "choir_polyphonic_configuration": 14.304999999999996,
+          "choir_regional_canonical_configuration": 27.619999999999994,
+          "choir_ensemble_repertoire": 10.399999999999999
         }
       },
       {
@@ -89,12 +89,12 @@
           "gaida_bag": "gaida_goatskin_canonical"
         },
         "scores": {
-          "wind_articulation": 3.035,
-          "gaida_origin": 2.9899999999999998,
-          "gaida_bulgarian_context": 1.3,
-          "gaida_chanter_wood": 4.935,
-          "gaida_reed": 9.134999999999998,
-          "gaida_bag": 4.935
+          "wind_articulation": 5.21,
+          "gaida_origin": 3.6399999999999997,
+          "gaida_bulgarian_context": 2.145,
+          "gaida_chanter_wood": 6.234999999999999,
+          "gaida_reed": 10.434999999999999,
+          "gaida_bag": 6.234999999999999
         }
       },
       {
@@ -106,10 +106,10 @@
           "kaval_body_wood": "kaval_plum_canonical"
         },
         "scores": {
-          "wind_articulation": 3.035,
-          "kaval_region": 0.9099999999999999,
-          "kaval_context": 0.63,
-          "kaval_body_wood": 9.134999999999998
+          "wind_articulation": 5.21,
+          "kaval_region": 1.7550000000000001,
+          "kaval_context": 0.65,
+          "kaval_body_wood": 10.434999999999999
         }
       }
     ],

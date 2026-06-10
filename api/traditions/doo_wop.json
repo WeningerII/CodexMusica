@@ -3,8 +3,8 @@
   "name": "Doo-wop",
   "family": "blues_gospel",
   "lineage": "Late-1940s through early-1960s African-American (originally) and Italian-American (East Coast urban) vocal-harmony group teen-pop R&B tradition built on the I-vi-IV-V chord cycle and non-lexical vocal syllables (shooby-doo-wop) — the Orioles, the Ravens, the Five Satins, the Penguins (Earth Angel, 1954), the Platters, Frankie Lymon and the Teenagers (Why Do Fools Fall in Love, 1956)",
-  "recipe": "classic North American 1947-1949 doo-wop, functional Song, doowop branch, christian gospel jubilee quartet, pop rock functional song new wave yacht rock. thick, blues-shouter, chest resonance low mid, narrative. choir doo wop group, block chord upright piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, upright bass, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, pre muffled edge muffled hot rolled annealed machine hammered drum kit, khoisan click articulated song syllables vocal percussion solo lead inhaled power snare ingressive distortion vocal percussion voice. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 863,
+  "recipe": "classic North American 1947-1949 doo-wop, functional Song, doowop branch, christian gospel jubilee quartet, pop rock functional song new wave yacht rock. thick, blues-shouter, chest resonance low mid, narrative. choir doo wop group, block chord upright piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, growly gut upright bass, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, birch pre muffled edge muffled hot rolled annealed drum kit, khoisan click articulated song syllables vocal percussion solo lead vocal percussion voice. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 841,
   "score": 598.102,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 19.224999999999994,
+          "voice_register": 57.800000000000004,
           "voice_quality": 8.605000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.735,
-          "voice_articulation": 7.055624999999999,
-          "voice_microtone": 8.799999999999997,
-          "voice_tradition": 14.429999999999996,
-          "voice_mechanism_compound": 2.34,
+          "voice_vibrato": 2.6650000000000005,
+          "voice_articulation": 7.480625,
+          "voice_microtone": 45.85000000000001,
+          "voice_tradition": 25.48,
+          "voice_mechanism_compound": 3.705,
           "voice_estill_quality": 9.291249999999998,
-          "voice_speech_song": 14.104999999999997,
-          "voice_ensemble_config": 11.179999999999996,
+          "voice_speech_song": 25.739999999999995,
+          "voice_ensemble_config": 19.369999999999997,
           "voice_ornament_system": 2.4000000000000004,
           "voice_pitch_organization": 2.035,
-          "voice_processing_chain": 6.759999999999998,
-          "voice_multitrack_stack": 7.280000000000001
+          "voice_processing_chain": 11.32875,
+          "voice_multitrack_stack": 10.79
         }
       },
       {
@@ -59,7 +59,7 @@
           "arrangement": "doo_wop_with_band"
         },
         "scores": {
-          "voices": 0.78,
+          "voices": 2.6650000000000005,
           "arrangement": 0.39
         }
       },
@@ -71,9 +71,9 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 10.12,
-          "upright_use": 0.39,
-          "upright_piano_size": 0.39
+          "keyboard_technique": 22.65,
+          "upright_use": 2.6650000000000005,
+          "upright_piano_size": 0.78
         }
       },
       {
@@ -93,18 +93,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 8.929999999999998,
-          "amp_make": 11.264374999999998,
-          "body_wood": 0.39,
-          "neck_wood": 0.39,
-          "fretboard": 0.39,
-          "pickup_magnet": 0.135,
-          "string_material": 0.23625,
-          "string_gauge": 0.39,
-          "bridge": 0.15,
-          "scale_length": 0.39,
+          "electric_technique": 23.955,
+          "amp_make": 17.419999999999998,
+          "body_wood": 2.6650000000000005,
+          "neck_wood": 2.6650000000000005,
+          "fretboard": 2.6000000000000005,
+          "pickup_magnet": 0.585,
+          "string_material": 0.585,
+          "string_gauge": 3.3150000000000004,
+          "bridge": 0.65,
+          "scale_length": 2.6650000000000005,
           "finish": 0.09,
-          "string_tuning": 3.38
+          "string_tuning": 16.055
         }
       },
       {
@@ -115,9 +115,9 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 2.225,
-          "upright_strings": 0.18562499999999998,
-          "upright_play": 0.39
+          "acoustic_technique": 2.825,
+          "upright_strings": 2.75,
+          "upright_play": 2.75
         }
       },
       {
@@ -132,13 +132,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 8.915,
-          "sax_size": 6.739999999999999,
-          "sax_reed": 0.135,
-          "sax_body_alloy": -0.035,
-          "sax_mouthpiece": 0.135,
-          "sax_technique": 6.6499999999999995,
-          "sax_maker_school": 2.8600000000000003
+          "wind_articulation": 9.84,
+          "sax_size": 7.165,
+          "sax_reed": 0.585,
+          "sax_body_alloy": 3.215,
+          "sax_mouthpiece": 0.585,
+          "sax_technique": 7.074999999999999,
+          "sax_maker_school": 6.244999999999999
         }
       },
       {
@@ -157,17 +157,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 10.789999999999996,
-          "shell_wood": 0.39,
+          "percussion_technique": 21.514999999999997,
+          "shell_wood": 1.17,
           "shell_thickness": 0.050624999999999996,
-          "bearing_edges": 0.39,
-          "drumhead": 6.539999999999999,
-          "snare_wires": 0.39,
-          "cymbal_alloy": 9.135,
-          "cymbal_hammering": 9.549999999999999,
-          "cymbal_lathing": 9.720624999999998,
-          "cymbal_finish": 0.39,
-          "drum_technique": 10.789999999999996
+          "bearing_edges": 2.6650000000000005,
+          "drumhead": 20.59,
+          "snare_wires": 2.6650000000000005,
+          "cymbal_alloy": 43.535,
+          "cymbal_hammering": 44.525,
+          "cymbal_lathing": 44.545625,
+          "cymbal_finish": 0.585,
+          "drum_technique": 23.470000000000002
         }
       },
       {
@@ -180,9 +180,9 @@
         },
         "scores": {
           "vocal_percussion_airstream_mechanism": 0.045,
-          "vocal_percussion_beatbox_articulation": 1.0949999999999998,
-          "vocal_percussion_syllabic_drum_system": 4.485,
-          "vocal_percussion_context": 7.669999999999997
+          "vocal_percussion_beatbox_articulation": 0.585,
+          "vocal_percussion_syllabic_drum_system": 7.930000000000001,
+          "vocal_percussion_context": 9.099999999999998
         }
       }
     ],

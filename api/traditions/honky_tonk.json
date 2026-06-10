@@ -3,8 +3,8 @@
   "name": "Honky-tonk",
   "family": "vernacular",
   "lineage": "Post-WWII Texas-and-Tennessee honky-tonk country tradition that dominated commercial country from 1945-1955 — codified through Ernest Tubb (Walking the Floor Over You 1941, the founding honky-tonk recording), Hank Williams (the honky-tonk figure, Lovesick Blues 1949, Im So Lonesome I Could Cry 1949, his 1953 death at 29 closed the founding era), Lefty Frizzell (the most-imitated honky-tonk vocalist), Webb Pierce, Faron Young, Ray Price; characterized by amplified-band dance-hall instrumentation (pedal steel guitar, fiddle, electric guitar, upright bass, drums) and lyrical content of working-class drinking, cheating, and barroom-romantic-loss",
-  "recipe": "classic North American mid-1950s honky-tonk, functional Song, honky tonk era branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, worn fold, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup nickel plated steel nickel single coil electric guitar, sustaining steel upright bass, steel fx9 manganese bronze over hammered post lathe strikes drum kit, steel double stops rubber fiddle, tack upright piano. honky tonk dance hall. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
-  "recipe_chars": 762,
+  "recipe": "classic North American mid-1950s honky-tonk, functional Song, honky tonk era branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, worn fold, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, sustaining steel upright bass, steel fx9 manganese bronze over hammered post lathe strikes drum kit, steel double stops rubber fiddle, tack upright piano. honky tonk dance hall. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
+  "recipe_chars": 753,
   "score": 432.918,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 13.099999999999994,
-          "voice_quality": 1.0999999999999999,
+          "voice_register": 33.775,
+          "voice_quality": 2.575,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.785,
-          "voice_articulation": 0.69,
+          "voice_vibrato": 15.66,
+          "voice_articulation": 1.9249999999999998,
           "voice_microtone": 1.675,
-          "voice_tradition": 3.0550000000000015,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 12.264999999999997,
-          "voice_speech_song": 10.204999999999998,
-          "voice_ensemble_config": 7.2799999999999985,
-          "voice_ornament_system": 0.7149999999999997,
-          "voice_pitch_organization": 0.78,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 0.9099999999999997
+          "voice_tradition": 24.569999999999997,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 18.439999999999998,
+          "voice_speech_song": 18.589999999999996,
+          "voice_ensemble_config": 12.804999999999994,
+          "voice_ornament_system": 3.1200000000000006,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 4.485,
+          "voice_multitrack_stack": 4.7125
         }
       },
       {
@@ -65,14 +65,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 13.035,
-          "amp_make": 10.649999999999997,
-          "pickup_steel": 0.39,
-          "string_setup": 4.1899999999999995,
-          "bar_material": 1.69,
-          "pedal_steel_brand": 11.519999999999998,
-          "pedal_steel_neck_config": 10.37,
-          "pedal_steel_strings": 10.384999999999998
+          "electric_technique": 18.909999999999997,
+          "amp_make": 17.674999999999997,
+          "pickup_steel": 1.7349999999999999,
+          "string_setup": 6.539999999999999,
+          "bar_material": 1.885,
+          "pedal_steel_brand": 19.194999999999997,
+          "pedal_steel_neck_config": 16.244999999999997,
+          "pedal_steel_strings": 16.91
         }
       },
       {
@@ -92,18 +92,18 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 10.295,
-          "amp_make": 10.649999999999997,
-          "body_wood": 0.39,
-          "neck_wood": 0.43499999999999994,
-          "fretboard": 0.345,
+          "electric_technique": 17.03,
+          "amp_make": 18.75,
+          "body_wood": 1.7349999999999999,
+          "neck_wood": 1.7349999999999999,
+          "fretboard": 1.6849999999999998,
           "pickup_magnet": 0.285,
           "string_material": 1.69,
-          "string_gauge": 0.39,
+          "string_gauge": 1.7349999999999999,
           "bridge": 0.09,
-          "scale_length": 0.39,
+          "scale_length": 1.885,
           "finish": 0.3,
-          "string_tuning": 1.69
+          "string_tuning": 3.3799999999999994
         }
       },
       {
@@ -135,17 +135,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 6.889999999999999,
+          "percussion_technique": 12.414999999999994,
           "shell_wood": 1.69,
           "shell_thickness": 0.39,
-          "bearing_edges": 0.39,
-          "drumhead": 0.39,
-          "snare_wires": 0.39,
-          "cymbal_alloy": 2.7850000000000006,
-          "cymbal_hammering": 2.925,
-          "cymbal_lathing": 1.0849999999999997,
+          "bearing_edges": 1.885,
+          "drumhead": 1.8399999999999999,
+          "snare_wires": 1.78,
+          "cymbal_alloy": 2.975,
+          "cymbal_hammering": 3.1200000000000006,
+          "cymbal_lathing": 3.31,
           "cymbal_finish": 0.9099999999999999,
-          "drum_technique": 6.889999999999999
+          "drum_technique": 12.414999999999994
         }
       },
       {
@@ -158,10 +158,10 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 12.644999999999998,
+          "bowed_technique": 18.895,
           "fiddle_strings": 2.5700000000000003,
           "fiddle_bow": 0.32999999999999996,
-          "fiddle_mute": 1.15,
+          "fiddle_mute": 1.2999999999999998,
           "fiddle_articulation": 0.09
         }
       },
@@ -173,9 +173,9 @@
           "tack_piano_context": "tack_piano_saloon"
         },
         "scores": {
-          "keyboard_technique": 19.7,
+          "keyboard_technique": 25.574999999999996,
           "tack_density": 13.645,
-          "tack_piano_context": 1.0200000000000002
+          "tack_piano_context": 1.4949999999999999
         }
       },
       {
@@ -186,8 +186,8 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 19.7,
-          "upright_use": 0.39,
+          "keyboard_technique": 25.574999999999996,
+          "upright_use": 1.825,
           "upright_piano_size": 0.32999999999999996
         }
       }

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 5.545000000000001,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 43.82000000000003,
+          "voice_quality": 4.550000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.08,
-          "voice_articulation": 2.5999999999999996,
-          "voice_microtone": 6.335,
-          "voice_tradition": 14.105000000000002,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 0.585,
-          "voice_speech_song": 6.564999999999999,
-          "voice_ensemble_config": 5.589999999999998,
-          "voice_ornament_system": 0.09,
-          "voice_pitch_organization": 20.589999999999996,
-          "voice_processing_chain": 2.64,
-          "voice_multitrack_stack": 1.5450000000000002
+          "voice_vibrato": 2.73,
+          "voice_articulation": 2.96,
+          "voice_microtone": 35.460000000000015,
+          "voice_tradition": 31.20500000000002,
+          "voice_mechanism_compound": 6.24,
+          "voice_estill_quality": 4.870000000000001,
+          "voice_speech_song": 19.792499999999997,
+          "voice_ensemble_config": 16.054999999999993,
+          "voice_ornament_system": 0.7749999999999999,
+          "voice_pitch_organization": 20.865,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 3.3799999999999994
         }
       },
       {
@@ -62,8 +62,8 @@
           "masenqo_tradition": "masenqo_azmari"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "masenqo_body": 0.39,
+          "bowed_technique": 0.375,
+          "masenqo_body": 0.78,
           "masenqo_string": 0,
           "masenqo_bow": 10.075000000000001,
           "masenqo_tradition": 9.88
@@ -94,12 +94,12 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 1.3649999999999998,
+          "free_reed_technique": 2.535,
           "accordion_reed_material": 0.63,
-          "musette_offset": 0.39,
-          "reed_config": 0.9099999999999999,
+          "musette_offset": 0.545,
+          "reed_config": 12.830000000000007,
           "bellows": 0.39,
-          "voicing_chamber": 0.195,
+          "voicing_chamber": 0.65,
           "accordion_maker_school": 5.9799999999999995
         }
       },

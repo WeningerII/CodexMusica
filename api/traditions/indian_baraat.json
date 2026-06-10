@@ -3,8 +3,8 @@
   "name": "Indian baraat (groom's wedding procession)",
   "family": "global",
   "lineage": "Pan-Indian groom's wedding-procession music tradition continuous from medieval-era Indian royal-and-domestic processional-music practice through 19th-20th century commercial-baraat-band evolution into modern South-Asian-and-diaspora wedding practice; defined by the band-baaja-baaraat ensemble with shehnai, dhol, trumpet, and brass-and-percussion arrangement",
-  "recipe": "classic modern indian baraat, wedding, south Asian branch, carnival processional, south Asian pop functional song, south Asian art music indian holi-and-diwali festival processional new orleans brass band second-line. thick, low dynamic level, tasteful, continuous-phonation. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese student friendly trumpet, indian rosewood rosewood brass tabla. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 819,
+  "recipe": "classic modern indian baraat, wedding, south Asian branch, carnival processional, south Asian pop functional song, south Asian art music indian holi-and-diwali festival processional new orleans brass band second-line. thick, low dynamic level, tasteful, continuous-phonation. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato student friendly trumpet, indian rosewood rosewood brass tabla. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 845,
   "score": 237.045,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 3.55,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 7.925000000000001,
+          "voice_quality": 4.875,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 1.69,
-          "voice_microtone": 3.5,
-          "voice_tradition": 17.2,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 9.554999999999998,
-          "voice_ensemble_config": 8.189999999999998,
-          "voice_ornament_system": 6.245000000000001,
-          "voice_pitch_organization": 6.250000000000001,
-          "voice_processing_chain": 5.84,
-          "voice_multitrack_stack": 1.2999999999999998
+          "voice_vibrato": 3.38,
+          "voice_articulation": 5.915,
+          "voice_microtone": 7.875000000000001,
+          "voice_tradition": 24.799999999999997,
+          "voice_mechanism_compound": 3.3149999999999995,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 19.759999999999998,
+          "voice_ensemble_config": 17.939999999999998,
+          "voice_ornament_system": 8.32,
+          "voice_pitch_organization": 7.900000000000001,
+          "voice_processing_chain": 9.905000000000001,
+          "voice_multitrack_stack": 2.235
         }
       },
       {
@@ -61,10 +61,10 @@
           "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 0.3,
-          "dholak_construction": 1.69,
-          "dholak_head": 1.69,
-          "dholak_tensioning": 1.69
+          "dholak_use": 0.39,
+          "dholak_construction": 5.07,
+          "dholak_head": 3.38,
+          "dholak_tensioning": 3.38
         }
       },
       {
@@ -77,11 +77,11 @@
           "shehnai_lineage": "shehnai_bismillah_khan_banaras"
         },
         "scores": {
-          "shehnai_register": 5.46,
-          "shehnai_use": 11.309999999999999,
-          "shehnai_body_wood": 5.395,
-          "shehnai_reed": 0.39,
-          "shehnai_lineage": 0.39
+          "shehnai_register": 12.415000000000001,
+          "shehnai_use": 18.589999999999996,
+          "shehnai_body_wood": 10.464999999999998,
+          "shehnai_reed": 0.78,
+          "shehnai_lineage": 0.975
         }
       },
       {
@@ -96,13 +96,13 @@
           "trumpet_maker_school": "trumpet_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 1.885,
-          "brass_size": 0.09,
-          "trumpet_mouthpiece": 3.2,
+          "wind_articulation": 7.02,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 6.450000000000001,
           "brass_mute": 0,
-          "trumpet_technique": 1.885,
-          "trumpet_bell_metal": 2.08,
-          "trumpet_maker_school": 1.69
+          "trumpet_technique": 5.185,
+          "trumpet_bell_metal": 8.970000000000002,
+          "trumpet_maker_school": 3.38
         }
       },
       {
@@ -113,8 +113,8 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 5.004999999999999,
-          "tabla_bayan": 1.69,
+          "tabla_dayan": 8.86,
+          "tabla_bayan": 8.130000000000003,
           "tabla_syahi": 0.41999999999999993
         }
       }

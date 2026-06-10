@@ -3,8 +3,8 @@
   "name": "Hot country (2010s mainstream)",
   "family": "global",
   "lineage": "2010s mainstream country radio format dominated by Nashville Music Row major-label production — Carrie Underwood, Miranda Lambert, Eric Church, Jason Aldean, and the radio-format Top 40 country chart; characterized by stadium-pop production scale, modern country-vocal performance, and the moving boundary between country and rock-pop crossover",
-  "recipe": "classic hot country, functional Song, contemp main branch, pop rock functional song new wave folk rock. thick, melodic, equal tempered, modern pop training. scooped clean Fender blackface amp American 60s amp spring reverb bright single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, synthetic magic rosin modern acrylic base double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 725,
+  "recipe": "classic hot country, functional Song, contemp main branch, pop rock functional song new wave folk rock. thick, incomplete closure resting, melodic, rhythmic. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, synthetic magic rosin modern acrylic base double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 728,
   "score": 767.819,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 31.448749999999993,
-          "voice_quality": 0.09562499999999999,
+          "voice_register": 75.67375000000001,
+          "voice_quality": 2.16,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.359375,
-          "voice_articulation": 0.45,
-          "voice_microtone": 13.099999999999998,
-          "voice_tradition": 12.025,
-          "voice_mechanism_compound": 1.9743749999999998,
-          "voice_estill_quality": 19.579375,
-          "voice_speech_song": 8.775,
-          "voice_ensemble_config": 4.55,
-          "voice_ornament_system": 0.050624999999999996,
-          "voice_pitch_organization": 0.42000000000000004,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 7.675625
+          "voice_vibrato": 20.884375,
+          "voice_articulation": 0.78,
+          "voice_microtone": 44.10000000000001,
+          "voice_tradition": 27.625,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 23.004374999999996,
+          "voice_speech_song": 22.48999999999999,
+          "voice_ensemble_config": 14.364999999999995,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 0.45499999999999996,
+          "voice_processing_chain": 8.338750000000001,
+          "voice_multitrack_stack": 7.900625
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 17.939999999999998,
-          "amp_make": 18.832499999999996,
-          "body_wood": 0.855,
-          "neck_wood": 0.855,
-          "fretboard": 0.36,
-          "pickup_magnet": 0.135,
-          "string_material": 0.39,
-          "string_gauge": 0.915,
-          "bridge": 1.24,
-          "scale_length": 1.5300000000000002,
+          "electric_technique": 20.424999999999997,
+          "amp_make": 22.157499999999995,
+          "body_wood": 2.08,
+          "neck_wood": 2.08,
+          "fretboard": 2.015,
+          "pickup_magnet": 0.195,
+          "string_material": 0.78,
+          "string_gauge": 2.73,
+          "bridge": 1.39,
+          "scale_length": 2.08,
           "finish": 0.09,
-          "string_tuning": 2.6
+          "string_tuning": 13.65
         }
       },
       {
@@ -96,14 +96,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 18.544999999999998,
-          "amp_make": 18.832499999999996,
-          "pickup_steel": 0.765,
-          "string_setup": 7.385,
-          "bar_material": 0.8550000000000001,
-          "pedal_steel_brand": 20.455,
-          "pedal_steel_neck_config": 18.215,
-          "pedal_steel_strings": 19.095
+          "electric_technique": 21.294999999999998,
+          "amp_make": 22.157499999999995,
+          "pickup_steel": 2.08,
+          "string_setup": 8.334999999999999,
+          "bar_material": 2.08,
+          "pedal_steel_brand": 24.93,
+          "pedal_steel_neck_config": 20.889999999999997,
+          "pedal_steel_strings": 21.619999999999997
         }
       },
       {
@@ -119,14 +119,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 18.316249999999997,
-          "body_wood": 1.5300000000000002,
-          "pickup_config": 1.3,
-          "string_type": 6.5,
-          "scale_length_b": 1.2850000000000001,
-          "fretted_or_not": 0.045,
-          "bass_technique": 17.9
+          "electric_technique": 4.35875,
+          "amp_make": 20.991249999999994,
+          "body_wood": 2.08,
+          "pickup_config": 1.4949999999999999,
+          "string_type": 31.475625,
+          "scale_length_b": 2.08,
+          "fretted_or_not": 0.195,
+          "bass_technique": 28.783749999999998
         }
       },
       {
@@ -145,17 +145,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 4.55,
-          "shell_wood": 0.49499999999999994,
-          "shell_thickness": 0.045,
-          "bearing_edges": 1.3,
-          "drumhead": 9.345625,
-          "snare_wires": 0.765,
-          "cymbal_alloy": 12.885,
-          "cymbal_hammering": 14.85,
-          "cymbal_lathing": 14.57625,
-          "cymbal_finish": 0.375,
-          "drum_technique": 5.050625
+          "percussion_technique": 17.289999999999996,
+          "shell_wood": 0.78,
+          "shell_thickness": 0.195,
+          "bearing_edges": 2.08,
+          "drumhead": 21.345625,
+          "snare_wires": 2.08,
+          "cymbal_alloy": 44.035,
+          "cymbal_hammering": 46.375,
+          "cymbal_lathing": 46.10125,
+          "cymbal_finish": 0.195,
+          "drum_technique": 24.425625
         }
       },
       {
@@ -168,11 +168,11 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 18.349999999999998,
-          "fiddle_strings": 1.2850000000000001,
-          "fiddle_bow": 2.74,
-          "fiddle_mute": 0.39,
-          "fiddle_articulation": 0.605625
+          "bowed_technique": 20.724999999999998,
+          "fiddle_strings": 1.585,
+          "fiddle_bow": 3.115,
+          "fiddle_mute": 0.585,
+          "fiddle_articulation": 0.195
         }
       }
     ],

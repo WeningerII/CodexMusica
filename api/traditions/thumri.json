@@ -3,8 +3,8 @@
   "name": "Thumrī",
   "family": "classical",
   "lineage": "Hindustani semi-classical romantic vocal genre originating in mid-19th-century Lucknow under the patronage of Nawab Wajid Ali Shah, codified through the Banaras (Varanasi) and Lucknow gharana lineages — typically setting Brij Bhasha romantic poetry to elaborated raga performance, with the female-vocal lineage of Begum Akhtar, Gauhar Jaan, Siddheshwari Devi, Girija Devi (the 20th-century thumri-and-tappa voice from the Banaras gharana)",
-  "recipe": "classic North American mid-1970s thumrī, improv On Frame, indian classical improv branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, low dynamic level, chest resonance low mid, microtonal. indian rosewood rosewood copper tabla, gut 3 main playing strings legato sarangi, vocal female harmonium indian, silvery suited to female vocal tanpura. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 556,
+  "recipe": "classic North American mid-1970s thumrī, improv On Frame, indian classical improv branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, low dynamic level, chest resonance low mid, narrative. indian rosewood rosewood copper tabla, gut 3 main playing strings legato sarangi, vocal female harmonium indian, silvery suited to female vocal tanpura. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 555,
   "score": 268.649,
   "config": {
     "traditions": [
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 3.3799999999999994,
-          "voice_quality": 4.485,
+          "voice_quality": 5.330000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.189999999999998,
-          "voice_articulation": 0.3315,
+          "voice_vibrato": 8.894375,
+          "voice_articulation": 0.585,
           "voice_microtone": 3.082375,
-          "voice_tradition": 20.084999999999994,
+          "voice_tradition": 26.520000000000003,
           "voice_mechanism_compound": 11.649999999999999,
-          "voice_estill_quality": 14.179999999999996,
-          "voice_speech_song": 14.551374999999997,
-          "voice_ensemble_config": 6.499999999999999,
+          "voice_estill_quality": 16.13,
+          "voice_speech_song": 19.825000000000003,
+          "voice_ensemble_config": 20.02,
           "voice_ornament_system": 15.666624999999998,
           "voice_pitch_organization": 12.140125,
-          "voice_processing_chain": 3.25,
+          "voice_processing_chain": 4.9399999999999995,
           "voice_multitrack_stack": 4.159999999999999
         }
       },
@@ -62,7 +62,7 @@
         "scores": {
           "tabla_dayan": 7.994999999999999,
           "tabla_bayan": 6.109999999999999,
-          "tabla_syahi": 2.47
+          "tabla_syahi": 9.23
         }
       },
       {
@@ -80,8 +80,8 @@
           "sarangi_belly": 5.069999999999999,
           "sarangi_taraf": 0,
           "sarangi_bow": 1.3,
-          "sarangi_main_strings": 3.3149999999999995,
-          "sarangi_body_wood": 0.585
+          "sarangi_main_strings": 5.004999999999999,
+          "sarangi_body_wood": 0.845
         }
       },
       {
@@ -94,7 +94,7 @@
         },
         "scores": {
           "free_reed_technique": 0.585,
-          "harmonium_action": 4.159999999999999,
+          "harmonium_action": 5.004999999999999,
           "harmonium_voicing": 4.68,
           "harmonium_use": 9.489999999999998
         }
@@ -111,11 +111,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 11.749999999999998,
-          "tanpura_size": 6.759999999999999,
+          "tanpura_size": 9.294999999999998,
           "tanpura_jawari": 11.749999999999998,
-          "tanpura_strings": 4.03,
-          "tanpura_string_material": 0.585,
-          "tanpura_body_wood": 0.585
+          "tanpura_strings": 4.875,
+          "tanpura_string_material": 0.845,
+          "tanpura_body_wood": 0.845
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Shaabi (Egyptian)",
   "family": "global",
   "lineage": "Cairo working-class popular vernacular music tradition emerging in the 1970s-80s — codified through Ahmed Adaweya (the foundational voice, whose 1972 album Salametha Umm Hassan broke the classical-tarab dominance of Egyptian commercial music), Shaaban Abdel Rehim, Hakim, Saad El Soghayar — built on the Cairo working-class colloquial Egyptian Arabic vocabulary, oud-and-qanun urban-modernized instrumentation, and topical lyrical content addressing daily Cairo street life",
-  "recipe": "classic North American mid-1970s shaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, intl hip hop MC rhythm malhun iraqi maqam. extended whistle, low dynamic level, chest resonance low mid, narrative. padauk Egyptian Syrian premium oud, articulate metal finger picks qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, mahogany pyramid pure nickel bass British mid 60s era electric bass. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 692,
+  "recipe": "classic North American mid-1970s shaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, intl hip hop MC rhythm malhun iraqi maqam. extended whistle, low dynamic level, chest resonance low mid, narrative. padauk Egyptian Syrian premium pyramid nylon arab school oud, metal finger picks rosewood body arab premium qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, mahogany pyramid pure nickel bass British mid 60s era electric bass. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 734,
   "score": 206.58,
   "config": {
     "traditions": [
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 4.51,
-          "voice_quality": 2.5999999999999996,
+          "voice_quality": 3.640000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.03,
+          "voice_vibrato": 6.175,
           "voice_articulation": 0.9449999999999998,
-          "voice_microtone": 12.029999999999998,
-          "voice_tradition": 10.375,
-          "voice_mechanism_compound": 5.445,
-          "voice_estill_quality": 4.365,
-          "voice_speech_song": 5.654999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 10.27,
-          "voice_pitch_organization": 10.24,
-          "voice_processing_chain": 2.94,
-          "voice_multitrack_stack": 2.495
+          "voice_microtone": 15.904999999999998,
+          "voice_tradition": 19.525000000000002,
+          "voice_mechanism_compound": 14.545000000000002,
+          "voice_estill_quality": 9.14,
+          "voice_speech_song": 9.415000000000001,
+          "voice_ensemble_config": 8.384999999999998,
+          "voice_ornament_system": 19.785000000000004,
+          "voice_pitch_organization": 19.89,
+          "voice_processing_chain": 3.44,
+          "voice_multitrack_stack": 3.185
         }
       },
       {
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 3.25,
-          "oud_school": 4.03,
-          "oud_strings": 1.69,
+          "plucked_traditional_technique": 7.375000000000001,
+          "oud_school": 6.175,
+          "oud_strings": 3.835,
           "oud_pick": 2.04,
           "oud_body_wood": 3.9,
-          "oud_soundboard_wood": 0.54,
-          "oud_string_material": 0.9099999999999999
+          "oud_soundboard_wood": 0.65,
+          "oud_string_material": 4.16
         }
       },
       {
@@ -85,12 +85,12 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 3.25,
-          "qanun_strings": 1.69,
+          "plucked_traditional_technique": 7.375000000000001,
+          "qanun_strings": 3.835,
           "qanun_levers": -1.35,
-          "qanun_pick": 1.69,
-          "qanun_body_wood": 0.8449999999999999,
-          "qanun_bridge_skin": 0.54,
+          "qanun_pick": 3.835,
+          "qanun_body_wood": 3.4450000000000003,
+          "qanun_bridge_skin": 0.65,
           "qanun_string_material": 0
         }
       },
@@ -104,9 +104,9 @@
         },
         "scores": {
           "percussion_technique": -0.1,
-          "darbuka_material": 3.9,
-          "darbuka_skin": 1.95,
-          "darbuka_regional_style": 8.19
+          "darbuka_material": 4.55,
+          "darbuka_skin": 2.6,
+          "darbuka_regional_style": 8.84
         }
       },
       {

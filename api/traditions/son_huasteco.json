@@ -3,8 +3,8 @@
   "name": "Son huasteco (Huasteca trio)",
   "family": "global",
   "lineage": "Regional Mexican son tradition of the Huasteca cultural region (Veracruz, Hidalgo, San Luis Potosí, Tamaulipas, Querétaro). Trio of huapanguero violin (with high-falsetto vocal ornament and improvisatory melodic-doubling), quinta huapanguera five-string acoustic-bass-guitar, and jarana huasteca five-string rhythm-guitar. Alternating violin-improvisation and falsetto-vocal-improvisation sections define the canonical huapango.",
-  "recipe": "classic modern son huasteco, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, melodic, punctuated. sitka spruce spirit varnish shellac alcohol modern setup longer neck violin orchestral, cedrillo canonical veracruz nylon modern jarana jarocha. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 570,
+  "recipe": "classic modern son huasteco, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, melodic, punctuated. gut sitka spruce spirit varnish shellac alcohol modern setup violin orchestral, cedrillo canonical veracruz nylon modern strummed jarana jarocha. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 571,
   "score": 207.555,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.3799999999999994,
-          "voice_quality": 3.4450000000000003,
+          "voice_register": 8.72,
+          "voice_quality": 9.514999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 0.9750000000000001,
-          "voice_microtone": 0.39,
-          "voice_tradition": 4.875,
-          "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 3.1849999999999996,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 1.69,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 4.8149999999999995,
-          "voice_multitrack_stack": 5.069999999999999
+          "voice_vibrato": 2.275,
+          "voice_articulation": 0.845,
+          "voice_microtone": 7.880000000000002,
+          "voice_tradition": 38.895,
+          "voice_mechanism_compound": 22.58,
+          "voice_estill_quality": 6.24,
+          "voice_speech_song": 21.97,
+          "voice_ensemble_config": 22.36,
+          "voice_ornament_system": 7.15,
+          "voice_pitch_organization": 7.620000000000001,
+          "voice_processing_chain": 4.745,
+          "voice_multitrack_stack": 8.059999999999999
         }
       },
       {
@@ -67,16 +67,16 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": -0.035,
-          "orch_strings": 0,
-          "orch_top_wood": 1.625,
-          "orch_back_wood": -0.035,
-          "orch_varnish": 1.625,
+          "bowed_technique": 0.7149999999999999,
+          "orch_strings": 1.69,
+          "orch_top_wood": 6.76,
+          "orch_back_wood": 0.78,
+          "orch_varnish": 2.2749999999999995,
           "orch_setup_period": 1.56,
           "orch_bow": 1.17,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 1.69,
-          "orch_rosin": -0.035
+          "orch_articulation": 2.34,
+          "orch_rosin": 0.585
         }
       },
       {
@@ -89,11 +89,11 @@
           "jarana_jarocha_strings": "jarana_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 1.625,
+          "plucked_traditional_technique": 4.8100000000000005,
           "jarana_size": 2.3,
-          "jarana_jarocha_context": 1.4249999999999998,
-          "jarana_jarocha_body_wood": 3.335,
-          "jarana_jarocha_strings": 1.69
+          "jarana_jarocha_context": 1.3,
+          "jarana_jarocha_body_wood": 3.835,
+          "jarana_jarocha_strings": 2.34
         }
       }
     ],

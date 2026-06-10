@@ -3,8 +3,8 @@
   "name": "2-Tone ska revival",
   "family": "global",
   "lineage": "UK 1979-81 multiracial ska revival movement centered on Coventry — codified through the 2 Tone Records label (founded 1979 by Jerry Dammers of The Specials) and its catalog: The Specials, The Selecter, Madness, The Beat, The Bodysnatchers, Bad Manners — translating original 1960s Jamaican ska into the post-punk era with explicit anti-racist political content and Two-Tone-checkerboard graphic identity",
-  "recipe": "classic tropical mid-1960s 2-tone ska revival, bass System, reggae diaspora branch, punk distorted rock garage punk post-punk. thick, chest resonance low mid, equal tempered, Mediterranean demotic vocal. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, fast tremolo tonewheel organ, bach stradivarius 180 canonical American orchestral large cup large rim orchestral bottom heavy trumpet, gold brass warmer tone split tone overblown saxophone, bach 42 canonical American orchestral tenor bass leaning trombone. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 942,
+  "recipe": "classic tropical mid-1960s 2-tone ska revival, bass System, reggae diaspora branch, punk distorted rock garage punk post-punk. thick, low dynamic level, chest resonance low mid, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral large cup large rim orchestral bottom heavy trumpet, alto gold brass warmer tone split tone overblown saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor bass leaning trombone.",
+  "recipe_chars": 922,
   "score": 467.535,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.6249999999999991,
-          "voice_quality": 0,
+          "voice_register": 14.439999999999994,
+          "voice_quality": 0.6499999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.585,
-          "voice_articulation": 0.195,
-          "voice_microtone": 1.4999999999999996,
-          "voice_tradition": 1.1049999999999998,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 2.925,
-          "voice_ensemble_config": 5.58,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 0.65,
+          "voice_microtone": 14.299999999999997,
+          "voice_tradition": 2.4050000000000002,
+          "voice_mechanism_compound": 5.265000000000001,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 12.674999999999997,
+          "voice_ensemble_config": 20.63,
           "voice_ornament_system": 1.5,
-          "voice_pitch_organization": 3.7700000000000005,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 4.425000000000001
+          "voice_pitch_organization": 5.61,
+          "voice_processing_chain": 4.329999999999999,
+          "voice_multitrack_stack": 6.699999999999999
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 4.95,
-          "amp_make": 7.605,
-          "body_wood": 0.585,
-          "neck_wood": 0.585,
-          "fretboard": 0.39,
-          "pickup_magnet": 0.09,
-          "string_material": 0.345,
-          "string_gauge": 0.78,
+          "electric_technique": 20,
+          "amp_make": 30.459999999999994,
+          "body_wood": 0.845,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
+          "pickup_magnet": 0.39,
+          "string_material": 0.49499999999999994,
+          "string_gauge": 0.845,
           "bridge": 0.39,
-          "scale_length": 1.1700000000000002,
-          "finish": 0.195,
-          "string_tuning": 1.0650000000000002
+          "scale_length": 0.845,
+          "finish": 0.845,
+          "string_tuning": 10.659999999999998
         }
       },
       {
@@ -96,14 +96,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.995,
-          "amp_make": 4.095000000000001,
-          "body_wood": 1.1700000000000002,
+          "electric_technique": 20.744999999999997,
+          "amp_make": 10.27,
+          "body_wood": 0.845,
           "pickup_config": 0.39,
-          "string_type": 3.5100000000000002,
-          "scale_length_b": 0.585,
+          "string_type": 18.3625,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.045,
-          "bass_technique": 6.795
+          "bass_technique": 32.92
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "sticks_punk"
         },
         "scores": {
-          "percussion_technique": 5,
-          "shell_wood": 0.15,
+          "percussion_technique": 18.749999999999996,
+          "shell_wood": 0.39,
           "shell_thickness": 0,
-          "bearing_edges": 0.585,
-          "drumhead": 0.585,
-          "snare_wires": 0.585,
-          "cymbal_alloy": 6.789999999999999,
-          "cymbal_hammering": 2.0399999999999996,
-          "cymbal_lathing": 1.6499999999999997,
-          "cymbal_finish": 0.09,
-          "drum_technique": 5
+          "bearing_edges": 0.845,
+          "drumhead": 0.845,
+          "snare_wires": 0.845,
+          "cymbal_alloy": 34.515,
+          "cymbal_hammering": 14.84,
+          "cymbal_lathing": 14.45,
+          "cymbal_finish": 0.39,
+          "drum_technique": 18.749999999999996
         }
       },
       {
@@ -146,12 +146,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": -0.07,
-          "drawbar_setting": 1.7949999999999997,
-          "rotary_speed": 2.09,
-          "percussion_setting": 0.9099999999999999,
-          "tonewheel_model": 0.7149999999999997,
-          "leslie_cabinet_model": 0.9450000000000001
+          "keyboard_technique": 1.8525,
+          "drawbar_setting": 14.17,
+          "rotary_speed": 14.465,
+          "percussion_setting": 7.344999999999999,
+          "tonewheel_model": 8.84,
+          "leslie_cabinet_model": 1.95
         }
       },
       {
@@ -167,12 +167,12 @@
         },
         "scores": {
           "wind_articulation": 9.745,
-          "brass_size": 0.09,
-          "trumpet_mouthpiece": 3.475,
-          "brass_mute": 0.39,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 4.425,
+          "brass_mute": 0.845,
           "trumpet_technique": 9.7,
-          "trumpet_bell_metal": 0.9750000000000001,
-          "trumpet_maker_school": 3.0149999999999992
+          "trumpet_bell_metal": 1.6899999999999997,
+          "trumpet_maker_school": 4.029999999999999
         }
       },
       {
@@ -188,11 +188,11 @@
         },
         "scores": {
           "wind_articulation": 9.745,
-          "sax_size": 0.585,
-          "sax_reed": 0.09,
-          "sax_body_alloy": 3.3800000000000003,
-          "sax_mouthpiece": 0.09,
-          "sax_technique": 3.43,
+          "sax_size": 1.365,
+          "sax_reed": 0.39,
+          "sax_body_alloy": 4.180000000000001,
+          "sax_mouthpiece": 0.39,
+          "sax_technique": 4.23,
           "sax_maker_school": 0
         }
       },
@@ -210,11 +210,11 @@
         "scores": {
           "wind_articulation": 9.745,
           "trombone_type": 0,
-          "trombone_mouthpiece": 1.885,
-          "trombone_mute": 0.39,
-          "trombone_technique": 0.39,
-          "trombone_bell_metal": 0.9750000000000001,
-          "trombone_maker_school": 2.8349999999999995
+          "trombone_mouthpiece": 2.88,
+          "trombone_mute": 0.845,
+          "trombone_technique": 0.845,
+          "trombone_bell_metal": 1.6899999999999997,
+          "trombone_maker_school": 4.029999999999999
         }
       }
     ],

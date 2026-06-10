@@ -3,8 +3,8 @@
   "name": "Hungarian verbunkos (military-recruitment dance)",
   "family": "global",
   "lineage": "Hungarian verbunkos military-recruitment dance-music tradition emerging in late-eighteenth century Habsburg-Hungarian military-recruitment practice (the verbunk recruitment-event featured local musicians playing energetic dance-music to inspire young men to enlist). The genre developed canonical compositional conventions: characteristic dotted-rhythm (kuruc rhythm) opening, augmented-fourth Hungarian-Gypsy-scale modal coloring, and characteristic accelerating tempo arc. The verbunkos became the foundational nineteenth-century Hungarian art-music style (informing Franz Liszt's Hungarian Rhapsodies and Béla Bartók's ethnographic-research), and through Brahms's Hungarian Dances entered the broader European musical consciousness. Distinguished from later magyar nóta urban-popular form by verbunkos's late-eighteenth-century historical-recruitment-context origin.",
-  "recipe": "classic North American mid-1970s hungarian verbunkos, functional Song, europop branch, western common practice art music the mighty handful british brass band. synthetic sitka spruce European maple sycamore maple violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, ebonite hard rubber klezmer tradition clarinet. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 585,
+  "recipe": "classic North American mid-1970s hungarian verbunkos, functional Song, europop branch, western common practice art music the mighty handful british brass band. sitka spruce European maple sycamore maple oil varnish amber tinted violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, ebonite hard rubber klezmer tradition clarinet. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 600,
   "score": 64.537,
   "config": {
     "traditions": [
@@ -28,16 +28,16 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "orch_strings": 1.17,
-          "orch_top_wood": 3.165,
-          "orch_back_wood": 1.625,
-          "orch_varnish": -0.035,
-          "orch_setup_period": -0.07,
+          "bowed_technique": 1.25,
+          "orch_strings": 0.845,
+          "orch_top_wood": 4.74,
+          "orch_back_wood": 5.005000000000001,
+          "orch_varnish": 2.125,
+          "orch_setup_period": 1.0075,
           "orch_bow": 4.68,
-          "orch_bow_stick": -0.05,
-          "orch_articulation": 0.915,
-          "orch_rosin": 0.585
+          "orch_bow_stick": 2.6975000000000002,
+          "orch_articulation": 0.845,
+          "orch_rosin": 5.4925
         }
       },
       {
@@ -47,7 +47,7 @@
           "cimbalom_mallet": "cimbalom_cotton_wound"
         },
         "scores": {
-          "cimbalom_size": 18.2,
+          "cimbalom_size": 24.960000000000004,
           "cimbalom_mallet": 0.15
         }
       },
@@ -61,10 +61,10 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": -0.035,
-          "clarinet_body": 1.56,
-          "clarinet_size": 2.7749999999999995,
-          "clarinet_reed": 1.17,
+          "wind_articulation": 1.44,
+          "clarinet_body": 2.6000000000000005,
+          "clarinet_size": 1.405,
+          "clarinet_reed": 0.845,
           "clarinet_articulation": 0
         }
       }

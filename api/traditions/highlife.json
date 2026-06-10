@@ -3,8 +3,8 @@
   "name": "Highlife",
   "family": "global",
   "lineage": "West African dance-band popular music tradition codified through E.T. Mensah and the Tempos (Ghanaian highlife pioneer, 1947-onward), Bobby Benson (Nigerian highlife pioneer), Victor Olaiya, the Black Beats, the Cardinal Rex Lawson dance band, then extended through the 1960s-70s Lagos-Accra recording boom — built on a fusion of Caribbean calypso, ballroom dance-band horn-section orchestration, and West African rhythmic foundations (Akan, Ga, Yoruba percussion patterns)",
-  "recipe": "classic West African modern highlife, groove Percussion, west African branch, African pop functional song congolese rumba afrobeats. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, ensemble shallow cup lead trumpet trumpet, tenor ensemble saxophone, thomastik infeld low tension jazz warm electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, congas, shekere, ensemble student commercial trombone. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 674,
+  "recipe": "classic West African modern highlife, groove Percussion, west African branch, African pop functional song congolese rumba afrobeats. roland jc120 amp solid state stereo chorus maple pau ferro ceramic single coil electric guitar, yellow brass canonical 70 30 bach stradivarius schilke chicago lead bright ensemble shallow cup lead trumpet trumpet, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, thomastik infeld low tension jazz warm walking fingerstyle electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, shekere, yellow brass canonical 70 30 bach 42 standard ensemble student commercial trombone. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 975,
   "score": 241.05,
   "config": {
     "traditions": [
@@ -30,16 +30,16 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 4.045,
-          "amp_make": 0.13000000000000003,
-          "body_wood": 0.375,
+          "electric_technique": 11.194999999999999,
+          "amp_make": 3.045,
+          "body_wood": 0.585,
           "neck_wood": 1.6,
           "fretboard": 1.6,
           "pickup_magnet": 1.6,
           "string_material": 1.6,
-          "string_gauge": 0.375,
+          "string_gauge": 0.585,
           "bridge": 0.24,
-          "scale_length": 0.75,
+          "scale_length": 0.585,
           "finish": 0,
           "string_tuning": 2.08
         }
@@ -56,13 +56,13 @@
           "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 4.33,
+          "wind_articulation": 6.105,
           "brass_size": 1.6,
-          "trumpet_mouthpiece": 1.625,
+          "trumpet_mouthpiece": 6.344999999999999,
           "brass_mute": 0.5849999999999999,
-          "trumpet_technique": 4.33,
-          "trumpet_bell_metal": 0.78,
-          "trumpet_maker_school": 0.78
+          "trumpet_technique": 6.105,
+          "trumpet_bell_metal": 1.4300000000000002,
+          "trumpet_maker_school": 1.17
         }
       },
       {
@@ -77,13 +77,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4.33,
-          "sax_size": 1.85,
+          "wind_articulation": 6.105,
+          "sax_size": 3.0300000000000002,
           "sax_reed": 1.6,
-          "sax_body_alloy": 0.5499999999999999,
+          "sax_body_alloy": 3.9999999999999996,
           "sax_mouthpiece": 1.6,
-          "sax_technique": 0.6499999999999999,
-          "sax_maker_school": 0
+          "sax_technique": 3.6249999999999996,
+          "sax_maker_school": 2.0474999999999994
         }
       },
       {
@@ -99,14 +99,14 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 0.6499999999999999,
-          "amp_make": 0.325,
-          "body_wood": 0.75,
+          "electric_technique": 2.275,
+          "amp_make": 0.7149999999999999,
+          "body_wood": 0.585,
           "pickup_config": 0.195,
-          "string_type": 1.0399999999999998,
-          "scale_length_b": 0.375,
+          "string_type": 4.645,
+          "scale_length_b": 0.585,
           "fretted_or_not": 0.195,
-          "bass_technique": 0.6499999999999999
+          "bass_technique": 3.6249999999999996
         }
       },
       {
@@ -125,17 +125,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 13.844999999999995,
-          "shell_wood": 1.6900000000000002,
+          "percussion_technique": 28.7625,
+          "shell_wood": 1.84,
           "shell_thickness": 0,
           "bearing_edges": 0.8700000000000001,
-          "drumhead": 2.6300000000000003,
-          "snare_wires": 0.375,
-          "cymbal_alloy": 2.74,
-          "cymbal_hammering": 2.4450000000000003,
-          "cymbal_lathing": 2.595,
+          "drumhead": 9.48,
+          "snare_wires": 0.585,
+          "cymbal_alloy": 8.815,
+          "cymbal_hammering": 9.145,
+          "cymbal_lathing": 9.145,
           "cymbal_finish": 1.6,
-          "drum_technique": 13.844999999999995
+          "drum_technique": 28.7625
         }
       },
       {
@@ -147,10 +147,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 0.26,
-          "conga_set": 0.78,
-          "conga_skin": 0.9149999999999998,
-          "conga_shell_wood": 0.9149999999999998
+          "percussion_technique": 2.6975,
+          "conga_set": 1.17,
+          "conga_skin": 2.2749999999999995,
+          "conga_shell_wood": 2.2749999999999995
         }
       },
       {
@@ -160,8 +160,8 @@
           "shekere_beads": "shekere_seed"
         },
         "scores": {
-          "shekere_size": 1.69,
-          "shekere_beads": 7.409999999999999
+          "shekere_size": 2.71,
+          "shekere_beads": 13.194999999999999
         }
       },
       {
@@ -176,12 +176,12 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 4.33,
-          "trombone_type": 0.7799999999999998,
-          "trombone_mouthpiece": 2.93,
+          "wind_articulation": 6.105,
+          "trombone_type": 3.8649999999999993,
+          "trombone_mouthpiece": 13.23,
           "trombone_mute": 0.5849999999999999,
-          "trombone_technique": 3.665,
-          "trombone_bell_metal": 0.78,
+          "trombone_technique": 4.415,
+          "trombone_bell_metal": 1.4300000000000002,
           "trombone_maker_school": 0.8849999999999998
         }
       }

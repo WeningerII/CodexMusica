@@ -3,8 +3,8 @@
   "name": "Screamo / skramz (90s-2000s)",
   "family": "rock_punk",
   "lineage": "1990s emocore and 2000s screamo subgenre developed from hardcore-punk emotional-aggressive register, characterized by screamed-and-melodic vocal alternation, dynamic-contrasted song structure, and confessional-emotional lyrical content. Saetia, City of Caterpillar, Pg.99, Orchid, and Hot Cross constitute the canonical American skramz roster; the parallel European screamo scene (Funeral Diner, Envy from Japan) extended international reach.",
-  "recipe": "classic North American screamo / skramz, distorted Rock, emo branch, thrash metal groove metal speed metal. thick, incomplete closure resting, melodic, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
-  "recipe_chars": 643,
+  "recipe": "classic North American screamo / skramz, distorted Rock, emo branch, thrash metal groove metal speed metal. thick, incomplete closure resting, melodic, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+  "recipe_chars": 671,
   "score": 418.574,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 5.516750000000003,
+          "voice_register": 11.016749999999995,
           "voice_quality": 3.1865,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 1.0140000000000002,
-          "voice_microtone": 5.403750000000001,
-          "voice_tradition": 1.625,
-          "voice_mechanism_compound": 10.985,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 9.0855,
-          "voice_ornament_system": 1.3764999999999998,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 4.81
+          "voice_vibrato": 3.3149999999999995,
+          "voice_articulation": 1.69,
+          "voice_microtone": 10.903749999999999,
+          "voice_tradition": 4.875,
+          "voice_mechanism_compound": 39.151500000000006,
+          "voice_estill_quality": 1.93375,
+          "voice_speech_song": 15.989999999999997,
+          "voice_ensemble_config": 13.389999999999997,
+          "voice_ornament_system": 1.5250000000000001,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 4.68,
+          "voice_multitrack_stack": 7.97125
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 7.67,
-          "amp_make": 10.92,
-          "body_wood": 1.2870000000000001,
-          "neck_wood": 1.5265,
-          "fretboard": 1.5265,
+          "electric_technique": 40.80825,
+          "amp_make": 18.642999999999997,
+          "body_wood": 17.485000000000003,
+          "neck_wood": 1.69,
+          "fretboard": 1.625,
           "pickup_magnet": 0,
           "pickup_winding": 1.5625,
           "string_material": 1.5265,
-          "bridge": 1.2870000000000001,
-          "scale_length": 2.5740000000000003,
-          "string_gauge": 1.4820000000000002,
+          "bridge": 1.69,
+          "scale_length": 17.485000000000003,
+          "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 7.15
+          "string_tuning": 27.3
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 5.2,
-          "amp_make": 2.7950000000000004,
-          "body_wood": 2.5740000000000003,
+          "electric_technique": 7.1499999999999995,
+          "amp_make": 5.655000000000001,
+          "body_wood": 1.69,
           "pickup_config": 0.435,
-          "string_type": 7.15,
-          "scale_length_b": 1.2870000000000001,
+          "string_type": 13.718,
+          "scale_length_b": 1.69,
           "fretted_or_not": 0.195,
-          "bass_technique": 8.75
+          "bass_technique": 14.25
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 6.629999999999999,
-          "shell_wood": 1.69,
+          "percussion_technique": 13.389999999999997,
+          "shell_wood": 2.5349999999999997,
           "shell_thickness": 0.126,
-          "bearing_edges": 1.2870000000000001,
-          "drumhead": 1.5265,
-          "snare_wires": 1.2870000000000001,
-          "cymbal_alloy": 12.0265,
-          "cymbal_hammering": 5.643750000000001,
-          "cymbal_lathing": 5.431500000000001,
+          "bearing_edges": 1.69,
+          "drumhead": 1.69,
+          "snare_wires": 1.69,
+          "cymbal_alloy": 43.401500000000006,
+          "cymbal_hammering": 11.793750000000001,
+          "cymbal_lathing": 10.931499999999998,
           "cymbal_finish": 1.5265,
-          "drum_technique": 6.629999999999999
+          "drum_technique": 13.389999999999997
         }
       }
     ],

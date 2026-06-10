@@ -3,8 +3,8 @@
   "name": "Jīngjù (Beijing opera)",
   "family": "classical",
   "lineage": "Late-18th-century onward Chinese capital-region operatic synthesis emerging in Beijing from the Anhui-Hui troupes 1790 and the Hubei kunqu-pihuang merger 1820s onward, codified by the four great male role-types (sheng, jing chou-and-dan painted-face roles) and the four schools of female dan voice. Built on jinghu-erhu fiddle accompaniment with bangu-and-paigu percussion section setting the jianzipu rhythmic patterns. Court patronage in the Qing late-imperial period gave way to commercial troupe-theaters of late-Qing and Republican-era Shanghai-and-Beijing. The vocal stylization layers melismatic-modal pihuang (xipi-and-erhuang aria modes) with declamatory speech-tone alignment, where Mandarin tones constrain melodic contour.",
-  "recipe": "classic North American mid-1820s jīngjù, art Music, east Asian branch, vocal drone modal pansori macedonian glasoechko male diaphonic. vocal fry, pressed, melodic, narrative. python skin snake skin legato erhu, yueqin, silk padauk mid tier pipa, erhuang narrative bamboo body beijing opera legato jinghu, silk canonical traditional padauk mid tier sanxian, percussion section ban clapper luogu. kabuki theater japanese. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 551,
+  "recipe": "classic North American mid-1820s jīngjù, art Music, east Asian branch, vocal drone modal pansori macedonian glasoechko male diaphonic. vocal fry, pressed, melodic, narrative. python skin snake skin bamboo stick horsehair threaded between strings erhu, yueqin, silk padauk mid tier pipa, erhuang narrative bamboo body beijing opera legato jinghu, padauk mid tier sanxian, percussion section ban clapper luogu. kabuki theater japanese. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 565,
   "score": 305.999,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.9899999999999998,
+          "voice_register": 7.279999999999999,
           "voice_quality": 5.4,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.643214285714286,
-          "voice_articulation": 1.4299999999999997,
-          "voice_microtone": 0.39,
-          "voice_tradition": 25.54500000000001,
-          "voice_mechanism_compound": 5.9799999999999995,
-          "voice_estill_quality": 11.553571428571429,
-          "voice_speech_song": 15.405000000000006,
-          "voice_ensemble_config": 17.940000000000005,
-          "voice_ornament_system": 7.950000000000001,
-          "voice_pitch_organization": 4.335,
-          "voice_processing_chain": 3.12,
-          "voice_multitrack_stack": 4.68
+          "voice_vibrato": 4.593214285714286,
+          "voice_articulation": 3.5025,
+          "voice_microtone": 1.7875,
+          "voice_tradition": 35.32750000000001,
+          "voice_mechanism_compound": 13.259999999999998,
+          "voice_estill_quality": 15.803571428571429,
+          "voice_speech_song": 26.71500000000001,
+          "voice_ensemble_config": 36.27000000000001,
+          "voice_ornament_system": 9.200000000000001,
+          "voice_pitch_organization": 6.630000000000001,
+          "voice_processing_chain": 8.125000000000002,
+          "voice_multitrack_stack": 11.504999999999999
         }
       },
       {
@@ -63,12 +63,12 @@
           "erhu_bow": "erhu_bamboo_horsehair"
         },
         "scores": {
-          "bowed_technique": 4.375,
-          "erhu_skin": 5.07,
-          "erhu_use": 0.78,
-          "erhu_body_wood": 0.15,
-          "erhu_strings": -1.05,
-          "erhu_bow": 0.39
+          "bowed_technique": 6.775,
+          "erhu_skin": 10.659999999999998,
+          "erhu_use": 0.975,
+          "erhu_body_wood": 0.65,
+          "erhu_strings": -0.7,
+          "erhu_bow": 1.69
         }
       },
       {
@@ -80,9 +80,9 @@
           "yueqin_strings": "yueqin_silk_traditional"
         },
         "scores": {
-          "plucked_traditional_technique": 4.57,
-          "yueqin_use": 2.08,
-          "yueqin_construction": 1.3,
+          "plucked_traditional_technique": 6.970000000000001,
+          "yueqin_use": 4.8046428571428565,
+          "yueqin_construction": 5.59,
           "yueqin_strings": 0.42000000000000004
         }
       },
@@ -96,11 +96,11 @@
           "pipa_body_wood": "pipa_padauk"
         },
         "scores": {
-          "plucked_traditional_technique": 4.57,
-          "pipa_frets": 0.5507142857142857,
-          "pipa_strings": 5.07,
+          "plucked_traditional_technique": 6.970000000000001,
+          "pipa_frets": 0.65,
+          "pipa_strings": 10.659999999999998,
           "pipa_pick": 0,
-          "pipa_body_wood": 1.195
+          "pipa_body_wood": 2.0985714285714288
         }
       },
       {
@@ -113,11 +113,11 @@
           "jinghu_strings": "jinghu_steel_modern"
         },
         "scores": {
-          "bowed_technique": 4.375,
-          "jinghu_mode": 3.0025,
-          "jinghu_articulation": 2.6,
-          "jinghu_body_wood": 7.220714285714284,
-          "jinghu_strings": -0.84
+          "bowed_technique": 6.775,
+          "jinghu_mode": 4.7524999999999995,
+          "jinghu_articulation": 8.384999999999998,
+          "jinghu_body_wood": 7.720714285714284,
+          "jinghu_strings": -0.7
         }
       },
       {
@@ -131,12 +131,12 @@
           "sanxian_body_wood": "sanxian_padauk"
         },
         "scores": {
-          "plucked_traditional_technique": 4.57,
-          "sanxian_size": 1.435,
-          "sanxian_context": 1.3,
-          "sanxian_head": 0,
-          "sanxian_strings": 1.6457142857142855,
-          "sanxian_body_wood": 1.04
+          "plucked_traditional_technique": 6.970000000000001,
+          "sanxian_size": 2.859999999999999,
+          "sanxian_context": 4.29,
+          "sanxian_head": 0.585,
+          "sanxian_strings": 0.65,
+          "sanxian_body_wood": 2.0985714285714288
         }
       },
       {

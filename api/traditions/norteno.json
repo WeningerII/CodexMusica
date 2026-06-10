@@ -3,8 +3,8 @@
   "name": "Norteño (northern Mexican)",
   "family": "country",
   "lineage": "Northern-Mexican popular-music of border states (Tamaulipas, Nuevo León, Coahuila, Chihuahua), accordion-and-bajo-sexto-led with bass-drum-kit. Origin in late-nineteenth-century German-Czech-Polish-immigrant accordion music synthesized with Mexican forms. Repertoire: corrido, ranchera, polka, cumbia. Falcon Records (McAllen, 1948 onward) anchored commercial circulation.",
-  "recipe": "classic North American late-1940s norteño, functional Song, tejano border branch, country functional song country rock western swing. thick, full chest belt, melodic, equal tempered. steel castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, steel brushes-and-sticks drum kit, nickel wound modern tejano bajo sexto. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 645,
+  "recipe": "classic North American late-1940s norteño, functional Song, tejano border branch, country functional song country rock western swing. thick, full chest belt, melodic, equal tempered. steel castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, steel vintage ambassador asymmetric hot rolled annealed drum kit, nickel wound modern tejano strummed bajo sexto. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 685,
   "score": 368.16,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 3.990000000000001,
+          "voice_register": 45.74000000000002,
           "voice_quality": 5.990000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.34,
-          "voice_articulation": 0.26999999999999996,
-          "voice_microtone": 0.7350000000000001,
-          "voice_tradition": 1.56,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 8.055,
-          "voice_speech_song": 4.485,
-          "voice_ensemble_config": 3.3799999999999994,
+          "voice_vibrato": 22.74,
+          "voice_articulation": 0.39,
+          "voice_microtone": 21.535000000000004,
+          "voice_tradition": 5.879999999999999,
+          "voice_mechanism_compound": 4.9399999999999995,
+          "voice_estill_quality": 27.654999999999998,
+          "voice_speech_song": 16.9,
+          "voice_ensemble_config": 11.309999999999999,
           "voice_ornament_system": 0.525,
-          "voice_pitch_organization": 0.6,
-          "voice_processing_chain": 3.1500000000000004,
-          "voice_multitrack_stack": 1.625
+          "voice_pitch_organization": 0.45499999999999996,
+          "voice_processing_chain": 5.634999999999999,
+          "voice_multitrack_stack": 3.06
         }
       },
       {
@@ -64,13 +64,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 4.329999999999999,
-          "accordion_reed_material": 1.14,
+          "free_reed_technique": 24.78,
+          "accordion_reed_material": 1.625,
           "musette_offset": 0.195,
-          "reed_config": 0.6299999999999999,
-          "bellows": 0.045,
+          "reed_config": 2.7299999999999995,
+          "bellows": 0.195,
           "voicing_chamber": 0.045,
-          "accordion_maker_school": 3.3799999999999994
+          "accordion_maker_school": 4.615
         }
       },
       {
@@ -86,14 +86,14 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 4.625,
+          "electric_technique": 0.06499999999999999,
+          "amp_make": 23.525,
           "body_wood": 0.6300000000000001,
           "pickup_config": 0.045,
-          "string_type": 1.56,
-          "scale_length_b": 0.48000000000000004,
+          "string_type": 15.450000000000008,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.15,
-          "bass_technique": 4.445
+          "bass_technique": 22.695
         }
       },
       {
@@ -112,17 +112,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 1.56,
-          "shell_wood": 1.035,
+          "percussion_technique": 15.827499999999999,
+          "shell_wood": 1.625,
           "shell_thickness": 0.045,
           "bearing_edges": 0.24,
-          "drumhead": 0.24,
+          "drumhead": 5.9799999999999995,
           "snare_wires": 0.24,
-          "cymbal_alloy": 0,
-          "cymbal_hammering": -0.035,
-          "cymbal_lathing": -0.035,
+          "cymbal_alloy": 14.420000000000007,
+          "cymbal_hammering": 14.625000000000007,
+          "cymbal_lathing": 14.415000000000006,
           "cymbal_finish": 0.28500000000000003,
-          "drum_technique": 1.56
+          "drum_technique": 15.827499999999999
         }
       },
       {
@@ -135,8 +135,8 @@
           "bajo_back_wood": "bajo_maple_back"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
-          "bajo_courses": 3.885,
+          "plucked_traditional_technique": 4.735,
+          "bajo_courses": 4.035,
           "bajo_top": 0.38999999999999996,
           "bajo_strings": 1.5,
           "bajo_back_wood": 0.15

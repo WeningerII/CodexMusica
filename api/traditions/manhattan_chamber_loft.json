@@ -3,8 +3,8 @@
   "name": "Manhattan-chamber loft-recording",
   "family": "global",
   "lineage": "Manhattan-loft-school chamber-recording aesthetic codified through 1970s-1980s minimalist composers recording in downtown Manhattan converted-warehouse loft spaces — Steve Reich (Music for 18 Musicians 1976), Philip Glass (Glassworks 1982), Meredith Monk, and the Knitting Factory-adjacent ecosystem; characterized by ensemble close-tracking, dry-room aesthetic, and minimalist compositional architecture",
-  "recipe": "classic North American mid-1970s manhattan-chamber loft-recording, art Music, western common practice branch, western modern art music, American jazz avant indeterminacy and aleatoric second viennese school. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, engelmann spruce European maple sycamore maple oil varnish amber tinted cello, gold brass warmer tone multiphonic saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 700,
+  "recipe": "classic North American mid-1970s manhattan-chamber loft-recording, art Music, western common practice branch, western modern art music, American jazz avant indeterminacy and aleatoric second viennese school. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, gold brass warmer tone selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 743,
   "score": 211.385,
   "config": {
     "traditions": [
@@ -28,14 +28,14 @@
         },
         "scores": {
           "keyboard_technique": 5.195,
-          "grand_piano_size": 0.84,
-          "grand_piano_brand": 1.7100000000000002,
-          "piano_hammer": 3.25,
-          "piano_rim": 2.935,
-          "piano_soundboard": 2.5,
-          "piano_pinblock": 2.5,
-          "piano_plate": 2.5,
-          "piano_pitch_standard": 3.19
+          "grand_piano_size": 0.9099999999999999,
+          "grand_piano_brand": 2.145,
+          "piano_hammer": 11.485,
+          "piano_rim": 9.185,
+          "piano_soundboard": 8.75,
+          "piano_pinblock": 8.75,
+          "piano_plate": 9.425,
+          "piano_pitch_standard": 9.440000000000001
         }
       },
       {
@@ -53,16 +53,16 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.7499999999999998,
-          "orch_strings": 1.035,
-          "orch_top_wood": 2.2749999999999995,
-          "orch_back_wood": 5.135,
-          "orch_varnish": 2.5,
-          "orch_setup_period": 1.2999999999999998,
-          "orch_bow": 0.78,
-          "orch_bow_stick": 3.185,
-          "orch_articulation": 1.035,
-          "orch_rosin": 3.185
+          "bowed_technique": 3.4,
+          "orch_strings": 1.625,
+          "orch_top_wood": 7.125,
+          "orch_back_wood": 12.325000000000001,
+          "orch_varnish": 8.75,
+          "orch_setup_period": 9.425,
+          "orch_bow": 1.145,
+          "orch_bow_stick": 10.2,
+          "orch_articulation": 1,
+          "orch_rosin": 10.465
         }
       },
       {
@@ -79,15 +79,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 1.7499999999999998,
-          "cello_strings": 0.24,
-          "cello_top_wood": 1.7499999999999998,
-          "cello_back_wood": 2.89,
-          "cello_varnish": 2.5,
-          "cello_setup_period": 1.2999999999999998,
-          "cello_bow_grip": 0.39,
-          "cello_rosin": 2.695,
-          "cello_bow_stick": 3.185
+          "bowed_technique": 3.4,
+          "cello_strings": 1.8200000000000005,
+          "cello_top_wood": 5.5,
+          "cello_back_wood": 9.14,
+          "cello_varnish": 8.75,
+          "cello_setup_period": 9.425,
+          "cello_bow_grip": 1.69,
+          "cello_rosin": 8.945,
+          "cello_bow_stick": 10.2
         }
       },
       {
@@ -102,13 +102,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 1.6499999999999997,
-          "sax_size": 0.39,
-          "sax_reed": 1.035,
-          "sax_body_alloy": 4.25,
+          "wind_articulation": 4.875,
+          "sax_size": 0.65,
+          "sax_reed": 0.9099999999999999,
+          "sax_body_alloy": 9.595,
           "sax_mouthpiece": 0.24,
-          "sax_technique": 2.5,
-          "sax_maker_school": 0.585
+          "sax_technique": 3.375,
+          "sax_maker_school": 2.2749999999999995
         }
       }
     ],

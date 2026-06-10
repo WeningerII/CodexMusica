@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 12.890999999999993,
-          "voice_quality": 1.2399999999999998,
+          "voice_register": 23.690999999999995,
+          "voice_quality": 12.4125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 0.1365,
-          "voice_microtone": 12.549999999999997,
-          "voice_tradition": 12.094249999999999,
+          "voice_microtone": 15.099999999999998,
+          "voice_tradition": 13.71925,
           "voice_mechanism_compound": 1.755,
-          "voice_estill_quality": 0.7149999999999997,
-          "voice_speech_song": 7.6049999999999995,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 0.7149999999999997,
-          "voice_pitch_organization": 1.69,
+          "voice_estill_quality": 5.265000000000001,
+          "voice_speech_song": 13.129999999999997,
+          "voice_ensemble_config": 8.45,
+          "voice_ornament_system": 4.615000000000001,
+          "voice_pitch_organization": 2.9899999999999998,
           "voice_processing_chain": 4.93975,
           "voice_multitrack_stack": 6.7829999999999995
         }
@@ -62,8 +62,8 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 9.04,
-          "string_tuning": 0,
+          "acoustic_technique": 23.360000000000003,
+          "string_tuning": 0.7249999999999998,
           "top_wood_parlor": 0.6577500000000001,
           "back_sides_parlor": -0.05,
           "string_acoustic_parlor": 0.62625
@@ -79,7 +79,7 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 9.055,
+          "electronic_technique": 10.68,
           "oscillator": 0.5775,
           "filter_topology": 0.35325,
           "envelope": 0.558,
@@ -95,8 +95,8 @@
         },
         "scores": {
           "tr808_voice": 0,
-          "drum_machine_808_context": 5.069999999999999,
-          "tr808_production_origin": 0.285
+          "drum_machine_808_context": 5.915,
+          "tr808_production_origin": 0.5295
         }
       }
     ],

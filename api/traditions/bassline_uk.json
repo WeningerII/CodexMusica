@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 1.69,
-          "voice_quality": 5.59,
+          "voice_quality": 15.8275,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.5865,
-          "voice_articulation": 1.4365,
+          "voice_vibrato": 2.0865,
+          "voice_articulation": 5.67,
           "voice_microtone": 0,
-          "voice_tradition": 3.185000000000001,
+          "voice_tradition": 7.864,
           "voice_mechanism_compound": 0.624,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 1.95,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 5.2615,
-          "voice_multitrack_stack": 4.16
+          "voice_estill_quality": 0.6499999999999999,
+          "voice_speech_song": 12.171,
+          "voice_ensemble_config": 10.854999999999997,
+          "voice_ornament_system": 2.4050000000000002,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 5.9115,
+          "voice_multitrack_stack": 11.7715
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 5.004999999999999,
-          "drum_machine_808_context": 3.6399999999999997,
+          "tr808_voice": 10.8185,
+          "drum_machine_808_context": 4.55,
           "tr808_production_origin": 0.195
         }
       },
@@ -75,9 +75,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 4.875,
-          "oscillator": 3.6399999999999997,
-          "filter_topology": 5.329999999999999,
+          "electronic_technique": 12.3935,
+          "oscillator": 4.55,
+          "filter_topology": 7.54,
           "envelope": 1.4365,
           "modulation": 0.105
         }
@@ -96,11 +96,11 @@
         },
         "scores": {
           "electric_technique": -0.05,
-          "amp_make": 3.575,
-          "body_wood": 1.69,
+          "amp_make": 4.485,
+          "body_wood": 2.34,
           "pickup_config": 0.1815,
-          "string_type": 5.2,
-          "scale_length_b": 1.69,
+          "string_type": 6.76,
+          "scale_length_b": 2.223,
           "fretted_or_not": 0,
           "bass_technique": -0.035
         }

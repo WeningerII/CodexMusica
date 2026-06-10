@@ -3,8 +3,8 @@
   "name": "Brazilian MPB-era protest (música popular brasileira during dictatorship)",
   "family": "global",
   "lineage": "Brazilian Música Popular Brasileira (MPB) protest-song tradition continuous from 1964-1985 Brazilian-military-dictatorship-era political-songwriter scene; centered on Chico Buarque (the foundational figure whose subtle-allegorical anti-dictatorship songs evaded censorship most consistently), Caetano Veloso, Gilberto Gil, Geraldo Vandré, Milton Nascimento, Edu Lobo",
-  "recipe": "classic North American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry milonga greek éntechno politicized. thick, intimate aspirated, chest resonance low mid, continuous-phonation. classical nylon-string guitar, jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 545,
+  "recipe": "classic North American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry milonga greek éntechno politicized. thick, intimate aspirated, chest resonance low mid, continuous-phonation. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 573,
   "score": 134.772,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.8957142857142857,
+          "voice_register": 3.268214285714286,
           "voice_quality": 8.569999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.7457142857142858,
-          "voice_articulation": 1.69,
-          "voice_microtone": 0.045,
-          "voice_tradition": 5.3,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.585,
-          "voice_speech_song": 9.035,
-          "voice_ensemble_config": 2.21,
-          "voice_ornament_system": 3.7,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 1.1263392857142855
+          "voice_vibrato": 0.78,
+          "voice_articulation": 4.225,
+          "voice_microtone": 0.545,
+          "voice_tradition": 16.444999999999997,
+          "voice_mechanism_compound": 2.8599999999999994,
+          "voice_estill_quality": 2.6650000000000005,
+          "voice_speech_song": 22.944999999999993,
+          "voice_ensemble_config": 11.829999999999995,
+          "voice_ornament_system": 4.575,
+          "voice_pitch_organization": 4.225,
+          "voice_processing_chain": 1.885,
+          "voice_multitrack_stack": 5.719999999999999
         }
       },
       {
@@ -63,11 +63,11 @@
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 0.8499999999999999,
+          "acoustic_technique": 6.225,
           "string_tuning": 0,
-          "top_wood_classical": 0.39,
-          "bracing_classical": 0.7457142857142858,
-          "string_classical": 0.9570535714285715,
+          "top_wood_classical": 1.4300000000000002,
+          "bracing_classical": 0.78,
+          "string_classical": 0.7149999999999999,
           "attack_technique_cl": 1.5
         }
       },
@@ -81,11 +81,11 @@
           "cavaquinho_strings": "cavaquinho_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 0.325,
-          "cavaquinho_origin": 0.8700000000000001,
-          "cavaquinho_context": 10.4,
-          "cavaquinho_body_wood": 1.1049999999999998,
-          "cavaquinho_strings": 0.7149999999999999
+          "plucked_traditional_technique": 5.068928571428572,
+          "cavaquinho_origin": 3.8699999999999997,
+          "cavaquinho_context": 21.709999999999994,
+          "cavaquinho_body_wood": 1.2999999999999998,
+          "cavaquinho_strings": 0.9099999999999999
         }
       }
     ],

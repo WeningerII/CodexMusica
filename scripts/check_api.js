@@ -78,6 +78,30 @@ function diffIds(label, actualIds, expectedIds) {
 const R = buildResolver(C);
 const tradIds = C.TRADITIONS.map((t) => t.id);
 const instIds = C.INSTRUMENTS.map((i) => i.id);
+const tradById = new Map(C.TRADITIONS.map((t) => [t.id, t]));
+const instById = new Map(C.INSTRUMENTS.map((i) => [i.id, i]));
+const recipeById = new Map(); // per-id recipe text, cross-checked against all.json
+
+// Stable structural equality via canonical JSON. Both sides derive from the same
+// deterministic load+merge, so key order matches and string equality is exact.
+const stable = (o) => JSON.stringify(o);
+
+// Verify an index file's items beyond id-set membership: the href must point at
+// the real per-id file (which must exist on disk), and the denormalized
+// name/family must match the catalog. The index is the agent's entry map — a
+// broken href or fabricated row sends every downstream fetch to a 404 or the
+// wrong record, which the count/id checks alone never catch.
+function checkIndexItems(label, items, dir, byId) {
+  for (const it of items) {
+    const cat = byId.get(it.id);
+    if (!cat) continue; // diffIds already reports unknown/missing ids
+    const expectHref = `${dir}/${it.id}.json`;
+    if (it.href !== expectHref) fail(`${label}[${it.id}]: href="${it.href}", expected "${expectHref}"`);
+    else if (!fs.existsSync(path.join(API, it.href))) fail(`${label}[${it.id}]: href target missing on disk: ${it.href}`);
+    if (it.name !== cat.name) fail(`${label}[${it.id}]: name="${it.name}" != catalog "${cat.name}"`);
+    if (it.family !== cat.family) fail(`${label}[${it.id}]: family="${it.family}" != catalog "${cat.family}"`);
+  }
+}
 
 // ───────────────────────── traditions ─────────────────────────
 const tindex = readJson('traditions/index.json');
@@ -86,22 +110,31 @@ if (tindex) {
   const items = Array.isArray(tindex.items) ? tindex.items : [];
   if (items.length !== tindex.count) fail(`traditions/index.json: count=${tindex.count} but items.length=${items.length}`);
   diffIds('traditions/index.json', items.map((x) => x.id), tradIds);
+  checkIndexItems('traditions/index.json', items, 'traditions', tradById);
 
-  // Per-id files: each catalog tradition has a file that honors the record contract.
-  const rowById = new Map(C.TRADITIONS.map((t) => [t.id, t]));
+  // Per-id files: each catalog tradition has a file that honors the record
+  // contract AND carries the catalog's own name/family/lineage (not fabricated
+  // metadata). Recipes are captured for the all.json cross-check below.
   let checked = 0;
   for (const id of tradIds) {
     const rec = readJson(`traditions/${id}.json`);
     if (!rec) continue; // readJson already logged the miss
     if (rec.id !== id) fail(`traditions/${id}.json: id field is "${rec.id}"`);
     for (const p of recordProblems(rec, R)) fail(`traditions/${id}.json — ${p}`);
+    const cat = tradById.get(id);
+    if (cat) {
+      if (rec.name !== cat.name) fail(`traditions/${id}.json: name="${rec.name}" != catalog "${cat.name}"`);
+      if (rec.family !== cat.family) fail(`traditions/${id}.json: family="${rec.family}" != catalog "${cat.family}"`);
+      if ((rec.lineage || null) !== (cat.lineage || null)) fail(`traditions/${id}.json: lineage differs from catalog`);
+    }
     // `source` (the import payload for the lazy-loaded app) must be a verbatim
     // projection of the CURRENT catalog row — this is the check that catches a
     // published snapshot drifting from references/ after a chain/tuning edit.
-    const wantSource = JSON.stringify(traditionSource(rowById.get(id)));
+    const wantSource = JSON.stringify(traditionSource(cat));
     if (JSON.stringify(rec.source) !== wantSource) {
       fail(`traditions/${id}.json — source != catalog row projection (tuning/room/parts/chain_*)`);
     }
+    if (typeof rec.recipe === 'string') recipeById.set(id, rec.recipe);
     checked++;
   }
   if (!VERBOSE) console.error(`  …validated ${checked} tradition files`);
@@ -117,6 +150,19 @@ if (all) {
   for (const item of items) {
     // all.json items carry recipe + recipe_chars but no config (by design).
     for (const p of recordProblems(item, R, { requireConfig: false })) fail(`all.json[${item.id}] — ${p}`);
+    // The "one fetch" payload must agree with the per-id file an agent would
+    // otherwise fetch — a recipe present in all.json but different per-id (or
+    // fabricated in either) is a silent contradiction the count/ceiling checks
+    // can't see.
+    const perId = recipeById.get(item.id);
+    if (perId !== undefined && item.recipe !== perId) {
+      fail(`all.json[${item.id}]: recipe differs from traditions/${item.id}.json`);
+    }
+    const cat = tradById.get(item.id);
+    if (cat) {
+      if (item.name !== cat.name) fail(`all.json[${item.id}]: name="${item.name}" != catalog "${cat.name}"`);
+      if (item.family !== cat.family) fail(`all.json[${item.id}]: family="${item.family}" != catalog "${cat.family}"`);
+    }
   }
 }
 
@@ -148,6 +194,23 @@ if (iindex) {
   if (iindex.count !== C.INSTRUMENTS.length) fail(`instruments/index.json count=${iindex.count}, catalog has ${C.INSTRUMENTS.length}`);
   const items = Array.isArray(iindex.items) ? iindex.items : [];
   diffIds('instruments/index.json', items.map((x) => x.id), instIds);
+  checkIndexItems('instruments/index.json', items, 'instruments', instById);
+
+  // Per-instrument files are written VERBATIM from the catalog (no compute), so
+  // each one must deep-equal its catalog instrument. This is what catches a
+  // gutted/fabricated payload (e.g. instruments/{id}.json reduced to {id}) that
+  // the index id-set check waves through.
+  let ichecked = 0;
+  for (const id of instIds) {
+    const rec = readJson(`instruments/${id}.json`);
+    if (!rec) continue; // readJson already logged the miss
+    if (rec.id !== id) fail(`instruments/${id}.json: id field is "${rec.id}"`);
+    else if (stable(rec) !== stable(instById.get(id))) {
+      fail(`instruments/${id}.json: payload differs from the catalog instrument`);
+    }
+    ichecked++;
+  }
+  if (!VERBOSE) console.error(`  …validated ${ichecked} instrument files`);
 }
 
 // ───────────────────────── top-level index ─────────────────────────

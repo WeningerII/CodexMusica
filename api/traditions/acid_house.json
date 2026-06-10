@@ -25,7 +25,7 @@
           "kick_voice": 0.0045,
           "snare_voice": 0,
           "hat_voice": 0.03525,
-          "shuffle_quantize": 2.51125
+          "shuffle_quantize": 3.76125
         }
       },
       {
@@ -37,10 +37,10 @@
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 11.049999999999997,
+          "electronic_technique": 12.674999999999997,
           "wave_acid": 0.03899999999999999,
-          "filter_acid": 3.6908749999999992,
-          "accent_acid": 9.443999999999999
+          "filter_acid": 4.190874999999999,
+          "accent_acid": 11.493999999999998
         }
       }
     ],

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.69,
+          "voice_register": 2.6249999999999996,
           "voice_quality": 1.4949999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 3.38,
           "voice_articulation": 5.5,
-          "voice_microtone": 0.195,
-          "voice_tradition": 7.085,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 9.944999999999999,
-          "voice_ensemble_config": 4.809999999999999,
-          "voice_ornament_system": 4.045,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 1.6900000000000002,
-          "voice_multitrack_stack": 1.69
+          "voice_microtone": 2.0749999999999993,
+          "voice_tradition": 18.965,
+          "voice_mechanism_compound": 1.7249999999999999,
+          "voice_estill_quality": 2.96,
+          "voice_speech_song": 17.679999999999996,
+          "voice_ensemble_config": 7.214999999999998,
+          "voice_ornament_system": 10.895000000000001,
+          "voice_pitch_organization": 9.525,
+          "voice_processing_chain": 3.6725000000000003,
+          "voice_multitrack_stack": 2.925
         }
       },
       {
@@ -60,9 +60,9 @@
           "dotara_context": "dotara_folk"
         },
         "scores": {
-          "plucked_traditional_technique": 3.2000000000000006,
+          "plucked_traditional_technique": 8.8,
           "dotara_strings": 0.39,
-          "dotara_context": 4.549999999999999
+          "dotara_context": 6.954999999999998
         }
       },
       {
@@ -74,10 +74,10 @@
           "ektara_string": "ektara_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 3.2000000000000006,
-          "ektara_use": 16.294999999999998,
-          "ektara_body": 9.165,
-          "ektara_string": 9.549999999999999
+          "plucked_traditional_technique": 8.8,
+          "ektara_use": 19.32,
+          "ektara_body": 10.464999999999998,
+          "ektara_string": 11.999999999999998
         }
       }
     ],

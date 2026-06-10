@@ -3,8 +3,8 @@
   "name": "South African kwaito",
   "family": "hip_hop",
   "lineage": "South African house-and-hip-hop hybrid genre emerging in mid-1990s post-apartheid Johannesburg as a celebration of newly-democratic South African cultural identity. Characterized by slowed-down house tempo (90-110 BPM), Zulu-Xhosa-Sesotho-English vocal delivery, dub-and-reggae-influenced bass-and-keyboard production, and explicit South African township cultural lyrical content. Boom Shaka, Arthur Mafokate, Mandoza, Brenda Fassie (transitional), and TKZee consolidated the canonical 1990s-2000s commercial sound.",
-  "recipe": "classic 1994-1996 south african kwaito, mc Rhythm, Afro-diasporic branch, house electronic dance, Jamaican bass system jamaican dancehall. vocal fry, rap, chest resonance low mid, narrative. TR-808, sub bass analog synth, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 513,
+  "recipe": "classic 1994-1996 south african kwaito, mc Rhythm, Afro-diasporic branch, house electronic dance, Jamaican bass system jamaican dancehall. vocal fry, rap, chest resonance low mid, narrative. roland tr 8s modern aira digital recreation TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 563,
   "score": 154.645,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 3.7,
+          "voice_register": 3.055,
+          "voice_quality": 4.2,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.675,
           "voice_articulation": 1.8000000000000003,
-          "voice_microtone": 0.09,
-          "voice_tradition": 17.11,
+          "voice_microtone": 0.195,
+          "voice_tradition": 18.66,
           "voice_mechanism_compound": 1.14,
           "voice_estill_quality": 0.9599999999999997,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 1.4349999999999998,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 4.74,
-          "voice_multitrack_stack": 3.725
+          "voice_speech_song": 14.299999999999997,
+          "voice_ensemble_config": 13.844999999999995,
+          "voice_ornament_system": 2.245,
+          "voice_pitch_organization": 2.99,
+          "voice_processing_chain": 5.739999999999999,
+          "voice_multitrack_stack": 5.125000000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.655,
-          "drum_machine_808_context": 3.38,
-          "tr808_production_origin": 0.375
+          "tr808_voice": 6.605,
+          "drum_machine_808_context": 5.785,
+          "tr808_production_origin": 2.125
         }
       },
       {
@@ -75,10 +75,10 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 4.555000000000001,
-          "oscillator": 2.6,
-          "filter_topology": 4.245,
-          "envelope": 0.3,
+          "electronic_technique": 6.505000000000001,
+          "oscillator": 4.654999999999999,
+          "filter_topology": 6.345000000000001,
+          "envelope": 0.45499999999999996,
           "modulation": 0.15
         }
       },
@@ -95,14 +95,14 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 6.5,
-          "amp_make": 2.37,
+          "electric_technique": 15.775,
+          "amp_make": 4.41,
           "body_wood": 1.69,
           "pickup_config": 0.42,
-          "string_type": 4.1450000000000005,
+          "string_type": 6.245,
           "scale_length_b": 1.63,
-          "fretted_or_not": 0.135,
-          "bass_technique": 6.5
+          "fretted_or_not": 0.195,
+          "bass_technique": 15.775
         }
       }
     ],

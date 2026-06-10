@@ -3,8 +3,8 @@
   "name": "Hawaiian mele oli sacred-chant",
   "family": "global",
   "lineage": "Hawaiian mele (chant/song/poetry, broad category) and oli (chant without dance or instrument, solo, prayer/genealogy/name function). Pre-contact sacred-chant tradition. Two register-styles: kepakepa rapid rhythmic recitation (used for prayer mele pule); ho'āeae soft drawn-out vowels (used for love mele ho'oipoipo and lamentation). Functional inventory: mele pule prayer, kō'ihonua cosmogeny, kū'auhau genealogy, hānau birth, inoa name-giving, ma'i procreation, kanikau lamentation, ho'oipoipo love. Performance with terminal pitch-drop closing each line, the characteristic 'i'i quavering vibrato sustained on long vowels, and characteristic vocal-strain register in genealogy and prayer mele. Hula kahiko (ancient hula) uses sacred instruments — pahu coconut-log sharkskin drum (originally heiau temple instrument), ipu and ipu heke single and double gourds, pū'ili bamboo split-rattle, 'ulī'ulī feathered gourd rattle, 'ili'ili water-worn lava stones, pū conch — while hula 'auana (post-1832 modern hula) uses Western-instrument accompaniment. Distinguished from Māori karanga + pōwhiri by Hawaiian 'i'i quavering-vibrato terminal-drop ornament; distinguished from Tahitian himene by absence of polyphonic congregational-hymn structure and presence of unaccompanied sacred-chant convention",
-  "recipe": "classic North American early-1830s hawaiian mele oli sacred-chant, ritual Devotional, indigenous branch, vocal drone modal skolt sámi leuʹdd northern sámi luohti yoik. vocal fry, declaimed, melodic, narrative. coconut log carved hollow sharkskin head hand struck canonical hawaiian sacred hula kahiko accompaniment pahu mele song drum pahu, single gourd no top piece mele hula accompaniment ground strike palm slap canonical hula kahiko rhythm ipu heke, conch shell horn, bamboo split rattle struck canonical hula kahiko hula kahiko sacred dance canonical hawaiian pulili. hawaiian heiau outdoor lava stone temple. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 761,
+  "recipe": "classic North American early-1830s hawaiian mele oli sacred-chant, ritual Devotional, indigenous branch, vocal drone modal skolt sámi leuʹdd northern sámi luohti yoik. vocal fry, declaimed, melodic, narrative. coconut log carved hollow sharkskin head hand struck canonical hawaiian sacred hula kahiko accompaniment pahu mele song drum pahu, single gourd no top piece mele hula accompaniment ground strike palm slap canonical hula kahiko rhythm ipu heke, call ritual conch shell horn, bamboo split rattle struck canonical hula kahiko hula kahiko sacred dance canonical hawaiian pulili. hawaiian heiau outdoor lava stone temple. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 773,
   "score": 296.255,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.6,
-          "voice_quality": 8.535,
+          "voice_register": 7.734999999999999,
+          "voice_quality": 10.784999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 1.585,
-          "voice_microtone": 1.425,
-          "voice_tradition": 34.45249999999999,
-          "voice_mechanism_compound": 4.704999999999999,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 15.145000000000003,
-          "voice_ensemble_config": 11.7,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 4.415,
-          "voice_multitrack_stack": 4.29
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 1.8849999999999996,
+          "voice_microtone": 2.7950000000000017,
+          "voice_tradition": 38.50249999999999,
+          "voice_mechanism_compound": 7.15,
+          "voice_estill_quality": 6.630000000000001,
+          "voice_speech_song": 26.325000000000003,
+          "voice_ensemble_config": 22.035000000000004,
+          "voice_ornament_system": 17.825,
+          "voice_pitch_organization": 2.9899999999999998,
+          "voice_processing_chain": 7.6049999999999995,
+          "voice_multitrack_stack": 10.075
         }
       },
       {
@@ -59,8 +59,8 @@
           "pahu_role": "pahu_hula_kahiko_accompaniment"
         },
         "scores": {
-          "pahu_construction": 14.049999999999999,
-          "pahu_role": 20.564999999999998
+          "pahu_construction": 14.549999999999999,
+          "pahu_role": 21.214999999999996
         }
       },
       {
@@ -71,7 +71,7 @@
         },
         "scores": {
           "ipu_heke_construction": 17.08,
-          "ipu_heke_technique": 7.714999999999999
+          "ipu_heke_technique": 8.214999999999998
         }
       },
       {
@@ -82,9 +82,9 @@
           "conch_shell_horn_region": "conch_shell_horn_polynesian"
         },
         "scores": {
-          "wind_articulation": 1.8199999999999998,
+          "wind_articulation": 3.8225000000000002,
           "conch_use": 0.825,
-          "conch_shell_horn_region": 11.830000000000002
+          "conch_shell_horn_region": 21.515000000000004
         }
       },
       {
@@ -94,8 +94,8 @@
           "pulili_tradition": "pulili_hula_kahiko_canonical"
         },
         "scores": {
-          "pulili_body": 13.11,
-          "pulili_tradition": 18.294999999999998
+          "pulili_body": 13.61,
+          "pulili_tradition": 18.794999999999998
         }
       }
     ],

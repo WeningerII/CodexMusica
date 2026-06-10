@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.38,
-          "voice_quality": 3.4450000000000003,
+          "voice_register": 7.4544999999999995,
+          "voice_quality": 9.514999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 2.275,
           "voice_articulation": 3.1200000000000006,
-          "voice_microtone": 0.40950000000000003,
-          "voice_tradition": 10.075,
-          "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 6.5649999999999995,
-          "voice_speech_song": 8.059999999999999,
-          "voice_ensemble_config": 10.009999999999998,
-          "voice_ornament_system": 2.8400000000000003,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 5.069999999999999,
-          "voice_multitrack_stack": 3.38
+          "voice_microtone": 7.8995000000000015,
+          "voice_tradition": 41.21450000000001,
+          "voice_mechanism_compound": 22.5995,
+          "voice_estill_quality": 12.999999999999995,
+          "voice_speech_song": 23.66,
+          "voice_ensemble_config": 27.43,
+          "voice_ornament_system": 7.15,
+          "voice_pitch_organization": 8.9305,
+          "voice_processing_chain": 9.36,
+          "voice_multitrack_stack": 6.37
         }
       },
       {
@@ -62,11 +62,11 @@
           "kantele_string_material": "kantele_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": -0.05,
+          "plucked_traditional_technique": 1.25,
           "kantele_strings": 0.195,
-          "kantele_context": 3.38,
+          "kantele_context": 5.329999999999999,
           "kantele_body_wood": 6.199999999999999,
-          "kantele_string_material": 1.69
+          "kantele_string_material": 2.34
         }
       }
     ],

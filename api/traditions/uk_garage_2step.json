@@ -3,8 +3,8 @@
   "name": "UK garage and 2-step",
   "family": "global",
   "lineage": "Late-1990s UK club-music genre extending US garage through the syncopated 2-step rhythm (kick on beats 1 and 3 only, snare on the off-beats) — codified through Tuff Jam, Wookie, MJ Cole (Sincere 2000), Artful Dodger (It Ain't Enough 2000), Craig David (Born to Do It 2000), So Solid Crew, and continuing through the late-2000s revival",
-  "recipe": "classic 1997-1999 uk garage and 2-step, bass System, uk soundsystem branch, garage house u s house. thick, blues-shouter, maqam neutral step, min yo. sampler, TR-909, sub bass digital subtractive, heavy gauge flatwound la bella flats Detroit soul bass canon electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 418,
+  "recipe": "classic 1997-1999 uk garage and 2-step, bass System, uk soundsystem branch, garage house u s house. thick, blues-shouter, ornamental, maqam neutral step. sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 455,
   "score": 163.445,
   "config": {
     "traditions": [
@@ -33,21 +33,21 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.2999999999999998,
-          "voice_quality": 0.6499999999999999,
+          "voice_register": 5.6842500000000005,
+          "voice_quality": 3.0100000000000025,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.348,
-          "voice_articulation": 0.39,
-          "voice_microtone": 3.591,
-          "voice_tradition": 5.525,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 2.3615000000000004,
-          "voice_speech_song": 11.244999999999997,
-          "voice_ensemble_config": 11.569999999999997,
+          "voice_vibrato": 0.195,
+          "voice_articulation": 2.375,
+          "voice_microtone": 3.7409999999999997,
+          "voice_tradition": 8.688125,
+          "voice_mechanism_compound": 1.5599999999999996,
+          "voice_estill_quality": 4.840000000000001,
+          "voice_speech_song": 15.144999999999998,
+          "voice_ensemble_config": 16.054999999999996,
           "voice_ornament_system": 1.95,
-          "voice_pitch_organization": 3.691,
-          "voice_processing_chain": 1.9737499999999997,
+          "voice_pitch_organization": 3.8409999999999993,
+          "voice_processing_chain": 4.34875,
           "voice_multitrack_stack": 3.1295
         }
       },
@@ -63,9 +63,9 @@
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": 0.294,
-          "sampler_bit_depth": 1.17,
+          "sampler_bit_depth": 1.3649999999999998,
           "sampler_workflow": 0.26,
-          "sampler_classic_context": 20.539999999999996
+          "sampler_classic_context": 33.029624999999996
         }
       },
       {
@@ -76,8 +76,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 4.25,
-          "drum_machine_909_context": 2.069875,
+          "tr909_voice": 12.374999999999998,
+          "drum_machine_909_context": 3.019875,
           "tr909_production_origin": 0.04125
         }
       },
@@ -91,7 +91,7 @@
         "scores": {
           "electronic_technique": 3.965,
           "va_archetypes": 0.12,
-          "digital_subtractive_context": 10.919999999999998
+          "digital_subtractive_context": 14.364999999999998
         }
       },
       {
@@ -107,14 +107,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 2.6650000000000005,
-          "body_wood": 0.6960000000000001,
+          "electric_technique": 2.4700000000000006,
+          "amp_make": 6.272500000000001,
+          "body_wood": 0.195,
           "pickup_config": 0.037125,
-          "string_type": 2.6000000000000005,
-          "scale_length_b": 0.48450000000000004,
+          "string_type": 5.9475,
+          "scale_length_b": 0.65,
           "fretted_or_not": 0,
-          "bass_technique": 0.325
+          "bass_technique": 2.4699999999999998
         }
       }
     ],

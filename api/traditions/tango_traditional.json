@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.1049999999999998,
-          "voice_quality": 1.17,
+          "voice_register": 1.755,
+          "voice_quality": 8.024999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.045,
-          "voice_articulation": 1.3,
-          "voice_microtone": 0.3,
-          "voice_tradition": 2.7950000000000004,
-          "voice_mechanism_compound": 2.6,
-          "voice_estill_quality": 2.405,
-          "voice_speech_song": 6.825,
-          "voice_ensemble_config": 11.05,
-          "voice_ornament_system": 0.26,
-          "voice_pitch_organization": 1.395,
-          "voice_processing_chain": 3.25,
-          "voice_multitrack_stack": 1.3
+          "voice_articulation": 3.380000000000001,
+          "voice_microtone": 0.585,
+          "voice_tradition": 6.11,
+          "voice_mechanism_compound": 5.719999999999999,
+          "voice_estill_quality": 6.825,
+          "voice_speech_song": 16.51,
+          "voice_ensemble_config": 20.735,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 2.6,
+          "voice_processing_chain": 6.11,
+          "voice_multitrack_stack": 3.185
         }
       },
       {
@@ -64,9 +64,9 @@
         "scores": {
           "free_reed_technique": 14.2,
           "bandoneon_action": 4.8999999999999995,
-          "bandoneon_use": 6.279999999999999,
-          "bandoneon_maker_school": 5.1499999999999995,
-          "bandoneon_reed_material": 1.69
+          "bandoneon_use": 7.579999999999999,
+          "bandoneon_maker_school": 5.6499999999999995,
+          "bandoneon_reed_material": 4.29
         }
       },
       {
@@ -84,16 +84,16 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.17,
+          "bowed_technique": 1.8199999999999998,
           "orch_strings": 1.3,
-          "orch_top_wood": 2.015,
+          "orch_top_wood": 2.8600000000000003,
           "orch_back_wood": 1.2,
-          "orch_varnish": 2.83,
-          "orch_setup_period": 2.6,
-          "orch_bow": 1.17,
+          "orch_varnish": 4.13,
+          "orch_setup_period": 3.4449999999999994,
+          "orch_bow": 2.6,
           "orch_bow_stick": -5.551115123125783e-17,
           "orch_articulation": 0.48,
-          "orch_rosin": 1.2349999999999999
+          "orch_rosin": 1.4299999999999997
         }
       },
       {
@@ -106,7 +106,7 @@
         "scores": {
           "keyboard_technique": 1.25,
           "upright_use": 0.645,
-          "upright_piano_size": 1.77
+          "upright_piano_size": 1.04
         }
       },
       {
@@ -118,8 +118,8 @@
         },
         "scores": {
           "acoustic_technique": 0.95,
-          "upright_strings": 0.24,
-          "upright_play": 1.3
+          "upright_strings": 0.39,
+          "upright_play": 1.95
         }
       }
     ],

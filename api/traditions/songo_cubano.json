@@ -3,8 +3,8 @@
   "name": "Songo (Cuban 1970s fusion)",
   "family": "global",
   "lineage": "Cuban dance-music developed in 1970s-1980s Havana by Los Van Van under Juan Formell, synthesizing son montuno, changüí, North American funk, and Cuban folkloric rumba. Introduced drum-kit alongside canonical timbales and congas, electric-bass with funk-derived ostinato, extended sectional structures. Directly informed subsequent 1990s timba emergence.",
-  "recipe": "classic songo, groove Percussion, son salsa branch, Brazilian song functional song lambada and carimbó forró pé-de-serra. extended whistle, intimate aspirated, nervy, Yoruba tonal vocal. cold pressed wurzen felt birch laminated maple laminated grand piano, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, mellow brass timbales, mule hide canonical Cuban premium oak staved canonical Cuban congas, birch pre muffled edge muffled bronze bell bronze drum kit. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 701,
+  "recipe": "classic songo, groove Percussion, son salsa branch, Brazilian song functional song lambada and carimbó forró pé-de-serra. extended whistle, intimate aspirated, nervy, rhythmic. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, birch pre muffled edge muffled bronze bell bronze drum kit. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 737,
   "score": 168.773,
   "config": {
     "traditions": [
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 1.56,
-          "voice_quality": 1.35,
+          "voice_register": 3.7375000000000007,
+          "voice_quality": 1.705,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.345,
-          "voice_articulation": 0.435,
-          "voice_microtone": 0,
-          "voice_tradition": 1.885,
-          "voice_mechanism_compound": 1.69,
+          "voice_articulation": 0.845,
+          "voice_microtone": 1.3749999999999998,
+          "voice_tradition": 4.16,
+          "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 5.135,
-          "voice_ensemble_config": 3.25,
+          "voice_speech_song": 13.909999999999998,
+          "voice_ensemble_config": 8.969999999999999,
           "voice_ornament_system": 1.1949999999999998,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 16.904999999999998,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 18.529999999999998,
           "voice_multitrack_stack": 4.3
         }
       },
@@ -66,14 +66,14 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.39,
+          "keyboard_technique": 1.875,
+          "grand_piano_size": 0.845,
           "grand_piano_brand": 1.345,
-          "piano_hammer": 1.536,
-          "piano_rim": 1.625,
-          "piano_soundboard": -0.035,
+          "piano_hammer": 2.186,
+          "piano_rim": 2.0475000000000003,
+          "piano_soundboard": 1.5750000000000002,
           "piano_pinblock": -0.035,
-          "piano_plate": -0.035,
+          "piano_plate": 0.7149999999999999,
           "piano_pitch_standard": -0.035
         }
       },
@@ -91,10 +91,10 @@
         },
         "scores": {
           "electric_technique": 6.499999999999999,
-          "amp_make": 3.0775000000000006,
+          "amp_make": 3.7275000000000005,
           "body_wood": 0.78,
-          "pickup_config": 0.39,
-          "string_type": 1.56,
+          "pickup_config": 0.845,
+          "string_type": 3.2500000000000004,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.15,
           "bass_technique": 6.499999999999999
@@ -108,7 +108,7 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 1.56,
+          "percussion_technique": 4.2015,
           "timbales_shell": 1.95,
           "timbales_context": 0.2265
         }
@@ -122,10 +122,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 1.56,
-          "conga_set": 0.37649999999999995,
-          "conga_skin": 8.319999999999999,
-          "conga_shell_wood": 8.319999999999999
+          "percussion_technique": 4.2015,
+          "conga_set": 0.845,
+          "conga_skin": 10.009999999999998,
+          "conga_shell_wood": 10.009999999999998
         }
       },
       {
@@ -144,17 +144,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 6.5649999999999995,
+          "percussion_technique": 11.439999999999998,
           "shell_wood": 1.345,
           "shell_thickness": 0,
           "bearing_edges": 1.54,
-          "drumhead": 1.345,
+          "drumhead": 1.7700000000000002,
           "snare_wires": 0.39,
           "cymbal_alloy": 2.35,
-          "cymbal_hammering": -0.035,
-          "cymbal_lathing": 1.8199999999999998,
+          "cymbal_hammering": 1.81,
+          "cymbal_lathing": 2.7300000000000004,
           "cymbal_finish": 1.345,
-          "drum_technique": 6.5649999999999995
+          "drum_technique": 11.439999999999998
         }
       }
     ],

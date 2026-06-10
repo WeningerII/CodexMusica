@@ -3,8 +3,8 @@
   "name": "Old-time Appalachian",
   "family": "vernacular",
   "lineage": "Pre-WWII Appalachian and southern American string-band tradition — fiddle, banjo, guitar (sometimes mandolin and bass) playing dance tunes and ballads in regional repertoires including Round Peak (Galax-Mt-Airy NC), Hammons Family (West Virginia), Skillet Lickers (Georgia), and the broader tradition documented through 1920s commercial Bristol sessions and the Library of Congress field-recording campaign",
-  "recipe": "classic North American mid-1920s old-time appalachian, drone Modal, appalachian branch, blues narrative ballad poetry classic blues women jug band. wood 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, double stops fiddle, narrative fingerpicked parlor acoustic guitar, walnut canonical appalachian clawhammer mountain dulcimer, drone like modal autoharp, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. wooden barn. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 636,
+  "recipe": "classic North American mid-1920s old-time appalachian, drone Modal, appalachian branch, blues narrative ballad poetry classic blues women jug band. wood 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, double stops fiddle, mahogany parlor classic steel silk fingerpicked parlor acoustic guitar, walnut canonical appalachian clawhammer mountain dulcimer, steel modern canonical 36 37 string set drone like modal autoharp, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. wooden barn. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 701,
   "score": 324.77,
   "config": {
     "traditions": [
@@ -29,17 +29,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 6.76,
-          "banjo_back": 0.9099999999999999,
-          "tone_ring": 3.9875,
-          "banjo_head": 7.8,
-          "banjo_pot": 0.43499999999999994,
+          "plucked_traditional_technique": 20.865000000000002,
+          "banjo_back": 1.9499999999999997,
+          "tone_ring": 4.4875,
+          "banjo_head": 19.955000000000002,
+          "banjo_pot": 0.195,
           "banjo_play": 2.87,
           "banjo_rim_wood": 2.445,
           "banjo_neck_wood": 2.25,
           "banjo_strings": 2.295,
-          "banjo_bridge": 2.25,
-          "banjo_setup_period": 10.595
+          "banjo_bridge": 3.2499999999999987,
+          "banjo_setup_period": 22.295
         }
       },
       {
@@ -52,11 +52,11 @@
           "fiddle_articulation": "sul_tasto"
         },
         "scores": {
-          "bowed_technique": 8.433749999999998,
-          "fiddle_strings": 0.5700000000000001,
-          "fiddle_bow": 0.43499999999999994,
-          "fiddle_mute": 0.13874999999999998,
-          "fiddle_articulation": 0.8624999999999999
+          "bowed_technique": 11.80875,
+          "fiddle_strings": 0.585,
+          "fiddle_bow": 0.39,
+          "fiddle_mute": 0.585,
+          "fiddle_articulation": 1.3624999999999998
         }
       },
       {
@@ -69,11 +69,11 @@
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 4.2,
-          "string_tuning": 0.35,
-          "top_wood_parlor": 0.9099999999999999,
+          "acoustic_technique": 11.8625,
+          "string_tuning": 2.675,
+          "top_wood_parlor": 1.3649999999999998,
           "back_sides_parlor": 0.21,
-          "string_acoustic_parlor": 0.70875
+          "string_acoustic_parlor": 2.0149999999999997
         }
       },
       {
@@ -104,10 +104,10 @@
         },
         "scores": {
           "acoustic_technique": 4.16,
-          "autoharp_chord_bars": 0.48375,
-          "autoharp_context": 3.8149999999999995,
-          "autoharp_strings": 0.13000000000000012,
-          "autoharp_body_wood": -0.7
+          "autoharp_chord_bars": 0.195,
+          "autoharp_context": 4.225,
+          "autoharp_strings": 1.3649999999999998,
+          "autoharp_body_wood": 0.1949999999999999
         }
       },
       {
@@ -122,13 +122,13 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 0.325,
-          "harmonica_type": 0.7387499999999998,
-          "harmonica_comb": 6.89,
-          "harmonica_reed": 1.9362499999999998,
-          "harmonica_technique": 2.6887499999999998,
-          "harmonica_maker_school": 1.2999999999999998,
-          "harmonica_tuning": 0.9099999999999999
+          "free_reed_technique": 3.3187499999999996,
+          "harmonica_type": 2.7299999999999995,
+          "harmonica_comb": 43.893750000000004,
+          "harmonica_reed": 28.911250000000003,
+          "harmonica_technique": 30.620000000000005,
+          "harmonica_maker_school": 42.86750000000001,
+          "harmonica_tuning": 14.625000000000002
         }
       }
     ],

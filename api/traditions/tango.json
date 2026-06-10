@@ -3,8 +3,8 @@
   "name": "Tango",
   "family": "global",
   "lineage": "Argentine bandoneón-and-violin orquesta-típica tradition codified through the Buenos Aires studio canon from Carlos Gardel onward",
-  "recipe": "classic mid-1930s tango, ballad Poetry, Latin am troubadour branch, tropical song functional song garifuna paranda and hungu-hungu bolero. thick, melodic, Yoruba tonal vocal, ingressive egressive paired breath. tango virtuoso premier German tango premium alternative bellows articulated bandoneon, violin orchestral, upright piano, upright bass, cello. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 488,
+  "recipe": "classic mid-1930s tango, ballad Poetry, Latin am troubadour branch, tropical song functional song garifuna paranda and hungu-hungu bolero. thick, full chest belt, melodic, equal tempered. tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce pernambuco paubrasilia echinata classical canon bernardel violin orchestral, upright piano, growly gut upright bass, pirastro cellisto cello specific pernambuco classical canon cello. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 607,
   "score": 120.765,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.585,
-          "voice_quality": 0.345,
+          "voice_register": 4.160000000000001,
+          "voice_quality": 3.250000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.7149999999999999,
           "voice_articulation": 0.39,
-          "voice_microtone": 0.39,
-          "voice_tradition": 2.34,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.9749999999999996,
-          "voice_speech_song": 8.514999999999999,
-          "voice_ensemble_config": 5.849999999999999,
-          "voice_ornament_system": 0.75,
-          "voice_pitch_organization": 0.9299999999999998,
-          "voice_processing_chain": 3.575,
-          "voice_multitrack_stack": 1.17
+          "voice_microtone": 3.9750000000000005,
+          "voice_tradition": 11.7,
+          "voice_mechanism_compound": 4.069999999999999,
+          "voice_estill_quality": 2.6000000000000005,
+          "voice_speech_song": 26.130000000000003,
+          "voice_ensemble_config": 18.72,
+          "voice_ornament_system": 1.25,
+          "voice_pitch_organization": 1.8199999999999996,
+          "voice_processing_chain": 5.85,
+          "voice_multitrack_stack": 2.2099999999999995
         }
       },
       {
@@ -66,7 +66,7 @@
           "bandoneon_action": 3.0999999999999996,
           "bandoneon_use": 3.7899999999999996,
           "bandoneon_maker_school": 3.2449999999999997,
-          "bandoneon_reed_material": 0.9299999999999998
+          "bandoneon_reed_material": 0.845
         }
       },
       {
@@ -85,15 +85,15 @@
         },
         "scores": {
           "bowed_technique": 0.26,
-          "orch_strings": 0.435,
-          "orch_top_wood": 0.2,
-          "orch_back_wood": -0.035,
-          "orch_varnish": -0.035,
+          "orch_strings": 0.25,
+          "orch_top_wood": 1.2349999999999999,
+          "orch_back_wood": 0.585,
+          "orch_varnish": 0.585,
           "orch_setup_period": 0.6499999999999999,
-          "orch_bow": 0.78,
-          "orch_bow_stick": 0.9999999999999999,
+          "orch_bow": 1.4949999999999999,
+          "orch_bow_stick": 1.4999999999999998,
           "orch_articulation": 0.78,
-          "orch_rosin": -0.035
+          "orch_rosin": 1.2349999999999999
         }
       },
       {
@@ -104,7 +104,7 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": -0.035,
+          "keyboard_technique": 1.965,
           "upright_use": 0.63,
           "upright_piano_size": 1
         }
@@ -117,9 +117,9 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
-          "upright_strings": 0.435,
-          "upright_play": 0.39
+          "acoustic_technique": 1.1400000000000001,
+          "upright_strings": 1.25,
+          "upright_play": 1.25
         }
       },
       {
@@ -137,14 +137,14 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "cello_strings": 0.435,
+          "cello_strings": 0.325,
           "cello_top_wood": 0.2,
-          "cello_back_wood": -0.035,
+          "cello_back_wood": 0.585,
           "cello_varnish": -0.035,
           "cello_setup_period": 0.6499999999999999,
           "cello_bow_grip": 0.195,
-          "cello_rosin": 0.9499999999999998,
-          "cello_bow_stick": 0.9999999999999999
+          "cello_rosin": 1.45,
+          "cello_bow_stick": 1.4999999999999998
         }
       }
     ],

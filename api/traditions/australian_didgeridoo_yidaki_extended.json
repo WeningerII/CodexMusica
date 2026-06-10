@@ -22,10 +22,10 @@
           "didj_technique": "circular_breathing"
         },
         "scores": {
-          "wind_articulation": 14.556,
-          "didj_material": 9.44,
-          "didj_mouthpiece": 6.939,
-          "didj_technique": 3.3799999999999994
+          "wind_articulation": 20.355999999999998,
+          "didj_material": 17.065,
+          "didj_mouthpiece": 13.264,
+          "didj_technique": 6.5745
         }
       },
       {
@@ -40,11 +40,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.4264999999999999,
-          "brass_size": 1.15,
-          "trumpet_mouthpiece": 1.625,
+          "wind_articulation": 2.0765000000000002,
+          "brass_size": 1.65,
+          "trumpet_mouthpiece": 3.5100000000000002,
           "brass_mute": 0.1785,
-          "trumpet_technique": -0.035,
+          "trumpet_technique": -9.714451465470119e-18,
           "trumpet_bell_metal": 0.1365,
           "trumpet_maker_school": 0.378
         }

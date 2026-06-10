@@ -3,8 +3,8 @@
   "name": "Slap house (Brazilian house 2010s)",
   "family": "electronic",
   "lineage": "Late-2010s house subgenre characterized by deep-pulsing bass-and-kick \"slap\" sound and atmospheric synth pad-and-vocal-chop arrangement. Originated through Brazilian producer Vintage Culture and the broader Onerpm and Brazilian house scene; rapidly spread globally through TikTok and Spotify viral mainstream-electronic circulation 2019-2022. Distinguished by the \"slap\" bass-and-kick processing technique as the defining sonic signature.",
-  "recipe": "classic slap house, electronic Dance, house branch, Brazilian groove percussion pagode. thick, punctuated, modern pop training, m1 with m0 pulse borrowing. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, pad like lead analog synth. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 437,
+  "recipe": "classic slap house, electronic Dance, house branch, Brazilian groove percussion pagode. thick, intimate aspirated, punctuated, equal tempered. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, pad like lead analog synth. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 424,
   "score": 121.235,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 0.21,
+          "voice_register": 5.600000000000001,
+          "voice_quality": 7.919999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.38999999999999996,
-          "voice_articulation": 0.9299999999999999,
-          "voice_microtone": 0.045,
-          "voice_tradition": 2.535,
-          "voice_mechanism_compound": 2.4299999999999993,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 11.765,
-          "voice_ensemble_config": 11.7,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.75,
-          "voice_processing_chain": 11.739999999999998,
-          "voice_multitrack_stack": 7.41
+          "voice_vibrato": 0.45499999999999996,
+          "voice_articulation": 1.04,
+          "voice_microtone": 6.000000000000001,
+          "voice_tradition": 5.915,
+          "voice_mechanism_compound": 1.8199999999999998,
+          "voice_estill_quality": 1.8199999999999996,
+          "voice_speech_song": 20.735000000000003,
+          "voice_ensemble_config": 19.76,
+          "voice_ornament_system": 0.7749999999999999,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 13.97,
+          "voice_multitrack_stack": 9.524999999999999
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 3.0749999999999997,
-          "drum_machine_808_context": 3.3799999999999994,
-          "tr808_production_origin": 1.6250000000000002
+          "tr808_voice": 3.2249999999999996,
+          "drum_machine_808_context": 7.345,
+          "tr808_production_origin": 2.47
         }
       },
       {
@@ -75,11 +75,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 3.0200000000000005,
-          "oscillator": 3.1249999999999996,
-          "filter_topology": 3.1249999999999996,
+          "electronic_technique": 4.43,
+          "oscillator": 3.2749999999999995,
+          "filter_topology": 3.4249999999999994,
           "envelope": 1.3,
-          "modulation": 0.21
+          "modulation": 0.45499999999999996
         }
       }
     ],

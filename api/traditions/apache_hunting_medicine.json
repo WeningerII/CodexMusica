@@ -3,8 +3,8 @@
   "name": "Apache hunting-medicine song (Native American)",
   "family": "global",
   "lineage": "Apache-and-broader-Native-American hunting-medicine song tradition continuous from premodern Indigenous-North-American hunting-and-ritual practice through colonial-era continuous performance into modern Native-American continuous practice",
-  "recipe": "classic modern apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, continuous-phonation. powwow drum circle. plains northern powwow drum circle outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 492,
+  "recipe": "classic modern apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, continuous-phonation. foundational high pitched powwow drum circle. plains northern powwow drum circle outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 518,
   "score": 200.515,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.494999999999999,
-          "voice_quality": 2.1449999999999996,
+          "voice_register": 7.015000000000001,
+          "voice_quality": 8.65,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 5.069999999999999,
-          "voice_microtone": 0.38999999999999996,
-          "voice_tradition": 15.314999999999998,
-          "voice_mechanism_compound": 12.295,
-          "voice_estill_quality": 0.63,
-          "voice_speech_song": 11.634999999999998,
-          "voice_ensemble_config": 4.809999999999999,
-          "voice_ornament_system": 3.055,
-          "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 4.2749999999999995
+          "voice_vibrato": 1.7550000000000001,
+          "voice_articulation": 5.719999999999999,
+          "voice_microtone": 6.830000000000001,
+          "voice_tradition": 45.489999999999995,
+          "voice_mechanism_compound": 32.095,
+          "voice_estill_quality": 6.24,
+          "voice_speech_song": 28.600000000000005,
+          "voice_ensemble_config": 22.23,
+          "voice_ornament_system": 9.52,
+          "voice_pitch_organization": 7.11,
+          "voice_processing_chain": 4.68,
+          "voice_multitrack_stack": 3.3799999999999994
         }
       },
       {
@@ -60,7 +60,7 @@
         },
         "scores": {
           "members": 0.9299999999999999,
-          "style": 0.7350000000000001
+          "style": 1.4949999999999999
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Third stream (jazz-classical fusion)",
   "family": "jazz",
   "lineage": "Mid-twentieth-century compositional movement (term coined 1957 by Gunther Schuller) explicitly synthesizing classical-art-music compositional procedures with jazz-improvisational practice. Schuller's own compositions, John Lewis's Modern Jazz Quartet recordings (especially with Gunther Schuller orchestrations), and the broader 1957-1972 Lenox School of Jazz workshop activity constitute the canonical core.",
-  "recipe": "classic North American mid-1960s third stream, improv On Frame, fusion branch, western modern art music neoclassicism. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato shallow cup trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, growly gut upright bass, silver wound lamb gut core sitka spruce European maple sycamore maple violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 765,
+  "recipe": "classic North American mid-1960s third stream, improv On Frame, fusion branch, western modern art music neoclassicism. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato shallow cup trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, gut chord melody upright bass, silver wound lamb gut core sitka spruce European maple sycamore maple violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 771,
   "score": 434.614,
   "config": {
     "traditions": [
@@ -25,13 +25,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 7.699999999999999,
-          "brass_size": 0.71125,
-          "trumpet_mouthpiece": 18.89,
-          "brass_mute": 5.75,
-          "trumpet_technique": 5.945,
-          "trumpet_bell_metal": 1.69,
-          "trumpet_maker_school": 3.6399999999999997
+          "wind_articulation": 12.149999999999999,
+          "brass_size": 0.845,
+          "trumpet_mouthpiece": 20.515,
+          "brass_mute": 8.25,
+          "trumpet_technique": 8.445,
+          "trumpet_bell_metal": 4.225,
+          "trumpet_maker_school": 6.175
         }
       },
       {
@@ -46,13 +46,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 7.699999999999999,
+          "wind_articulation": 12.149999999999999,
           "sax_size": 1.69,
-          "sax_reed": 1.1112499999999998,
-          "sax_body_alloy": 23.5,
-          "sax_mouthpiece": 0.71125,
-          "sax_technique": 18.5,
-          "sax_maker_school": 20.025
+          "sax_reed": 1.3,
+          "sax_body_alloy": 28.875,
+          "sax_mouthpiece": 0.845,
+          "sax_technique": 20.125,
+          "sax_maker_school": 22.949999999999996
         }
       },
       {
@@ -69,15 +69,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 5.75,
+          "keyboard_technique": 8.25,
           "grand_piano_size": 1.69,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 13.379375,
-          "piano_rim": 11.185,
-          "piano_soundboard": 10.91875,
-          "piano_pinblock": 10.75,
-          "piano_plate": 11.621875000000001,
-          "piano_pitch_standard": 11.14
+          "grand_piano_brand": 5.07,
+          "piano_hammer": 19.629375,
+          "piano_rim": 17.435,
+          "piano_soundboard": 17.16875,
+          "piano_pinblock": 17,
+          "piano_plate": 17.871875,
+          "piano_pitch_standard": 17.39
         }
       },
       {
@@ -88,9 +88,9 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 1.9500000000000002,
-          "upright_strings": 18.5,
-          "upright_play": 18.5
+          "acoustic_technique": 3.9000000000000004,
+          "upright_strings": 20.125,
+          "upright_play": 20.125
         }
       },
       {
@@ -108,16 +108,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 5.9,
+          "bowed_technique": 8.4,
           "orch_strings": 1.625,
-          "orch_top_wood": 6.291875,
-          "orch_back_wood": 11.14,
-          "orch_varnish": 10.75,
-          "orch_setup_period": 11.621875000000001,
-          "orch_bow": 0.869375,
-          "orch_bow_stick": 12.281249999999998,
-          "orch_articulation": 1.103125,
-          "orch_rosin": 11.849375
+          "orch_top_wood": 11.991875,
+          "orch_back_wood": 17.39,
+          "orch_varnish": 17,
+          "orch_setup_period": 17.871875,
+          "orch_bow": 2.5349999999999997,
+          "orch_bow_stick": 18.53125,
+          "orch_articulation": 1.3,
+          "orch_rosin": 18.749375
         }
       }
     ],

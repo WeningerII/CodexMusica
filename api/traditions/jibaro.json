@@ -3,8 +3,8 @@
   "name": "Jíbaro",
   "family": "global",
   "lineage": "Rural Puerto Rican mountain (montaña) peasant song tradition rooted in the Spanish décima poetic form (ten-line stanza, 8 syllables per line, ABBAACCDDC rhyme scheme) brought from 17th-century Iberian colonial settlement and preserved in the Puerto Rican mountain interior — performed on the cuatro puertorriqueño (the 10-string national instrument with five double-string courses), classical guitar, güiro, and bongos; figures Ramito (Florencio Morales Ramos, the 20th-century jíbaro voice), Chuíto el de Bayamón, Toño Mayo, and the modern revival through Ecos de Borinquen and the Cuatro Project",
-  "recipe": "classic North American mid-1970s jíbaro, ballad Poetry, Latin am troubadour branch, Caribbean groove percussion, crooners functional song parang calypso. low dynamic level, chest resonance low mid, punctuated, Chinese classical vocal. mahogany puerto rican traditional cuatro pr, narrative fingerpicked acoustic guitar, guiro, open slap hand drum bongos. san juan puerto rican bomba plena yard. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 526,
+  "recipe": "classic North American mid-1970s jíbaro, ballad Poetry, Latin am troubadour branch, Caribbean groove percussion, crooners functional song parang calypso. thick, low dynamic level, chest resonance low mid, punctuated. mahogany puerto rican traditional cuatro pr, fingerpicked acoustic guitar, guiro, open slap hand drum bongos. san juan puerto rican bomba plena yard. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 498,
   "score": 107.707,
   "config": {
     "traditions": [
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 0.22499999999999998,
-          "voice_quality": 3.125,
+          "voice_register": 1.1700000000000002,
+          "voice_quality": 3.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.195,
-          "voice_articulation": 0.72,
-          "voice_microtone": 0.39,
-          "voice_tradition": 4.8100000000000005,
-          "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 5.615,
-          "voice_speech_song": 12.089999999999998,
-          "voice_ensemble_config": 8.319999999999999,
+          "voice_articulation": 0.78,
+          "voice_microtone": 0.7250000000000001,
+          "voice_tradition": 9.49,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 6.415,
+          "voice_speech_song": 21.775,
+          "voice_ensemble_config": 15.664999999999996,
           "voice_ornament_system": 2.5500000000000003,
           "voice_pitch_organization": 2.4000000000000004,
-          "voice_processing_chain": 2.34,
+          "voice_processing_chain": 3.2749999999999995,
           "voice_multitrack_stack": 1.3
         }
       },
@@ -62,9 +62,9 @@
           "cuatro_pr_string_material": "cuatro_pr_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
+          "plucked_traditional_technique": 0.8775,
           "cuatro_pr_config": -0.385,
-          "cuatro_pr_context": 3.3799999999999994,
+          "cuatro_pr_context": 4.225,
           "cuatro_pr_body_wood": 6.1899999999999995,
           "cuatro_pr_string_material": -0.35
         }
@@ -80,12 +80,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 2.545,
+          "acoustic_technique": 4.42,
           "string_tuning": 1.5,
           "top_wood": 0.195,
           "back_sides": 0.195,
           "string_acoustic": 0.195,
-          "acoustic_om_technique": 2.545
+          "acoustic_om_technique": 4.42
         }
       },
       {
@@ -95,7 +95,7 @@
           "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "guiro_origin": 0.795,
+          "guiro_origin": 0.945,
           "guiro_striker": 0
         }
       },
@@ -108,9 +108,9 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 5.37,
-          "bongos_skin": 0,
-          "bongos_context": 0.375,
+          "percussion_technique": 6.62,
+          "bongos_skin": 0.12999999999999998,
+          "bongos_context": 0.195,
           "bongos_shell_wood": 0.045
         }
       }

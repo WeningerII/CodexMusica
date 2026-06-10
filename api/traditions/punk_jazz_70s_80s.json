@@ -24,11 +24,11 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 7.45,
-          "sax_size": 0.045,
-          "sax_reed": 0.1725,
+          "wind_articulation": 14.324999999999996,
+          "sax_size": 0.325,
+          "sax_reed": 0.39,
           "sax_body_alloy": 17.75,
-          "sax_mouthpiece": 0.1725,
+          "sax_mouthpiece": 0.39,
           "sax_technique": 17.75,
           "sax_maker_school": 19.643
         }
@@ -51,19 +51,19 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 5.699999999999999,
-          "amp_make": 9.71375,
-          "body_wood": 0.045,
-          "neck_wood": 0.1725,
-          "fretboard": 0.1725,
-          "pickup_magnet": 0.06937499999999999,
+          "electric_technique": 8.684999999999997,
+          "amp_make": 14.86375,
+          "body_wood": 0.195,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.195,
           "pickup_winding": 2.3,
-          "string_material": 0.1725,
-          "bridge": 0.045,
-          "scale_length": 0.09,
-          "string_gauge": 0.045,
+          "string_material": 0.39,
+          "bridge": 0.195,
+          "scale_length": 0.325,
+          "string_gauge": 0.195,
           "finish": 0.0195,
-          "string_tuning": 5.2
+          "string_tuning": 11.115
         }
       },
       {
@@ -79,14 +79,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 7.769374999999999,
-          "amp_make": 4.200374999999999,
-          "body_wood": 0.09,
+          "electric_technique": 8.669374999999999,
+          "amp_make": 8.797125000000001,
+          "body_wood": 0.195,
           "pickup_config": 0,
           "string_type": 20.16875,
-          "scale_length_b": 0.045,
+          "scale_length_b": 0.195,
           "fretted_or_not": 0.0315,
-          "bass_technique": 17.75
+          "bass_technique": 24.469375
         }
       },
       {
@@ -105,17 +105,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 15.859999999999996,
-          "shell_wood": 0.1725,
+          "percussion_technique": 21.514999999999997,
+          "shell_wood": 0.39,
           "shell_thickness": 0.0315,
-          "bearing_edges": 0.09,
+          "bearing_edges": 0.39,
           "drumhead": 20.11875,
-          "snare_wires": 0.045,
-          "cymbal_alloy": 17.767999999999997,
-          "cymbal_hammering": 17.97425,
-          "cymbal_lathing": 19.160499999999995,
-          "cymbal_finish": 0.213,
-          "drum_technique": 17.75
+          "snare_wires": 0.195,
+          "cymbal_alloy": 25.097499999999997,
+          "cymbal_hammering": 18.42425,
+          "cymbal_lathing": 19.660499999999995,
+          "cymbal_finish": 0.65,
+          "drum_technique": 21.514999999999997
         }
       }
     ],

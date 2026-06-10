@@ -24,8 +24,8 @@
         "scores": {
           "kick_voice": 0.75,
           "snare_voice": 0.15,
-          "hat_voice": 0.045,
-          "shuffle_quantize": 4.795
+          "hat_voice": 0.195,
+          "shuffle_quantize": 8.92
         }
       },
       {
@@ -38,9 +38,9 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 3.1550000000000007,
-          "oscillator": 3.305,
-          "filter_topology": 1.69,
+          "electronic_technique": 4.105,
+          "oscillator": 4.255,
+          "filter_topology": 3.575,
           "envelope": 0.39,
           "modulation": 0.15
         }

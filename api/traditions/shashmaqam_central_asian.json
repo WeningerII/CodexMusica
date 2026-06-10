@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.56,
-          "voice_quality": 3.185,
+          "voice_register": 2.3074999999999997,
+          "voice_quality": 4.225,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.24,
+          "voice_vibrato": 9.685,
           "voice_articulation": 0.12999999999999998,
-          "voice_microtone": 2.7300000000000004,
-          "voice_tradition": 37.309999999999995,
-          "voice_mechanism_compound": 22.985875,
-          "voice_estill_quality": 16.011875,
-          "voice_speech_song": 12.501499999999998,
-          "voice_ensemble_config": 10.009999999999998,
-          "voice_ornament_system": 24.788249999999998,
-          "voice_pitch_organization": 27.358375,
-          "voice_processing_chain": 5.069999999999999,
-          "voice_multitrack_stack": 1.55175
+          "voice_microtone": 14.324625,
+          "voice_tradition": 49.306124999999994,
+          "voice_mechanism_compound": 33.510875,
+          "voice_estill_quality": 23.211874999999996,
+          "voice_speech_song": 18.7515,
+          "voice_ensemble_config": 15.014999999999997,
+          "voice_ornament_system": 35.31325,
+          "voice_pitch_organization": 37.883375,
+          "voice_processing_chain": 7.54,
+          "voice_multitrack_stack": 2.145
         }
       },
       {
@@ -62,9 +62,9 @@
           "tanbur_persian_string_material": "tanbur_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 12,
+          "plucked_traditional_technique": 18.25,
           "tanbur_use": 0.255,
-          "tanbur_persian_strings": 5.069999999999999,
+          "tanbur_persian_strings": 6.109999999999999,
           "tanbur_persian_body_wood": 1.69,
           "tanbur_persian_string_material": 1.69
         }
@@ -78,8 +78,8 @@
         },
         "scores": {
           "dutar_body": 11.006999999999998,
-          "dutar_strings": 2.9899999999999998,
-          "dutar_tradition": 23.66
+          "dutar_strings": 3.185,
+          "dutar_tradition": 26.738124999999997
         }
       },
       {
@@ -90,9 +90,9 @@
           "sato_tradition": "sato_shashmaqam_canonical"
         },
         "scores": {
-          "bowed_technique": 12,
+          "bowed_technique": 18.25,
           "sato_body": 7.19675,
-          "sato_tradition": 10.919999999999998
+          "sato_tradition": 14.169999999999998
         }
       },
       {
@@ -104,10 +104,10 @@
           "kamancha_tradition": "kamancha_persian_radif"
         },
         "scores": {
-          "bowed_technique": 12,
+          "bowed_technique": 18.25,
           "kamancha_body": 1.69,
           "kamancha_string": 5.07,
-          "kamancha_tradition": 8.059999999999999
+          "kamancha_tradition": 11.115
         }
       },
       {
@@ -121,9 +121,9 @@
         },
         "scores": {
           "daf_rings": 0.37149999999999994,
-          "daf_context": 10.14,
-          "daf_shell_wood": 8.58,
-          "daf_head_material": 2.71625,
+          "daf_context": 16.64,
+          "daf_shell_wood": 12.934999999999999,
+          "daf_head_material": 1.69,
           "daf_jingle_metal": 1.69
         }
       }

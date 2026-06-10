@@ -20,9 +20,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0.195,
-          "drum_machine_808_context": 1.1199999999999999,
-          "tr808_production_origin": 1.5415
+          "tr808_voice": 0.845,
+          "drum_machine_808_context": 0.845,
+          "tr808_production_origin": 1.8915
         }
       },
       {
@@ -37,7 +37,7 @@
         "scores": {
           "electronic_technique": 2.45,
           "oscillator": 1.6315,
-          "filter_topology": 2.1605,
+          "filter_topology": 1.4949999999999999,
           "envelope": 1.6465,
           "modulation": 0
         }

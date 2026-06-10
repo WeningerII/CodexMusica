@@ -3,8 +3,8 @@
   "name": "Technical death metal",
   "family": "global",
   "lineage": "Virtuosic death-metal sub-style codified through Atheist (Piece of Time 1990, Unquestionable Presence 1991), Cynic (Focus 1993), Death’s later records (Human 1991, Individual Thought Patterns 1993), and the Suffocation 1990s lineage — characterized by complex multi-meter compositions, fretboard-acrobatic guitar work, and jazz-fusion influences",
-  "recipe": "classic early-1990s technical death metal, distorted Rock, death branch, prog metal progressive metal. thick, false fold engaged, chest resonance low mid, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, vintage ambassador asymmetric machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 583,
+  "recipe": "classic early-1990s technical death metal, distorted Rock, death branch, prog metal progressive metal. thick, false fold engaged, chest resonance low mid, narrative. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 606,
   "score": 270.779,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 8.808124999999997,
-          "voice_quality": 0.9749999999999994,
+          "voice_register": 14.458124999999994,
+          "voice_quality": 1.1699999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.9135,
-          "voice_articulation": 0.113625,
-          "voice_microtone": 8.549999999999999,
-          "voice_tradition": 3.368125,
-          "voice_mechanism_compound": 15.659249999999998,
-          "voice_estill_quality": 0.0315,
-          "voice_speech_song": 2.535,
-          "voice_ensemble_config": 2.4699999999999998,
-          "voice_ornament_system": 1.4736249999999997,
-          "voice_pitch_organization": 1.655125,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 2.5503749999999994
+          "voice_articulation": 0.585,
+          "voice_microtone": 14.049999999999997,
+          "voice_tradition": 4.243125,
+          "voice_mechanism_compound": 22.80925,
+          "voice_estill_quality": 0.7799999999999998,
+          "voice_speech_song": 6.24,
+          "voice_ensemble_config": 5.9799999999999995,
+          "voice_ornament_system": 1.6236249999999997,
+          "voice_pitch_organization": 1.8051249999999999,
+          "voice_processing_chain": 2.73,
+          "voice_multitrack_stack": 2.34
         }
       },
       {
@@ -69,19 +69,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 16.18775,
-          "amp_make": 6.955000000000001,
-          "body_wood": 5.85,
+          "electric_technique": 23.33775,
+          "amp_make": 11.894999999999998,
+          "body_wood": 9.1,
           "neck_wood": 0.9135,
-          "fretboard": 0.39,
+          "fretboard": 0.585,
           "pickup_magnet": 0.2415,
           "pickup_winding": 0.2415,
-          "string_material": 0.39,
+          "string_material": 0.585,
           "bridge": 0.9135,
-          "scale_length": 6.24,
+          "scale_length": 9.685,
           "string_gauge": 1.155,
           "finish": 0.168,
-          "string_tuning": 9.49
+          "string_tuning": 15.34
         }
       },
       {
@@ -97,14 +97,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 2.7950000000000004,
+          "electric_technique": 0.06499999999999999,
+          "amp_make": 5.3950000000000005,
           "body_wood": 1.8270000000000002,
-          "pickup_config": 0.29212499999999997,
-          "string_type": 7.15,
+          "pickup_config": 0.195,
+          "string_type": 13.1625,
           "scale_length_b": 0.9135,
-          "fretted_or_not": 0.082125,
-          "bass_technique": 5.7631250000000005
+          "fretted_or_not": 0.195,
+          "bass_technique": 10.538124999999997
         }
       },
       {
@@ -123,17 +123,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 8.45,
+          "percussion_technique": 13.552499999999998,
           "shell_wood": 0.8714999999999999,
           "shell_thickness": 0.0315,
           "bearing_edges": 1.1445,
-          "drumhead": 3.423125,
+          "drumhead": 4.298124999999999,
           "snare_wires": 0.9135,
-          "cymbal_alloy": 17.218625,
-          "cymbal_hammering": 5.9655000000000005,
-          "cymbal_lathing": 5.482125,
-          "cymbal_finish": 0.39,
-          "drum_technique": 8.45
+          "cymbal_alloy": 28.243624999999998,
+          "cymbal_hammering": 10.024999999999999,
+          "cymbal_lathing": 10.257124999999997,
+          "cymbal_finish": 0.585,
+          "drum_technique": 13.552499999999998
         }
       }
     ],

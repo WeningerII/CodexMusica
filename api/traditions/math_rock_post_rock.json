@@ -3,8 +3,8 @@
   "name": "Math rock and post-rock",
   "family": "rock_punk",
   "lineage": "Late-1980s onward underground rock movement deploying odd time signatures, polymetric and angular guitar interplay, instrumental-or-near-instrumental song form, and crescendo-based arrangement — codified through Slint (Spiderland 1991), Tortoise (Millions Now Living Will Never Die 1996), Mogwai (Mogwai Young Team 1997), Godspeed You Black Emperor (F♯ A♯ ∞ 1997), Don Caballero (American Don 2000), Battles (Mirrored 2007)",
-  "recipe": "classic 1987-1989 math rock and post-rock, distorted Rock, alternative branch, experimental distorted rock krautrock post-rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation power chord single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 533,
+  "recipe": "classic 1987-1989 math rock and post-rock, distorted Rock, alternative branch, experimental distorted rock krautrock post-rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oak pre muffled edge muffled hot rolled annealed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 514,
   "score": 303.761,
   "config": {
     "traditions": [
@@ -30,18 +30,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 3.1200000000000006,
-          "amp_make": 10.529999999999998,
+          "electric_technique": 7.865,
+          "amp_make": 16.672499999999996,
           "body_wood": 0.7,
-          "neck_wood": 0.5075,
-          "fretboard": 0.5075,
-          "pickup_magnet": 0.5075,
-          "string_material": 0.5075,
+          "neck_wood": 1.6899999999999997,
+          "fretboard": 1.6899999999999997,
+          "pickup_magnet": 1.6899999999999997,
+          "string_material": 1.6899999999999997,
           "string_gauge": 1.18425,
-          "bridge": 0.2415,
+          "bridge": 0.45499999999999996,
           "scale_length": 0.39,
           "finish": 0,
-          "string_tuning": 10.659999999999998
+          "string_tuning": 19.955
         }
       },
       {
@@ -57,14 +57,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.5315,
-          "amp_make": 10.594999999999999,
+          "electric_technique": 2.3249999999999997,
+          "amp_make": 16.314999999999998,
           "body_wood": 0.39,
-          "pickup_config": 0.5442499999999999,
-          "string_type": 26.02625,
-          "scale_length_b": 0.39,
+          "pickup_config": 0.65,
+          "string_type": 37.026250000000005,
+          "scale_length_b": 0.45499999999999996,
           "fretted_or_not": 0,
-          "bass_technique": 20.45
+          "bass_technique": 31.875
         }
       },
       {
@@ -83,17 +83,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 8.839999999999996,
-          "shell_wood": 0.8407499999999999,
+          "percussion_technique": 16.022499999999994,
+          "shell_wood": 1.6899999999999997,
           "shell_thickness": 0.33325,
-          "bearing_edges": 0.6124999999999999,
-          "drumhead": 1.3,
+          "bearing_edges": 2.145,
+          "drumhead": 2.875,
           "snare_wires": 0.39,
-          "cymbal_alloy": 21.44775,
-          "cymbal_hammering": 21.3215,
-          "cymbal_lathing": 21.35275,
-          "cymbal_finish": 0.5075,
-          "drum_technique": 20.5
+          "cymbal_alloy": 33.84775,
+          "cymbal_hammering": 34.796499999999995,
+          "cymbal_lathing": 34.52775,
+          "cymbal_finish": 1.6899999999999997,
+          "drum_technique": 31.5
         }
       }
     ],

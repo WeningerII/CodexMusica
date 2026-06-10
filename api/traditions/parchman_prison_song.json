@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 7.968249999999999,
+          "voice_register": 33.44325000000001,
           "voice_quality": 5.245,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.8999999999999999,
-          "voice_articulation": 4,
-          "voice_microtone": 2.4461250000000003,
-          "voice_tradition": 12.111624999999997,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 3.3,
-          "voice_speech_song": 15.053874999999994,
-          "voice_ensemble_config": 7.669999999999998,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 0.15,
-          "voice_processing_chain": 4.569374999999999,
-          "voice_multitrack_stack": 1.7981250000000002
+          "voice_articulation": 23.25,
+          "voice_microtone": 3.546125,
+          "voice_tradition": 37.367000000000004,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 25.225,
+          "voice_speech_song": 23.003874999999994,
+          "voice_ensemble_config": 25.578375,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 0.7,
+          "voice_processing_chain": 5.519374999999999,
+          "voice_multitrack_stack": 2.248125
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 3.539625,
-          "choir_polyphonic_configuration": 4.714874999999999,
-          "choir_regional_canonical_configuration": 4.749,
-          "choir_ensemble_repertoire": 1.3
+          "choir_size": 5.339625,
+          "choir_polyphonic_configuration": 5.68,
+          "choir_regional_canonical_configuration": 5.0489999999999995,
+          "choir_ensemble_repertoire": 4.29
         }
       }
     ],

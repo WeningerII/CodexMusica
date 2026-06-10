@@ -3,8 +3,8 @@
   "name": "Cantonese opera (yueju)",
   "family": "classical",
   "lineage": "Mid-19th-century onward Pearl-River-Delta Cantonese yueju operatic tradition centered on Guangdong, Guangzhou, and Hong Kong — codified through the 19th-century touring red-boat troupes (hongchuan) and the early-20th-century Hong Kong commercial recording era — characterized by literary-Cantonese sung text, gaohu-fiddle-and-percussion accompaniment, and the male / female / clown role types of jingju adapted to Cantonese language and aesthetic",
-  "recipe": "classic North American mid-1970s cantonese opera, art Music, Cantonese opera branch, east Asian beijing opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, chest resonance low mid, Chinese classical vocal. yueqin, python skin snake skin red sandalwood zitan premium legato erhu, silk padauk mid tier pipa, percussion section ban clapper luogu, yangqin. kabuki theater japanese. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 532,
+  "recipe": "classic North American mid-1970s cantonese opera, art Music, Cantonese opera branch, east Asian beijing opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. yueqin, python skin snake skin bamboo silk red sandalwood zitan erhu, silk padauk mid tier pipa, percussion section ban clapper luogu, yangqin. kabuki theater japanese. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 515,
   "score": 363.671,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.8987499999999999,
-          "voice_quality": 15.149999999999999,
+          "voice_register": 2.63125,
+          "voice_quality": 31.049999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.7700000000000005,
-          "voice_articulation": 0.30374999999999996,
-          "voice_microtone": 0.49999999999999983,
-          "voice_tradition": 20.091250000000002,
-          "voice_mechanism_compound": 4.095000000000001,
-          "voice_estill_quality": 18.824999999999996,
-          "voice_speech_song": 14.95,
-          "voice_ensemble_config": 9.879999999999999,
-          "voice_ornament_system": 14.95,
-          "voice_pitch_organization": 21.916249999999998,
-          "voice_processing_chain": 3.3612500000000005,
-          "voice_multitrack_stack": 1.17
+          "voice_vibrato": 6.549999999999999,
+          "voice_articulation": 1.8012499999999996,
+          "voice_microtone": 0.9999999999999998,
+          "voice_tradition": 40.966249999999995,
+          "voice_mechanism_compound": 11.244999999999997,
+          "voice_estill_quality": 36.775,
+          "voice_speech_song": 30.949999999999996,
+          "voice_ensemble_config": 25.017499999999995,
+          "voice_ornament_system": 30.949999999999996,
+          "voice_pitch_organization": 25.016249999999992,
+          "voice_processing_chain": 5.6362499999999995,
+          "voice_multitrack_stack": 4.36375
         }
       },
       {
@@ -61,9 +61,9 @@
           "yueqin_strings": "yueqin_silk_traditional"
         },
         "scores": {
-          "plucked_traditional_technique": 4,
-          "yueqin_use": 0.39,
-          "yueqin_construction": 4.7437499999999995,
+          "plucked_traditional_technique": 10.499999999999998,
+          "yueqin_use": 3.10375,
+          "yueqin_construction": 6.9937499999999995,
           "yueqin_strings": 0
         }
       },
@@ -78,12 +78,12 @@
           "erhu_bow": "erhu_bamboo_horsehair"
         },
         "scores": {
-          "bowed_technique": 4,
-          "erhu_skin": 4.55,
-          "erhu_use": 0.78,
-          "erhu_body_wood": 1.32,
-          "erhu_strings": -1.1725,
-          "erhu_bow": 0.21500000000000002
+          "bowed_technique": 10.499999999999998,
+          "erhu_skin": 8.6675,
+          "erhu_use": 2.53125,
+          "erhu_body_wood": 1.8112499999999998,
+          "erhu_strings": -0.385,
+          "erhu_bow": 0.845
         }
       },
       {
@@ -96,11 +96,11 @@
           "pipa_body_wood": "pipa_padauk"
         },
         "scores": {
-          "plucked_traditional_technique": 4,
-          "pipa_frets": 0.35624999999999996,
-          "pipa_strings": 4.55,
+          "plucked_traditional_technique": 10.499999999999998,
+          "pipa_frets": 0.50625,
+          "pipa_strings": 8.6675,
           "pipa_pick": 0.012499999999999999,
-          "pipa_body_wood": 2.27
+          "pipa_body_wood": 2.67
         }
       },
       {
@@ -110,8 +110,8 @@
           "luogu_sections": "luogu_full_jingju"
         },
         "scores": {
-          "luogu_use": 12.349999999999998,
-          "luogu_sections": 6.3625
+          "luogu_use": 19.8825,
+          "luogu_sections": 10.787500000000001
         }
       },
       {

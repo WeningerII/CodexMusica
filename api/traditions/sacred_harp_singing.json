@@ -22,10 +22,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 4.29,
-          "choir_polyphonic_configuration": 2.08,
-          "choir_regional_canonical_configuration": 2.3357142857142854,
-          "choir_ensemble_repertoire": 5.85
+          "choir_size": 5.915,
+          "choir_polyphonic_configuration": 3.575,
+          "choir_regional_canonical_configuration": 3.2725000000000004,
+          "choir_ensemble_repertoire": 8.153214285714284
         }
       },
       {
@@ -49,22 +49,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 3.298750000000001,
-          "voice_quality": 7.3450000000000015,
+          "voice_register": 5.848750000000001,
+          "voice_quality": 10.845,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1,
-          "voice_articulation": 3.75,
+          "voice_articulation": 5.5,
           "voice_microtone": 0.045,
-          "voice_tradition": 8.125,
-          "voice_mechanism_compound": 2.9899999999999998,
-          "voice_estill_quality": 3.5500000000000007,
-          "voice_speech_song": 6.59125,
-          "voice_ensemble_config": 6.24,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 0.8999999999999999,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 1.56
+          "voice_tradition": 27.3,
+          "voice_mechanism_compound": 4.614999999999999,
+          "voice_estill_quality": 5.300000000000002,
+          "voice_speech_song": 12.089999999999998,
+          "voice_ensemble_config": 14.104999999999997,
+          "voice_ornament_system": 7.295,
+          "voice_pitch_organization": 3.380000000000001,
+          "voice_processing_chain": 7.799999999999999,
+          "voice_multitrack_stack": 3.00875
         }
       },
       {
@@ -75,7 +75,7 @@
         },
         "scores": {
           "shape_note_part": 0.3,
-          "shape_note_voice_context": 1.1225
+          "shape_note_voice_context": 1.4299999999999997
         }
       },
       {
@@ -85,8 +85,8 @@
           "tradition": "duet_gospel"
         },
         "scores": {
-          "arrangement": 0.7575,
-          "tradition": 0.915
+          "arrangement": 0.585,
+          "tradition": 1.8850000000000002
         }
       },
       {
@@ -98,8 +98,8 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "pump_organ_construction": 5.9799999999999995,
-          "pump_organ_stops": 5.84375
+          "pump_organ_construction": 12.934999999999999,
+          "pump_organ_stops": 9.125
         }
       },
       {
@@ -109,8 +109,8 @@
           "arrangement": "hollow_square"
         },
         "scores": {
-          "parts": 0.4724999999999999,
-          "arrangement": 1.69
+          "parts": 0.39,
+          "arrangement": 2.6649999999999996
         }
       }
     ],

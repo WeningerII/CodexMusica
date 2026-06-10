@@ -3,8 +3,8 @@
   "name": "Hindu stuti and bhajan (praise of deities)",
   "family": "global",
   "lineage": "Pan-Indian Hindu devotional praise-song tradition continuous from medieval Bhakti-movement era (12th-18th century North-and-South-Indian bhakti-saints including Kabir, Mirabai, Tulsidas, Surdas, Tyagaraja, Annamacharya) through 19th-20th century continuous performance into modern Hindu-and-Hindu-diaspora practice",
-  "recipe": "classic modern hindu stuti and bhajan, praise Song, indian subcontinent branch, middle east n African praise song, indian classical improv improv on frame, hindu ritual devotional sufi munajat and naat arabic madh and qasida. vocal fry, declaimed, chest resonance low mid, continuous-phonation. harmonium indian, pitched indian rosewood rosewood tabla, suited to female vocal wooden body miraj style tanpura. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 556,
+  "recipe": "classic modern hindu stuti and bhajan, praise Song, indian subcontinent branch, middle east n African praise song, indian classical improv improv on frame, hindu ritual devotional sufi munajat and naat arabic madh and qasida. vocal fry, declaimed, chest resonance low mid, continuous-phonation. treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix wooden body miraj style tanpura. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 601,
   "score": 260.26,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.78,
-          "voice_quality": 20.67899999999999,
+          "voice_register": 1.3649999999999998,
+          "voice_quality": 45.82900000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 0.39,
-          "voice_tradition": 12.024999999999995,
-          "voice_mechanism_compound": 1.65,
-          "voice_estill_quality": 2.5349999999999997,
-          "voice_speech_song": 12.544999999999998,
-          "voice_ensemble_config": 6.499999999999999,
-          "voice_ornament_system": 5.6499999999999995,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 0.6499999999999999,
-          "voice_multitrack_stack": 1.17
+          "voice_vibrato": 4.094999999999999,
+          "voice_articulation": 6.063999999999999,
+          "voice_microtone": 10.024499999999998,
+          "voice_tradition": 30.419999999999998,
+          "voice_mechanism_compound": 11.674999999999999,
+          "voice_estill_quality": 8.949499999999999,
+          "voice_speech_song": 27.3,
+          "voice_ensemble_config": 13.389999999999997,
+          "voice_ornament_system": 18.549999999999997,
+          "voice_pitch_organization": 18.134499999999996,
+          "voice_processing_chain": 2.7300000000000004,
+          "voice_multitrack_stack": 3.3799999999999994
         }
       },
       {
@@ -62,9 +62,9 @@
         },
         "scores": {
           "free_reed_technique": 0.19500000000000003,
-          "harmonium_action": 1.17,
-          "harmonium_voicing": 0.78,
-          "harmonium_use": 2.9899999999999998
+          "harmonium_action": 1.9499999999999997,
+          "harmonium_voicing": 2.2099999999999995,
+          "harmonium_use": 5.459999999999999
         }
       },
       {
@@ -75,9 +75,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 7.085,
-          "tabla_bayan": 0.9099999999999999,
-          "tabla_syahi": 1.8345
+          "tabla_dayan": 11.179999999999996,
+          "tabla_bayan": 4.094999999999999,
+          "tabla_syahi": 0.78
         }
       },
       {
@@ -91,12 +91,12 @@
           "tanpura_body_wood": "tanpura_wooden_body"
         },
         "scores": {
-          "plucked_traditional_technique": 2.2944999999999998,
-          "tanpura_size": 1.17,
-          "tanpura_jawari": 1.7499999999999998,
-          "tanpura_strings": 0.78,
-          "tanpura_string_material": 0.39,
-          "tanpura_body_wood": 1.69
+          "plucked_traditional_technique": 8.5695,
+          "tanpura_size": 2.795,
+          "tanpura_jawari": 7.874999999999999,
+          "tanpura_strings": 1.17,
+          "tanpura_string_material": 2.8545,
+          "tanpura_body_wood": 3.2945
         }
       }
     ],
