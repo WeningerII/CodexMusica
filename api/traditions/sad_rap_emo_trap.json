@@ -3,8 +3,8 @@
   "name": "Sad rap / emo trap",
   "family": "hip_hop",
   "lineage": "Late-2010s hip-hop subgenre integrating emo-rock melancholic-emotional register with trap production. Characterized by Auto-Tune sung-rapping, depression-and-relationship-loss lyrical content, electric-guitar samples integrated with 808 drums, and high-emotional-intensity vocal performance. Lil Peep (1996-2017) and Juice WRLD (1998-2019) — both deceased of overdoses — constitute the canonical type-specimens; XXXTentacion (1998-2018), Trippie Redd, and Iann Dior anchor the broader roster.",
-  "recipe": "classic mid-2000s sad rap / emo trap, mc Rhythm, southern branch, emo distorted rock post-hardcore emo revival. thick, rap, pure, narrative. TR-808, sub bass analog synth, basswood alnico power chord humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 420,
+  "recipe": "classic mid-2000s sad rap / emo trap, mc Rhythm, southern branch, emo distorted rock post-hardcore emo revival. thick, rap, pure, narrative. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 583,
   "score": 175.494,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.8900000000000015,
+          "voice_register": 12.064999999999996,
           "voice_quality": 9.907,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.813,
+          "voice_vibrato": 0.845,
           "voice_articulation": 4.291499999999999,
-          "voice_microtone": 4.750000000000001,
+          "voice_microtone": 11.924999999999999,
           "voice_tradition": 7.885999999999999,
-          "voice_mechanism_compound": 3.026,
+          "voice_mechanism_compound": 11.07,
           "voice_estill_quality": 2.8760000000000003,
-          "voice_speech_song": 9.687499999999998,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 0.27149999999999996,
-          "voice_pitch_organization": 1.69,
+          "voice_speech_song": 13.454999999999997,
+          "voice_ensemble_config": 14.234999999999996,
+          "voice_ornament_system": 0.845,
+          "voice_pitch_organization": 4.225,
           "voice_processing_chain": 6.6815,
-          "voice_multitrack_stack": 4.16
+          "voice_multitrack_stack": 8.324
         }
       },
       {
@@ -61,8 +61,8 @@
         },
         "scores": {
           "tr808_voice": 4.798499999999999,
-          "drum_machine_808_context": 1.69,
-          "tr808_production_origin": 0.696
+          "drum_machine_808_context": 3.6474999999999995,
+          "tr808_production_origin": 1.56
         }
       },
       {
@@ -78,7 +78,7 @@
           "electronic_technique": 10.498499999999998,
           "oscillator": 0.8235000000000001,
           "filter_topology": 1.695,
-          "envelope": 0.39,
+          "envelope": 0.845,
           "modulation": 0
         }
       },
@@ -100,19 +100,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 3.9250000000000003,
-          "amp_make": 2.4699999999999998,
-          "body_wood": 1.69,
+          "electric_technique": 8.775000000000002,
+          "amp_make": 10.395000000000001,
+          "body_wood": 3.38,
           "neck_wood": 0.813,
           "fretboard": 0.24,
           "pickup_magnet": 1.3,
-          "pickup_winding": 0.6179999999999999,
+          "pickup_winding": 0.845,
           "string_material": 0.24,
           "bridge": 0.813,
-          "scale_length": 1.69,
+          "scale_length": 3.38,
           "string_gauge": 0.9495,
           "finish": 0,
-          "string_tuning": 4.29
+          "string_tuning": 8.84
         }
       }
     ],

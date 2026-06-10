@@ -23,10 +23,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 20.909714285714287,
-          "oscillator": 2.015,
-          "filter_topology": 0.78,
-          "envelope": 9.136571428571427,
+          "electronic_technique": 23.88471428571428,
+          "oscillator": 4.544428571428572,
+          "filter_topology": 0.975,
+          "envelope": 9.486571428571427,
           "modulation": 0.03471428571428571
         }
       },
@@ -39,10 +39,10 @@
           "mod_lineage": "mod_serge_tcherepnin"
         },
         "scores": {
-          "electronic_technique": 20.909714285714287,
-          "mod_voltage_source": 1.065,
-          "mod_patch_density": 9.576285714285714,
-          "mod_lineage": 1.2349999999999999
+          "electronic_technique": 23.88471428571428,
+          "mod_voltage_source": 1.885,
+          "mod_patch_density": 9.926285714285713,
+          "mod_lineage": 2.795
         }
       },
       {
@@ -53,8 +53,8 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": -0.07,
-          "tape_voice": 2.08,
+          "keyboard_technique": 0.6174999999999999,
+          "tape_voice": 4.594428571428572,
           "tape_state": 0.03471428571428571
         }
       },
@@ -67,10 +67,10 @@
           "sm_voicing": "sm_violins"
         },
         "scores": {
-          "electronic_technique": 20.909714285714287,
+          "electronic_technique": 23.88471428571428,
           "sm_voice_count": 2.08,
           "sm_chorus": 0.045,
-          "sm_voicing": 2.08
+          "sm_voicing": 4.789428571428571
         }
       }
     ],

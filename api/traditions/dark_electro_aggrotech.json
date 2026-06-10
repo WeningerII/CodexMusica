@@ -3,8 +3,8 @@
   "name": "Dark electro / aggrotech",
   "family": "electronic",
   "lineage": "1990s and 2000s German-and-European electronic subgenre developed from EBM into more aggressive, harsher direction. Characterized by distorted-screamed-or-growled male vocals, hyperactive 145-160 BPM tempo, dark-industrial synth-bass-line production, and explicit goth-industrial-club functional context. Hocico (Mexican), Suicide Commando (Belgian), Combichrist, [:SITD:], and the broader Out of Line and Metropolis Records label rosters anchor the canonical aggrotech roster.",
-  "recipe": "classic mid-1990s dark electro / aggrotech, experimental Elec, industrial noise branch, thrash metal groove metal djent. thick, low dynamic level, chest resonance low mid, punctuated. analog synth, TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 399,
+  "recipe": "classic mid-1990s dark electro / aggrotech, experimental Elec, industrial noise branch, thrash metal groove metal djent. thick, low dynamic level, chest resonance low mid, punctuated. analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 494,
   "score": 121.695,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.4764999999999993,
-          "voice_quality": 1.9500000000000008,
+          "voice_register": 7.326500000000001,
+          "voice_quality": 2.1449999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.885,
-          "voice_articulation": 0.8745,
-          "voice_microtone": 1.6049999999999995,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 2.535,
+          "voice_microtone": 7.154999999999999,
           "voice_tradition": 4.875,
-          "voice_mechanism_compound": 8.385,
-          "voice_estill_quality": 0.08124999999999999,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 10.009999999999998,
+          "voice_mechanism_compound": 27.507250000000003,
+          "voice_estill_quality": 0.5199999999999999,
+          "voice_speech_song": 13.454999999999997,
+          "voice_ensemble_config": 15.079999999999997,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 6.126,
-          "voice_multitrack_stack": 4.16
+          "voice_pitch_organization": 4.225,
+          "voice_processing_chain": 7.394375000000001,
+          "voice_multitrack_stack": 8.958875
         }
       },
       {
@@ -64,8 +64,8 @@
         "scores": {
           "electronic_technique": 1.4046249999999998,
           "oscillator": 1.69,
-          "filter_topology": 1.69,
-          "envelope": 0.6479999999999999,
+          "filter_topology": 4.029999999999999,
+          "envelope": 1.69,
           "modulation": 0.063
         }
       },
@@ -78,8 +78,8 @@
         },
         "scores": {
           "tr808_voice": 1.5046249999999999,
-          "drum_machine_808_context": 1.69,
-          "tr808_production_origin": 0.9749999999999996
+          "drum_machine_808_context": 4.4353750000000005,
+          "tr808_production_origin": 3.5100000000000002
         }
       }
     ],

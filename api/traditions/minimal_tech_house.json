@@ -21,9 +21,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.19500000000000003,
+          "electronic_technique": 2.5777500000000004,
           "va_archetypes": 0.17449999999999996,
-          "digital_subtractive_context": 2.9899999999999998
+          "digital_subtractive_context": 9.23
         }
       },
       {
@@ -34,8 +34,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 13.685,
-          "drum_machine_909_context": 1.0695,
+          "tr909_voice": 16.984999999999996,
+          "drum_machine_909_context": 1.8850000000000002,
           "tr909_production_origin": 0.3575
         }
       },
@@ -49,11 +49,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 3.6949999999999994,
-          "sampler_archetypes": 0.042749999999999996,
+          "electronic_technique": 17.595,
+          "sampler_archetypes": 0.78,
           "sampler_bit_depth": 0,
-          "sampler_workflow": 3.5074999999999994,
-          "sampler_classic_context": 20.15
+          "sampler_workflow": 16.7575,
+          "sampler_classic_context": 30.168499999999998
         }
       }
     ],

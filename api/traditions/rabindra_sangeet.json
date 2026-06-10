@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 8.55,
-          "voice_quality": 1.5899999999999996,
+          "voice_quality": 12.24,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.33,
+          "voice_vibrato": 4.98,
           "voice_articulation": 0.47999999999999987,
-          "voice_microtone": 7.040000000000001,
-          "voice_tradition": 10.790000000000001,
-          "voice_mechanism_compound": 3.1500000000000004,
-          "voice_estill_quality": 4.095000000000001,
-          "voice_speech_song": 10.334999999999999,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 10.52,
-          "voice_pitch_organization": 11.375,
-          "voice_processing_chain": 3.185,
-          "voice_multitrack_stack": 3.3799999999999994
+          "voice_microtone": 7.690000000000001,
+          "voice_tradition": 14.592500000000001,
+          "voice_mechanism_compound": 6.025,
+          "voice_estill_quality": 8.49,
+          "voice_speech_song": 14.559999999999999,
+          "voice_ensemble_config": 12.544999999999998,
+          "voice_ornament_system": 13.395,
+          "voice_pitch_organization": 14.265,
+          "voice_processing_chain": 4.53,
+          "voice_multitrack_stack": 5.069999999999999
         }
       },
       {
@@ -60,9 +60,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 1.625,
-          "tabla_bayan": 1.69,
-          "tabla_syahi": 1.69
+          "tabla_dayan": 3.1200000000000006,
+          "tabla_bayan": 3.185,
+          "tabla_syahi": 7.6049999999999995
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Teen pop late 90s-00s",
   "family": "pop",
   "lineage": "Late-1990s and early-2000s American teen-targeted pop subgenre developed through the post-Mickey-Mouse-Club Britney Spears, Christina Aguilera, *NSYNC, Backstreet Boys cycle. Characterized by sophisticated R&B-and-dance-influenced commercial-radio production, choreographed-music-video presentation aesthetic, and explicit teen-audience demographic targeting. The Cheiron Studios (Stockholm, Max Martin) production-team inaugurated the canonical Swedish-pop-production aesthetic that defined much of late-1990s teen pop.",
-  "recipe": "classic 1997-1999 teen pop late 90s-00s, functional Song, pop rock branch, east Asian pop functional song city pop modern revival enka. thick, melodic, equal tempered, modern pop training. singing lead analog synth, TR-808, rock canon ernie ball slinky electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 461,
+  "recipe": "classic 1997-1999 teen pop late 90s-00s, functional Song, pop rock branch, east Asian pop functional song city pop modern revival enka. thick, low dynamic level, melodic, ornamental. singing lead analog synth, roland tr 8s modern aira digital recreation TR-808, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 543,
   "score": 282.645,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 26.259999999999998,
-          "voice_quality": 0.195,
+          "voice_register": 43.07500000000002,
+          "voice_quality": 1.4949999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.585,
-          "voice_articulation": 0.045,
-          "voice_microtone": 24.595,
-          "voice_tradition": 27.949999999999996,
-          "voice_mechanism_compound": 2.3549999999999995,
-          "voice_estill_quality": 0.15,
-          "voice_speech_song": 7.865,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 0.9999999999999998,
+          "voice_vibrato": 2.275,
+          "voice_articulation": 0.585,
+          "voice_microtone": 43.79500000000001,
+          "voice_tradition": 47.54,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 25.285000000000007,
+          "voice_ensemble_config": 18.330000000000005,
+          "voice_ornament_system": 3.2500000000000004,
           "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 5.1899999999999995,
-          "voice_multitrack_stack": 4.16
+          "voice_processing_chain": 8.965,
+          "voice_multitrack_stack": 9.29
         }
       },
       {
@@ -62,11 +62,11 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 20.544999999999998,
-          "oscillator": 0.435,
-          "filter_topology": 0.8550000000000002,
+          "electronic_technique": 34.295,
+          "oscillator": 0.89,
+          "filter_topology": 1.3,
           "envelope": 0.195,
-          "modulation": 0.9299999999999999
+          "modulation": 0.845
         }
       },
       {
@@ -78,8 +78,8 @@
         },
         "scores": {
           "tr808_voice": 0.24,
-          "drum_machine_808_context": 6.759999999999999,
-          "tr808_production_origin": 0.345
+          "drum_machine_808_context": 9.91,
+          "tr808_production_origin": 1.4949999999999999
         }
       },
       {
@@ -95,14 +95,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.035,
-          "amp_make": 1.885,
-          "body_wood": 0.6150000000000001,
-          "pickup_config": 0.24,
-          "string_type": 4.35,
-          "scale_length_b": 0.33,
+          "electric_technique": 2.1850000000000005,
+          "amp_make": 4.05,
+          "body_wood": 0.845,
+          "pickup_config": 1.39,
+          "string_type": 4.725,
+          "scale_length_b": 1.45,
           "fretted_or_not": 0.195,
-          "bass_technique": 3.835
+          "bass_technique": 4.359999999999999
         }
       }
     ],

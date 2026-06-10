@@ -3,8 +3,8 @@
   "name": "Tunisian malouf (Andalusi classical)",
   "family": "classical",
   "lineage": "Tunisian malouf classical Andalusi-Arabic art-music tradition, the Tunisian recension of the broader Maghrebi-Andalusi nuba descended from medieval al-Andalus through the post-1492 expulsion-diaspora settlement (with Testour as a principal Andalusi-refugee settlement). The Tunisian repertoire comprises thirteen canonical nubat. The early-twentieth-century Rachidia Institute (Tunis, 1934) consolidated the canon. Performance integrates male choir-and-soloist with oud, rebab, qanun, nay, and darbuka. Distinguished from Moroccan al-Āla by Tunisian-specific suite-cycle and Rachidia-Institute-canonized repertoire.",
-  "recipe": "classic North American early-1490s tunisian malouf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, carved hardwood canonical javanese goat skin canonical javanese legato rebab, metal finger picks rosewood body arab premium goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 740,
+  "recipe": "classic North American early-1490s tunisian malouf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, carved hardwood canonical javanese goat skin canonical javanese gut yemeni pre modern arab legato rebab, metal finger picks rosewood body arab premium goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 767,
   "score": 353.429,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.353,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 2.145,
+          "voice_quality": 2.5350000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.24,
+          "voice_vibrato": 9.685,
           "voice_articulation": 0.1425,
-          "voice_microtone": 6.56325,
-          "voice_tradition": 22.75,
-          "voice_mechanism_compound": 16.4005,
-          "voice_estill_quality": 13.249999999999998,
-          "voice_speech_song": 11.994499999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 21.500625,
-          "voice_pitch_organization": 21.550125,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 1.566
+          "voice_microtone": 16.11325,
+          "voice_tradition": 35.0675,
+          "voice_mechanism_compound": 26.9255,
+          "voice_estill_quality": 20.45,
+          "voice_speech_song": 18.2445,
+          "voice_ensemble_config": 9.945,
+          "voice_ornament_system": 33.800625,
+          "voice_pitch_organization": 33.550125,
+          "voice_processing_chain": 4.16,
+          "voice_multitrack_stack": 2.145
         }
       },
       {
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 12,
-          "oud_school": 2.202,
-          "oud_strings": 6.24,
-          "oud_pick": 0.264,
-          "oud_body_wood": 1.69,
-          "oud_soundboard_wood": 1.95,
-          "oud_string_material": 3.38
+          "plucked_traditional_technique": 18.25,
+          "oud_school": 3.575,
+          "oud_strings": 9.685,
+          "oud_pick": 0.195,
+          "oud_body_wood": 2.4699999999999998,
+          "oud_soundboard_wood": 2.4050000000000002,
+          "oud_string_material": 6.24
         }
       },
       {
@@ -84,12 +84,12 @@
           "rebab_strings": "rebab_gut_yemeni"
         },
         "scores": {
-          "bowed_technique": 12,
-          "rebab_region": 2.6,
-          "rebab_context": 3.6399999999999997,
+          "bowed_technique": 18.25,
+          "rebab_region": 9.165,
+          "rebab_context": 5.135,
           "rebab_body": 1.69,
           "rebab_skin": 1.69,
-          "rebab_strings": -0.13999999999999996
+          "rebab_strings": 2.73
         }
       },
       {
@@ -104,11 +104,11 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 12,
-          "qanun_strings": 6.24,
+          "plucked_traditional_technique": 18.25,
+          "qanun_strings": 9.49,
           "qanun_levers": -1.5,
-          "qanun_pick": 6.24,
-          "qanun_body_wood": 1.69,
+          "qanun_pick": 9.88,
+          "qanun_body_wood": 4.485,
           "qanun_bridge_skin": 1.69,
           "qanun_string_material": 0
         }
@@ -123,9 +123,9 @@
         },
         "scores": {
           "percussion_technique": -0.07,
-          "darbuka_material": 1.69,
-          "darbuka_skin": 1.69,
-          "darbuka_regional_style": 2.1907499999999995
+          "darbuka_material": 3.185,
+          "darbuka_skin": 4.615,
+          "darbuka_regional_style": 5.590000000000001
         }
       }
     ],

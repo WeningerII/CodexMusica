@@ -27,11 +27,11 @@
         "scores": {
           "wind_articulation": 9.274,
           "brass_size": 0.008839285714285713,
-          "trumpet_mouthpiece": 5.703357142857143,
+          "trumpet_mouthpiece": 6.450000000000001,
           "brass_mute": 0.045,
           "trumpet_technique": 9.274,
-          "trumpet_bell_metal": 10.906642857142861,
-          "trumpet_maker_school": 4.419999999999999
+          "trumpet_bell_metal": 11.85664285714286,
+          "trumpet_maker_school": 5.955285714285713
         }
       },
       {
@@ -48,11 +48,11 @@
         "scores": {
           "wind_articulation": 9.274,
           "trombone_type": 4.75,
-          "trombone_mouthpiece": 4.7454285714285716,
+          "trombone_mouthpiece": 6.6450000000000005,
           "trombone_mute": 0.045,
-          "trombone_technique": 0.14914285714285716,
-          "trombone_bell_metal": 10.906642857142861,
-          "trombone_maker_school": 4.419999999999999
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 11.85664285714286,
+          "trombone_maker_school": 6.1502857142857135
         }
       },
       {
@@ -66,12 +66,12 @@
           "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": 3.9,
+          "wind_articulation": 9.1325,
           "tuba_pitch": 9.922857142857145,
-          "tuba_context": 13.578928571428575,
-          "tuba_bell_metal": 10.906642857142861,
-          "tuba_valve_system": 3.8075714285714284,
-          "tuba_maker_school": 20.529500000000006
+          "tuba_context": 15.328928571428575,
+          "tuba_bell_metal": 11.85664285714286,
+          "tuba_valve_system": 4.157571428571428,
+          "tuba_maker_school": 21.479500000000005
         }
       },
       {
@@ -90,17 +90,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 8.969999999999999,
+          "percussion_technique": 14.754999999999995,
           "shell_wood": 10.058928571428575,
           "shell_thickness": 0,
-          "bearing_edges": 1.69,
-          "drumhead": 8,
+          "bearing_edges": 3.38,
+          "drumhead": 11.25,
           "snare_wires": 0.2536875,
           "cymbal_alloy": 10.058928571428575,
-          "cymbal_hammering": 5.019142857142858,
-          "cymbal_lathing": 4.945,
+          "cymbal_hammering": 6.821500000000001,
+          "cymbal_lathing": 6.4,
           "cymbal_finish": 0.105,
-          "drum_technique": 8.969999999999999
+          "drum_technique": 14.754999999999995
         }
       }
     ],

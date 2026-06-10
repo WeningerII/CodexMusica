@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 2.73,
+          "voice_register": 6.0200000000000005,
           "voice_quality": 8.749999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 2.7299999999999995,
           "voice_articulation": 0.8999999999999999,
           "voice_microtone": 8.749999999999996,
-          "voice_tradition": 13.334499999999997,
-          "voice_mechanism_compound": 4.42,
-          "voice_estill_quality": 12.408499999999997,
-          "voice_speech_song": 9.164999999999997,
-          "voice_ensemble_config": 6.369999999999998,
+          "voice_tradition": 32.8705,
+          "voice_mechanism_compound": 5.265000000000001,
+          "voice_estill_quality": 13.358499999999996,
+          "voice_speech_song": 18.427499999999995,
+          "voice_ensemble_config": 14.689999999999994,
           "voice_ornament_system": 8.699999999999996,
-          "voice_pitch_organization": 3.1849999999999996,
-          "voice_processing_chain": 3.8000000000000003,
-          "voice_multitrack_stack": 3.5100000000000002
+          "voice_pitch_organization": 3.672499999999999,
+          "voice_processing_chain": 6.075000000000001,
+          "voice_multitrack_stack": 4.16
         }
       },
       {
@@ -60,9 +60,9 @@
           "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
         },
         "scores": {
-          "flamenco_body": 7.019999999999998,
-          "flamenco_features": 0.6,
-          "flamenco_technique": 4.494499999999999
+          "flamenco_body": 9.078999999999999,
+          "flamenco_features": 0.95,
+          "flamenco_technique": 4.644499999999999
         }
       },
       {
@@ -72,8 +72,8 @@
           "cajon_peruano_role": "cajon_peruano_festejo"
         },
         "scores": {
-          "cajon_peruano_construction": 1.69,
-          "cajon_peruano_role": 2.08
+          "cajon_peruano_construction": 3.77,
+          "cajon_peruano_role": 4.159999999999999
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Nagauta (Kabuki long-song)",
   "family": "classical",
   "lineage": "Japanese nagauta (\"long song\") sung-and-shamisen narrative tradition serving as the principal musical accompaniment for Kabuki theatre dance-and-action sequences. Codified in mid-Edo period eighteenth century, with the canonical compositional lineages tracing to Kineya Kangoro and Kineya Saburousuke. Performance configuration: a row of male singers seated upstage on a raised platform (typically four-to-eight singers), with a parallel row of shamisen players, plus hayashi percussion ensemble (drums, flutes) on stage-right. Repertoire spans dance-piece accompaniment, dramatic-scene underscore, and standalone concert pieces (the gozen-engaku \"music for the lord\" reception genre). Kineya guild lineages maintain hereditary transmission.",
-  "recipe": "classic modern nagauta, art Music, east Asian branch, buddhist ritual devotional himalayan vajrayana liturgy pure land buddhist chant. vocal fry, declaimed, chest resonance low mid, narrative. cat skin ivory red sandalwood premium silk shamisen. kabuki theater japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 400,
+  "recipe": "classic modern nagauta, art Music, east Asian branch, buddhist ritual devotional himalayan vajrayana liturgy pure land buddhist chant. declaimed, chest resonance low mid, narrative, min yo. cat skin ivory red sandalwood premium silk shamisen. kabuki theater japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 397,
   "score": 101.876,
   "config": {
     "traditions": [
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 0.8714999999999999,
-          "voice_quality": 3.185000000000001,
+          "voice_register": 0.195,
+          "voice_quality": 8.1145,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.9899999999999998,
           "voice_articulation": 1.2365,
-          "voice_microtone": 0.258,
-          "voice_tradition": 11.959999999999997,
-          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_microtone": 0.325,
+          "voice_tradition": 15.009999999999998,
+          "voice_mechanism_compound": 4.029999999999999,
           "voice_estill_quality": 6.2705,
-          "voice_speech_song": 9.684999999999999,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 2.5050000000000003,
+          "voice_speech_song": 12.219999999999999,
+          "voice_ensemble_config": 10.854999999999997,
+          "voice_ornament_system": 7.024999999999999,
           "voice_pitch_organization": 2.9475000000000002,
-          "voice_processing_chain": 2.9899999999999998,
+          "voice_processing_chain": 3.3064999999999998,
           "voice_multitrack_stack": 1.69
         }
       },
@@ -70,7 +70,7 @@
           "shamisen_pick": 2.925,
           "shamisen_neck_wood": 1.625,
           "shamisen_strings": 4.336499999999999,
-          "shamisen_tradition": 9.258
+          "shamisen_tradition": 9.758
         }
       }
     ],

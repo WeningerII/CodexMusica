@@ -3,8 +3,8 @@
   "name": "Cumbia electrónica",
   "family": "global",
   "lineage": "Late-2000s electronic remix-and-production genre re-engineering traditional Colombian-Mexican cumbia rhythmic foundation through digital production techniques — codified through ZZK Records (Buenos Aires-based label, Frikstailers, Chancha Via Circuito), Toy Selectah, Dengue Dengue Dengue, Bomba Estéreo (Elegancia Tropical 2012), and the broader Latin-American electronic-tropical-bass scene",
-  "recipe": "classic 2007-2009 cumbia electrónica, electronic Dance, Latin electric branch, Latin am groove percussion cumbia peruana cumbia colombiana. thick, full chest belt, chest resonance low mid, rhythmic. sampler, digital subtractive, roland tr 8s modern aira digital recreation TR-808, leather petosa seattle American premium accordion. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 477,
+  "recipe": "classic 2007-2009 cumbia electrónica, electronic Dance, Latin electric branch, Latin am groove percussion cumbia peruana cumbia colombiana. thick, full chest belt, chest resonance low mid, rhythmic. melodic pitched sampler, low sub bass digital subtractive, roland tr 8s modern aira digital recreation TR-808, brass leather petosa seattle American premium accordion. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 512,
   "score": 196.432,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.675,
-          "voice_quality": 12.044999999999995,
+          "voice_register": 2.215,
+          "voice_quality": 32.695,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.6,
-          "voice_articulation": 2.08,
-          "voice_microtone": 0.39,
-          "voice_tradition": 0.9099999999999999,
-          "voice_mechanism_compound": 2.7449999999999997,
-          "voice_estill_quality": 0.15,
-          "voice_speech_song": 6.044999999999998,
-          "voice_ensemble_config": 5.979999999999999,
-          "voice_ornament_system": 0.19500000000000003,
-          "voice_pitch_organization": 1.395,
-          "voice_processing_chain": 12.759999999999996,
-          "voice_multitrack_stack": 3.575
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.575,
+          "voice_microtone": 1.275,
+          "voice_tradition": 5.817499999999999,
+          "voice_mechanism_compound": 4.069999999999999,
+          "voice_estill_quality": 5.124999999999999,
+          "voice_speech_song": 17.874999999999996,
+          "voice_ensemble_config": 17.549999999999997,
+          "voice_ornament_system": 4.1899999999999995,
+          "voice_pitch_organization": 1.0499999999999998,
+          "voice_processing_chain": 15.534999999999998,
+          "voice_multitrack_stack": 7.74
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sampler_archetypes": 0.975,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": 0.325,
-          "sampler_classic_context": 9.099999999999998
+          "sampler_archetypes": 1.2349999999999999,
+          "sampler_bit_depth": 1.04,
+          "sampler_workflow": 1.56,
+          "sampler_classic_context": 23.66
         }
       },
       {
@@ -77,9 +77,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 2.275,
-          "va_archetypes": 0.44999999999999996,
-          "digital_subtractive_context": 6.109999999999998
+          "electronic_technique": 5.265,
+          "va_archetypes": 0.65,
+          "digital_subtractive_context": 18.07
         }
       },
       {
@@ -90,8 +90,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.4050000000000002,
-          "drum_machine_808_context": 3.3799999999999994,
+          "tr808_voice": 4.745,
+          "drum_machine_808_context": 5.85,
           "tr808_production_origin": 2.5
         }
       },
@@ -107,13 +107,13 @@
           "accordion_maker_school": "accordion_petosa_seattle"
         },
         "scores": {
-          "free_reed_technique": 0.325,
-          "accordion_reed_material": 0.6,
+          "free_reed_technique": 1.3849999999999998,
+          "accordion_reed_material": 1.3,
           "musette_offset": 1.3,
           "reed_config": 0.6,
           "bellows": 1.195,
           "voicing_chamber": 0.09,
-          "accordion_maker_school": 2.1599999999999997
+          "accordion_maker_school": 1.95
         }
       }
     ],

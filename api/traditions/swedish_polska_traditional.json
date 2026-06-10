@@ -22,11 +22,11 @@
           "fiddle_articulation": "sul_tasto"
         },
         "scores": {
-          "bowed_technique": 18.744999999999994,
-          "fiddle_strings": 0.43875,
-          "fiddle_bow": 0,
+          "bowed_technique": 23.619999999999994,
+          "fiddle_strings": 0.25087499999999996,
+          "fiddle_bow": 0.4875,
           "fiddle_mute": 0.9099999999999999,
-          "fiddle_articulation": 0.42
+          "fiddle_articulation": 0.45499999999999996
         }
       },
       {
@@ -42,10 +42,10 @@
         "scores": {
           "bowed_technique": -0.05,
           "nyckel_keys": 8.055,
-          "nyckel_strings": 3.25,
+          "nyckel_strings": 4.5,
           "nyckel_body_wood": 7.1667499999999995,
-          "nyckel_string_material": 5.67125,
-          "nyckel_mechanism": -1.4
+          "nyckel_string_material": 6.12125,
+          "nyckel_mechanism": -1.085
         }
       }
     ],

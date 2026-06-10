@@ -21,9 +21,9 @@
           "throat_singing_voice_region": "throat_singing_voice_himalayan_ritual"
         },
         "scores": {
-          "throat_mechanism_root": 8.58,
-          "throat_overtone_target_region": 5.2,
-          "throat_singing_voice_region": 18.525
+          "throat_mechanism_root": 16.38,
+          "throat_overtone_target_region": 11.309999999999999,
+          "throat_singing_voice_region": 33.673
         }
       },
       {
@@ -36,9 +36,9 @@
         },
         "scores": {
           "choir_size": 7.279999999999999,
-          "choir_polyphonic_configuration": 2.9899999999999998,
+          "choir_polyphonic_configuration": 3.445,
           "choir_regional_canonical_configuration": 4.225,
-          "choir_ensemble_repertoire": 3.9
+          "choir_ensemble_repertoire": 5.3950000000000005
         }
       },
       {
@@ -49,9 +49,9 @@
           "dungchen_lineage": "dungchen_gelug_canonical"
         },
         "scores": {
-          "dungchen_length": 10.53,
-          "dungchen_body_metal": 3.9,
-          "dungchen_lineage": 8.84
+          "dungchen_length": 24.634999999999994,
+          "dungchen_body_metal": 9.62,
+          "dungchen_lineage": 19.239999999999995
         }
       },
       {
@@ -62,9 +62,9 @@
           "gyaling_reed": "gyaling_arundo_canonical"
         },
         "scores": {
-          "gyaling_body": 7.93,
-          "gyaling_body_wood": 3.835,
-          "gyaling_reed": 4.29
+          "gyaling_body": 18.33,
+          "gyaling_body_wood": 9.749999999999998,
+          "gyaling_reed": 11.244999999999997
         }
       }
     ],

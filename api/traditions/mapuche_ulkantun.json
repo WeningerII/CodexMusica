@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.551,
-          "voice_quality": 1.7549999999999994,
+          "voice_register": 2.201,
+          "voice_quality": 4.3625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3150000000000004,
+          "voice_vibrato": 4.16,
           "voice_articulation": 0.1995,
           "voice_microtone": 0.063,
-          "voice_tradition": 5.3950000000000005,
-          "voice_mechanism_compound": 1.881,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 4.136,
-          "voice_multitrack_stack": 1.69
+          "voice_tradition": 12.610000000000001,
+          "voice_mechanism_compound": 5.525,
+          "voice_estill_quality": 4.680000000000001,
+          "voice_speech_song": 12.09,
+          "voice_ensemble_config": 12.870000000000001,
+          "voice_ornament_system": 3.5249999999999995,
+          "voice_pitch_organization": 2.860000000000001,
+          "voice_processing_chain": 4.94,
+          "voice_multitrack_stack": 3.185
         }
       },
       {
@@ -59,9 +59,9 @@
           "kultrun_tradition": "kultrun_machi_shamanic_canonical"
         },
         "scores": {
-          "kultrun_body": 14.498500000000005,
-          "kultrun_head": 1.69,
-          "kultrun_tradition": 4.29
+          "kultrun_body": 19.69850000000001,
+          "kultrun_head": 9.1,
+          "kultrun_tradition": 10.181000000000001
         }
       }
     ],

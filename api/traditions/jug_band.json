@@ -3,8 +3,8 @@
   "name": "Jug band",
   "family": "blues_gospel",
   "lineage": "1920s and 1930s African-American Memphis-and-Cincinnati DIY blues string-band tradition — codified through the Memphis Jug Band (recorded 1927-1934), Cannon’s Jug Stompers (Gus Cannon with Noah Lewis), and the Dixieland Jug Blowers — characterized by amateur-improvised instrumentation (clay jug as bass, kazoo, washboard, harmonica, banjo, guitar) and country-blues repertoire performed for working-class audiences",
-  "recipe": "classic mid-1930s jug band, ballad Poetry, jug band branch, blues narrative hokum blues, blues narrative delta narrative, pop rock skiffle. thick, worn fold, melodic, narrative. traditional ceramic clay jug inst, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, open g tuning fingerpicked parlor acoustic guitar, wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, drone like fiddle, k and k twin internal mounted acoustic faithful mandolin. wooden barn. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 648,
+  "recipe": "classic mid-1930s jug band, ballad Poetry, jug band branch, blues narrative hokum blues, blues narrative delta narrative, pop rock skiffle. thick, worn fold, melodic, narrative. traditional ceramic clay jug inst, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, open g tuning mahogany fingerpicked parlor acoustic guitar, wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, drone like fiddle, bowl back Italian adirondack red spruce loar canon hard rock maple mandolin. wooden barn. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 676,
   "score": 671.765,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 28.105624999999996,
-          "voice_quality": 26.400000000000002,
+          "voice_register": 64.28062500000001,
+          "voice_quality": 34.85,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.57025,
-          "voice_articulation": 4.784500000000001,
-          "voice_microtone": 10.79,
-          "voice_tradition": 11.439999999999998,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 5.627500000000001,
-          "voice_speech_song": 15.795000000000002,
-          "voice_ensemble_config": 13.650000000000002,
-          "voice_ornament_system": 0.0225,
-          "voice_pitch_organization": 0.33824999999999994,
-          "voice_processing_chain": 9.994125,
-          "voice_multitrack_stack": 1.69
+          "voice_vibrato": 4.320250000000001,
+          "voice_articulation": 6.884500000000001,
+          "voice_microtone": 18.474999999999998,
+          "voice_tradition": 17.061124999999997,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 8.3275,
+          "voice_speech_song": 25.0565,
+          "voice_ensemble_config": 21.441000000000003,
+          "voice_ornament_system": 0.45500000000000007,
+          "voice_pitch_organization": 0.845,
+          "voice_processing_chain": 12.244125,
+          "voice_multitrack_stack": 2.8350000000000004
         }
       },
       {
@@ -59,8 +59,8 @@
           "jug_technique": "jug_lips_buzzed"
         },
         "scores": {
-          "jug_material": 20.084125,
-          "jug_technique": 13.950000000000001
+          "jug_material": 24.434125,
+          "jug_technique": 17.325000000000003
         }
       },
       {
@@ -70,7 +70,7 @@
           "frottoir_striker": "frottoir_spoons"
         },
         "scores": {
-          "frottoir_construction": 21.499250000000004,
+          "frottoir_construction": 25.349250000000005,
           "frottoir_striker": 0.03975
         }
       },
@@ -86,13 +86,13 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 4.31525,
-          "harmonica_type": 0.39,
-          "harmonica_comb": 33.508750000000006,
-          "harmonica_reed": 21.697874999999996,
-          "harmonica_technique": 24.0195,
-          "harmonica_maker_school": 31.327375,
-          "harmonica_tuning": 10.79
+          "free_reed_technique": 11.96525,
+          "harmonica_type": 3.224999999999999,
+          "harmonica_comb": 49.55875,
+          "harmonica_reed": 34.847875,
+          "harmonica_technique": 37.3945,
+          "harmonica_maker_school": 46.577375,
+          "harmonica_tuning": 16.13775
         }
       },
       {
@@ -101,7 +101,7 @@
           "kazoo_construction": "kazoo_metal"
         },
         "scores": {
-          "kazoo_construction": 15.7
+          "kazoo_construction": 25.575
         }
       },
       {
@@ -114,9 +114,9 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 10.434500000000002,
-          "string_tuning": 4.105625,
-          "top_wood_parlor": 0.91875,
+          "acoustic_technique": 22.734499999999997,
+          "string_tuning": 5.230625000000001,
+          "top_wood_parlor": 1.103125,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 0.91875
         }
@@ -137,17 +137,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 14.430000000000003,
-          "banjo_back": 1.103125,
-          "tone_ring": 1.103125,
-          "banjo_head": 14.690000000000003,
-          "banjo_pot": 0.18412499999999998,
-          "banjo_play": 0.78,
+          "plucked_traditional_technique": 22.498124999999998,
+          "banjo_back": 1.403125,
+          "tone_ring": 1.403125,
+          "banjo_head": 22.804625,
+          "banjo_pot": 0.65,
+          "banjo_play": 1.2950000000000002,
           "banjo_rim_wood": 0.3,
           "banjo_neck_wood": 0.61875,
           "banjo_strings": 0.06375,
           "banjo_bridge": 0,
-          "banjo_setup_period": 13.715000000000003
+          "banjo_setup_period": 21.452
         }
       },
       {
@@ -160,9 +160,9 @@
           "fiddle_articulation": "sul_tasto"
         },
         "scores": {
-          "bowed_technique": 4.405,
-          "fiddle_strings": 0.195,
-          "fiddle_bow": 0.15,
+          "bowed_technique": 8.325749999999998,
+          "fiddle_strings": 0.65,
+          "fiddle_bow": 0.65,
           "fiddle_mute": 0.3,
           "fiddle_articulation": 1.013125
         }
@@ -180,14 +180,14 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 2.2899999999999996,
-          "mandolin_shape": 0.91875,
-          "mandolin_top": 0.91875,
-          "mandolin_back": 0.9099999999999999,
-          "mandolin_bracing": 0.31,
-          "mandolin_strings": 0.91875,
+          "acoustic_technique": 6.84,
+          "mandolin_shape": 3.848624999999999,
+          "mandolin_top": 1.2349999999999999,
+          "mandolin_back": 4.209999999999999,
+          "mandolin_bracing": 0.45999999999999996,
+          "mandolin_strings": 6.599999999999999,
           "mandolin_fingerboard": 0.8687499999999999,
-          "mandolin_pickup": 14.170000000000005
+          "mandolin_pickup": 23.743250000000003
         }
       }
     ],

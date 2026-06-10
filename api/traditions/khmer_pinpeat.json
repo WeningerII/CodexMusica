@@ -19,8 +19,8 @@
           "roneat_ek_tradition": "roneat_ek_royal_court_canonical"
         },
         "scores": {
-          "roneat_ek_bars": 18.37,
-          "roneat_ek_tradition": 19.9895
+          "roneat_ek_bars": 18.669999999999998,
+          "roneat_ek_tradition": 22.6895
         }
       },
       {
@@ -30,8 +30,8 @@
           "roneat_thung_role": "roneat_thung_pinpeat_counter"
         },
         "scores": {
-          "roneat_thung_bars": 14.361999999999998,
-          "roneat_thung_role": 16.540499999999998
+          "roneat_thung_bars": 14.512,
+          "roneat_thung_role": 17.4905
         }
       },
       {
@@ -41,8 +41,8 @@
           "sralai_role": "sralai_pinpeat_lead_melodic"
         },
         "scores": {
-          "sralai_reed": 17.446,
-          "sralai_role": 13.915
+          "sralai_reed": 17.746,
+          "sralai_role": 14.815
         }
       },
       {
@@ -52,8 +52,8 @@
           "sampho_role": "sampho_leader_timekeeper"
         },
         "scores": {
-          "sampho_construction": 12.245999999999999,
-          "sampho_role": 8.01
+          "sampho_construction": 12.546,
+          "sampho_role": 8.31
         }
       },
       {
@@ -62,7 +62,7 @@
           "skor_thom_construction": "skor_thom_large_pair_canonical"
         },
         "scores": {
-          "skor_thom_construction": 17.037000000000003
+          "skor_thom_construction": 18.137000000000004
         }
       },
       {
@@ -72,8 +72,8 @@
           "kong_vong_thom_role": "kong_vong_thom_pinpeat_melodic_skeleton"
         },
         "scores": {
-          "kong_vong_thom_construction": 21.1145,
-          "kong_vong_thom_role": 12.716999999999999
+          "kong_vong_thom_construction": 23.1145,
+          "kong_vong_thom_role": 13.466999999999999
         }
       }
     ],

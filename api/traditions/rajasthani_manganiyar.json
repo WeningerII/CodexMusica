@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.045000000000001,
-          "voice_quality": 11.69,
+          "voice_register": 4.32,
+          "voice_quality": 12.565,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.8100000000000005,
+          "voice_vibrato": 11.569999999999999,
           "voice_articulation": 0.7999999999999998,
-          "voice_microtone": 3.0000000000000004,
-          "voice_tradition": 18.427500000000002,
-          "voice_mechanism_compound": 9.15,
-          "voice_estill_quality": 11.125,
-          "voice_speech_song": 18.915,
-          "voice_ensemble_config": 17.16,
-          "voice_ornament_system": 17.325,
-          "voice_pitch_organization": 12.7625,
-          "voice_processing_chain": 5.9799999999999995,
-          "voice_multitrack_stack": 3.3599999999999994
+          "voice_microtone": 5.2,
+          "voice_tradition": 38.41499999999999,
+          "voice_mechanism_compound": 19.775,
+          "voice_estill_quality": 22.549999999999997,
+          "voice_speech_song": 24.3425,
+          "voice_ensemble_config": 22.685,
+          "voice_ornament_system": 30.474999999999998,
+          "voice_pitch_organization": 26.112499999999997,
+          "voice_processing_chain": 7.994999999999999,
+          "voice_multitrack_stack": 6.044999999999999
         }
       },
       {
@@ -61,10 +61,10 @@
           "kamaicha_tradition": "kamaicha_manganiyar_canonical"
         },
         "scores": {
-          "bowed_technique": 10.445,
+          "bowed_technique": 21.07,
           "kamaicha_body": 6.517499999999999,
           "kamaicha_strings": 5.262499999999999,
-          "kamaicha_tradition": 16.5425
+          "kamaicha_tradition": 17.6925
         }
       },
       {
@@ -75,7 +75,7 @@
         },
         "scores": {
           "khartal_body": 15.897499999999999,
-          "khartal_tradition": 16.227500000000003
+          "khartal_tradition": 16.677500000000002
         }
       },
       {
@@ -87,8 +87,8 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 1.69,
-          "dholak_construction": 2.6,
+          "dholak_use": 2.47,
+          "dholak_construction": 5.9799999999999995,
           "dholak_head": 3.9625,
           "dholak_tensioning": 3.9174999999999995
         }
@@ -104,11 +104,11 @@
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "bowed_technique": 10.445,
-          "sarangi_belly": 2.9849999999999994,
+          "bowed_technique": 21.07,
+          "sarangi_belly": 4.419999999999999,
           "sarangi_taraf": 0.045,
-          "sarangi_bow": 0.195,
-          "sarangi_main_strings": 5.915,
+          "sarangi_bow": 0.845,
+          "sarangi_main_strings": 9.685,
           "sarangi_body_wood": 3.9174999999999995
         }
       }

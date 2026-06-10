@@ -3,8 +3,8 @@
   "name": "Bedroom pop",
   "family": "global",
   "lineage": "2010s onward indie-pop subgenre originating in solo bedroom-DAW production — characterized by lo-fi or hi-fi DIY production, intimate vocal delivery, and adolescent thematic content — codified through Clairo (Pretty Girl 2017, Immunity 2019), Cuco, Boy Pablo, Mac DeMarco (Salad Days 2014, the genre's lineage-bearing predecessor), Beabadoobee, with the form serving as the late-2010s indie-pop mainstream",
-  "recipe": "classic 2017-2019 bedroom pop, experimental Elec, lofi branch, pop rock functional song new wave yacht rock. thick, low dynamic level, equal tempered, modern pop training. clean strummed single coil electric guitar, mahogany ernie ball slinky electric bass, TR-808, singing lead analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 405,
+  "recipe": "classic 2017-2019 bedroom pop, experimental Elec, lofi branch, pop rock functional song new wave yacht rock. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, TR-808, sequential dave smith lineage canonical prophet 5 1978 san jose ca lead analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 577,
   "score": 399.252,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 13.909999999999998,
-          "voice_quality": 0.9999999999999998,
+          "voice_register": 51.91125000000002,
+          "voice_quality": 2.4699999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
-          "voice_articulation": 0.45,
-          "voice_microtone": 12.299999999999997,
-          "voice_tradition": 14.299999999999997,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 5.654999999999999,
-          "voice_ensemble_config": 3.9,
-          "voice_ornament_system": 0.345,
-          "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 5.045624999999999,
-          "voice_multitrack_stack": 6.68125
+          "voice_vibrato": 2.6649999999999996,
+          "voice_articulation": 0.39,
+          "voice_microtone": 49.349999999999994,
+          "voice_tradition": 33.345,
+          "voice_mechanism_compound": 3.055,
+          "voice_estill_quality": 2.665000000000001,
+          "voice_speech_song": 17.289999999999996,
+          "voice_ensemble_config": 12.089999999999995,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 10.831875,
+          "voice_multitrack_stack": 7.215000000000001
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 10.885625,
-          "amp_make": 0.78,
-          "body_wood": 0.39,
-          "neck_wood": 0.39,
-          "fretboard": 0.36,
-          "pickup_magnet": 0.19124999999999998,
-          "string_material": 0.28125,
-          "string_gauge": 0.39,
-          "bridge": 0.39,
-          "scale_length": 0.39,
+          "electric_technique": 25.960624999999997,
+          "amp_make": 16.639999999999997,
+          "body_wood": 2.6649999999999996,
+          "neck_wood": 2.6649999999999996,
+          "fretboard": 2.5999999999999996,
+          "pickup_magnet": 0.585,
+          "string_material": 0.585,
+          "string_gauge": 3.3149999999999995,
+          "bridge": 0.65,
+          "scale_length": 2.6649999999999996,
           "finish": 0.09,
-          "string_tuning": 1.3
+          "string_tuning": 13.975
         }
       },
       {
@@ -96,14 +96,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 0.8449999999999999,
-          "body_wood": 1.05375,
-          "pickup_config": 3.675,
-          "string_type": 2.2749999999999995,
-          "scale_length_b": 0.39,
+          "electric_technique": 4.039999999999999,
+          "amp_make": 11.569999999999999,
+          "body_wood": 2.6649999999999996,
+          "pickup_config": 3.8249999999999997,
+          "string_type": 29.0875,
+          "scale_length_b": 2.6649999999999996,
           "fretted_or_not": 0.045,
-          "bass_technique": 1.7899999999999998
+          "bass_technique": 26.465
         }
       },
       {
@@ -114,9 +114,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 0,
-          "drum_machine_808_context": 3.769999999999999,
-          "tr808_production_origin": 0.375
+          "tr808_voice": 0.12999999999999998,
+          "drum_machine_808_context": 8.560625000000002,
+          "tr808_production_origin": 0.195
         }
       },
       {
@@ -128,10 +128,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 11.365625,
-          "poly_archetypes": 0.9099999999999999,
-          "poly_voices": 0.5925,
-          "poly_maker_lineage": -0.7350000000000001
+          "electronic_technique": 25.290624999999995,
+          "poly_archetypes": 11.634999999999998,
+          "poly_voices": 0.78,
+          "poly_maker_lineage": 1.494999999999999
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Nubian music (Egyptian-Sudanese Nile Valley)",
   "family": "global",
   "lineage": "Nubian music of the Mahas and Kunuz communities of the Nile Valley between Aswan and Dongola, with post-1964 Aswan High Dam relocation extending diaspora to Cairo and Khartoum. Performance integrates Nubian-language responsorial chorus with tar frame-drum and darbuka, plus twentieth-century urban-oud incorporation. Modal vocabulary draws on Nile Valley pentatonic-leaning tradition with distinct Nubian intervals. The post-1964 diaspora produced an exile-mourning lyric corpus addressing the loss of villages submerged by Lake Nasser. The aragid wedding-dance repertoire constitutes the core ceremonial layer.",
-  "recipe": "classic mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, chest resonance low mid, rhythmic. mahogany modern alternative oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, walnut bent frame canonical Iranian tar frame drum. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 609,
+  "recipe": "classic mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, chest resonance low mid, rhythmic. mahogany modern alternative western red cedar oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka, walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 675,
   "score": 152.156,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 1.6102499999999997,
-          "voice_quality": 4.8900000000000015,
+          "voice_register": 2.0799999999999996,
+          "voice_quality": 7.7650000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8250000000000001,
-          "voice_articulation": 0.885,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 0.845,
           "voice_microtone": 2.35,
-          "voice_tradition": 18.134999999999998,
-          "voice_mechanism_compound": 6.759999999999999,
-          "voice_estill_quality": 4.875,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 2.4050000000000002,
-          "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 2.545,
-          "voice_multitrack_stack": 2.0752499999999996
+          "voice_tradition": 40.07249999999999,
+          "voice_mechanism_compound": 9.275500000000001,
+          "voice_estill_quality": 6.565000000000001,
+          "voice_speech_song": 14.754999999999997,
+          "voice_ensemble_config": 12.999999999999995,
+          "voice_ornament_system": 5.459999999999999,
+          "voice_pitch_organization": 8.57,
+          "voice_processing_chain": 5.225,
+          "voice_multitrack_stack": 3.0875
         }
       },
       {
@@ -65,11 +65,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 1.3852499999999999,
-          "oud_school": 2.1854999999999998,
-          "oud_strings": 1.26,
-          "oud_pick": 1.20525,
-          "oud_body_wood": 1,
-          "oud_soundboard_wood": 0.63,
+          "oud_school": 2.925,
+          "oud_strings": 0.65,
+          "oud_pick": 1.69,
+          "oud_body_wood": 1.04,
+          "oud_soundboard_wood": 1.8850000000000002,
           "oud_string_material": 0.9899999999999999
         }
       },
@@ -82,10 +82,10 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 1.56,
-          "darbuka_material": 1.195,
-          "darbuka_skin": 1.3,
-          "darbuka_regional_style": 1.45
+          "percussion_technique": 3.835000000000001,
+          "darbuka_material": 1.4949999999999999,
+          "darbuka_skin": 2.795,
+          "darbuka_regional_style": 2.145
         }
       },
       {
@@ -100,9 +100,9 @@
         "scores": {
           "percussion_technique": -0.07,
           "tar_size": 1.495,
-          "tar_frame_drum_context": 0.21,
-          "tar_frame_shell_wood": 1.69,
-          "tar_frame_head": 0.24
+          "tar_frame_drum_context": 0.9099999999999999,
+          "tar_frame_shell_wood": 1.8752499999999999,
+          "tar_frame_head": 1.04
         }
       }
     ],

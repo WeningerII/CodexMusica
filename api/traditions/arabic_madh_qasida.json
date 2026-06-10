@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.56,
+          "voice_register": 2.08,
           "voice_quality": 19.674999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.069999999999999,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 17.874999999999996,
-          "voice_tradition": 30.514999999999997,
-          "voice_mechanism_compound": 10.84,
-          "voice_estill_quality": 11.299999999999999,
-          "voice_speech_song": 12.934999999999999,
-          "voice_ensemble_config": 6.109999999999999,
-          "voice_ornament_system": 28.429999999999996,
-          "voice_pitch_organization": 28.609999999999996,
+          "voice_vibrato": 10.594999999999999,
+          "voice_articulation": 3.5749999999999993,
+          "voice_microtone": 21.275,
+          "voice_tradition": 45.64,
+          "voice_mechanism_compound": 27.689999999999994,
+          "voice_estill_quality": 22.724999999999994,
+          "voice_speech_song": 20.799999999999997,
+          "voice_ensemble_config": 11.049999999999995,
+          "voice_ornament_system": 42.105,
+          "voice_pitch_organization": 42.735,
           "voice_processing_chain": 3.08,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 2.47
         }
       },
       {
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 9.795,
-          "oud_school": 1.69,
-          "oud_strings": 5.069999999999999,
+          "plucked_traditional_technique": 20.419999999999998,
+          "oud_school": 2.275,
+          "oud_strings": 10.79,
           "oud_pick": 1.54,
           "oud_body_wood": 3.2299999999999995,
           "oud_soundboard_wood": 3.2299999999999995,
-          "oud_string_material": 3.3799999999999994
+          "oud_string_material": 4.029999999999999
         }
       }
     ],

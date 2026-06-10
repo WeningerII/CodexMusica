@@ -3,8 +3,8 @@
   "name": "Hauntology (UK Ghost Box)",
   "family": "electronic",
   "lineage": "2000s and 2010s UK electronic subgenre developed through Ghost Box Records (founded 2004 by Julian House and Jim Jupp) and the broader UK-electronic scene, characterized by sampling-and-evocation of 1960s-1970s BBC Radiophonic Workshop, library music, and lost-British-television-soundtrack aesthetics. Belbury Poly, The Focus Group, The Advisory Circle, Mordant Music, and Boards of Canada (parallel adjacent) anchor the canonical hauntology roster.",
-  "recipe": "classic mid-2000s hauntology, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit. punctuated, 31 tet, m1 with m0 pulse borrowing, sprechgesang notated approximate pitch. pad like pad analog synth, glitched textural sampler. converted victorian 1965-1985 major-flagship british class a commercial. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 429,
+  "recipe": "classic mid-2000s hauntology, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit. melodic, punctuated, 31 tet, m1 with m0 pulse borrowing. pad like pad analog synth, glitched textural sampler. converted victorian 1965-1985 major-flagship british class a commercial. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 398,
   "score": 157.319,
   "config": {
     "traditions": [
@@ -38,18 +38,18 @@
           "voice_quality": 0.0315,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.37649999999999995,
+          "voice_vibrato": 0.78,
           "voice_articulation": 0.543,
           "voice_microtone": 0.045,
-          "voice_tradition": 7.15,
+          "voice_tradition": 12.936750000000002,
           "voice_mechanism_compound": 1.23975,
-          "voice_estill_quality": 0.315,
-          "voice_speech_song": 10.075,
-          "voice_ensemble_config": 10.009999999999998,
+          "voice_estill_quality": 0.6499999999999999,
+          "voice_speech_song": 17.484999999999996,
+          "voice_ensemble_config": 18.264999999999997,
           "voice_ornament_system": 0.105,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 12.545,
-          "voice_multitrack_stack": 4.16
+          "voice_pitch_organization": 4.225,
+          "voice_processing_chain": 23.802,
+          "voice_multitrack_stack": 10.997499999999999
         }
       },
       {
@@ -62,10 +62,10 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 3.9445,
+          "electronic_technique": 4.819500000000001,
           "oscillator": 0.813,
           "filter_topology": 0.0315,
-          "envelope": 1.95,
+          "envelope": 2.4050000000000002,
           "modulation": 0.15
         }
       },
@@ -79,11 +79,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 7.6129999999999995,
+          "electronic_technique": 15.988000000000001,
           "sampler_archetypes": 0.105,
           "sampler_bit_depth": 0.3045,
-          "sampler_workflow": 7.25,
-          "sampler_classic_context": 14.3
+          "sampler_workflow": 15.625000000000002,
+          "sampler_classic_context": 22.847499999999993
         }
       }
     ],

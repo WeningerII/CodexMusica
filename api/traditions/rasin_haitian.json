@@ -3,8 +3,8 @@
   "name": "Rasin (Haitian roots-Vodou rock)",
   "family": "global",
   "lineage": "Haitian rock-and-Vodou-fusion genre developed in late-1970s-1980s Haiti. Fusion of Haitian Vodou ceremonial-drumming-and-singing with rock-and-roots-music aesthetic. Emerged through Boukman Eksperyans (founded 1978 in Port-au-Prince by Theodore \"Lolo\" Beaubrun) and parallel groups Boukan Ginen, Sanba Yo, Rara Machine. Electric guitars-bass-drum-kit alongside Vodou-ceremonial percussion. The 1990 Vodou Adjae album consolidated international visibility.",
-  "recipe": "classic 1977-1979 rasin, distorted Rock, regional branch, Afro-diasporic ritual devotional jongo haitian vodou ceremonial. thick, declaimed, punctuated, equal tempered. marshall plexi amp British rock amp mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 624,
+  "recipe": "classic 1977-1979 rasin, distorted Rock, regional branch, Afro-diasporic ritual devotional jongo haitian vodou ceremonial. thick, declaimed, melodic, equal tempered. marshall plexi amp British rock amp mahogany maple alnico humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 628,
   "score": 240.757,
   "config": {
     "traditions": [
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 12.939999999999992,
-          "voice_quality": 1.5449999999999997,
+          "voice_register": 13.939999999999992,
+          "voice_quality": 5.295000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.3,
-          "voice_articulation": 0.69,
+          "voice_vibrato": 0.975,
+          "voice_articulation": 0.195,
           "voice_microtone": 12.499999999999996,
-          "voice_tradition": 1.625,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 0.645,
+          "voice_tradition": 10.692499999999999,
+          "voice_mechanism_compound": 4.81,
+          "voice_estill_quality": 6.305000000000001,
+          "voice_speech_song": 13.909999999999998,
+          "voice_ensemble_config": 11.959999999999997,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 3.5600000000000005,
           "voice_processing_chain": 7.75,
           "voice_multitrack_stack": 2.7
         }
@@ -74,11 +74,11 @@
           "amp_make": 5.345,
           "body_wood": 1.69,
           "neck_wood": 0.3,
-          "fretboard": 0.24,
-          "pickup_magnet": 0.48,
-          "pickup_winding": 0.39,
+          "fretboard": 0.39,
+          "pickup_magnet": 1.4300000000000002,
+          "pickup_winding": 1.04,
           "string_material": 0,
-          "bridge": 0.3,
+          "bridge": 0.585,
           "scale_length": 0.9,
           "string_gauge": 0.3,
           "finish": 0,
@@ -101,7 +101,7 @@
           "electric_technique": -0.05,
           "amp_make": 6.8,
           "body_wood": 0.6,
-          "pickup_config": 0.15,
+          "pickup_config": 0.39,
           "string_type": 12.9,
           "scale_length_b": 0.6,
           "fretted_or_not": 1.435,
@@ -124,7 +124,7 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 15.144999999999998,
+          "percussion_technique": 20.962499999999995,
           "shell_wood": 0.44999999999999996,
           "shell_thickness": 0,
           "bearing_edges": 0.44999999999999996,
@@ -134,7 +134,7 @@
           "cymbal_hammering": 14.099999999999998,
           "cymbal_lathing": 12.799999999999999,
           "cymbal_finish": 0,
-          "drum_technique": 15.144999999999998
+          "drum_technique": 20.962499999999995
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Uyghur On Ikki Muqam (Twelve Muqams)",
   "family": "classical",
   "lineage": "Uyghur On Ikki Muqam (\"Twelve Muqams\") classical Central Asian art-music tradition of the Uyghur Turkic-Muslim population of the Tarim Basin (Xinjiang). The twelve canonical muqamat — Rak, Chebbiyat, Mushavrek, Charigah, Pengigah, Ozhal, Echeh, Ushshaq, Bayat, Nava, Sigah, Iraq — each comprises three sections: chong naghma free-rhythm great-song suite; dastan metrically-bound narrative-song; faster mashrap social-dance section. Turdi Akhun in the 1950s codified recensions; the Xinjiang Muqam Ensemble anchors institutional transmission.",
-  "recipe": "classic mid-1950s uyghur on ikki muqam, art Music, middle eastern classical branch, Persian arab improv improv on frame turkish-romani çümbüş music tarab. vocal fry, chest resonance low mid, narrative, maqam neutral step. mulberry bowl canonical kurdish steel modern tanbur persian, turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato. bukhara shashmaqam courtyard chamber. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 775,
+  "recipe": "classic mid-1950s uyghur on ikki muqam, art Music, middle eastern classical branch, Persian arab improv improv on frame turkish-romani çümbüş music tarab. vocal fry, low dynamic level, chest resonance low mid, narrative. mulberry bowl canonical kurdish steel modern tanbur persian, turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato. bukhara shashmaqam courtyard chamber. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 774,
   "score": 280.167,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.5138749999999999,
-          "voice_quality": 0.20049999999999998,
+          "voice_register": 2.145,
+          "voice_quality": 0.8449999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.9399999999999995,
+          "voice_vibrato": 8.385,
           "voice_articulation": 1.0999999999999999,
-          "voice_microtone": 2.7300000000000004,
-          "voice_tradition": 17.55,
-          "voice_mechanism_compound": 13.758,
-          "voice_estill_quality": 10.902749999999997,
-          "voice_speech_song": 12.094499999999998,
-          "voice_ensemble_config": 3.120000000000001,
-          "voice_ornament_system": 15.950624999999999,
-          "voice_pitch_organization": 16.61375,
-          "voice_processing_chain": 2.6197500000000002,
-          "voice_multitrack_stack": 1.726875
+          "voice_microtone": 12.553875,
+          "voice_tradition": 31.817500000000003,
+          "voice_mechanism_compound": 24.282999999999998,
+          "voice_estill_quality": 18.102749999999997,
+          "voice_speech_song": 18.3445,
+          "voice_ensemble_config": 4.874999999999999,
+          "voice_ornament_system": 27.728125,
+          "voice_pitch_organization": 27.477625,
+          "voice_processing_chain": 2.47,
+          "voice_multitrack_stack": 2.145
         }
       },
       {
@@ -62,9 +62,9 @@
           "tanbur_persian_string_material": "tanbur_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 9.5,
+          "plucked_traditional_technique": 15.75,
           "tanbur_use": 0.255,
-          "tanbur_persian_strings": 2.4693749999999994,
+          "tanbur_persian_strings": 3.575,
           "tanbur_persian_body_wood": 1.69,
           "tanbur_persian_string_material": 1.69
         }
@@ -77,9 +77,9 @@
           "dutar_tradition": "dutar_shashmaqam_bukharan"
         },
         "scores": {
-          "dutar_body": 1.69,
-          "dutar_strings": 1.69,
-          "dutar_tradition": 6.629999999999999
+          "dutar_body": 3.185,
+          "dutar_strings": 1.885,
+          "dutar_tradition": 9.879999999999999
         }
       },
       {
@@ -93,8 +93,8 @@
         },
         "scores": {
           "daf_rings": 0.2415,
-          "daf_context": 12.219999999999999,
-          "daf_shell_wood": 3.5100000000000002,
+          "daf_context": 18.72,
+          "daf_shell_wood": 7.865,
           "daf_head_material": 1.69,
           "daf_jingle_metal": 1.69
         }
@@ -107,9 +107,9 @@
           "sato_tradition": "sato_shashmaqam_canonical"
         },
         "scores": {
-          "bowed_technique": 9.5,
+          "bowed_technique": 15.75,
           "sato_body": 1.6478749999999998,
-          "sato_tradition": 6.629999999999999
+          "sato_tradition": 9.879999999999999
         }
       }
     ],

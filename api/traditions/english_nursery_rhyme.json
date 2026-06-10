@@ -3,8 +3,8 @@
   "name": "English nursery rhyme",
   "family": "global",
   "lineage": "English-language nursery-rhyme tradition continuous from medieval and early-modern English play-song origins through 18th-century chapbook publication (Tommy Thumb's Pretty Song Book 1744 the earliest documented English nursery-rhyme collection) through Iona and Peter Opie's 20th-century Lore and Language of Schoolchildren ethnographic documentation",
-  "recipe": "classic mid-1740s english nursery rhyme, nursery Rhyme, European branch, americas nursery rhyme, European lullaby, Celtic balladic ballad poetry spanish and latin american rondas sean-nós solo singing. low dynamic level, tasteful, continuous-phonation, Scottish Gaelic vocal. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 414,
+  "recipe": "classic mid-1740s english nursery rhyme, nursery Rhyme, European branch, americas nursery rhyme, European lullaby, Celtic balladic ballad poetry spanish and latin american rondas sean-nós solo singing. thick, low dynamic level, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 398,
   "score": 86.823,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.4462499999999999,
+          "voice_register": 2.33,
           "voice_quality": 3.185,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 1.69,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 3.769999999999999,
           "voice_microtone": 0.045,
-          "voice_tradition": 5.654999999999999,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 0.43499999999999994,
-          "voice_speech_song": 9.554999999999998,
-          "voice_ensemble_config": 6.889999999999999,
-          "voice_ornament_system": 2.085,
-          "voice_pitch_organization": 3.5200000000000005,
-          "voice_processing_chain": 0.6849999999999999,
-          "voice_multitrack_stack": 0.78
+          "voice_tradition": 17.421249999999997,
+          "voice_mechanism_compound": 0.845,
+          "voice_estill_quality": 1.2349999999999997,
+          "voice_speech_song": 19.044999999999995,
+          "voice_ensemble_config": 14.494999999999994,
+          "voice_ornament_system": 8.635,
+          "voice_pitch_organization": 5.12,
+          "voice_processing_chain": 1.9012499999999997,
+          "voice_multitrack_stack": 2.6649999999999996
         }
       }
     ],

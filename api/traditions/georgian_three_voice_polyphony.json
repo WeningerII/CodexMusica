@@ -3,8 +3,8 @@
   "name": "Georgian three-voice polyphony",
   "family": "global",
   "lineage": "Georgian Caucasian three-voice unaccompanied polyphonic tradition — comprising four regional sub-traditions each with distinct three-voice configuration: Kakhetian table-song (two soloists carrying upper voices over a sustained choral drone bani, the eastern-Georgian wine-toast supra context), Gurian three-voice with krimanchuli (the western-Georgian high-yodeling M1-M2-alternation upper voice over mtkmeli lead and bani drone, the most contrapuntally complex regional style), Megrelian funeral lament (the western-coastal-Georgian three-voice with text-carrying mtkmeli), and Svanetian highland complex three-voice (the upper-mountain Svaneti regional style with archaic non-tempered fifth-and-fourth harmony); twentieth-century preservation through the Anchiskhati Choir Tbilisi, Rustavi Choir, the ethnomusicology lineage of Joseb Jordania, Edisher Garaqanidze, and the Tbilisi State Conservatoire folk-polyphony research program; performed in church-and-supra contexts using non-tempered Pythagorean-leaning fifths and fourths, the harmonic vocabulary distinct from Western tempered choral practice",
-  "recipe": "classic modern georgian three-voice polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. sygyt, false fold engaged, overtone rich sustained, equal tempered. a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 563,
+  "recipe": "classic modern georgian three-voice polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. sygyt, false fold engaged, overtone rich sustained, hocket articulation. a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 568,
   "score": 338.095,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 3.2450000000000006,
-          "voice_quality": 3.1500000000000004,
+          "voice_register": 4.545000000000001,
+          "voice_quality": 21.124999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.75,
-          "voice_articulation": 0.44999999999999996,
-          "voice_microtone": 8.144999999999994,
-          "voice_tradition": 15.404999999999998,
-          "voice_mechanism_compound": 9.62,
-          "voice_estill_quality": 5.785,
-          "voice_speech_song": 13.325000000000003,
-          "voice_ensemble_config": 33.145,
-          "voice_ornament_system": 11.340000000000003,
-          "voice_pitch_organization": 8.299999999999999,
-          "voice_processing_chain": 12.885000000000003,
-          "voice_multitrack_stack": 5.46
+          "voice_vibrato": 2.25,
+          "voice_articulation": 5.3999999999999995,
+          "voice_microtone": 9.169999999999995,
+          "voice_tradition": 39.87,
+          "voice_mechanism_compound": 16.055,
+          "voice_estill_quality": 10.464999999999996,
+          "voice_speech_song": 24.570000000000004,
+          "voice_ensemble_config": 55.18500000000002,
+          "voice_ornament_system": 14.140000000000004,
+          "voice_pitch_organization": 10.469999999999997,
+          "voice_processing_chain": 15.185000000000004,
+          "voice_multitrack_stack": 10.464999999999998
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 5.324999999999999,
-          "choir_polyphonic_configuration": 27.8,
-          "choir_regional_canonical_configuration": 32.06,
-          "choir_ensemble_repertoire": 3.77
+          "choir_size": 8.905,
+          "choir_polyphonic_configuration": 32.900000000000006,
+          "choir_regional_canonical_configuration": 37.06,
+          "choir_ensemble_repertoire": 8.71
         }
       }
     ],

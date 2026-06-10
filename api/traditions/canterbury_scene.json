@@ -3,8 +3,8 @@
   "name": "Canterbury scene (UK progressive)",
   "family": "rock_punk",
   "lineage": "Late-1960s-and-1970s British progressive-rock subgenre centered on the city of Canterbury and the interconnected musicians of the Wilde Flowers (1964-1969), from which Soft Machine and Caravan emerged. Characterized by jazz-influenced harmonic vocabulary, dry-witty English-language lyrical content, and complex extended-form composition. Soft Machine, Caravan, Hatfield and the North, Gong (early), National Health, and Egg constitute the canonical roster.",
-  "recipe": "classic British mid-1960s canterbury scene, distorted Rock, progressive rock branch, American jazz fusion third stream nu jazz / electro-jazz. thick, incomplete closure resting, nervy, rhythmic. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 870,
+  "recipe": "classic British mid-1960s canterbury scene, distorted Rock, progressive rock branch, American jazz fusion third stream nu jazz / electro-jazz. thick, incomplete closure resting, nervy, rhythmic. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 883,
   "score": 668.402,
   "config": {
     "traditions": [
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 15.344999999999994,
+          "voice_register": 37.220000000000006,
           "voice_quality": 2.4550000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 0.8879999999999999,
-          "voice_microtone": 15.782874999999997,
-          "voice_tradition": 6.5,
-          "voice_mechanism_compound": 1.755,
-          "voice_estill_quality": 0.27525,
-          "voice_speech_song": 10.075,
-          "voice_ensemble_config": 10.009999999999998,
-          "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 3.9600000000000004,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 0.845,
+          "voice_microtone": 38.007875,
+          "voice_tradition": 31.667624999999997,
+          "voice_mechanism_compound": 2.7749999999999995,
+          "voice_estill_quality": 4.4525,
+          "voice_speech_song": 16.314999999999998,
+          "voice_ensemble_config": 14.234999999999996,
+          "voice_ornament_system": 5.674875,
+          "voice_pitch_organization": 5.026125,
+          "voice_processing_chain": 4.993,
           "voice_multitrack_stack": 5.850000000000001
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 4.229500000000001,
+          "electric_technique": 6.179500000000001,
           "amp_make": 7.15,
-          "body_wood": 5.069999999999999,
-          "neck_wood": 1.69,
-          "fretboard": 1.69,
-          "pickup_magnet": 0.424125,
-          "pickup_winding": 0.424125,
-          "string_material": 1.69,
-          "bridge": 0.219375,
-          "scale_length": 3.38,
-          "string_gauge": 0.219375,
+          "body_wood": 8.682625,
+          "neck_wood": 2.535,
+          "fretboard": 2.535,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 1.3,
+          "string_material": 2.535,
+          "bridge": 0.845,
+          "scale_length": 7.215000000000001,
+          "string_gauge": 0.845,
           "finish": 0,
-          "string_tuning": 10.659999999999998
+          "string_tuning": 12.35
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 1.9500000000000002,
-          "amp_make": 7.15,
-          "body_wood": 0.43875,
-          "pickup_config": 0.424125,
-          "string_type": 13.975,
-          "scale_length_b": 0.424125,
+          "electric_technique": 3.9000000000000004,
+          "amp_make": 8.967500000000001,
+          "body_wood": 0.845,
+          "pickup_config": 1.3,
+          "string_type": 31.448249999999994,
+          "scale_length_b": 1.3,
           "fretted_or_not": 0,
-          "bass_technique": 10.7
+          "bass_technique": 24.749999999999996
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 14.949999999999996,
-          "shell_wood": 1.69,
+          "percussion_technique": 35.94499999999999,
+          "shell_wood": 2.535,
           "shell_thickness": 0,
-          "bearing_edges": 1.69,
-          "drumhead": 6.4350000000000005,
-          "snare_wires": 1.5193750000000001,
-          "cymbal_alloy": 20.25,
-          "cymbal_hammering": 13.249999999999996,
-          "cymbal_lathing": 10.649999999999999,
-          "cymbal_finish": 1.69,
-          "drum_technique": 14.949999999999996
+          "bearing_edges": 3.835,
+          "drumhead": 31.398249999999997,
+          "snare_wires": 2.169375,
+          "cymbal_alloy": 31.809499999999996,
+          "cymbal_hammering": 26.763999999999996,
+          "cymbal_lathing": 26.049999999999997,
+          "cymbal_finish": 2.535,
+          "drum_technique": 35.94499999999999
         }
       },
       {
@@ -151,15 +151,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 1.995,
-          "grand_piano_size": 0.38025,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 8.84,
-          "piano_rim": 5.46,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": -0.035,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "keyboard_technique": 3.9450000000000003,
+          "grand_piano_size": 0.845,
+          "grand_piano_brand": 2.535,
+          "piano_hammer": 15.957499999999998,
+          "piano_rim": 12.577499999999999,
+          "piano_soundboard": 5.501,
+          "piano_pinblock": 5.4065,
+          "piano_plate": 6.839124999999999,
+          "piano_pitch_standard": 6.533874999999999
         }
       },
       {
@@ -174,11 +174,11 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "drawbar_setting": 10.75,
+          "drawbar_setting": 25.78025,
           "rotary_speed": 10.7,
-          "percussion_setting": 5.59,
-          "tonewheel_model": 11.05,
-          "leslie_cabinet_model": 1.69
+          "percussion_setting": 24.749999999999996,
+          "tonewheel_model": 38.41499999999999,
+          "leslie_cabinet_model": 3.3150000000000004
         }
       }
     ],

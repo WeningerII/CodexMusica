@@ -3,8 +3,8 @@
   "name": "Corsican paghjella three-voice unaccompanied",
   "family": "global",
   "lineage": "Corsican three-voice unaccompanied sacred-and-secular polyphonic tradition — the canonical Corsican vocal-polyphonic form built on three named voice-parts (secondu the lead text-carrying voice, bassu the bass-anchor voice, terzu the highest-and-most-ornamented voice that enters last), performed in stone-walled village-church contexts and in lay confraternity (cunfraterne) sacred-paraliturgical contexts, with the canonical regional centers in Niolu, Castagniccia, Sartène-Tallano, Balagne; the modern revival from the 1970s-onward through riacquistu Corsican cultural-resurgence groups Canta u Populu Corsu, A Filetta, Tavagna, I Muvrini, and the contemporary ethnomusicology lineage of Bernard Lortat-Jacob and Jean-Étienne Antonini",
-  "recipe": "classic mid-1970s corsican paghjella three-voice unaccompanied, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. vocal fry, false fold engaged, tasteful, Mediterranean demotic vocal. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 582,
+  "recipe": "classic mid-1970s corsican paghjella three-voice unaccompanied, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. vocal fry, false fold engaged, tasteful, hocket articulation. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 574,
   "score": 275.933,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 3.6399999999999997,
-          "voice_quality": 1.8499999999999999,
+          "voice_register": 5.26,
+          "voice_quality": 16.825,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.6,
-          "voice_articulation": 0.44999999999999996,
-          "voice_microtone": 0.15,
-          "voice_tradition": 14.364999999999997,
-          "voice_mechanism_compound": 4.42,
-          "voice_estill_quality": 2.275,
-          "voice_speech_song": 9.554999999999998,
-          "voice_ensemble_config": 22.794999999999995,
-          "voice_ornament_system": 9.139999999999999,
-          "voice_pitch_organization": 4.3999999999999995,
-          "voice_processing_chain": 9.385,
-          "voice_multitrack_stack": 3.6399999999999997
+          "voice_articulation": 2.4000000000000004,
+          "voice_microtone": 0.8450000000000001,
+          "voice_tradition": 39.12,
+          "voice_mechanism_compound": 10.855,
+          "voice_estill_quality": 6.955000000000001,
+          "voice_speech_song": 22.132500000000004,
+          "voice_ensemble_config": 42.055,
+          "voice_ornament_system": 11.94,
+          "voice_pitch_organization": 5.67,
+          "voice_processing_chain": 11.685,
+          "voice_multitrack_stack": 7.475
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 3.769999999999999,
-          "choir_polyphonic_configuration": 22.4,
-          "choir_regional_canonical_configuration": 18.59,
-          "choir_ensemble_repertoire": 8.45
+          "choir_size": 8.515,
+          "choir_polyphonic_configuration": 27.5,
+          "choir_regional_canonical_configuration": 28.195,
+          "choir_ensemble_repertoire": 13.18
         }
       }
     ],

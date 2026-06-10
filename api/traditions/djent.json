@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 5.650000000000001,
-          "voice_quality": 2.7950000000000004,
+          "voice_register": 9.450000000000001,
+          "voice_quality": 6.2250000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9899999999999998,
+          "voice_vibrato": 6.629999999999999,
           "voice_articulation": 2.99,
-          "voice_microtone": 6.890000000000001,
-          "voice_tradition": 2.2099999999999995,
-          "voice_mechanism_compound": 12.199999999999998,
-          "voice_estill_quality": 0.9750000000000001,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 2.6849999999999996,
+          "voice_microtone": 13.375000000000002,
+          "voice_tradition": 7.085000000000001,
+          "voice_mechanism_compound": 12.849999999999998,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 13.389999999999999,
+          "voice_ensemble_config": 11.309999999999997,
+          "voice_ornament_system": 2.6400000000000006,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 3.74,
           "voice_multitrack_stack": 6.630000000000001
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 14.25,
-          "amp_make": 21.839999999999996,
-          "body_wood": 12.22,
-          "neck_wood": 2.885,
-          "fretboard": 2.835,
-          "pickup_magnet": 2.6,
-          "pickup_winding": 1.035,
-          "string_material": 1.275,
-          "bridge": 2.885,
-          "scale_length": 7.54,
-          "string_gauge": 4.38,
+          "electric_technique": 14.549999999999999,
+          "amp_make": 28.084999999999997,
+          "body_wood": 17.355,
+          "neck_wood": 4.035,
+          "fretboard": 3.985,
+          "pickup_magnet": 4.55,
+          "pickup_winding": 2.8600000000000003,
+          "string_material": 0.9099999999999999,
+          "bridge": 4.035,
+          "scale_length": 11.18,
+          "string_gauge": 5.53,
           "finish": 0,
-          "string_tuning": 8.76
+          "string_tuning": 11.18
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 1.9000000000000001,
-          "amp_make": 13.045,
-          "body_wood": 4.68,
-          "pickup_config": 1.3,
-          "string_type": 4.785,
-          "scale_length_b": 2.69,
+          "electric_technique": 2.2,
+          "amp_make": 16.795,
+          "body_wood": 6.874999999999999,
+          "pickup_config": 3.7700000000000005,
+          "string_type": 5.485,
+          "scale_length_b": 3.84,
           "fretted_or_not": 1.3,
-          "bass_technique": 3.7
+          "bass_technique": 5.5
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 4.9399999999999995,
+          "percussion_technique": 11.309999999999997,
           "shell_wood": 1.54,
-          "shell_thickness": 1.035,
-          "bearing_edges": 2.69,
-          "drumhead": 2.885,
-          "snare_wires": 2.69,
+          "shell_thickness": 0.9099999999999999,
+          "bearing_edges": 3.84,
+          "drumhead": 6.49,
+          "snare_wires": 3.84,
           "cymbal_alloy": 13.44,
-          "cymbal_hammering": 5.45,
-          "cymbal_lathing": 5.6450000000000005,
-          "cymbal_finish": 0.24,
-          "drum_technique": 4.9399999999999995
+          "cymbal_hammering": 9.200000000000001,
+          "cymbal_lathing": 9.395000000000001,
+          "cymbal_finish": 0.845,
+          "drum_technique": 11.309999999999997
         }
       }
     ],

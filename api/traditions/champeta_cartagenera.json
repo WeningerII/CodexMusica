@@ -3,8 +3,8 @@
   "name": "Champeta (Cartagena Afro-Colombian)",
   "family": "global",
   "lineage": "Afro-Colombian dance-music genre of Cartagena and the Colombian Caribbean coast, emerging in 1980s from synthesis of African soukous, juju, and highlife (transmitted through cassette-and-vinyl trade with Africa via maritime sailors) with local Colombian Caribbean costeño rhythmic-vocabulary. Performed at picós large mobile sound-systems in working-class barrios. Distinguished from cumbia by champeta's African-pop-derived (vs cumbia's indigenous-Afro-Spanish-syncretic) lineage.",
-  "recipe": "classic mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm south african kwaito kwaito. thick, full chest belt, chest resonance low mid, punctuated. basswood soft down tuning clean strummed humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 479,
+  "recipe": "classic mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm south african kwaito kwaito. thick, full chest belt, chest resonance low mid, punctuated. basswood mahogany soft down tuning clean strummed humbucker electric guitar, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 509,
   "score": 129.979,
   "config": {
     "traditions": [
@@ -38,18 +38,18 @@
           "voice_quality": 5.955,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.642,
+          "voice_vibrato": 1.04,
           "voice_articulation": 1.6360000000000001,
           "voice_microtone": 3.000000000000001,
-          "voice_tradition": 8.319999999999999,
-          "voice_mechanism_compound": 3.3915,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 8.905,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 0.21,
-          "voice_pitch_organization": 0.4365,
-          "voice_processing_chain": 3.7447500000000002,
-          "voice_multitrack_stack": 1.69
+          "voice_tradition": 21.417499999999997,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 16.834999999999997,
+          "voice_ensemble_config": 12.869999999999996,
+          "voice_ornament_system": 1.0399999999999998,
+          "voice_pitch_organization": 0.845,
+          "voice_processing_chain": 5.598,
+          "voice_multitrack_stack": 3.12
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 5.0315,
+          "electric_technique": 8.7815,
           "amp_make": 1.3179999999999998,
-          "body_wood": 1.51125,
-          "neck_wood": 0.642,
-          "fretboard": 0.402,
+          "body_wood": 1.8850000000000002,
+          "neck_wood": 1.04,
+          "fretboard": 0.975,
           "pickup_magnet": 0.46424999999999994,
           "pickup_winding": 0.4327499999999999,
           "string_material": 0.402,
-          "bridge": 0.642,
-          "scale_length": 1.3342500000000002,
-          "string_gauge": 0.768,
+          "bridge": 1.04,
+          "scale_length": 1.04,
+          "string_gauge": 1.04,
           "finish": 0,
-          "string_tuning": 1.4969999999999999
+          "string_tuning": 1.69
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 0,
-          "body_wood": 1.284,
+          "electric_technique": 3.25,
+          "amp_make": 1.4299999999999997,
+          "body_wood": 1.04,
           "pickup_config": 0.4327499999999999,
-          "string_type": 0.8347499999999999,
-          "scale_length_b": 0.642,
+          "string_type": 2.6000000000000005,
+          "scale_length_b": 1.04,
           "fretted_or_not": 0,
-          "bass_technique": -0.035
+          "bass_technique": 3.25
         }
       },
       {
@@ -116,8 +116,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 0,
-          "drum_machine_808_context": 5.43275,
+          "tr808_voice": 2.9575,
+          "drum_machine_808_context": 6.88275,
           "tr808_production_origin": 0.8032499999999999
         }
       }

@@ -3,8 +3,8 @@
   "name": "J-pop (classic mainstream)",
   "family": "global",
   "lineage": "Japanese 1980s-1990s mainstream pop tradition codified through Seiko Matsuda, Yumi Matsutoya, the agency-system idol pop infrastructure (Johnny’s Entertainment for male groups, Sun Music for solo idols), and television-tied tie-up song format — characterized by major-key brightness, English-loanword lyric inserts, and tightly-arranged session-musician production",
-  "recipe": "classic mid-1980s j-pop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, chest mix belt, chest resonance low mid, equal tempered. singing lead analog poly synth, clean strummed single coil electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 512,
+  "recipe": "classic mid-1980s j-pop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, chest mix belt, chest resonance low mid, equal tempered. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 605,
   "score": 691.167,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 23.464999999999996,
+          "voice_register": 58.92500000000001,
           "voice_quality": 1.3349999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.78,
-          "voice_articulation": 0.45,
-          "voice_microtone": 19.799999999999994,
-          "voice_tradition": 22.684999999999995,
-          "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 1.375,
-          "voice_speech_song": 11.374999999999995,
-          "voice_ensemble_config": 6.369999999999998,
+          "voice_vibrato": 3.055,
+          "voice_articulation": 0.39,
+          "voice_microtone": 57.125,
+          "voice_tradition": 40.904999999999994,
+          "voice_mechanism_compound": 2.9249999999999994,
+          "voice_estill_quality": 2.5349999999999997,
+          "voice_speech_song": 23.00999999999999,
+          "voice_ensemble_config": 14.559999999999992,
           "voice_ornament_system": 2.285,
           "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 5.904999999999999,
-          "voice_multitrack_stack": 1.6250000000000002
+          "voice_processing_chain": 15.005000000000003,
+          "voice_multitrack_stack": 10.14
         }
       },
       {
@@ -61,10 +61,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 18.109999999999996,
-          "poly_archetypes": 1.735,
-          "poly_voices": 0.51,
-          "poly_maker_lineage": -1.225
+          "electronic_technique": 32.035,
+          "poly_archetypes": 12.415000000000001,
+          "poly_voices": 0.78,
+          "poly_maker_lineage": 0.5849999999999994
         }
       },
       {
@@ -84,18 +84,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 18.429999999999996,
-          "amp_make": 1.4299999999999997,
-          "body_wood": 0.78,
-          "neck_wood": 0.78,
-          "fretboard": 0.78,
-          "pickup_magnet": 0.78,
-          "string_material": 0.78,
-          "string_gauge": 0.78,
-          "bridge": 0.24,
-          "scale_length": 0.78,
+          "electric_technique": 33.455,
+          "amp_make": 17.419999999999998,
+          "body_wood": 3.055,
+          "neck_wood": 3.055,
+          "fretboard": 2.99,
+          "pickup_magnet": 1.23,
+          "string_material": 1.32,
+          "string_gauge": 3.705,
+          "bridge": 0.65,
+          "scale_length": 3.055,
           "finish": 0.09,
-          "string_tuning": 2.9899999999999998
+          "string_tuning": 15.145
         }
       },
       {
@@ -111,14 +111,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.26,
-          "amp_make": 1.625,
-          "body_wood": 0.78,
-          "pickup_config": 0.375,
-          "string_type": 3.25,
-          "scale_length_b": 0.78,
+          "electric_technique": 4.339999999999999,
+          "amp_make": 12.35,
+          "body_wood": 3.055,
+          "pickup_config": 0.195,
+          "string_type": 30.0625,
+          "scale_length_b": 3.055,
           "fretted_or_not": 0.045,
-          "bass_technique": 2.84
+          "bass_technique": 27.514999999999997
         }
       },
       {
@@ -137,17 +137,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 6.369999999999998,
-          "shell_wood": 0.78,
+          "percussion_technique": 17.09499999999999,
+          "shell_wood": 1.56,
           "shell_thickness": 0.045,
-          "bearing_edges": 0.78,
-          "drumhead": 17.839999999999996,
-          "snare_wires": 0.78,
-          "cymbal_alloy": 20.134999999999998,
-          "cymbal_hammering": 20.595,
-          "cymbal_lathing": 20.265,
-          "cymbal_finish": 0.78,
-          "drum_technique": 6.369999999999998
+          "bearing_edges": 3.055,
+          "drumhead": 31.889999999999997,
+          "snare_wires": 3.055,
+          "cymbal_alloy": 54.53499999999999,
+          "cymbal_hammering": 55.57,
+          "cymbal_lathing": 55.08999999999999,
+          "cymbal_finish": 1.23,
+          "drum_technique": 23.17
         }
       }
     ],

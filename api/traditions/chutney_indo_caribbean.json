@@ -3,8 +3,8 @@
   "name": "Chutney (Indo-Caribbean)",
   "family": "global",
   "lineage": "Indo-Caribbean Trinidadian-and-Guyanese popular-music developed in late-twentieth-century Trinidad from synthesis of Bhojpuri-Hindi folk-song of the post-1845 Indian-indentured-laborer community with Trinidadian calypso-and-soca. Voice (often female), dholak, dhantal, tassa, electric-instruments. Sundar Popo's 1968 \"Nana and Nani\" is the canonical foundational chutney recording.",
-  "recipe": "classic mid-1840s chutney, functional Song, south Asian pop branch, tropical song functional song garifuna punta-rock champeta. thick, full chest belt, punctuated, equal tempered. goat skin syahi rope laced steel ring dholak, indian rosewood rosewood clay tabla, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival hindu wedding tassa indo Caribbean tassa drum. port of spain community studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 554,
+  "recipe": "classic mid-1840s chutney, functional Song, south Asian pop branch, tropical song functional song garifuna punta-rock champeta. thick, full chest belt, tasteful, punctuated. goat skin syahi rope laced steel ring dholak, indian rosewood rosewood clay tabla, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival hindu wedding tassa indo Caribbean tassa drum. port of spain community studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 548,
   "score": 147.395,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 6.985000000000001,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 13.959999999999994,
+          "voice_quality": 2.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.495,
-          "voice_articulation": 0.675,
-          "voice_microtone": 3.500000000000001,
-          "voice_tradition": 6.5,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 10.464999999999998,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 2.585,
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 0.845,
+          "voice_microtone": 9.824999999999998,
+          "voice_tradition": 9.57,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 18.589999999999996,
+          "voice_ensemble_config": 10.854999999999997,
+          "voice_ornament_system": 3.235,
           "voice_pitch_organization": 2.245,
-          "voice_processing_chain": 2.07,
-          "voice_multitrack_stack": 1.935
+          "voice_processing_chain": 9.375,
+          "voice_multitrack_stack": 3.3150000000000004
         }
       },
       {
@@ -62,7 +62,7 @@
         },
         "scores": {
           "dholak_use": 1.69,
-          "dholak_construction": 3.185,
+          "dholak_construction": 3.835,
           "dholak_head": 1.69,
           "dholak_tensioning": 1.69
         }
@@ -77,7 +77,7 @@
         "scores": {
           "tabla_dayan": 1.4,
           "tabla_bayan": 1.3,
-          "tabla_syahi": 1.69
+          "tabla_syahi": 5.069999999999999
         }
       },
       {
@@ -88,9 +88,9 @@
           "tassa_lineage": "tassa_hindu_wedding"
         },
         "scores": {
-          "tassa_skin": 13.129999999999997,
-          "tassa_shell": 2.9899999999999998,
-          "tassa_lineage": 7.534999999999999
+          "tassa_skin": 17.355,
+          "tassa_shell": 6.629999999999999,
+          "tassa_lineage": 9.184999999999999
         }
       }
     ],

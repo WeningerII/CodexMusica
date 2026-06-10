@@ -21,7 +21,7 @@
         },
         "scores": {
           "type": 1,
-          "characteristic": 1.69
+          "characteristic": 2.75
         }
       },
       {
@@ -34,7 +34,7 @@
         },
         "scores": {
           "kendang_size": 6.515,
-          "kendang_context": 12.05,
+          "kendang_context": 13.850000000000001,
           "kendang_shell_wood": 4.484999999999999,
           "kendang_head": 0.7350000000000001
         }
@@ -46,8 +46,8 @@
           "saron_tuning_system": "saron_slendro"
         },
         "scores": {
-          "saron_size": 0.54,
-          "saron_tuning_system": 0.3
+          "saron_size": 1.4949999999999999,
+          "saron_tuning_system": 0.65
         }
       }
     ],

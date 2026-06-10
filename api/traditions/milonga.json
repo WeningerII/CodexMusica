@@ -3,8 +3,8 @@
   "name": "Milonga",
   "family": "global",
   "lineage": "Argentine-Uruguayan rural-pampas tango-precursor and parallel folk genre 1870s-onward with habanera-derived dotted-eighth-sixteenth ostinato bass and characteristic 2/4 milonga-clave. Originated in Rio-de-la-Plata gaucho-payada improvisatory-sung-poetry combined with Afro-Cuban habanera rhythm imported via 19th-century maritime ship-traffic between Buenos Aires and Havana. The milonga-campera rural form remains payada-derived (guitar-accompanied gaucho ballads), while the milonga-ciudadana urban form 1920s-onward fed directly into orquesta-típica tango via the 6/8-against-2/4 polyrhythmic dance variant played at faster tempo than mainline tango.",
-  "recipe": "classic mid-1870s milonga, ballad Poetry, milonga branch, tropical song functional song garifuna paranda and hungu-hungu bachata. thick, full chest belt, chest resonance low mid, rhythmic. cedar fingerpicked classical nylon-string guitar, tango virtuoso premier German tango premium alternative bellows articulated bandoneon, hard rock maple acer saccharum modern setup longer neck longer fingerboard violin orchestral, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 569,
+  "recipe": "classic mid-1870s milonga, ballad Poetry, milonga branch, tropical song functional song garifuna paranda and hungu-hungu bachata. thick, full chest belt, chest resonance low mid, rhythmic. cedar fingerpicked classical nylon-string guitar, tango virtuoso premier German tango premium alternative steel reeds canonical aa pre 1949 voicing bellows articulated bandoneon, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 606,
   "score": 199.05,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 6.985,
-          "voice_quality": 2.9350000000000005,
+          "voice_register": 10.760000000000002,
+          "voice_quality": 9.424999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.17,
           "voice_articulation": 0.78,
-          "voice_microtone": 1.15,
-          "voice_tradition": 9.780000000000001,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.575,
-          "voice_speech_song": 13.974999999999994,
-          "voice_ensemble_config": 10.399999999999997,
-          "voice_ornament_system": 0.8449999999999999,
-          "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 2.34,
-          "voice_multitrack_stack": 1.6500000000000001
+          "voice_microtone": 3.4750000000000005,
+          "voice_tradition": 12.23,
+          "voice_mechanism_compound": 6.369999999999999,
+          "voice_estill_quality": 6.5649999999999995,
+          "voice_speech_song": 37.635,
+          "voice_ensemble_config": 27.819999999999997,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 1.8199999999999996,
+          "voice_processing_chain": 6.175,
+          "voice_multitrack_stack": 3.8349999999999995
         }
       },
       {
@@ -63,10 +63,10 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 7.98,
+          "acoustic_technique": 8.504999999999999,
           "string_tuning": 0,
-          "top_wood_classical": 2.08,
-          "bracing_classical": 1.0799999999999998,
+          "top_wood_classical": 5.265,
+          "bracing_classical": 0.8999999999999999,
           "string_classical": 0.7149999999999999,
           "attack_technique_cl": 0.78
         }
@@ -83,9 +83,9 @@
         "scores": {
           "free_reed_technique": 14.949999999999994,
           "bandoneon_action": 6.299999999999998,
-          "bandoneon_use": 6.389999999999998,
+          "bandoneon_use": 7.539999999999998,
           "bandoneon_maker_school": 6.144999999999999,
-          "bandoneon_reed_material": 0.39
+          "bandoneon_reed_material": 1.2349999999999999
         }
       },
       {
@@ -105,14 +105,14 @@
         "scores": {
           "bowed_technique": 0.75,
           "orch_strings": 0.435,
-          "orch_top_wood": 0.75,
-          "orch_back_wood": 1.625,
-          "orch_varnish": 0.7,
-          "orch_setup_period": 1.17,
-          "orch_bow": 1.69,
-          "orch_bow_stick": 0.7999999999999999,
-          "orch_articulation": 0.24,
-          "orch_rosin": 0.975
+          "orch_top_wood": 3.045,
+          "orch_back_wood": 4.025,
+          "orch_varnish": 2.08,
+          "orch_setup_period": 2.795,
+          "orch_bow": 2.34,
+          "orch_bow_stick": 2.1,
+          "orch_articulation": 0.845,
+          "orch_rosin": 2.275
         }
       },
       {

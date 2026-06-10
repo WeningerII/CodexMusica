@@ -21,9 +21,9 @@
           "throat_singing_voice_region": "throat_singing_voice_himalayan_ritual"
         },
         "scores": {
-          "throat_mechanism_root": 16.38,
-          "throat_overtone_target_region": 9.23,
-          "throat_singing_voice_region": 5.459999999999999
+          "throat_mechanism_root": 18.069999999999997,
+          "throat_overtone_target_region": 10.725,
+          "throat_singing_voice_region": 19.4675
         }
       },
       {
@@ -37,10 +37,10 @@
         },
         "scores": {
           "bowed_technique": 1.8199999999999998,
-          "morin_khuur_use": 13.602875,
-          "morin_khuur_construction": 0.7036875,
-          "morin_khuur_body_wood": 5.59,
-          "morin_khuur_strings": 1.3
+          "morin_khuur_use": 14.752875,
+          "morin_khuur_construction": 0.845,
+          "morin_khuur_body_wood": 6.24,
+          "morin_khuur_strings": 2.795
         }
       },
       {
@@ -50,7 +50,7 @@
           "tovshuur_body": "tovshuur_carved_wood_hide"
         },
         "scores": {
-          "tovshuur_strings": 5.9799999999999995,
+          "tovshuur_strings": 8.059999999999999,
           "tovshuur_body": 0.8218124999999998
         }
       }

@@ -3,8 +3,8 @@
   "name": "Art pop",
   "family": "global",
   "lineage": "High-concept songwriter pop with avant-garde production sensibility — Kate Bush, Peter Gabriel, Brian Eno, Talk Talk Spirit of Eden, Bjork, Sufjan Stevens, Joanna Newsom, FKA twigs, Bon Iver",
-  "recipe": "classic modern art pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, declaimed, equal tempered, modern pop training. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, plucked short envelope analog poly synth, string quartet inst, alnico clean strummed humbucker electric guitar, multitrack vocal stack. eighth street greenwich village 1970-present major-flagship electric lady studios nyc. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 616,
+  "recipe": "classic modern art pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, declaimed, equal tempered, modern pop training. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, plucked short envelope analog poly synth, string quartet inst, alnico clean strummed humbucker electric guitar, 2010s melodyne microtuned stack multitrack vocal stack. eighth street greenwich village 1970-present major-flagship electric lady studios nyc. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 648,
   "score": 233.392,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 15.541499999999994,
-          "voice_quality": 0.7149999999999994,
+          "voice_register": 23.985,
+          "voice_quality": 0.8814999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.378,
-          "voice_articulation": 0.045,
-          "voice_microtone": 15.549999999999997,
-          "voice_tradition": 14.559999999999999,
-          "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 1.1049999999999998,
-          "voice_speech_song": 2.275,
-          "voice_ensemble_config": 1.3,
+          "voice_articulation": 0.195,
+          "voice_microtone": 23.674999999999997,
+          "voice_tradition": 24.18,
+          "voice_mechanism_compound": 1.4949999999999999,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 7.02,
+          "voice_ensemble_config": 3.769999999999999,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.6615,
-          "voice_processing_chain": 2.0125,
-          "voice_multitrack_stack": 0.45149999999999996
+          "voice_processing_chain": 3.6375,
+          "voice_multitrack_stack": 2.6975000000000002
         }
       },
       {
@@ -65,15 +65,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 11.641,
+          "keyboard_technique": 18.891,
           "grand_piano_size": 0.4095,
           "grand_piano_brand": 0.6405,
-          "piano_hammer": 11.536,
-          "piano_rim": 11.263,
-          "piano_soundboard": 11.2,
-          "piano_pinblock": -0.05,
-          "piano_plate": 1.17,
-          "piano_pitch_standard": -0.035
+          "piano_hammer": 18.786,
+          "piano_rim": 18.513,
+          "piano_soundboard": 18.450000000000003,
+          "piano_pinblock": 0.06499999999999999,
+          "piano_plate": 2.8600000000000003,
+          "piano_pitch_standard": 0.78
         }
       },
       {
@@ -85,8 +85,8 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 11.3365,
-          "poly_archetypes": 2.34,
+          "electronic_technique": 20.2615,
+          "poly_archetypes": 2.9899999999999998,
           "poly_voices": 0.4725,
           "poly_maker_lineage": -1.435
         }
@@ -100,8 +100,8 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "quartet_school": 2.6,
-          "string_quartet_inst_era": 2.21
+          "quartet_school": 4.1285,
+          "string_quartet_inst_era": 4.5835
         }
       },
       {
@@ -122,19 +122,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 11.3575,
-          "amp_make": 2.21,
+          "electric_technique": 18.607499999999998,
+          "amp_make": 2.7300000000000004,
           "body_wood": 0.966,
           "neck_wood": 0.483,
-          "fretboard": 0.045,
-          "pickup_magnet": 1.09,
-          "pickup_winding": 0.2415,
+          "fretboard": 0.195,
+          "pickup_magnet": 1.39,
+          "pickup_winding": 0.39,
           "string_material": 0.0315,
           "bridge": 0.483,
           "scale_length": 0.8609999999999999,
           "string_gauge": 0.378,
           "finish": 0,
-          "string_tuning": 2.34
+          "string_tuning": 2.795
         }
       },
       {
@@ -146,8 +146,8 @@
         },
         "scores": {
           "multitrack_stack_density": 0.252,
-          "multitrack_stack_era_aesthetic": -0.07,
-          "multitrack_stack_processing": 0.2835
+          "multitrack_stack_era_aesthetic": 1.8645,
+          "multitrack_stack_processing": 0.8125
         }
       }
     ],

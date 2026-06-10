@@ -24,11 +24,11 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 15.185625,
-          "drawbar_setting": 24.430000000000003,
+          "keyboard_technique": 15.560625,
+          "drawbar_setting": 37.555,
           "rotary_speed": 9.45,
-          "percussion_setting": 23.500000000000007,
-          "tonewheel_model": 33.939375000000005,
+          "percussion_setting": 36.625,
+          "tonewheel_model": 47.939375000000005,
           "leslie_cabinet_model": 2.0349999999999997
         }
       },
@@ -51,18 +51,18 @@
         },
         "scores": {
           "electric_technique": 11.34,
-          "amp_make": 15.956249999999997,
+          "amp_make": 18.30625,
           "body_wood": 0.78,
           "neck_wood": 0.78,
           "fretboard": 0.7149999999999999,
           "pickup_magnet": 0,
           "pickup_winding": 0.39,
-          "string_material": 0.39,
+          "string_material": 0.585,
           "bridge": 0.78,
           "scale_length": 0.78,
           "string_gauge": 0.78,
           "finish": 0.3,
-          "string_tuning": 1.17
+          "string_tuning": 3.835
         }
       },
       {
@@ -81,17 +81,17 @@
           "drum_technique": "brushes_jazz"
         },
         "scores": {
-          "percussion_technique": 19.5,
-          "shell_wood": 0.78,
+          "percussion_technique": 29.705000000000002,
+          "shell_wood": 0.975,
           "shell_thickness": 0,
           "bearing_edges": 0.78,
-          "drumhead": 27.690000000000005,
+          "drumhead": 40.815,
           "snare_wires": 0.78,
-          "cymbal_alloy": 25.845000000000006,
-          "cymbal_hammering": 24.289375000000007,
-          "cymbal_lathing": 24.725000000000005,
-          "cymbal_finish": 0.39,
-          "drum_technique": 23.500000000000007
+          "cymbal_alloy": 39.720000000000006,
+          "cymbal_hammering": 38.864375,
+          "cymbal_lathing": 38,
+          "cymbal_finish": 0.585,
+          "drum_technique": 36.625
         }
       },
       {
@@ -106,13 +106,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 11.2975,
+          "wind_articulation": 12.197499999999998,
           "sax_size": 9.399999999999999,
-          "sax_reed": 0.39,
-          "sax_body_alloy": 23.550625000000007,
-          "sax_mouthpiece": 0.39,
-          "sax_technique": 23.500000000000007,
-          "sax_maker_school": 24.780000000000005
+          "sax_reed": 0.585,
+          "sax_body_alloy": 36.825625,
+          "sax_mouthpiece": 0.585,
+          "sax_technique": 36.625,
+          "sax_maker_school": 37.905
         }
       },
       {
@@ -127,13 +127,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 11.2975,
-          "brass_size": 0.39,
-          "trumpet_mouthpiece": 26.290000000000006,
-          "brass_mute": 0.39,
-          "trumpet_technique": 11.2975,
+          "wind_articulation": 12.197499999999998,
+          "brass_size": 0.585,
+          "trumpet_mouthpiece": 39.415,
+          "brass_mute": 0.78,
+          "trumpet_technique": 12.197499999999998,
           "trumpet_bell_metal": 0.33,
-          "trumpet_maker_school": 4.029999999999999
+          "trumpet_maker_school": 6.434999999999999
         }
       }
     ],

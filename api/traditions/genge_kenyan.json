@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.72,
-          "voice_quality": 10.530000000000001,
+          "voice_register": 3.0225,
+          "voice_quality": 28.624,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8049999999999999,
-          "voice_articulation": 5.145,
-          "voice_microtone": 0.042749999999999996,
-          "voice_tradition": 5.865,
-          "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 10.464999999999998,
-          "voice_ensemble_config": 3.6400000000000006,
-          "voice_ornament_system": 0.255,
-          "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 5.345000000000001,
-          "voice_multitrack_stack": 1.05
+          "voice_vibrato": 1.1549999999999998,
+          "voice_articulation": 13.094999999999999,
+          "voice_microtone": 2.125000000000001,
+          "voice_tradition": 13.965,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 1.0399999999999998,
+          "voice_speech_song": 26.156249999999996,
+          "voice_ensemble_config": 11.569999999999997,
+          "voice_ornament_system": 10.149999999999999,
+          "voice_pitch_organization": 3.9975000000000014,
+          "voice_processing_chain": 19.495,
+          "voice_multitrack_stack": 5.2
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 5.85,
-          "drum_machine_808_context": 1.695,
-          "tr808_production_origin": 0.3375
+          "tr808_voice": 13.649999999999999,
+          "drum_machine_808_context": 1.6249999999999998,
+          "tr808_production_origin": 0.845
         }
       },
       {
@@ -75,11 +75,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.2,
-          "sampler_archetypes": 9.1,
-          "sampler_bit_depth": 0.3,
-          "sampler_workflow": 5.295,
-          "sampler_classic_context": 9.815
+          "electronic_technique": 12.999999999999998,
+          "sampler_archetypes": 22.619999999999997,
+          "sampler_bit_depth": 0.65,
+          "sampler_workflow": 13.449999999999998,
+          "sampler_classic_context": 26.974999999999994
         }
       },
       {
@@ -91,9 +91,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 5.75,
+          "electronic_technique": 14.724999999999998,
           "poly_archetypes": 0.15,
-          "poly_voices": 0.435,
+          "poly_voices": 0.24,
           "poly_maker_lineage": -1.435
         }
       }

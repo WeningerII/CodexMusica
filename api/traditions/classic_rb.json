@@ -3,8 +3,8 @@
   "name": "Classic R&B (1948-1962 era)",
   "family": "blues_gospel",
   "lineage": "Atlantic Records New York 1948-1962 small-combo R&B canon — Ruth Brown, LaVern Baker, the Drifters, Ray Charles I Got a Woman and What Did I Say, Big Joe Turner Shake Rattle and Roll, the Coasters — tracked by Tom Dowd at Atlantic Studios 11 West 60th Street with a recurring NYC session rhythm section, distinct from later Stax / Motown / Philly Soul subgenres",
-  "recipe": "classic classic r&b, functional Song, soul R&B branch, christian gospel black gospel contemporary urban gospel. thick, declaimed, chest resonance low mid, ornamental. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning chicken-scratch single coil electric guitar, upright bass, pre muffled edge muffled bronze bell bronze machine hammered drum kit, gospel runs upright piano, tenor ensemble honking attack saxophone. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 635,
+  "recipe": "classic classic r&b, functional Song, soul R&B branch, christian gospel black gospel contemporary urban gospel. thick, declaimed, chest resonance low mid, ornamental. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning chicken-scratch single coil electric guitar, upright bass, pre muffled edge muffled bronze bell bronze machine hammered drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble honking saxophone. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 651,
   "score": 407.416,
   "config": {
     "traditions": [
@@ -30,18 +30,18 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 9.231499999999999,
-          "amp_make": 11.9965,
+          "electric_technique": 12.606499999999997,
+          "amp_make": 18.746499999999997,
           "body_wood": 0.78,
           "neck_wood": 0.78,
           "fretboard": 0.7149999999999999,
-          "pickup_magnet": 0.2865,
-          "string_material": 0.2865,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
           "string_gauge": 0.78,
           "bridge": 0.0735,
           "scale_length": 0.78,
           "finish": 0,
-          "string_tuning": 1.69
+          "string_tuning": 2.4050000000000002
         }
       },
       {
@@ -53,8 +53,8 @@
         },
         "scores": {
           "acoustic_technique": -0.035,
-          "upright_strings": 0.2865,
-          "upright_play": 0.1185
+          "upright_strings": 0.195,
+          "upright_play": 0.195
         }
       },
       {
@@ -73,17 +73,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 11.75,
-          "shell_wood": 0.318,
+          "percussion_technique": 15.339999999999996,
+          "shell_wood": 0.20349999999999996,
           "shell_thickness": 0,
           "bearing_edges": 0.78,
-          "drumhead": 1.17,
+          "drumhead": 2.588,
           "snare_wires": 0.78,
-          "cymbal_alloy": 3.798,
-          "cymbal_hammering": 1.2349999999999999,
-          "cymbal_lathing": 0.695,
-          "cymbal_finish": 0.2865,
-          "drum_technique": 11.75
+          "cymbal_alloy": 6.773000000000001,
+          "cymbal_hammering": 2.793,
+          "cymbal_lathing": 2.52,
+          "cymbal_finish": 0.195,
+          "drum_technique": 15.339999999999996
         }
       },
       {
@@ -94,9 +94,9 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 18.150499999999997,
+          "keyboard_technique": 40.0255,
           "upright_use": 0.78,
-          "upright_piano_size": 0.6
+          "upright_piano_size": 1.95
         }
       },
       {
@@ -111,12 +111,12 @@
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 11.219499999999998,
-          "sax_size": 8.399999999999999,
-          "sax_reed": 0.2865,
-          "sax_body_alloy": -0.035,
-          "sax_mouthpiece": 0.2865,
-          "sax_technique": 8.399999999999999,
+          "wind_articulation": 13.494499999999997,
+          "sax_size": 10.524999999999997,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 1.614,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": 10.524999999999999,
           "sax_maker_school": 0
         }
       },
@@ -141,22 +141,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 17.378499999999992,
-          "voice_quality": 14.81999999999999,
+          "voice_register": 42.80350000000001,
+          "voice_quality": 31.246999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.78,
-          "voice_articulation": 8.349999999999998,
-          "voice_microtone": 1.56,
-          "voice_tradition": 20.084999999999997,
-          "voice_mechanism_compound": 2.47,
-          "voice_estill_quality": 14.229999999999997,
-          "voice_speech_song": 9.554999999999998,
-          "voice_ensemble_config": 6.759999999999998,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 0.5774999999999999,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 0.7800000000000001
+          "voice_articulation": 25.5,
+          "voice_microtone": 2.9899999999999998,
+          "voice_tradition": 44.3825,
+          "voice_mechanism_compound": 4.355,
+          "voice_estill_quality": 36.10500000000001,
+          "voice_speech_song": 19.889999999999997,
+          "voice_ensemble_config": 26.102,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 0.8049999999999999,
+          "voice_processing_chain": 4.2575,
+          "voice_multitrack_stack": 1.365
         }
       }
     ],

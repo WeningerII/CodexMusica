@@ -3,8 +3,8 @@
   "name": "Industrial metal (1980s-1990s electro-industrial heavy rock)",
   "family": "rock_punk",
   "lineage": "1980s-and-1990s heavy-metal subgenre integrating industrial-electronic production techniques (drum-machine programming, sampling, distorted-synthesizer textures) with heavy-metal guitar-and-vocal aesthetic. Ministry's The Land of Rape and Honey (1988), Nine Inch Nails' The Downward Spiral (1994), and Rammstein's 1995-onward German-language work constitute canonical type-specimens. Distinguished from broader industrial by integration of guitar-band rock framework.",
-  "recipe": "classic industrial metal, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, punctuated, equal tempered, 31 tet. orange amp British heavy crunch basswood power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit, analog synth, field sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 602,
+  "recipe": "classic industrial metal, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, larynx lowered, punctuated, equal tempered. orange amp British heavy crunch basswood power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit, analog synth, field textural sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 619,
   "score": 357.527,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 9.156749999999994,
-          "voice_quality": 0.045,
+          "voice_register": 10.906749999999992,
+          "voice_quality": 1.0399999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.168,
           "voice_articulation": 0.5055000000000001,
-          "voice_microtone": 9.249999999999996,
-          "voice_tradition": 4.171250000000001,
-          "voice_mechanism_compound": 20.27875,
+          "voice_microtone": 10.999999999999995,
+          "voice_tradition": 7.15,
+          "voice_mechanism_compound": 26.178749999999997,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 6.629999999999999,
+          "voice_speech_song": 14.299999999999997,
+          "voice_ensemble_config": 15.079999999999997,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 10.4915,
-          "voice_multitrack_stack": 4.874999999999999
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 19.116499999999995,
+          "voice_multitrack_stack": 6.9350000000000005
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 19.30375,
-          "amp_make": 6.4350000000000005,
-          "body_wood": 8.319999999999999,
+          "electric_technique": 24.02875,
+          "amp_make": 7.421250000000001,
+          "body_wood": 10.075,
           "neck_wood": 0.168,
           "fretboard": 0.168,
           "pickup_magnet": 0.105,
           "pickup_winding": 0.105,
           "string_material": 0.168,
           "bridge": 0.0315,
-          "scale_length": 8.319999999999999,
+          "scale_length": 10.075,
           "string_gauge": 0.0315,
-          "finish": 0.3315,
-          "string_tuning": 13.259999999999998
+          "finish": 0.65,
+          "string_tuning": 15.924999999999995
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9000000000000001,
-          "amp_make": 5.171250000000001,
+          "electric_technique": 2.8750000000000004,
+          "amp_make": 7.474999999999999,
           "body_wood": 0.063,
           "pickup_config": 0.105,
-          "string_type": 12.35,
+          "string_type": 14.119499999999997,
           "scale_length_b": 0.105,
           "fretted_or_not": 0.0765,
-          "bass_technique": 9.45
+          "bass_technique": 11.199999999999996
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 6.629999999999999,
+          "percussion_technique": 14.234999999999996,
           "shell_wood": 4.23975,
           "shell_thickness": 0.0315,
           "bearing_edges": 0.273,
           "drumhead": 0.168,
           "snare_wires": 0.0315,
-          "cymbal_alloy": 22.368,
-          "cymbal_hammering": 11.272999999999998,
-          "cymbal_lathing": 9.431499999999998,
-          "cymbal_finish": 0.54,
-          "drum_technique": 9.5
+          "cymbal_alloy": 25.867999999999995,
+          "cymbal_hammering": 13.022999999999996,
+          "cymbal_lathing": 11.181499999999994,
+          "cymbal_finish": 1.4949999999999999,
+          "drum_technique": 14.234999999999996
         }
       },
       {
@@ -147,9 +147,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "oscillator": 0.6480000000000001,
-          "filter_topology": 0.558,
+          "electronic_technique": 1.4949999999999999,
+          "oscillator": 1.69,
+          "filter_topology": 1.69,
           "envelope": 0.4605,
           "modulation": 0.09
         }
@@ -164,11 +164,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 1.6999999999999997,
+          "electronic_technique": 5.450000000000001,
           "sampler_archetypes": 1.2,
           "sampler_bit_depth": 0.345,
-          "sampler_workflow": 2.2099999999999995,
-          "sampler_classic_context": 16.75
+          "sampler_workflow": 6.02375,
+          "sampler_classic_context": 32.875
         }
       }
     ],

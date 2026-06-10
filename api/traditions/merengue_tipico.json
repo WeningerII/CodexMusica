@@ -3,8 +3,8 @@
   "name": "Merengue típico (Cibao traditional)",
   "family": "global",
   "lineage": "Traditional Dominican merengue variant of the Cibao region (Santiago, La Vega, Moca, San Francisco de Macorís). Button-accordion (German-immigrant introduction, adopted as canonical), tambora double-headed drum, güira metal-scraper, marímbula or electric-bass, voice. Tatico Henríquez (1944-1976) is the canonical tipico accordionist; Fefita La Grande (born 1943) is the canonical female lead.",
-  "recipe": "classic tropical early-1940s merengue típico, functional Song, tropical song branch, Caribbean groove percussion zydeco cadence-lypso. punctuated, blues inflected, beatbox, false fold distorted phonation. leather castagnari Italian premium folk music accordion, la bella flats Detroit soul bass canon electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 490,
+  "recipe": "classic tropical early-1940s merengue típico, functional Song, tropical song branch, Caribbean groove percussion zydeco cadence-lypso. thick, forward-resonance, blues inflected, beatbox. leather castagnari Italian premium folk music chordal accordion, la bella flats Detroit soul bass canon electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 480,
   "score": 76.858,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 0.22499999999999998,
-          "voice_quality": 0.3,
+          "voice_register": 2.8600000000000017,
+          "voice_quality": 6.844999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.195,
-          "voice_articulation": 0.765,
-          "voice_microtone": 0.63,
-          "voice_tradition": 0.8449999999999999,
-          "voice_mechanism_compound": 3.1500000000000004,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 3.835,
-          "voice_ensemble_config": 5.6899999999999995,
-          "voice_ornament_system": 1.56,
+          "voice_articulation": 0.39,
+          "voice_microtone": 1.235,
+          "voice_tradition": 4.29,
+          "voice_mechanism_compound": 4.4,
+          "voice_estill_quality": 4.424999999999999,
+          "voice_speech_song": 9.165,
+          "voice_ensemble_config": 7.279999999999999,
+          "voice_ornament_system": 1.755,
           "voice_pitch_organization": 4.289999999999999,
           "voice_processing_chain": 3.75,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 3.3799999999999994
         }
       },
       {
@@ -64,13 +64,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 1.49,
+          "free_reed_technique": 4.559999999999999,
           "accordion_reed_material": 0.195,
           "musette_offset": 2.3,
-          "reed_config": 1.02,
+          "reed_config": 3.575,
           "bellows": 2.3,
           "voicing_chamber": 0.15,
-          "accordion_maker_school": 5.289999999999999
+          "accordion_maker_school": 6.109999999999999
         }
       },
       {
@@ -86,14 +86,14 @@
           "bass_technique": "slap_pop"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 1.625,
+          "electric_technique": 0.12999999999999998,
+          "amp_make": 2.3724999999999996,
           "body_wood": 0.38999999999999996,
           "pickup_config": 0,
-          "string_type": 4.625,
+          "string_type": 4.775,
           "scale_length_b": 0.24,
-          "fretted_or_not": 0.09,
-          "bass_technique": -0.035
+          "fretted_or_not": 0.195,
+          "bass_technique": 0.12999999999999998
         }
       }
     ],

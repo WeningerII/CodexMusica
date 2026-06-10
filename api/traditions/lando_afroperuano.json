@@ -3,8 +3,8 @@
   "name": "Landó (Afro-Peruvian slow groove)",
   "family": "global",
   "lineage": "Afro-Peruvian slow-tempo groove-based form characterized by slow 12/8 with strong off-beat accent and characteristic syncopated cajón pattern. Distinguished from festejo by landó's slower-meditative-melancholic register. Addresses melancholy-romance, the experience of enslavement and its memory (canonical \"María Landó\" by Chabuca Granda with poetry of César Calvo, recorded by Susana Baca).",
-  "recipe": "classic modern landó, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, punctuated, beatbox. mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 489,
+  "recipe": "classic modern landó, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, punctuated, equal tempered. mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 496,
   "score": 100.47,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.78,
-          "voice_quality": 1.25,
+          "voice_register": 1.0999999999999996,
+          "voice_quality": 10.469999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.38999999999999996,
-          "voice_articulation": 0.9299999999999999,
-          "voice_microtone": 0.045,
-          "voice_tradition": 2.7950000000000004,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 3.3149999999999995,
-          "voice_ensemble_config": 3.3799999999999994,
-          "voice_ornament_system": 0,
+          "voice_articulation": 0.585,
+          "voice_microtone": 1.4999999999999998,
+          "voice_tradition": 5.330000000000001,
+          "voice_mechanism_compound": 5.85,
+          "voice_estill_quality": 5.655000000000001,
+          "voice_speech_song": 14.949999999999996,
+          "voice_ensemble_config": 12.414999999999996,
+          "voice_ornament_system": 0.7149999999999999,
           "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 6.759999999999999,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 9.969999999999999,
+          "voice_multitrack_stack": 2.9575
         }
       },
       {
@@ -61,8 +61,8 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 10.1,
-          "conga_set": 0.26999999999999996,
+          "percussion_technique": 10.549999999999999,
+          "conga_set": 0.585,
           "conga_skin": 1.69,
           "conga_shell_wood": 1.69
         }
@@ -77,11 +77,11 @@
           "string_acoustic_parlor": "coated_nano_p"
         },
         "scores": {
-          "acoustic_technique": -0.035,
+          "acoustic_technique": 1.5925,
           "string_tuning": 0,
-          "top_wood_parlor": 0.24,
+          "top_wood_parlor": 0.21,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.24
+          "string_acoustic_parlor": 0.845
         }
       },
       {
@@ -91,8 +91,8 @@
           "cajon_peruano_role": "cajon_peruano_festejo"
         },
         "scores": {
-          "cajon_peruano_construction": 7.669999999999999,
-          "cajon_peruano_role": 3.38
+          "cajon_peruano_construction": 8.059999999999999,
+          "cajon_peruano_role": 3.7700000000000005
         }
       }
     ],

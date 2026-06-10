@@ -3,8 +3,8 @@
   "name": "Shipibo-Conibo icaros healing songs",
   "family": "global",
   "lineage": "Shipibo-Conibo icaros healing-song tradition of the Ucayali river basin of the Peruvian Amazon, with cognate forms across the broader Western Amazonian shamanic-tradition area (Asháninka, Shuar, Yagua, and Cocama-Cocamilla parallel forms). Icaros are sung-spells learned by shamans (onaya in the Shipibo language) through master-apprentice transmission and through dieta-restricted-diet plant-spirit communications, then deployed during nocturnal ayahuasca-ceremony healing sessions in the maloca palm-thatch ceremonial hut. Each icaro is associated with a specific plant-spirit (the icaro of ayahuasca, the icaro of chacruna, the icaro of toé, the icaro of bobinsana, and so on), a specific therapeutic function (cleansing icaros, protective icaros, vision-amplifying icaros, calling-the-spirits icaros, mareación-managing icaros), and a specific named master-shaman lineage. Performance occurs in near-darkness with the shaman singing close to the individual patient, the icaro lasting from a few minutes to over an hour depending on therapeutic context. Vocal style features narrow-range melodic vocabulary, characteristic glissando-and-descending-cadence ornaments, the use of phlegmatic-rasp voice quality for certain icaros, and the optional accompaniment of shacapa leaf-bundle rattle (the canonical Amazonian shamanic-rhythm instrument). Bernd Brabec de Mori's 2015 monograph Die Lieder der Richtigen Menschen (Helbling) and the Phonogrammarchiv of the Austrian Academy of Sciences Shipibo collection constitute the principal scholarly documentation; the 2008 Peruvian INC Resolución 836 declared traditional ayahuasca practice as cultural-heritage at the national level. Distinguished from Mestizo-Peruvian ayahuasquero icaros by the Shipibo-Conibo language repertoire and indigenous-community ceremonial-functional context; distinguished from Yawanawa and Huni Kuin healing songs by Shipibo-specific dieta-and-plant-spirit lineage.",
-  "recipe": "classic mid-2010s shipibo-conibo icaros healing songs, ritual Devotional, amazonian branch, mapuche indigenous, arctic indigenous inuit katajjaq throat-singing game mapuche tayil genealogical chant. sygyt, declaimed, melodic, filtered throat. leaf bundle plant stem canonical amazonian shamanic icaros nocturnal healing canonical shipibo shacapa. palm thatch maloca. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 496,
+  "recipe": "classic mid-2010s shipibo-conibo icaros healing songs, ritual Devotional, amazonian branch, mapuche indigenous, arctic indigenous inuit katajjaq throat-singing game mapuche tayil genealogical chant. sygyt, declaimed, melodic, punctuated. leaf bundle plant stem canonical amazonian shamanic icaros nocturnal healing canonical shipibo shacapa. palm thatch maloca. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 491,
   "score": 261.272,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.3,
-          "voice_quality": 7.112500000000002,
+          "voice_register": 6.43,
+          "voice_quality": 11.5125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2349999999999999,
-          "voice_articulation": 0.21937500000000001,
-          "voice_microtone": 0.7862499999999997,
-          "voice_tradition": 17.94,
-          "voice_mechanism_compound": 12.334999999999999,
-          "voice_estill_quality": 5.785,
-          "voice_speech_song": 15.405000000000001,
-          "voice_ensemble_config": 14.95,
-          "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 2.6
+          "voice_vibrato": 1.9899999999999998,
+          "voice_articulation": 0.845,
+          "voice_microtone": 7.703750000000001,
+          "voice_tradition": 45.275625,
+          "voice_mechanism_compound": 29.51,
+          "voice_estill_quality": 11.235624999999999,
+          "voice_speech_song": 27.7425,
+          "voice_ensemble_config": 28.8875,
+          "voice_ornament_system": 10.900000000000002,
+          "voice_pitch_organization": 6.819375000000001,
+          "voice_processing_chain": 7.86375,
+          "voice_multitrack_stack": 5.5806249999999995
         }
       },
       {
@@ -59,7 +59,7 @@
           "shacapa_tradition": "shacapa_icaros_canonical"
         },
         "scores": {
-          "shacapa_body": 12.544374999999999,
+          "shacapa_body": 13.694374999999999,
           "shacapa_tradition": 24.15625
         }
       }

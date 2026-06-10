@@ -3,8 +3,8 @@
   "name": "Kapuka (Kenyan urban pop)",
   "family": "global",
   "lineage": "Kapuka Kenyan urban-pop genre emerging in early-2000s Nairobi from the Ogopa DJs and Calif Records production camps. Characterized by mid-tempo beat with Swahili-Sheng (Nairobi street-slang) and English lyrical content over R&B-influenced synthesizer-and-drum-machine production. Distinguished from parallel genge by kapuka's slower-tempo R&B-leaning (vs genge's faster-hardcore-hip-hop-leaning) aesthetic targeting middle-class urban-Nairobi commercial-radio. Producer Lucas Bikedo at Ogopa DJs formed the production-hub anchor.",
-  "recipe": "classic 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm uk grime french rap. extended whistle, rap, chest resonance low mid, narrative. TR-808, sub bass analog synth, mahogany pyramid pure nickel bass British mid 60s era electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 439,
+  "recipe": "classic 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm uk grime french rap. extended whistle, rap, chest resonance low mid, narrative. TR-808, sub bass analog synth, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 449,
   "score": 183.206,
   "config": {
     "traditions": [
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 11.689499999999999,
-          "voice_quality": 4.745,
+          "voice_quality": 19.875,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.66675,
-          "voice_articulation": 2.895,
+          "voice_vibrato": 2.16675,
+          "voice_articulation": 8.819999999999999,
           "voice_microtone": 9.603249999999996,
-          "voice_tradition": 13.974999999999998,
-          "voice_mechanism_compound": 3.1500000000000004,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 6.954999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 0.1815,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 4.095000000000001,
-          "voice_multitrack_stack": 4.16
+          "voice_tradition": 15.401,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 17.451749999999997,
+          "voice_ensemble_config": 11.764999999999997,
+          "voice_ornament_system": 1.17,
+          "voice_pitch_organization": 3.77,
+          "voice_processing_chain": 13.37,
+          "voice_multitrack_stack": 11.155
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 3.7657499999999997,
-          "drum_machine_808_context": 6.746499999999999,
-          "tr808_production_origin": 0.9674999999999999
+          "tr808_voice": 10.390749999999999,
+          "drum_machine_808_context": 7.1964999999999995,
+          "tr808_production_origin": 0.65
         }
       },
       {
@@ -75,9 +75,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 9.666749999999999,
-          "oscillator": 0.7657499999999998,
-          "filter_topology": 1.69,
+          "electronic_technique": 11.275999999999998,
+          "oscillator": 0.9099999999999999,
+          "filter_topology": 3.9,
           "envelope": 0.18525,
           "modulation": 0.105
         }
@@ -95,14 +95,14 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 1.4299999999999997,
-          "body_wood": 1.69,
-          "pickup_config": 0.18525,
-          "string_type": 1.66675,
-          "scale_length_b": 1.66675,
+          "electric_technique": 0.52,
+          "amp_make": 1.9667499999999998,
+          "body_wood": 2.34,
+          "pickup_config": 0.65,
+          "string_type": 3.3150000000000004,
+          "scale_length_b": 2.16675,
           "fretted_or_not": 0.0315,
-          "bass_technique": -0.035
+          "bass_technique": 1.25
         }
       }
     ],

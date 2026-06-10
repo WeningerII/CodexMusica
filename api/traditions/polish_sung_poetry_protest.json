@@ -3,8 +3,8 @@
   "name": "Polish poezja śpiewana and Solidarność-era protest (1960s-1980s)",
   "family": "global",
   "lineage": "Polish poezja śpiewana (\"sung poetry\") and piosenka literacka (\"literary song\") protest-song tradition continuous from 1960s-1980s Communist-era Polish political-songwriter scene; centered on Jacek Kaczmarski (the Solidarność-aligned songwriter-bard whose \"Mury\" 1978 became the Solidarność anthem), Przemysław Gintrowski, Zbigniew Łapiński, Wojciech Bellon",
-  "recipe": "classic polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry american folk-revival protest song morna. lament wail, continuous-phonation, Mediterranean demotic vocal, m1 with m0 pulse borrowing. narrative fingerpicked acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 486,
+  "recipe": "classic polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry american folk-revival protest song morna. thick, lament wail, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 451,
   "score": 133.75,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.435,
-          "voice_quality": 1.7499999999999998,
+          "voice_register": 4.975,
+          "voice_quality": 7.449999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.195,
-          "voice_articulation": 2.47,
-          "voice_microtone": 0.39,
-          "voice_tradition": 1.885,
-          "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 1.3649999999999998,
-          "voice_speech_song": 12.284999999999997,
-          "voice_ensemble_config": 6.369999999999998,
-          "voice_ornament_system": 0.795,
-          "voice_pitch_organization": 2.47,
-          "voice_processing_chain": 5.75,
-          "voice_multitrack_stack": 7.664999999999999
+          "voice_vibrato": 1.3324999999999998,
+          "voice_articulation": 3.9800000000000004,
+          "voice_microtone": 0.25999999999999995,
+          "voice_tradition": 10.9525,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 3.1525000000000003,
+          "voice_speech_song": 26.942500000000003,
+          "voice_ensemble_config": 16.314999999999998,
+          "voice_ornament_system": 1.6999999999999997,
+          "voice_pitch_organization": 3.9800000000000004,
+          "voice_processing_chain": 5.799999999999999,
+          "voice_multitrack_stack": 9.664999999999997
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 2.4699999999999998,
-          "string_tuning": 0,
-          "top_wood": 0.045,
-          "back_sides": 0.045,
-          "string_acoustic": 0.43499999999999994,
-          "acoustic_om_technique": 2.4699999999999998
+          "acoustic_technique": 15.434999999999999,
+          "string_tuning": 0.35,
+          "top_wood": 0.195,
+          "back_sides": 0.195,
+          "string_acoustic": 1.2349999999999999,
+          "acoustic_om_technique": 15.434999999999999
         }
       }
     ],

@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 5.544500000000002,
-          "voice_quality": 12.526499999999995,
+          "voice_register": 21.294499999999992,
+          "voice_quality": 12.676499999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.2815,
-          "voice_articulation": 0.599625,
-          "voice_microtone": 2.08,
-          "voice_tradition": 5.460000000000001,
-          "voice_mechanism_compound": 3.769999999999999,
+          "voice_articulation": 0.585,
+          "voice_microtone": 8.828,
+          "voice_tradition": 8.4865,
+          "voice_mechanism_compound": 5.671499999999999,
           "voice_estill_quality": 8.754999999999997,
-          "voice_speech_song": 6.044999999999999,
-          "voice_ensemble_config": 7.149999999999999,
-          "voice_ornament_system": 0.26,
-          "voice_pitch_organization": 0.48149999999999993,
-          "voice_processing_chain": 3.25,
+          "voice_speech_song": 10.919999999999998,
+          "voice_ensemble_config": 10.724999999999998,
+          "voice_ornament_system": 1.2675,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 4.2615,
           "voice_multitrack_stack": 2.7364999999999995
         }
       },
@@ -64,13 +64,13 @@
           "accordion_maker_school": "accordion_petosa_seattle"
         },
         "scores": {
-          "free_reed_technique": 9.063624999999996,
-          "accordion_reed_material": 0.1815,
+          "free_reed_technique": 9.213624999999997,
+          "accordion_reed_material": 0.195,
           "musette_offset": 2.3,
           "reed_config": 3.9416249999999997,
           "bellows": 0.03712499999999999,
           "voicing_chamber": 0.105,
-          "accordion_maker_school": 2.08
+          "accordion_maker_school": 2.3336249999999996
         }
       },
       {
@@ -80,7 +80,7 @@
           "frottoir_striker": "frottoir_thimbles"
         },
         "scores": {
-          "frottoir_construction": 8.839999999999996,
+          "frottoir_construction": 9.139999999999997,
           "frottoir_striker": 0.37424999999999997
         }
       }

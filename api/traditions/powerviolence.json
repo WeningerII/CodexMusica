@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 5.525500000000003,
+          "voice_register": 11.375499999999995,
           "voice_quality": 2.9500000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.1905000000000001,
-          "voice_articulation": 0.885,
-          "voice_microtone": 5.355000000000002,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 2.535,
+          "voice_microtone": 10.905,
           "voice_tradition": 1.5747499999999999,
-          "voice_mechanism_compound": 12.544999999999998,
+          "voice_mechanism_compound": 30.831500000000002,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 10.8245,
+          "voice_speech_song": 10.074999999999998,
+          "voice_ensemble_config": 11.974499999999999,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.2992499999999998,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 5.8740000000000006
+          "voice_pitch_organization": 2.5349999999999997,
+          "voice_processing_chain": 4.925000000000001,
+          "voice_multitrack_stack": 8.149000000000001
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 6.49,
-          "amp_make": 11.959999999999999,
-          "body_wood": 1.2220000000000002,
-          "neck_wood": 1.1905000000000001,
-          "fretboard": 1.69,
-          "pickup_magnet": 1.69,
-          "pickup_winding": 0.105,
+          "electric_technique": 29.3275,
+          "amp_make": 18.557499999999997,
+          "body_wood": 15.015,
+          "neck_wood": 2.34,
+          "fretboard": 2.535,
+          "pickup_magnet": 2.99,
+          "pickup_winding": 0.45499999999999996,
           "string_material": 0.258,
-          "bridge": 1.69,
-          "scale_length": 2.381,
-          "string_gauge": 1.69,
+          "bridge": 2.34,
+          "scale_length": 11.83,
+          "string_gauge": 4.874999999999999,
           "finish": 0,
-          "string_tuning": 3.7700000000000005
+          "string_tuning": 17.485
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 3.7315,
-          "amp_make": 4.030000000000001,
-          "body_wood": 2.381,
-          "pickup_config": 1.69,
-          "string_type": 7.15,
-          "scale_length_b": 1.1905000000000001,
-          "fretted_or_not": 0.195,
-          "bass_technique": 9.2815
+          "electric_technique": 6.7065,
+          "amp_make": 7.215000000000001,
+          "body_wood": 4.875,
+          "pickup_config": 2.535,
+          "string_type": 13.162500000000001,
+          "scale_length_b": 2.34,
+          "fretted_or_not": 0.845,
+          "bass_technique": 13.906500000000001
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 3.75,
-          "shell_wood": 0.6164999999999999,
+          "percussion_technique": 8.319999999999999,
+          "shell_wood": 0.845,
           "shell_thickness": 0,
-          "bearing_edges": 1.1905000000000001,
-          "drumhead": 2.7535,
-          "snare_wires": 1.1905000000000001,
-          "cymbal_alloy": 11.258,
-          "cymbal_hammering": 5.933,
-          "cymbal_lathing": 5.4,
+          "bearing_edges": 2.34,
+          "drumhead": 3.6784999999999997,
+          "snare_wires": 2.34,
+          "cymbal_alloy": 31.133000000000006,
+          "cymbal_hammering": 12.133000000000001,
+          "cymbal_lathing": 10.950000000000001,
           "cymbal_finish": 0.258,
-          "drum_technique": 5.5
+          "drum_technique": 10.125000000000002
         }
       }
     ],

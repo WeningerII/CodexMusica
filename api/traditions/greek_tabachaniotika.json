@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.750000000000001,
-          "voice_quality": 1.75,
+          "voice_register": 4.075000000000001,
+          "voice_quality": 3.8200000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 3.8950000000000005,
-          "voice_tradition": 29.219999999999995,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 5.994999999999999,
-          "voice_speech_song": 14.754999999999997,
-          "voice_ensemble_config": 8.579999999999998,
-          "voice_ornament_system": 0.345,
-          "voice_pitch_organization": 3.995,
-          "voice_processing_chain": 1.285,
-          "voice_multitrack_stack": 0.78
+          "voice_vibrato": 3.185,
+          "voice_articulation": 6.109999999999999,
+          "voice_microtone": 5.295,
+          "voice_tradition": 39.345,
+          "voice_mechanism_compound": 4.96,
+          "voice_estill_quality": 7.67,
+          "voice_speech_song": 28.794999999999995,
+          "voice_ensemble_config": 19.174999999999994,
+          "voice_ornament_system": 1.6899999999999997,
+          "voice_pitch_organization": 6.109999999999999,
+          "voice_processing_chain": 1.755,
+          "voice_multitrack_stack": 2.6649999999999996
         }
       },
       {
@@ -62,11 +62,11 @@
           "lyra_string_material": "lyra_gut_historical"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "lyra_strings": 1.69,
-          "lyra_use": 1.69,
+          "bowed_technique": 0.75,
+          "lyra_strings": 2.08,
+          "lyra_use": 2.08,
           "lyra_body_wood": 12.135000000000007,
-          "lyra_string_material": 12.820000000000006
+          "lyra_string_material": 13.970000000000004
         }
       },
       {
@@ -81,13 +81,13 @@
           "oud_string_material": "oud_brass_wound_bass"
         },
         "scores": {
-          "plucked_traditional_technique": 0.26,
-          "oud_school": 0.39,
-          "oud_strings": 1.69,
-          "oud_pick": 0.39,
-          "oud_body_wood": 1.69,
-          "oud_soundboard_wood": 3.25,
-          "oud_string_material": 2.035
+          "plucked_traditional_technique": 2.5674999999999994,
+          "oud_school": 1.8849999999999998,
+          "oud_strings": 4.03,
+          "oud_pick": 0.845,
+          "oud_body_wood": 3.185,
+          "oud_soundboard_wood": 4.045,
+          "oud_string_material": 3.185
         }
       }
     ],

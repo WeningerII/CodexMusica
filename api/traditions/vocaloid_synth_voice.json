@@ -3,8 +3,8 @@
   "name": "Vocaloid synth-voice pop",
   "family": "global",
   "lineage": "Japanese synth-vocal subculture codified through Yamaha’s Vocaloid voice-synthesis software (2004) and the Hatsune Miku (2007) avatar that became the canonical virtual idol — characterized by user-generated music with synthetic-vocal lead, anime-inflected visual identity, and the Nico Nico Douga upload-and-remix ecosystem that fed the genre",
-  "recipe": "classic mid-2000s vocaloid synth-voice pop, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. plucked short envelope analog poly synth, plucked short envelope digital subtractive, field textural sampler, electric bass, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 506,
+  "recipe": "classic mid-2000s vocaloid synth-voice pop, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. plucked short envelope analog poly synth, plucked short envelope digital subtractive, field textural sampler, ernie ball slinky electric bass, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 524,
   "score": 85.405,
   "config": {
     "traditions": [
@@ -21,8 +21,8 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 9.8365,
-          "poly_archetypes": 0.6014999999999999,
+          "electronic_technique": 17.7615,
+          "poly_archetypes": 0.65,
           "poly_voices": 0.36750000000000005,
           "poly_maker_lineage": -0.035
         }
@@ -35,9 +35,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 9.8365,
+          "electronic_technique": 17.7615,
           "va_archetypes": 0.3,
-          "digital_subtractive_context": 5.2
+          "digital_subtractive_context": 9.099999999999998
         }
       },
       {
@@ -50,11 +50,11 @@
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": 3.4499999999999993,
+          "electronic_technique": 7.199999999999999,
           "sampler_archetypes": 0.45749999999999996,
-          "sampler_bit_depth": 0.2925,
-          "sampler_workflow": 3.5715,
-          "sampler_classic_context": 8.87375
+          "sampler_bit_depth": 0.26,
+          "sampler_workflow": 7.621499999999999,
+          "sampler_classic_context": 16.12375
         }
       },
       {
@@ -70,14 +70,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 0.13000000000000003,
+          "electric_technique": 0.7329999999999999,
+          "amp_make": 0.39,
           "body_wood": 0.43050000000000005,
-          "pickup_config": 0.39,
-          "string_type": 0.268125,
+          "pickup_config": 0.585,
+          "string_type": 1.1374999999999997,
           "scale_length_b": 0.231,
           "fretted_or_not": 0.1365,
-          "bass_technique": -0.035
+          "bass_technique": 1.083
         }
       },
       {
@@ -89,7 +89,7 @@
         },
         "scores": {
           "tr808_voice": 0.39,
-          "drum_machine_808_context": 1.51425,
+          "drum_machine_808_context": 1.8849999999999996,
           "tr808_production_origin": 1.2349999999999999
         }
       }

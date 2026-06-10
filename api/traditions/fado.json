@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 14.595,
+          "voice_register": 4.225,
+          "voice_quality": 15.095,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 2.1399999999999997,
           "voice_articulation": 0.615,
-          "voice_microtone": 0.975,
-          "voice_tradition": 6.695,
-          "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 2.0149999999999997,
-          "voice_speech_song": 5.915,
-          "voice_ensemble_config": 4.8100000000000005,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 2.08,
-          "voice_processing_chain": 3.12,
-          "voice_multitrack_stack": 2.08
+          "voice_microtone": 2.145,
+          "voice_tradition": 22.5225,
+          "voice_mechanism_compound": 7.67,
+          "voice_estill_quality": 5.395,
+          "voice_speech_song": 18.46,
+          "voice_ensemble_config": 16.9,
+          "voice_ornament_system": 2.0949999999999998,
+          "voice_pitch_organization": 7.475000000000001,
+          "voice_processing_chain": 7.93,
+          "voice_multitrack_stack": 6.954999999999999
         }
       },
       {
@@ -63,10 +63,10 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 3.9649999999999994,
+          "acoustic_technique": 7.915000000000001,
           "string_tuning": 0,
-          "top_wood_classical": 2.9899999999999998,
-          "bracing_classical": 1.3,
+          "top_wood_classical": 5.525,
+          "bracing_classical": 2.34,
           "string_classical": 1.2349999999999999,
           "attack_technique_cl": 1.3
         }
@@ -81,11 +81,11 @@
           "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
         },
         "scores": {
-          "guitarra_tuning_school": 12.48,
+          "guitarra_tuning_school": 14.559999999999999,
           "guitarra_body_wood": 3.749999999999999,
-          "guitarra_top_wood": 6.114999999999999,
-          "guitarra_strings": 5.314999999999999,
-          "guitarra_technique": 5.409999999999999
+          "guitarra_top_wood": 7.264999999999999,
+          "guitarra_strings": 6.464999999999999,
+          "guitarra_technique": 6.709999999999999
         }
       }
     ],

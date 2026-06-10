@@ -3,8 +3,8 @@
   "name": "Pop-punk",
   "family": "rock_punk",
   "lineage": "Mid-1970s onward pop-melody punk hybrid genre fusing punk's tempo, distortion, and DIY ethos with pop's harmonic and melodic vocabulary — codified through the Ramones (Ramones 1976), Buzzcocks (Singles Going Steady 1979), and the 1990s commercial breakthrough with Green Day (Dookie 1994), The Offspring (Smash 1994), Blink-182 (Enema of the State 1999), continuing through 2000s emo-adjacent revivals",
-  "recipe": "classic North American 1974-1976 pop-punk, distorted Rock, pop punk branch, alternative distorted rock grunge. thick, incomplete closure resting, melodic, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled machine hammered symmetric pattern organized rows drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 619,
+  "recipe": "classic North American 1974-1976 pop-punk, distorted Rock, pop punk branch, alternative distorted rock grunge. thick, incomplete closure resting, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, oak pre muffled edge muffled machine hammered symmetric pattern drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 602,
   "score": 786.793,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 28.93999999999999,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 58.89000000000003,
+          "voice_quality": 5.775,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.54,
-          "voice_articulation": 0.195,
-          "voice_microtone": 28.799999999999994,
-          "voice_tradition": 22.969999999999995,
-          "voice_mechanism_compound": 7.930000000000001,
-          "voice_estill_quality": 4.265,
-          "voice_speech_song": 10.854999999999995,
-          "voice_ensemble_config": 26.680000000000003,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.755,
-          "voice_processing_chain": 4.055,
-          "voice_multitrack_stack": 5.970000000000001
+          "voice_vibrato": 4.49,
+          "voice_articulation": 0.845,
+          "voice_microtone": 52.80000000000002,
+          "voice_tradition": 27.52,
+          "voice_mechanism_compound": 19.66,
+          "voice_estill_quality": 6.864999999999999,
+          "voice_speech_song": 25.024999999999995,
+          "voice_ensemble_config": 34.605000000000004,
+          "voice_ornament_system": 3.5750000000000006,
+          "voice_pitch_organization": 3.1300000000000012,
+          "voice_processing_chain": 8.05,
+          "voice_multitrack_stack": 9.37
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.700000000000003,
-          "amp_make": 33.56,
-          "body_wood": 1.69,
-          "neck_wood": 1.69,
-          "fretboard": 1.625,
+          "electric_technique": 28,
+          "amp_make": 48.535,
+          "body_wood": 7.215000000000001,
+          "neck_wood": 2.535,
+          "fretboard": 2.47,
           "pickup_magnet": 1.17,
-          "pickup_winding": 0.21,
-          "string_material": 0.09,
-          "bridge": 1.69,
-          "scale_length": 2.025,
-          "string_gauge": 1.69,
+          "pickup_winding": 1.4500000000000002,
+          "string_material": 0.59,
+          "bridge": 2.535,
+          "scale_length": 2.535,
+          "string_gauge": 2.535,
           "finish": 0.195,
-          "string_tuning": 6.5
+          "string_tuning": 18.785000000000004
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 22.745000000000005,
-          "amp_make": 4.485,
-          "body_wood": 2.8600000000000003,
+          "electric_technique": 26.370000000000005,
+          "amp_make": 17.452500000000004,
+          "body_wood": 3.705,
           "pickup_config": 1.17,
-          "string_type": 10.790000000000001,
-          "scale_length_b": 1.69,
+          "string_type": 34.07500000000001,
+          "scale_length_b": 2.535,
           "fretted_or_not": 0.3,
-          "bass_technique": 30.795000000000005
+          "bass_technique": 55.170000000000016
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 22.750000000000004,
-          "shell_wood": 0.15,
-          "shell_thickness": 0.3,
-          "bearing_edges": 1.69,
-          "drumhead": 20.949999999999996,
-          "snare_wires": 1.69,
-          "cymbal_alloy": 30.790000000000003,
-          "cymbal_hammering": 29.639999999999997,
-          "cymbal_lathing": 29.249999999999996,
-          "cymbal_finish": 0.09,
-          "drum_technique": 22.750000000000004
+          "percussion_technique": 26.375,
+          "shell_wood": 2.04,
+          "shell_thickness": 1.45,
+          "bearing_edges": 2.535,
+          "drumhead": 24.199999999999996,
+          "snare_wires": 3.835,
+          "cymbal_alloy": 57.34000000000002,
+          "cymbal_hammering": 53.640000000000015,
+          "cymbal_lathing": 53.900000000000006,
+          "cymbal_finish": 1.2999999999999998,
+          "drum_technique": 28.75000000000001
         }
       }
     ],

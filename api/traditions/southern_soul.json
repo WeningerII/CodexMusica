@@ -3,8 +3,8 @@
   "name": "Southern soul (Stax / FAME / Muscle Shoals tradition)",
   "family": "blues_gospel",
   "lineage": "African-American gospel-belt vocal soul tradition codified through Stax Records Memphis (Otis Redding, Sam and Dave, Wilson Pickett, Eddie Floyd, Booker T and the MGs), FAME Studios Muscle Shoals (Aretha Franklin I Never Loved a Man, Wilson Pickett Mustang Sally, Etta James Tell Mama), and Muscle Shoals Sound Studio (Aretha Franklin Spirit in the Dark, Bob Seger, Wilson Pickett)",
-  "recipe": "classic Southern American mid-1970s southern soul, functional Song, soul R&B branch, christian gospel ritual devotional black gospel gospel quartet. thick, blues-shouter, ornamental, equal tempered. Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, walnut bronze bell bronze machine hammered symmetric pattern drum kit, gospel runs upright piano, tenor ensemble ebonite honking attack saxophone, bach stradivarius 180 canonical American orchestral ensemble trumpet. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 842,
+  "recipe": "classic Southern American mid-1970s southern soul, functional Song, soul R&B branch, christian gospel ritual devotional black gospel gospel quartet. thick, blues-shouter, ornamental, equal tempered. Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, walnut pre muffled edge muffled bronze bell bronze drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble ebonite saxophone, bach stradivarius 180 canonical American orchestral ensemble standard rim orchestral balance trumpet. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 872,
   "score": 597.765,
   "config": {
     "traditions": [
@@ -30,18 +30,18 @@
           "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": 13.149999999999999,
-          "amp_make": 15.224999999999998,
+          "electric_technique": 15.649999999999999,
+          "amp_make": 20.799999999999997,
           "body_wood": 0.24000000000000002,
           "neck_wood": 1,
-          "fretboard": 0.345,
-          "pickup_magnet": 0.345,
-          "string_material": 2.504999999999999,
-          "string_gauge": 0.7050000000000001,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.195,
+          "string_material": 1,
+          "string_gauge": 0.195,
           "bridge": 0.045,
           "scale_length": 0.195,
           "finish": 0,
-          "string_tuning": 1.4699999999999998
+          "string_tuning": 2.015
         }
       },
       {
@@ -57,14 +57,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 13.149999999999995,
-          "amp_make": 17.854999999999997,
+          "electric_technique": 15.649999999999997,
+          "amp_make": 23.58,
           "body_wood": 0.09,
           "pickup_config": 0,
-          "string_type": 16.377499999999998,
+          "string_type": 19.0275,
           "scale_length_b": 0.2475,
           "fretted_or_not": 0.39,
-          "bass_technique": 13.149999999999999
+          "bass_technique": 15.649999999999999
         }
       },
       {
@@ -83,17 +83,17 @@
           "drum_technique": "sticks_motown"
         },
         "scores": {
-          "percussion_technique": 13.999999999999996,
-          "shell_wood": 1.4249999999999994,
+          "percussion_technique": 16.5,
+          "shell_wood": 1,
           "shell_thickness": 0.2475,
           "bearing_edges": 0.045,
-          "drumhead": 0.9099999999999999,
+          "drumhead": 5.345,
           "snare_wires": 0.045,
-          "cymbal_alloy": 1.5999999999999999,
-          "cymbal_hammering": 1.2349999999999999,
-          "cymbal_lathing": 0.95,
+          "cymbal_alloy": 3.9750000000000005,
+          "cymbal_hammering": 4.645,
+          "cymbal_lathing": 5.132499999999999,
           "cymbal_finish": 1.045,
-          "drum_technique": 13.999999999999996
+          "drum_technique": 16.5
         }
       },
       {
@@ -104,9 +104,9 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 24.699999999999996,
+          "keyboard_technique": 50.845,
           "upright_use": 0.09,
-          "upright_piano_size": 1
+          "upright_piano_size": 1.3
         }
       },
       {
@@ -121,12 +121,12 @@
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 15.437499999999996,
-          "sax_size": 13.539999999999997,
+          "wind_articulation": 18.0875,
+          "sax_size": 16.04,
           "sax_reed": 1,
-          "sax_body_alloy": 0.26,
+          "sax_body_alloy": 2.84,
           "sax_mouthpiece": 1,
-          "sax_technique": 13.149999999999999,
+          "sax_technique": 15.649999999999999,
           "sax_maker_school": 0
         }
       },
@@ -142,13 +142,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 15.437499999999996,
+          "wind_articulation": 18.0875,
           "brass_size": 0.39,
-          "trumpet_mouthpiece": 0.7149999999999999,
+          "trumpet_mouthpiece": 2.6975000000000002,
           "brass_mute": 0.24000000000000002,
-          "trumpet_technique": 15.437499999999996,
+          "trumpet_technique": 18.0875,
           "trumpet_bell_metal": 0.75,
-          "trumpet_maker_school": 1.3
+          "trumpet_maker_school": 3.125
         }
       },
       {
@@ -172,22 +172,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 20.644999999999996,
+          "voice_register": 51.220000000000006,
           "voice_quality": 20.214999999999986,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.3525,
-          "voice_articulation": 13.099999999999998,
-          "voice_microtone": 1.17,
-          "voice_tradition": 26.259999999999994,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 19.849999999999994,
-          "voice_speech_song": 9.684999999999999,
-          "voice_ensemble_config": 6.889999999999999,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 0.40499999999999997,
-          "voice_processing_chain": 5.0725,
-          "voice_multitrack_stack": 2.08
+          "voice_articulation": 28.650000000000002,
+          "voice_microtone": 3.4499999999999997,
+          "voice_tradition": 57.4375,
+          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_estill_quality": 45.10000000000001,
+          "voice_speech_song": 18.069999999999997,
+          "voice_ensemble_config": 29.610000000000003,
+          "voice_ornament_system": 6.2749999999999995,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 5.3725,
+          "voice_multitrack_stack": 2.6649999999999996
         }
       }
     ],

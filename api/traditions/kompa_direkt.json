@@ -3,8 +3,8 @@
   "name": "Kompa-direkt (Haitian)",
   "family": "global",
   "lineage": "The original founding Haitian kompa-direkt tradition invented by Nemours Jean-Baptiste in 1955 — characterized by big-band horn-section arrangement, slower 2/4 dance tempo (90-110 BPM), and the meringue Haitian rhythmic foundation; figures Nemours Jean-Baptiste (the founder), his orchestra Ensemble Aux Calebasses, and the parallel cadence-rampa lineage of Webert Sicot",
-  "recipe": "classic North American mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra dixieland. thick, full chest belt, punctuated, equal tempered. single coil electric guitar, thomastik infeld low tension jazz warm walking fingerstyle electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, nickel silver bright projecting ensemble continuous-airflow legato saxophone, congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 682,
+  "recipe": "classic North American mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra dixieland. thick, full chest belt, punctuated, equal tempered. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 820,
   "score": 298.558,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 3.5215000000000005,
+          "voice_register": 18.3465,
           "voice_quality": 4.891500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.3,
-          "voice_articulation": 1.69,
-          "voice_microtone": 2.795,
-          "voice_tradition": 4.745000000000002,
-          "voice_mechanism_compound": 1.266,
-          "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 3.3149999999999995,
-          "voice_ensemble_config": 3.25,
+          "voice_articulation": 2.65275,
+          "voice_microtone": 15.444999999999999,
+          "voice_tradition": 21.384999999999998,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 0.6499999999999999,
+          "voice_speech_song": 6.369999999999999,
+          "voice_ensemble_config": 5.46,
           "voice_ornament_system": 0.15,
-          "voice_pitch_organization": 0.9099999999999999,
-          "voice_processing_chain": 2.9899999999999998,
-          "voice_multitrack_stack": 1.69
+          "voice_pitch_organization": 2.8600000000000003,
+          "voice_processing_chain": 5.46,
+          "voice_multitrack_stack": 2.73
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 0.6499999999999998,
+          "electric_technique": 3.2,
+          "amp_make": 5.1675,
           "body_wood": 0.3,
-          "neck_wood": 0.3,
+          "neck_wood": 0.845,
           "fretboard": 0.25,
           "pickup_magnet": 0.105,
           "string_material": 0.195,
           "string_gauge": 0.3,
           "bridge": 0.0315,
           "scale_length": 0.3,
-          "finish": 0.195,
-          "string_tuning": 0.8879999999999999
+          "finish": 0.845,
+          "string_tuning": 0.845
         }
       },
       {
@@ -97,13 +97,13 @@
         },
         "scores": {
           "electric_technique": -0.035,
-          "amp_make": 0.6499999999999998,
+          "amp_make": 6.922500000000001,
           "body_wood": 0.3,
           "pickup_config": 0,
-          "string_type": 3.25,
-          "scale_length_b": 0.3765,
+          "string_type": 19.259999999999998,
+          "scale_length_b": 0.5265,
           "fretted_or_not": 0.0315,
-          "bass_technique": 2.5
+          "bass_technique": 15
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "brushes_jazz"
         },
         "scores": {
-          "percussion_technique": 4.55,
-          "shell_wood": 0.516,
+          "percussion_technique": 13.259999999999998,
+          "shell_wood": 0.195,
           "shell_thickness": 0,
           "bearing_edges": 0.3,
-          "drumhead": 3.25,
+          "drumhead": 19.34,
           "snare_wires": 0.3,
-          "cymbal_alloy": 2.3950000000000005,
-          "cymbal_hammering": 3.0865,
-          "cymbal_lathing": 5.2625,
+          "cymbal_alloy": 16.57,
+          "cymbal_hammering": 16.2365,
+          "cymbal_lathing": 17.7625,
           "cymbal_finish": 0.105,
-          "drum_technique": 4.55
+          "drum_technique": 15
         }
       },
       {
@@ -147,13 +147,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4.095000000000001,
+          "wind_articulation": 6.726000000000001,
           "sax_size": 0.3,
           "sax_reed": 0.105,
-          "sax_body_alloy": 3.25,
-          "sax_mouthpiece": 0.15,
-          "sax_technique": 2.5315,
-          "sax_maker_school": 0.585
+          "sax_body_alloy": 15.75,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": 15.0315,
+          "sax_maker_school": 16.835
         }
       },
       {

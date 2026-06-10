@@ -3,8 +3,8 @@
   "name": "Candomblé ceremonial",
   "family": "global",
   "lineage": "Bahian Yoruba-Nagô / Bantu-Jeje liturgical drumming tradition of the orixá-honoring terreiro — codified through the early-19th-century Yoruba and Fon enslaved-people religious continuity in Salvador, formalized through the Casa Branca, Gantois, and Ilê Axé Opô Afonjá foundational terreiros; characterized by the rum-rumpi-lê three-drum ensemble, agogô bell, and chants in Yoruba-derived liturgical language",
-  "recipe": "classic North American mid-1970s candomblé ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion maracatu pagode. thick, intimate aspirated, punctuated, Yoruba tonal vocal. jacaranda canonical bahian candomble atabaque, agogo, a cappella small 3 to 8 one per part call response single leader group response kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, afoxe. bahian terreiro outdoor. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 587,
+  "recipe": "classic North American mid-1970s candomblé ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion maracatu pagode. thick, intimate aspirated, chest resonance low mid, equal tempered. jacaranda canonical bahian candomble atabaque, agogo, a cappella small 3 to 8 one per part call response single leader group response kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, afoxe. bahian terreiro outdoor. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 596,
   "score": 130.685,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 0.78,
-          "voice_quality": 3.4850000000000003,
+          "voice_register": 3.6500000000000012,
+          "voice_quality": 6.294999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.38999999999999996,
-          "voice_articulation": 0.9299999999999999,
-          "voice_microtone": 0.045,
-          "voice_tradition": 15.339999999999996,
-          "voice_mechanism_compound": 1.2499999999999998,
-          "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 4.615,
-          "voice_ensemble_config": 4.55,
-          "voice_ornament_system": 3.795,
-          "voice_pitch_organization": 10.339999999999998,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 1.515
+          "voice_vibrato": 1.04,
+          "voice_articulation": 0.195,
+          "voice_microtone": 2.7500000000000004,
+          "voice_tradition": 18.785,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 16.444999999999997,
+          "voice_ensemble_config": 15.86,
+          "voice_ornament_system": 4.525,
+          "voice_pitch_organization": 11.889999999999999,
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 2.1125
         }
       },
       {
@@ -60,8 +60,8 @@
           "atabaque_shell_wood": "atabaque_jacaranda"
         },
         "scores": {
-          "atabaque_role": 0.39,
-          "atabaque_skin": 0.6900000000000001,
+          "atabaque_role": 0.735,
+          "atabaque_skin": 0.195,
           "atabaque_shell_wood": 1.2349999999999999
         }
       },
@@ -72,8 +72,8 @@
           "agogo_context": "agogo_candomble"
         },
         "scores": {
-          "agogo_bell": 1.69,
-          "agogo_context": 3.619999999999999
+          "agogo_bell": 5.914999999999998,
+          "agogo_context": 4.420000000000001
         }
       },
       {
@@ -85,10 +85,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 2.6549999999999994,
-          "choir_polyphonic_configuration": 1.69,
-          "choir_regional_canonical_configuration": 1.69,
-          "choir_ensemble_repertoire": 4.68
+          "choir_size": 3.964999999999999,
+          "choir_polyphonic_configuration": 2.405,
+          "choir_regional_canonical_configuration": 2.73,
+          "choir_ensemble_repertoire": 5.9799999999999995
         }
       },
       {
@@ -97,7 +97,7 @@
           "afoxe_body": "afoxe_gourd_beads"
         },
         "scores": {
-          "afoxe_body": 0.18
+          "afoxe_body": 0.585
         }
       }
     ],

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 2.9899999999999998,
-          "voice_quality": 5.144500000000001,
+          "voice_register": 3.8524999999999996,
+          "voice_quality": 11.769499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.9399999999999995,
+          "voice_vibrato": 8.115,
           "voice_articulation": 1.3,
-          "voice_microtone": 0.8925000000000001,
-          "voice_tradition": 15.209999999999999,
-          "voice_mechanism_compound": 9.399999999999999,
-          "voice_estill_quality": 13.299999999999999,
-          "voice_speech_song": 9.399999999999999,
-          "voice_ensemble_config": 4.029999999999999,
-          "voice_ornament_system": 14.744,
-          "voice_pitch_organization": 12.131999999999998,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 4.29
+          "voice_microtone": 0.39,
+          "voice_tradition": 28.153999999999996,
+          "voice_mechanism_compound": 15.649999999999999,
+          "voice_estill_quality": 22.049999999999997,
+          "voice_speech_song": 15.649999999999999,
+          "voice_ensemble_config": 8.515,
+          "voice_ornament_system": 23.887,
+          "voice_pitch_organization": 24.756999999999998,
+          "voice_processing_chain": 3.705,
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -60,9 +60,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 7.215,
-          "tabla_bayan": 4.9399999999999995,
-          "tabla_syahi": 1.69
+          "tabla_dayan": 11.569999999999999,
+          "tabla_bayan": 8.115,
+          "tabla_syahi": 3.575
         }
       },
       {
@@ -75,9 +75,9 @@
         },
         "scores": {
           "free_reed_technique": 0.8449999999999999,
-          "harmonium_action": 2.9899999999999998,
-          "harmonium_voicing": 2.9899999999999998,
-          "harmonium_use": 7.93
+          "harmonium_action": 3.8349999999999995,
+          "harmonium_voicing": 3.8349999999999995,
+          "harmonium_use": 11.987
         }
       },
       {
@@ -91,11 +91,11 @@
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "bowed_technique": 9.5,
-          "sarangi_belly": 2.9899999999999998,
+          "bowed_technique": 15.75,
+          "sarangi_belly": 3.8349999999999995,
           "sarangi_taraf": 0.195,
           "sarangi_bow": 0,
-          "sarangi_main_strings": 5.525,
+          "sarangi_main_strings": 6.369999999999999,
           "sarangi_body_wood": 0.78
         }
       }

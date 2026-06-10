@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 9.640249999999998,
-          "voice_quality": 15.72325,
+          "voice_register": 17.640249999999998,
+          "voice_quality": 28.49825,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.23025,
-          "voice_articulation": 11.38375,
-          "voice_microtone": 6.300000000000001,
-          "voice_tradition": 7.0155,
+          "voice_vibrato": 0.45499999999999996,
+          "voice_articulation": 20.483749999999997,
+          "voice_microtone": 10.674999999999997,
+          "voice_tradition": 12.040499999999998,
           "voice_mechanism_compound": 3.3637500000000005,
-          "voice_estill_quality": 3.4130000000000007,
-          "voice_speech_song": 12.106499999999999,
-          "voice_ensemble_config": 8.319999999999999,
+          "voice_estill_quality": 7.188000000000001,
+          "voice_speech_song": 24.881499999999992,
+          "voice_ensemble_config": 15.795,
           "voice_ornament_system": 0.0735,
           "voice_pitch_organization": 3.1654999999999998,
-          "voice_processing_chain": 8.555,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 19.58,
+          "voice_multitrack_stack": 3.38
         }
       },
       {
@@ -61,11 +61,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.763,
-          "sampler_archetypes": 11.7,
+          "electronic_technique": 11.787999999999998,
+          "sampler_archetypes": 20.41,
           "sampler_bit_depth": 1.9500000000000002,
-          "sampler_workflow": 8.681499999999998,
-          "sampler_classic_context": 17.225
+          "sampler_workflow": 14.131499999999997,
+          "sampler_classic_context": 28.9435
         }
       },
       {
@@ -76,9 +76,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 7.0545,
-          "drum_machine_808_context": 3.3799999999999994,
-          "tr808_production_origin": 2.4049999999999994
+          "tr808_voice": 12.0795,
+          "drum_machine_808_context": 3.5749999999999993,
+          "tr808_production_origin": 2.5999999999999996
         }
       },
       {
@@ -88,8 +88,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 6.763,
-          "turntable_technique": 12.54375
+          "electronic_technique": 11.787999999999998,
+          "turntable_technique": 18.24375
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Hardcore punk",
   "family": "rock_punk",
   "lineage": "Early-1980s American underground extension of punk into faster tempos, shorter song lengths, screamed vocals, and a developed touring-and-DIY-record-label network — codified through the Washington DC scene (Bad Brains Bad Brains 1982, Minor Threat — Out of Step 1983), the Boston scene (SS Decontrol, DYS), the Los Angeles scene (Black Flag — Damaged 1981, Circle Jerks, Suicidal Tendencies), and the New York hardcore scene (Agnostic Front, Cro-Mags, Sick of It All)",
-  "recipe": "classic North American 1980-1983 hardcore punk, distorted Rock, punk branch, thrash metal djent. thick, false fold engaged, punctuated, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation lower tension down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT boss DS-1.",
-  "recipe_chars": 585,
+  "recipe": "classic North American 1980-1983 hardcore punk, distorted Rock, punk branch, thrash metal djent. thick, false fold engaged, chest resonance low mid, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT boss DS-1.",
+  "recipe_chars": 583,
   "score": 394.895,
   "config": {
     "traditions": [
@@ -30,18 +30,18 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 16.790624999999995,
-          "amp_make": 24.689124999999997,
-          "body_wood": 0.39,
-          "neck_wood": 0.39,
-          "fretboard": 0.6014999999999999,
-          "pickup_magnet": 0.282375,
-          "string_material": 0.282375,
-          "string_gauge": 0.39,
-          "bridge": 0.4065,
-          "scale_length": 0.39,
+          "electric_technique": 32.840624999999996,
+          "amp_make": 34.714124999999996,
+          "body_wood": 2.535,
+          "neck_wood": 2.535,
+          "fretboard": 2.4699999999999998,
+          "pickup_magnet": 0.845,
+          "string_material": 0.845,
+          "string_gauge": 3.38,
+          "bridge": 1.04,
+          "scale_length": 2.535,
           "finish": 0.1365,
-          "string_tuning": 3.25
+          "string_tuning": 8.190000000000001
         }
       },
       {
@@ -57,14 +57,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 13.231499999999997,
-          "amp_make": 3.185,
-          "body_wood": 0.39,
-          "pickup_config": 0.6014999999999999,
-          "string_type": 8.125,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0.3,
-          "bass_technique": 19.531499999999998
+          "electric_technique": 16.381499999999996,
+          "amp_make": 5.98,
+          "body_wood": 4.42,
+          "pickup_config": 1.8850000000000002,
+          "string_type": 14.625,
+          "scale_length_b": 2.535,
+          "fretted_or_not": 0.845,
+          "bass_technique": 26.656499999999998
         }
       },
       {
@@ -83,17 +83,17 @@
           "drum_technique": "sticks_punk"
         },
         "scores": {
-          "percussion_technique": 13.249999999999996,
-          "shell_wood": 1.16875,
+          "percussion_technique": 15.374999999999996,
+          "shell_wood": 2.077375,
           "shell_thickness": 0,
-          "bearing_edges": 0.523875,
-          "drumhead": 0.7149999999999999,
-          "snare_wires": 0.39,
-          "cymbal_alloy": 22.282374999999995,
-          "cymbal_hammering": 6.345000000000001,
-          "cymbal_lathing": 6.15,
-          "cymbal_finish": 0.282375,
-          "drum_technique": 13.249999999999996
+          "bearing_edges": 2.535,
+          "drumhead": 2.535,
+          "snare_wires": 2.535,
+          "cymbal_alloy": 40.68237499999999,
+          "cymbal_hammering": 12.27,
+          "cymbal_lathing": 12.075,
+          "cymbal_finish": 0.845,
+          "drum_technique": 15.374999999999996
         }
       },
       {
@@ -117,22 +117,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 6.350000000000001,
-          "voice_quality": 0.9999999999999996,
+          "voice_register": 12.574999999999996,
+          "voice_quality": 2.375000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
-          "voice_articulation": 0.885,
-          "voice_microtone": 6.105000000000001,
-          "voice_tradition": 1.4949999999999999,
-          "voice_mechanism_compound": 14.373749999999998,
-          "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 9.424999999999999,
-          "voice_ensemble_config": 20.74075,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 2.6291249999999997,
-          "voice_multitrack_stack": 3.25
+          "voice_vibrato": 2.535,
+          "voice_articulation": 1.69,
+          "voice_microtone": 12.03,
+          "voice_tradition": 1.885,
+          "voice_mechanism_compound": 29.02375,
+          "voice_estill_quality": 1.625,
+          "voice_speech_song": 16.379999999999995,
+          "voice_ensemble_config": 25.565749999999998,
+          "voice_ornament_system": 0.6499999999999999,
+          "voice_pitch_organization": 2.795,
+          "voice_processing_chain": 4.029125,
+          "voice_multitrack_stack": 4.875
         }
       }
     ],

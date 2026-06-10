@@ -3,8 +3,8 @@
   "name": "Son jarocho",
   "family": "global",
   "lineage": "Mexican Veracruz-Gulf-Coast Afro-Mestizo-Indigenous son tradition with characteristic jarana five-double-course strum-guitar, requinto-jarocho four-string lead-melody-guitar, harp, quijada-de-burro donkey-jawbone scraper, and zapateado wooden-platform dance-percussion. Originated late-17th-century in the Sotavento lowlands south of Veracruz-Port out of Afro-Cuban habanera, Spanish-baroque fandango, and Indigenous-Totonac musical-fusion. The canonical La Bamba is the most internationally recognized son jarocho son, but the tradition spans 80+ son sones with characteristic 6/8-against-2/4 sesquialteral hemiola, call-and-response sung verses (often improvised, decimas Spanish-poetic-form), and circular fandango community-dance-and-music-making fiesta-context. The 1970s-1980s son-jarocho-revival reconnected urban Mexico City to rural Sotavento source-communities.",
-  "recipe": "classic tropical mid-1970s son jarocho, drone Modal, string branch, Mexican functional song banda sinaloense bolero mexicano. full chest belt, chest resonance low mid, polynesian oli chant, m1 with m0 pulse borrowing. diatonic only son jarocho tradition cedrillo canonical veracruz gut pre modern son jarocho bass and harmony arpa palo escrito Mexican rosewood gut pre 1950s son jarocho jarana jarocha, son jarocho standard cedrillo canonical veracruz requinto jarocho, cedrillo canonical veracruz leona. plaza garibaldi outdoor mariachi. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 648,
+  "recipe": "classic tropical mid-1970s son jarocho, drone Modal, string branch, Mexican functional song banda sinaloense bolero mexicano. thick, full chest belt, chest resonance low mid, punctuated. diatonic only son jarocho tradition cedrillo canonical veracruz gut pre modern son jarocho bass and harmony arpa palo escrito Mexican rosewood gut pre 1950s son jarocho strummed jarana jarocha, son jarocho standard cedrillo canonical veracruz strummed requinto jarocho, cedrillo canonical veracruz leona. plaza garibaldi outdoor mariachi. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 635,
   "score": 252.788,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 0.18712499999999999,
-          "voice_quality": 1.885,
+          "voice_register": 1.5949999999999995,
+          "voice_quality": 10.124999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.7149999999999999,
-          "voice_articulation": 0.39,
-          "voice_microtone": 0.0315,
-          "voice_tradition": 10.205,
-          "voice_mechanism_compound": 5.719999999999999,
-          "voice_estill_quality": 4.875,
-          "voice_speech_song": 12.024999999999999,
-          "voice_ensemble_config": 12.739999999999998,
-          "voice_ornament_system": 0.50025,
-          "voice_pitch_organization": 2.6,
-          "voice_processing_chain": 6.91675,
-          "voice_multitrack_stack": 4.098
+          "voice_vibrato": 0.845,
+          "voice_articulation": 1.208,
+          "voice_microtone": 1.0764999999999998,
+          "voice_tradition": 12.3725,
+          "voice_mechanism_compound": 7.409999999999999,
+          "voice_estill_quality": 6.5649999999999995,
+          "voice_speech_song": 16.509999999999998,
+          "voice_ensemble_config": 16.965,
+          "voice_ornament_system": 3.575,
+          "voice_pitch_organization": 4.14525,
+          "voice_processing_chain": 8.21675,
+          "voice_multitrack_stack": 4.748
         }
       },
       {
@@ -61,10 +61,10 @@
           "arpa_jarocha_role": "arpa_jarocha_bass_and_arpeggio"
         },
         "scores": {
-          "arpa_jarocha_strings": 16.859624999999998,
-          "arpa_jarocha_body_wood": 5.658749999999999,
+          "arpa_jarocha_strings": 18.809624999999997,
+          "arpa_jarocha_body_wood": 6.958749999999998,
           "arpa_jarocha_string_material": 10.881874999999997,
-          "arpa_jarocha_role": 29.900000000000006
+          "arpa_jarocha_role": 33.215624999999996
         }
       },
       {
@@ -77,11 +77,11 @@
           "jarana_jarocha_strings": "jarana_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 2.925,
+          "plucked_traditional_technique": 3.7700000000000005,
           "jarana_size": 11.889999999999999,
-          "jarana_jarocha_context": 3.844999999999999,
-          "jarana_jarocha_body_wood": 5.658749999999999,
-          "jarana_jarocha_strings": 12.440374999999998
+          "jarana_jarocha_context": 4.615,
+          "jarana_jarocha_body_wood": 9.099999999999998,
+          "jarana_jarocha_strings": 13.090374999999998
         }
       },
       {
@@ -94,11 +94,11 @@
           "requinto_jarocho_strings": "requinto_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 2.925,
+          "plucked_traditional_technique": 3.7700000000000005,
           "requinto_jarocho_pluck": 12.767124999999998,
           "requinto_jarocho_tuning": 3.25,
-          "requinto_jarocho_body_wood": 5.658749999999999,
-          "requinto_jarocho_strings": -0.035
+          "requinto_jarocho_body_wood": 6.958749999999998,
+          "requinto_jarocho_strings": 0.78
         }
       },
       {
@@ -114,8 +114,8 @@
           "plucked_traditional_technique": -0.1,
           "leona_tuning": 11.889999999999999,
           "leona_technique": 0.945,
-          "leona_body_wood": 5.658749999999999,
-          "leona_strings": -0.035
+          "leona_body_wood": 6.958749999999998,
+          "leona_strings": 0.78
         }
       }
     ],

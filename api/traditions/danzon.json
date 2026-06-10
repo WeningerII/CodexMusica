@@ -3,8 +3,8 @@
   "name": "Danzón",
   "family": "global",
   "lineage": "Cuban late-19th-century elegant-couple-dance tradition derived from European-contradanza imported through Haitian-French Saint-Domingue refugees 1791-onward, codified 1879-onward in Matanzas-and-Havana by orquesta-típica orchestral ensembles. The dance unfolds through ABACA rondo-form (introduction-and-paseo-promenade, A-section, B-section, A-return, C-trio-section, A-return), allowing partner-couples to alternate between dancing and resting during instrumental-trio-sections. The classic charanga-francesa ensemble: two flutes (one wooden, one metal), two violins, contrabass, piano, timbales (with cáscara stick-rhythm-on-shell), and güiro scraper. The danzón seeded the cha-cha-chá 1953-onward and danzonete vocal-variant 1929-onward and remains a living tradition through danzonera dance-hall events in Havana, Mérida, and Mexico-City.",
-  "recipe": "classic North American modern danzón, groove Percussion, charanga danza branch, rumba Cuban rumba cubana yambú. powell boston canonical American orchestral flute, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano, upright bass, timbales, guiro. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 582,
+  "recipe": "classic North American modern danzón, groove Percussion, charanga danza branch, rumba Cuban rumba cubana yambú. powell boston canonical American orchestral flute, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano, upright bass, open slap hand drum timbales, guiro. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 602,
   "score": 49.247,
   "config": {
     "traditions": [
@@ -23,7 +23,7 @@
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": -0.05,
+          "wind_articulation": 0.06499999999999999,
           "flute_size": 0.15,
           "flute_material": 0.15,
           "flute_technique": 0,
@@ -47,11 +47,11 @@
         "scores": {
           "bowed_technique": 2.45,
           "orch_strings": 0.105,
-          "orch_top_wood": 1.2349999999999999,
-          "orch_back_wood": 1.2349999999999999,
+          "orch_top_wood": 2.0799999999999996,
+          "orch_back_wood": 2.275,
           "orch_varnish": 1.16125,
           "orch_setup_period": -0.07,
-          "orch_bow": 4.29,
+          "orch_bow": 5.525,
           "orch_bow_stick": -0.05,
           "orch_articulation": 0.105,
           "orch_rosin": 1.01125
@@ -71,15 +71,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": -0.035,
+          "keyboard_technique": 0.52,
           "grand_piano_size": 1.11375,
           "grand_piano_brand": 0.3165,
           "piano_hammer": 1.0787499999999999,
-          "piano_rim": 3.4575000000000005,
-          "piano_soundboard": 3.62875,
+          "piano_rim": 4.4075,
+          "piano_soundboard": 4.578749999999999,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
-          "piano_pitch_standard": 6.2162500000000005
+          "piano_pitch_standard": 6.366250000000001
         }
       },
       {
@@ -92,7 +92,7 @@
         "scores": {
           "acoustic_technique": -0.035,
           "upright_strings": 0.105,
-          "upright_play": 0.3165
+          "upright_play": 0.195
         }
       },
       {
@@ -103,7 +103,7 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": -0.07,
+          "percussion_technique": 5.295,
           "timbales_shell": 0.7379999999999999,
           "timbales_context": 1.69
         }
@@ -115,8 +115,8 @@
           "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "guiro_origin": 0,
-          "guiro_striker": 0.44999999999999996
+          "guiro_origin": 0.12999999999999998,
+          "guiro_striker": 0.65
         }
       }
     ],

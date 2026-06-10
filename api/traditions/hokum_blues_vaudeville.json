@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 26.896250000000002,
+          "voice_register": 47.221250000000026,
           "voice_quality": 11.7,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.545,
+          "voice_vibrato": 1.6949999999999998,
           "voice_articulation": 3.420000000000001,
-          "voice_microtone": 9.835000000000003,
-          "voice_tradition": 10.080000000000002,
-          "voice_mechanism_compound": 2.9899999999999998,
-          "voice_estill_quality": 4.501250000000001,
-          "voice_speech_song": 7.734999999999998,
-          "voice_ensemble_config": 7.2799999999999985,
+          "voice_microtone": 17.67,
+          "voice_tradition": 25.056875000000005,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 4.80125,
+          "voice_speech_song": 11.374999999999998,
+          "voice_ensemble_config": 10.919999999999996,
           "voice_ornament_system": 0.8556249999999999,
-          "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 2.8600000000000003,
+          "voice_pitch_organization": 2.8600000000000003,
+          "voice_processing_chain": 4.745,
           "voice_multitrack_stack": 1.616875
         }
       },
@@ -67,8 +67,8 @@
           "string_tuning": 2.2,
           "top_wood": 0.005625,
           "back_sides": 0.005625,
-          "string_acoustic": 1.005625,
-          "acoustic_om_technique": 24.400000000000002
+          "string_acoustic": 9.295,
+          "acoustic_om_technique": 27.650000000000006
         }
       },
       {
@@ -80,8 +80,8 @@
         },
         "scores": {
           "acoustic_technique": -0.044375000000000005,
-          "upright_strings": 1.7499999999999998,
-          "upright_play": 1.7499999999999998
+          "upright_strings": 17.875,
+          "upright_play": 17.875
         }
       },
       {
@@ -91,8 +91,8 @@
           "frottoir_striker": "frottoir_spoons"
         },
         "scores": {
-          "frottoir_construction": 5.720000000000001,
-          "frottoir_striker": 0.15
+          "frottoir_construction": 7.670000000000001,
+          "frottoir_striker": 0.65
         }
       },
       {
@@ -111,17 +111,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 8.059999999999999,
+          "plucked_traditional_technique": 11.699999999999998,
           "banjo_back": 1.005625,
           "tone_ring": 0.01125,
-          "banjo_head": 7.799999999999997,
-          "banjo_pot": 1.155625,
+          "banjo_head": 11.439999999999998,
+          "banjo_pot": 1.655625,
           "banjo_play": 1,
           "banjo_rim_wood": 0.016874999999999998,
           "banjo_neck_wood": 0.035625,
-          "banjo_strings": 0.10875,
+          "banjo_strings": 0.195,
           "banjo_bridge": 0,
-          "banjo_setup_period": 7.344999999999998
+          "banjo_setup_period": 10.984999999999996
         }
       },
       {
@@ -136,13 +136,13 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "free_reed_technique": 1.7674999999999998,
-          "harmonica_type": 1.3,
-          "harmonica_comb": 28.302500000000002,
-          "harmonica_reed": 23.245625000000004,
-          "harmonica_technique": 23.500000000000004,
-          "harmonica_maker_school": 24.94,
-          "harmonica_tuning": 9.88
+          "free_reed_technique": 1.9174999999999998,
+          "harmonica_type": 9.295,
+          "harmonica_comb": 34.15250000000001,
+          "harmonica_reed": 27.495625000000008,
+          "harmonica_technique": 26.750000000000007,
+          "harmonica_maker_school": 29.640000000000004,
+          "harmonica_tuning": 19.674375
         }
       },
       {

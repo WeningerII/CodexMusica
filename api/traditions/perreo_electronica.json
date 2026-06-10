@@ -3,8 +3,8 @@
   "name": "Perreo electrónico",
   "family": "global",
   "lineage": "Electronic perreo Latin-trap fusion codified through 2010s Puerto Rican reggaeton evolution — Bad Bunny’s X 100PRE (2018) and YHLQMDLG (2020) as breakthrough crossover records, Rosalía’s perreo-trap collaborations, characterized by 90-100 BPM dembow rhythm with autotuned-reggaeton vocals over electronic production",
-  "recipe": "classic mid-2010s perreo electrónico, electronic Dance, Latin electric branch, reggaeton MC rhythm moombahton. rap, sean nos, m1 with m0 pulse borrowing, nasal twang velar port open. TR-808, sampler, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 375,
+  "recipe": "classic mid-2010s perreo electrónico, electronic Dance, Latin electric branch, reggaeton MC rhythm moombahton. thick, rap, equal tempered, sean nos. TR-808, layered sampler, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 349,
   "score": 105.607,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.21525,
-          "voice_quality": 0.7799999999999998,
+          "voice_register": 2.5857500000000018,
+          "voice_quality": 3.5750000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.21,
+          "voice_vibrato": 0.45499999999999996,
           "voice_articulation": 0.25262499999999993,
-          "voice_microtone": 0.16799999999999998,
-          "voice_tradition": 2.0799999999999996,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 2.21,
-          "voice_ensemble_config": 1.95,
-          "voice_ornament_system": 0.20024999999999998,
-          "voice_pitch_organization": 0.78,
-          "voice_processing_chain": 11.420499999999999,
-          "voice_multitrack_stack": 3.185
+          "voice_microtone": 1.3749999999999998,
+          "voice_tradition": 5.915,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 3.315000000000001,
+          "voice_speech_song": 6.954999999999999,
+          "voice_ensemble_config": 6.89,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 16.152999999999995,
+          "voice_multitrack_stack": 4.7125
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 1.1049999999999998,
-          "drum_machine_808_context": 1.69,
+          "tr808_voice": 1.7550000000000001,
+          "drum_machine_808_context": 3.38,
           "tr808_production_origin": 0.42999999999999994
         }
       },
@@ -75,11 +75,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.7149999999999999,
           "sampler_archetypes": 0.357,
           "sampler_bit_depth": 0.36599999999999994,
-          "sampler_workflow": -0.035,
-          "sampler_classic_context": 5.2
+          "sampler_workflow": 1.6800000000000002,
+          "sampler_classic_context": 24.764999999999997
         }
       },
       {
@@ -90,9 +90,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 7.491375,
+          "electronic_technique": 8.366375,
           "va_archetypes": 0.01875,
-          "digital_subtractive_context": 2.08
+          "digital_subtractive_context": 7.41
         }
       }
     ],

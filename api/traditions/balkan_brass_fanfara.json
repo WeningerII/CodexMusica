@@ -25,12 +25,12 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.875,
-          "brass_size": 0.8250000000000001,
+          "wind_articulation": 5.460000000000001,
+          "brass_size": 0.845,
           "trumpet_mouthpiece": 1.445,
           "brass_mute": 0.435,
-          "trumpet_technique": 4.875,
-          "trumpet_bell_metal": 9.174999999999999,
+          "trumpet_technique": 5.460000000000001,
+          "trumpet_bell_metal": 9.325,
           "trumpet_maker_school": 1.54
         }
       },
@@ -46,12 +46,12 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 4.875,
+          "wind_articulation": 5.460000000000001,
           "trombone_type": 0.1815,
-          "trombone_mouthpiece": 1.625,
+          "trombone_mouthpiece": 2.47,
           "trombone_mute": 0.435,
-          "trombone_technique": 1.69,
-          "trombone_bell_metal": 9.174999999999999,
+          "trombone_technique": 2.73,
+          "trombone_bell_metal": 9.325,
           "trombone_maker_school": 1.54
         }
       },
@@ -67,11 +67,11 @@
         },
         "scores": {
           "wind_articulation": -0.05,
-          "tuba_pitch": 3.2449999999999997,
-          "tuba_context": 16.2215,
-          "tuba_bell_metal": 9.174999999999999,
+          "tuba_pitch": 3.8949999999999996,
+          "tuba_context": 17.321499999999997,
+          "tuba_bell_metal": 9.325,
           "tuba_valve_system": 1.495,
-          "tuba_maker_school": 12.419999999999998
+          "tuba_maker_school": 13.219999999999999
         }
       },
       {
@@ -81,8 +81,8 @@
           "era": "dci_classic"
         },
         "scores": {
-          "section": 1.69,
-          "era": 1.17
+          "section": 4.03,
+          "era": 1.04
         }
       },
       {
@@ -96,9 +96,9 @@
         },
         "scores": {
           "wind_articulation": 1.38,
-          "clarinet_body": 3.25,
-          "clarinet_size": 1.02,
-          "clarinet_reed": 0.8250000000000001,
+          "clarinet_body": 4.7125,
+          "clarinet_size": 1.69,
+          "clarinet_reed": 0.845,
           "clarinet_articulation": 0
         }
       }

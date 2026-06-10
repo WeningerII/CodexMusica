@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 19.1345,
-          "voice_quality": 19.7145,
+          "voice_register": 20.2595,
+          "voice_quality": 27.4895,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.7795,
-          "voice_articulation": 0.615,
+          "voice_vibrato": 8.5795,
+          "voice_articulation": 2.9699999999999998,
           "voice_microtone": 3.965,
-          "voice_tradition": 18.394999999999992,
-          "voice_mechanism_compound": 16.684999999999995,
-          "voice_estill_quality": 7.475,
-          "voice_speech_song": 6.825,
-          "voice_ensemble_config": 12.349999999999998,
-          "voice_ornament_system": 11.59,
-          "voice_pitch_organization": 23.501999999999995,
-          "voice_processing_chain": 5.915,
-          "voice_multitrack_stack": 2.9899999999999998
+          "voice_tradition": 27.625,
+          "voice_mechanism_compound": 17.659999999999997,
+          "voice_estill_quality": 10.399999999999997,
+          "voice_speech_song": 19.240000000000002,
+          "voice_ensemble_config": 44.23250000000001,
+          "voice_ornament_system": 14.494999999999997,
+          "voice_pitch_organization": 28.076999999999998,
+          "voice_processing_chain": 16.444999999999997,
+          "voice_multitrack_stack": 5.3950000000000005
         }
       },
       {
@@ -59,8 +59,8 @@
           "uhadi_tradition": "uhadi_umngqokolo_canonical"
         },
         "scores": {
-          "uhadi_body": 25.6435,
-          "uhadi_tradition": 14.2485
+          "uhadi_body": 27.0935,
+          "uhadi_tradition": 15.6985
         }
       }
     ],

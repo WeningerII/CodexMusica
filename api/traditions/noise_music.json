@@ -3,8 +3,8 @@
   "name": "Noise music",
   "family": "electronic",
   "lineage": "Late-1960s onward experimental-music genre foregrounding harsh-noise, feedback, and non-musical sound as primary material — codified through the Japanese noise canon (Merzbow — Pulse Demon 1996, Hijokaidan, Masonna, Boredoms), the European industrial-noise scene, and the American academic-experimental tradition extending from John Cage through the contemporary noise-festival circuit",
-  "recipe": "classic North American 1967-1969 noise music, experimental Elec, industrial noise branch, experimental distorted rock krautrock post-rock. analog modular modular synth. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 319,
+  "recipe": "classic North American 1967-1969 noise music, experimental Elec, industrial noise branch, experimental distorted rock krautrock post-rock. ambient pad like analog serge tcherepnin lineage canonical 1973 1980s cal arts patch programmable west coast modular modular synth. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 421,
   "score": 35.643,
   "config": {
     "traditions": [
@@ -23,10 +23,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 1.0356590909090906,
-          "oscillator": 0.78,
+          "electronic_technique": 1.9106590909090906,
+          "oscillator": 1.6899999999999997,
           "filter_topology": 0.47550000000000003,
-          "envelope": 0.64725,
+          "envelope": 1.6899999999999997,
           "modulation": 0.6109090909090908
         }
       },
@@ -39,10 +39,10 @@
           "mod_lineage": "mod_serge_tcherepnin"
         },
         "scores": {
-          "electronic_technique": 10.646875,
-          "mod_voltage_source": 0.78,
+          "electronic_technique": 17.921874999999996,
+          "mod_voltage_source": 1.64225,
           "mod_patch_density": 1.3045454545454547,
-          "mod_lineage": 0.325
+          "mod_lineage": 4.159999999999999
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Brazilian samba-school enredo (samba-enredo, Carnaval processional)",
   "family": "global",
   "lineage": "Brazilian Rio Carnaval samba-school enredo (samba-enredo, \"theme-samba\") tradition continuous from 1928 first samba-school Deixa Falar foundation through the 1930s-1980s Estação Primeira de Mangueira and Portela canonical-school era into modern Sambódromo-procession continuous practice; the enredo is the canonical annual samba composition that narrates the parade-school's theme",
-  "recipe": "classic mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song trinidad calypso-soca road march trinidadian panorama steelpan competition. intimate aspirated, tasteful, continuous-phonation, modern pop training. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 821,
+  "recipe": "classic mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song trinidad calypso-soca road march trinidadian panorama steelpan competition. vocal fry, intimate aspirated, tasteful, continuous-phonation. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 811,
   "score": 277.012,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.39,
+          "voice_register": 0.585,
           "voice_quality": 22.830000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 0.045,
-          "voice_tradition": 4.16,
-          "voice_mechanism_compound": 0.39,
+          "voice_vibrato": 3.38,
+          "voice_articulation": 6.759999999999999,
+          "voice_microtone": 0.195,
+          "voice_tradition": 8.385000000000002,
+          "voice_mechanism_compound": 0.845,
           "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 6.174999999999999,
-          "voice_ensemble_config": 4.29,
-          "voice_ornament_system": 0.435,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 3.5400000000000005,
-          "voice_multitrack_stack": 1.6250000000000002
+          "voice_speech_song": 14.429999999999996,
+          "voice_ensemble_config": 9.879999999999999,
+          "voice_ornament_system": 0.825,
+          "voice_pitch_organization": 6.759999999999999,
+          "voice_processing_chain": 5.865,
+          "voice_multitrack_stack": 3.2175000000000002
         }
       },
       {
@@ -62,11 +62,11 @@
           "cavaquinho_strings": "cavaquinho_steel"
         },
         "scores": {
-          "plucked_traditional_technique": 0.325,
-          "cavaquinho_origin": 12.852500000000003,
-          "cavaquinho_context": 10.659999999999998,
+          "plucked_traditional_technique": 0.5199999999999999,
+          "cavaquinho_origin": 13.002500000000001,
+          "cavaquinho_context": 17.614999999999995,
           "cavaquinho_body_wood": 10.870000000000001,
-          "cavaquinho_strings": 5.069999999999999
+          "cavaquinho_strings": 8.384999999999998
         }
       },
       {
@@ -80,12 +80,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": -0.1,
+          "percussion_technique": 0.825,
           "pandeiro_size": 10.870000000000001,
-          "pandeiro_context": 2.8600000000000003,
-          "pandeiro_head": 9.62,
-          "pandeiro_shell_wood": 9.62,
-          "pandeiro_jingles": 9.62
+          "pandeiro_context": 11.830000000000002,
+          "pandeiro_head": 12.025,
+          "pandeiro_shell_wood": 12.025,
+          "pandeiro_jingles": 12.219999999999999
         }
       },
       {
@@ -97,8 +97,8 @@
         },
         "scores": {
           "surdo_size": 0,
-          "surdo_skin": 7.93,
-          "surdo_shell": 6.759999999999999
+          "surdo_skin": 17.94,
+          "surdo_shell": 9.49
         }
       },
       {
@@ -109,9 +109,9 @@
           "tamborim_shell": "tamborim_aluminum_canonical"
         },
         "scores": {
-          "tamborim_skin": 2.8600000000000003,
-          "tamborim_striker": 18.070000000000004,
-          "tamborim_shell": 5.069999999999999
+          "tamborim_skin": 11.830000000000002,
+          "tamborim_striker": 27.677500000000006,
+          "tamborim_shell": 6.109999999999999
         }
       }
     ],

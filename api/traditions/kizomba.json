@@ -3,8 +3,8 @@
   "name": "Kizomba",
   "family": "global",
   "lineage": "Angolan-Lusophone slow-tempo partner-dance tradition codified circa 1980 — evolution from semba (its faster ancestor), characterized by 24/16 polyrhythmic foundation, Portuguese-Creole vocals, and intimate dance-hold close-position partner couples; Eduardo Paim and Bonga as the canonical early-80s codifiers, with the genre spreading across the Lusophone Atlantic",
-  "recipe": "classic early-1980s kizomba, groove Percussion, Afro-diasporic electric branch, tropical song functional song kizomba merengue urbano. rap, overtone rich sustained, punctuated, beatbox. basswood humbucker electric guitar, analog poly synth, TR-808. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 393,
+  "recipe": "classic early-1980s kizomba, groove Percussion, Afro-diasporic electric branch, tropical song functional song kizomba merengue urbano. vocal fry, rap, overtone rich sustained, punctuated. basswood humbucker electric guitar, oberheim tom oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 566,
   "score": 102.88,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 1.345,
+          "voice_register": 2.73,
+          "voice_quality": 6.564999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.7,
-          "voice_articulation": 0.675,
-          "voice_microtone": 0.15,
-          "voice_tradition": 2.6650000000000005,
-          "voice_mechanism_compound": 2.47,
-          "voice_estill_quality": 2.275,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 5.199999999999999,
-          "voice_ornament_system": 0.26,
-          "voice_pitch_organization": 2.6,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 1.6899999999999997
+          "voice_articulation": 1.8849999999999996,
+          "voice_microtone": 0.295,
+          "voice_tradition": 6.9875,
+          "voice_mechanism_compound": 5.005,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 19.564999999999998,
+          "voice_ensemble_config": 12.284999999999995,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 3.25,
+          "voice_processing_chain": 3.9325,
+          "voice_multitrack_stack": 6.244999999999999
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 1.0399999999999998,
-          "body_wood": 1.3,
+          "electric_technique": 2.1199999999999997,
+          "amp_make": 1.2349999999999999,
+          "body_wood": 1.95,
           "neck_wood": 0.435,
-          "fretboard": 0.435,
-          "pickup_magnet": 0.39,
+          "fretboard": 0.49499999999999994,
+          "pickup_magnet": 0.585,
           "pickup_winding": 0.495,
           "string_material": 0.435,
-          "bridge": 1.045,
-          "scale_length": 1.3,
-          "string_gauge": 2.8150000000000004,
+          "bridge": 1.1949999999999998,
+          "scale_length": 2.145,
+          "string_gauge": 3.2650000000000006,
           "finish": 0,
-          "string_tuning": 1.69
+          "string_tuning": 2.795
         }
       },
       {
@@ -94,10 +94,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "poly_archetypes": 0.645,
-          "poly_voices": 0.645,
-          "poly_maker_lineage": 0.3249999999999998
+          "electronic_technique": 1.7225,
+          "poly_archetypes": 0.795,
+          "poly_voices": 0.795,
+          "poly_maker_lineage": 1.365
         }
       },
       {
@@ -108,9 +108,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 0.325,
-          "drum_machine_808_context": 4.415000000000001,
-          "tr808_production_origin": 0.99
+          "tr808_voice": 1.8525,
+          "drum_machine_808_context": 5.09,
+          "tr808_production_origin": 1.1700000000000002
         }
       }
     ],

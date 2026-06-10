@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 12.349999999999998,
-          "voice_quality": 1.755,
+          "voice_quality": 3.4450000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.55,
-          "voice_articulation": 0.39,
-          "voice_microtone": 9.684999999999999,
-          "voice_tradition": 18.004999999999995,
-          "voice_mechanism_compound": 6.4350000000000005,
-          "voice_estill_quality": 6.37,
-          "voice_speech_song": 8.645,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 16.314999999999998,
-          "voice_pitch_organization": 16.314999999999998,
-          "voice_processing_chain": 3.8399999999999994,
+          "voice_vibrato": 10.14,
+          "voice_articulation": 0.44999999999999996,
+          "voice_microtone": 12.504999999999999,
+          "voice_tradition": 37.410000000000004,
+          "voice_mechanism_compound": 24.485000000000003,
+          "voice_estill_quality": 18.9,
+          "voice_speech_song": 17.085,
+          "voice_ensemble_config": 11.699999999999998,
+          "voice_ornament_system": 30.075,
+          "voice_pitch_organization": 30.255000000000003,
+          "voice_processing_chain": 2.5349999999999997,
           "voice_multitrack_stack": 1.155
         }
       },
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 5,
+          "plucked_traditional_technique": 15.750000000000002,
           "oud_school": 1.95,
-          "oud_strings": 2.6,
+          "oud_strings": 8.190000000000001,
           "oud_pick": 1.695,
-          "oud_body_wood": 1.95,
-          "oud_soundboard_wood": 2.0549999999999997,
-          "oud_string_material": 3.2699999999999996
+          "oud_body_wood": 3.6399999999999997,
+          "oud_soundboard_wood": 2.8600000000000003,
+          "oud_string_material": 2.6
         }
       },
       {
@@ -82,10 +82,10 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 1.56,
-          "darbuka_material": 2.5499999999999994,
+          "percussion_technique": 2.4050000000000002,
+          "darbuka_material": 1.69,
           "darbuka_skin": 1.69,
-          "darbuka_regional_style": 5.130000000000001
+          "darbuka_regional_style": 5.59
         }
       },
       {
@@ -104,17 +104,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 6.629999999999999,
+          "plucked_traditional_technique": 10.854999999999997,
           "banjo_back": 0.39,
           "tone_ring": 0.24,
-          "banjo_head": 6.759999999999999,
+          "banjo_head": 11.83,
           "banjo_pot": 0.43500000000000005,
-          "banjo_play": 0.195,
+          "banjo_play": 0.845,
           "banjo_rim_wood": 0.24,
           "banjo_neck_wood": 1.77,
           "banjo_strings": 0.195,
           "banjo_bridge": 0,
-          "banjo_setup_period": 6.694999999999999
+          "banjo_setup_period": 10.919999999999998
         }
       }
     ],

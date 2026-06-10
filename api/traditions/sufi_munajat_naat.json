@@ -3,8 +3,8 @@
   "name": "Sufi munajat and naat (praise of God and Prophet)",
   "family": "global",
   "lineage": "Sufi devotional praise-song tradition continuous from medieval Sufi-poetic era (13th-15th century Rumi, Hafez, Saadi era) through Indo-Persian-Mughal-era continuous performance into modern Sufi-and-Muslim-diaspora practice; munajat (intimate-supplication praise of God) and naat (praise of the Prophet Muhammad) are the canonical Sufi praise-forms",
-  "recipe": "classic North American mid-1970s sufi munajat and naat, praise Song, middle east n African branch, indian subcontinent praise song, Sufi ritual devotional, middle eastern classical art music qawwali sufi inshad. vocal fry, declaimed, chest resonance low mid, continuous-phonation. harmonium indian, indian rosewood rosewood copper tabla. carpeted bedroom. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 487,
+  "recipe": "classic North American mid-1970s sufi munajat and naat, praise Song, middle east n African branch, indian subcontinent praise song, Sufi ritual devotional, middle eastern classical art music qawwali sufi inshad. vocal fry, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla. carpeted bedroom. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 516,
   "score": 251.167,
   "config": {
     "traditions": [
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.78,
-          "voice_quality": 30.284,
+          "voice_register": 2.08,
+          "voice_quality": 47.15900000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 3.125,
-          "voice_tradition": 30.93999999999999,
-          "voice_mechanism_compound": 9.14,
-          "voice_estill_quality": 3.5100000000000002,
-          "voice_speech_song": 13.65,
-          "voice_ensemble_config": 7.409999999999999,
-          "voice_ornament_system": 10.025,
-          "voice_pitch_organization": 10.205,
-          "voice_processing_chain": 1.4949999999999999,
+          "voice_vibrato": 2.795,
+          "voice_articulation": 3.5749999999999993,
+          "voice_microtone": 11.575,
+          "voice_tradition": 55.388999999999996,
+          "voice_mechanism_compound": 12.389999999999999,
+          "voice_estill_quality": 7.9895,
+          "voice_speech_song": 26.389999999999997,
+          "voice_ensemble_config": 16.964999999999996,
+          "voice_ornament_system": 21.424999999999997,
+          "voice_pitch_organization": 13.454999999999998,
+          "voice_processing_chain": 3.1645,
           "voice_multitrack_stack": 2.339999999999999
         }
       },
@@ -62,9 +62,9 @@
         },
         "scores": {
           "free_reed_technique": 0,
-          "harmonium_action": 1.17,
-          "harmonium_voicing": 0.78,
-          "harmonium_use": 2.9899999999999998
+          "harmonium_action": 2.6649999999999996,
+          "harmonium_voicing": 2.08,
+          "harmonium_use": 8.969999999999999
         }
       },
       {
@@ -75,9 +75,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 2.145,
-          "tabla_bayan": 1.3,
-          "tabla_syahi": 0.39
+          "tabla_dayan": 5.135,
+          "tabla_bayan": 2.795,
+          "tabla_syahi": 4.029999999999999
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Solomon Islands panpipe ensemble",
   "family": "global",
   "lineage": "Solomon Islands panpipe ensemble tradition of the Are'are people of southern Malaita island and adjacent Solomons communities, featuring large coordinated ensembles of stopped-bamboo-pipes-arranged-in-rafts played in interlocking hocketed polyphonic patterns. The au tahana (raft-panpipe) and au kuita (bundle-panpipe) instrumental categories support distinct repertoire layers. Performance contexts span feast-day celebrations, mourning-rituals, and (post-1978 independence) international-festival and recording-circuit work through the canonical Narasirato Pan Pipers ensemble formed in the 1990s. The genre is one of the most internationally circulated Melanesian musical traditions through twentieth-century ethnomusicological recording.",
-  "recipe": "classic mid-1990s solomon islands panpipe ensemble, ritual Devotional, indigenous branch, wind pipe drone modal yidaki solo gaita galega solo. vocal fry, declaimed, pure, Scottish Gaelic vocal. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 418,
+  "recipe": "classic mid-1990s solomon islands panpipe ensemble, ritual Devotional, indigenous branch, wind pipe drone modal yidaki solo gaita galega solo. vocal fry, declaimed, pure, continuous-phonation. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 417,
   "score": 68.05,
   "config": {
     "traditions": [
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 1.1115,
-          "voice_quality": 4.2335,
+          "voice_quality": 5.258500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.4365,
-          "voice_articulation": 0.4095,
+          "voice_articulation": 0.845,
           "voice_microtone": 0.31799999999999995,
-          "voice_tradition": 6.305,
-          "voice_mechanism_compound": 3.8,
-          "voice_estill_quality": 0.9099999999999999,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 1.5925,
-          "voice_processing_chain": 2.2034999999999996,
+          "voice_tradition": 11.504999999999997,
+          "voice_mechanism_compound": 6.045,
+          "voice_estill_quality": 2.99,
+          "voice_speech_song": 12.999999999999998,
+          "voice_ensemble_config": 12.089999999999996,
+          "voice_ornament_system": 4.525,
+          "voice_pitch_organization": 5.330000000000001,
+          "voice_processing_chain": 1.56,
           "voice_multitrack_stack": 1.5855
         }
       }

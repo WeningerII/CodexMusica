@@ -3,8 +3,8 @@
   "name": "Jazz fusion (1970s post-Bitches-Brew electric jazz-rock)",
   "family": "jazz",
   "lineage": "1970s jazz subgenre developed from Miles Davis's late-1960s Bitches Brew sessions, integrating jazz-improvisational practice with rock-and-funk rhythmic vocabulary and electric-amplified-instrumentation. Weather Report (founded 1970 by Joe Zawinul and Wayne Shorter), Mahavishnu Orchestra (John McLaughlin), Return to Forever (Chick Corea), and Headhunters (Herbie Hancock) constitute the canonical 1970s fusion roster. Distinguished from broader jazz by fusion's explicit rock-and-funk-rhythmic-electric-instrument synthesis.",
-  "recipe": "classic Los Angeles jazz fusion, improv On Frame, fusion branch, progressive rock distorted rock zeuhl canterbury scene. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, soft felt lacquer voiced 17 ply hard rock maple grand piano, marshall plexi amp British rock amp ernie ball slinky walking fingerstyle electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 642,
+  "recipe": "classic Los Angeles jazz fusion, improv On Frame, fusion branch, progressive rock distorted rock zeuhl canterbury scene. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, marshall plexi amp British rock amp ernie ball slinky walking fingerstyle electric bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 661,
   "score": 421.163,
   "config": {
     "traditions": [
@@ -25,13 +25,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 1.9000000000000001,
-          "sax_size": 0.1365,
-          "sax_reed": 1.2492500000000002,
-          "sax_body_alloy": 21,
-          "sax_mouthpiece": 1.2492500000000002,
-          "sax_technique": 21,
-          "sax_maker_school": 25.763750000000005
+          "wind_articulation": 3.8500000000000005,
+          "sax_size": 1.625,
+          "sax_reed": 0.845,
+          "sax_body_alloy": 24.375,
+          "sax_mouthpiece": 0.845,
+          "sax_technique": 23.5,
+          "sax_maker_school": 30.213750000000005
         }
       },
       {
@@ -48,15 +48,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 1.9815000000000003,
+          "keyboard_technique": 3.9315,
           "grand_piano_size": 0.34775,
           "grand_piano_brand": 1.4365,
-          "piano_hammer": 6.37,
-          "piano_rim": 6.37,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": -0.035,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "piano_hammer": 14.852500000000001,
+          "piano_rim": 13.1625,
+          "piano_soundboard": 1.005,
+          "piano_pinblock": 0.9199999999999999,
+          "piano_plate": 1.0725,
+          "piano_pitch_standard": 1.1374999999999997
         }
       },
       {
@@ -73,13 +73,13 @@
         },
         "scores": {
           "electric_technique": 6.499999999999999,
-          "amp_make": 6.4350000000000005,
+          "amp_make": 12.805,
           "body_wood": 0.273,
-          "pickup_config": 0.315,
-          "string_type": 25.283625,
-          "scale_length_b": 0.315,
+          "pickup_config": 0.45499999999999996,
+          "string_type": 27.853125,
+          "scale_length_b": 0.45499999999999996,
           "fretted_or_not": 0,
-          "bass_technique": 21
+          "bass_technique": 23.5
         }
       },
       {
@@ -98,17 +98,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 35.879999999999995,
-          "shell_wood": 1.2942500000000001,
+          "percussion_technique": 45.62537499999999,
+          "shell_wood": 0.845,
           "shell_thickness": 0,
-          "bearing_edges": 1.5642500000000001,
-          "drumhead": 25.233625000000004,
-          "snare_wires": 0.3315,
-          "cymbal_alloy": 34.235,
-          "cymbal_hammering": 22.215,
-          "cymbal_lathing": 21.195,
-          "cymbal_finish": 1.2492500000000002,
-          "drum_technique": 35.879999999999995
+          "bearing_edges": 1.3,
+          "drumhead": 27.733625000000004,
+          "snare_wires": 0.845,
+          "cymbal_alloy": 38.26,
+          "cymbal_hammering": 26.665000000000003,
+          "cymbal_lathing": 24.345000000000002,
+          "cymbal_finish": 1.69,
+          "drum_technique": 45.62537499999999
         }
       },
       {
@@ -122,7 +122,7 @@
         },
         "scores": {
           "electronic_technique": -0.05,
-          "oscillator": 1.2492500000000002,
+          "oscillator": 0.845,
           "filter_topology": 0.273,
           "envelope": 2.9494999999999996,
           "modulation": 0.15

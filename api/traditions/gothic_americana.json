@@ -3,8 +3,8 @@
   "name": "Gothic Americana (Southern Gothic literary tradition)",
   "family": "vernacular",
   "lineage": "Broader Southern Gothic literary tradition (Faulkner, Flannery OConnor, Cormac McCarthy) rendered in folk-country-blues instrumentation with Pentecostal / Old Testament / frontier-violence thematic vocabulary — encompasses the Denver gothic-country canon (Sixteen Horsepower, Wovenhand, Slim Cessna Auto Club, the Reverend Glasseye) plus broader practitioners like Nick Cave (Murder Ballads, The Boatmans Call), late-period Tom Waits (Bone Machine onward), R.L. Burnside, the Handsome Family, the Bad Livers — distinct from gothic_country in scope (encompasses non-country instrumentation) and from folk_noir in literary lineage (Southern Gothic vs Victorian/Pre-Raphaelite)",
-  "recipe": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry folk noir texas country-folk storyteller. thick, incomplete closure resting, melodic, narrative. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, plain gut sheep gut double stops fiddle, folk steel modern canonical 36 37 string set autoharp, open d tuning phosphor bronze pre war martin travis picked dreadnought acoustic wood body spider bridge spruce resonator national canon medium heavy resonator 28 625 inch bass vi canon p90 Gretsch canon baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 833,
+  "recipe": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry folk noir texas country-folk storyteller. thick, incomplete closure resting, melodic, narrative. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, plain gut sheep gut double stops fiddle, folk autoharp, open d tuning phosphor bronze pre war martin travis picked dreadnought acoustic wood body spider bridge spruce resonator national canon medium heavy resonator 28 625 inch bass vi canon p90 Gretsch canon baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 793,
   "score": 386.16,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 28.499999999999993,
-          "voice_quality": 2.950000000000001,
+          "voice_register": 48.625,
+          "voice_quality": 4.910000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.134999999999998,
-          "voice_articulation": 0.9099999999999997,
-          "voice_microtone": 4.205000000000001,
-          "voice_tradition": 12.74,
-          "voice_mechanism_compound": 2.47,
-          "voice_estill_quality": 18.614999999999995,
-          "voice_speech_song": 6.4350000000000005,
-          "voice_ensemble_config": 3.9,
-          "voice_ornament_system": 0.7149999999999997,
-          "voice_pitch_organization": 0.78,
-          "voice_processing_chain": 1.08,
-          "voice_multitrack_stack": 2.015
+          "voice_vibrato": 22.535,
+          "voice_articulation": 2.525000000000001,
+          "voice_microtone": 4.930000000000001,
+          "voice_tradition": 34.589999999999996,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 26.264999999999993,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 12.219999999999995,
+          "voice_ornament_system": 2.8600000000000008,
+          "voice_pitch_organization": 0.32999999999999996,
+          "voice_processing_chain": 2.795,
+          "voice_multitrack_stack": 2.4050000000000002
         }
       },
       {
@@ -68,17 +68,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 6.610000000000001,
+          "plucked_traditional_technique": 20.56,
           "banjo_back": 0.285,
           "tone_ring": 1.6900000000000002,
-          "banjo_head": 3.6399999999999997,
+          "banjo_head": 11.959999999999997,
           "banjo_pot": 0.5099999999999999,
           "banjo_play": 1.735,
-          "banjo_rim_wood": 1.2349999999999999,
-          "banjo_neck_wood": 1.3,
-          "banjo_strings": 1.3,
-          "banjo_bridge": 1.2349999999999999,
-          "banjo_setup_period": 3.575
+          "banjo_rim_wood": 1.4299999999999997,
+          "banjo_neck_wood": 1.6899999999999997,
+          "banjo_strings": 1.755,
+          "banjo_bridge": 1.4299999999999997,
+          "banjo_setup_period": 12.089999999999996
         }
       },
       {
@@ -91,11 +91,11 @@
           "fiddle_articulation": "pizz"
         },
         "scores": {
-          "bowed_technique": 14.894999999999998,
-          "fiddle_strings": 1.7950000000000002,
+          "bowed_technique": 21.52,
+          "fiddle_strings": 2.535,
           "fiddle_bow": 0.32999999999999996,
-          "fiddle_mute": 0.24,
-          "fiddle_articulation": 0.09
+          "fiddle_mute": 0.8,
+          "fiddle_articulation": 0.195
         }
       },
       {
@@ -108,10 +108,10 @@
           "autoharp_body_wood": "autoharp_spruce_maple"
         },
         "scores": {
-          "acoustic_technique": 1.125,
-          "autoharp_chord_bars": 2.8600000000000003,
-          "autoharp_context": 2.8600000000000003,
-          "autoharp_strings": 1.0499999999999998,
+          "acoustic_technique": 1.275,
+          "autoharp_chord_bars": 9.879999999999999,
+          "autoharp_context": 5.85,
+          "autoharp_strings": 0.845,
           "autoharp_body_wood": 0.045
         }
       },
@@ -125,11 +125,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 19.885,
-          "string_tuning": 3.0550000000000006,
+          "acoustic_technique": 39.934999999999995,
+          "string_tuning": 3.2050000000000005,
           "top_wood": 0.32999999999999996,
           "back_sides": 0.38999999999999996,
-          "string_acoustic": 1.69
+          "string_acoustic": 2.925
         }
       },
       {
@@ -140,9 +140,9 @@
           "resonator_technique": "resonator_lap_steel_position"
         },
         "scores": {
-          "resonator_body": 3.769999999999999,
-          "resonator_strings": 3.38,
-          "resonator_technique": 4.16
+          "resonator_body": 6.394999999999999,
+          "resonator_strings": 3.575,
+          "resonator_technique": 6.214999999999999
         }
       },
       {
@@ -156,12 +156,12 @@
           "hurdy_tradition": "hurdy_french_bal_folk"
         },
         "scores": {
-          "bowed_technique": -0.035,
-          "hurdy_strings": 4.16,
+          "bowed_technique": 0.12999999999999998,
+          "hurdy_strings": 11.18,
           "hurdy_buzz": 0.045,
           "hurdy_wheel_rosin": 0.225,
-          "hurdy_string_material": 2.8600000000000003,
-          "hurdy_tradition": 2.8600000000000003
+          "hurdy_string_material": 9.879999999999999,
+          "hurdy_tradition": 9.879999999999999
         }
       },
       {
@@ -177,12 +177,12 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 1.6899999999999997,
-          "baritone_use": 0.63,
-          "baritone_electric_tuning": 0.8100000000000002,
-          "baritone_electric_scale": 1.3,
+          "amp_make": 1.8849999999999996,
+          "baritone_use": 2.34,
+          "baritone_electric_tuning": 0.45499999999999996,
+          "baritone_electric_scale": 1.4949999999999999,
           "baritone_electric_strings": 0.32999999999999996,
-          "baritone_electric_pickup": 1.3
+          "baritone_electric_pickup": 1.4949999999999999
         }
       }
     ],

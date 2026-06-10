@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 1.1049999999999998,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 2.12,
+          "voice_quality": 11.074999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.08,
-          "voice_articulation": 1.0399999999999998,
-          "voice_microtone": 0.43499999999999994,
-          "voice_tradition": 11.180000000000001,
-          "voice_mechanism_compound": 3.9000000000000004,
-          "voice_estill_quality": 8.060000000000002,
-          "voice_speech_song": 9.554999999999998,
-          "voice_ensemble_config": 12.399999999999999,
-          "voice_ornament_system": 4.095000000000001,
+          "voice_vibrato": 5.459999999999999,
+          "voice_articulation": 2.5350000000000006,
+          "voice_microtone": 0.25999999999999995,
+          "voice_tradition": 38.38250000000001,
+          "voice_mechanism_compound": 11.049999999999997,
+          "voice_estill_quality": 27.640624999999996,
+          "voice_speech_song": 24.699999999999996,
+          "voice_ensemble_config": 26.259999999999994,
+          "voice_ornament_system": 20.099999999999994,
           "voice_pitch_organization": 15.222812499999996,
-          "voice_processing_chain": 1.17,
-          "voice_multitrack_stack": 3.38
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 4.745
         }
       },
       {
@@ -63,12 +63,12 @@
           "rebab_strings": "rebab_silk_historical"
         },
         "scores": {
-          "bowed_technique": 4.0928125,
-          "rebab_region": 8.982187499999998,
-          "rebab_context": 4.55,
-          "rebab_body": 5.849999999999999,
-          "rebab_skin": 5.849999999999999,
-          "rebab_strings": 5.039999999999999
+          "bowed_technique": 10.592812499999999,
+          "rebab_region": 9.4321875,
+          "rebab_context": 7.41,
+          "rebab_body": 6.679999999999998,
+          "rebab_skin": 6.679999999999998,
+          "rebab_strings": 5.339999999999999
         }
       },
       {
@@ -80,10 +80,10 @@
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 4.2228125,
-          "suling_use": 2.08,
-          "suling_tuning": 8.45,
-          "suling_body_material": 6.239999999999998
+          "wind_articulation": 10.7228125,
+          "suling_use": 5.459999999999999,
+          "suling_tuning": 12.415,
+          "suling_body_material": 7.084999999999998
         }
       },
       {
@@ -93,7 +93,7 @@
           "bonang_register": "bonang_panerus"
         },
         "scores": {
-          "bonang_tuning": 9,
+          "bonang_tuning": 10.125,
           "bonang_register": 0.15
         }
       },
@@ -104,8 +104,8 @@
           "gender_tuning": "gender_pelog"
         },
         "scores": {
-          "gender_use": 3.035,
-          "gender_tuning": 3.23
+          "gender_use": 5.459999999999999,
+          "gender_tuning": 5.459999999999999
         }
       },
       {
@@ -116,7 +116,7 @@
         },
         "scores": {
           "saron_size": 2.24,
-          "saron_tuning_system": 2.035
+          "saron_tuning_system": 2.1849999999999996
         }
       },
       {
@@ -147,9 +147,9 @@
         },
         "scores": {
           "kendang_size": 4.829999999999999,
-          "kendang_context": 8.479999999999999,
-          "kendang_shell_wood": 8.2821875,
-          "kendang_head": 5.849999999999999
+          "kendang_context": 8.78,
+          "kendang_shell_wood": 8.732187499999998,
+          "kendang_head": 6.679999999999998
         }
       },
       {
@@ -159,8 +159,8 @@
           "tuning": "gj_pelog"
         },
         "scores": {
-          "sections": 2.08,
-          "tuning": 2.08
+          "sections": 5.459999999999999,
+          "tuning": 5.459999999999999
         }
       }
     ],

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 11.949999999999998,
-          "voice_quality": 3.63,
+          "voice_register": 18.9,
+          "voice_quality": 14.329999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7149999999999994,
-          "voice_articulation": 1.7499999999999998,
-          "voice_microtone": 0.5199999999999998,
-          "voice_tradition": 15.374999999999996,
-          "voice_mechanism_compound": 0.525,
-          "voice_estill_quality": 1.5499999999999996,
-          "voice_speech_song": 4.874999999999999,
-          "voice_ensemble_config": 4.419999999999999,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 1.41,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 1.2349999999999999
+          "voice_vibrato": 0.65,
+          "voice_articulation": 6.375,
+          "voice_microtone": 3.0875,
+          "voice_tradition": 24.894999999999992,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 6.175,
+          "voice_speech_song": 13.129999999999997,
+          "voice_ensemble_config": 12.479999999999995,
+          "voice_ornament_system": 6.2749999999999995,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 4.225,
+          "voice_multitrack_stack": 1.82
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "plucked_traditional_technique": 10.499999999999998,
-          "balalaika_size": 2.9899999999999998,
-          "balalaika_strings": -1.05,
+          "balalaika_size": 4.055,
+          "balalaika_strings": -0.595,
           "balalaika_body_wood": 0.39,
-          "balalaika_tradition": 7.43
+          "balalaika_tradition": 7.58
         }
       },
       {
@@ -80,8 +80,8 @@
         },
         "scores": {
           "plucked_traditional_technique": 10.499999999999998,
-          "domra_courses": 7.414999999999999,
-          "domra_size": 1.69,
+          "domra_courses": 7.714999999999999,
+          "domra_size": 3.2100000000000004,
           "domra_body_wood": 2.3,
           "domra_strings": 2.295
         }
@@ -98,13 +98,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 10.489999999999997,
+          "free_reed_technique": 10.789999999999996,
           "accordion_reed_material": 0.9299999999999999,
           "musette_offset": 0.195,
           "reed_config": 0.615,
           "bellows": 0,
           "voicing_chamber": 0.195,
-          "accordion_maker_school": 6.369999999999999
+          "accordion_maker_school": 6.564999999999999
         }
       }
     ],

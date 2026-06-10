@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.450375,
-          "voice_quality": 10.960624999999999,
+          "voice_register": 3.450375,
+          "voice_quality": 27.935624999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.7,
+          "voice_vibrato": 1.4949999999999999,
           "voice_articulation": 0.25,
-          "voice_microtone": 3.3580000000000005,
-          "voice_tradition": 8.06,
-          "voice_mechanism_compound": 1.2052500000000002,
-          "voice_estill_quality": 0.444,
-          "voice_speech_song": 2.4050000000000002,
-          "voice_ensemble_config": 2.4699999999999998,
-          "voice_ornament_system": 14.6495,
-          "voice_pitch_organization": 3.5760000000000005,
-          "voice_processing_chain": 2.3503749999999997,
-          "voice_multitrack_stack": 3.1838749999999996
+          "voice_microtone": 11.808,
+          "voice_tradition": 38.74412499999999,
+          "voice_mechanism_compound": 3.1999999999999997,
+          "voice_estill_quality": 5.351,
+          "voice_speech_song": 14.559999999999999,
+          "voice_ensemble_config": 11.894999999999998,
+          "voice_ornament_system": 27.7745,
+          "voice_pitch_organization": 8.776,
+          "voice_processing_chain": 3.3503750000000005,
+          "voice_multitrack_stack": 4.183875
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 3.3799999999999994,
-          "choir_polyphonic_configuration": 2.450375,
+          "choir_size": 4.225,
+          "choir_polyphonic_configuration": 3.450375,
           "choir_regional_canonical_configuration": 1.2349999999999999,
-          "choir_ensemble_repertoire": 2.6
+          "choir_ensemble_repertoire": 6.24
         }
       },
       {
@@ -77,11 +77,11 @@
           "daf_jingle_metal": "daf_brass_rings"
         },
         "scores": {
-          "daf_rings": 0.9099999999999999,
-          "daf_context": 1.0799999999999998,
-          "daf_shell_wood": 2.9899999999999998,
-          "daf_head_material": 1.3,
-          "daf_jingle_metal": 1.3
+          "daf_rings": 9.749999999999998,
+          "daf_context": 1.4949999999999999,
+          "daf_shell_wood": 5.329999999999999,
+          "daf_head_material": 2.9314999999999998,
+          "daf_jingle_metal": 2.9314999999999998
         }
       }
     ],

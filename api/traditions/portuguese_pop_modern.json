@@ -3,8 +3,8 @@
   "name": "Portuguese pop (modern)",
   "family": "global",
   "lineage": "Modern Portuguese mainstream pop tradition extending past the fado canon — codified through Madredeus, Mariza’s fado-fusion, the 2000s Buraka Som Sistema kuduro crossover, and contemporary artists like Sara Tavares, David Carreira; characterized by Portuguese-language vocals over electronic-and-organic hybrid production",
-  "recipe": "classic mid-2000s portuguese pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. extended whistle, lament wail, tasteful, punctuated. strummed open chord ringing overtones fingerpicked acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier clean single coil electric guitar, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 678,
+  "recipe": "classic mid-2000s portuguese pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. extended whistle, lament wail, tasteful, punctuated. martin lifespan strummed open chord ringing overtones fingerpicked acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier wenge single coil electric guitar, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 694,
   "score": 361.754,
   "config": {
     "traditions": [
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 11.868249999999996,
-          "voice_quality": 9.9705,
+          "voice_quality": 17.5455,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.4649999999999994,
-          "voice_articulation": 0.7349999999999999,
-          "voice_microtone": 9.399999999999993,
-          "voice_tradition": 19.895999999999997,
-          "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 1.3649999999999998,
-          "voice_speech_song": 9.164999999999997,
-          "voice_ensemble_config": 5.979999999999999,
-          "voice_ornament_system": 4.723,
-          "voice_pitch_organization": 2.925000000000001,
-          "voice_processing_chain": 5.44525,
-          "voice_multitrack_stack": 7.57525
+          "voice_articulation": 2.145,
+          "voice_microtone": 9.899999999999993,
+          "voice_tradition": 20.646,
+          "voice_mechanism_compound": 6.044999999999999,
+          "voice_estill_quality": 4.94,
+          "voice_speech_song": 29.997500000000002,
+          "voice_ensemble_config": 23.985,
+          "voice_ornament_system": 5.597999999999999,
+          "voice_pitch_organization": 5.816250000000001,
+          "voice_processing_chain": 6.434999999999999,
+          "voice_multitrack_stack": 8.225249999999999
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 9.644999999999998,
-          "string_tuning": 0,
+          "acoustic_technique": 10.294999999999998,
+          "string_tuning": 1.2999999999999998,
           "top_wood": 0.54,
-          "back_sides": 0.585,
-          "string_acoustic": 0.54,
-          "acoustic_om_technique": 1.17
+          "back_sides": 0.78,
+          "string_acoustic": 1.04,
+          "acoustic_om_technique": 6.312749999999999
         }
       },
       {
@@ -88,18 +88,18 @@
           "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 9.449999999999996,
+          "electric_technique": 11.999999999999996,
           "amp_make": 3.575,
           "body_wood": 0.54,
-          "neck_wood": 0.54,
-          "fretboard": 0.345,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4949999999999999,
           "pickup_magnet": 0.15,
-          "string_material": 0.41999999999999993,
-          "string_gauge": 0.8250000000000002,
+          "string_material": 0.845,
+          "string_gauge": 1.235,
           "bridge": 3.4649999999999994,
           "scale_length": 1.08,
           "finish": 0,
-          "string_tuning": 1.875
+          "string_tuning": 2.145
         }
       },
       {
@@ -115,13 +115,13 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": -0.035,
+          "electric_technique": 1.4299999999999997,
           "amp_make": 3.3649999999999998,
           "body_wood": 1.08,
           "pickup_config": 3.4649999999999994,
-          "string_type": 3.7499999999999996,
+          "string_type": 4.049999999999999,
           "scale_length_b": 3.4649999999999994,
-          "fretted_or_not": 0.345,
+          "fretted_or_not": 1.4949999999999999,
           "bass_technique": 7.549999999999999
         }
       },
@@ -141,17 +141,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 9.294999999999998,
-          "shell_wood": 0.28500000000000003,
+          "percussion_technique": 26.065,
+          "shell_wood": 0.39,
           "shell_thickness": 0,
           "bearing_edges": 3.6149999999999993,
-          "drumhead": 16.884999999999998,
+          "drumhead": 17.034999999999997,
           "snare_wires": 0.54,
-          "cymbal_alloy": 9.644999999999996,
+          "cymbal_alloy": 10.294999999999998,
           "cymbal_hammering": 16.699999999999996,
-          "cymbal_lathing": 16.744999999999997,
+          "cymbal_lathing": 16.894999999999996,
           "cymbal_finish": 0.15,
-          "drum_technique": 9.294999999999998
+          "drum_technique": 26.065
         }
       }
     ],

@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 18.7,
-          "amp_make": 21.124999999999996,
-          "body_wood": 7.409999999999999,
-          "neck_wood": 1.3900000000000001,
-          "fretboard": 1.9900000000000002,
+          "electric_technique": 30.449999999999996,
+          "amp_make": 40.081875,
+          "body_wood": 8.905,
+          "neck_wood": 2.145,
+          "fretboard": 2.0799999999999996,
           "pickup_magnet": 2.08,
-          "pickup_winding": 0.21,
+          "pickup_winding": 0.45499999999999996,
           "string_material": 1.3900000000000001,
-          "bridge": 1.9900000000000002,
-          "scale_length": 8.189999999999998,
-          "string_gauge": 1.3,
+          "bridge": 2.145,
+          "scale_length": 8.839999999999998,
+          "string_gauge": 2.145,
           "finish": 0.195,
-          "string_tuning": 11.05
+          "string_tuning": 18.915
         }
       },
       {
@@ -59,14 +59,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.244999999999999,
-          "amp_make": 3.575,
-          "body_wood": 3.38,
+          "electric_technique": 14.894999999999998,
+          "amp_make": 10.497499999999999,
+          "body_wood": 4.225,
           "pickup_config": 1.9900000000000002,
-          "string_type": 8.125,
-          "scale_length_b": 1.3,
-          "fretted_or_not": 0.050624999999999996,
-          "bass_technique": 10.545
+          "string_type": 23.571875,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 0.195,
+          "bass_technique": 33.445
         }
       },
       {
@@ -85,17 +85,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 7.929999999999997,
-          "shell_wood": 1.440625,
+          "percussion_technique": 16.867499999999993,
+          "shell_wood": 1.66875,
           "shell_thickness": 0,
-          "bearing_edges": 1.585,
-          "drumhead": 1.3900000000000001,
-          "snare_wires": 1.3,
-          "cymbal_alloy": 23.639999999999997,
-          "cymbal_hammering": 6.54,
-          "cymbal_lathing": 6.15,
+          "bearing_edges": 2.145,
+          "drumhead": 2.145,
+          "snare_wires": 2.145,
+          "cymbal_alloy": 47.64,
+          "cymbal_hammering": 19.59,
+          "cymbal_lathing": 19.2,
           "cymbal_finish": 1.3900000000000001,
-          "drum_technique": 7.929999999999997
+          "drum_technique": 18.5
         }
       },
       {
@@ -119,22 +119,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 6.145625000000002,
-          "voice_quality": 1.2499999999999996,
+          "voice_register": 19.34562499999999,
+          "voice_quality": 2.450000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6456250000000001,
-          "voice_articulation": 0.200625,
-          "voice_microtone": 6.000000000000001,
-          "voice_tradition": 1.755,
-          "voice_mechanism_compound": 20.695,
-          "voice_estill_quality": 2.665000000000001,
-          "voice_speech_song": 8.774999999999997,
-          "voice_ensemble_config": 9.619999999999997,
+          "voice_vibrato": 2.145,
+          "voice_articulation": 0.195,
+          "voice_microtone": 19.049999999999997,
+          "voice_tradition": 2.9250000000000007,
+          "voice_mechanism_compound": 27.894999999999996,
+          "voice_estill_quality": 3.7050000000000005,
+          "voice_speech_song": 19.044999999999995,
+          "voice_ensemble_config": 22.535625,
           "voice_ornament_system": 1.1949999999999998,
-          "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 2.955,
-          "voice_multitrack_stack": 3.25
+          "voice_pitch_organization": 1.95,
+          "voice_processing_chain": 7.255,
+          "voice_multitrack_stack": 5.525
         }
       }
     ],

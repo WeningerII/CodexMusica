@@ -3,8 +3,8 @@
   "name": "Indonesian rice-planting song traditions",
   "family": "global",
   "lineage": "Indonesian rice-planting song tradition across Javanese, Sundanese, Balinese, Sumatran-Minangkabau, and Sulawesi regional-cultures continuous from premodern Indonesian-agricultural village-labor practice through colonial-period continuous performance into modern Indonesian-rural continuous practice; the Indonesian rice-paddy planting and harvest-songs integrate gamelan-and-vocal arrangements distinct to each regional culture",
-  "recipe": "classic modern indonesian rice-planting song traditions, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, melodic, continuous-phonation, Chinese classical vocal. bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 533,
+  "recipe": "classic modern indonesian rice-planting song traditions, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, declaimed, melodic, continuous-phonation. bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 519,
   "score": 148.169,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.08,
-          "voice_quality": 0.325,
+          "voice_register": 3.4000000000000004,
+          "voice_quality": 1.5924999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 5.545,
-          "voice_microtone": 0,
-          "voice_tradition": 9.685000000000002,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 9.554999999999998,
-          "voice_ensemble_config": 6.109999999999999,
-          "voice_ornament_system": 4.345000000000001,
-          "voice_pitch_organization": 20.339999999999993,
-          "voice_processing_chain": 1.95,
-          "voice_multitrack_stack": 2.08
+          "voice_vibrato": 3.705,
+          "voice_articulation": 7.6049999999999995,
+          "voice_microtone": 3.6500000000000004,
+          "voice_tradition": 30.5175,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 2.3850000000000002,
+          "voice_speech_song": 16.639999999999993,
+          "voice_ensemble_config": 13.389999999999993,
+          "voice_ornament_system": 7.97,
+          "voice_pitch_organization": 26.99,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 2.8600000000000003
         }
       },
       {
@@ -61,10 +61,10 @@
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 4.9399999999999995,
-          "suling_use": 2.08,
-          "suling_tuning": 0.39,
-          "suling_body_material": 4.55
+          "wind_articulation": 7.67,
+          "suling_use": 2.8600000000000003,
+          "suling_tuning": 3.5100000000000002,
+          "suling_body_material": 9.0895
         }
       }
     ],

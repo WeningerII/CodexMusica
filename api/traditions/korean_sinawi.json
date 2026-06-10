@@ -3,8 +3,8 @@
   "name": "Korean sinawi (shaman ensemble improvisation)",
   "family": "classical",
   "lineage": "Korean sinawi shamanic-ensemble improvisational tradition of southwestern Korea (Jeolla provinces and adjacent Chungcheong region), serving as the ritual-music accompaniment for the gut Korean shaman ceremony. Performance integrates a mudang shaman-priestess with an instrumental ensemble of daegeum bamboo flute, piri double-reed pipe, haegeum two-string fiddle, ajaeng bowed zither, and janggu hourglass-drum percussion in collective improvisational heterophony over the canonical sinawi modal-and-rhythmic framework. Distinguished from sanjo by sinawi's collective-ensemble (vs solo virtuoso) configuration; distinguished from pansori by sinawi's instrumental-ensemble (vs solo vocal narrative) framework. Direct historical ancestor of sanjo solo art-music.",
-  "recipe": "classic North American mid-1970s korean sinawi, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. kargyraa, declaimed, pure, punctuated. composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu, aniri spoken narrative quality interleaved yoseong pitch oscillation ornament jungmori medium 12 4 narrative no interjected chuimsae solo cross tradition fusion concert context pansori voice, silk canonical Korean court paulownia canonical Korean haegeum, traditional membrane buzz bamboo daegeum, forsythia canonical Korean paulownia canonical Korean silk canonical Korean court ajaeng. korean gugak hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 861,
+  "recipe": "classic North American mid-1970s korean sinawi, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. kargyraa, declaimed, pure, punctuated. paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu, aniri spoken narrative quality interleaved yoseong pitch oscillation ornament jungmori medium 12 4 narrative no interjected chuimsae solo cross tradition fusion concert context pansori voice, silk canonical Korean court paulownia canonical Korean haegeum, traditional membrane buzz bamboo daegeum, forsythia canonical Korean paulownia canonical Korean silk canonical Korean court ajaeng. korean gugak hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 842,
   "score": 277.695,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 1.7549999999999994,
+          "voice_register": 7.71,
+          "voice_quality": 8.215000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.095,
-          "voice_articulation": 1.69,
-          "voice_microtone": 0.39,
-          "voice_tradition": 17.939999999999998,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 4.695,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 11.83,
+          "voice_articulation": 2.535,
+          "voice_microtone": 7.880000000000002,
+          "voice_tradition": 37.595000000000006,
+          "voice_mechanism_compound": 22.58,
+          "voice_estill_quality": 9.555,
+          "voice_speech_song": 21.97,
+          "voice_ensemble_config": 22.36,
           "voice_ornament_system": 12.549999999999999,
-          "voice_pitch_organization": 3.1200000000000006,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 3.38
+          "voice_pitch_organization": 7.620000000000001,
+          "voice_processing_chain": 7.67,
+          "voice_multitrack_stack": 5.720000000000001
         }
       },
       {
@@ -62,11 +62,11 @@
           "janggu_lineage": "janggu_pansori_godo"
         },
         "scores": {
-          "janggu_use": 7.949999999999999,
-          "janggu_construction": 1.0799999999999998,
-          "janggu_shell_wood": 5.635,
-          "janggu_head": 5.83,
-          "janggu_lineage": 3.335
+          "janggu_use": 8.45,
+          "janggu_construction": 0.65,
+          "janggu_shell_wood": 6.135,
+          "janggu_head": 6.33,
+          "janggu_lineage": 3.835
         }
       },
       {
@@ -79,11 +79,11 @@
           "pansori_voice_repertoire": "pansori_voice_fusion_concert"
         },
         "scores": {
-          "pansori_phonation_mechanism": 1.69,
+          "pansori_phonation_mechanism": 2.34,
           "pansori_sigimsae_ornament": 1.17,
           "pansori_jangdan_cycle": 1.69,
-          "pansori_chuimsae_response": 4.89,
-          "pansori_voice_repertoire": 3.38
+          "pansori_chuimsae_response": 5.39,
+          "pansori_voice_repertoire": 7.279999999999999
         }
       },
       {
@@ -97,8 +97,8 @@
         "scores": {
           "bowed_technique": 2.695,
           "haegeum_use": 1.195,
-          "haegeum_strings": 5.635,
-          "haegeum_body_wood": 5.635
+          "haegeum_strings": 6.135,
+          "haegeum_body_wood": 6.135
         }
       },
       {
@@ -108,8 +108,8 @@
           "daegeum_context": "daegeum_jeongak"
         },
         "scores": {
-          "daegeum_body": 1.69,
-          "daegeum_context": 1.69
+          "daegeum_body": 2.34,
+          "daegeum_context": 2.145
         }
       },
       {
@@ -123,10 +123,10 @@
         },
         "scores": {
           "bowed_technique": 2.695,
-          "ajaeng_strings": 0.22499999999999998,
-          "ajaeng_bow": 5.859999999999999,
-          "ajaeng_body_wood": 5.635,
-          "ajaeng_string_material": 5.635
+          "ajaeng_strings": 0.65,
+          "ajaeng_bow": 6.859999999999999,
+          "ajaeng_body_wood": 6.135,
+          "ajaeng_string_material": 6.135
         }
       }
     ],

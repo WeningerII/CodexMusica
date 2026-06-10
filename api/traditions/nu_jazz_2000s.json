@@ -3,8 +3,8 @@
   "name": "Nu jazz / electro-jazz",
   "family": "jazz",
   "lineage": "2000s jazz substyle integrating electronic-production techniques, sample-and-loop-based composition, and broader club-music-influenced rhythmic vocabulary with jazz harmonic-melodic content. Norwegian Jaga Jazzist, German Jazzanova, and Swedish Esbjörn Svensson Trio anchored the European canonical sound; American counterparts including The Bad Plus and Robert Glasper extended the style into American jazz mainstream.",
-  "recipe": "classic mid-2000s nu jazz / electro-jazz, improv On Frame, fusion branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 708,
+  "recipe": "classic mid-2000s nu jazz / electro-jazz, improv On Frame, fusion branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 702,
   "score": 337.311,
   "config": {
     "traditions": [
@@ -25,13 +25,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 1.9000000000000001,
-          "sax_size": 1.3865,
+          "wind_articulation": 3.8500000000000005,
+          "sax_size": 1.4949999999999999,
           "sax_reed": 1.4365,
-          "sax_body_alloy": 21.195,
+          "sax_body_alloy": 21.795,
           "sax_mouthpiece": 1.4365,
           "sax_technique": 21,
-          "sax_maker_school": 25.158750000000005
+          "sax_maker_school": 26.458750000000002
         }
       },
       {
@@ -48,12 +48,12 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 1.9815000000000003,
-          "grand_piano_size": 0.4815,
-          "grand_piano_brand": 1.4365,
+          "keyboard_technique": 5.450000000000001,
+          "grand_piano_size": 1.4949999999999999,
+          "grand_piano_brand": 1.4949999999999999,
           "piano_hammer": 4.785,
           "piano_rim": 4.7535,
-          "piano_soundboard": 1.25,
+          "piano_soundboard": 1.3649999999999998,
           "piano_pinblock": -0.05,
           "piano_plate": 1.56,
           "piano_pitch_standard": 1.38525
@@ -72,12 +72,12 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 1.9500000000000002,
-          "amp_make": 7.385,
-          "body_wood": 0.9630000000000001,
-          "pickup_config": 0.435,
+          "electric_technique": 3.9000000000000004,
+          "amp_make": 11.684999999999999,
+          "body_wood": 2.34,
+          "pickup_config": 0.845,
           "string_type": 24.4755,
-          "scale_length_b": 0.5129999999999999,
+          "scale_length_b": 1.4949999999999999,
           "fretted_or_not": 0,
           "bass_technique": 21
         }
@@ -98,17 +98,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 22.489999999999995,
+          "percussion_technique": 29.899999999999995,
           "shell_wood": 1.4365,
           "shell_thickness": 0,
           "bearing_edges": 1.6465,
           "drumhead": 24.425500000000003,
-          "snare_wires": 0.4815,
+          "snare_wires": 1.4949999999999999,
           "cymbal_alloy": 24.65,
-          "cymbal_hammering": 21.585,
-          "cymbal_lathing": 21.384999999999998,
+          "cymbal_hammering": 22.235000000000003,
+          "cymbal_lathing": 22.035,
           "cymbal_finish": 1.4365,
-          "drum_technique": 22.489999999999995
+          "drum_technique": 29.899999999999995
         }
       },
       {
@@ -121,10 +121,10 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": -0.035,
-          "oscillator": 1.4852500000000002,
-          "filter_topology": 1.2630000000000001,
-          "envelope": 1.69,
+          "electronic_technique": 2.8600000000000008,
+          "oscillator": 3.055,
+          "filter_topology": 4.55,
+          "envelope": 2.535,
           "modulation": 0.15
         }
       }

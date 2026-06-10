@@ -3,8 +3,8 @@
   "name": "Verismo opera (Italian realism)",
   "family": "classical",
   "lineage": "Late-nineteenth-and-early-twentieth-century Italian operatic style emerging in 1890s as parallel to broader European-literary Naturalism. Characterized by contemporary working-class settings, violent passionate-realistic dramatic content, and direct-emotional vocal-projection (vs the more elaborate ornamental bel canto register). Pietro Mascagni's Cavalleria rusticana (1890), Ruggero Leoncavallo's Pagliacci (1892), and Giacomo Puccini's mature operas constitute the canonical type-specimens. Distinguished from broader Italian opera by verismo's working-class-realist (vs heroic-historical) dramatic orientation.",
-  "recipe": "classic North American mid-1890s verismo opera, art Music, western common practice branch, Mediterranean ballad ballad poetry, iberian functional song zarzuela canzone napoletana. thick, low dynamic level, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 587,
+  "recipe": "classic North American mid-1890s verismo opera, art Music, western common practice branch, Mediterranean ballad ballad poetry, iberian functional song zarzuela canzone napoletana. thick, low dynamic level, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic Italian alpine spruce val di fiemme European maple sycamore maple violin orchestral. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 585,
   "score": 289.657,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 2.5900000000000007,
+          "voice_register": 5.02,
+          "voice_quality": 5.720000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 4.02,
           "voice_articulation": 1.295,
-          "voice_microtone": 2.795,
-          "voice_tradition": 17.305,
-          "voice_mechanism_compound": 4.425,
-          "voice_estill_quality": 19.569999999999997,
-          "voice_speech_song": 8.395,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 19.849999999999998,
-          "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 1.815
+          "voice_microtone": 5.445,
+          "voice_tradition": 24.355,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 25.969999999999995,
+          "voice_speech_song": 19.1425,
+          "voice_ensemble_config": 14.234999999999996,
+          "voice_ornament_system": 25.6,
+          "voice_pitch_organization": 5.48,
+          "voice_processing_chain": 5.914999999999998,
+          "voice_multitrack_stack": 2.535
         }
       },
       {
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 2.65,
-          "grand_piano_size": 0.745,
-          "grand_piano_brand": 6.369999999999999,
-          "piano_hammer": 4.47,
-          "piano_rim": 4.875,
-          "piano_soundboard": 4.9399999999999995,
-          "piano_pinblock": 2.45,
-          "piano_plate": 2.495,
-          "piano_pitch_standard": 4.875
+          "keyboard_technique": 5.15,
+          "grand_piano_size": 1.495,
+          "grand_piano_brand": 7.864999999999999,
+          "piano_hammer": 9.295000000000002,
+          "piano_rim": 11.99,
+          "piano_soundboard": 10.56,
+          "piano_pinblock": 6.625,
+          "piano_plate": 6.67,
+          "piano_pitch_standard": 10.844999999999999
         }
       },
       {
@@ -92,16 +92,16 @@
           "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.5,
-          "orch_strings": 0.7999999999999999,
-          "orch_top_wood": 7.5649999999999995,
-          "orch_back_wood": 4.41,
-          "orch_varnish": 2.6,
-          "orch_setup_period": 1.2349999999999999,
+          "bowed_technique": 5,
+          "orch_strings": 1.6999999999999997,
+          "orch_top_wood": 12.015,
+          "orch_back_wood": 9.42,
+          "orch_varnish": 6.775,
+          "orch_setup_period": 6.16,
           "orch_bow": 2.3549999999999995,
-          "orch_bow_stick": 2.9250000000000003,
-          "orch_articulation": 0.9099999999999999,
-          "orch_rosin": 5.265
+          "orch_bow_stick": 7.1000000000000005,
+          "orch_articulation": 2.1199999999999997,
+          "orch_rosin": 9.709999999999999
         }
       }
     ],

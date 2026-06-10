@@ -3,8 +3,8 @@
   "name": "DSBM (depressive suicidal black metal)",
   "family": "rock_punk",
   "lineage": "Mid-1990s and onward black-metal subgenre emphasizing slow-tempo melancholic-and-suicidal-depressive thematic content. Bethlehem (Germany 1991-onward) inaugurated the canonical aesthetic; Shining (Sweden), Silencer, Xasthur (USA), Wigrid (Germany), and the broader European-and-American DSBM scene anchor the canonical roster. Distinguished from broader black metal by DSBM's slower-tempo emphasis and explicit depression-suicide thematic register.",
-  "recipe": "classic modern dsbm, distorted Rock, death branch, christian gospel ritual devotional black gospel sacred steel. thick, declaimed, chest resonance low mid, ornamental. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany stainless steel roundwound electric bass, steel pre muffled edge muffled machine hammered symmetric pattern drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 622,
+  "recipe": "classic modern dsbm, distorted Rock, death branch, christian gospel ritual devotional black gospel sacred steel. thick, declaimed, chest resonance low mid, ornamental. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany stainless steel electric bass, steel pre muffled edge muffled machine hammered symmetric pattern drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 666,
   "score": 405.405,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 5.245000000000002,
-          "voice_quality": 5.410000000000001,
+          "voice_register": 31.345000000000002,
+          "voice_quality": 31.135,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.645,
-          "voice_articulation": 1.8999999999999997,
-          "voice_microtone": 3.650000000000001,
-          "voice_tradition": 2.2099999999999995,
+          "voice_vibrato": 1.795,
+          "voice_articulation": 21.400000000000006,
+          "voice_microtone": 5.200000000000001,
+          "voice_tradition": 35.815000000000005,
           "voice_mechanism_compound": 14.149999999999999,
-          "voice_estill_quality": 1.5499999999999996,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 1.65,
+          "voice_estill_quality": 22.35,
+          "voice_speech_song": 20.409999999999997,
+          "voice_ensemble_config": 22.17,
+          "voice_ornament_system": 6.2749999999999995,
           "voice_pitch_organization": 3.0049999999999994,
-          "voice_processing_chain": 2.6,
-          "voice_multitrack_stack": 3.25
+          "voice_processing_chain": 3.705,
+          "voice_multitrack_stack": 5.5600000000000005
         }
       },
       {
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": 16.5,
-          "amp_make": 8.125,
-          "body_wood": 9.93,
-          "neck_wood": 1.345,
-          "fretboard": 1.295,
-          "pickup_magnet": 0.735,
-          "pickup_winding": 0.735,
-          "string_material": 2.504999999999999,
-          "bridge": 1.345,
-          "scale_length": 8.674999999999999,
-          "string_gauge": 2.645,
+          "amp_make": 11.444999999999999,
+          "body_wood": 11.079999999999998,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4449999999999998,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 1.3,
+          "string_material": 4.874999999999999,
+          "bridge": 1.4949999999999999,
+          "scale_length": 9.825,
+          "string_gauge": 2.795,
           "finish": 0,
-          "string_tuning": 9.395
+          "string_tuning": 9.78
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "electric_technique": 2.2,
-          "amp_make": 1.885,
-          "body_wood": 1.3900000000000001,
-          "pickup_config": 0.9600000000000001,
-          "string_type": 3.75,
-          "scale_length_b": 1.345,
-          "fretted_or_not": 0.8699999999999999,
+          "amp_make": 5.59,
+          "body_wood": 1.54,
+          "pickup_config": 1.3,
+          "string_type": 6.174999999999999,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0.65,
           "bass_technique": 3.7
         }
       },
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 8.319999999999999,
-          "shell_wood": 1.4249999999999994,
-          "shell_thickness": 0.24,
-          "bearing_edges": 1.345,
-          "drumhead": 1.345,
-          "snare_wires": 1.345,
-          "cymbal_alloy": 16.794999999999998,
-          "cymbal_hammering": 3.6950000000000003,
-          "cymbal_lathing": 4.16,
-          "cymbal_finish": 0.345,
-          "drum_technique": 8.319999999999999
+          "percussion_technique": 18.849999999999994,
+          "shell_wood": 4.874999999999999,
+          "shell_thickness": 0.65,
+          "bearing_edges": 1.4949999999999999,
+          "drumhead": 2.795,
+          "snare_wires": 1.4949999999999999,
+          "cymbal_alloy": 16.944999999999997,
+          "cymbal_hammering": 6.395,
+          "cymbal_lathing": 7.36,
+          "cymbal_finish": 0.195,
+          "drum_technique": 18.849999999999994
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Dub techno",
   "family": "electronic",
   "lineage": "Berlin dub-techno subgenre codified by Basic Channel and Chain Reaction (founded 1993 by Moritz von Oswald and Mark Ernestus, at the Hardwax record store / Kreuzberg techno-scene infrastructure) — fuses Detroit techno-foundational vocabulary with King Tubby-derived dub mixing aesthetic; recordings: Basic Channel Phylyps Trak 1993, Maurizio Domina 1995, Porter Ricks Biokinetics 1996",
-  "recipe": "classic early-1990s dub techno, bass System, dub descendants branch, techno electronic dance detroit techno peak-time techno. drum machine analog, analog synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter roland RE-201 space echo hall reverb.",
-  "recipe_chars": 423,
+  "recipe": "classic early-1990s dub techno, bass System, dub descendants branch, techno electronic dance detroit techno peak-time techno. drum machine analog, sub bass analog synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter roland RE-201 space echo hall reverb.",
+  "recipe_chars": 432,
   "score": 16.791,
   "config": {
     "traditions": [
@@ -25,7 +25,7 @@
           "kick_voice": 0.3,
           "snare_voice": 0,
           "hat_voice": 0,
-          "shuffle_quantize": 0
+          "shuffle_quantize": 3.16625
         }
       },
       {
@@ -38,10 +38,10 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 1.755,
-          "oscillator": 1.95,
-          "filter_topology": 1.95,
-          "envelope": 0.78,
+          "electronic_technique": 3.6400000000000006,
+          "oscillator": 3.8349999999999995,
+          "filter_topology": 3.6399999999999997,
+          "envelope": 1.04,
           "modulation": 0.195
         }
       }

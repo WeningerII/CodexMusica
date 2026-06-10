@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 6.666,
-          "voice_quality": 0.7799999999999998,
+          "voice_register": 8.291,
+          "voice_quality": 3.5750000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.42675,
+          "voice_vibrato": 0.45499999999999996,
           "voice_articulation": 0.3045,
-          "voice_microtone": 5.500000000000001,
-          "voice_tradition": 8.58775,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 6.825,
-          "voice_ensemble_config": 2.8600000000000003,
-          "voice_ornament_system": 0.378,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 3.7070000000000003,
-          "voice_multitrack_stack": 4.16
+          "voice_microtone": 7.125000000000001,
+          "voice_tradition": 10.862749999999998,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 3.315000000000001,
+          "voice_speech_song": 11.764999999999999,
+          "voice_ensemble_config": 7.8,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 9.26025,
+          "voice_multitrack_stack": 7.96325
         }
       },
       {
@@ -62,10 +62,10 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 5.836499999999999,
-          "string_tuning": 0,
+          "acoustic_technique": 7.461499999999999,
+          "string_tuning": 0.7149999999999999,
           "top_wood": 0.32175,
-          "back_sides": 0.2415,
+          "back_sides": 0.45499999999999996,
           "string_acoustic": 0.59475
         }
       },
@@ -82,14 +82,14 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 0,
+          "electric_technique": 0.35650000000000004,
+          "amp_make": 0.585,
           "body_wood": 0.6435,
           "pickup_config": 0.41175,
-          "string_type": 0.32175,
-          "scale_length_b": 0.36675,
+          "string_type": 0.52,
+          "scale_length_b": 0.195,
           "fretted_or_not": 0.105,
-          "bass_technique": -0.035
+          "bass_technique": 0.35650000000000004
         }
       },
       {
@@ -100,8 +100,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0,
-          "drum_machine_808_context": 1.69,
+          "tr808_voice": 0.585,
+          "drum_machine_808_context": 3.38,
           "tr808_production_origin": 0.18525
         }
       }

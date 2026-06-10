@@ -3,8 +3,8 @@
   "name": "Shibuya-kei",
   "family": "global",
   "lineage": "1990s Japanese eclectic-pop subgenre centered on Tokyo’s Shibuya district record-store scene — codified through Pizzicato Five, Cornelius (Keigo Oyamada), Fantastic Plastic Machine, and Kahimi Karie; characterized by sampledelic crate-digger production, sixties-French-pop and bossa-nova references, and ironic-cosmopolitan pop sensibility",
-  "recipe": "classic mid-1990s shibuya-kei, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. extended whistle, intimate aspirated, equal tempered, modern pop training. field textural sampler, centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, open string slide resonance clean strummed single coil electric guitar, electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, samba bateria. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 626,
+  "recipe": "classic mid-1990s shibuya-kei, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. extended whistle, intimate aspirated, equal tempered, modern pop training. field textural sampler, centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, clean strummed single coil electric guitar, ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, samba bateria. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 616,
   "score": 370.368,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 23.66,
-          "voice_quality": 4.423750000000001,
+          "voice_register": 31.09375,
+          "voice_quality": 4.87375,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.336,
-          "voice_articulation": 0.045,
-          "voice_microtone": 19.21775,
-          "voice_tradition": 23.66,
-          "voice_mechanism_compound": 0.9764999999999999,
-          "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 10.464999999999996,
-          "voice_ensemble_config": 8.059999999999999,
+          "voice_articulation": 0.195,
+          "voice_microtone": 27.39275,
+          "voice_tradition": 31.658874999999995,
+          "voice_mechanism_compound": 1.1264999999999998,
+          "voice_estill_quality": 0.39,
+          "voice_speech_song": 15.209999999999994,
+          "voice_ensemble_config": 11.959999999999994,
           "voice_ornament_system": 2.2,
           "voice_pitch_organization": 0.5565,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 0.78
+          "voice_processing_chain": 3.6400000000000006,
+          "voice_multitrack_stack": 3.0875000000000004
         }
       },
       {
@@ -61,11 +61,11 @@
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": 3.4499999999999993,
+          "electronic_technique": 7.199999999999999,
           "sampler_archetypes": 0.42,
-          "sampler_bit_depth": 0.27375,
-          "sampler_workflow": 3.5771249999999997,
-          "sampler_classic_context": 18.355
+          "sampler_bit_depth": 0.195,
+          "sampler_workflow": 7.6271249999999995,
+          "sampler_classic_context": 25.605
         }
       },
       {
@@ -79,11 +79,11 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 18.268625,
-          "rhodes_model": 1.5765,
-          "rhodes_use": 0.39,
-          "rhodes_tine_material": 0.578625,
-          "rhodes_hammer_tip": -1.4,
+          "keyboard_technique": 25.518625,
+          "rhodes_model": 1.7265,
+          "rhodes_use": 0.78,
+          "rhodes_tine_material": 0.39,
+          "rhodes_hammer_tip": -1.05,
           "rhodes_pickup_position": 1.3
         }
       },
@@ -104,18 +104,18 @@
           "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": 18.32375,
+          "electric_technique": 25.57375,
           "amp_make": 0.45499999999999996,
           "body_wood": 0.231,
           "neck_wood": 0.231,
-          "fretboard": 0.10012499999999999,
-          "pickup_magnet": 0.16874999999999998,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.195,
           "string_material": 0.10012499999999999,
           "string_gauge": 0.3,
           "bridge": 0.27899999999999997,
           "scale_length": 0.43050000000000005,
           "finish": 0,
-          "string_tuning": 1.1688749999999999
+          "string_tuning": 0.8295
         }
       },
       {
@@ -131,14 +131,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.05,
+          "electric_technique": 0.06499999999999999,
           "amp_make": 0.5199999999999999,
           "body_wood": 0.43050000000000005,
-          "pickup_config": 0.22424999999999998,
-          "string_type": 0.975,
+          "pickup_config": 0.195,
+          "string_type": 1.1374999999999997,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.1365,
-          "bass_technique": 0.75
+          "bass_technique": 1.088625
         }
       },
       {
@@ -157,17 +157,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 10.464999999999996,
-          "shell_wood": 0.2925,
+          "percussion_technique": 14.364999999999997,
+          "shell_wood": 0.22874999999999998,
           "shell_thickness": 0.12374999999999999,
           "bearing_edges": 0.205125,
-          "drumhead": 18.541625,
+          "drumhead": 25.791624999999996,
           "snare_wires": 0.32325,
-          "cymbal_alloy": 18.3815,
-          "cymbal_hammering": 19.286499999999997,
-          "cymbal_lathing": 18.3315,
+          "cymbal_alloy": 26.7065,
+          "cymbal_hammering": 27.4615,
+          "cymbal_lathing": 26.656499999999998,
           "cymbal_finish": 0.10012499999999999,
-          "drum_technique": 10.464999999999996
+          "drum_technique": 14.364999999999997
         }
       },
       {
@@ -177,8 +177,8 @@
           "context": "sb_quadra"
         },
         "scores": {
-          "sections": 0.39,
-          "context": 0.355125
+          "sections": 0.78,
+          "context": 0.195
         }
       }
     ],

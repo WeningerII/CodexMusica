@@ -33,21 +33,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.9995,
-          "voice_quality": 3.859500000000001,
+          "voice_register": 4.874500000000001,
+          "voice_quality": 7.205500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.3149999999999995,
-          "voice_articulation": 1.9179999999999997,
-          "voice_microtone": 5.265000000000001,
-          "voice_tradition": 8.34975,
-          "voice_mechanism_compound": 6.601374999999999,
-          "voice_estill_quality": 7.41,
-          "voice_speech_song": 11.765,
-          "voice_ensemble_config": 21.45,
+          "voice_articulation": 3.793,
+          "voice_microtone": 5.7200000000000015,
+          "voice_tradition": 9.034999999999998,
+          "voice_mechanism_compound": 7.601374999999999,
+          "voice_estill_quality": 7.605,
+          "voice_speech_song": 16.12,
+          "voice_ensemble_config": 26,
           "voice_ornament_system": 5.7,
-          "voice_pitch_organization": 11.7,
-          "voice_processing_chain": 5.069999999999999,
+          "voice_pitch_organization": 12.155,
+          "voice_processing_chain": 6.5,
           "voice_multitrack_stack": 3.0994999999999995
         }
       },
@@ -60,10 +60,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 6.759999999999999,
-          "choir_polyphonic_configuration": 10.139999999999999,
-          "choir_regional_canonical_configuration": 5.9799999999999995,
-          "choir_ensemble_repertoire": 8.3845
+          "choir_size": 7.345000000000001,
+          "choir_polyphonic_configuration": 10.334999999999999,
+          "choir_regional_canonical_configuration": 8.645,
+          "choir_ensemble_repertoire": 9.534499999999998
         }
       },
       {
@@ -78,12 +78,12 @@
           "pipe_organ_action": "pipe_organ_mechanical_tracker"
         },
         "scores": {
-          "keyboard_technique": 2.545,
+          "keyboard_technique": 2.695,
           "pipe_organ_class": 1.69,
-          "pipe_organ_context": 8.969999999999999,
-          "pipe_organ_voicing_school": 7.02,
+          "pipe_organ_context": 12.025,
+          "pipe_organ_voicing_school": 7.475,
           "pipe_organ_pipe_alloy": 3.3799999999999994,
-          "pipe_organ_temperament": 11.7,
+          "pipe_organ_temperament": 12.155,
           "pipe_organ_action": 5.069999999999999
         }
       },
@@ -99,11 +99,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 2.5315,
-          "lute_courses": 7.605499999999999,
-          "lute_renaissance_context": 11.830000000000002,
+          "lute_courses": 8.4055,
+          "lute_renaissance_context": 16.185000000000002,
           "lute_renaissance_ribs": 4.8805,
           "lute_renaissance_soundboard": 4.8805,
-          "lute_renaissance_strings": 3.3149999999999995
+          "lute_renaissance_strings": 4.615
         }
       }
     ],

@@ -3,7 +3,7 @@
   "name": "Italo house",
   "family": "global",
   "lineage": "Late-1980s and early-1990s Italian house tradition codified through Black Box \"Ride on Time\" (1989), Cappella, FPI Project, Quartz — characterized by major-key euphoric piano-stab figures, female diva-vocal samples (often uncleared at the time), and the Italo-disco euphoric production aesthetic",
-  "recipe": "classic 1987-1989 italo house, electronic Dance, italo house branch, continental electronic dance disco. thick, chest mix belt, bel canto, m1 with m0 pulse borrowing. birch laminated maple laminated Asian spruce hokkaido source wet sand cast grand piano, digital subtractive, TR-909, sampler. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe": "classic 1987-1989 italo house, electronic Dance, italo house branch, continental electronic dance disco. thick, chest mix belt, chest resonance low mid, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, digital subtractive, TR-909, sampler. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
   "recipe_chars": 404,
   "score": 155.074,
   "config": {
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 1.574375,
-          "voice_quality": 10.674374999999998,
+          "voice_register": 4.3687499999999995,
+          "voice_quality": 14.224374999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.325,
-          "voice_articulation": 0.25,
-          "voice_microtone": 0.305625,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 2.7249999999999996,
+          "voice_microtone": 1.3749999999999998,
           "voice_tradition": 5.536875000000001,
-          "voice_mechanism_compound": 1.17,
+          "voice_mechanism_compound": 1.67875,
           "voice_estill_quality": 5.430000000000001,
-          "voice_speech_song": 5.6549999999999985,
-          "voice_ensemble_config": 5.589999999999998,
+          "voice_speech_song": 9.393749999999997,
+          "voice_ensemble_config": 8.879374999999998,
           "voice_ornament_system": 5.400000000000001,
           "voice_pitch_organization": 1.330625,
-          "voice_processing_chain": 8.150625,
-          "voice_multitrack_stack": 3.969375
+          "voice_processing_chain": 12.850625,
+          "voice_multitrack_stack": 4.1743749999999995
         }
       },
       {
@@ -65,15 +65,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 0.25,
-          "grand_piano_size": 0.39,
+          "keyboard_technique": 2.8249999999999997,
+          "grand_piano_size": 1.235,
           "grand_piano_brand": 2.27,
-          "piano_hammer": -0.035,
-          "piano_rim": 1.95,
-          "piano_soundboard": 1.0999999999999999,
+          "piano_hammer": 1.5750000000000002,
+          "piano_rim": 2.575,
+          "piano_soundboard": 1.5750000000000002,
           "piano_pinblock": -0.05,
-          "piano_plate": 1.9368750000000001,
-          "piano_pitch_standard": 0.325
+          "piano_plate": 2.2368750000000004,
+          "piano_pitch_standard": 1.4949999999999999
         }
       },
       {
@@ -84,9 +84,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "va_archetypes": 0.3131249999999999,
-          "digital_subtractive_context": 5.719999999999998
+          "electronic_technique": 2.1700000000000004,
+          "va_archetypes": 0.2737499999999999,
+          "digital_subtractive_context": 8.852499999999997
         }
       },
       {
@@ -97,8 +97,8 @@
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 16.249999999999996,
-          "drum_machine_909_context": 0.39,
+          "tr909_voice": 16.625,
+          "drum_machine_909_context": 1.37,
           "tr909_production_origin": 0
         }
       },
@@ -113,10 +113,10 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sampler_archetypes": 0.045,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": 0.7149999999999999,
-          "sampler_classic_context": 23.820625
+          "sampler_archetypes": 1.25,
+          "sampler_bit_depth": 0.52,
+          "sampler_workflow": 2,
+          "sampler_classic_context": 28.145624999999995
         }
       }
     ],

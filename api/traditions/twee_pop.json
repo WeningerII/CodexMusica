@@ -3,8 +3,8 @@
   "name": "Twee pop",
   "family": "global",
   "lineage": "1980s-onward fey indie-pop subgenre codified through C86 cassette (NME 1986) and the Sarah Records (Bristol 1987-1995) lineage — characterized by jangly minor-key guitar, soft male and female vocals, lo-fi production aesthetic, and twee-romantic lyrical subject matter; Belle and Sebastian, Tullycraft, Stars, and Camera Obscura extending the canon into the 2000s",
-  "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk freak folk. thick, incomplete closure resting, equal tempered, min yo. fingerpicked acoustic soft down tuning arpeggiated clean single coil electric guitar, mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 469,
+  "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk freak folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. cedar walnut phosphor bronze bronze fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 611,
   "score": 415.444,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 19.600249999999992,
-          "voice_quality": 0.7499999999999998,
+          "voice_register": 42.40024999999999,
+          "voice_quality": 1.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.48149999999999993,
+          "voice_vibrato": 1.4949999999999999,
           "voice_articulation": 0,
-          "voice_microtone": 17.549999999999994,
-          "voice_tradition": 17.549999999999997,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.7149999999999997,
-          "voice_speech_song": 13.584999999999997,
-          "voice_ensemble_config": 10.269999999999998,
-          "voice_ornament_system": 0.7149999999999997,
-          "voice_pitch_organization": 0.9899999999999999,
-          "voice_processing_chain": 4.12125,
-          "voice_multitrack_stack": 5.850000000000001
+          "voice_microtone": 23.674999999999997,
+          "voice_tradition": 25.840249999999997,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 3.315000000000001,
+          "voice_speech_song": 23.139999999999997,
+          "voice_ensemble_config": 17.159999999999993,
+          "voice_ornament_system": 3.150000000000001,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 5.135,
+          "voice_multitrack_stack": 12.98575
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 13.970999999999997,
+          "acoustic_technique": 22.495,
           "string_tuning": 0,
-          "top_wood": 0.6236249999999999,
-          "back_sides": 0.5865,
-          "string_acoustic": 0.6495,
-          "acoustic_om_technique": 2.6949999999999994
+          "top_wood": 1.4949999999999999,
+          "back_sides": 1.4949999999999999,
+          "string_acoustic": 1.4949999999999999,
+          "acoustic_om_technique": 22.495
         }
       },
       {
@@ -88,18 +88,18 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 13.900124999999997,
-          "amp_make": 2.4700000000000006,
-          "body_wood": 0.5865,
-          "neck_wood": 0.5865,
-          "fretboard": 0.0315,
+          "electric_technique": 21.47512499999999,
+          "amp_make": 4.355,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4299999999999997,
           "pickup_magnet": 0.3,
           "string_material": 0.0315,
-          "string_gauge": 0.48149999999999993,
+          "string_gauge": 1.4949999999999999,
           "bridge": 0.265875,
-          "scale_length": 1.068,
+          "scale_length": 1.4949999999999999,
           "finish": 0,
-          "string_tuning": 3.6399999999999997
+          "string_tuning": 7.215
         }
       },
       {
@@ -115,14 +115,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 2.275,
-          "body_wood": 1.068,
+          "electric_technique": 2.9671250000000002,
+          "amp_make": 4.16,
+          "body_wood": 1.4949999999999999,
           "pickup_config": 1.3,
-          "string_type": 7.15,
-          "scale_length_b": 0.48149999999999993,
+          "string_type": 11.807,
+          "scale_length_b": 1.4949999999999999,
           "fretted_or_not": 0.03712499999999999,
-          "bass_technique": 4.555000000000001
+          "bass_technique": 8.18
         }
       },
       {
@@ -141,17 +141,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 10.269999999999998,
-          "shell_wood": 0.191625,
+          "percussion_technique": 16.964999999999993,
+          "shell_wood": 0.45499999999999996,
           "shell_thickness": 0.0315,
-          "bearing_edges": 0.29737499999999994,
-          "drumhead": 13.478999999999997,
-          "snare_wires": 0.48149999999999993,
-          "cymbal_alloy": 18.049999999999997,
-          "cymbal_hammering": 18.255374999999997,
-          "cymbal_lathing": 18.431624999999997,
+          "bearing_edges": 0.8449999999999999,
+          "drumhead": 15.979,
+          "snare_wires": 1.4949999999999999,
+          "cymbal_alloy": 24.174999999999997,
+          "cymbal_hammering": 24.380374999999997,
+          "cymbal_lathing": 24.556624999999997,
           "cymbal_finish": 0.0315,
-          "drum_technique": 10.269999999999998
+          "drum_technique": 16.964999999999993
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Russian bard song (avtorskaya pesnya)",
   "family": "global",
   "lineage": "Soviet-era guitar-and-poet song (avtorskaya pesnya, literally authorial song) tradition codified by Vladimir Vysotsky (the raspy-voice baritone), Bulat Okudgava (the gentle-tenor Arbat-Street troubadour), Alexander Galich (the dissident émigré voice), Yuri Vizbor (the mountain-climbing-and-friendship songwriter) — circulated through magnitizdat (self-distributed-tape underground circulation) under Soviet censorship rather than official Melodiya release",
-  "recipe": "classic tropical mid-1950s russian bard song, ballad Poetry, Slavic bard branch, chanson fado ballad poetry, European protest song morna cape verdean batuko of santiago island. vocal fry, lament wail, pure, punctuated. fingerpicked acoustic guitar, sekunda tuning Soviet orchestra canon balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 478,
+  "recipe": "classic tropical mid-1950s russian bard song, ballad Poetry, Slavic bard branch, chanson fado ballad poetry, European protest song morna cape verdean batuko of santiago island. vocal fry, lament wail, pure, punctuated. martin lifespan fingerpicked acoustic guitar, sekunda tuning Soviet orchestra canon strummed balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 503,
   "score": 138.935,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 1.65,
-          "voice_quality": 2.2749999999999995,
+          "voice_register": 3.6399999999999997,
+          "voice_quality": 9.91,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.9750000000000001,
-          "voice_articulation": 0.7349999999999999,
-          "voice_microtone": 0.38999999999999996,
-          "voice_tradition": 1.56,
-          "voice_mechanism_compound": 0.63,
-          "voice_estill_quality": 0.39,
-          "voice_speech_song": 8.125,
-          "voice_ensemble_config": 5.85,
-          "voice_ornament_system": 2.185,
-          "voice_pitch_organization": 1,
-          "voice_processing_chain": 3.67,
-          "voice_multitrack_stack": 2.07
+          "voice_vibrato": 0.65,
+          "voice_articulation": 2.145,
+          "voice_microtone": 1.6899999999999997,
+          "voice_tradition": 15.144999999999998,
+          "voice_mechanism_compound": 4.875,
+          "voice_estill_quality": 4.9725,
+          "voice_speech_song": 28.600000000000005,
+          "voice_ensemble_config": 23.855,
+          "voice_ornament_system": 2.4850000000000003,
+          "voice_pitch_organization": 2.795000000000001,
+          "voice_processing_chain": 6.0125,
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 3.145,
-          "string_tuning": 0,
+          "acoustic_technique": 9.320000000000002,
+          "string_tuning": 1.2999999999999998,
           "top_wood": 0.54,
-          "back_sides": 0.585,
-          "string_acoustic": 0.54,
-          "acoustic_om_technique": 3.145
+          "back_sides": 0.78,
+          "string_acoustic": 1.04,
+          "acoustic_om_technique": 9.320000000000002
         }
       },
       {
@@ -81,11 +81,11 @@
           "balalaika_tradition": "balalaika_soviet_orchestra"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
-          "balalaika_size": 1.0950000000000002,
-          "balalaika_strings": -0.035,
+          "plucked_traditional_technique": 5.265,
+          "balalaika_size": 1.235,
+          "balalaika_strings": 0.12999999999999998,
           "balalaika_body_wood": 0.39,
-          "balalaika_tradition": 2.63
+          "balalaika_tradition": 2.9299999999999997
         }
       }
     ],

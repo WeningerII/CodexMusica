@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.464,
-          "voice_quality": 3.055000000000003,
+          "voice_register": 1.2674999999999998,
+          "voice_quality": 22.520249999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.47,
-          "voice_articulation": 6.759999999999999,
-          "voice_microtone": 0.24,
-          "voice_tradition": 47.19,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.39,
-          "voice_speech_song": 10.594999999999999,
-          "voice_ensemble_config": 5.590000000000001,
-          "voice_ornament_system": 16.444999999999997,
-          "voice_pitch_organization": 6.759999999999999,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 1.5539999999999998
+          "voice_vibrato": 4.355,
+          "voice_articulation": 10.139999999999999,
+          "voice_microtone": 0.6699999999999997,
+          "voice_tradition": 87.34049999999999,
+          "voice_mechanism_compound": 1.365,
+          "voice_estill_quality": 1.4299999999999997,
+          "voice_speech_song": 20.019999999999996,
+          "voice_ensemble_config": 8.614,
+          "voice_ornament_system": 29.0545,
+          "voice_pitch_organization": 12.111249999999997,
+          "voice_processing_chain": 1.7874999999999996,
+          "voice_multitrack_stack": 0.78
         }
       },
       {
@@ -64,13 +64,13 @@
           "kora_lineage": "kora_suso_lineage"
         },
         "scores": {
-          "plucked_traditional_technique": 11.959999999999999,
-          "kora_strings": 0.7224999999999999,
-          "kora_resonator": 2.47,
-          "kora_strings_mat": 2.47,
-          "kora_top_skin": 3.769999999999999,
-          "kora_neck_wood": 3.3799999999999994,
-          "kora_lineage": 4.55
+          "plucked_traditional_technique": 20.409999999999997,
+          "kora_strings": 0.9099999999999999,
+          "kora_resonator": 4.355,
+          "kora_strings_mat": 4.55,
+          "kora_top_skin": 4.615,
+          "kora_neck_wood": 4.29,
+          "kora_lineage": 7.279999999999999
         }
       }
     ],

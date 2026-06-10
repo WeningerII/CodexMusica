@@ -3,8 +3,8 @@
   "name": "Detroit techno",
   "family": "electronic",
   "lineage": "Mid-1980s Detroit electronic dance music genre developed by the Belleville Three (Juan Atkins, Derrick May, Kevin Saunderson) drawing on Kraftwerk's electronic vocabulary, Parliament-Funkadelic's Afrofuturist aesthetic, and Chicago house's rhythmic foundation — codified through Cybotron (Clear 1983), Model 500, Rhythim Is Rhythim (Strings of Life 1987), Inner City (Big Fun 1988), and the labels Metroplex, Transmat, KMS",
-  "recipe": "classic 1984-1986 detroit techno, electronic Dance, techno branch, idm glitch experimental electric idm and experimental electronic drill'n'bass. drum machine analog, analog synth. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette tape echo.",
-  "recipe_chars": 302,
+  "recipe": "classic 1984-1986 detroit techno, electronic Dance, techno branch, idm glitch experimental electric idm and experimental electronic drill'n'bass. drum machine analog, sub bass analog synth. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette tape echo.",
+  "recipe_chars": 311,
   "score": 21.005,
   "config": {
     "traditions": [
@@ -25,7 +25,7 @@
           "kick_voice": 0,
           "snare_voice": 0,
           "hat_voice": 0,
-          "shuffle_quantize": 0.7149999999999999
+          "shuffle_quantize": 2.123
         }
       },
       {
@@ -38,11 +38,11 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 0.245,
-          "oscillator": 0.39,
-          "filter_topology": 1.69,
-          "envelope": 1.3,
-          "modulation": 0.15
+          "electronic_technique": 3.4450000000000003,
+          "oscillator": 3.6399999999999997,
+          "filter_topology": 6.342375,
+          "envelope": 2.43,
+          "modulation": 0.65
         }
       }
     ],

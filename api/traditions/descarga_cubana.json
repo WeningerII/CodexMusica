@@ -3,8 +3,8 @@
   "name": "Descarga (Cuban jam session)",
   "family": "jazz",
   "lineage": "Cuban improvisational ensemble-form developed in 1950s Havana through after-hours jam sessions at Tropicana, Sans Souci, Habana Hilton hotel-clubs. Combines son montuno rhythmic framework with jazz-improvisational solos over canonical guajeo ostinato. Cachao y Su Ritmo Caliente sessions (1957, Israel \"Cachao\" López) are the foundational recorded document. Post-1960 exile to Miami and New York extended into broader Latin-jazz.",
-  "recipe": "classic tropical mid-1950s descarga, improv On Frame, Latin jazz branch, American jazz fusion nu jazz / electro-jazz acid jazz. thick, rap, nervy, punctuated. grand piano, growly gut upright bass, jazz leaning cedar canonical Cuban tres cubano, bronze open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 548,
+  "recipe": "classic tropical mid-1950s descarga, improv On Frame, Latin jazz branch, American jazz fusion nu jazz / electro-jazz acid jazz. thick, rap, nervy, punctuated. cold pressed wurzen felt oversize maple tension resonator grand piano, gut chord melody upright bass, jazz leaning cedar canonical Cuban strummed tres cubano, bronze open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 621,
   "score": 354.56,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 14.198749999999995,
-          "voice_quality": 1.56,
+          "voice_register": 39.748750000000015,
+          "voice_quality": 4.5825000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 1.69,
-          "voice_microtone": 14.354999999999997,
-          "voice_tradition": 18.85,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 1.964,
-          "voice_multitrack_stack": 1.69
+          "voice_vibrato": 2.403,
+          "voice_articulation": 3.38,
+          "voice_microtone": 37.35500000000001,
+          "voice_tradition": 45.50025000000001,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 4.203,
+          "voice_speech_song": 9.684999999999999,
+          "voice_ensemble_config": 9.165,
+          "voice_ornament_system": 2.253,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 6.86825,
+          "voice_multitrack_stack": 4.225
         }
       },
       {
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 2.0265,
+          "keyboard_technique": 3.9765,
           "grand_piano_size": 0.2265,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 0.8449999999999999,
-          "piano_rim": 0.8449999999999999,
-          "piano_soundboard": -0.035,
+          "grand_piano_brand": 2.403,
+          "piano_hammer": 4.485,
+          "piano_rim": 4.485,
+          "piano_soundboard": 0.78,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.7149999999999999
         }
       },
       {
@@ -85,9 +85,9 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 2.0130000000000003,
-          "upright_strings": 14.5,
-          "upright_play": 14.5
+          "acoustic_technique": 3.9630000000000005,
+          "upright_strings": 37.50000000000001,
+          "upright_play": 37.50000000000001
         }
       },
       {
@@ -100,10 +100,10 @@
           "tres_cubano_strings": "tres_cubano_octave_doubled"
         },
         "scores": {
-          "plucked_traditional_technique": 1.625,
-          "tres_courses": 3.445,
-          "tres_cubano_context": 7.54,
-          "tres_cubano_body_wood": 4.68,
+          "plucked_traditional_technique": 5.85,
+          "tres_courses": 4.095000000000001,
+          "tres_cubano_context": 19.5,
+          "tres_cubano_body_wood": 6.0275,
           "tres_cubano_strings": 0.1005
         }
       },
@@ -116,7 +116,7 @@
         },
         "scores": {
           "percussion_technique": 7.076999999999999,
-          "timbales_shell": 7.54,
+          "timbales_shell": 19.5,
           "timbales_context": 2.3
         }
       },
@@ -131,8 +131,8 @@
         "scores": {
           "percussion_technique": 7.076999999999999,
           "conga_set": 1.3,
-          "conga_skin": 4.68,
-          "conga_shell_wood": 4.68
+          "conga_skin": 6.0275,
+          "conga_shell_wood": 6.0275
         }
       }
     ],

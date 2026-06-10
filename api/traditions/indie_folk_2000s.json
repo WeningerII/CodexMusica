@@ -3,8 +3,8 @@
   "name": "Indie folk (2000s)",
   "family": "global",
   "lineage": "2000s American indie-folk subgenre characterized by acoustic-guitar-led intimate arrangement, literate-introspective lyrical content, and indie-rock-derived production aesthetic — codified through Iron and Wine (The Creek Drank the Cradle 2002), Sufjan Stevens (Illinois 2005), Bon Iver (For Emma Forever Ago 2007), Fleet Foxes (Fleet Foxes 2008), and the broader Sub Pop and Saddle Creek roster of the period",
-  "recipe": "classic indie folk, ballad Poetry, indie folk branch, pop rock functional song folk rock new wave. thick, incomplete closure resting, melodic, equal tempered. fingerpicked acoustic guitar, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick strummed banjo 5 string, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, bowl back Italian redwood hard rock maple k and k twin internal mounted mandolin. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 655,
+  "recipe": "classic indie folk, ballad Poetry, indie folk branch, pop rock functional song folk rock new wave. thick, incomplete closure resting, melodic, narrative. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, walnut mid tier light steel clawhammer canon scruggs stelling banjo 5 string, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, bowl back Italian redwood hard rock maple phosphor bronze bronze mandolin. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 659,
   "score": 723.254,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 27.179999999999993,
+          "voice_register": 71.40500000000002,
           "voice_quality": 1.9349999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2349999999999999,
-          "voice_articulation": 0.45,
-          "voice_microtone": 12.049999999999997,
-          "voice_tradition": 18.264999999999997,
-          "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 2.145,
-          "voice_speech_song": 11.114999999999997,
-          "voice_ensemble_config": 8.579999999999998,
-          "voice_ornament_system": 1.785,
+          "voice_vibrato": 4.153125,
+          "voice_articulation": 0.8249999999999998,
+          "voice_microtone": 43.050000000000004,
+          "voice_tradition": 33.21499999999999,
+          "voice_mechanism_compound": 2.7299999999999995,
+          "voice_estill_quality": 5.8825,
+          "voice_speech_song": 24.82999999999999,
+          "voice_ensemble_config": 18.394999999999992,
+          "voice_ornament_system": 2.0850000000000004,
           "voice_pitch_organization": 1.18,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 7.751249999999999
+          "voice_processing_chain": 8.719375,
+          "voice_multitrack_stack": 8.02625
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 17.699999999999996,
-          "string_tuning": 0,
-          "top_wood": 0.81,
-          "back_sides": 0.765,
-          "string_acoustic": 0.9,
-          "acoustic_om_technique": 17.699999999999996
+          "acoustic_technique": 29.87499999999999,
+          "string_tuning": 0.515,
+          "top_wood": 2.08,
+          "back_sides": 2.08,
+          "string_acoustic": 2.08,
+          "acoustic_om_technique": 29.87499999999999
         }
       },
       {
@@ -87,17 +87,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 14.737499999999997,
-          "banjo_back": 0.135,
-          "tone_ring": 0.275625,
-          "banjo_head": 8.319999999999999,
-          "banjo_pot": 0.135,
-          "banjo_play": 0.24,
-          "banjo_rim_wood": 0.18,
-          "banjo_neck_wood": 0.765,
-          "banjo_strings": 0.70875,
-          "banjo_bridge": 0.045,
-          "banjo_setup_period": 8.254999999999999
+          "plucked_traditional_technique": 24.989374999999995,
+          "banjo_back": 0.195,
+          "tone_ring": 0.195,
+          "banjo_head": 18.329999999999995,
+          "banjo_pot": 0.195,
+          "banjo_play": 0.195,
+          "banjo_rim_wood": 0.325,
+          "banjo_neck_wood": 2.08,
+          "banjo_strings": 1.04,
+          "banjo_bridge": 0.195,
+          "banjo_setup_period": 18.069999999999993
         }
       },
       {
@@ -113,14 +113,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 3.7049999999999996,
-          "body_wood": 1.5300000000000002,
-          "pickup_config": 0.6187499999999999,
-          "string_type": 9.424999999999999,
-          "scale_length_b": 0.765,
-          "fretted_or_not": 0.045,
-          "bass_technique": 7.289999999999999
+          "electric_technique": 4.1899999999999995,
+          "amp_make": 14.169999999999998,
+          "body_wood": 2.08,
+          "pickup_config": 0.195,
+          "string_type": 33.926249999999996,
+          "scale_length_b": 2.08,
+          "fretted_or_not": 0.195,
+          "bass_technique": 30.865
         }
       },
       {
@@ -139,17 +139,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 8.189999999999998,
+          "percussion_technique": 20.929999999999996,
           "shell_wood": 0.8312499999999999,
-          "shell_thickness": 0.045,
-          "bearing_edges": 0.765,
-          "drumhead": 5.04,
-          "snare_wires": 0.765,
-          "cymbal_alloy": 12.385,
-          "cymbal_hammering": 12.993125,
-          "cymbal_lathing": 12.520624999999999,
-          "cymbal_finish": 0.375,
-          "drum_technique": 8.189999999999998
+          "shell_thickness": 0.195,
+          "bearing_edges": 2.08,
+          "drumhead": 17.089999999999996,
+          "snare_wires": 2.08,
+          "cymbal_alloy": 43.53499999999999,
+          "cymbal_hammering": 44.568124999999995,
+          "cymbal_lathing": 44.09562499999999,
+          "cymbal_finish": 0.195,
+          "drum_technique": 26.669999999999998
         }
       },
       {
@@ -165,14 +165,14 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 5.875625,
-          "mandolin_shape": 6.889999999999999,
-          "mandolin_top": 1.05,
-          "mandolin_back": 3.769999999999999,
-          "mandolin_bracing": 0.9524999999999999,
-          "mandolin_strings": 0.9,
-          "mandolin_fingerboard": 0.045,
-          "mandolin_pickup": 10.009999999999998
+          "acoustic_technique": 19.225624999999997,
+          "mandolin_shape": 11.651249999999996,
+          "mandolin_top": 2.08,
+          "mandolin_back": 13.844999999999999,
+          "mandolin_bracing": 0.585,
+          "mandolin_strings": 2.08,
+          "mandolin_fingerboard": 2.015,
+          "mandolin_pickup": 20.604999999999997
         }
       }
     ],

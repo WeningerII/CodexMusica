@@ -3,8 +3,8 @@
   "name": "Reggae roots",
   "family": "global",
   "lineage": "Jamaican roots reggae genre that emerged in the early-to-mid 1970s as the Rastafarian-political-prophetic extension of ska and rocksteady — recordings tracked at Channel One Studios (the Sly and Robbie / Roots Radics house band era), Studio One, and Treasure Isle through Bob Marley and the Wailers (Catch a Fire 1973, Natty Dread 1974, Rastaman Vibration 1976), Peter Tosh, Bunny Wailer, Burning Spear (Marcus Garvey 1975), Culture (Two Sevens Clash 1977), the Mighty Diamonds, the Abyssinians, Israel Vibration",
-  "recipe": "classic tropical 1974-1976 reggae roots, bass System, Jamaican branch, Afro-diasporic ritual devotional umbanda ceremonial paranda. kargyraa, declaimed, chest resonance low mid, punctuated. mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, mahogany rosewood single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, folk hohner melodica canonical 1959 dub roots tradition melodica. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips roland RE-201 space echo spring reverb.",
-  "recipe_chars": 818,
+  "recipe": "classic tropical 1974-1976 reggae roots, bass System, Jamaican branch, Afro-diasporic ritual devotional umbanda ceremonial paranda. kargyraa, declaimed, chest resonance low mid, punctuated. mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, mahogany hot rolled annealed machine hammered symmetric pattern drum kit, mahogany rosewood single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, folk hohner melodica canonical 1959 dub roots tradition melodica. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips roland RE-201 space echo spring reverb.",
+  "recipe_chars": 812,
   "score": 159.325,
   "config": {
     "traditions": [
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 3.0450000000000004,
-          "voice_quality": 2.945,
+          "voice_quality": 7.770000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.6,
           "voice_articulation": 0.69,
           "voice_microtone": 1.2499999999999996,
-          "voice_tradition": 2.2749999999999995,
+          "voice_tradition": 6.629999999999999,
           "voice_mechanism_compound": 2.4949999999999997,
-          "voice_estill_quality": 2.275,
-          "voice_speech_song": 9.034999999999998,
-          "voice_ensemble_config": 8.579999999999998,
-          "voice_ornament_system": 1.875,
-          "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 4.745000000000001,
-          "voice_multitrack_stack": 2.6500000000000004
+          "voice_estill_quality": 2.6650000000000005,
+          "voice_speech_song": 13.259999999999996,
+          "voice_ensemble_config": 13.454999999999995,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 4.8950000000000005,
+          "voice_multitrack_stack": 3.1500000000000004
         }
       },
       {
@@ -66,10 +66,10 @@
         },
         "scores": {
           "electric_technique": 6.449999999999999,
-          "amp_make": 2.8,
+          "amp_make": 2.895000000000001,
           "body_wood": 1.69,
           "pickup_config": 0.09,
-          "string_type": 4.645,
+          "string_type": 5.145,
           "scale_length_b": 1.6,
           "fretted_or_not": 0.3,
           "bass_technique": 6.449999999999999
@@ -91,8 +91,8 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 8.579999999999998,
-          "shell_wood": 0.39,
+          "percussion_technique": 12.804999999999994,
+          "shell_wood": 1.04,
           "shell_thickness": 0.3,
           "bearing_edges": 1.69,
           "drumhead": 1.6,
@@ -101,7 +101,7 @@
           "cymbal_hammering": 1.8499999999999996,
           "cymbal_lathing": 1.8499999999999996,
           "cymbal_finish": 0,
-          "drum_technique": 8.579999999999998
+          "drum_technique": 12.804999999999994
         }
       },
       {
@@ -132,7 +132,7 @@
           "bridge": 0.39,
           "scale_length": 1.69,
           "finish": 0,
-          "string_tuning": 1.17
+          "string_tuning": 1.8199999999999998
         }
       },
       {
@@ -149,8 +149,8 @@
           "keyboard_technique": -0.07,
           "drawbar_setting": 1.65,
           "rotary_speed": 1.54,
-          "percussion_setting": 0.78,
-          "tonewheel_model": 2.925,
+          "percussion_setting": 0.9450000000000001,
+          "tonewheel_model": 5.525,
           "leslie_cabinet_model": 1
         }
       },
@@ -165,8 +165,8 @@
         "scores": {
           "keyboard_technique": -0.07,
           "melodica_use": 1.6,
-          "melodica_pitch": 0.645,
-          "melodica_maker_school": 4.615
+          "melodica_pitch": 0.795,
+          "melodica_maker_school": 6.5
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Les Six (French interwar)",
   "family": "classical",
   "lineage": "French interwar composer-collective (Georges Auric, Louis Durey, Arthur Honegger, Darius Milhaud, Francis Poulenc, Germaine Tailleferre) named in 1920 by critic Henri Collet by analogy with the Russian Mighty Five. Aesthetic of Cocteau-inspired anti-Romantic clarity, accessible-melodic neoclassicism, jazz-and-popular-music integration, and Parisian cafe-and-music-hall aesthetic. Erik Satie served as elder-mentor figure. The 1921 Les Mariés de la tour Eiffel ballet (collective composition) is the canonical group-document.",
-  "recipe": "classic North American early-1920s les six, art Music, western modern branch, western common practice art music the mighty handful early romantic. thick, melodic, equal tempered, operatic. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral. intimate paris small studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 527,
+  "recipe": "classic North American early-1920s les six, art Music, western modern branch, western common practice art music the mighty handful early romantic. thick, low dynamic level, melodic, narrative. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral. intimate paris small studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 529,
   "score": 256.367,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 6.600000000000001,
-          "voice_quality": 0.3,
+          "voice_register": 10.825000000000001,
+          "voice_quality": 0.6499999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 0.24,
-          "voice_microtone": 11.765,
-          "voice_tradition": 4.875,
-          "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 3.1200000000000006,
-          "voice_speech_song": 7.02,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 2.4450000000000003,
-          "voice_pitch_organization": 2.4000000000000004,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 1.609375
+          "voice_vibrato": 3.3150000000000004,
+          "voice_articulation": 1.4299999999999997,
+          "voice_microtone": 17.84625,
+          "voice_tradition": 8.125,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 6.279375000000001,
+          "voice_speech_song": 14.884999999999998,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 4.945,
+          "voice_pitch_organization": 4.9,
+          "voice_processing_chain": 4.225,
+          "voice_multitrack_stack": 2.2593750000000004
         }
       },
       {
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 2.5,
-          "grand_piano_size": 1.2,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 8.125,
-          "piano_rim": 8.095,
-          "piano_soundboard": 6.25,
-          "piano_pinblock": 6.4,
-          "piano_plate": 6.34,
-          "piano_pitch_standard": 7.684375
+          "keyboard_technique": 5,
+          "grand_piano_size": 0.45499999999999996,
+          "grand_piano_brand": 3.185,
+          "piano_hammer": 14.495000000000001,
+          "piano_rim": 12.995000000000001,
+          "piano_soundboard": 10.5,
+          "piano_pinblock": 10.65,
+          "piano_plate": 10.59,
+          "piano_pitch_standard": 13.234375
         }
       },
       {
@@ -92,16 +92,16 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.5,
-          "orch_strings": 1.17,
-          "orch_top_wood": 4.389375,
-          "orch_back_wood": 7.735,
-          "orch_varnish": 6.25,
-          "orch_setup_period": 5.483125,
-          "orch_bow": 1.69,
-          "orch_bow_stick": 8.06,
-          "orch_articulation": 1.69,
-          "orch_rosin": 6.25
+          "bowed_technique": 5,
+          "orch_strings": 0.78,
+          "orch_top_wood": 6.789375000000001,
+          "orch_back_wood": 12.870000000000001,
+          "orch_varnish": 10.5,
+          "orch_setup_period": 9.733125,
+          "orch_bow": 3.185,
+          "orch_bow_stick": 13.584999999999999,
+          "orch_articulation": 2.99,
+          "orch_rosin": 12.610000000000001
         }
       }
     ],

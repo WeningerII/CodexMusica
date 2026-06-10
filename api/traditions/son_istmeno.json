@@ -3,8 +3,8 @@
   "name": "Son istmeño (Oaxaca Isthmus)",
   "family": "global",
   "lineage": "Regional Mexican son tradition of the Isthmus of Tehuantepec (southeastern Oaxaca), the Zapotec-cultural-region southern-Mexican-Pacific lowland. Zapotec-language vocal repertoire alongside Spanish, characteristic 6/8 alternating-with-3/4, and Tehuana-feminine cultural register. Marimba ensemble (parallel to but distinct from Guatemalan Maya marimba), acoustic-guitar, voice. La Sandunga (Andrés Gutiérrez 1853) is the unofficial Zapotec anthem.",
-  "recipe": "classic early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion pagode baião. vocal fry, intimate aspirated, punctuated, Chinese classical vocal. marimba orchestral, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 443,
+  "recipe": "classic early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion pagode baião. vocal fry, intimate aspirated, punctuated, equal tempered. marimba orchestral, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 434,
   "score": 72.568,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 1.25,
+          "voice_register": 2.0799999999999996,
+          "voice_quality": 10.994999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.38999999999999996,
-          "voice_articulation": 0.9299999999999999,
-          "voice_microtone": 0.045,
-          "voice_tradition": 4.875000000000001,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 1.625,
-          "voice_ensemble_config": 3.38,
+          "voice_articulation": 0.585,
+          "voice_microtone": 1.4999999999999998,
+          "voice_tradition": 6.8575,
+          "voice_mechanism_compound": 4.159999999999999,
+          "voice_estill_quality": 5.8825,
+          "voice_speech_song": 13.259999999999998,
+          "voice_ensemble_config": 12.414999999999996,
           "voice_ornament_system": 3.2,
-          "voice_pitch_organization": 1.2899999999999998,
-          "voice_processing_chain": 2.07,
-          "voice_multitrack_stack": 1.69
+          "voice_pitch_organization": 2.0900000000000003,
+          "voice_processing_chain": 3.5949999999999998,
+          "voice_multitrack_stack": 2.9575
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "marimba_size": 0.15,
+          "marimba_size": 0.195,
           "marimba_orchestral_bar": 0.15
         }
       },
@@ -77,9 +77,9 @@
         "scores": {
           "acoustic_technique": 2.05,
           "string_tuning": 0,
-          "top_wood_parlor": 0.24,
+          "top_wood_parlor": 0.21,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.24
+          "string_acoustic_parlor": 0.845
         }
       }
     ],

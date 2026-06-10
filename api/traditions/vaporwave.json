@@ -3,8 +3,8 @@
   "name": "Vaporwave",
   "family": "global",
   "lineage": "2010s online-distributed electronic micro-genre nostalgically recontextualizing 1980s-1990s corporate-mall-and-soft-rock background music through pitch-shifting, chopping, and ironic-commentary visual presentation — codified through Macintosh Plus (Floral Shoppe 2011, the founding vaporwave album), Vektroid, Saint Pepsi, Blank Banshee, and continuing through the broader online-aesthetic vaporwave subscene",
-  "recipe": "classic mid-2010s vaporwave, experimental Elec, lofi branch, retro aesthetic experimental electric synthwave. sampler drum string machine, tape replay keyboard, analog synth. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 292,
+  "recipe": "classic mid-2010s vaporwave, experimental Elec, lofi branch, retro aesthetic experimental electric synthwave. sampler drum string machine, tape replay keyboard, singing lead analog synth. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 305,
   "score": 24.829,
   "config": {
     "traditions": [
@@ -23,8 +23,8 @@
         "scores": {
           "electronic_technique": 0.26,
           "sample_bitdepth": 0.8451249999999999,
-          "sample_swing": 4,
-          "sample_processing": 0.8049999999999999
+          "sample_swing": 7.25,
+          "sample_processing": 1.1549999999999998
         }
       },
       {
@@ -35,7 +35,7 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": 2.825,
           "tape_voice": 0,
           "tape_state": 0.042749999999999996
         }
@@ -50,7 +50,7 @@
         },
         "scores": {
           "electronic_technique": 0.8244999999999999,
-          "sm_voice_count": 1.4300000000000002,
+          "sm_voice_count": 3.12,
           "sm_chorus": 0.3,
           "sm_voicing": 0.0315
         }
@@ -65,9 +65,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 0.8244999999999999,
-          "oscillator": 0.3,
-          "filter_topology": 0.22937499999999997,
+          "electronic_technique": 5.625,
+          "oscillator": 0.65,
+          "filter_topology": 0.975,
           "envelope": 0.39,
           "modulation": 0.18525
         }

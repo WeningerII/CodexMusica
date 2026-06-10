@@ -3,8 +3,8 @@
   "name": "Bro-country",
   "family": "global",
   "lineage": "2010s mainstream country-pop-rap hybrid codified through Florida Georgia Line \"Cruise\" (2012), Luke Bryan, Jason Aldean, and the Nashville radio-format that adopted hip-hop-derived production cues — characterized by 808-bass-and-drum-machine programming, party-celebrating lyrical subject matter, and pop-rock guitar work over country-vocal lead",
-  "recipe": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany la bella flats electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 654,
+  "recipe": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 682,
   "score": 368.056,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 22.349999999999994,
+          "voice_register": 25.774999999999995,
           "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.23375,
-          "voice_articulation": 3.1950000000000003,
+          "voice_vibrato": 15.18375,
+          "voice_articulation": 9.845,
           "voice_microtone": 8.799999999999997,
-          "voice_tradition": 6.825,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 14.697499999999998,
-          "voice_speech_song": 7.995,
-          "voice_ensemble_config": 4.55,
-          "voice_ornament_system": 0.15,
-          "voice_pitch_organization": 2.3437499999999996,
-          "voice_processing_chain": 5.495,
-          "voice_multitrack_stack": 4.16
+          "voice_tradition": 11.2825,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 16.647499999999997,
+          "voice_speech_song": 13.73625,
+          "voice_ensemble_config": 10.464999999999996,
+          "voice_ornament_system": 0.6499999999999999,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 8.72,
+          "voice_multitrack_stack": 7.117500000000001
         }
       },
       {
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": 13.095,
-          "amp_make": 12.794999999999998,
-          "body_wood": 3.6675,
-          "neck_wood": 1.32375,
-          "fretboard": 0.63375,
+          "amp_make": 16.819999999999997,
+          "body_wood": 2.535,
+          "neck_wood": 0.845,
+          "fretboard": 0.845,
           "pickup_magnet": 0.585,
           "pickup_winding": 0.5399999999999999,
-          "string_material": 0.63375,
-          "bridge": 1.32375,
-          "scale_length": 3.3674999999999993,
-          "string_gauge": 1.7625000000000002,
+          "string_material": 0.845,
+          "bridge": 0.845,
+          "scale_length": 2.535,
+          "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 3.6075
+          "string_tuning": 4.225
         }
       },
       {
@@ -98,12 +98,12 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "electric_technique": 0.2,
+          "electric_technique": 3.275000000000001,
           "amp_make": 12.794999999999998,
-          "body_wood": 2.6475,
+          "body_wood": 0.845,
           "pickup_config": 1.3199999999999998,
-          "string_type": 3.445,
-          "scale_length_b": 1.32375,
+          "string_type": 6.272500000000001,
+          "scale_length_b": 0.9299999999999999,
           "fretted_or_not": 0.24,
           "bass_technique": 13.095
         }
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 4.9399999999999995,
-          "shell_wood": 0.63375,
+          "percussion_technique": 10.854999999999997,
+          "shell_wood": 0.845,
           "shell_thickness": 0,
-          "bearing_edges": 1.51875,
+          "bearing_edges": 0.845,
           "drumhead": 5.699999999999999,
-          "snare_wires": 1.32375,
+          "snare_wires": 0.845,
           "cymbal_alloy": 9,
           "cymbal_hammering": 10.19,
           "cymbal_lathing": 8.995,
-          "cymbal_finish": 0.63375,
-          "drum_technique": 4.9399999999999995
+          "cymbal_finish": 0.845,
+          "drum_technique": 10.854999999999997
         }
       },
       {
@@ -153,17 +153,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 4.55,
-          "banjo_back": 0.63375,
+          "plucked_traditional_technique": 10.464999999999996,
+          "banjo_back": 0.845,
           "tone_ring": 0.24,
-          "banjo_head": 4.68,
-          "banjo_pot": 0.63375,
+          "banjo_head": 10.594999999999999,
+          "banjo_pot": 0.845,
           "banjo_play": 0.39,
           "banjo_rim_wood": 0,
-          "banjo_neck_wood": 1.12875,
+          "banjo_neck_wood": 0.845,
           "banjo_strings": 0.39,
           "banjo_bridge": 0,
-          "banjo_setup_period": 4.615
+          "banjo_setup_period": 10.529999999999998
         }
       },
       {
@@ -176,11 +176,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 3.73,
-          "sampler_archetypes": 5.2,
+          "electronic_technique": 6.955000000000001,
+          "sampler_archetypes": 10.790000000000001,
           "sampler_bit_depth": 1.6649999999999998,
-          "sampler_workflow": 3.9,
-          "sampler_classic_context": 8.58
+          "sampler_workflow": 9.09375,
+          "sampler_classic_context": 18.6875
         }
       }
     ],

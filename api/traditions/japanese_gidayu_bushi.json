@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 2.8729999999999998,
-          "voice_quality": 2.7950000000000004,
+          "voice_quality": 4.29,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
-          "voice_articulation": 5.2715000000000005,
-          "voice_microtone": 1.69,
-          "voice_tradition": 16.705,
-          "voice_mechanism_compound": 2.6944999999999997,
-          "voice_estill_quality": 8.215,
-          "voice_speech_song": 14.885000000000003,
-          "voice_ensemble_config": 15.730000000000002,
-          "voice_ornament_system": 2.7,
-          "voice_pitch_organization": 4.68,
-          "voice_processing_chain": 4.485,
-          "voice_multitrack_stack": 4.068
+          "voice_vibrato": 1.95,
+          "voice_articulation": 8.2215,
+          "voice_microtone": 2.508,
+          "voice_tradition": 20.572499999999998,
+          "voice_mechanism_compound": 3.65,
+          "voice_estill_quality": 12.414999999999997,
+          "voice_speech_song": 27.950000000000003,
+          "voice_ensemble_config": 26.259999999999998,
+          "voice_ornament_system": 4.8195,
+          "voice_pitch_organization": 5.27,
+          "voice_processing_chain": 7.735,
+          "voice_multitrack_stack": 4.718
         }
       },
       {
@@ -64,13 +64,13 @@
           "shamisen_tradition": "shamisen_nagauta"
         },
         "scores": {
-          "plucked_traditional_technique": 2.713,
-          "shamisen_size": 2.6,
-          "shamisen_skin": 1.3,
-          "shamisen_pick": 1.2349999999999999,
-          "shamisen_neck_wood": 4.615,
-          "shamisen_strings": 5.9695,
-          "shamisen_tradition": 5.2905
+          "plucked_traditional_technique": 3.963,
+          "shamisen_size": 3.25,
+          "shamisen_skin": 2.0265,
+          "shamisen_pick": 1.885,
+          "shamisen_neck_wood": 5.115,
+          "shamisen_strings": 6.4695,
+          "shamisen_tradition": 7.0405
         }
       }
     ],

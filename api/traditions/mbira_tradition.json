@@ -22,9 +22,9 @@
           "mbira_buzz": "metal_beads"
         },
         "scores": {
-          "tine_material": 0.3,
+          "tine_material": 0.585,
           "mbira_board": 2.47,
-          "mbira_resonator": 3.25,
+          "mbira_resonator": 3.4450000000000003,
           "mbira_buzz": 0.63
         }
       },
@@ -49,22 +49,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 0.9749999999999996,
+          "voice_register": 1.5599999999999994,
           "voice_quality": 1.4849999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.9299999999999999,
-          "voice_articulation": 0.78,
-          "voice_microtone": 0.195,
-          "voice_tradition": 8.45,
-          "voice_mechanism_compound": 3.6399999999999997,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 4.874999999999999,
-          "voice_ensemble_config": 4.809999999999999,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 1.605,
-          "voice_processing_chain": 6.6,
-          "voice_multitrack_stack": 3.26
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.975,
+          "voice_microtone": 0.9999999999999998,
+          "voice_tradition": 22.424999999999997,
+          "voice_mechanism_compound": 5.915000000000001,
+          "voice_estill_quality": 6.532500000000001,
+          "voice_speech_song": 12.024999999999995,
+          "voice_ensemble_config": 11.309999999999995,
+          "voice_ornament_system": 5.395,
+          "voice_pitch_organization": 5.395,
+          "voice_processing_chain": 8.35,
+          "voice_multitrack_stack": 3.5599999999999996
         }
       },
       {
@@ -74,8 +74,8 @@
           "shekere_beads": "shekere_seed"
         },
         "scores": {
-          "shekere_size": 1.95,
-          "shekere_beads": 1.69
+          "shekere_size": 2.34,
+          "shekere_beads": 6.305
         }
       }
     ],

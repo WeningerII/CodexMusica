@@ -3,8 +3,8 @@
   "name": "Yambú",
   "family": "global",
   "lineage": "Slow-tempo Cuban rumba subform 1850s-onward, the oldest of the three rumba subforms and the precursor parent-form to guaguanco and rumba-columbia. Traditionally played on cajones wooden-shipping-crate-percussion (originating in dockworker-and-warehouse-improvised-drumming) rather than congas, alongside palitos stick-rhythm-and-clave 3-2 wood-block. Performed at funerals, wakes, and elder-honoring contexts, the yambú is the only rumba subform that prohibits the vacunao symbolic-pursuit choreographic-element — the dance is restrained, near-stationary, with subtle-hip-rotational gesture and exaggerated-elderly-mock-tremulous movement. The repertoire preserves the oldest pre-conga rumba percussion vocabulary.",
-  "recipe": "classic mid-1850s yambú, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. blues-shouter, Yoruba tonal vocal, m1 with m0 pulse borrowing, opera quality low larynx anchored. wood festejo tradition open back Afro peruvian tradition cajon peruano, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 738,
+  "recipe": "classic mid-1850s yambú, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, blues-shouter, punctuated, blues inflected. open back Afro peruvian tradition festejo tradition cajon peruano, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 691,
   "score": 156.59,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 0.345,
+          "voice_register": 1.4299999999999993,
           "voice_quality": 11.594999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.3,
-          "voice_articulation": 0.39,
-          "voice_microtone": 0.39,
-          "voice_tradition": 5.265,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 2.7950000000000004,
-          "voice_speech_song": 10.855,
-          "voice_ensemble_config": 10.399999999999999,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 1.56,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 1.69
+          "voice_articulation": 0.585,
+          "voice_microtone": 0.585,
+          "voice_tradition": 18.2975,
+          "voice_mechanism_compound": 3.3149999999999995,
+          "voice_estill_quality": 4.2250000000000005,
+          "voice_speech_song": 15.339999999999996,
+          "voice_ensemble_config": 14.689999999999996,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 8.0795,
+          "voice_processing_chain": 2.795,
+          "voice_multitrack_stack": 2.535
         }
       },
       {
@@ -59,8 +59,8 @@
           "cajon_peruano_role": "cajon_peruano_festejo"
         },
         "scores": {
-          "cajon_peruano_construction": 3.38,
-          "cajon_peruano_role": 0.78
+          "cajon_peruano_construction": 6.825,
+          "cajon_peruano_role": 2.47
         }
       },
       {
@@ -72,10 +72,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 3.575,
-          "conga_set": 0.39,
-          "conga_skin": 4.645,
-          "conga_shell_wood": 4.645
+          "percussion_technique": 10.627499999999998,
+          "conga_set": 1.2349999999999999,
+          "conga_skin": 4.794999999999999,
+          "conga_shell_wood": 4.794999999999999
         }
       },
       {
@@ -85,7 +85,7 @@
           "claves_wood": "claves_cuban_hardwood"
         },
         "scores": {
-          "claves_pattern": 7.799999999999999,
+          "claves_pattern": 11.83,
           "claves_wood": 1.3
         }
       },
@@ -98,10 +98,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 3.77,
-          "choir_polyphonic_configuration": 1.69,
-          "choir_regional_canonical_configuration": 1.69,
-          "choir_ensemble_repertoire": 1.69
+          "choir_size": 5.3950000000000005,
+          "choir_polyphonic_configuration": 3.38,
+          "choir_regional_canonical_configuration": 3.38,
+          "choir_ensemble_repertoire": 4.485
         }
       }
     ],

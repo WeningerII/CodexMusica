@@ -3,8 +3,8 @@
   "name": "Trío romántico (Mexican bolero trio)",
   "family": "pop",
   "lineage": "Mexican trío romántico bolero-trio tradition emerging in 1930s-1940s Mexico City. Three-male-voice harmonized chorus with two acoustic guitars and one requinto (smaller higher-tuned lead guitar). Trio Los Panchos (founded 1944, New York) crystallized the form, established the requinto-lead-with-three-voice-harmony as canonical, and exported the genre internationally throughout Latin America.",
-  "recipe": "classic tropical mid-1930s trío romántico, functional Song, Mexican branch, Latin am troubadour ballad poetry milonga filipino kundiman. thick, full chest belt, melodic, equal tempered. parlor acoustic guitar, cedrillo canonical veracruz requinto jarocho. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 449,
+  "recipe": "classic tropical mid-1930s trío romántico, functional Song, Mexican branch, Latin am troubadour ballad poetry milonga filipino kundiman. thick, full chest belt, melodic, equal tempered. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cedrillo canonical veracruz strummed requinto jarocho. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 500,
   "score": 114.279,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 2.8400000000000003,
+          "voice_register": 7.590000000000002,
           "voice_quality": 5.1000000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.87375,
-          "voice_articulation": 0.32999999999999996,
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 0.39,
           "voice_microtone": 2.250000000000001,
-          "voice_tradition": 1.56,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 5.265,
-          "voice_ensemble_config": 8.19,
-          "voice_ornament_system": 3.25,
-          "voice_pitch_organization": 2.65,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 4.27875
+          "voice_tradition": 9.685000000000002,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 5.915000000000001,
+          "voice_speech_song": 19.304999999999996,
+          "voice_ensemble_config": 15.274999999999995,
+          "voice_ornament_system": 3.445,
+          "voice_pitch_organization": 5.264999999999999,
+          "voice_processing_chain": 3.5749999999999993,
+          "voice_multitrack_stack": 4.92875
         }
       },
       {
@@ -62,11 +62,11 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 2.45,
+          "acoustic_technique": 7.695,
           "string_tuning": 0,
-          "top_wood_parlor": 0.67875,
+          "top_wood_parlor": 1.2349999999999999,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.67875
+          "string_acoustic_parlor": 1.2349999999999999
         }
       },
       {
@@ -79,11 +79,11 @@
           "requinto_jarocho_strings": "requinto_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
-          "requinto_jarocho_pluck": 1.1612500000000001,
+          "plucked_traditional_technique": 7.13,
+          "requinto_jarocho_pluck": 1.2349999999999999,
           "requinto_jarocho_tuning": 3.3799999999999994,
-          "requinto_jarocho_body_wood": 1.69,
-          "requinto_jarocho_strings": -0.035
+          "requinto_jarocho_body_wood": 3.3799999999999994,
+          "requinto_jarocho_strings": 0.12999999999999998
         }
       }
     ],

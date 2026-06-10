@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.085000000000001,
-          "voice_quality": 7.540000000000001,
+          "voice_register": 8.335,
+          "voice_quality": 11.040000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3150000000000004,
-          "voice_articulation": 3.99,
+          "voice_vibrato": 5.004999999999999,
+          "voice_articulation": 5.74,
           "voice_microtone": 13.149999999999999,
-          "voice_tradition": 13.465499999999995,
-          "voice_mechanism_compound": 15.660500000000003,
-          "voice_estill_quality": 11.325500000000002,
-          "voice_speech_song": 21.125,
-          "voice_ensemble_config": 21.06,
-          "voice_ornament_system": 6.2,
-          "voice_pitch_organization": 9.49,
-          "voice_processing_chain": 7.279999999999999,
-          "voice_multitrack_stack": 3.38
+          "voice_tradition": 17.315499999999997,
+          "voice_mechanism_compound": 18.910500000000003,
+          "voice_estill_quality": 13.275500000000001,
+          "voice_speech_song": 32.760000000000005,
+          "voice_ensemble_config": 40.105000000000004,
+          "voice_ornament_system": 7.950000000000001,
+          "voice_pitch_organization": 16.314999999999998,
+          "voice_processing_chain": 11.504999999999999,
+          "voice_multitrack_stack": 4.875
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 8.19,
-          "choir_polyphonic_configuration": 8.58,
-          "choir_regional_canonical_configuration": 2.6,
-          "choir_ensemble_repertoire": 11.05
+          "choir_size": 11.83,
+          "choir_polyphonic_configuration": 15.34,
+          "choir_regional_canonical_configuration": 6.825,
+          "choir_ensemble_repertoire": 14.808249999999997
         }
       },
       {
@@ -74,8 +74,8 @@
           "sanj_tradition": "sanj_coptic_liturgical_canonical"
         },
         "scores": {
-          "sanj_body": 29.668,
-          "sanj_tradition": 38.561
+          "sanj_body": 32.768,
+          "sanj_tradition": 42.961
         }
       },
       {
@@ -85,8 +85,8 @@
           "muthallath_tradition": "muthallath_coptic_specific_hymn_canonical"
         },
         "scores": {
-          "muthallath_body": 35.63250000000001,
-          "muthallath_tradition": 33.173
+          "muthallath_body": 38.8825,
+          "muthallath_tradition": 35.623000000000005
         }
       }
     ],

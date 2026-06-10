@@ -3,8 +3,8 @@
   "name": "Lutheran chorale tradition",
   "family": "classical",
   "lineage": "German Protestant vernacular hymn tradition emerging from Martin Luther's liturgical reforms (1520s-1540s), in which sturdy German-language hymn-tunes (chorales) became the canonical sung-prayer of the Lutheran congregation. The seventeenth-century four-voice harmonization tradition (codified by Hans Leo Hassler, Michael Praetorius, and later Johann Sebastian Bach in his approximately 400 chorale harmonizations) constitutes the canonical compositional layer. Direct precursor to broader Lutheran cantata-and-passion compositional tradition.",
-  "recipe": "classic North American mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music classical period anglican cathedral-choral recording tradition. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ. cathedral. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 826,
+  "recipe": "classic North American mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music classical period anglican cathedral-choral recording tradition. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch legato pipe organ. cathedral. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 833,
   "score": 203.83,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 4.3500000000000005,
-          "voice_quality": 7.195000000000001,
+          "voice_register": 8.525,
+          "voice_quality": 9.094999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.54,
-          "voice_articulation": 3.75,
-          "voice_microtone": 1.9499999999999993,
-          "voice_tradition": 11.18,
-          "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 4.405,
-          "voice_speech_song": 3.3149999999999995,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 3.035,
-          "voice_multitrack_stack": 0.525
+          "voice_vibrato": 4.484999999999999,
+          "voice_articulation": 4.625,
+          "voice_microtone": 9.100000000000001,
+          "voice_tradition": 20.54,
+          "voice_mechanism_compound": 8.524999999999999,
+          "voice_estill_quality": 10.53,
+          "voice_speech_song": 10.2,
+          "voice_ensemble_config": 12.934999999999995,
+          "voice_ornament_system": 8.569999999999999,
+          "voice_pitch_organization": 8.524999999999999,
+          "voice_processing_chain": 3.685,
+          "voice_multitrack_stack": 0.27
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 4.29,
-          "choir_polyphonic_configuration": 6.055,
-          "choir_regional_canonical_configuration": 1.69,
-          "choir_ensemble_repertoire": 3.3799999999999994
+          "choir_size": 8.84,
+          "choir_polyphonic_configuration": 7.004999999999999,
+          "choir_regional_canonical_configuration": 4.335,
+          "choir_ensemble_repertoire": 4.874999999999999
         }
       },
       {
@@ -79,13 +79,13 @@
           "pipe_organ_action": "pipe_organ_mechanical_tracker"
         },
         "scores": {
-          "keyboard_technique": 2.5,
-          "pipe_organ_class": 0.435,
-          "pipe_organ_context": 8.189999999999998,
-          "pipe_organ_voicing_school": 10.139999999999999,
-          "pipe_organ_pipe_alloy": 5.069999999999999,
-          "pipe_organ_temperament": 4.574999999999999,
-          "pipe_organ_action": 5.069999999999999
+          "keyboard_technique": 8.625,
+          "pipe_organ_class": 0.845,
+          "pipe_organ_context": 17.745,
+          "pipe_organ_voicing_school": 12.784999999999998,
+          "pipe_organ_pipe_alloy": 6.109999999999999,
+          "pipe_organ_temperament": 5.9799999999999995,
+          "pipe_organ_action": 6.174999999999999
         }
       }
     ],

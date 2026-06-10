@@ -3,8 +3,8 @@
   "name": "Ska and rocksteady",
   "family": "global",
   "lineage": "Jamaican ska (1959-1965, fast-tempo guitar-upbeat horn-section-foregrounded dance music) and its slower-tempo derivation rocksteady (1965-1968) — codified at Studio One, Treasure Isle, and Federal through the Skatalites (Tommy McCook, Don Drummond, Roland Alphonso, Lloyd Knibb, the ska house band), Prince Buster, Toots and the Maytals, the Wailers (early-period), Alton Ellis (Get Ready Rocksteady), Ken Boothe, the Heptones; preceded reggae and remains foundational to the broader Jamaican popular music lineage",
-  "recipe": "classic tropical mid-1960s ska and rocksteady, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. melodic, blues inflected, Yoruba tonal vocal, m1 with m0 pulse borrowing. fast decay low resonance percussive ebony single coil electric guitar, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, pin lathed tonal groove brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, heavy one piece matched to monette horn trumpet, saxophone, deep foundational bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 753,
+  "recipe": "classic tropical mid-1960s ska and rocksteady, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. thick, forward-resonance, melodic, punctuated. ebony open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, bronze bell bronze over hammered post lathe strikes pin lathed drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, rose brass darker warmer saxophone, bach 42 canonical American orchestral tenor bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 847,
   "score": 255.175,
   "config": {
     "traditions": [
@@ -30,18 +30,18 @@
           "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": 0.7,
-          "amp_make": 1.15,
+          "electric_technique": 1.59,
+          "amp_make": 1.8849999999999996,
           "body_wood": 0.195,
-          "neck_wood": 0.195,
-          "fretboard": 1.09,
+          "neck_wood": 0.39,
+          "fretboard": 1.3900000000000001,
           "pickup_magnet": 0.15,
           "string_material": 0.15,
           "string_gauge": 0.195,
           "bridge": 1,
           "scale_length": 0.38999999999999996,
           "finish": 0,
-          "string_tuning": 0.375
+          "string_tuning": 1.235
         }
       },
       {
@@ -58,12 +58,12 @@
         },
         "scores": {
           "electric_technique": 3.995,
-          "amp_make": 2.4700000000000006,
+          "amp_make": 4.065,
           "body_wood": 1.195,
           "pickup_config": 1,
-          "string_type": 2.99,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0.09,
+          "string_type": 4.21,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.39,
           "bass_technique": 3.995
         }
       },
@@ -83,17 +83,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 10.659999999999997,
-          "shell_wood": 0.195,
+          "percussion_technique": 16.769999999999996,
+          "shell_wood": 0.39,
           "shell_thickness": 0,
           "bearing_edges": 0.195,
           "drumhead": 0.5449999999999999,
           "snare_wires": 0.195,
-          "cymbal_alloy": 0.59,
-          "cymbal_hammering": -0.035,
-          "cymbal_lathing": 1.17,
+          "cymbal_alloy": 1.85,
+          "cymbal_hammering": 2.0799999999999996,
+          "cymbal_lathing": 3.3150000000000004,
           "cymbal_finish": 0.3,
-          "drum_technique": 10.659999999999997
+          "drum_technique": 16.769999999999996
         }
       },
       {
@@ -110,8 +110,8 @@
           "keyboard_technique": -0.1,
           "drawbar_setting": 0.7149999999999999,
           "rotary_speed": 0.8999999999999999,
-          "percussion_setting": 0.39,
-          "tonewheel_model": 1.1049999999999998,
+          "percussion_setting": 0.585,
+          "tonewheel_model": 3.445,
           "leslie_cabinet_model": 0.195
         }
       },
@@ -127,13 +127,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 20.999999999999993,
+          "wind_articulation": 21.375,
           "brass_size": 0.24,
-          "trumpet_mouthpiece": 5.3950000000000005,
+          "trumpet_mouthpiece": 5.785,
           "brass_mute": 0,
-          "trumpet_technique": 20.999999999999993,
-          "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 0.78
+          "trumpet_technique": 21.375,
+          "trumpet_bell_metal": 0.78,
+          "trumpet_maker_school": 1.17
         }
       },
       {
@@ -148,10 +148,10 @@
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 20.999999999999993,
+          "wind_articulation": 21.375,
           "sax_size": 0.195,
           "sax_reed": 0.15,
-          "sax_body_alloy": 0.325,
+          "sax_body_alloy": 1.365,
           "sax_mouthpiece": 0.15,
           "sax_technique": 0.25,
           "sax_maker_school": 0
@@ -178,22 +178,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 0.3,
+          "voice_register": 3.5350000000000015,
+          "voice_quality": 6.394999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.19,
-          "voice_articulation": 0.39,
-          "voice_microtone": 0.63,
-          "voice_tradition": 1.885,
-          "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 11.114999999999998,
-          "voice_ensemble_config": 10.659999999999997,
+          "voice_vibrato": 1.3399999999999999,
+          "voice_articulation": 0.975,
+          "voice_microtone": 1.04,
+          "voice_tradition": 7.149999999999999,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 4.485,
+          "voice_speech_song": 19.629999999999995,
+          "voice_ensemble_config": 17.809999999999995,
           "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 3.875,
-          "voice_multitrack_stack": 1.23
+          "voice_pitch_organization": 1.8399999999999999,
+          "voice_processing_chain": 4.325,
+          "voice_multitrack_stack": 2.0799999999999996
         }
       },
       {
@@ -208,13 +208,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 20.999999999999993,
+          "wind_articulation": 21.375,
           "trombone_type": 1,
-          "trombone_mouthpiece": 3.425,
+          "trombone_mouthpiece": 3.575,
           "trombone_mute": 0,
-          "trombone_technique": 2.08,
-          "trombone_bell_metal": 0.39,
-          "trombone_maker_school": 0.78
+          "trombone_technique": 2.4699999999999998,
+          "trombone_bell_metal": 0.78,
+          "trombone_maker_school": 1.17
         }
       }
     ],

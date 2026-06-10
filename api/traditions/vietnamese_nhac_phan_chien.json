@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.4999999999999996,
-          "voice_quality": 0.8499999999999996,
+          "voice_register": 21.87499999999999,
+          "voice_quality": 9.8,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.585,
+          "voice_vibrato": 1.56,
           "voice_articulation": 4.289999999999999,
-          "voice_microtone": 2.3399999999999994,
-          "voice_tradition": 8.58,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.7149999999999997,
-          "voice_speech_song": 8.645,
-          "voice_ensemble_config": 2.21,
-          "voice_ornament_system": 4.2,
-          "voice_pitch_organization": 14.094999999999999,
-          "voice_processing_chain": 1.95,
-          "voice_multitrack_stack": 4.9399999999999995
+          "voice_microtone": 15.969999999999997,
+          "voice_tradition": 23.984999999999992,
+          "voice_mechanism_compound": 3.0549999999999997,
+          "voice_estill_quality": 4.0200000000000005,
+          "voice_speech_song": 23.14000000000001,
+          "voice_ensemble_config": 13.650000000000004,
+          "voice_ornament_system": 7.575000000000001,
+          "voice_pitch_organization": 22.094999999999995,
+          "voice_processing_chain": 3.575,
+          "voice_multitrack_stack": 8.629999999999999
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 2.7949999999999995,
-          "string_tuning": 0,
+          "acoustic_technique": 19.67,
+          "string_tuning": 0.7249999999999998,
           "top_wood": 0.33,
-          "back_sides": 0.33,
-          "string_acoustic": 5.6099999999999985,
-          "acoustic_om_technique": 2.7949999999999995
+          "back_sides": 0.78,
+          "string_acoustic": 7.059999999999999,
+          "acoustic_om_technique": 19.67
         }
       }
     ],

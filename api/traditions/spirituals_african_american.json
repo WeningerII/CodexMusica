@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 18.589999999999996,
-          "voice_quality": 19.664999999999996,
+          "voice_register": 41.04000000000001,
+          "voice_quality": 42.915000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
-          "voice_articulation": 11.25,
-          "voice_microtone": 2.6,
-          "voice_tradition": 20.994999999999997,
-          "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 12.824999999999998,
-          "voice_speech_song": 10.854999999999997,
-          "voice_ensemble_config": 14.45,
-          "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 0.6299999999999999,
-          "voice_processing_chain": 2.73,
-          "voice_multitrack_stack": 2.34
+          "voice_vibrato": 1.6899999999999997,
+          "voice_articulation": 28.125,
+          "voice_microtone": 2.795,
+          "voice_tradition": 44.625,
+          "voice_mechanism_compound": 4.095000000000001,
+          "voice_estill_quality": 32.199999999999996,
+          "voice_speech_song": 15.794999999999995,
+          "voice_ensemble_config": 31.625,
+          "voice_ornament_system": 13.525000000000002,
+          "voice_pitch_organization": 0.5199999999999999,
+          "voice_processing_chain": 3.705,
+          "voice_multitrack_stack": 3.12
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 3.38,
-          "choir_polyphonic_configuration": 3.12,
-          "choir_regional_canonical_configuration": 2.7299999999999995,
-          "choir_ensemble_repertoire": 2.8600000000000003
+          "choir_size": 4.42,
+          "choir_polyphonic_configuration": 3.7049999999999996,
+          "choir_regional_canonical_configuration": 3.119999999999999,
+          "choir_ensemble_repertoire": 4.355
         }
       },
       {
@@ -74,7 +74,7 @@
           "context": "devotional_tempo"
         },
         "scores": {
-          "voices": 2.34,
+          "voices": 2.9249999999999994,
           "context": 0.39
         }
       }

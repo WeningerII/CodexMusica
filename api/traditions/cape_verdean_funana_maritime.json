@@ -3,8 +3,8 @@
   "name": "Cape Verdean funaná (maritime-and-island work-song)",
   "family": "global",
   "lineage": "Cape Verdean Atlantic-island music tradition with maritime-and-emigration thematic integration; the broader Cape Verdean musical tradition (morna, coladeira, funaná, batuque) developed across 16th-onward Portuguese-colonial-era through post-1975 independent-Cape-Verdean continuous practice; the Cape Verdean maritime-emigration culture integrates extensive maritime-and-port-departure-lament repertoire",
-  "recipe": "classic mid-1970s cape verdean funaná, sea Shanty, atlantic branch, americas drinking song, iberian Latin protest song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, lament wail, chest resonance low mid, continuous-phonation. classical nylon-string guitar, jacaranda rosewood canonical Portuguese gut pre modern Portuguese cavaquinho, castagnari Italian premium folk music accordion. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 560,
+  "recipe": "classic mid-1970s cape verdean funaná, sea Shanty, atlantic branch, americas drinking song, iberian Latin protest song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, lament wail, chest resonance low mid, continuous-phonation. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese gut pre modern Portuguese strummed cavaquinho, castagnari Italian premium folk music accordion. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 588,
   "score": 186.9,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 0.72,
-          "voice_quality": 3.635,
+          "voice_register": 3.5199999999999996,
+          "voice_quality": 11.21,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.7350000000000001,
-          "voice_articulation": 1.69,
-          "voice_microtone": 0.045,
-          "voice_tradition": 4.225,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 3.575000000000001,
-          "voice_speech_song": 9.294999999999998,
-          "voice_ensemble_config": 6.499999999999999,
-          "voice_ornament_system": 1.7449999999999997,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 1.5299999999999998
+          "voice_vibrato": 0.78,
+          "voice_articulation": 2.535,
+          "voice_microtone": 1.3449999999999998,
+          "voice_tradition": 16.835,
+          "voice_mechanism_compound": 6.294999999999999,
+          "voice_estill_quality": 6.535000000000001,
+          "voice_speech_song": 29.770000000000003,
+          "voice_ensemble_config": 24.505000000000003,
+          "voice_ornament_system": 2.619999999999999,
+          "voice_pitch_organization": 2.660000000000001,
+          "voice_processing_chain": 5.78,
+          "voice_multitrack_stack": 4.67
         }
       },
       {
@@ -63,12 +63,12 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 0.9849999999999999,
+          "acoustic_technique": 6.359999999999999,
           "string_tuning": 0,
-          "top_wood_classical": 0.54,
+          "top_wood_classical": 6.68,
           "bracing_classical": 0.7350000000000001,
-          "string_classical": 0.39,
-          "attack_technique_cl": 0.75
+          "string_classical": 0.78,
+          "attack_technique_cl": 2.275
         }
       },
       {
@@ -81,11 +81,11 @@
           "cavaquinho_strings": "cavaquinho_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
-          "cavaquinho_origin": 1.005,
-          "cavaquinho_context": 6.239999999999998,
-          "cavaquinho_body_wood": 2.015,
-          "cavaquinho_strings": 2.015
+          "plucked_traditional_technique": 4.185,
+          "cavaquinho_origin": 0.65,
+          "cavaquinho_context": 24.895000000000003,
+          "cavaquinho_body_wood": 3.835,
+          "cavaquinho_strings": 4.03
         }
       },
       {
@@ -100,13 +100,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 0.975,
+          "free_reed_technique": 2.105,
           "accordion_reed_material": 0.54,
-          "musette_offset": 0.285,
+          "musette_offset": 0.65,
           "reed_config": 0.43500000000000005,
           "bellows": 0.195,
           "voicing_chamber": 0.21,
-          "accordion_maker_school": 1.69
+          "accordion_maker_school": 2.73
         }
       }
     ],

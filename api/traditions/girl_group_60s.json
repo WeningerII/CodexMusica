@@ -3,8 +3,8 @@
   "name": "1960s girl group",
   "family": "pop_rock",
   "lineage": "Early-1960s teen-pop female-vocal-group genre centered on the Brill Building songwriter ecosystem — codified through The Shirelles (\"Will You Love Me Tomorrow\" 1960, Goffin-King), The Ronettes (\"Be My Baby\" 1963, Phil Spector-Wall of Sound), The Crystals, The Marvelettes, Martha and the Vandellas; characterized by lead-and-backing-vocal arrangements, professional-songwriter material, and small-studio production aesthetic of the era",
-  "recipe": "classic Los Angeles 1960s girl group, functional Song, girl group branch, soul R&B doowop doo-wop. thick, blues-shouter, narrative, equal tempered. choir doo wop group, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, tenor ensemble honking attack saxophone, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, low fundamental tuning professional rosewood castanets. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 931,
+  "recipe": "classic Los Angeles 1960s girl group, functional Song, girl group branch, soul R&B doowop doo-wop. thick, blues-shouter, narrative, equal tempered. choir doo wop group, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, low fundamental tuning professional rosewood castanets. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 977,
   "score": 457.433,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 18.14999999999999,
-          "voice_quality": 2.395000000000002,
+          "voice_register": 27.699999999999992,
+          "voice_quality": 6.420000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.09,
-          "voice_articulation": 2.395,
-          "voice_microtone": 15.049999999999994,
-          "voice_tradition": 12.261374999999997,
-          "voice_mechanism_compound": 2.15325,
-          "voice_estill_quality": 3.4000000000000004,
-          "voice_speech_song": 13.726625,
-          "voice_ensemble_config": 11.062249999999999,
-          "voice_ornament_system": 0.195,
-          "voice_pitch_organization": 1.913125,
-          "voice_processing_chain": 7.997499999999999,
-          "voice_multitrack_stack": 7.498749999999999
+          "voice_vibrato": 0.39,
+          "voice_articulation": 5.919999999999999,
+          "voice_microtone": 19.549999999999994,
+          "voice_tradition": 15.511374999999996,
+          "voice_mechanism_compound": 3.05325,
+          "voice_estill_quality": 8.024999999999999,
+          "voice_speech_song": 19.176624999999998,
+          "voice_ensemble_config": 15.412249999999997,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 2.7131250000000002,
+          "voice_processing_chain": 10.647499999999997,
+          "voice_multitrack_stack": 10.323749999999999
         }
       },
       {
@@ -58,8 +58,8 @@
           "arrangement": "doo_wop_with_band"
         },
         "scores": {
-          "voices": 0.3,
-          "arrangement": 0.045
+          "voices": 0.39,
+          "arrangement": 0.195
         }
       },
       {
@@ -79,18 +79,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 12.249999999999996,
-          "amp_make": 3.8923750000000004,
+          "electric_technique": 16.624999999999996,
+          "amp_make": 8.842374999999997,
           "body_wood": 0.3,
-          "neck_wood": 0.06937499999999999,
-          "fretboard": 0.345,
+          "neck_wood": 0.195,
+          "fretboard": 0.49499999999999994,
           "pickup_magnet": 0,
           "string_material": 0.0045,
           "string_gauge": 0.3,
           "bridge": 0,
-          "scale_length": 0.13875,
+          "scale_length": 0.195,
           "finish": 0,
-          "string_tuning": 1.95
+          "string_tuning": 3.367375
         }
       },
       {
@@ -106,14 +106,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 3.2,
-          "amp_make": 7.804875,
-          "body_wood": 0.13875,
+          "electric_technique": 6.574999999999999,
+          "amp_make": 13.804875,
+          "body_wood": 0.195,
           "pickup_config": 0,
-          "string_type": 8.432500000000001,
-          "scale_length_b": 0.06937499999999999,
+          "string_type": 12.8575,
+          "scale_length_b": 0.195,
           "fretted_or_not": 0.3,
-          "bass_technique": 4.5
+          "bass_technique": 6.574999999999999
         }
       },
       {
@@ -132,17 +132,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 11.03225,
-          "shell_wood": 0.345,
+          "percussion_technique": 15.232249999999999,
+          "shell_wood": 0.49499999999999994,
           "shell_thickness": 0,
-          "bearing_edges": 0.06937499999999999,
-          "drumhead": 11.449999999999998,
-          "snare_wires": 0.06937499999999999,
-          "cymbal_alloy": 15.249999999999996,
-          "cymbal_hammering": 15.199999999999996,
-          "cymbal_lathing": 15.569374999999997,
-          "cymbal_finish": 1.345,
-          "drum_technique": 11.03225
+          "bearing_edges": 0.195,
+          "drumhead": 14.699999999999996,
+          "snare_wires": 0.195,
+          "cymbal_alloy": 19.749999999999996,
+          "cymbal_hammering": 19.699999999999996,
+          "cymbal_lathing": 20.219374999999996,
+          "cymbal_finish": 1.4949999999999999,
+          "drum_technique": 15.232249999999999
         }
       },
       {
@@ -159,15 +159,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 12.189999999999996,
-          "grand_piano_size": 0.645,
-          "grand_piano_brand": 0.78,
-          "piano_hammer": 9.949999999999998,
-          "piano_rim": 12.334999999999997,
-          "piano_soundboard": 11.449999999999998,
+          "keyboard_technique": 16.464999999999996,
+          "grand_piano_size": 0.795,
+          "grand_piano_brand": 1.2525,
+          "piano_hammer": 13.199999999999996,
+          "piano_rim": 16.534999999999997,
+          "piano_soundboard": 14.699999999999996,
           "piano_pinblock": -0.05,
-          "piano_plate": 1.3181249999999998,
-          "piano_pitch_standard": 0.6643749999999999
+          "piano_plate": 1.4681249999999997,
+          "piano_pitch_standard": 0.9643749999999999
         }
       },
       {
@@ -182,13 +182,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 3.8429999999999995,
-          "sax_size": 2.4000000000000004,
+          "wind_articulation": 7.967999999999999,
+          "sax_size": 5.7749999999999995,
           "sax_reed": 0,
           "sax_body_alloy": -0.05,
           "sax_mouthpiece": 0,
-          "sax_technique": 2.4,
-          "sax_maker_school": 0
+          "sax_technique": 5.774999999999999,
+          "sax_maker_school": 1.3649999999999998
         }
       },
       {
@@ -202,12 +202,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 12.189999999999996,
-          "drawbar_setting": 4.05,
-          "rotary_speed": 4.5,
-          "percussion_setting": 1.75425,
-          "tonewheel_model": 2.642375,
-          "leslie_cabinet_model": 0.058124999999999996
+          "keyboard_technique": 16.464999999999996,
+          "drawbar_setting": 5.3,
+          "rotary_speed": 7,
+          "percussion_setting": 2.25425,
+          "tonewheel_model": 4.392375,
+          "leslie_cabinet_model": 0.195
         }
       },
       {
@@ -218,7 +218,7 @@
         },
         "scores": {
           "castanets_material": 2.45,
-          "castanets_mounting": 0.345
+          "castanets_mounting": 0.49499999999999994
         }
       }
     ],

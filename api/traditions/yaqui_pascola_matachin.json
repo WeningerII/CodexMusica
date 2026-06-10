@@ -3,8 +3,8 @@
   "name": "Yaqui pascola and matachín (northern Mexican Easter dance-cycle)",
   "family": "global",
   "lineage": "Yaqui (Yoeme) pascola-and-matachín Easter Week ceremonial dance-cycle of the Yaqui communities of Sonora (Mexico) and southern Arizona, integrating pre-contact Yaqui ceremonial structure with sixteenth-century Spanish-Jesuit liturgical introductions into a syncretic Yaqui-Catholic Easter cycle. The pascola \"old men of the fiesta\" dancers wear carved-wood masks and dance to harp-and-violin music in the village dance-ramada throughout the multi-day ceremonial cycle; the matachín soldiers-of-the-Virgin dance-society performs in colorful crown-and-staff regalia. Performance: continuous days-long ceremonial-cycle with multiple specialized music-and-dance functions including the canónigos solemn liturgical procession, the venado-deer-dance hunting ceremony, and the matachín-soldier-of-the-Virgin processional.",
-  "recipe": "classic modern yaqui pascola and matachín, ritual Devotional, indigenous branch, Latin am troubadour ballad poetry milonga chacarera. thick, declaimed, chest resonance low mid, continuous-phonation. long life coated nanoweb parlor acoustic guitar, concert harp, yamaha modern Japanese mid to premium flute. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 520,
+  "recipe": "classic modern yaqui pascola and matachín, ritual Devotional, indigenous branch, Latin am troubadour ballad poetry milonga chacarera. thick, declaimed, chest resonance low mid, continuous-phonation. coated nanoweb fingerpicked parlor acoustic guitar, concert harp, yamaha modern Japanese mid to premium flute. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 523,
   "score": 112.18,
   "config": {
     "traditions": [
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.78,
-          "voice_quality": 3.5450000000000004,
+          "voice_register": 5.04,
+          "voice_quality": 4.420000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8250000000000002,
-          "voice_articulation": 1.345,
-          "voice_microtone": 0.24,
-          "voice_tradition": 4.765000000000001,
-          "voice_mechanism_compound": 3.98,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 13.065000000000005,
-          "voice_ensemble_config": 13.000000000000004,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 1.65,
-          "voice_processing_chain": 1.5599999999999998,
+          "voice_vibrato": 0.585,
+          "voice_articulation": 1.4949999999999999,
+          "voice_microtone": 0.65,
+          "voice_tradition": 8.580000000000002,
+          "voice_mechanism_compound": 6.759999999999999,
+          "voice_estill_quality": 6.76,
+          "voice_speech_song": 23.465,
+          "voice_ensemble_config": 21.645000000000003,
+          "voice_ornament_system": 4.525,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 2.8600000000000003,
           "voice_multitrack_stack": 1.455
         }
       },
@@ -62,11 +62,11 @@
           "string_acoustic_parlor": "coated_nano_p"
         },
         "scores": {
-          "acoustic_technique": 0.8949999999999999,
+          "acoustic_technique": 7.695,
           "string_tuning": 0,
-          "top_wood_parlor": 0.63,
+          "top_wood_parlor": 0.39,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 1.54
+          "string_acoustic_parlor": 2.34
         }
       },
       {
@@ -76,8 +76,8 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 0.54,
-          "harp_pedals": 0.345
+          "harp_strings": 0.195,
+          "harp_pedals": 0.195
         }
       },
       {
@@ -90,11 +90,11 @@
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 1.2449999999999999,
+          "wind_articulation": 1.8199999999999998,
           "flute_size": 0.195,
           "flute_material": 0.3,
-          "flute_technique": 0.9750000000000001,
-          "flute_maker_school": 1.69
+          "flute_technique": 1.04,
+          "flute_maker_school": 2.275
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Irish pub song / drinking song",
   "family": "global",
   "lineage": "Irish pub-song / drinking-song tradition continuous from 18th-19th century pub-and-shebeen drinking-song tradition through 20th-century Dubliners-and-Clancy-Brothers-era folk-revival into modern Irish-pub-session continuous practice; foundational repertoire includes \"Whiskey in the Jar,\" \"The Wild Rover,\" \"All for Me Grog,\" \"Whiskey, You're the Devil,\" \"The Parting Glass\"",
-  "recipe": "classic modern irish pub song / drinking song, drinking Song, European branch, americas drinking song, European protest song, anglo singer song ballad poetry freak folk indie folk. thick, incomplete closure resting, tasteful, continuous-phonation. fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base drone like fiddle, aluminum anodized modern burke goldie premium melodic tin whistle, goat skin canonical Irish birch ply canonical modern Irish bodhran. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 614,
+  "recipe": "classic modern irish pub song / drinking song, drinking Song, European branch, americas drinking song, European protest song, anglo singer song ballad poetry freak folk indie folk. thick, incomplete closure resting, tasteful, continuous-phonation. walnut fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base drone like fiddle, aluminum anodized modern burke goldie premium melodic tin whistle, goat skin canonical Irish birch ply canonical modern Irish bodhran. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 621,
   "score": 283.968,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.990000000000001,
-          "voice_quality": 3.185,
+          "voice_register": 25.764999999999997,
+          "voice_quality": 4.1000000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 0.33,
-          "voice_tradition": 8.254999999999999,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.7149999999999997,
-          "voice_speech_song": 19.955,
-          "voice_ensemble_config": 7.539999999999997,
-          "voice_ornament_system": 0.7149999999999997,
+          "voice_microtone": 6.845000000000001,
+          "voice_tradition": 26.483124999999994,
+          "voice_mechanism_compound": 1.95,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 30.354999999999997,
+          "voice_ensemble_config": 15.339999999999995,
+          "voice_ornament_system": 2.8600000000000008,
           "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 1.3649999999999998,
-          "voice_multitrack_stack": 0.39
+          "voice_processing_chain": 4.290625,
+          "voice_multitrack_stack": 7.859999999999999
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 6.69,
-          "string_tuning": 0,
+          "acoustic_technique": 25.889999999999997,
+          "string_tuning": 1.895,
           "top_wood": 0.9099999999999999,
-          "back_sides": 0.9099999999999999,
+          "back_sides": 1.04,
           "string_acoustic": 0.81,
-          "acoustic_om_technique": 6.69
+          "acoustic_om_technique": 25.889999999999997
         }
       },
       {
@@ -81,7 +81,7 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 3.245,
+          "bowed_technique": 18.119999999999997,
           "fiddle_strings": 1.69,
           "fiddle_bow": 4.099375,
           "fiddle_mute": 0.9099999999999999,
@@ -97,9 +97,9 @@
           "whistle_body_material": "whistle_aluminum_anodized"
         },
         "scores": {
-          "wind_articulation": 3.7250000000000005,
+          "wind_articulation": 18.599999999999998,
           "whistle_key": 12.794999999999996,
-          "whistle_ornament": 1.69,
+          "whistle_ornament": 8.194999999999999,
           "whistle_body_material": 1.69
         }
       },

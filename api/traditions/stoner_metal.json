@@ -3,8 +3,8 @@
   "name": "Stoner metal",
   "family": "rock",
   "lineage": "Southern California desert-rock-derived heavy-blues-revival genre that emerged in early-1990s Palm Desert and Los Angeles — codified through Kyuss (the founding band from Palm Desert, Welcome to Sky Valley 1994), Queens of the Stone Age (Josh Hommes post-Kyuss continuation, Songs for the Deaf 2002), Sleep (the Bay Area parallel canon, Sleeps Holy Mountain 1992 and the legendary 60-minute single-track Dopesmoker 2003), Fu Manchu, Monster Magnet; built on Sabbath chord vocabulary plus blues-rock pentatonic vocabulary plus down-tuned heavy-fuzz amplifier worship",
-  "recipe": "classic North American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, equal tempered. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch ernie ball slinky riff driven electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
-  "recipe_chars": 593,
+  "recipe": "classic North American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, equal tempered. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+  "recipe_chars": 602,
   "score": 614.748,
   "config": {
     "traditions": [
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 15.166999999999998,
-          "amp_make": 15.827499999999999,
-          "body_wood": 3.3799999999999994,
-          "neck_wood": 1.17,
-          "fretboard": 1.17,
+          "electric_technique": 34.167,
+          "amp_make": 32.4775,
+          "body_wood": 13,
+          "neck_wood": 2.7624999999999997,
+          "fretboard": 2.7624999999999997,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 0.39,
-          "string_material": 1.17,
-          "bridge": 0.7665,
-          "scale_length": 4.9399999999999995,
-          "string_gauge": 0.78,
+          "pickup_winding": 1.625,
+          "string_material": 2.7805,
+          "bridge": 1.0665,
+          "scale_length": 16.444999999999997,
+          "string_gauge": 2.405,
           "finish": 0,
-          "string_tuning": 16.9
+          "string_tuning": 33.995
         }
       },
       {
@@ -59,14 +59,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 10.0125,
-          "amp_make": 15.827499999999999,
-          "body_wood": 0.78,
+          "electric_technique": 14.6625,
+          "amp_make": 32.4775,
+          "body_wood": 1.17,
           "pickup_config": 0,
-          "string_type": 21.7265,
-          "scale_length_b": 0.78,
+          "string_type": 32.1015,
+          "scale_length_b": 1.2929999999999997,
           "fretted_or_not": 0.0315,
-          "bass_technique": 16.8365
+          "bass_technique": 28.5115
         }
       },
       {
@@ -85,17 +85,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 6.759999999999998,
-          "shell_wood": 4.159999999999999,
+          "percussion_technique": 16.379999999999995,
+          "shell_wood": 6.629999999999999,
           "shell_thickness": 0.0315,
-          "bearing_edges": 0.78,
-          "drumhead": 1.17,
-          "snare_wires": 0.78,
-          "cymbal_alloy": 27.662499999999998,
-          "cymbal_hammering": 16.65,
-          "cymbal_lathing": 16.6815,
-          "cymbal_finish": 1.17,
-          "drum_technique": 16.7545
+          "bearing_edges": 1.3649999999999998,
+          "drumhead": 2.7624999999999997,
+          "snare_wires": 1.1669999999999998,
+          "cymbal_alloy": 56.26249999999999,
+          "cymbal_hammering": 27.95,
+          "cymbal_lathing": 27.9815,
+          "cymbal_finish": 2.7624999999999997,
+          "drum_technique": 27.1295
         }
       },
       {
@@ -119,22 +119,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 24.96099999999999,
-          "voice_quality": 10.45,
+          "voice_register": 38.13600000000002,
+          "voice_quality": 25.199999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.17,
+          "voice_vibrato": 3.1849999999999996,
           "voice_articulation": 0.3,
-          "voice_microtone": 16.604999999999997,
-          "voice_tradition": 3.25,
-          "voice_mechanism_compound": 14.151499999999999,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 7.604999999999997,
-          "voice_ensemble_config": 6.759999999999998,
-          "voice_ornament_system": 0.9749999999999996,
-          "voice_pitch_organization": 2.08,
-          "voice_processing_chain": 2.145,
-          "voice_multitrack_stack": 2.3555
+          "voice_microtone": 27.904999999999994,
+          "voice_tradition": 5.329999999999999,
+          "voice_mechanism_compound": 36.2515,
+          "voice_estill_quality": 2.405,
+          "voice_speech_song": 15.729999999999995,
+          "voice_ensemble_config": 14.689999999999994,
+          "voice_ornament_system": 2.6125000000000003,
+          "voice_pitch_organization": 2.925,
+          "voice_processing_chain": 5.412999999999999,
+          "voice_multitrack_stack": 4.647
         }
       }
     ],

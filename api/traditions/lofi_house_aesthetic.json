@@ -3,8 +3,8 @@
   "name": "Lo-fi house",
   "family": "global",
   "lineage": "2010s deliberately-degraded-aesthetic house revival codified through Mall Grab, Ross from Friends, DJ Boring, and the broader Soundcloud-and-Bandcamp ecosystem — characterized by tape-saturation simulation, sample-noise foregrounded, vintage-drum-machine reverence, and post-vaporwave nostalgic-aesthetic posture",
-  "recipe": "classic mid-2010s lo-fi house, electronic Dance, lofi house branch, lofi experimental electric vaporwave chillwave. sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, digital subtractive, mark 7 modern tine post 2007 reissue rhodes electric. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 393,
+  "recipe": "classic mid-2010s lo-fi house, electronic Dance, lofi house branch, lofi experimental electric vaporwave chillwave. glitched textural sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, digital subtractive, mark 7 modern tine post 2007 reissue felt tipped hammers early Rhodes pre 1971 bell like rhodes electric. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 463,
   "score": 119.607,
   "config": {
     "traditions": [
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.9999999999999998,
-          "sampler_archetypes": 3.185,
-          "sampler_bit_depth": 1.6625,
-          "sampler_workflow": 2.0287499999999996,
-          "sampler_classic_context": 31.485249999999994
+          "electronic_technique": 7.500000000000001,
+          "sampler_archetypes": 4.452500000000001,
+          "sampler_bit_depth": 2.7875000000000005,
+          "sampler_workflow": 8.32875,
+          "sampler_classic_context": 40.335249999999995
         }
       },
       {
@@ -39,8 +39,8 @@
         },
         "scores": {
           "tr909_voice": 17,
-          "drum_machine_909_context": 0.7149999999999999,
-          "tr909_production_origin": 1.3
+          "drum_machine_909_context": 3.4450000000000003,
+          "tr909_production_origin": 2.6587500000000004
         }
       },
       {
@@ -51,9 +51,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.26,
+          "electronic_technique": 2.75,
           "va_archetypes": 1.568875,
-          "digital_subtractive_context": 7.799999999999997
+          "digital_subtractive_context": 16.119999999999994
         }
       },
       {
@@ -67,11 +67,11 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "rhodes_model": 0.2625,
-          "rhodes_use": 0.78,
+          "keyboard_technique": 1.95,
+          "rhodes_model": 0.6824999999999999,
+          "rhodes_use": 1.8199999999999998,
           "rhodes_tine_material": 1.17925,
-          "rhodes_hammer_tip": 0.93875,
+          "rhodes_hammer_tip": 2.1137500000000005,
           "rhodes_pickup_position": 0.39
         }
       }

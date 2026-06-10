@@ -3,8 +3,8 @@
   "name": "Black gospel (choir tradition)",
   "family": "global",
   "lineage": "African-American Pentecostal and Baptist sacred-music choir tradition codified by Thomas A. Dorsey (the father of gospel music, who pivoted from his blues piano career to founded the gospel song-form in 1932 with Take My Hand Precious Lord) and developed through the 20th-century lineage: Mahalia Jackson (the solo gospel voice, How I Got Over 1947, Move on Up a Little Higher 1948), the Reverend James Cleveland (the post-WWII choir tradition figure, his Southern California Community Choir and broader Gospel Music Workshop of America), Edwin Hawkins (Oh Happy Day 1969), Walter Hawkins, the Mississippi Mass Choir, Bishop Paul S. Morton, and the modern Kirk Franklin and Mary Mary contemporary-gospel extension",
-  "recipe": "classic North American early-1930s black gospel, ritual Devotional, black gospel branch, soul R&B functional song doo-wop alt-r&b. thick, declaimed, nervy, ornamental. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu choir ensemble, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, contemporary full choir southern black gospel. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 881,
+  "recipe": "classic North American early-1930s black gospel, ritual Devotional, black gospel branch, soul R&B functional song doo-wop alt-r&b. thick, declaimed, nervy, ornamental. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu choir ensemble, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum fast tremolo tonewheel organ, cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, contemporary full choir southern black gospel. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 942,
   "score": 648.678,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 34.42500000000002,
-          "voice_quality": 29.380000000000003,
+          "voice_register": 48.77500000000001,
+          "voice_quality": 31.505000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.5249999999999999,
-          "voice_articulation": 25.500000000000007,
-          "voice_microtone": 2.8600000000000003,
-          "voice_tradition": 33.870000000000005,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 28.195000000000004,
-          "voice_speech_song": 13.714999999999998,
-          "voice_ensemble_config": 26.585000000000008,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 1.26,
-          "voice_processing_chain": 2.47,
-          "voice_multitrack_stack": 1.56
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 26.750000000000007,
+          "voice_microtone": 8.725000000000001,
+          "voice_tradition": 40.52000000000001,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 34.69500000000001,
+          "voice_speech_song": 25.154999999999998,
+          "voice_ensemble_config": 29.685000000000002,
+          "voice_ornament_system": 4.525,
+          "voice_pitch_organization": 2.73,
+          "voice_processing_chain": 4.549999999999999,
+          "voice_multitrack_stack": 5.0699999999999985
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 4.68,
+          "choir_size": 5.849999999999999,
           "choir_polyphonic_configuration": 6.244999999999999,
-          "choir_regional_canonical_configuration": 2.895,
-          "choir_ensemble_repertoire": 2.69
+          "choir_regional_canonical_configuration": 3.045,
+          "choir_ensemble_repertoire": 4.125
         }
       },
       {
@@ -78,12 +78,12 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 28.88500000000001,
-          "drawbar_setting": 25.800000000000008,
-          "rotary_speed": 25.450000000000006,
-          "percussion_setting": 0.39,
-          "tonewheel_model": 26.220000000000006,
-          "leslie_cabinet_model": 0.6299999999999999
+          "keyboard_technique": 35.385000000000005,
+          "drawbar_setting": 27.050000000000008,
+          "rotary_speed": 29.625000000000007,
+          "percussion_setting": 1.81,
+          "tonewheel_model": 29.270000000000007,
+          "leslie_cabinet_model": 1.17
         }
       },
       {
@@ -100,15 +100,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 28.88500000000001,
-          "grand_piano_size": 0.5249999999999999,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 5.005000000000001,
-          "piano_rim": 6.8149999999999995,
-          "piano_soundboard": 4.3149999999999995,
+          "keyboard_technique": 35.385000000000005,
+          "grand_piano_size": 0.195,
+          "grand_piano_brand": 2.34,
+          "piano_hammer": 6.380000000000001,
+          "piano_rim": 12.315,
+          "piano_soundboard": 7,
           "piano_pinblock": 2.6,
-          "piano_plate": 2.695,
-          "piano_pitch_standard": 5.775
+          "piano_plate": 3.575,
+          "piano_pitch_standard": 6.075
         }
       },
       {
@@ -124,14 +124,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 2.4000000000000004,
-          "amp_make": 6.175000000000001,
-          "body_wood": 1.0500000000000003,
+          "electric_technique": 7.6499999999999995,
+          "amp_make": 15.314999999999998,
+          "body_wood": 0.195,
           "pickup_config": 0,
-          "string_type": 3.575,
-          "scale_length_b": 0.5249999999999999,
+          "string_type": 11.829999999999997,
+          "scale_length_b": 0.195,
           "fretted_or_not": 0.105,
-          "bass_technique": 2.89
+          "bass_technique": 7.649999999999999
         }
       },
       {
@@ -150,17 +150,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 11.049999999999997,
-          "shell_wood": 0.39,
+          "percussion_technique": 19.889999999999997,
+          "shell_wood": 1.4299999999999997,
           "shell_thickness": 0,
-          "bearing_edges": 0.5249999999999999,
-          "drumhead": 2.54,
-          "snare_wires": 0.5249999999999999,
-          "cymbal_alloy": 4.99,
-          "cymbal_hammering": 3.285,
-          "cymbal_lathing": 2.745,
-          "cymbal_finish": 0.39,
-          "drum_technique": 11.049999999999997
+          "bearing_edges": 0.585,
+          "drumhead": 7.09,
+          "snare_wires": 0.195,
+          "cymbal_alloy": 7.51,
+          "cymbal_hammering": 10.759999999999998,
+          "cymbal_lathing": 10.37,
+          "cymbal_finish": 1.2349999999999999,
+          "drum_technique": 19.889999999999997
         }
       },
       {
@@ -171,9 +171,9 @@
           "era": "gospel_quartet_lineage"
         },
         "scores": {
-          "voices": 0.5249999999999999,
+          "voices": 0.39,
           "accompaniment": 1.69,
-          "era": 12.740000000000004
+          "era": 23.205
         }
       }
     ],

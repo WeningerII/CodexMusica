@@ -3,8 +3,8 @@
   "name": "Glam rock",
   "family": "rock_punk",
   "lineage": "Early-mid-1970s UK androgynous-theatrical riff-rock — codified through T. Rex (Marc Bolans Electric Warrior 1971, Slider 1972), David Bowie (the Ziggy Stardust 1972 and Aladdin Sane 1973 glam-era persona before his Berlin Trilogy art-rock turn), Roxy Music (early glam-art-rock fusion), Slade (the British Black Country working-class glam rock canon), Sweet, Mott the Hoople, Suzi Quatro, Gary Glitter — followed by the proto-punk American extensions New York Dolls and Iggy and the Stooges glam-period albums",
-  "recipe": "classic British 1974-1976 glam rock, distorted Rock, glam rock branch, classic distorted rock, art rock distorted rock hard rock. thick, low dynamic level, melodic, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled machine hammered symmetric pattern drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb MXR phase 90 dallas arbiter fuzz face.",
-  "recipe_chars": 833,
+  "recipe": "classic British 1974-1976 glam rock, distorted Rock, glam rock branch, classic distorted rock, art rock distorted rock hard rock. thick, low dynamic level, melodic, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled machine hammered symmetric pattern drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb MXR phase 90 dallas arbiter fuzz face.",
+  "recipe_chars": 845,
   "score": 906.403,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 37.319375000000036,
-          "voice_quality": 3.0550000000000006,
+          "voice_register": 67.89437500000004,
+          "voice_quality": 3.7050000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.1899999999999995,
-          "voice_articulation": 0.345,
-          "voice_microtone": 34.84500000000003,
-          "voice_tradition": 2.145,
-          "voice_mechanism_compound": 6.565000000000001,
-          "voice_estill_quality": 4.29,
-          "voice_speech_song": 10.074999999999996,
-          "voice_ensemble_config": 10.009999999999996,
-          "voice_ornament_system": 0.585,
+          "voice_vibrato": 4.6899999999999995,
+          "voice_articulation": 0.49499999999999994,
+          "voice_microtone": 60.49500000000003,
+          "voice_tradition": 5.694999999999999,
+          "voice_mechanism_compound": 11.894999999999998,
+          "voice_estill_quality": 5.466875,
+          "voice_speech_song": 18.39499999999999,
+          "voice_ensemble_config": 18.19999999999999,
+          "voice_ornament_system": 1.1306249999999998,
           "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 7.0200000000000005,
-          "voice_multitrack_stack": 5.2
+          "voice_processing_chain": 13.383125,
+          "voice_multitrack_stack": 10.465
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 6.630000000000001,
-          "amp_make": 24.960000000000008,
-          "body_wood": 3.25,
-          "neck_wood": 3.25,
-          "fretboard": 3.185,
-          "pickup_magnet": 0.195,
-          "pickup_winding": 0.9099999999999999,
-          "string_material": 0.78,
-          "bridge": 3.25,
-          "scale_length": 3.25,
-          "string_gauge": 3.25,
+          "electric_technique": 12.35,
+          "amp_make": 38.7075,
+          "body_wood": 3.9,
+          "neck_wood": 3.9,
+          "fretboard": 3.835,
+          "pickup_magnet": 0.585,
+          "pickup_winding": 2.34,
+          "string_material": 1.280625,
+          "bridge": 3.9,
+          "scale_length": 3.9,
+          "string_gauge": 3.9,
           "finish": 0.435,
-          "string_tuning": 19.370000000000008
+          "string_tuning": 34.45000000000001
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.101875,
-          "amp_make": 18.590000000000003,
-          "body_wood": 3.25,
+          "electric_technique": 5.676875000000001,
+          "amp_make": 32.50000000000001,
+          "body_wood": 3.9,
           "pickup_config": 0,
-          "string_type": 43.593750000000014,
-          "scale_length_b": 3.6399999999999997,
+          "string_type": 67.71875000000003,
+          "scale_length_b": 4.29,
           "fretted_or_not": 0,
-          "bass_technique": 37.65187500000001
+          "bass_technique": 61.351875000000014
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 12.934999999999997,
-          "shell_wood": 1.17,
+          "percussion_technique": 20.47499999999999,
+          "shell_wood": 1.7756249999999998,
           "shell_thickness": 0,
-          "bearing_edges": 3.25,
-          "drumhead": 3.25,
-          "snare_wires": 3.25,
-          "cymbal_alloy": 40.58062500000002,
-          "cymbal_hammering": 35.11875000000002,
-          "cymbal_lathing": 35.045625000000015,
-          "cymbal_finish": 0.78,
-          "drum_technique": 33.59562500000001
+          "bearing_edges": 3.9,
+          "drumhead": 5.070625,
+          "snare_wires": 3.9,
+          "cymbal_alloy": 65.53062500000003,
+          "cymbal_hammering": 61.11875000000003,
+          "cymbal_lathing": 60.69562500000002,
+          "cymbal_finish": 1.280625,
+          "drum_technique": 55.87062500000002
         }
       },
       {
@@ -151,15 +151,15 @@
           "piano_pitch_standard": "a_415_baroque"
         },
         "scores": {
-          "keyboard_technique": 1.79125,
-          "grand_piano_size": 3.25,
-          "grand_piano_brand": 3.25,
-          "piano_hammer": 17.680000000000007,
-          "piano_rim": 18.070000000000007,
-          "piano_soundboard": 1.5399999999999998,
+          "keyboard_technique": 5.466249999999999,
+          "grand_piano_size": 3.9,
+          "grand_piano_brand": 4.095,
+          "piano_hammer": 31.330000000000005,
+          "piano_rim": 31.915000000000006,
+          "piano_soundboard": 4.914999999999999,
           "piano_pinblock": -0.05,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": 2.585
+          "piano_plate": 0.78,
+          "piano_pitch_standard": 3.9850000000000003
         }
       },
       {
@@ -174,12 +174,12 @@
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 0.26,
-          "sax_size": 3.25,
-          "sax_reed": 0.78,
-          "sax_body_alloy": -0.05,
-          "sax_mouthpiece": 0.78,
-          "sax_technique": -0.035,
+          "wind_articulation": 3.075,
+          "sax_size": 4.745,
+          "sax_reed": 1.280625,
+          "sax_body_alloy": 0.06499999999999999,
+          "sax_mouthpiece": 1.280625,
+          "sax_technique": 3.125,
           "sax_maker_school": 0
         }
       },
@@ -192,10 +192,10 @@
           "sm_voicing": "sm_cellos"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sm_voice_count": 0.24,
-          "sm_chorus": 0.9099999999999999,
-          "sm_voicing": 0.15
+          "electronic_technique": 0.745,
+          "sm_voice_count": 0.195,
+          "sm_chorus": 2.34,
+          "sm_voicing": 0.65
         }
       }
     ],

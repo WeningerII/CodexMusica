@@ -3,8 +3,8 @@
   "name": "Oromo music (Ethiopian Cushitic)",
   "family": "global",
   "lineage": "Oromo vocal-and-instrumental tradition of central-southern Ethiopia and northern Kenya, the largest Cushitic-language-speaking community in the Horn of Africa. Repertoire spans geerarsa men's heroic chant, weedduu wedding songs, irreecha thanksgiving songs at Lake Hora Arsadi, and contemporary Afaan Oromoo political-protest song. Performance integrates voice-led melodic content with krar, masenqo, and kebero accompaniment. Modal vocabulary draws on qenet pentatonic with Borana-Macha-Tulama-Arsi regional cadential vocabulary.",
-  "recipe": "classic modern oromo music, ballad Poetry, west African griot branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, declaimed, pure, mande jeli vocal. gut ethiopian historical krar, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved kebero, curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 566,
+  "recipe": "classic modern oromo music, ballad Poetry, west African griot branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, declaimed, pure, narrative. gut ethiopian historical krar, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved kebero, curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 559,
   "score": 179.76,
   "config": {
     "traditions": [
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 1.69,
-          "voice_quality": 4.355000000000001,
+          "voice_quality": 8.63,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 0,
-          "voice_microtone": 0.24,
-          "voice_tradition": 16.639999999999997,
-          "voice_mechanism_compound": 5.069999999999999,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 2.4050000000000002,
-          "voice_pitch_organization": 5.975,
-          "voice_processing_chain": 1.9289999999999998,
+          "voice_vibrato": 3.315,
+          "voice_articulation": 0.585,
+          "voice_microtone": 1.6700000000000002,
+          "voice_tradition": 33.8,
+          "voice_mechanism_compound": 9.294999999999998,
+          "voice_estill_quality": 6.5649999999999995,
+          "voice_speech_song": 21.905,
+          "voice_ensemble_config": 21.84,
+          "voice_ornament_system": 4.5600000000000005,
+          "voice_pitch_organization": 15.649999999999999,
+          "voice_processing_chain": 3.3799999999999994,
           "voice_multitrack_stack": 3.38
         }
       },
@@ -60,9 +60,9 @@
           "krar_string_material": "krar_gut_historical"
         },
         "scores": {
-          "krar_strings": 1.69,
+          "krar_strings": 2.535,
           "krar_body": 0,
-          "krar_string_material": 1.2349999999999999
+          "krar_string_material": 4.33
         }
       },
       {
@@ -73,9 +73,9 @@
           "kebero_tradition": "kebero_orthodox_tewahedo"
         },
         "scores": {
-          "kebero_skin": 1.69,
-          "kebero_shell_wood": 1.3,
-          "kebero_tradition": 0.8839999999999999
+          "kebero_skin": 5.329999999999999,
+          "kebero_shell_wood": 6.175,
+          "kebero_tradition": 0.845
         }
       },
       {
@@ -91,8 +91,8 @@
           "bowed_technique": -0.05,
           "masenqo_body": 0.18525,
           "masenqo_string": 0,
-          "masenqo_bow": 1.3,
-          "masenqo_tradition": 1.3
+          "masenqo_bow": 5.329999999999999,
+          "masenqo_tradition": 13.39
         }
       }
     ],

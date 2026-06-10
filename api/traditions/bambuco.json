@@ -3,8 +3,8 @@
   "name": "Bambuco",
   "family": "global",
   "lineage": "Colombian national rhythm and song-form in characteristic 6/8 meter with three-against-two syncopation — codified through the late-19th-century Andean Colombian school (Pedro Morales Pino, the bandola virtuoso who systematized the trio andino instrumentation), 20th-century anchors Garzón y Collazos (the post-WWII bambuco-trio voice, El Camino de la Vida 1951), Silva y Villalba, the modern Gustavo Adolfo Renjifo and Carranguero-tradition Jorge Velosa extensions; performed by the trio andino of tiple, bandola andina, and classical guitar with vocal duet or trio",
-  "recipe": "classic tropical early-1950s bambuco, ballad Poetry, Latin am troubadour branch, crooners functional song american barbershop quartet great american songbook. thick, forward-resonance, chest resonance low mid, Chinese classical vocal. cedar canonical andean tiple, fingerpicked acoustic guitar, bandola andina. bogota colombian andean studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 452,
+  "recipe": "classic tropical early-1950s bambuco, ballad Poetry, Latin am troubadour branch, crooners functional song american barbershop quartet great american songbook. thick, forward-resonance, chest resonance low mid, ornamental. cedar canonical andean tiple, indian rosewood rosewood flatwound thomastik fingerpicked acoustic guitar, bandola andina. bogota colombian andean studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 484,
   "score": 132.852,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.3,
+          "voice_register": 8.419999999999996,
           "voice_quality": 6.1000000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
-          "voice_articulation": 0.39,
-          "voice_microtone": 0.06862499999999999,
-          "voice_tradition": 7.345000000000001,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 4.695,
-          "voice_speech_song": 11.179999999999996,
-          "voice_ensemble_config": 8.189999999999998,
-          "voice_ornament_system": 6.2002500000000005,
+          "voice_vibrato": 2.145,
+          "voice_articulation": 1.7499999999999998,
+          "voice_microtone": 5.705000000000001,
+          "voice_tradition": 11.05,
+          "voice_mechanism_compound": 4.614999999999999,
+          "voice_estill_quality": 5.622499999999999,
+          "voice_speech_song": 17.874999999999996,
+          "voice_ensemble_config": 12.219999999999995,
+          "voice_ornament_system": 6.35025,
           "voice_pitch_organization": 2.4000000000000004,
-          "voice_processing_chain": 1.95,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -62,8 +62,8 @@
           "tiple_strings": "tiple_steel_triple_octave"
         },
         "scores": {
-          "plucked_traditional_technique": 1.625,
-          "tiple_region": 6.1129999999999995,
+          "plucked_traditional_technique": 1.8155,
+          "tiple_region": 6.263,
           "tiple_context": 4.605,
           "tiple_body_wood": 2.173,
           "tiple_strings": 0.27299999999999996
@@ -80,11 +80,11 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 2.1264999999999996,
-          "string_tuning": 0,
-          "top_wood": 0.8265,
-          "back_sides": 0.8265,
-          "string_acoustic": 0.8265,
+          "acoustic_technique": 2.24,
+          "string_tuning": 0.16249999999999998,
+          "top_wood": 0.845,
+          "back_sides": 1.2349999999999999,
+          "string_acoustic": 2.145,
           "acoustic_om_technique": 2.1264999999999996
         }
       },
@@ -95,7 +95,7 @@
           "bandola_andina_use": "bandola_bambuco"
         },
         "scores": {
-          "plucked_traditional_technique": 1.625,
+          "plucked_traditional_technique": 1.8155,
           "bandola_andina_use": 17
         }
       }

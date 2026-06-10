@@ -3,8 +3,8 @@
   "name": "Afrobeats (Naija)",
   "family": "global",
   "lineage": "Nigerian (with Ghanaian and broader West African parallel development) urban popular music genre that emerged in the 2000s and went global from 2017 onward through Burna Boy (Pan-African genre-fusion), Wizkid (the Drake collaboration Come Closer 2017, then the 2020 album Made in Lagos), Davido, Tems, Tiwa Savage, Rema, Asake — distinguished from Fela Kutis original 1970s Afrobeat by 30-40 BPM faster tempo, digital production foundation, hip-hop-influenced song structure, and broader pop-radio commercial register",
-  "recipe": "classic mid-2000s afrobeats, functional Song, African pop branch, west African groove percussion, Afro-diasporic MC rhythm hiplife jùjú. extended whistle, rap, melodic, narrative. roland tr 8s modern aira digital recreation TR-808, singing lead analog poly synth, sampler drum machine. large tropical 1965-1985 mid-major EMI. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 455,
+  "recipe": "classic mid-2000s afrobeats, functional Song, African pop branch, west African groove percussion, Afro-diasporic MC rhythm hiplife jùjú. extended whistle, rap, melodic, narrative. roland tr 8s modern aira digital recreation TR-808, singing lead analog poly synth, sampled chopped sampler drum machine. large tropical 1965-1985 mid-major EMI. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 471,
   "score": 170.746,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 9.034999999999998,
-          "voice_quality": 3.185,
+          "voice_register": 11.009999999999998,
+          "voice_quality": 7.09375,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8625000000000002,
-          "voice_articulation": 4.65,
-          "voice_microtone": 7.445,
-          "voice_tradition": 21.06,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 7.475,
-          "voice_ensemble_config": 4.16,
-          "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.0525,
-          "voice_processing_chain": 4.095000000000001,
-          "voice_multitrack_stack": 5.135
+          "voice_vibrato": 1.1049999999999998,
+          "voice_articulation": 7.125,
+          "voice_microtone": 9.07,
+          "voice_tradition": 45.825,
+          "voice_mechanism_compound": 2.6650000000000005,
+          "voice_estill_quality": 2.4700000000000006,
+          "voice_speech_song": 13.194999999999999,
+          "voice_ensemble_config": 9.23,
+          "voice_ornament_system": 2.73,
+          "voice_pitch_organization": 7.656249999999999,
+          "voice_processing_chain": 6.675,
+          "voice_multitrack_stack": 6.949999999999999
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 1.95,
-          "drum_machine_808_context": 3.835,
-          "tr808_production_origin": 1.5325
+          "tr808_voice": 4.33125,
+          "drum_machine_808_context": 5.4275,
+          "tr808_production_origin": 2.0325
         }
       },
       {
@@ -74,10 +74,10 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 7.864999999999999,
-          "poly_archetypes": 0.056249999999999994,
-          "poly_voices": 0.3825,
-          "poly_maker_lineage": -1.435
+          "electronic_technique": 9.389999999999999,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.65,
+          "poly_maker_lineage": -0.77
         }
       },
       {
@@ -89,10 +89,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 1.45,
-          "sample_bitdepth": 0.39,
-          "sample_swing": 2.6,
-          "sample_processing": 0.39
+          "electronic_technique": 3.55,
+          "sample_bitdepth": 1.04,
+          "sample_swing": 5.85,
+          "sample_processing": 0.65
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Pre-sampling hip-hop (1979-1985)",
   "family": "vernacular",
   "lineage": "Founding commercial-recording era of hip-hop — pre-sampling-technology, when hip-hop tracks were built with live session-band recreations of the breakbeats that DJs had isolated and looped from existing records during the Bronx block-party era. Recordings include the Sugar Hill Gang Rappers Delight 1979 (the commercial breakthrough, built on a session-band recreation of Chics Good Times bassline), Grandmaster Flash and the Furious Five The Message 1982 (the socially-conscious hip-hop breakthrough), Afrika Bambaataa Planet Rock 1982 (the Kraftwerk-Trans-Europe-Express-derived electro-funk hip-hop fusion), Run-DMC self-titled debut 1984",
-  "recipe": "classic North American pre-sampling hip-hop, mc Rhythm, east coast branch, soul R&B functional song doo-wop contemporary r&b. thick, rap, nervy, narrative. sampled chopped turntable, pre muffled edge muffled hot rolled annealed machine hammered drum kit, mahogany la bella flats Detroit soul bass canon pocket fingerstyle electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, drum machine 606, cheap paired with 303 chicago foundational TR-707. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 744,
+  "recipe": "classic North American pre-sampling hip-hop, mc Rhythm, east coast branch, soul R&B functional song doo-wop contemporary r&b. thick, rap, nervy, narrative. sampled chopped turntable, pre muffled edge muffled hot rolled annealed machine hammered drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, drum machine 606, cheap paired with 303 chicago foundational TR-707. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 771,
   "score": 359.645,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 5.025000000000001,
+          "voice_register": 21.599999999999998,
           "voice_quality": 12.899999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.5249999999999999,
-          "voice_articulation": 11.895,
-          "voice_microtone": 2.250000000000001,
-          "voice_tradition": 13.2,
-          "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 1.8949999999999998,
-          "voice_speech_song": 14.29,
-          "voice_ensemble_config": 2.8600000000000003,
-          "voice_ornament_system": 0.195,
-          "voice_pitch_organization": 1.26,
-          "voice_processing_chain": 10.899999999999999,
-          "voice_multitrack_stack": 2.414999999999999
+          "voice_vibrato": 0.65,
+          "voice_articulation": 21.795,
+          "voice_microtone": 8.099999999999998,
+          "voice_tradition": 17.4,
+          "voice_mechanism_compound": 4.81,
+          "voice_estill_quality": 12.194999999999999,
+          "voice_speech_song": 18.134999999999998,
+          "voice_ensemble_config": 15.014999999999999,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 1.235,
+          "voice_processing_chain": 12.45,
+          "voice_multitrack_stack": 5.0699999999999985
         }
       },
       {
@@ -59,8 +59,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 10.194999999999999,
-          "turntable_technique": 12.495
+          "electronic_technique": 11.094999999999999,
+          "turntable_technique": 14.67
         }
       },
       {
@@ -79,17 +79,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 10.194999999999999,
-          "shell_wood": 0.435,
+          "percussion_technique": 18.134999999999998,
+          "shell_wood": 0.845,
           "shell_thickness": 0,
-          "bearing_edges": 0.5249999999999999,
-          "drumhead": 2.59,
-          "snare_wires": 0.5249999999999999,
-          "cymbal_alloy": 2.885,
-          "cymbal_hammering": 2.9850000000000003,
-          "cymbal_lathing": 2.4450000000000003,
-          "cymbal_finish": 0.345,
-          "drum_technique": 10.389999999999999
+          "bearing_edges": 0.195,
+          "drumhead": 7.1899999999999995,
+          "snare_wires": 0.195,
+          "cymbal_alloy": 7.435,
+          "cymbal_hammering": 9.335,
+          "cymbal_lathing": 8.444999999999999,
+          "cymbal_finish": 0.65,
+          "drum_technique": 18.134999999999998
         }
       },
       {
@@ -105,14 +105,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 4.2,
-          "amp_make": 2.0799999999999996,
-          "body_wood": 1.0500000000000003,
+          "electric_technique": 13.2,
+          "amp_make": 16.265,
+          "body_wood": 0.195,
           "pickup_config": 0,
-          "string_type": 3.3099999999999996,
-          "scale_length_b": 0.5249999999999999,
+          "string_type": 17.55,
+          "scale_length_b": 0.195,
           "fretted_or_not": 0.105,
-          "bass_technique": 4.2
+          "bass_technique": 13.2
         }
       },
       {
@@ -132,18 +132,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 4.45,
-          "amp_make": 5.180000000000001,
-          "body_wood": 0.5249999999999999,
-          "neck_wood": 0.5249999999999999,
-          "fretboard": 0.345,
-          "pickup_magnet": 0.345,
-          "string_material": 0.345,
-          "string_gauge": 0.5249999999999999,
+          "electric_technique": 13.44,
+          "amp_make": 15.754999999999999,
+          "body_wood": 0.45499999999999996,
+          "neck_wood": 0.65,
+          "fretboard": 0.65,
+          "pickup_magnet": 0.65,
+          "string_material": 0.65,
+          "string_gauge": 0.45499999999999996,
           "bridge": 0.105,
-          "scale_length": 1.0500000000000003,
+          "scale_length": 0.195,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 4.29
         }
       },
       {
@@ -154,7 +154,7 @@
         },
         "scores": {
           "drum_machine_606_voice": 0.39,
-          "drum_machine_606_context": 0.345
+          "drum_machine_606_context": 0.5199999999999999
         }
       },
       {
@@ -164,8 +164,8 @@
           "drum_machine_707_context": "drum_machine_707_chicago_house"
         },
         "scores": {
-          "tr707_voice": 0.54,
-          "drum_machine_707_context": 1.625
+          "tr707_voice": 1.3,
+          "drum_machine_707_context": 4.875
         }
       }
     ],

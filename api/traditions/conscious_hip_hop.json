@@ -3,8 +3,8 @@
   "name": "Conscious hip-hop",
   "family": "hip_hop",
   "lineage": "Late-1980s onward American politically-engaged hip-hop with jazz-and-soul-sample foundation — codified through Public Enemy (It Takes a Nation of Millions to Hold Us Back 1988), A Tribe Called Quest, De La Soul, KRS-One / Boogie Down Productions, and the Native Tongues collective; characterized by Afrocentric/Black-liberationist lyrical content, jazz-and-Stax sample beds, and didactic emcee tradition",
-  "recipe": "classic North American 1987-1989 conscious hip-hop, mc Rhythm, conscious rap branch, us hip hop east coast, us hip hop modern boom bap east coast hip-hop. thick, rap, tasteful, narrative. sampled chopped sampler drum machine, chopped sampler, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, jazz trio piano, pocket ostinato rhodes electric. treated studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 531,
+  "recipe": "classic North American 1987-1989 conscious hip-hop, mc Rhythm, conscious rap branch, us hip hop east coast, us hip hop modern boom bap east coast hip-hop. thick, rap, tasteful, narrative. sampled chopped sampler drum machine, chopped sampler, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, jazz trio piano, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric. treated studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 583,
   "score": 496.447,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 15.984999999999992,
-          "voice_quality": 28.01825,
+          "voice_register": 26.234999999999996,
+          "voice_quality": 38.11824999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.9099999999999999,
-          "voice_articulation": 18.294999999999998,
-          "voice_microtone": 8.596499999999997,
-          "voice_tradition": 10.841874999999998,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 7.739999999999999,
-          "voice_speech_song": 27.088124999999998,
-          "voice_ensemble_config": 14.820000000000006,
+          "voice_articulation": 28.994999999999997,
+          "voice_microtone": 14.721499999999995,
+          "voice_tradition": 17.216874999999998,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 12.014999999999997,
+          "voice_speech_song": 35.73812499999999,
+          "voice_ensemble_config": 22.644250000000003,
           "voice_ornament_system": 0.105,
-          "voice_pitch_organization": 0.9654999999999999,
-          "voice_processing_chain": 22.194999999999997,
-          "voice_multitrack_stack": 5.097500000000001
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 29.494999999999994,
+          "voice_multitrack_stack": 6.5
         }
       },
       {
@@ -61,10 +61,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 10.089999999999998,
-          "sample_bitdepth": 1.3,
-          "sample_swing": 17.419999999999998,
-          "sample_processing": 0.75
+          "electronic_technique": 16.314999999999998,
+          "sample_bitdepth": 2.6999999999999997,
+          "sample_swing": 27.689999999999998,
+          "sample_processing": 0.845
         }
       },
       {
@@ -77,11 +77,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 10.089999999999998,
-          "sampler_archetypes": 17.419999999999998,
-          "sampler_bit_depth": 1.3,
-          "sampler_workflow": 10.794999999999998,
-          "sampler_classic_context": 26.68925
+          "electronic_technique": 16.314999999999998,
+          "sampler_archetypes": 27.689999999999998,
+          "sampler_bit_depth": 2.6999999999999997,
+          "sampler_workflow": 19.619999999999997,
+          "sampler_classic_context": 39.41425
         }
       },
       {
@@ -97,14 +97,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 7.1499999999999995,
-          "amp_make": 9.956874999999997,
-          "body_wood": 0.39,
+          "electric_technique": 13.7,
+          "amp_make": 16.981875,
+          "body_wood": 0.585,
           "pickup_config": 0.9099999999999999,
-          "string_type": 10.217,
-          "scale_length_b": 1.6899999999999997,
+          "string_type": 14.642,
+          "scale_length_b": 2.2749999999999995,
           "fretted_or_not": 0.2275,
-          "bass_technique": 7.999999999999998
+          "bass_technique": 13.7
         }
       },
       {
@@ -115,7 +115,7 @@
         },
         "scores": {
           "members": 0.07012499999999999,
-          "era": 0.559375
+          "era": 1.4949999999999999
         }
       },
       {
@@ -129,12 +129,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 7.199999999999999,
-          "rhodes_model": 8.697499999999998,
-          "rhodes_use": 0.39,
-          "rhodes_tine_material": -0.91,
-          "rhodes_hammer_tip": -0.49,
-          "rhodes_pickup_position": 0.39
+          "keyboard_technique": 13.75,
+          "rhodes_model": 12.747499999999999,
+          "rhodes_use": 1.625,
+          "rhodes_tine_material": -0.2800000000000001,
+          "rhodes_hammer_tip": 0.325,
+          "rhodes_pickup_position": 2.0799999999999996
         }
       }
     ],

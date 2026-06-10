@@ -3,8 +3,8 @@
   "name": "Atmospheric black metal",
   "family": "rock",
   "lineage": "European atmospheric-foregrounded subgenre of black metal that emerged from the Norwegian and Scandinavian second-wave black metal scene in the mid-1990s — codified through Emperor (In the Nightside Eclipse 1994, the symphonic-atmospheric breakthrough), Burzum (Hvis lyset tar oss 1994), Ulver (Bergtatt 1995), early Enslaved, Wolves in the Throne Room (the US Cascadian black metal extension from 2006 onward, Two Hunters 2007); characterized by long-form composition (often 8-15 minute pieces), tremolo-picked melodic-guitar foregrounded over blast-beat percussion, ambient-keyboard-or-synth pads, and false-fold ventricular shriek vocals",
-  "recipe": "classic 1994-1996 atmospheric black metal, distorted Rock, black branch, ambient experimental electric hauntology witch house. thick, false fold engaged, chest resonance low mid, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, walnut machine hammered symmetric pattern organized rows unlathed drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 715,
+  "recipe": "classic 1994-1996 atmospheric black metal, distorted Rock, black branch, ambient experimental electric hauntology witch house. thick, false fold engaged, chest resonance low mid, narrative. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows unlathed natural finish drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 718,
   "score": 305.05,
   "config": {
     "traditions": [
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 20.659999999999997,
+          "electric_technique": 22.659999999999997,
           "amp_make": 9.874999999999996,
-          "body_wood": 11.179999999999996,
+          "body_wood": 12.779999999999998,
           "neck_wood": 1.3,
           "fretboard": 1.2349999999999999,
           "pickup_magnet": 0.15,
           "pickup_winding": 0.15,
           "string_material": 0.39,
           "bridge": 1.3,
-          "scale_length": 9.879999999999999,
+          "scale_length": 11.569999999999999,
           "string_gauge": 1.3,
           "finish": 0,
-          "string_tuning": 13.489999999999998
+          "string_tuning": 14.79
         }
       },
       {
@@ -59,8 +59,8 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.2,
-          "amp_make": 3.4050000000000002,
+          "electric_technique": 3.2,
+          "amp_make": 4.055,
           "body_wood": 1.3,
           "pickup_config": 0.15,
           "string_type": 8.26,
@@ -85,17 +85,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 4.419999999999999,
-          "shell_wood": 1.455,
+          "percussion_technique": 13.714999999999996,
+          "shell_wood": 0.845,
           "shell_thickness": 0,
           "bearing_edges": 1.3,
           "drumhead": 1.3,
           "snare_wires": 1.3,
           "cymbal_alloy": 27.089999999999996,
           "cymbal_hammering": 7.739999999999999,
-          "cymbal_lathing": 7.845,
-          "cymbal_finish": 1.455,
-          "drum_technique": 7.749999999999999
+          "cymbal_lathing": 9.4,
+          "cymbal_finish": 0.845,
+          "drum_technique": 13.714999999999996
         }
       },
       {
@@ -124,17 +124,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.3,
-          "voice_articulation": 0.09,
+          "voice_articulation": 0.8250000000000001,
           "voice_microtone": 7.5,
-          "voice_tradition": 2.2749999999999995,
+          "voice_tradition": 9.425,
           "voice_mechanism_compound": 23.819999999999997,
           "voice_estill_quality": 1,
-          "voice_speech_song": 4.874999999999999,
-          "voice_ensemble_config": 4.809999999999999,
+          "voice_speech_song": 14.169999999999998,
+          "voice_ensemble_config": 14.104999999999997,
           "voice_ornament_system": 0.2,
-          "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 1.56
+          "voice_pitch_organization": 4.485,
+          "voice_processing_chain": 9.95,
+          "voice_multitrack_stack": 7.474999999999999
         }
       }
     ],

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 6.490000000000002,
-          "voice_quality": 1.5987500000000006,
+          "voice_register": 9.739999999999995,
+          "voice_quality": 2.6445000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8250000000000001,
-          "voice_articulation": 0.9015000000000001,
-          "voice_microtone": 2.2487500000000002,
-          "voice_tradition": 20.085,
-          "voice_mechanism_compound": 8.179749999999999,
+          "voice_vibrato": 1.7224999999999997,
+          "voice_articulation": 0.975,
+          "voice_microtone": 2.7950000000000004,
+          "voice_tradition": 48.1,
+          "voice_mechanism_compound": 8.77975,
           "voice_estill_quality": 4.8999999999999995,
-          "voice_speech_song": 8.904999999999998,
-          "voice_ensemble_config": 8.449999999999998,
-          "voice_ornament_system": 3.7050000000000005,
-          "voice_pitch_organization": 1.3499999999999999,
-          "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 4.7787500000000005
+          "voice_speech_song": 17.614999999999995,
+          "voice_ensemble_config": 16.249999999999993,
+          "voice_ornament_system": 7.312499999999999,
+          "voice_pitch_organization": 7.773749999999999,
+          "voice_processing_chain": 7.30575,
+          "voice_multitrack_stack": 5.42875
         }
       },
       {
@@ -69,17 +69,17 @@
           "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 0.6544999999999999,
-          "amp_make": 0.585,
-          "body_wood": 0.39,
+          "electric_technique": 2.2099999999999995,
+          "amp_make": 1.0399999999999998,
+          "body_wood": 0.8449999999999999,
           "neck_wood": 1,
-          "fretboard": 0.8250000000000001,
-          "pickup_magnet": 0.8250000000000001,
-          "string_material": 0.924,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
           "string_gauge": 0.39,
-          "bridge": 0.39,
+          "bridge": 0.45499999999999996,
           "scale_length": 0.39,
-          "finish": 0.11374999999999998,
+          "finish": 0.45499999999999996,
           "string_tuning": 5.289999999999999
         }
       },
@@ -96,13 +96,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 1.6899999999999997,
+          "electric_technique": 0.27499999999999997,
+          "amp_make": 1.885,
           "body_wood": 0.41400000000000003,
           "pickup_config": 0.195,
           "string_type": 1.1744999999999999,
           "scale_length_b": 0.78,
-          "fretted_or_not": 0.24,
+          "fretted_or_not": 0.845,
           "bass_technique": 0.7044999999999999
         }
       },
@@ -144,8 +144,8 @@
           "xalam_string_material": "xalam_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 14.689999999999996,
-          "xalam_strings": 0.78,
+          "plucked_traditional_technique": 28.534999999999993,
+          "xalam_strings": 0.975,
           "xalam_context": 0.39,
           "xalam_body": 0.39,
           "xalam_string_material": 0.195

@@ -3,8 +3,8 @@
   "name": "Sawt (Bahraini-Kuwaiti chamber song)",
   "family": "classical",
   "lineage": "Sawt classical Arabian-Gulf urban-chamber song tradition of Bahrain and Kuwait, developed in eighteenth-nineteenth centuries through cultural and trade connections between Gulf merchant-class urban centers and Yemen (with Yemeni-Sanaani musical influence) and East Africa (Zanzibari merchant-class exchange). Performance configuration: male solo singer accompanying himself on oud, with mirwas small drum and hand-clapping from a small audience. Repertoire organizes around sawt arabi (longer, complex modal cycle) and sawt shami (shorter, lighter modal cycle).",
-  "recipe": "classic modern sawt, art Music, middle eastern classical branch, med east poetic ballad poetry ethiopian azmari minstrel-poet pontic greek music. vocal fry, chest resonance low mid, maqam neutral step, Mediterranean demotic vocal. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east open slap hand drum darbuka. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 594,
+  "recipe": "classic modern sawt, art Music, middle eastern classical branch, med east poetic ballad poetry ethiopian azmari minstrel-poet pontic greek music. vocal fry, declaimed, chest resonance low mid, narrative. Lebanese cedar eastern Mediterranean oud, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east open slap hand drum darbuka. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 497,
   "score": 189.301,
   "config": {
     "traditions": [
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 1.38,
-          "voice_quality": 0.160875,
+          "voice_quality": 4.9075000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.9399999999999995,
-          "voice_articulation": 0,
-          "voice_microtone": 2.7300000000000004,
-          "voice_tradition": 18.589999999999996,
+          "voice_vibrato": 5.785,
+          "voice_articulation": 0.585,
+          "voice_microtone": 4.907500000000001,
+          "voice_tradition": 24.960000000000008,
           "voice_mechanism_compound": 11.869,
-          "voice_estill_quality": 12.120749999999997,
-          "voice_speech_song": 14.754999999999997,
-          "voice_ensemble_config": 10.009999999999998,
+          "voice_estill_quality": 14.070749999999999,
+          "voice_speech_song": 28.275000000000006,
+          "voice_ensemble_config": 23.53,
           "voice_ornament_system": 13.489625,
           "voice_pitch_organization": 13.489625,
-          "voice_processing_chain": 2.541625,
+          "voice_processing_chain": 3.4408749999999992,
           "voice_multitrack_stack": 1.77
         }
       },
@@ -68,9 +68,9 @@
           "oud_school": 1.38,
           "oud_strings": 4.9399999999999995,
           "oud_pick": 0.715,
-          "oud_body_wood": 1.2138749999999998,
+          "oud_body_wood": 0.845,
           "oud_soundboard_wood": 1.95,
-          "oud_string_material": 1.5864999999999998
+          "oud_string_material": 0.845
         }
       },
       {
@@ -82,10 +82,10 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 3.2500000000000004,
-          "darbuka_material": 1.4738749999999996,
-          "darbuka_skin": 1.4738749999999996,
-          "darbuka_regional_style": 3.068
+          "percussion_technique": 4.610875000000001,
+          "darbuka_material": 0.845,
+          "darbuka_skin": 1.69,
+          "darbuka_regional_style": 5.3950000000000005
         }
       }
     ],

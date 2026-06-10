@@ -3,8 +3,8 @@
   "name": "Fidget house",
   "family": "electronic",
   "lineage": "Late-2000s UK-and-American house subgenre characterized by hyperactive cut-and-paste vocal-sample manipulation, glitchy-shifted rhythmic-displacement, and aggressive-funky bass-line emphasis. Switch (Dave Taylor) and Sinden (Sam Sintron) inaugurated the canonical sound through their 2007 Get Familiar mix and parallel Hercules Recordings releases; the genre intersected with broader bassline UK garage and informed the subsequent Major Lazer and Diplo-led commercial moombahton hybrid.",
-  "recipe": "classic 2007-2009 fidget house, electronic Dance, house branch, uk soundsystem bass system bassline future garage. vocal fry, rap, chest resonance low mid, punctuated. TR-808, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 383,
+  "recipe": "classic 2007-2009 fidget house, electronic Dance, house branch, uk soundsystem bass system bassline future garage. vocal fry, rap, chest resonance low mid, punctuated. TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 392,
   "score": 126.989,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 1.56,
+          "voice_register": 2.535,
+          "voice_quality": 5.155,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.663,
-          "voice_articulation": 1.69,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 3.185,
           "voice_microtone": 1.3865,
-          "voice_tradition": 1.625,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 11.765,
-          "voice_ensemble_config": 11.7,
-          "voice_ornament_system": 0.9099999999999999,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 7.65,
-          "voice_multitrack_stack": 5.07
+          "voice_tradition": 3.2175000000000002,
+          "voice_mechanism_compound": 4.0465,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 16.835,
+          "voice_ensemble_config": 16.769999999999996,
+          "voice_ornament_system": 2.8600000000000003,
+          "voice_pitch_organization": 5.07,
+          "voice_processing_chain": 13.399999999999999,
+          "voice_multitrack_stack": 7.863
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 2.535,
-          "drum_machine_808_context": 2.6,
-          "tr808_production_origin": 0.1365
+          "tr808_voice": 6.922499999999999,
+          "drum_machine_808_context": 6.24,
+          "tr808_production_origin": 0.7150000000000001
         }
       },
       {
@@ -75,10 +75,10 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 2.405,
-          "oscillator": 2.6,
-          "filter_topology": 2.6,
-          "envelope": 1.69,
+          "electronic_technique": 6.7924999999999995,
+          "oscillator": 6.24,
+          "filter_topology": 7.085,
+          "envelope": 3.185,
           "modulation": 1.3
         }
       }

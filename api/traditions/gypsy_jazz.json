@@ -3,8 +3,8 @@
   "name": "Jazz manouche",
   "family": "jazz",
   "lineage": "1930s Paris Romani-French string-led jazz-swing tradition combining American swing harmonic vocabulary with Eastern European Romani melodic-and-virtuoso-soloist tradition — codified through the Quintette du Hot Club de France (Django Reinhardt and Stéphane Grappelli, 1934 onward) and continuing through Romané musical-family transmission across European Romani communities into the present",
-  "recipe": "classic mid-1930s jazz manouche, improv On Frame, string improv branch, europop functional song bal-folk balkan brass. parlor acoustic guitar, carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, growly gut upright bass, gypsy jazz quintet, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lead trumpet ensemble trumpet. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 591,
+  "recipe": "classic mid-1930s jazz manouche, improv On Frame, string improv branch, europop functional song bal-folk balkan brass. fingerpicked parlor acoustic guitar, carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, growly gut upright bass, gypsy jazz quintet, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 613,
   "score": 162.495,
   "config": {
     "traditions": [
@@ -23,8 +23,8 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 0.745,
-          "string_tuning": 0,
+          "acoustic_technique": 18.770000000000007,
+          "string_tuning": 2.4,
           "top_wood_parlor": 0.39,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 0.39
@@ -45,16 +45,16 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.45,
+          "bowed_technique": 3.14,
           "orch_strings": 0,
           "orch_top_wood": 3.5650000000000004,
           "orch_back_wood": 2.925,
-          "orch_varnish": 1.625,
-          "orch_setup_period": 0.6499999999999999,
-          "orch_bow": 2.7899999999999996,
+          "orch_varnish": 4.8100000000000005,
+          "orch_setup_period": 2.565,
+          "orch_bow": 4.874999999999999,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 1.585,
-          "orch_rosin": 1.625
+          "orch_articulation": 2.2350000000000003,
+          "orch_rosin": 4.8100000000000005
         }
       },
       {
@@ -65,7 +65,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 0.25,
+          "acoustic_technique": 1.2750000000000001,
           "upright_strings": 13.499999999999996,
           "upright_play": 13.499999999999996
         }
@@ -77,8 +77,8 @@
           "gypsy_jazz_quintet_era": "gypsy_jazz_quintet_postwar"
         },
         "scores": {
-          "members": 2.585,
-          "gypsy_jazz_quintet_era": 7.279999999999999
+          "members": 3.2350000000000003,
+          "gypsy_jazz_quintet_era": 8.969999999999999
         }
       },
       {
@@ -93,13 +93,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.75,
+          "wind_articulation": 3.575,
           "sax_size": 0.975,
           "sax_reed": 0.045,
           "sax_body_alloy": 13.499999999999996,
           "sax_mouthpiece": 0,
           "sax_technique": 13.844999999999997,
-          "sax_maker_school": 13.319999999999997
+          "sax_maker_school": 13.969999999999999
         }
       },
       {
@@ -114,13 +114,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.295,
+          "wind_articulation": 3.575,
           "brass_size": 0.045,
           "trumpet_mouthpiece": 14.579999999999997,
           "brass_mute": 0,
-          "trumpet_technique": 1.295,
-          "trumpet_bell_metal": 2.1,
-          "trumpet_maker_school": 1.3
+          "trumpet_technique": 3.575,
+          "trumpet_bell_metal": 5.719999999999999,
+          "trumpet_maker_school": 2.145
         }
       }
     ],

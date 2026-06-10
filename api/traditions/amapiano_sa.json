@@ -3,8 +3,8 @@
   "name": "Amapiano (South African 2010s)",
   "family": "electronic",
   "lineage": "South African deep-house-and-jazz hybrid genre emerging in mid-2010s in Johannesburg and Pretoria. Characterized by extremely-deep \"log drum\" synthesizer-bass, jazz-piano keyboard work, slow-to-mid tempo (108-115 BPM), and extended drawn-out arrangement structures. Kabza De Small (\"King of Amapiano\"), DJ Maphorisa, and Vigro Deep constitute the canonical producer-roster; the genre spread internationally through 2020-onward through TikTok-Pretoria-dance-circulation and is now the dominant African-dance-music form continent-wide.",
-  "recipe": "classic amapiano, electronic Dance, African dance branch, house electronic dance afro house deep house. thick, blues-shouter, chest resonance low mid, equal tempered. TR-808, analog synth, log drum. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 409,
+  "recipe": "classic amapiano, electronic Dance, African dance branch, house electronic dance afro house deep house. thick, blues-shouter, chest resonance low mid, narrative. TR-808, analog synth, log drum. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 404,
   "score": 165.405,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.51,
-          "voice_quality": 2.825,
+          "voice_register": 14.884999999999996,
+          "voice_quality": 4.125000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9749999999999996,
-          "voice_articulation": 0.345,
-          "voice_microtone": 6.249999999999999,
-          "voice_tradition": 16.31,
-          "voice_mechanism_compound": 1.1099999999999999,
-          "voice_estill_quality": 1.285,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 1.375,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 8.715,
-          "voice_multitrack_stack": 7.419999999999999
+          "voice_vibrato": 3.1249999999999996,
+          "voice_articulation": 3.0999999999999996,
+          "voice_microtone": 9.499999999999996,
+          "voice_tradition": 24.735,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 4.725,
+          "voice_speech_song": 17.809999999999995,
+          "voice_ensemble_config": 17.289999999999996,
+          "voice_ornament_system": 1.6749999999999998,
+          "voice_pitch_organization": 2.49,
+          "voice_processing_chain": 14.215,
+          "voice_multitrack_stack": 9.844999999999999
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 1.625,
-          "drum_machine_808_context": 3.3149999999999995,
-          "tr808_production_origin": 0.375
+          "tr808_voice": 2.275,
+          "drum_machine_808_context": 3.51,
+          "tr808_production_origin": 0.65
         }
       },
       {
@@ -75,9 +75,9 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 1.4949999999999999,
-          "oscillator": 1.69,
-          "filter_topology": 4.845,
+          "electronic_technique": 2.145,
+          "oscillator": 2.34,
+          "filter_topology": 5.495,
           "envelope": 0.3,
           "modulation": 0.15
         }
@@ -89,8 +89,8 @@
           "log_drum_context": "log_drum_amapiano"
         },
         "scores": {
-          "log_drum_voice": 2.9899999999999998,
-          "log_drum_context": 10.57
+          "log_drum_voice": 3.1849999999999996,
+          "log_drum_context": 14.67
         }
       }
     ],

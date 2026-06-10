@@ -3,8 +3,8 @@
   "name": "Makossa",
   "family": "global",
   "lineage": "Cameroonian (Douala / Bantu coastal) popular music genre codified by Manu Dibango from 1972 onward (Soul Makossa, the international breakthrough that established the genre name in the global pop vocabulary) — built on a fusion of Douala traditional drumming, jazz horn-section vocabulary, and Cameroonian Catholic-mission church music; tracked extensively at Paris Pathé-Marconi studios for European distribution and recurring back to Yaoundé and Douala studios",
-  "recipe": "classic West African early-1970s makossa, groove Percussion, west African branch, African pop functional song congolese rumba afrobeats. thick, blues-shouter, narrative, equal tempered. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, congas, ensemble student commercial trombone, ensemble shallow cup lead trumpet trumpet. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 884,
+  "recipe": "classic West African early-1970s makossa, groove Percussion, west African branch, African pop functional song congolese rumba afrobeats. thick, blues-shouter, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, mule hide canonical Cuban premium oak staved canonical Cuban congas, yellow brass canonical 70 30 bach 42 standard ensemble student commercial trombone, yellow brass canonical 70 30 bach stradivarius ensemble shallow cup lead trumpet trumpet. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ.",
+  "recipe_chars": 994,
   "score": 410.392,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 11.144999999999998,
-          "voice_quality": 2.800000000000002,
+          "voice_register": 21.319999999999997,
+          "voice_quality": 5.475000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.48000000000000004,
-          "voice_articulation": 3.9000000000000004,
-          "voice_microtone": 8.634999999999998,
-          "voice_tradition": 12.74,
-          "voice_mechanism_compound": 1.17,
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 6.325,
+          "voice_microtone": 18.66,
+          "voice_tradition": 32.597500000000004,
+          "voice_mechanism_compound": 2.795,
           "voice_estill_quality": 3.2450000000000006,
-          "voice_speech_song": 8.644999999999998,
-          "voice_ensemble_config": 6.889999999999999,
-          "voice_ornament_system": 0.15000000000000002,
-          "voice_pitch_organization": 0.6299999999999999,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 1.4999999999999998
+          "voice_speech_song": 21.645000000000003,
+          "voice_ensemble_config": 16.835,
+          "voice_ornament_system": 0.52,
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 2.8275000000000006
         }
       },
       {
@@ -69,16 +69,16 @@
           "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 7.295,
-          "amp_make": 3.3950000000000005,
-          "body_wood": 0.375,
-          "neck_wood": 0.375,
-          "fretboard": 0.435,
+          "electric_technique": 14.444999999999999,
+          "amp_make": 3.545000000000001,
+          "body_wood": 0.585,
+          "neck_wood": 0.585,
+          "fretboard": 0.5399999999999999,
           "pickup_magnet": 0.3,
           "string_material": 0.3,
-          "string_gauge": 0.39,
+          "string_gauge": 0.585,
           "bridge": 0.24,
-          "scale_length": 0.75,
+          "scale_length": 0.585,
           "finish": 0,
           "string_tuning": 0.78
         }
@@ -96,14 +96,14 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 3.95,
-          "amp_make": 5.590000000000001,
-          "body_wood": 0.75,
+          "electric_technique": 5.575,
+          "amp_make": 5.905,
+          "body_wood": 0.585,
           "pickup_config": 0.195,
-          "string_type": 5.315,
-          "scale_length_b": 0.39,
+          "string_type": 7.145,
+          "scale_length_b": 0.975,
           "fretted_or_not": 0.195,
-          "bass_technique": 3.95
+          "bass_technique": 6.424999999999999
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 12.544999999999998,
-          "shell_wood": 0.795,
+          "percussion_technique": 27.4625,
+          "shell_wood": 0.84,
           "shell_thickness": 0,
           "bearing_edges": 0.8700000000000001,
-          "drumhead": 5.879999999999999,
-          "snare_wires": 0.375,
-          "cymbal_alloy": 5.94,
-          "cymbal_hammering": 5.995,
-          "cymbal_lathing": 5.845,
+          "drumhead": 12.73,
+          "snare_wires": 0.585,
+          "cymbal_alloy": 12.065,
+          "cymbal_hammering": 12.695,
+          "cymbal_lathing": 12.395,
           "cymbal_finish": 0.3,
-          "drum_technique": 12.544999999999998
+          "drum_technique": 27.4625
         }
       },
       {
@@ -147,13 +147,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 6.7299999999999995,
-          "sax_size": 4.355,
+          "wind_articulation": 8.504999999999999,
+          "sax_size": 6.33,
           "sax_reed": 0.3,
-          "sax_body_alloy": 2.5,
+          "sax_body_alloy": 6.5,
           "sax_mouthpiece": 1.3,
-          "sax_technique": 3.95,
-          "sax_maker_school": 1.885
+          "sax_technique": 6.125,
+          "sax_maker_school": 6.544999999999999
         }
       },
       {
@@ -165,10 +165,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 0.2,
-          "conga_set": 0.39,
-          "conga_skin": 0.9149999999999998,
-          "conga_shell_wood": 0.9149999999999998
+          "percussion_technique": 2.3075,
+          "conga_set": 0.78,
+          "conga_skin": 2.2749999999999995,
+          "conga_shell_wood": 2.2749999999999995
         }
       },
       {
@@ -183,12 +183,12 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 6.7299999999999995,
-          "trombone_type": 2.59,
-          "trombone_mouthpiece": 8.73,
+          "wind_articulation": 8.504999999999999,
+          "trombone_type": 6.364999999999999,
+          "trombone_mouthpiece": 18.98,
           "trombone_mute": 0.5849999999999999,
-          "trombone_technique": 2.3649999999999998,
-          "trombone_bell_metal": 0.39,
+          "trombone_technique": 3.1149999999999993,
+          "trombone_bell_metal": 1.04,
           "trombone_maker_school": 0.8849999999999998
         }
       },
@@ -204,13 +204,13 @@
           "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 6.7299999999999995,
+          "wind_articulation": 8.504999999999999,
           "brass_size": 0.3,
-          "trumpet_mouthpiece": 4.03,
+          "trumpet_mouthpiece": 8.545,
           "brass_mute": 0.5849999999999999,
-          "trumpet_technique": 6.7299999999999995,
-          "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 0.69
+          "trumpet_technique": 8.504999999999999,
+          "trumpet_bell_metal": 1.04,
+          "trumpet_maker_school": 0.78
         }
       }
     ],

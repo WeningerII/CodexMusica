@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 16.189999999999994,
-          "voice_quality": 9.634999999999996,
+          "voice_register": 57.79000000000002,
+          "voice_quality": 9.784999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8399999999999999,
-          "voice_articulation": 1.57,
-          "voice_microtone": 11.609999999999998,
-          "voice_tradition": 26.099999999999994,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 11.629999999999999,
-          "voice_speech_song": 7.6049999999999995,
-          "voice_ensemble_config": 10.325,
-          "voice_ornament_system": 13.539999999999997,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 5.71,
+          "voice_vibrato": 20.24,
+          "voice_articulation": 1.8699999999999999,
+          "voice_microtone": 32.835,
+          "voice_tradition": 26.549999999999997,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 30.179999999999996,
+          "voice_speech_song": 20.019999999999996,
+          "voice_ensemble_config": 16.379999999999995,
+          "voice_ornament_system": 13.69,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 10.185,
           "voice_multitrack_stack": 6.53
         }
       },
@@ -60,9 +60,9 @@
           "quena_pitch": "quena_quenacho"
         },
         "scores": {
-          "wind_articulation": 3.29,
+          "wind_articulation": 5.44,
           "quena_material": 1,
-          "quena_pitch": 0.18
+          "quena_pitch": 0.39
         }
       },
       {
@@ -75,7 +75,7 @@
           "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 5.585000000000001,
+          "plucked_traditional_technique": 9.285,
           "charango_back": 3.8999999999999995,
           "charango_top_wood": 5.199999999999999,
           "charango_strings": 3.8999999999999995,
@@ -113,19 +113,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 3.2,
-          "amp_make": 3.25,
+          "electric_technique": 20.195,
+          "amp_make": 22.150000000000002,
           "body_wood": 2.54,
           "neck_wood": 1.3,
           "fretboard": 1.3,
           "pickup_magnet": 1,
           "pickup_winding": 1,
-          "string_material": 1.69,
+          "string_material": 3.3149999999999995,
           "bridge": 0.38999999999999996,
           "scale_length": 3.6449999999999996,
           "string_gauge": 0.24,
           "finish": 0.045,
-          "string_tuning": 6.759999999999999
+          "string_tuning": 12.820000000000004
         }
       }
     ],

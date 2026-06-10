@@ -3,8 +3,8 @@
   "name": "Columbia",
   "family": "global",
   "lineage": "Fast-tempo Cuban rumba subform 1880s-onward, the male-virtuoso-solo-dance variant of the three rumba subforms (alongside slower yambú and middle-tempo guaguancó). Built on accelerated-version-of-guaguancó conga-pattern with three-conga (tumbador, tres-dos, quinto) plus palitos stick-pattern, claves 3-2 wood-block, and one-or-two-male-vocalists. The dance features acrobatic-male-solo (often climbing-on-objects, knife-and-bottle-skill-play, machismo-display) rather than couple-pursuit; columbia originated in rural Matanzas dock-worker-and-railroad-worker communities (etymology from the Colón rail-line) and remains the most rural and afro-derived of the rumba subforms. The vocal-style features Yoruba-Bantu invocations (Lucumí ritual fragments embedded in the lalaleo non-lexical opening) mixed with Spanish-language verse.",
-  "recipe": "classic mid-1880s columbia, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, blues-shouter, Yoruba tonal vocal, m1 with m0 pulse borrowing. mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 641,
+  "recipe": "classic mid-1880s columbia, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, blues-shouter, melodic, punctuated. lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 619,
   "score": 180.291,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 1.645,
+          "voice_register": 2.730000000000002,
           "voice_quality": 12.744999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.325,
-          "voice_articulation": 0.39,
-          "voice_microtone": 0.39,
-          "voice_tradition": 8.45,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 12.805000000000003,
-          "voice_ensemble_config": 12.350000000000001,
-          "voice_ornament_system": 1.885,
-          "voice_pitch_organization": 4.354500000000001,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 3.6395000000000004
+          "voice_vibrato": 0.5199999999999999,
+          "voice_articulation": 0.585,
+          "voice_microtone": 0.585,
+          "voice_tradition": 25.317500000000003,
+          "voice_mechanism_compound": 5.004999999999999,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 17.29,
+          "voice_ensemble_config": 16.64,
+          "voice_ornament_system": 5.46,
+          "voice_pitch_organization": 11.879499999999998,
+          "voice_processing_chain": 2.795,
+          "voice_multitrack_stack": 4.2895
         }
       },
       {
@@ -61,10 +61,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 7.41,
-          "conga_set": 0.78,
-          "conga_skin": 4.944999999999999,
-          "conga_shell_wood": 4.944999999999999
+          "percussion_technique": 13.975,
+          "conga_set": 1.625,
+          "conga_skin": 5.095,
+          "conga_shell_wood": 5.095
         }
       },
       {
@@ -74,7 +74,7 @@
           "claves_wood": "claves_cuban_hardwood"
         },
         "scores": {
-          "claves_pattern": 10.79,
+          "claves_pattern": 14.819999999999999,
           "claves_wood": 1.3
         }
       },
@@ -87,10 +87,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 5.329999999999999,
-          "choir_polyphonic_configuration": 2.6,
-          "choir_regional_canonical_configuration": 3.9,
-          "choir_ensemble_repertoire": 1.3
+          "choir_size": 6.954999999999999,
+          "choir_polyphonic_configuration": 4.29,
+          "choir_regional_canonical_configuration": 5.5495,
+          "choir_ensemble_repertoire": 4.485
         }
       }
     ],

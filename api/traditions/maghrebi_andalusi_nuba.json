@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.353,
-          "voice_quality": 1.1049999999999998,
+          "voice_register": 2.145,
+          "voice_quality": 2.1449999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.54,
+          "voice_vibrato": 10.985,
           "voice_articulation": 1,
-          "voice_microtone": 21.193,
-          "voice_tradition": 39.06025,
-          "voice_mechanism_compound": 17.258,
-          "voice_estill_quality": 14.380999999999997,
-          "voice_speech_song": 18.395000000000003,
-          "voice_ensemble_config": 20.87825,
-          "voice_ornament_system": 33.5935,
-          "voice_pitch_organization": 33.643,
-          "voice_processing_chain": 5.25425,
-          "voice_multitrack_stack": 1.566
+          "voice_microtone": 30.693,
+          "voice_tradition": 49.51025,
+          "voice_mechanism_compound": 27.782999999999998,
+          "voice_estill_quality": 21.581,
+          "voice_speech_song": 22.97325,
+          "voice_ensemble_config": 24.728250000000003,
+          "voice_ornament_system": 45.893499999999996,
+          "voice_pitch_organization": 45.643,
+          "voice_processing_chain": 6.37,
+          "voice_multitrack_stack": 3.445
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 9.36,
-          "choir_polyphonic_configuration": 8.98125,
-          "choir_regional_canonical_configuration": 7.4072499999999994,
-          "choir_ensemble_repertoire": 6.035749999999999
+          "choir_size": 11.160749999999998,
+          "choir_polyphonic_configuration": 9.13125,
+          "choir_regional_canonical_configuration": 8.707249999999998,
+          "choir_ensemble_repertoire": 6.535749999999999
         }
       },
       {
@@ -79,13 +79,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 14.814,
-          "oud_school": 5.2475,
-          "oud_strings": 6.24,
-          "oud_pick": 1.1215,
-          "oud_body_wood": 6.494249999999999,
+          "plucked_traditional_technique": 18.25,
+          "oud_school": 5.3975,
+          "oud_strings": 9.685,
+          "oud_pick": 1.2714999999999999,
+          "oud_body_wood": 6.644249999999999,
           "oud_soundboard_wood": 5.404249999999999,
-          "oud_string_material": 7.279999999999999
+          "oud_string_material": 10.919999999999998
         }
       },
       {
@@ -99,9 +99,9 @@
           "rebab_strings": "rebab_steel_modern"
         },
         "scores": {
-          "bowed_technique": 21.7,
-          "rebab_region": 11.18,
-          "rebab_context": 3.25,
+          "bowed_technique": 25.325,
+          "rebab_region": 17.745,
+          "rebab_context": 4.745,
           "rebab_body": 5.404249999999999,
           "rebab_skin": 5.404249999999999,
           "rebab_strings": 3.9042499999999993
@@ -119,13 +119,13 @@
           "qanun_string_material": "qanun_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 14.814,
-          "qanun_strings": 6.24,
+          "plucked_traditional_technique": 18.25,
+          "qanun_strings": 9.49,
           "qanun_levers": -1.5,
-          "qanun_pick": 6.24,
+          "qanun_pick": 9.88,
           "qanun_body_wood": 5.659249999999999,
           "qanun_bridge_skin": 5.404249999999999,
-          "qanun_string_material": 3.5942499999999997
+          "qanun_string_material": 3.74425
         }
       },
       {
@@ -138,9 +138,9 @@
         },
         "scores": {
           "percussion_technique": -0.07,
-          "darbuka_material": 7.2757499999999995,
-          "darbuka_skin": 5.719999999999999,
-          "darbuka_regional_style": 8.87575
+          "darbuka_material": 8.425749999999999,
+          "darbuka_skin": 6.925749999999999,
+          "darbuka_regional_style": 11.875749999999998
         }
       }
     ],

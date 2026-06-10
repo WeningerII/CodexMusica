@@ -3,8 +3,8 @@
   "name": "Latin trap",
   "family": "pop",
   "lineage": "Puerto Rican-Dominican Latin-trap subgenre codified through Bad Bunny (X 100PRE 2018), Anuel AA, Ozuna, Bryant Myers — characterized by 70-80 BPM trap-808 programming with reggaeton-dembow accents, autotuned-Spanish-language vocals, and the Hear This Music label catalog driving its mainstream crossover",
-  "recipe": "classic late-2010s latin trap, mc Rhythm, reggaeton branch, us hip hop southern trap houston chopped and screwed. extended whistle, rap, chest resonance low mid, narrative. TR-808, sub bass analog poly synth, sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 375,
+  "recipe": "classic late-2010s latin trap, mc Rhythm, reggaeton branch, us hip hop southern trap houston chopped and screwed. extended whistle, rap, chest resonance low mid, narrative. TR-808, sub bass analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 391,
   "score": 151.995,
   "config": {
     "traditions": [
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 3.185,
-          "voice_quality": 5.59,
+          "voice_quality": 15.96,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.08,
-          "voice_articulation": 1.1699999999999997,
+          "voice_articulation": 6.394999999999999,
           "voice_microtone": 2.250000000000001,
-          "voice_tradition": 3.185,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 5.915,
-          "voice_ensemble_config": 5.069999999999999,
-          "voice_ornament_system": 0.19500000000000003,
-          "voice_pitch_organization": 2.0999999999999996,
-          "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 1.95
+          "voice_tradition": 8.76,
+          "voice_mechanism_compound": 3.3149999999999995,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 15.279999999999998,
+          "voice_ensemble_config": 12.804999999999994,
+          "voice_ornament_system": 0.65,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 8.519999999999998,
+          "voice_multitrack_stack": 3.51
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.5349999999999997,
-          "drum_machine_808_context": 1.885,
+          "tr808_voice": 10.11,
+          "drum_machine_808_context": 4.29,
           "tr808_production_origin": 0.9299999999999999
         }
       },
@@ -74,10 +74,10 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 16.104999999999997,
+          "electronic_technique": 29.879999999999995,
           "poly_archetypes": 0.495,
           "poly_voices": 0.345,
-          "poly_maker_lineage": -0.7350000000000001
+          "poly_maker_lineage": 0.3249999999999998
         }
       },
       {
@@ -89,9 +89,9 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 1.2999999999999998,
-          "sample_bitdepth": 1.125,
-          "sample_swing": 1.8199999999999998,
+          "electronic_technique": 8.575,
+          "sample_bitdepth": 1.8199999999999998,
+          "sample_swing": 9.879999999999999,
           "sample_processing": 0.39
         }
       }

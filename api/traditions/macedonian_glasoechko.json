@@ -3,8 +3,8 @@
   "name": "Macedonian Glasoechko male diaphonic",
   "family": "global",
   "lineage": "Macedonian Glasoechko male two-voice diaphonic singing tradition of the Dolni Polog and Drimkol-Golo Brdo regions of western North Macedonia. The form features two-voice male singing in characteristic parallel-second and minor-third intervals over a sustained drone-tone (often an organ-point sustained by the second voice while the lead voice elaborates the melodic content), with most phrases cadencing on a unison-or-octave close. Distinguished from neighboring Balkan two-voice traditions by Glasoechko's Mijak-and-Šop dialect-specific cadential vocabulary and the characteristic Macedonian-pastoral functional context. The melodic vocabulary draws on regional pastoral-and-shepherd-call modal frameworks with characteristic narrow-range melodic-contour conventions. Accompanying instrumental contexts sometimes include the kaval end-blown shepherd-flute and the gajda Balkan bagpipe with double-reed chanter and drone-pipe. Performance traditionally outdoors in mountain-pasture contexts during summer transhumance, with the long-distance acoustic projection of the two-voice configuration suited to mountain-valley environments. The mid-twentieth-century rural depopulation of the Polog and Drimkol regions reduced active practitioners. Distinguished from Croatian Istrian diaphonic by Macedonian Glasoechko's drone-and-melody (vs Istrian's strict-two-voice-parallel) configuration and Macedonian-pastoral functional context; distinguished from Albanian iso-polyphony by Glasoechko's two-voice (vs Albanian three-or-four-voice) configuration; distinguished from neighboring Bulgarian male diaphonic by Macedonian-Mijak-dialect-specific cadential conventions.",
-  "recipe": "classic modern macedonian glasoechko male diaphonic, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. kargyraa, false fold engaged, melodic, equal tempered. plum canonical bulgarian melodic kaval, bagpipe double reed chanter drone pipe canonical balkan macedonian glasoechko pastoral dance gajda. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 535,
+  "recipe": "classic modern macedonian glasoechko male diaphonic, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. kargyraa, false fold engaged, melodic, hocket articulation. plum canonical bulgarian melodic kaval, bagpipe double reed chanter drone pipe canonical balkan macedonian glasoechko pastoral dance gajda. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 540,
   "score": 293.468,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 6.795,
-          "voice_quality": 2.9450000000000016,
+          "voice_register": 7.595,
+          "voice_quality": 16.075,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.27,
-          "voice_articulation": 0.335625,
-          "voice_microtone": 1.0449999999999997,
-          "voice_tradition": 16.835,
-          "voice_mechanism_compound": 9.62,
-          "voice_estill_quality": 5.785,
-          "voice_speech_song": 14.495000000000003,
-          "voice_ensemble_config": 29.510000000000005,
-          "voice_ornament_system": 11.983125000000001,
-          "voice_pitch_organization": 5.683125,
-          "voice_processing_chain": 10.614375,
-          "voice_multitrack_stack": 6.598125
+          "voice_articulation": 3.4499999999999997,
+          "voice_microtone": 2.0700000000000003,
+          "voice_tradition": 41.146875,
+          "voice_mechanism_compound": 16.055,
+          "voice_estill_quality": 10.464999999999996,
+          "voice_speech_song": 25.740000000000006,
+          "voice_ensemble_config": 52.13000000000001,
+          "voice_ornament_system": 14.783125000000002,
+          "voice_pitch_organization": 8.683125,
+          "voice_processing_chain": 12.914375000000001,
+          "voice_multitrack_stack": 8.62125
         }
       },
       {
@@ -61,10 +61,10 @@
           "kaval_body_wood": "kaval_plum_canonical"
         },
         "scores": {
-          "wind_articulation": 3.875,
-          "kaval_region": 6.545,
-          "kaval_context": 0.46875,
-          "kaval_body_wood": 1.3
+          "wind_articulation": 4.3,
+          "kaval_region": 7.345,
+          "kaval_context": 1.3,
+          "kaval_body_wood": 3.445
         }
       },
       {
@@ -74,8 +74,8 @@
           "gajda_tradition": "gajda_macedonian_glasoechko_canonical"
         },
         "scores": {
-          "gajda_body": 14.743749999999999,
-          "gajda_tradition": 18.259999999999998
+          "gajda_body": 19.04375,
+          "gajda_tradition": 20.709999999999997
         }
       }
     ],

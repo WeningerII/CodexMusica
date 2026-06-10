@@ -3,8 +3,8 @@
   "name": "Nashville Sound",
   "family": "country",
   "lineage": "Late-1950s through 1960s smooth-pop country crossover production aesthetic codified by Chet Atkins (RCA Studio B Nashville producer, the Nashville Sound architect) and Owen Bradley (Decca/MCA Quonset Hut producer) as a deliberate softening of honky-tonks rough-edged dance-hall instrumentation toward smoother string-section and vocal-chorus-backed pop production — designed to compete with rock and roll for AM-radio pop airplay; recordings include Patsy Cline I Fall to Pieces 1961 and Crazy 1961, Jim Reeves Hes Got the Whole World in His Hands 1962, Eddy Arnold Make the World Go Away 1965",
-  "recipe": "classic North American 1957-1959 nashville sound, functional Song, nashville branch, crooners functional song brill building pop american barbershop quartet. thick, melodic, equal tempered, modern pop training. parlor classic steel silk strummed open chord ringing overtones parlor acoustic guitar, double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 559,
+  "recipe": "classic North American 1957-1959 nashville sound, functional Song, nashville branch, crooners functional song brill building pop american barbershop quartet. thick, declaimed, melodic, ornamental. rosewood parlor classic steel silk strummed parlor acoustic guitar, magic rosin modern acrylic base double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 557,
   "score": 191.879,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 23.658499999999993,
-          "voice_quality": 0.19500000000000003,
+          "voice_register": 32.65849999999999,
+          "voice_quality": 2.488,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.815499999999998,
-          "voice_articulation": 0.13000000000000003,
-          "voice_microtone": 12.202499999999997,
-          "voice_tradition": 12.524499999999998,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 13.524999999999995,
-          "voice_speech_song": 11.114999999999997,
-          "voice_ensemble_config": 7.799999999999999,
-          "voice_ornament_system": 0.1575,
+          "voice_vibrato": 12.690499999999997,
+          "voice_articulation": 1.7499999999999998,
+          "voice_microtone": 18.377499999999998,
+          "voice_tradition": 18.0995,
+          "voice_mechanism_compound": 2.675,
+          "voice_estill_quality": 15.199999999999996,
+          "voice_speech_song": 20.8,
+          "voice_ensemble_config": 15.014999999999999,
+          "voice_ornament_system": 0.7749999999999999,
           "voice_pitch_organization": 1.0045,
-          "voice_processing_chain": 5.265,
-          "voice_multitrack_stack": 2.08
+          "voice_processing_chain": 6.776,
+          "voice_multitrack_stack": 4.794999999999999
         }
       },
       {
@@ -62,11 +62,11 @@
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 11.704499999999998,
+          "acoustic_technique": 14.864999999999998,
           "string_tuning": 0.9044999999999999,
-          "top_wood_parlor": 0.39,
-          "back_sides_parlor": 0,
-          "string_acoustic_parlor": 1.119
+          "top_wood_parlor": 0.585,
+          "back_sides_parlor": 1.2349999999999999,
+          "string_acoustic_parlor": 1.269
         }
       },
       {
@@ -79,9 +79,9 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 13.107499999999998,
+          "bowed_technique": 13.982499999999996,
           "fiddle_strings": 0.95,
-          "fiddle_bow": 0.015,
+          "fiddle_bow": 1.4045,
           "fiddle_mute": 0.363,
           "fiddle_articulation": 0.0655
         }

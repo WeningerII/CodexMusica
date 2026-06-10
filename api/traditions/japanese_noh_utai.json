@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.3799999999999994,
-          "voice_quality": 1.7549999999999994,
+          "voice_register": 4.918,
+          "voice_quality": 7.58075,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 2.015,
           "voice_articulation": 1.2365,
           "voice_microtone": 0.258,
-          "voice_tradition": 11.18,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 2.5050000000000003,
-          "voice_pitch_organization": 2.9512500000000004,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 5.069999999999999
+          "voice_tradition": 15.307500000000001,
+          "voice_mechanism_compound": 7.51,
+          "voice_estill_quality": 4.225,
+          "voice_speech_song": 11.829999999999997,
+          "voice_ensemble_config": 13.454999999999997,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 5.5935,
+          "voice_processing_chain": 4.874999999999999,
+          "voice_multitrack_stack": 6.305
         }
       },
       {
@@ -64,9 +64,9 @@
         "scores": {
           "wind_articulation": 2.5445,
           "shaku_length": 0.168,
-          "shaku_technique": 1.69,
-          "shakuhachi_body_material": 3.38,
-          "shakuhachi_lineage": 1.69
+          "shaku_technique": 3.835,
+          "shakuhachi_body_material": 4.03,
+          "shakuhachi_lineage": 2.34
         }
       }
     ],

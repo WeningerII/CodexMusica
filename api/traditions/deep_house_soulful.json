@@ -3,8 +3,8 @@
   "name": "Deep house (soulful)",
   "family": "global",
   "lineage": "Soulful-jazz house sub-style codified through 1990s New York and New Jersey production — Larry Heard / Mr. Fingers, Kerri Chandler, Masters at Work, Blaze, and Kenny Bobien (vocalist) — characterized by jazz-chord harmonic vocabulary, gospel-soul vocal performances, and warm analog-instrument production aesthetic",
-  "recipe": "classic mid-1990s deep house, electronic Dance, deep house branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, nervy, narrative. centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, digital subtractive, TR-909, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 420,
+  "recipe": "classic mid-1990s deep house, electronic Dance, deep house branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, nervy, narrative. centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, singing lead digital subtractive, TR-909, field textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 448,
   "score": 302.18,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 16.374999999999996,
-          "voice_quality": 8.4,
+          "voice_register": 30.774999999999995,
+          "voice_quality": 14.29999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.78,
-          "voice_articulation": 6.394999999999999,
-          "voice_microtone": 6.249999999999999,
-          "voice_tradition": 11.52,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 9.944999999999999,
-          "voice_speech_song": 8.644999999999998,
-          "voice_ensemble_config": 7.669999999999998,
-          "voice_ornament_system": 0.9399999999999998,
-          "voice_pitch_organization": 2.23,
-          "voice_processing_chain": 5.375,
-          "voice_multitrack_stack": 2.8600000000000003
+          "voice_vibrato": 1.595,
+          "voice_articulation": 11.794999999999996,
+          "voice_microtone": 13.724999999999998,
+          "voice_tradition": 18.169999999999998,
+          "voice_mechanism_compound": 1.95,
+          "voice_estill_quality": 16.444999999999993,
+          "voice_speech_song": 20.084999999999997,
+          "voice_ensemble_config": 16.704999999999995,
+          "voice_ornament_system": 1.4299999999999997,
+          "voice_pitch_organization": 2.73,
+          "voice_processing_chain": 7.754999999999999,
+          "voice_multitrack_stack": 7.15
         }
       },
       {
@@ -63,12 +63,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 10.635,
-          "rhodes_model": 7.324999999999999,
-          "rhodes_use": 3.25,
+          "keyboard_technique": 17.135,
+          "rhodes_model": 7.475,
+          "rhodes_use": 7.735,
           "rhodes_tine_material": 0.39,
-          "rhodes_hammer_tip": -0.77,
-          "rhodes_pickup_position": 1.44
+          "rhodes_hammer_tip": 3.4278135885301707e-16,
+          "rhodes_pickup_position": 1.8199999999999998
         }
       },
       {
@@ -79,9 +79,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 1.1049999999999998,
+          "electronic_technique": 4.974999999999999,
           "va_archetypes": 1.24,
-          "digital_subtractive_context": 7.799999999999997
+          "digital_subtractive_context": 17.03
         }
       },
       {
@@ -93,7 +93,7 @@
         },
         "scores": {
           "tr909_voice": 15.499999999999998,
-          "drum_machine_909_context": 1.3649999999999998,
+          "drum_machine_909_context": 2.6750000000000003,
           "tr909_production_origin": 0.8999999999999999
         }
       },
@@ -107,11 +107,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 3.7,
           "sampler_archetypes": 2.775,
-          "sampler_bit_depth": 1.56,
-          "sampler_workflow": -0.035,
-          "sampler_classic_context": 30.744999999999997
+          "sampler_bit_depth": 1.755,
+          "sampler_workflow": 5.025,
+          "sampler_classic_context": 45.88999999999999
         }
       }
     ],

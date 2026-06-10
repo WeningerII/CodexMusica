@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 14.483999999999996,
-          "voice_quality": 3.795000000000001,
+          "voice_register": 18.384,
+          "voice_quality": 6.124,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.9750000000000001,
-          "voice_articulation": 0.7349999999999999,
-          "voice_microtone": 3.9500000000000006,
-          "voice_tradition": 17.679999999999996,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 10.594999999999999,
-          "voice_ensemble_config": 9.489999999999998,
+          "voice_vibrato": 2.015,
+          "voice_articulation": 2.9899999999999998,
+          "voice_microtone": 4.975000000000001,
+          "voice_tradition": 29.932499999999997,
+          "voice_mechanism_compound": 5.07,
+          "voice_estill_quality": 8.547500000000001,
+          "voice_speech_song": 28.794999999999998,
+          "voice_ensemble_config": 24.83,
           "voice_ornament_system": 3.745,
-          "voice_pitch_organization": 3.315000000000001,
+          "voice_pitch_organization": 4.8100000000000005,
           "voice_processing_chain": 6.0115,
-          "voice_multitrack_stack": 4.1475
+          "voice_multitrack_stack": 4.68
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 15.444999999999999,
-          "string_tuning": 0.45499999999999996,
+          "acoustic_technique": 21.02,
+          "string_tuning": 0.7149999999999999,
           "top_wood": 0.54,
-          "back_sides": 0.585,
-          "string_acoustic": 0.54,
-          "acoustic_om_technique": 15.444999999999999
+          "back_sides": 0.78,
+          "string_acoustic": 0.845,
+          "acoustic_om_technique": 21.02
         }
       },
       {
@@ -82,12 +82,12 @@
           "gaita_galega_bag": "gaita_galega_goatskin_canonical"
         },
         "scores": {
-          "wind_articulation": 11.163999999999996,
+          "wind_articulation": 14.688999999999998,
           "gaita_galega_drones": 23.048999999999992,
-          "gaita_galega_use": 21.664999999999996,
-          "gaita_galega_chanter_wood": 8.389999999999999,
-          "gaita_galega_reed": 8.389999999999999,
-          "gaita_galega_bag": 8.389999999999999
+          "gaita_galega_use": 26.064999999999994,
+          "gaita_galega_chanter_wood": 9.04,
+          "gaita_galega_reed": 9.04,
+          "gaita_galega_bag": 9.04
         }
       },
       {
@@ -102,13 +102,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 13.152999999999995,
+          "free_reed_technique": 17.128,
           "accordion_reed_material": 0.54,
-          "musette_offset": 0.78,
-          "reed_config": 1.93,
+          "musette_offset": 1.625,
+          "reed_config": 5.525,
           "bellows": 0.39,
           "voicing_chamber": 0.39,
-          "accordion_maker_school": 5.459999999999999
+          "accordion_maker_school": 9.4625
         }
       },
       {
@@ -124,13 +124,13 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 0.325,
+          "electric_technique": 1.4299999999999997,
+          "amp_make": 0.6499999999999999,
           "body_wood": 1.08,
           "pickup_config": 0,
-          "string_type": 0.975,
+          "string_type": 1.4949999999999999,
           "scale_length_b": 0.54,
-          "fretted_or_not": 0.345,
+          "fretted_or_not": 1.4949999999999999,
           "bass_technique": 2.539
         }
       }

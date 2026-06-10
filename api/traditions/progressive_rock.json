@@ -3,8 +3,8 @@
   "name": "Progressive rock",
   "family": "rock_punk",
   "lineage": "Late-1960s through 1970s UK classical-and-jazz-influenced rock genre featuring extended composition, complex meter, virtuosic instrumental performance — codified through King Crimson (In the Court of the Crimson King 1969, the prog founding album), Yes (Fragile 1971, Close to the Edge 1972), Genesis (Selling England by the Pound 1973, the Peter Gabriel era), Pink Floyd (the post-Syd-Barrett expansion through Dark Side of the Moon 1973 and Wish You Were Here 1975), Emerson Lake and Palmer, Jethro Tull, Gentle Giant",
-  "recipe": "classic British 1967-1969 progressive rock, distorted Rock, progressive rock branch, classic distorted rock, experimental distorted rock psychedelic rock britpop. thick, unvoiced, chest resonance low mid, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch vintage ambassador asymmetric machine hammered symmetric pattern drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron, gentle expressive vibrato y analog synth, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, silver continuous-airflow legato flute, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio.",
-  "recipe_chars": 960,
+  "recipe": "classic British 1967-1969 progressive rock, distorted Rock, progressive rock branch, classic distorted rock, experimental distorted rock psychedelic rock britpop. thick, unvoiced, chest resonance low mid, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky riff driven electric bass, birch vintage ambassador asymmetric machine hammered symmetric pattern drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, gentle expressive vibrato y analog synth, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano.",
+  "recipe_chars": 917,
   "score": 902.943,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 30.39,
+          "voice_register": 44.690000000000026,
           "voice_quality": 1.6,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.68,
+          "voice_vibrato": 5.2,
           "voice_articulation": 0.645,
-          "voice_microtone": 29.600000000000005,
-          "voice_tradition": 6.47,
-          "voice_mechanism_compound": 5.590000000000001,
-          "voice_estill_quality": 6.925,
-          "voice_speech_song": 12.415,
-          "voice_ensemble_config": 11.569999999999999,
-          "voice_ornament_system": 7.330000000000001,
-          "voice_pitch_organization": 4.65,
-          "voice_processing_chain": 9.165000000000001,
-          "voice_multitrack_stack": 6.240000000000001
+          "voice_microtone": 43.475000000000016,
+          "voice_tradition": 9.420000000000002,
+          "voice_mechanism_compound": 8.45,
+          "voice_estill_quality": 8.925,
+          "voice_speech_song": 18.979999999999997,
+          "voice_ensemble_config": 17.744999999999997,
+          "voice_ornament_system": 9.629999999999999,
+          "voice_pitch_organization": 6.650000000000001,
+          "voice_processing_chain": 12.5,
+          "voice_multitrack_stack": 12.3825
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 6.045,
-          "amp_make": 13.39,
-          "body_wood": 0.885,
-          "neck_wood": 2.68,
-          "fretboard": 2.68,
+          "electric_technique": 11.504999999999999,
+          "amp_make": 22.75,
+          "body_wood": 2.2099999999999995,
+          "neck_wood": 2.98,
+          "fretboard": 2.98,
           "pickup_magnet": 0.195,
-          "pickup_winding": 0.9099999999999999,
-          "string_material": 2.68,
-          "bridge": 0.885,
-          "scale_length": 2.08,
-          "string_gauge": 0.885,
+          "pickup_winding": 2.8600000000000003,
+          "string_material": 2.98,
+          "bridge": 1.69,
+          "scale_length": 4.159999999999999,
+          "string_gauge": 1.69,
           "finish": 0.435,
-          "string_tuning": 17.030000000000005
+          "string_tuning": 25.090000000000003
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.835,
-          "amp_make": 12.545000000000002,
-          "body_wood": 1.7700000000000002,
+          "electric_technique": 4.04,
+          "amp_make": 22.490000000000002,
+          "body_wood": 1.69,
           "pickup_config": 0,
-          "string_type": 31.52500000000001,
-          "scale_length_b": 0.885,
+          "string_type": 43.730000000000004,
+          "scale_length_b": 1.69,
           "fretted_or_not": 0,
-          "bass_technique": 25.13500000000001
+          "bass_technique": 36.635000000000005
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 14.04,
-          "shell_wood": 2.98,
+          "percussion_technique": 20.9625,
+          "shell_wood": 3.28,
           "shell_thickness": 0,
-          "bearing_edges": 1.18,
-          "drumhead": 5.48,
-          "snare_wires": 0.885,
-          "cymbal_alloy": 31.250000000000007,
-          "cymbal_hammering": 25.190000000000005,
-          "cymbal_lathing": 25.040000000000006,
-          "cymbal_finish": 2.68,
-          "drum_technique": 24.340000000000007
+          "bearing_edges": 1.69,
+          "drumhead": 5.855000000000001,
+          "snare_wires": 1.69,
+          "cymbal_alloy": 43.12500000000001,
+          "cymbal_hammering": 38.69000000000001,
+          "cymbal_lathing": 38.54000000000001,
+          "cymbal_finish": 2.98,
+          "drum_technique": 35.84000000000001
         }
       },
       {
@@ -148,12 +148,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 1.2999999999999998,
-          "drawbar_setting": 24.38500000000001,
-          "rotary_speed": 24.200000000000006,
-          "percussion_setting": 12.610000000000003,
-          "tonewheel_model": 18.135,
-          "leslie_cabinet_model": 1.855
+          "keyboard_technique": 3.3750000000000004,
+          "drawbar_setting": 35.885000000000005,
+          "rotary_speed": 35.70000000000001,
+          "percussion_setting": 18.590000000000003,
+          "tonewheel_model": 26.2925,
+          "leslie_cabinet_model": 2.705
         }
       },
       {
@@ -166,11 +166,11 @@
           "mellotron_tape_material": "mellotron_polyester_tape_canonical"
         },
         "scores": {
-          "keyboard_technique": 1.2999999999999998,
-          "mellotron_voice": 15.860000000000003,
-          "mellotron_context": 4.025,
-          "mellotron_model": 16.575000000000003,
-          "mellotron_tape_material": 0.39
+          "keyboard_technique": 3.3750000000000004,
+          "mellotron_voice": 21.840000000000003,
+          "mellotron_context": 4.824999999999999,
+          "mellotron_model": 24.44,
+          "mellotron_tape_material": 2.2749999999999995
         }
       },
       {
@@ -183,9 +183,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 0.85,
-          "oscillator": 2.725,
-          "filter_topology": 0.9099999999999999,
+          "electronic_technique": 2.85,
+          "oscillator": 3.025,
+          "filter_topology": 4.55,
           "envelope": 0.645,
           "modulation": 1
         }
@@ -204,15 +204,15 @@
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 4.795,
-          "grand_piano_size": 0.9300000000000002,
-          "grand_piano_brand": 2.68,
-          "piano_hammer": 19.110000000000003,
-          "piano_rim": 19.500000000000004,
-          "piano_soundboard": 6.095000000000001,
-          "piano_pinblock": 5.000000000000001,
-          "piano_plate": 4.745,
-          "piano_pitch_standard": 5.9750000000000005
+          "keyboard_technique": 6.945,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 3.38,
+          "piano_hammer": 27.690000000000005,
+          "piano_rim": 28.275000000000006,
+          "piano_soundboard": 8.095,
+          "piano_pinblock": 7.000000000000001,
+          "piano_plate": 6.745000000000001,
+          "piano_pitch_standard": 8.135000000000002
         }
       },
       {
@@ -225,11 +225,11 @@
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 4.75,
-          "flute_size": 2.68,
-          "flute_material": 1.18,
-          "flute_technique": 0,
-          "flute_maker_school": 0.39
+          "wind_articulation": 8.700000000000001,
+          "flute_size": 2.98,
+          "flute_material": 1.4799999999999998,
+          "flute_technique": 0.345,
+          "flute_maker_school": 2.9249999999999994
         }
       },
       {
@@ -241,9 +241,9 @@
           "sm_voicing": "sm_brass"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.06499999999999999,
           "sm_voice_count": 0.39,
-          "sm_chorus": 0.9099999999999999,
+          "sm_chorus": 2.8600000000000003,
           "sm_voicing": 0.3
         }
       }

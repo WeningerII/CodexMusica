@@ -3,8 +3,8 @@
   "name": "Synthpop",
   "family": "electronic",
   "lineage": "Late-1970s through 1980s synthesizer-foreground electronic pop — codified through Kraftwerk’s Trans-Europe Express (1977) and Computer World (1981) European roots, then Gary Numan (\"Are Friends Electric?\" 1979), Depeche Mode (Speak and Spell 1981), the Human League (Dare 1981), Soft Cell, Yazoo, and the broader British New Romantic scene — characterized by monophonic-synth lead lines, drum-machine programming, and detached-pop vocal performance",
-  "recipe": "classic North American 1977-1979 synthpop, functional Song, synthpop branch, pop rock new wave, continental electronic dance disco. thick, blues-shouter, narrative, equal tempered. singing lead analog roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, drum machine analog, string machine, linn lm 1 1980 1982 earliest sample based drum machine 5000 production only linndrum, vocoder. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
-  "recipe_chars": 599,
+  "recipe": "classic North American 1977-1979 synthpop, functional Song, synthpop branch, pop rock new wave, continental electronic dance disco. thick, blues-shouter, chest resonance low mid, narrative. singing lead analog roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, drum machine analog, string machine, classic source linn lm 1 1980 1982 earliest sample based drum machine 5000 production only linndrum, vocoder. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
+  "recipe_chars": 623,
   "score": 332.336,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 21.583928571428565,
-          "voice_quality": 1.0532142857142854,
+          "voice_register": 45.30892857142859,
+          "voice_quality": 2.315714285714287,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.4576785714285714,
-          "voice_articulation": 0.7494642857142857,
-          "voice_microtone": 21.549999999999997,
-          "voice_tradition": 18.613571428571426,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 14.783571428571424,
-          "voice_ensemble_config": 10.869642857142853,
-          "voice_ornament_system": 0.44999999999999996,
-          "voice_pitch_organization": 0.6032142857142857,
-          "voice_processing_chain": 20.865714285714287,
-          "voice_multitrack_stack": 6.276875
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.15,
+          "voice_microtone": 41.55,
+          "voice_tradition": 30.488571428571422,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 2.692142857142857,
+          "voice_speech_song": 23.883571428571422,
+          "voice_ensemble_config": 17.71964285714285,
+          "voice_ornament_system": 0.585,
+          "voice_pitch_organization": 0.8026785714285714,
+          "voice_processing_chain": 29.89071428571428,
+          "voice_multitrack_stack": 9.826875000000001
         }
       },
       {
@@ -62,10 +62,10 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 17.855178571428567,
-          "oscillator": 1.5536607142857144,
-          "filter_topology": 1.17,
-          "envelope": 0.35062499999999996,
+          "electronic_technique": 29.005178571428566,
+          "oscillator": 2.303660714285714,
+          "filter_topology": 3.0956249999999996,
+          "envelope": 0.500625,
           "modulation": 0
         }
       },
@@ -78,10 +78,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 17.855178571428567,
-          "poly_archetypes": 2.8600000000000003,
-          "poly_voices": 0.35062499999999996,
-          "poly_maker_lineage": 5.9052678571428565
+          "electronic_technique": 29.005178571428566,
+          "poly_archetypes": 7.212499999999999,
+          "poly_voices": 0.500625,
+          "poly_maker_lineage": 6.6552678571428565
         }
       },
       {
@@ -93,10 +93,10 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.3827678571428571,
-          "snare_voice": 0.35062499999999996,
+          "kick_voice": 0.5327678571428571,
+          "snare_voice": 0.500625,
           "hat_voice": 0.03214285714285714,
-          "shuffle_quantize": 1.3
+          "shuffle_quantize": 2
         }
       },
       {
@@ -108,10 +108,10 @@
           "sm_voicing": "sm_brass"
         },
         "scores": {
-          "electronic_technique": 0.250625,
-          "sm_voice_count": 5.153571428571428,
-          "sm_chorus": 2.8085714285714287,
-          "sm_voicing": 0.04821428571428571
+          "electronic_technique": 0.40062499999999995,
+          "sm_voice_count": 6.253571428571427,
+          "sm_chorus": 3.7085714285714286,
+          "sm_voicing": 0.195
         }
       },
       {
@@ -122,9 +122,9 @@
           "linndrum_production_origin": "linndrum_lm_1_earlier"
         },
         "scores": {
-          "linndrum_voice": 4,
-          "linndrum_context": 0.39,
-          "linndrum_production_origin": 6.730446428571428
+          "linndrum_voice": 6.750000000000001,
+          "linndrum_context": 1.623125,
+          "linndrum_production_origin": 8.330446428571427
         }
       },
       {
@@ -135,9 +135,9 @@
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
-          "voc_band_count": 0.3538392857142857,
-          "voc_carrier": 0.23062499999999997,
-          "voc_modulator": 0.050624999999999996
+          "voc_band_count": 0.5038392857142857,
+          "voc_carrier": 0.78,
+          "voc_modulator": 0.195
         }
       }
     ],

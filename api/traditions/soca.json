@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 4.586500000000001,
+          "voice_register": 6.286500000000001,
           "voice_quality": 2.849500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
+          "voice_vibrato": 2.145,
           "voice_articulation": 3.2365000000000004,
-          "voice_microtone": 1.25,
-          "voice_tradition": 3.6695,
-          "voice_mechanism_compound": 0.9165,
-          "voice_estill_quality": 3.1400000000000006,
-          "voice_speech_song": 5.134999999999999,
-          "voice_ensemble_config": 6.369999999999999,
-          "voice_ornament_system": 1.3,
-          "voice_pitch_organization": 1.0380000000000003,
-          "voice_processing_chain": 3.803,
-          "voice_multitrack_stack": 1.6899999999999997
+          "voice_microtone": 2.95,
+          "voice_tradition": 6.3375,
+          "voice_mechanism_compound": 1.4949999999999999,
+          "voice_estill_quality": 3.2900000000000005,
+          "voice_speech_song": 14.494999999999996,
+          "voice_ensemble_config": 14.234999999999994,
+          "voice_ornament_system": 2.275,
+          "voice_pitch_organization": 2.0799999999999996,
+          "voice_processing_chain": 7.377999999999999,
+          "voice_multitrack_stack": 2.8274999999999997
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 1.2349999999999999,
-          "drum_machine_808_context": 3.835,
-          "tr808_production_origin": 2.6
+          "tr808_voice": 2.5999999999999996,
+          "drum_machine_808_context": 6.5,
+          "tr808_production_origin": 3.6399999999999997
         }
       },
       {
@@ -85,17 +85,17 @@
         "scores": {
           "electric_technique": 3.3765000000000005,
           "amp_make": 3.8795000000000006,
-          "body_wood": 1.3,
+          "body_wood": 3.8349999999999995,
           "neck_wood": 1,
           "fretboard": 1,
-          "pickup_magnet": 1.3,
-          "pickup_winding": 1.3,
-          "string_material": 1.27,
-          "bridge": 0.39,
-          "scale_length": 2.6,
-          "string_gauge": 0.345,
+          "pickup_magnet": 2.34,
+          "pickup_winding": 2.145,
+          "string_material": 1.42,
+          "bridge": 0.845,
+          "scale_length": 4.484999999999999,
+          "string_gauge": 0.845,
           "finish": 0,
-          "string_tuning": 2.6
+          "string_tuning": 4.484999999999999
         }
       },
       {
@@ -107,10 +107,10 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 1.1049999999999998,
-          "poly_archetypes": 0.78,
+          "electronic_technique": 2.6650000000000005,
+          "poly_archetypes": 1.2615,
           "poly_voices": 0.3,
-          "poly_maker_lineage": -1.015
+          "poly_maker_lineage": -0.42000000000000004
         }
       }
     ],

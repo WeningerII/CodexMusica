@@ -3,8 +3,8 @@
   "name": "Himalayan Vajrayana liturgy",
   "family": "global",
   "lineage": "Tibetan / Bhutanese / Ladakhi Vajrayana tantric ritual-music tradition with multiphonic chant and brass-and-percussion liturgical ensemble",
-  "recipe": "classic modern himalayan vajrayana liturgy, ritual Devotional, buddhist branch, east Asian art music tibetan ache lhamo opera beijing opera. pressed, chest resonance low mid, filtered throat, Chinese classical vocal. log drum, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, call ritual conch shell horn, ceremonial hammered copper brass telescoping canonical Tibetan gelug canonical Tibetan buddhist liturgy tibetan dungchen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 812,
+  "recipe": "classic modern himalayan vajrayana liturgy, ritual Devotional, buddhist branch, east Asian art music tibetan ache lhamo opera beijing opera. thick, pressed, chest resonance low mid, narrative. log drum, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, call ritual conch shell horn, ceremonial hammered copper brass telescoping canonical Tibetan gelug canonical Tibetan buddhist liturgy tibetan dungchen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 788,
   "score": 276.277,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 3.9200000000000004,
+          "voice_register": 2.12,
+          "voice_quality": 11.074999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3399999999999994,
-          "voice_articulation": 0.33,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 1.4299999999999995,
           "voice_microtone": 0.5499999999999999,
-          "voice_tradition": 3.8350000000000013,
-          "voice_mechanism_compound": 1.8400000000000003,
-          "voice_estill_quality": 1.1049999999999998,
-          "voice_speech_song": 3.7049999999999996,
-          "voice_ensemble_config": 3.6399999999999997,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 1.8299999999999996,
-          "voice_processing_chain": 2.46,
-          "voice_multitrack_stack": 0.78
+          "voice_tradition": 30.9725,
+          "voice_mechanism_compound": 7.049999999999999,
+          "voice_estill_quality": 21.334999999999994,
+          "voice_speech_song": 18.85,
+          "voice_ensemble_config": 20.41,
+          "voice_ornament_system": 16.099999999999998,
+          "voice_pitch_organization": 7.51,
+          "voice_processing_chain": 3.12,
+          "voice_multitrack_stack": 3.6399999999999997
         }
       },
       {
@@ -59,8 +59,8 @@
           "log_drum_context": "log_drum_amapiano"
         },
         "scores": {
-          "log_drum_voice": 0.285,
-          "log_drum_context": 0.39
+          "log_drum_voice": 0.39,
+          "log_drum_context": 1.2349999999999999
         }
       },
       {
@@ -71,9 +71,9 @@
           "throat_singing_voice_region": "throat_singing_voice_himalayan_ritual"
         },
         "scores": {
-          "throat_mechanism_root": 1.3350000000000002,
-          "throat_overtone_target_region": 1.59,
-          "throat_singing_voice_region": 15.415
+          "throat_mechanism_root": 3.77,
+          "throat_overtone_target_region": 2.7299999999999995,
+          "throat_singing_voice_region": 30.889999999999997
         }
       },
       {
@@ -84,9 +84,9 @@
           "conch_shell_horn_region": "conch_shell_horn_polynesian"
         },
         "scores": {
-          "wind_articulation": 7.925,
+          "wind_articulation": 12.274999999999999,
           "conch_use": 0.15,
-          "conch_shell_horn_region": 3.8499999999999996
+          "conch_shell_horn_region": 18.265
         }
       },
       {
@@ -97,9 +97,9 @@
           "dungchen_lineage": "dungchen_gelug_canonical"
         },
         "scores": {
-          "dungchen_length": 5.329999999999999,
-          "dungchen_body_metal": 2.9899999999999998,
-          "dungchen_lineage": 5.720000000000001
+          "dungchen_length": 10.56,
+          "dungchen_body_metal": 8.635,
+          "dungchen_lineage": 12.184999999999999
         }
       },
       {
@@ -110,9 +110,9 @@
           "gyaling_reed": "gyaling_arundo_canonical"
         },
         "scores": {
-          "gyaling_body": 5.329999999999999,
-          "gyaling_body_wood": 2.925,
-          "gyaling_reed": 1.69
+          "gyaling_body": 10.245,
+          "gyaling_body_wood": 8.54,
+          "gyaling_reed": 8.739999999999998
         }
       }
     ],
