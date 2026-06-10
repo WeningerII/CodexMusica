@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-06-10",
-  "count": 1112,
+  "count": 1113,
   "items": [
     {
       "id": "honky_tonk",
@@ -7787,6 +7787,13 @@
       "family": "global",
       "recipe": "classic modern afrobeats, functional Song, African pop branch. extended whistle, melodic, narrative, equal tempered. TR-808, singing lead analog poly synth, sampler drum machine. large tropical 1965-1985 mid-major EMI. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
       "recipe_chars": 348
+    },
+    {
+      "id": "darkpsy",
+      "name": "Darkpsy",
+      "family": "global",
+      "recipe": "classic mid-2000s darkpsy, electronic Dance, trance branch, idm glitch experimental electric breakcore chiptune / 8-bit. analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, glitched textural sampler, glitched textural eurorack modular. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ring modulator high-gain distortion flanger analog bucket-brigade delay.",
+      "recipe_chars": 528
     }
   ]
 }

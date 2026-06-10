@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 1112,
+  "count": 1113,
   "items": [
     {
       "id": "honky_tonk",
@@ -43451,6 +43451,44 @@
         "Wizkid",
         "Burna Boy",
         "Davido"
+      ]
+    },
+    {
+      "id": "darkpsy",
+      "name": "Darkpsy",
+      "family": "global",
+      "lineage": "Dark and forest psychedelic-trance offshoot of psytrance, codified through the 2000s underground night-floor scene across Russian, Mexican, and European forest-party circuits via Kindzadza, Psykovsky, and the Osom and Glitchy.Tonik label ecosystem — faster, denser, and more dissonant than mainstream psytrance",
+      "parent": "electronicDance.trance",
+      "axes": [
+        -1,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        -2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "analog_mono_synth",
+        "digital_subtractive",
+        "drum_machine_909",
+        "sampler_classic",
+        "eurorack_modular"
+      ],
+      "description": "165-190bpm dark and forest psytrance from the nighttime fringe of psytrance: atonal ring-mod and FM-growl lead timbres over a relentless rolling 16th-note bassline and fast four-on-floor kick, dense layered sound-design with dissonant sample-collage and almost no melody — built for outdoor forest night-floors.",
+      "exemplars": [
+        "Kindzadza",
+        "Psykovsky",
+        "Derango"
+      ],
+      "crossRefs": [
+        "experimentalElec.idmGlitch"
       ]
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "count": 1112,
+  "count": 1113,
   "items": [
     {
       "id": "honky_tonk",
@@ -6672,6 +6672,12 @@
       "name": "Afrobeats",
       "family": "global",
       "href": "traditions/afrobeats.json"
+    },
+    {
+      "id": "darkpsy",
+      "name": "Darkpsy",
+      "family": "global",
+      "href": "traditions/darkpsy.json"
     }
   ]
 }
