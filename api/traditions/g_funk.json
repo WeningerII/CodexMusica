@@ -3,8 +3,8 @@
   "name": "G-funk",
   "family": "hip_hop",
   "lineage": "Early-1990s Los Angeles gangsta-funk hip-hop subgenre codified by Dr. Dre on The Chronic (1992) and Snoop Doggy Doggs Doggystyle (1993), built on Parliament-Funkadelic samples, talkbox lead, high-pitched synth lead lines, and slow-tempo (90-100 BPM) syncopated drum machine programming",
-  "recipe": "classic 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion minneapolis synth-funk-pop. thick, rap, narrative, equal tempered. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, electric bass, talkbox. west la 1616 butler avenue 1968-present major-flagship the village recorder west la. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 479,
+  "recipe": "classic 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion minneapolis synth-funk-pop. thick, rap, nervy, narrative. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, talkbox. west la 1616 butler avenue 1968-present major-flagship the village recorder west la. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 564,
   "score": 187.435,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 1.52125,
-          "voice_quality": 7.715375,
+          "voice_register": 5.301500000000001,
+          "voice_quality": 9.540375,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
-          "voice_articulation": 5.130249999999999,
-          "voice_microtone": 1.3525,
-          "voice_tradition": 6.971125,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 6.955249999999999,
+          "voice_microtone": 3.4250000000000003,
+          "voice_tradition": 9.946124999999999,
           "voice_mechanism_compound": 1.0676249999999998,
-          "voice_estill_quality": 1.155625,
-          "voice_speech_song": 8.681625,
-          "voice_ensemble_config": 6.369999999999998,
-          "voice_ornament_system": 0.020624999999999998,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 10.289999999999997,
-          "voice_multitrack_stack": 2.75425
+          "voice_estill_quality": 2.3612500000000005,
+          "voice_speech_song": 12.869999999999996,
+          "voice_ensemble_config": 11.764999999999993,
+          "voice_ornament_system": 0.45500000000000007,
+          "voice_pitch_organization": 1.885,
+          "voice_processing_chain": 23.264999999999997,
+          "voice_multitrack_stack": 5.07
         }
       },
       {
@@ -61,10 +61,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.06875,
+          "electronic_technique": 5.593749999999999,
           "sample_bitdepth": 0.44999999999999996,
-          "sample_swing": 8.839999999999998,
-          "sample_processing": 0.39
+          "sample_swing": 9.645,
+          "sample_processing": 0.845
         }
       },
       {
@@ -77,10 +77,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 5.6745,
-          "oscillator": 2.6817499999999996,
-          "filter_topology": 1.3075,
-          "envelope": 1.3,
+          "electronic_technique": 6.9995,
+          "oscillator": 3.8317499999999995,
+          "filter_topology": 1.8199999999999998,
+          "envelope": 3.3831249999999997,
           "modulation": 0.024375
         }
       },
@@ -97,14 +97,14 @@
           "bass_technique": "slap_pop"
         },
         "scores": {
-          "electric_technique": 10.42,
-          "amp_make": 1.625,
-          "body_wood": 0.55425,
-          "pickup_config": 0.1315,
-          "string_type": 0.78,
-          "scale_length_b": 0.78,
-          "fretted_or_not": 0.9099999999999999,
-          "bass_technique": 10.42
+          "electric_technique": 23.069999999999997,
+          "amp_make": 3.4202500000000007,
+          "body_wood": 0.585,
+          "pickup_config": 0.195,
+          "string_type": 3.25,
+          "scale_length_b": 0.975,
+          "fretted_or_not": 3.055,
+          "bass_technique": 23.069999999999997
         }
       },
       {
@@ -114,7 +114,7 @@
           "talkbox_construction": "talkbox_tube"
         },
         "scores": {
-          "talkbox_use": 0,
+          "talkbox_use": 0.375,
           "talkbox_construction": 0.39
         }
       }

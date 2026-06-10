@@ -3,8 +3,8 @@
   "name": "Bebop",
   "family": "jazz",
   "lineage": "1944-1955 small-group jazz vocabulary codified by Charlie Parker, Dizzy Gillespie, Thelonious Monk, Bud Powell, Max Roach, Kenny Clarke — rapid chord changes, virtuosic melodic improvisation, complex rhythmic displacement, intimate quintet-sextet format displacing swing-era big bands",
-  "recipe": "classic North American mid-1950s bebop, improv On Frame, bop branch, American jazz early swing-era jazz orchestra new orleans jazz. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit. converted living room 1944-1959 indie-commercial van gelder hackensack. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 658,
+  "recipe": "classic North American mid-1950s bebop, improv On Frame, bop branch, American jazz early swing-era jazz orchestra new orleans jazz. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit. converted living room 1944-1959 indie-commercial van gelder hackensack. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 698,
   "score": 359.864,
   "config": {
     "traditions": [
@@ -25,13 +25,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4,
+          "wind_articulation": 4.2250000000000005,
           "sax_size": 4.048375,
           "sax_reed": 0.048375,
-          "sax_body_alloy": 12.299999999999999,
+          "sax_body_alloy": 24.675,
           "sax_mouthpiece": 0.15,
-          "sax_technique": 12,
-          "sax_maker_school": 15.534999999999998
+          "sax_technique": 24.375,
+          "sax_maker_school": 30.806875
         }
       },
       {
@@ -46,13 +46,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4,
+          "wind_articulation": 4.891875,
           "brass_size": 0.054,
-          "trumpet_mouthpiece": 15.6,
+          "trumpet_mouthpiece": 30.330375,
           "brass_mute": 0.39,
-          "trumpet_technique": 4,
-          "trumpet_bell_metal": 0.9221250000000001,
-          "trumpet_maker_school": 2.8600000000000003
+          "trumpet_technique": 4.891875,
+          "trumpet_bell_metal": 1.04,
+          "trumpet_maker_school": 7.15
         }
       },
       {
@@ -71,13 +71,13 @@
         "scores": {
           "keyboard_technique": 1.74225,
           "grand_piano_size": 0.406875,
-          "grand_piano_brand": 0.406875,
-          "piano_hammer": 2.7950000000000004,
-          "piano_rim": 2.7950000000000004,
-          "piano_soundboard": -0.035,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 6.89,
+          "piano_rim": 8.385,
+          "piano_soundboard": 1.4299999999999997,
           "piano_pinblock": -0.05,
           "piano_plate": 0.255625,
-          "piano_pitch_standard": 0.7149999999999999
+          "piano_pitch_standard": 0.9066249999999999
         }
       },
       {
@@ -89,8 +89,8 @@
         },
         "scores": {
           "acoustic_technique": 1.7922500000000001,
-          "upright_strings": 12,
-          "upright_play": 12
+          "upright_strings": 24.375,
+          "upright_play": 24.375
         }
       },
       {
@@ -109,17 +109,17 @@
           "drum_technique": "brushes_jazz"
         },
         "scores": {
-          "percussion_technique": 8.45,
-          "shell_wood": 0.395625,
+          "percussion_technique": 19.044999999999998,
+          "shell_wood": 0.845,
           "shell_thickness": 0.005625,
           "bearing_edges": 0.016875,
-          "drumhead": 15.534999999999998,
+          "drumhead": 30.34225,
           "snare_wires": 0.016875,
-          "cymbal_alloy": 13.444999999999999,
-          "cymbal_hammering": 14.905624999999999,
-          "cymbal_lathing": 12.11125,
-          "cymbal_finish": 0.048375,
-          "drum_technique": 12
+          "cymbal_alloy": 27.595,
+          "cymbal_hammering": 27.280624999999997,
+          "cymbal_lathing": 24.48625,
+          "cymbal_finish": 0.195,
+          "drum_technique": 24.375
         }
       }
     ],

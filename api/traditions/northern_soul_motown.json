@@ -3,8 +3,8 @@
   "name": "Northern soul and Motown",
   "family": "blues_gospel",
   "lineage": "Detroit-based African-American pop-soul codified at Hitsville USA Motown 1959-1972 (the Supremes, Temptations, Four Tops, Marvin Gaye, Stevie Wonder, Smokey Robinson, Martha and the Vandellas) with the Funk Brothers as house rhythm section; the term Northern Soul refers to the UK club-DJ revival of mid-1960s Detroit and Chicago and Philadelphia uptempo soul records that found a second life on the British Midlands and Northern dance-floor circuit from 1969 onward",
-  "recipe": "classic North American mid-1960s northern soul and motown, functional Song, soul R&B branch, pop rock functional song new wave yacht rock. thick, blues-shouter, chest resonance low mid, narrative. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato fast tremolo tonewheel organ, tenor ensemble honking attack saxophone, tambourine orch. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 971,
+  "recipe": "classic North American mid-1960s northern soul and motown, functional Song, soul R&B branch, pop rock functional song new wave yacht rock. thick, blues-shouter, chest resonance low mid, narrative. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato fast tremolo tonewheel organ, tenor nickel silver bright projecting ensemble honking saxophone, tambourine orch. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 985,
   "score": 978.43,
   "config": {
     "traditions": [
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 23.789999999999996,
-          "amp_make": 25.544999999999995,
-          "body_wood": 1.3,
-          "neck_wood": 1.3,
-          "fretboard": 1.2349999999999999,
+          "electric_technique": 24.955,
+          "amp_make": 26.194999999999993,
+          "body_wood": 3.77,
+          "neck_wood": 3.575,
+          "fretboard": 3.5100000000000002,
           "pickup_magnet": 0.09,
           "pickup_winding": 0.09,
-          "string_material": 0.27,
-          "bridge": 1.3,
-          "scale_length": 1.3,
-          "string_gauge": 1.3,
+          "string_material": 0.585,
+          "bridge": 3.575,
+          "scale_length": 3.575,
+          "string_gauge": 4.21,
           "finish": 0.09,
-          "string_tuning": 0.9099999999999999
+          "string_tuning": 13.584999999999999
         }
       },
       {
@@ -59,14 +59,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 22.949999999999996,
-          "amp_make": 31.304999999999993,
-          "body_wood": 1.3,
+          "electric_technique": 23.374999999999996,
+          "amp_make": 31.804999999999993,
+          "body_wood": 3.575,
           "pickup_config": 0.045,
-          "string_type": 32.94499999999999,
-          "scale_length_b": 1.3,
+          "string_type": 33.09499999999999,
+          "scale_length_b": 3.56,
           "fretted_or_not": 0.045,
-          "bass_technique": 22.949999999999996
+          "bass_technique": 26.465
         }
       },
       {
@@ -86,15 +86,15 @@
         },
         "scores": {
           "percussion_technique": 28.499999999999993,
-          "shell_wood": 0.39,
+          "shell_wood": 1.17,
           "shell_thickness": 0.045,
-          "bearing_edges": 1.3,
-          "drumhead": 6.839999999999999,
-          "snare_wires": 1.3,
-          "cymbal_alloy": 8.684999999999999,
-          "cymbal_hammering": 8.844999999999999,
-          "cymbal_lathing": 8.514999999999999,
-          "cymbal_finish": 0.375,
+          "bearing_edges": 3.56,
+          "drumhead": 20.889999999999997,
+          "snare_wires": 3.56,
+          "cymbal_alloy": 43.084999999999994,
+          "cymbal_hammering": 43.82,
+          "cymbal_lathing": 43.33999999999999,
+          "cymbal_finish": 0.585,
           "drum_technique": 28.499999999999993
         }
       },
@@ -112,15 +112,15 @@
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 20.544999999999998,
-          "grand_piano_size": 1.3,
-          "grand_piano_brand": 1.3,
-          "piano_hammer": 5.279999999999999,
-          "piano_rim": 7.334999999999999,
-          "piano_soundboard": 6.494999999999999,
-          "piano_pinblock": -0.035,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": 1.2349999999999999
+          "keyboard_technique": 21.244999999999997,
+          "grand_piano_size": 3.575,
+          "grand_piano_brand": 3.575,
+          "piano_hammer": 19.33,
+          "piano_rim": 21.534999999999997,
+          "piano_soundboard": 20.545,
+          "piano_pinblock": 1.755,
+          "piano_plate": 0.57,
+          "piano_pitch_standard": 3.3150000000000004
         }
       },
       {
@@ -135,11 +135,11 @@
         },
         "scores": {
           "keyboard_technique": 22.999999999999996,
-          "drawbar_setting": 1.8399999999999999,
-          "rotary_speed": 19.699999999999996,
-          "percussion_setting": 0.9099999999999999,
-          "tonewheel_model": 1.625,
-          "leslie_cabinet_model": 1.62
+          "drawbar_setting": 22.465,
+          "rotary_speed": 23.17,
+          "percussion_setting": 11.634999999999998,
+          "tonewheel_model": 13.519999999999998,
+          "leslie_cabinet_model": 2.925
         }
       },
       {
@@ -154,13 +154,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 22.014999999999997,
-          "sax_size": 19.649999999999995,
-          "sax_reed": 0.18,
-          "sax_body_alloy": -0.035,
-          "sax_mouthpiece": 0.18,
-          "sax_technique": 19.65,
-          "sax_maker_school": 0
+          "wind_articulation": 22.939999999999998,
+          "sax_size": 20.074999999999996,
+          "sax_reed": 0.585,
+          "sax_body_alloy": 3.215,
+          "sax_mouthpiece": 0.585,
+          "sax_technique": 20.074999999999996,
+          "sax_maker_school": 0.9100000000000003
         }
       },
       {
@@ -184,22 +184,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 29.224999999999987,
+          "voice_register": 67.80000000000001,
           "voice_quality": 19.73499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
-          "voice_articulation": 19.749999999999996,
-          "voice_microtone": 8.049999999999997,
-          "voice_tradition": 20.739999999999995,
-          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_vibrato": 3.575,
+          "voice_articulation": 20.174999999999994,
+          "voice_microtone": 45.10000000000001,
+          "voice_tradition": 25.48,
+          "voice_mechanism_compound": 4.2250000000000005,
           "voice_estill_quality": 20.529999999999994,
-          "voice_speech_song": 13.974999999999994,
-          "voice_ensemble_config": 11.959999999999997,
-          "voice_ornament_system": 0.045,
-          "voice_pitch_organization": 0.54,
-          "voice_processing_chain": 4.095000000000001,
-          "voice_multitrack_stack": 2.8600000000000003
+          "voice_speech_song": 25.60999999999999,
+          "voice_ensemble_config": 20.14999999999999,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 0.585,
+          "voice_processing_chain": 13.440000000000001,
+          "voice_multitrack_stack": 8.515
         }
       },
       {
@@ -209,8 +209,8 @@
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.39,
-          "tambourine_orch_context": 0.045
+          "tambourine_orch_jingle": 0.78,
+          "tambourine_orch_context": 0.6824999999999999
         }
       }
     ],

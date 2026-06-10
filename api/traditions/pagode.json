@@ -3,8 +3,8 @@
   "name": "Pagode",
   "family": "global",
   "lineage": "Rio de Janeiro 1980s-onward backyard urban-samba subgenre with small-roda informal performance setting — codified through Beth Carvalho discovering and promoting the Cacique de Ramos sambistas, Zeca Pagodinho’s rise from that scene to mainstream stardom (Pagode do Zeca 1986 onward), and Almir Guineto and Jovelina Pérola Negra — characterized by the tantã, banjo-cavaco, and repique-de-mão small-ensemble instrumentation",
-  "recipe": "classic North American mid-1980s pagode, groove Percussion, pagode branch, Brazilian song functional song bossa nova brega and tecnobrega. thick, intimate aspirated, chest resonance low mid, equal tempered. classical nylon-string guitar, samba foundation mahogany samba canon cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, Brazilian rosewood pre 1992 choro violao 7 cordas, snappy samba tradition metal construction reco reco. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 840,
+  "recipe": "classic North American mid-1980s pagode, groove Percussion, pagode branch, Brazilian song functional song bossa nova brega and tecnobrega. thick, intimate aspirated, chest resonance low mid, rhythmic. cedar nylon classical nylon-string guitar, samba foundation mahogany samba canon cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, choro tradition nylon Brazilian rosewood pre 1992 choro violao 7 cordas, snappy samba tradition metal construction reco reco. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 868,
   "score": 246.563,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.7950000000000013,
-          "voice_quality": 13.079999999999993,
+          "voice_register": 5.320000000000002,
+          "voice_quality": 20.929999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.78,
-          "voice_articulation": 0.39,
-          "voice_microtone": 2.8500000000000005,
-          "voice_tradition": 3.055,
-          "voice_mechanism_compound": 3.25,
-          "voice_estill_quality": 3.0550000000000006,
-          "voice_speech_song": 12.804999999999996,
-          "voice_ensemble_config": 11.309999999999997,
-          "voice_ornament_system": 0.8449999999999999,
-          "voice_pitch_organization": 0.7349999999999999,
-          "voice_processing_chain": 4.18875,
-          "voice_multitrack_stack": 4.4375
+          "voice_vibrato": 1.625,
+          "voice_articulation": 0.78,
+          "voice_microtone": 5.2250000000000005,
+          "voice_tradition": 4.745,
+          "voice_mechanism_compound": 4.875,
+          "voice_estill_quality": 4.680000000000001,
+          "voice_speech_song": 23.009999999999998,
+          "voice_ensemble_config": 17.614999999999995,
+          "voice_ornament_system": 2.1449999999999996,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 6.11,
+          "voice_multitrack_stack": 6.7124999999999995
         }
       },
       {
@@ -63,12 +63,12 @@
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 1.6731249999999998,
+          "acoustic_technique": 2.3231249999999997,
           "string_tuning": 0,
-          "top_wood_classical": 0.39,
+          "top_wood_classical": 2.08,
           "bracing_classical": 0.78,
-          "string_classical": 0.39,
-          "attack_technique_cl": 0.975
+          "string_classical": 1.17,
+          "attack_technique_cl": 2.375
         }
       },
       {
@@ -81,10 +81,10 @@
           "cavaquinho_strings": "cavaquinho_steel"
         },
         "scores": {
-          "plucked_traditional_technique": 0.7149999999999999,
-          "cavaquinho_origin": 8.709999999999997,
-          "cavaquinho_context": 14.299999999999997,
-          "cavaquinho_body_wood": 6.759999999999998,
+          "plucked_traditional_technique": 1.56,
+          "cavaquinho_origin": 10.334999999999997,
+          "cavaquinho_context": 25.934999999999995,
+          "cavaquinho_body_wood": 7.994999999999998,
           "cavaquinho_strings": 0.945
         }
       },
@@ -99,12 +99,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": -0.1,
-          "pandeiro_size": 6.759999999999998,
-          "pandeiro_context": 5.589999999999998,
-          "pandeiro_head": 2.8600000000000003,
-          "pandeiro_shell_wood": 2.8600000000000003,
-          "pandeiro_jingles": 2.8600000000000003
+          "percussion_technique": 0.825,
+          "pandeiro_size": 7.994999999999998,
+          "pandeiro_context": 5.784999999999999,
+          "pandeiro_head": 7.54,
+          "pandeiro_shell_wood": 7.54,
+          "pandeiro_jingles": 7.54
         }
       },
       {
@@ -116,8 +116,8 @@
         },
         "scores": {
           "surdo_size": 0.320625,
-          "surdo_skin": 2.8600000000000003,
-          "surdo_shell": 2.47
+          "surdo_skin": 4.095000000000001,
+          "surdo_shell": 3.5100000000000002
         }
       },
       {
@@ -128,9 +128,9 @@
           "tamborim_shell": "tamborim_aluminum_canonical"
         },
         "scores": {
-          "tamborim_skin": 0.39,
-          "tamborim_striker": 7.149999999999998,
-          "tamborim_shell": 2.47
+          "tamborim_skin": 0.739375,
+          "tamborim_striker": 8.579999999999998,
+          "tamborim_shell": 3.5100000000000002
         }
       },
       {
@@ -143,11 +143,11 @@
           "violao_7_role": "violao_7_bordao_counter"
         },
         "scores": {
-          "violao_7_string7": 0.78,
-          "violao_7_strings": 0.39,
-          "violao_7_body_wood": 2.7300000000000004,
+          "violao_7_string7": 1.17,
+          "violao_7_strings": 1.04,
+          "violao_7_body_wood": 7.605,
           "violao_7_top_wood": 0.7349999999999999,
-          "violao_7_role": 0.78
+          "violao_7_role": 1.625
         }
       },
       {
@@ -156,7 +156,7 @@
           "reco_source": "reco_metal_springs"
         },
         "scores": {
-          "reco_source": 7.149999999999998
+          "reco_source": 9.034999999999998
         }
       }
     ],

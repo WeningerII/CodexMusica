@@ -3,8 +3,8 @@
   "name": "Bubblegum pop",
   "family": "global",
   "lineage": "Late-1960s through early-1970s manufactured-pop subgenre targeted at the pre-teen audience — codified through the Buddah Records label catalog produced by Kasenetz-Katz (the 1910 Fruitgum Company Simon Says 1968, Ohio Express Yummy Yummy Yummy 1968), the Archies (the cartoon-derived studio project, Sugar Sugar 1969 the commercial breakthrough), Bobby Sherman, the Partridge Family, the Osmonds, the Jackson 5 early period — built on simple melodic hooks, three-chord harmonic foundation, and lyrical content of pre-adolescent crush-romance and sugar-themed innocence",
-  "recipe": "classic North American 1967-1969 bubblegum pop, functional Song, pop rock branch, crooners functional song brill building pop american barbershop quartet. thick, chest mix belt, melodic, equal tempered. clean strummed single coil electric guitar, mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 707,
+  "recipe": "classic North American 1967-1969 bubblegum pop, functional Song, pop rock branch, crooners functional song brill building pop american barbershop quartet. thick, chest mix belt, melodic, ornamental. Fender tweed amp American 50s amp tweed breakup clean strummed single coil electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 790,
   "score": 318.47,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 15.457499999999994,
+          "voice_register": 24.507499999999993,
           "voice_quality": 1.6561249999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3855,
-          "voice_articulation": 0,
-          "voice_microtone": 14.654999999999998,
-          "voice_tradition": 15.274999999999999,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.585,
-          "voice_speech_song": 6.954999999999999,
-          "voice_ensemble_config": 3.6399999999999997,
-          "voice_ornament_system": 0.18150000000000002,
+          "voice_vibrato": 3.3104999999999998,
+          "voice_articulation": 1.7499999999999998,
+          "voice_microtone": 20.83,
+          "voice_tradition": 22.5225,
+          "voice_mechanism_compound": 1.8199999999999998,
+          "voice_estill_quality": 4.73,
+          "voice_speech_song": 16.639999999999997,
+          "voice_ensemble_config": 10.854999999999997,
+          "voice_ornament_system": 0.7749999999999999,
           "voice_pitch_organization": 2.365,
-          "voice_processing_chain": 4.55,
-          "voice_multitrack_stack": 4.348125
+          "voice_processing_chain": 6.24,
+          "voice_multitrack_stack": 5.199999999999999
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 11.126249999999999,
-          "amp_make": 1.8199999999999998,
-          "body_wood": 0.5925,
-          "neck_wood": 0.5925,
-          "fretboard": 0,
+          "electric_technique": 15.251249999999997,
+          "amp_make": 4.68,
+          "body_wood": 0.3,
+          "neck_wood": 0.195,
+          "fretboard": 0.12999999999999998,
           "pickup_magnet": 0.08212499999999999,
           "string_material": 0,
-          "string_gauge": 0.5925,
+          "string_gauge": 0.345,
           "bridge": 0,
-          "scale_length": 1.185,
+          "scale_length": 0.195,
           "finish": 0,
-          "string_tuning": 3.6399999999999997
+          "string_tuning": 5.329999999999999
         }
       },
       {
@@ -97,13 +97,13 @@
         },
         "scores": {
           "electric_technique": 0.26,
-          "amp_make": 1.885,
-          "body_wood": 1.185,
+          "amp_make": 4.68,
+          "body_wood": 0.195,
           "pickup_config": 0,
-          "string_type": 4.875,
-          "scale_length_b": 0.9375,
-          "fretted_or_not": 0.39,
-          "bass_technique": 3.7525000000000004
+          "string_type": 7.15,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 1.6,
+          "bass_technique": 5.152500000000001
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 4.029999999999999,
+          "percussion_technique": 10.854999999999997,
           "shell_wood": 0.09099999999999998,
-          "shell_thickness": 0.09,
-          "bearing_edges": 0.5925,
-          "drumhead": 13.266499999999999,
-          "snare_wires": 0.5925,
-          "cymbal_alloy": 14.884625,
-          "cymbal_hammering": 14.969124999999998,
-          "cymbal_lathing": 14.997749999999998,
-          "cymbal_finish": 0.045,
-          "drum_technique": 4.029999999999999
+          "shell_thickness": 0.195,
+          "bearing_edges": 0.195,
+          "drumhead": 18.8415,
+          "snare_wires": 0.195,
+          "cymbal_alloy": 20.409625,
+          "cymbal_hammering": 21.644125,
+          "cymbal_lathing": 21.82275,
+          "cymbal_finish": 0.195,
+          "drum_technique": 10.854999999999997
         }
       },
       {
@@ -146,11 +146,11 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 12.671124999999998,
-          "drawbar_setting": 3.8025,
-          "rotary_speed": 3.7,
-          "percussion_setting": 1.95,
-          "tonewheel_model": 1.625,
+          "keyboard_technique": 17.596124999999997,
+          "drawbar_setting": 5.202500000000001,
+          "rotary_speed": 6.75,
+          "percussion_setting": 2.795,
+          "tonewheel_model": 3.5100000000000002,
           "leslie_cabinet_model": 1.3
         }
       }

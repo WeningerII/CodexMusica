@@ -3,8 +3,8 @@
   "name": "Latin jazz",
   "family": "jazz",
   "lineage": "NYC-centered fusion of Afro-Cuban rhythmic spine (clave, montuno, tumbao) with bebop / post-bop harmonic language, codified through Machito-Bauzá Cubop (1940s), Cal Tjader-Mongo Santamaría West Coast Latin jazz (1950s-60s), and Eddie Palmieri / Tito Puente / Chucho Valdés modern Latin jazz canon",
-  "recipe": "classic North American mid-1940s latin jazz, improv On Frame, Latin jazz branch, American jazz bop, tropical song functional song, Brazilian song functional song bebop modal jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bronze open slap hand drum timbales, claves, shekere. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc.",
-  "recipe_chars": 972,
+  "recipe": "classic North American mid-1940s latin jazz, improv On Frame, Latin jazz branch, American jazz bop, tropical song functional song, Brazilian song functional song bebop modal jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bronze open slap hand drum timbales, claves, shekere. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser.",
+  "recipe_chars": 999,
   "score": 889.287,
   "config": {
     "traditions": [
@@ -25,13 +25,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4.75,
-          "sax_size": 5.08,
+          "wind_articulation": 8.75,
+          "sax_size": 9.23,
           "sax_reed": 0.3,
-          "sax_body_alloy": 34.50000000000003,
+          "sax_body_alloy": 47.62500000000003,
           "sax_mouthpiece": 0.8849999999999999,
-          "sax_technique": 32.00000000000003,
-          "sax_maker_school": 33.715000000000025
+          "sax_technique": 45.12500000000003,
+          "sax_maker_school": 46.84000000000003
         }
       },
       {
@@ -46,13 +46,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.75,
-          "brass_size": 0.09,
-          "trumpet_mouthpiece": 34.64000000000003,
-          "brass_mute": 0.8306249999999998,
-          "trumpet_technique": 4.75,
+          "wind_articulation": 8.75,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 47.76500000000003,
+          "brass_mute": 0.39,
+          "trumpet_technique": 8.75,
           "trumpet_bell_metal": 1.17,
-          "trumpet_maker_school": 3.6399999999999997
+          "trumpet_maker_school": 6.044999999999999
         }
       },
       {
@@ -67,13 +67,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 4.75,
-          "trombone_type": 32.00000000000003,
-          "trombone_mouthpiece": 32.29500000000003,
+          "wind_articulation": 8.75,
+          "trombone_type": 45.12500000000003,
+          "trombone_mouthpiece": 45.42000000000003,
           "trombone_mute": 0.045,
-          "trombone_technique": 4.885,
+          "trombone_technique": 5.984999999999999,
           "trombone_bell_metal": 0.39,
-          "trombone_maker_school": 3.25
+          "trombone_maker_school": 5.654999999999999
         }
       },
       {
@@ -90,15 +90,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": -0.035,
+          "keyboard_technique": 2.34,
           "grand_piano_size": 0.345,
           "grand_piano_brand": 0.6749999999999999,
-          "piano_hammer": 3.185,
-          "piano_rim": 3.575,
-          "piano_soundboard": 3.08,
+          "piano_hammer": 5.59,
+          "piano_rim": 5.9799999999999995,
+          "piano_soundboard": 3.38,
           "piano_pinblock": 2.5,
-          "piano_plate": 2.850625,
-          "piano_pitch_standard": 4.62125
+          "piano_plate": 3.0006250000000003,
+          "piano_pitch_standard": 5.52125
         }
       },
       {
@@ -109,9 +109,9 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
-          "upright_strings": 32.00000000000003,
-          "upright_play": 32.00000000000003
+          "acoustic_technique": 2.4050000000000002,
+          "upright_strings": 45.12500000000003,
+          "upright_play": 45.12500000000003
         }
       },
       {
@@ -130,17 +130,17 @@
           "drum_technique": "brushes_jazz"
         },
         "scores": {
-          "percussion_technique": 30.095000000000013,
+          "percussion_technique": 40.30000000000001,
           "shell_wood": 0.195,
           "shell_thickness": 0.3,
           "bearing_edges": 0.345,
-          "drumhead": 36.74000000000003,
+          "drumhead": 49.86500000000003,
           "snare_wires": 0.345,
-          "cymbal_alloy": 34.40000000000003,
-          "cymbal_hammering": 35.27062500000003,
-          "cymbal_lathing": 32.88000000000003,
-          "cymbal_finish": 0.15,
-          "drum_technique": 32.00000000000003
+          "cymbal_alloy": 48.32500000000003,
+          "cymbal_hammering": 48.845625000000034,
+          "cymbal_lathing": 46.00500000000003,
+          "cymbal_finish": 0.195,
+          "drum_technique": 45.12500000000003
         }
       },
       {
@@ -182,7 +182,7 @@
         },
         "scores": {
           "percussion_technique": 21.97,
-          "timbales_shell": 15.59000000000001,
+          "timbales_shell": 20.84000000000001,
           "timbales_context": 1.2
         }
       },
@@ -193,8 +193,8 @@
           "claves_wood": "claves_rosewood"
         },
         "scores": {
-          "claves_pattern": 15.63500000000001,
-          "claves_wood": 0.300625
+          "claves_pattern": 20.885000000000012,
+          "claves_wood": 0.45062499999999994
         }
       },
       {
@@ -204,7 +204,7 @@
           "shekere_beads": "shekere_seed"
         },
         "scores": {
-          "shekere_size": 4.093749999999999,
+          "shekere_size": 4.593749999999999,
           "shekere_beads": 1.38
         }
       }

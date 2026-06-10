@@ -21,10 +21,10 @@
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 3.45375,
-          "snare_voice": 3.34875,
+          "kick_voice": 4.20375,
+          "snare_voice": 4.09875,
           "hat_voice": 0.49924999999999997,
-          "shuffle_quantize": 3.59025
+          "shuffle_quantize": 4.34025
         }
       },
       {
@@ -36,9 +36,9 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 4.44775,
-          "wt_position": 3.34875,
-          "wt_family": 3.34875,
+          "electronic_technique": 8.62275,
+          "wt_position": 4.09875,
+          "wt_family": 4.09875,
           "wt_polyphony": 0.063
         }
       },
@@ -51,8 +51,8 @@
         },
         "scores": {
           "keyboard_technique": 6.74325,
-          "tine_voicing": 3.34875,
-          "tine_effect": 0.378
+          "tine_voicing": 4.09875,
+          "tine_effect": 0.45499999999999996
         }
       },
       {
@@ -76,22 +76,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.998249999999999,
+          "voice_register": 9.273249999999999,
           "voice_quality": 9.459999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.34875,
-          "voice_articulation": 9,
-          "voice_microtone": 2.2500000000000004,
-          "voice_tradition": 11.2955,
-          "voice_mechanism_compound": 2.47,
+          "voice_vibrato": 4.09875,
+          "voice_articulation": 11.55,
+          "voice_microtone": 2.5250000000000004,
+          "voice_tradition": 13.1705,
+          "voice_mechanism_compound": 4.355,
           "voice_estill_quality": 6.291500000000001,
-          "voice_speech_song": 10.984999999999996,
-          "voice_ensemble_config": 8.579999999999998,
-          "voice_ornament_system": 0.19500000000000003,
+          "voice_speech_song": 14.039999999999996,
+          "voice_ensemble_config": 11.439999999999996,
+          "voice_ornament_system": 0.45500000000000007,
           "voice_pitch_organization": 1.0179999999999998,
-          "voice_processing_chain": 4.34875,
-          "voice_multitrack_stack": 4.914249999999999
+          "voice_processing_chain": 9.92375,
+          "voice_multitrack_stack": 5.864249999999999
         }
       }
     ],

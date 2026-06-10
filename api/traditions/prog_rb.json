@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 13.489499999999998,
-          "voice_quality": 3.853500000000002,
+          "voice_register": 38.98950000000002,
+          "voice_quality": 6.353500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.3449999999999998,
-          "voice_articulation": 3.6,
-          "voice_microtone": 9.904999999999998,
-          "voice_tradition": 9.75,
-          "voice_mechanism_compound": 1.953,
-          "voice_estill_quality": 5.495000000000001,
-          "voice_speech_song": 12.024999999999999,
-          "voice_ensemble_config": 10.009999999999998,
-          "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 3.5945,
+          "voice_articulation": 7.125,
+          "voice_microtone": 32.90500000000001,
+          "voice_tradition": 36.92000000000001,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 9.294999999999998,
+          "voice_speech_song": 20.084999999999997,
+          "voice_ensemble_config": 17.614999999999995,
+          "voice_ornament_system": 2.19,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 6.786,
           "voice_multitrack_stack": 6.20925
         }
       },
@@ -65,14 +65,14 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 3.6500000000000004,
-          "amp_make": 9.6325,
+          "electric_technique": 6.15,
+          "amp_make": 16.8825,
           "body_wood": 0.726,
           "pickup_config": 1.6,
-          "string_type": 9.75,
+          "string_type": 36.72500000000001,
           "scale_length_b": 0.408,
           "fretted_or_not": 0.0315,
-          "bass_technique": 7.5
+          "bass_technique": 30.500000000000007
         }
       },
       {
@@ -91,17 +91,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 23.725,
-          "shell_wood": 1.69,
+          "percussion_technique": 52.38999999999999,
+          "shell_wood": 2.3715,
           "shell_thickness": 0,
-          "bearing_edges": 1.69,
-          "drumhead": 9.685,
+          "bearing_edges": 2.535,
+          "drumhead": 36.78000000000001,
           "snare_wires": 0.363,
-          "cymbal_alloy": 15.0365,
-          "cymbal_hammering": 7.9155,
-          "cymbal_lathing": 9.02975,
-          "cymbal_finish": 1.69,
-          "drum_technique": 23.725
+          "cymbal_alloy": 45.036500000000004,
+          "cymbal_hammering": 30.91550000000001,
+          "cymbal_lathing": 32.02975000000001,
+          "cymbal_finish": 2.3400000000000003,
+          "drum_technique": 52.38999999999999
         }
       },
       {
@@ -118,15 +118,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 4.2145,
+          "keyboard_technique": 6.7145,
           "grand_piano_size": 0.363,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 2.75,
-          "piano_rim": 2.7545,
+          "grand_piano_brand": 2.3400000000000003,
+          "piano_hammer": 4.485,
+          "piano_rim": 4.485,
           "piano_soundboard": 2.45,
           "piano_pinblock": -0.05,
-          "piano_plate": 1.56,
-          "piano_pitch_standard": -0.035
+          "piano_plate": 3.2500000000000004,
+          "piano_pitch_standard": 0.7149999999999999
         }
       },
       {
@@ -140,9 +140,9 @@
         },
         "scores": {
           "electronic_technique": 2.5130000000000003,
-          "oscillator": 1.69,
+          "oscillator": 2.3715,
           "filter_topology": 1.69,
-          "envelope": 0.825,
+          "envelope": 1.69,
           "modulation": 0
         }
       }

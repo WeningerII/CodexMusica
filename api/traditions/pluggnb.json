@@ -3,8 +3,8 @@
   "name": "Pluggnb (R&B-plugg hybrid)",
   "family": "hip_hop",
   "lineage": "2019-onward subgenre extending plugg with explicit R&B-soul melodic-vocal influence, slower romantic tempos, and reverb-drenched-Auto-Tune-emotional delivery. Producer Sxlxmxn defined much of the early pluggnb sound; Summrs, Autumn!, kankan, and TaTa constitute canonical artists. Distinguished from plugg by pluggnb's explicit R&B-melodic emphasis and romantic-relationship lyrical content.",
-  "recipe": "classic Southern American modern pluggnb, mc Rhythm, southern branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, melodic, narrative. analog synth, TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 364,
+  "recipe": "classic Southern American modern pluggnb, mc Rhythm, southern branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, melodic, narrative. singing lead analog synth, TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 377,
   "score": 154.145,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.7250000000000005,
-          "voice_quality": 5.600000000000001,
+          "voice_register": 19.174999999999997,
+          "voice_quality": 11.49999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6399999999999997,
-          "voice_articulation": 7.195,
-          "voice_microtone": 0.75,
-          "voice_tradition": 6.4350000000000005,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 5.1450000000000005,
-          "voice_speech_song": 5.915,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 0.195,
-          "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 3.2500000000000004,
-          "voice_multitrack_stack": 5.069999999999999
+          "voice_articulation": 12.594999999999999,
+          "voice_microtone": 7.175000000000001,
+          "voice_tradition": 13.419999999999998,
+          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_estill_quality": 11.694999999999999,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 13.974999999999994,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 5.96,
+          "voice_processing_chain": 7.54,
+          "voice_multitrack_stack": 9.165
         }
       },
       {
@@ -62,10 +62,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 2.7500000000000004,
-          "oscillator": 0.735,
+          "electronic_technique": 4.974999999999999,
+          "oscillator": 1.2349999999999999,
           "filter_topology": 1.3,
-          "envelope": 0.195,
+          "envelope": 0.43999999999999995,
           "modulation": 0.105
         }
       },
@@ -77,8 +77,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.85,
-          "drum_machine_808_context": 1.53,
+          "tr808_voice": 3.15,
+          "drum_machine_808_context": 1.8850000000000002,
           "tr808_production_origin": 0.8999999999999999
         }
       }

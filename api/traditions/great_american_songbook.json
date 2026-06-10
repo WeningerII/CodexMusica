@@ -3,8 +3,8 @@
   "name": "Great American Songbook (vocal jazz pop)",
   "family": "global",
   "lineage": "1920s-1950s American popular-song repertoire from Tin Pan Alley, Broadway, and Hollywood (Gershwin, Berlin, Porter, Kern, Rodgers-and-Hart-and-Hammerstein) as interpreted by mid-century vocal jazz singers — Sinatra, Ella Fitzgerald, Sarah Vaughan, Tony Bennett, Nat King Cole",
-  "recipe": "classic North American mid-1920s great american songbook, functional Song, crooners branch, American jazz smooth vocal cool jazz vocal modern vocal jazz. thick, low dynamic level, chest resonance low mid, equal tempered. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 874,
+  "recipe": "classic North American mid-1920s great american songbook, functional Song, crooners branch, American jazz smooth vocal cool jazz vocal modern vocal jazz. thick, low dynamic level, chest resonance low mid, equal tempered. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 883,
   "score": 464.531,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 11.131499999999994,
-          "voice_quality": 6.727125000000001,
+          "voice_register": 21.881499999999996,
+          "voice_quality": 9.152125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 0.103125,
-          "voice_microtone": 11.423499999999997,
-          "voice_tradition": 10.725,
-          "voice_mechanism_compound": 0.78,
+          "voice_vibrato": 1.885,
+          "voice_articulation": 0.39,
+          "voice_microtone": 22.173499999999997,
+          "voice_tradition": 21.873625,
+          "voice_mechanism_compound": 1.625,
           "voice_estill_quality": 2.363000000000001,
-          "voice_speech_song": 7.475,
-          "voice_ensemble_config": 4.16,
+          "voice_speech_song": 8.71,
+          "voice_ensemble_config": 8.905000000000001,
           "voice_ornament_system": 0.1035,
-          "voice_pitch_organization": 0.084,
-          "voice_processing_chain": 3.7700000000000005,
-          "voice_multitrack_stack": 3.9
+          "voice_pitch_organization": 0.195,
+          "voice_processing_chain": 8.905000000000001,
+          "voice_multitrack_stack": 9.035
         }
       },
       {
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": 2.623625,
-          "grand_piano_size": 1.69,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 3.4450000000000003,
-          "piano_rim": 3.4450000000000003,
-          "piano_soundboard": 2.45,
-          "piano_pinblock": -0.05,
-          "piano_plate": -0.05,
-          "piano_pitch_standard": -0.035
+          "grand_piano_size": 2.0799999999999996,
+          "grand_piano_brand": 2.0799999999999996,
+          "piano_hammer": 6.24,
+          "piano_rim": 6.629999999999999,
+          "piano_soundboard": 5,
+          "piano_pinblock": 2.5,
+          "piano_plate": 2.5,
+          "piano_pitch_standard": 3.14275
         }
       },
       {
@@ -86,8 +86,8 @@
         },
         "scores": {
           "acoustic_technique": -0.035,
-          "upright_strings": 8.25,
-          "upright_play": 8.25
+          "upright_strings": 19,
+          "upright_play": 19
         }
       },
       {
@@ -106,17 +106,17 @@
           "drum_technique": "brushes_jazz"
         },
         "scores": {
-          "percussion_technique": 8.84,
+          "percussion_technique": 15.209999999999999,
           "shell_wood": 0.005625,
           "shell_thickness": 0.063,
-          "bearing_edges": 1.69,
-          "drumhead": 10.659999999999998,
-          "snare_wires": 1.69,
-          "cymbal_alloy": 8.099999999999998,
-          "cymbal_hammering": 8.61525,
-          "cymbal_lathing": 8.69075,
+          "bearing_edges": 1.885,
+          "drumhead": 23.525124999999996,
+          "snare_wires": 1.885,
+          "cymbal_alloy": 18.849999999999998,
+          "cymbal_hammering": 19.76125,
+          "cymbal_lathing": 20.590749999999996,
           "cymbal_finish": 0.200625,
-          "drum_technique": 8.84
+          "drum_technique": 19
         }
       },
       {
@@ -131,13 +131,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": -0.035,
-          "sax_size": 1.69,
+          "wind_articulation": 3.7364999999999995,
+          "sax_size": 1.885,
           "sax_reed": 0.24712499999999996,
-          "sax_body_alloy": 8.25,
+          "sax_body_alloy": 21.5,
           "sax_mouthpiece": 0.0195,
-          "sax_technique": 8.2545,
-          "sax_maker_school": 8.059999999999999
+          "sax_technique": 19.0045,
+          "sax_maker_school": 20.498624999999997
         }
       },
       {
@@ -152,13 +152,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": -0.035,
+          "wind_articulation": 3.7364999999999995,
           "brass_size": 0.21,
-          "trumpet_mouthpiece": 10.725,
-          "brass_mute": 0.45499999999999996,
-          "trumpet_technique": -0.05,
+          "trumpet_mouthpiece": 21.873625,
+          "brass_mute": 1.6899999999999997,
+          "trumpet_technique": 0.06499999999999999,
           "trumpet_bell_metal": 0.0315,
-          "trumpet_maker_school": 3.5100000000000002
+          "trumpet_maker_school": 6.305
         }
       },
       {
@@ -173,13 +173,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": -0.05,
-          "trombone_type": 8.46,
-          "trombone_mouthpiece": 11.6665,
+          "wind_articulation": 0.06499999999999999,
+          "trombone_type": 19.21,
+          "trombone_mouthpiece": 22.4165,
           "trombone_mute": 0.0045,
           "trombone_technique": 0.063,
           "trombone_bell_metal": 0.30449999999999994,
-          "trombone_maker_school": 3.5100000000000002
+          "trombone_maker_school": 6.305
         }
       }
     ],

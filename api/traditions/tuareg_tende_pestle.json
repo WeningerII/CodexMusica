@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 3.1799999999999993,
-          "voice_quality": 18.36375,
+          "voice_register": 3.835,
+          "voice_quality": 24.513749999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.495,
           "voice_articulation": 1.445,
-          "voice_microtone": 1.625,
-          "voice_tradition": 25.61,
-          "voice_mechanism_compound": 7.279999999999999,
-          "voice_estill_quality": 5.3950000000000005,
-          "voice_speech_song": 13.194999999999999,
-          "voice_ensemble_config": 11.829999999999997,
-          "voice_ornament_system": 8.405000000000001,
-          "voice_pitch_organization": 2.9899999999999998,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 4.983749999999999
+          "voice_microtone": 2.6350000000000002,
+          "voice_tradition": 32.5,
+          "voice_mechanism_compound": 10.92,
+          "voice_estill_quality": 9.23,
+          "voice_speech_song": 30.095000000000002,
+          "voice_ensemble_config": 30.225,
+          "voice_ornament_system": 13.504999999999999,
+          "voice_pitch_organization": 3.6399999999999997,
+          "voice_processing_chain": 8.58,
+          "voice_multitrack_stack": 3.6399999999999997
         }
       },
       {
@@ -59,8 +59,8 @@
           "tende_drum_tradition": "tende_drum_pestle_rhythm_canonical"
         },
         "scores": {
-          "tende_drum_body": 17.45875,
-          "tende_drum_tradition": 15.888749999999998
+          "tende_drum_body": 18.60875,
+          "tende_drum_tradition": 18.18875
         }
       }
     ],

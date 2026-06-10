@@ -3,8 +3,8 @@
   "name": "Anadolu rock",
   "family": "global",
   "lineage": "Late-1960s-onward Turkish psychedelic-folk rock genre codified through Cem Karaca, Erkin Koray (whose 1974 Elektronik Türküler is the album), Barış Manço, the Moğollar band, the Mavi Çocuklar — fusing Turkish folk-saz repertoire and Anatolian regional song-traditions with electric instrumentation, rock rhythm-section foundation, and characteristic distorted-electric-saz lead-voice",
-  "recipe": "classic North American 1967-1969 anadolu rock, distorted Rock, regional branch, classic distorted rock britpop. thick, melodic, equal tempered, Scottish Gaelic vocal. marshall plexi amp British rock amp soft down tuning power chord humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky riff driven electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, mulberry bowl canonical anatolian nylon cura saz softer alevi cem saz baglama. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 725,
+  "recipe": "classic North American 1967-1969 anadolu rock, distorted Rock, regional branch, classic distorted rock britpop. thick, melodic, narrative, equal tempered. marshall plexi amp British rock amp basswood soft down tuning power chord humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky riff driven electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, mulberry bowl canonical anatolian nylon cura saz softer alevi cem saz baglama. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 705,
   "score": 386.5,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 21.49499999999999,
+          "voice_register": 31.96999999999999,
           "voice_quality": 0.2,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.125,
-          "voice_articulation": 0.3,
-          "voice_microtone": 15.104999999999997,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 1.475,
+          "voice_microtone": 23.904999999999998,
           "voice_tradition": 9.091,
-          "voice_mechanism_compound": 3.9650000000000007,
+          "voice_mechanism_compound": 6.825000000000001,
           "voice_estill_quality": 1.885,
-          "voice_speech_song": 4.225,
-          "voice_ensemble_config": 4.290000000000001,
+          "voice_speech_song": 12.674999999999997,
+          "voice_ensemble_config": 12.609999999999996,
           "voice_ornament_system": 0.8999999999999999,
           "voice_pitch_organization": 6.749999999999999,
-          "voice_processing_chain": 2.7950000000000004,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 4.355,
+          "voice_multitrack_stack": 6.987500000000001
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 4.030000000000001,
-          "amp_make": 7.8,
-          "body_wood": 0.885,
-          "neck_wood": 0.885,
-          "fretboard": 0.135,
+          "electric_technique": 10.757499999999999,
+          "amp_make": 16.379999999999995,
+          "body_wood": 1.4299999999999995,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
           "pickup_magnet": 0.195,
-          "pickup_winding": 0.9099999999999999,
+          "pickup_winding": 2.8600000000000003,
           "string_material": 0.195,
-          "bridge": 0.885,
-          "scale_length": 1.7700000000000002,
-          "string_gauge": 0.885,
+          "bridge": 0.845,
+          "scale_length": 0.845,
+          "string_gauge": 0.845,
           "finish": 0.435,
-          "string_tuning": 8.84
+          "string_tuning": 17.029999999999998
         }
       },
       {
@@ -99,13 +99,13 @@
         },
         "scores": {
           "electric_technique": 3.29,
-          "amp_make": 7.865,
-          "body_wood": 1.7700000000000002,
+          "amp_make": 16.379999999999995,
+          "body_wood": 0.845,
           "pickup_config": 0,
-          "string_type": 19.824999999999996,
-          "scale_length_b": 0.885,
+          "string_type": 29.0875,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.3,
-          "bass_technique": 15.366499999999997
+          "bass_technique": 22.4915
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 2.8600000000000003,
+          "percussion_technique": 11.309999999999997,
           "shell_wood": 0.39,
           "shell_thickness": 0.3,
-          "bearing_edges": 1.08,
-          "drumhead": 0.885,
-          "snare_wires": 0.885,
-          "cymbal_alloy": 15.485,
-          "cymbal_hammering": 15.299999999999997,
-          "cymbal_lathing": 15.539999999999996,
+          "bearing_edges": 0.845,
+          "drumhead": 1.6650000000000003,
+          "snare_wires": 0.845,
+          "cymbal_alloy": 24.285,
+          "cymbal_hammering": 24.099999999999998,
+          "cymbal_lathing": 24.339999999999996,
           "cymbal_finish": 0.195,
-          "drum_technique": 15.339999999999998
+          "drum_technique": 22.465
         }
       },
       {
@@ -151,7 +151,7 @@
           "plucked_traditional_technique": 8.129999999999999,
           "saz_size": 2.78,
           "saz_frets": 0.645,
-          "saz_body_wood": 1.69,
+          "saz_body_wood": 4.225,
           "saz_strings": 2.3,
           "saz_tradition": 1
         }

@@ -3,8 +3,8 @@
   "name": "Schlager (German)",
   "family": "global",
   "lineage": "German-language popular sentimental song genre with 1920s Weimar cabaret roots, mid-century commercial extension (Heino, Roy Black, Freddy Quinn), and modern continuation (Helene Fischer, Andrea Berg) — major-key sentimental melodies, accordion-and-strings-and-occasional-yodel arrangements, lyrical content concerning love, home country (Heimat), nostalgia, holidays, alpine landscapes; distinct from Liedermacher (politically engaged literary-cabaret tradition)",
-  "recipe": "classic North American mid-1920s schlager, functional Song, europop branch, crooners functional song brill building pop american barbershop quartet. thick, low dynamic level, melodic, equal tempered. weltmeister east German mid tier vintage volk accordion, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, analog poly synth. german liedermacher kabarett berlin. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 593,
+  "recipe": "classic North American mid-1920s schlager, functional Song, europop branch, crooners functional song brill building pop american barbershop quartet. thick, low dynamic level, melodic, ornamental. weltmeister east German mid tier vintage volk straight accordion, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly synth. german liedermacher kabarett berlin. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 611,
   "score": 228.682,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 4.436625000000001,
-          "voice_quality": 2.7950000000000004,
+          "voice_register": 13.436624999999994,
+          "voice_quality": 4.290000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8314999999999997,
-          "voice_articulation": 0.03599999999999999,
-          "voice_microtone": 2.1550000000000007,
-          "voice_tradition": 5.329999999999999,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 4.884625,
-          "voice_speech_song": 11.504999999999997,
-          "voice_ensemble_config": 6.889999999999999,
-          "voice_ornament_system": 0.15000000000000002,
-          "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 4.1,
-          "voice_multitrack_stack": 1.606125
+          "voice_vibrato": 3.7065000000000006,
+          "voice_articulation": 1.7499999999999998,
+          "voice_microtone": 8.330000000000002,
+          "voice_tradition": 12.5125,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 6.5596250000000005,
+          "voice_speech_song": 21.189999999999998,
+          "voice_ensemble_config": 14.104999999999997,
+          "voice_ornament_system": 0.7749999999999999,
+          "voice_pitch_organization": 2.6480000000000015,
+          "voice_processing_chain": 5.45,
+          "voice_multitrack_stack": 4.809999999999999
         }
       },
       {
@@ -64,13 +64,13 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 2.7675,
-          "accordion_reed_material": 1.69,
-          "musette_offset": 1.155625,
+          "free_reed_technique": 3.6425,
+          "accordion_reed_material": 1.885,
+          "musette_offset": 1.3056249999999998,
           "reed_config": 0.9824999999999998,
           "bellows": 0,
           "voicing_chamber": 0,
-          "accordion_maker_school": 6.131624999999999
+          "accordion_maker_school": 6.281624999999999
         }
       },
       {
@@ -86,14 +86,14 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 3.055,
-          "body_wood": 1.69,
-          "pickup_config": 0,
-          "string_type": 2.34,
-          "scale_length_b": 1.69,
-          "fretted_or_not": 0.39,
-          "bass_technique": 2.5765
+          "electric_technique": 0.06499999999999999,
+          "amp_make": 7.5725,
+          "body_wood": 1.885,
+          "pickup_config": 0.6059999999999999,
+          "string_type": 3.7700000000000005,
+          "scale_length_b": 1.885,
+          "fretted_or_not": 1.6,
+          "bass_technique": 3.75
         }
       },
       {
@@ -112,17 +112,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 6.889999999999999,
+          "percussion_technique": 13.714999999999996,
           "shell_wood": 0.39,
-          "shell_thickness": 0.09,
-          "bearing_edges": 1.69,
-          "drumhead": 4.39,
-          "snare_wires": 1.69,
-          "cymbal_alloy": 2.450625,
-          "cymbal_hammering": 4.75,
-          "cymbal_lathing": 4.84,
-          "cymbal_finish": 0.0765,
-          "drum_technique": 6.889999999999999
+          "shell_thickness": 0.195,
+          "bearing_edges": 1.885,
+          "drumhead": 9.915000000000001,
+          "snare_wires": 1.885,
+          "cymbal_alloy": 7.975625,
+          "cymbal_hammering": 11.375,
+          "cymbal_lathing": 11.615,
+          "cymbal_finish": 0.195,
+          "drum_technique": 13.714999999999996
         }
       },
       {
@@ -134,8 +134,8 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 2.2749999999999995,
-          "poly_archetypes": 0.78,
+          "electronic_technique": 8.669999999999998,
+          "poly_archetypes": 1.625,
           "poly_voices": 0.372,
           "poly_maker_lineage": -0.035
         }

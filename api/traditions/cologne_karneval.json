@@ -3,8 +3,8 @@
   "name": "Cologne Karneval (Kölner Karneval)",
   "family": "global",
   "lineage": "Cologne (Köln) Karneval tradition documented from medieval Catholic-Rhineland Carnival-celebration practice (the documented Cologne-Karneval lineage extends to medieval-era Karnevalsumzug processionals) through 19th-century 1823-founded modern-Karneval-Festkomitee codification into modern Cologne Karneval Rosenmontagszug processional and Stunksitzung-and-Kostümsitzung continuous practice",
-  "recipe": "classic early-1820s cologne karneval, carnival Processional, European branch, American south carnival processional, European drinking song, European wedding new orleans brass band second-line french chansons à boire. low dynamic level, tasteful, continuous-phonation, modern pop training. yamaha xeno modern Japanese student friendly trumpet, yamaha xeno modern Japanese tenor standard standard backbore trombone, petosa seattle American premium accordion. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 612,
+  "recipe": "classic early-1820s cologne karneval, carnival Processional, European branch, American south carnival processional, European drinking song, European wedding new orleans brass band second-line french chansons à boire. thick, low dynamic level, tasteful, continuous-phonation. yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato student friendly trumpet, yellow brass canonical 70 30 bach 42 standard yamaha xeno modern Japanese continuous-airflow legato tenor standard trombone, brass petosa seattle American premium accordion. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 731,
   "score": 177.991,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 1.8750000000000002,
+          "voice_quality": 6.5649999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.769999999999999,
-          "voice_articulation": 1.69,
-          "voice_microtone": 0,
-          "voice_tradition": 8.7925,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 1.2999999999999998,
-          "voice_speech_song": 5.395,
-          "voice_ensemble_config": 4.419999999999999,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39
+          "voice_vibrato": 5.459999999999999,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 2.125000000000001,
+          "voice_tradition": 12.0425,
+          "voice_mechanism_compound": 1.755,
+          "voice_estill_quality": 1.5599999999999996,
+          "voice_speech_song": 17.289999999999996,
+          "voice_ensemble_config": 11.699999999999998,
+          "voice_ornament_system": 2.6425,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 7.560000000000001,
+          "voice_multitrack_stack": 1.5599999999999996
         }
       },
       {
@@ -64,13 +64,13 @@
           "trumpet_maker_school": "trumpet_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 1.56,
-          "brass_size": 0.39,
-          "trumpet_mouthpiece": 7.683749999999999,
+          "wind_articulation": 6.174999999999999,
+          "brass_size": 0.585,
+          "trumpet_mouthpiece": 10.93375,
           "brass_mute": 0,
-          "trumpet_technique": 0.19500000000000003,
-          "trumpet_bell_metal": 0.78,
-          "trumpet_maker_school": 3.769999999999999
+          "trumpet_technique": 5.185,
+          "trumpet_bell_metal": 7.670000000000002,
+          "trumpet_maker_school": 5.459999999999999
         }
       },
       {
@@ -85,13 +85,13 @@
           "trombone_maker_school": "trombone_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 1.56,
-          "trombone_type": 1.085,
-          "trombone_mouthpiece": 7.199999999999999,
+          "wind_articulation": 6.174999999999999,
+          "trombone_type": 3.1025,
+          "trombone_mouthpiece": 10.45,
           "trombone_mute": 0.045,
           "trombone_technique": 0.195,
-          "trombone_bell_metal": 0.78,
-          "trombone_maker_school": 3.769999999999999
+          "trombone_bell_metal": 7.670000000000002,
+          "trombone_maker_school": 5.459999999999999
         }
       },
       {
@@ -106,13 +106,13 @@
           "accordion_maker_school": "accordion_petosa_seattle"
         },
         "scores": {
-          "free_reed_technique": 0.325,
-          "accordion_reed_material": 0.39,
+          "free_reed_technique": 0.8999999999999999,
+          "accordion_reed_material": 6.8000000000000025,
           "musette_offset": 0.195,
-          "reed_config": 1.3649999999999998,
+          "reed_config": 5.46,
           "bellows": 0,
-          "voicing_chamber": 0.8574999999999999,
-          "accordion_maker_school": 1.3650000000000002
+          "voicing_chamber": 0.45499999999999996,
+          "accordion_maker_school": 2.925
         }
       }
     ],

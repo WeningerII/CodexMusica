@@ -3,8 +3,8 @@
   "name": "Lebanese tarab-pop",
   "family": "global",
   "lineage": "Beirut-centered modern Arabic-pop with classical-tarab roots, melismatic-ornate praise-and-devotional vocal style emerging from 1950s-onward post-Egyptian-classical Levantine regional expansion. The 1960s-1970s Lebanese-orchestral-style integrated rahbani-school theatrical-musical compositional vocabulary with classical maqam modal-foundation (Rast, Hijaz, Bayati, Nahawand), tarab ecstatic-vocal listener-state aesthetic, and Western-string-section-and-electric-instrumentation arrangement-modernization. The 1980s-civil-war-period diaspora-expansion took Beirut-tarab to Paris-and-London recording-studios, transformed in the 2000s-onward via electronic-arabic-pop and house-influenced-arabic-pop into the modern khaleeji-and-shami pan-Arab pop-mainstream.",
-  "recipe": "classic British mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music andalusī nūba turkish makam. thick, declaimed, chest resonance low mid, equal tempered. maple ribs Turkish school Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks maple body Turkish school synthetic bridge plate qanun, mahogany rosewood clean strummed single coil electric guitar, plucked short envelope analog poly synth, pre muffled edge muffled hot rolled annealed machine hammered drum kit. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 747,
+  "recipe": "classic British mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music andalusī nūba turkish makam. thick, declaimed, chest resonance low mid, punctuated. maple ribs Turkish school Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks maple body Turkish school synthetic bridge plate qanun, mahogany rosewood clean strummed single coil electric guitar, plucked short envelope analog poly synth, pre muffled edge muffled hot rolled annealed machine hammered drum kit. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 743,
   "score": 617.86,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 21.249999999999993,
-          "voice_quality": 6.040000000000001,
+          "voice_register": 25.199999999999992,
+          "voice_quality": 6.190000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.76,
-          "voice_articulation": 0.24,
-          "voice_microtone": 22.799999999999994,
-          "voice_tradition": 29.349999999999998,
-          "voice_mechanism_compound": 12.335,
-          "voice_estill_quality": 11.95,
-          "voice_speech_song": 15.404999999999998,
-          "voice_ensemble_config": 8.84,
-          "voice_ornament_system": 24.91,
-          "voice_pitch_organization": 25.045,
+          "voice_vibrato": 13.714999999999998,
+          "voice_articulation": 1.04,
+          "voice_microtone": 26.324999999999992,
+          "voice_tradition": 47.025000000000006,
+          "voice_mechanism_compound": 29.584999999999997,
+          "voice_estill_quality": 26.124999999999996,
+          "voice_speech_song": 22.959999999999997,
+          "voice_ensemble_config": 14.819999999999999,
+          "voice_ornament_system": 41.63499999999999,
+          "voice_pitch_organization": 42.07,
           "voice_processing_chain": 7.59,
-          "voice_multitrack_stack": 6.039999999999999
+          "voice_multitrack_stack": 7.089999999999999
         }
       },
       {
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 9.25,
-          "oud_school": 10.919999999999998,
-          "oud_strings": 4.8100000000000005,
+          "plucked_traditional_technique": 22.625,
+          "oud_school": 12.215,
+          "oud_strings": 11.959999999999999,
           "oud_pick": 1.635,
-          "oud_body_wood": 1.95,
-          "oud_soundboard_wood": 3.5100000000000002,
-          "oud_string_material": 3.9
+          "oud_body_wood": 3.964999999999999,
+          "oud_soundboard_wood": 5.46,
+          "oud_string_material": 4.745
         }
       },
       {
@@ -85,13 +85,13 @@
           "qanun_string_material": "qanun_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 9.25,
-          "qanun_strings": 4.8100000000000005,
-          "qanun_levers": 1.0399999999999998,
-          "qanun_pick": 4.8100000000000005,
-          "qanun_body_wood": 2.535,
-          "qanun_bridge_skin": 1.0399999999999998,
-          "qanun_string_material": 1.0399999999999998
+          "plucked_traditional_technique": 22.625,
+          "qanun_strings": 11.764999999999999,
+          "qanun_levers": 1.6899999999999997,
+          "qanun_pick": 11.959999999999999,
+          "qanun_body_wood": 3.964999999999999,
+          "qanun_bridge_skin": 1.6899999999999997,
+          "qanun_string_material": 1.8849999999999996
         }
       },
       {
@@ -111,18 +111,18 @@
           "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 18.45,
-          "amp_make": 1.39,
+          "electric_technique": 19.25,
+          "amp_make": 2.73,
           "body_wood": 1.59,
           "neck_wood": 1.59,
           "fretboard": 1.54,
-          "pickup_magnet": 0.28500000000000003,
-          "string_material": 0.28500000000000003,
-          "string_gauge": 1.635,
-          "bridge": 1.0399999999999998,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 1.785,
+          "bridge": 1.6899999999999997,
           "scale_length": 1.68,
           "finish": 0.495,
-          "string_tuning": 1.3
+          "string_tuning": 2.9899999999999998
         }
       },
       {
@@ -134,10 +134,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 18.779999999999998,
-          "poly_archetypes": 0.22499999999999998,
+          "electronic_technique": 19.304999999999996,
+          "poly_archetypes": 0.195,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -0.035
+          "poly_maker_lineage": 0.12999999999999998
         }
       },
       {
@@ -156,17 +156,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 8.84,
+          "percussion_technique": 14.624999999999998,
           "shell_wood": 0.7,
-          "shell_thickness": 0.09,
-          "bearing_edges": 1.59,
-          "drumhead": 24.535,
+          "shell_thickness": 0.195,
+          "bearing_edges": 1.8849999999999996,
+          "drumhead": 26.16,
           "snare_wires": 1.59,
-          "cymbal_alloy": 18.54,
-          "cymbal_hammering": 24.544999999999998,
-          "cymbal_lathing": 24.29,
-          "cymbal_finish": 0.28500000000000003,
-          "drum_technique": 8.84
+          "cymbal_alloy": 19.064999999999998,
+          "cymbal_hammering": 26.669999999999998,
+          "cymbal_lathing": 26.064999999999998,
+          "cymbal_finish": 0.195,
+          "drum_technique": 14.624999999999998
         }
       }
     ],

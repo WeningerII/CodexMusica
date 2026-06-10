@@ -3,8 +3,8 @@
   "name": "Tongan lakalaka sung-speech-dance",
   "family": "global",
   "lineage": "Tongan lakalaka sung-poetry-and-choreographed-dance tradition. Lakalaka is the canonical ceremonial-public performance form of contemporary Tonga: large mixed-gender groups (up to several hundred performers) stand in two parallel rows facing the audience, with women on one side and men on the other, performing synchronized standing-arm-and-hand choreography (the women in characteristic graceful hand-gestures, the men in more vigorous percussive-stance) while singing the poetic verse-text in unison-and-octave choral configuration. Accompaniment by nafa wooden slit-drum (the canonical Tongan percussion instrument), with optional fakatangi vocal-buzz percussive ornament from the men's chorus. The poetic verse-form (also called lakalaka in Tongan usage) is composed by a punake poet-composer-choreographer for a specific occasion — coronation, royal birthday, opening of major public building, district-festival celebration — and the verse-text is occasion-specific historical-praise narrative tied to the immediate ceremonial context. Lakalaka thus functions as a fully-integrated occasion-specific genre, with each new commission producing a new lakalaka. Queen Sālote Tupou III (1900-1965, reigned 1918-1965) was the dominant twentieth-century lakalaka punake, composing over a hundred lakalaka still in active repertoire. Adrienne Kaeppler's 2012 monograph Lakalaka: A Tongan Masterpiece of Performing Arts is the canonical English-language scholarship. Distinguished from earlier Tongan ceremonial forms (me'etu'upaki, fakapale) by lakalaka's post-1850s synthesized-new-form status; distinguished from Samoan siva and Fijian meke by Tongan-specific poetic-and-choreographic vocabulary; distinguished from Hawaiian hula by lakalaka's very-large-group (vs solo-or-small-group) configuration.",
-  "recipe": "classic early-1900s tongan lakalaka sung-speech-dance, ritual Devotional, indigenous branch, tropical song functional song garifuna punta-rock bachata. thick, full chest belt, punctuated, Scottish Gaelic vocal. wooden slit drum struck sticks canonical tongan lakalaka choreographed canonical tongan nafa. tongan outdoor village green. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 464,
+  "recipe": "classic early-1900s tongan lakalaka sung-speech-dance, ritual Devotional, indigenous branch, tropical song functional song garifuna punta-rock bachata. thick, full chest belt, tasteful, punctuated. wooden slit drum struck sticks canonical tongan lakalaka choreographed canonical tongan nafa. tongan outdoor village green. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 451,
   "score": 172.71,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 1.3,
-          "voice_quality": 6.080000000000001,
+          "voice_register": 4.235000000000001,
+          "voice_quality": 10.424999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.495,
+          "voice_vibrato": 2.145,
           "voice_articulation": 2.6,
-          "voice_microtone": 0.15,
-          "voice_tradition": 11.374999999999995,
-          "voice_mechanism_compound": 4.29,
-          "voice_estill_quality": 4.095000000000001,
-          "voice_speech_song": 13.714999999999998,
-          "voice_ensemble_config": 11.829999999999997,
+          "voice_microtone": 3.0500000000000007,
+          "voice_tradition": 13.259999999999996,
+          "voice_mechanism_compound": 6.629999999999999,
+          "voice_estill_quality": 6.4350000000000005,
+          "voice_speech_song": 26.65,
+          "voice_ensemble_config": 20.02,
           "voice_ornament_system": 5.45,
           "voice_pitch_organization": 4.2299999999999995,
-          "voice_processing_chain": 7.279999999999999,
-          "voice_multitrack_stack": 3.9
+          "voice_processing_chain": 9.95,
+          "voice_multitrack_stack": 4.095
         }
       },
       {

@@ -3,8 +3,8 @@
   "name": "Klezmer-jazz fusion",
   "family": "jazz",
   "lineage": "1980s-and-onward American-Jewish jazz-fusion style integrating klezmer modal-and-melodic vocabulary with jazz-improvisational practice. Don Byron's Plays the Music of Mickey Katz (1993) and the Klezmatics 1980s-onward recordings constitute the canonical type-specimens; the parallel Frank London-led ensembles and David Krakauer's solo work extended the genre. Distinguished from broader klezmer revival by jazz-fusion's explicit jazz-improvisation-and-harmonic emphasis.",
-  "recipe": "classic North American mid-1980s klezmer-jazz fusion, improv On Frame, klezmer improv branch, Jewish ritual devotional hasidic niggun sephardi bakkashot. thick, declaimed, melodic, equal tempered. ebonite hard rubber klezmer tradition clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, birch fiberskyn synthetic calf bronze bell bronze drum kit, klezmer ensemble. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 747,
+  "recipe": "classic North American mid-1980s klezmer-jazz fusion, improv On Frame, klezmer improv branch, Jewish ritual devotional hasidic niggun sephardi bakkashot. thick, declaimed, melodic, equal tempered. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, birch fiberskyn synthetic calf bronze bell bronze drum kit, klezmer ensemble. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 789,
   "score": 460.643,
   "config": {
     "traditions": [
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 17.84499999999999,
-          "voice_quality": 1.4193749999999996,
+          "voice_register": 19.569999999999997,
+          "voice_quality": 6.7943750000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.385,
-          "voice_articulation": 0.08025,
-          "voice_microtone": 17.913124999999997,
+          "voice_vibrato": 1.835,
+          "voice_articulation": 0.195,
+          "voice_microtone": 19.488125,
           "voice_tradition": 19.682499999999997,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 1.69,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 1.673125,
+          "voice_mechanism_compound": 6.716500000000001,
+          "voice_estill_quality": 4.3317499999999995,
+          "voice_speech_song": 14.852749999999997,
+          "voice_ensemble_config": 14.102124999999996,
+          "voice_ornament_system": 8.9,
+          "voice_pitch_organization": 7.3149999999999995,
           "voice_processing_chain": 6.714999999999999,
           "voice_multitrack_stack": 6.752749999999999
         }
@@ -62,9 +62,9 @@
           "clarinet_articulation": "glissando_clarinet"
         },
         "scores": {
-          "wind_articulation": 1.945,
-          "clarinet_body": 14.815375,
-          "clarinet_size": 1.324375,
+          "wind_articulation": 5.02,
+          "clarinet_body": 17.265375,
+          "clarinet_size": 1.4949999999999999,
           "clarinet_reed": 1.324375,
           "clarinet_articulation": 12.75
         }
@@ -81,12 +81,12 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 1.945,
+          "wind_articulation": 5.02,
           "sax_size": 1.3475,
           "sax_reed": 1.324375,
-          "sax_body_alloy": 18,
+          "sax_body_alloy": 18.375,
           "sax_mouthpiece": 1.324375,
-          "sax_technique": 18.045,
+          "sax_technique": 18.195,
           "sax_maker_school": 17.73
         }
       },
@@ -104,15 +104,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 2.0265,
+          "keyboard_technique": 2.98,
           "grand_piano_size": 1.324375,
           "grand_piano_brand": 1.3487500000000001,
-          "piano_hammer": 1.49,
-          "piano_rim": 1.625,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": -0.05,
-          "piano_plate": -0.05,
-          "piano_pitch_standard": -0.035
+          "piano_hammer": 4.393625,
+          "piano_rim": 8.221,
+          "piano_soundboard": 6.922499999999999,
+          "piano_pinblock": 3.25,
+          "piano_plate": 3.4581249999999994,
+          "piano_pitch_standard": 3.79525
         }
       },
       {
@@ -123,7 +123,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 2.145,
+          "acoustic_technique": 2.795,
           "upright_strings": 18,
           "upright_play": 18
         }
@@ -144,17 +144,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 25.634999999999998,
+          "percussion_technique": 30.584999999999994,
           "shell_wood": 1.324375,
           "shell_thickness": 0.063,
-          "bearing_edges": 1.3825,
-          "drumhead": 18.283749999999998,
+          "bearing_edges": 1.5325,
+          "drumhead": 18.375,
           "snare_wires": 0.024375,
-          "cymbal_alloy": 27.123124999999998,
-          "cymbal_hammering": 18.421125,
-          "cymbal_lathing": 18.294999999999998,
+          "cymbal_alloy": 27.623124999999998,
+          "cymbal_hammering": 19.371124999999996,
+          "cymbal_lathing": 18.944999999999997,
           "cymbal_finish": 1.324375,
-          "drum_technique": 25.634999999999998
+          "drum_technique": 30.584999999999994
         }
       },
       {

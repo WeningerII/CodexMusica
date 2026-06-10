@@ -3,8 +3,8 @@
   "name": "American drumline (HBCU/DCI/school)",
   "family": "global",
   "lineage": "American marching-and-drumline show-style tradition — codified through historically-Black-college-and-university bands (Howard University, Florida A&M, Grambling State) from the 1920s onward, then through the Drum Corps International (founded 1971) field-show competition tradition, and the 2002 Drumline film bringing HBCU drumline culture to international audiences; characterized by snare-line, multi-tenor, bass-drum-line, and cymbal-line section divisions performing choreographed marching shows",
-  "recipe": "classic mid-1920s american drumline, groove Percussion, American marching branch, Cuban groove percussion, MC rhythm pre-sampling hip-hop golden-age sample-collage hip-hop. foundational choreographed split tonal drumline hbcu, drumline dci, drumline school marching, choreographed visual marching band full, marimba orchestral, vibraphone, timpani. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 493,
+  "recipe": "classic mid-1920s american drumline, groove Percussion, American marching branch, Cuban groove percussion, MC rhythm pre-sampling hip-hop golden-age sample-collage hip-hop. split tonal nola derived drumline hbcu, drumline dci, drumline school marching, choreographed visual marching band full, marimba orchestral, vibraphone, timpani. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 479,
   "score": 21.17,
   "config": {
     "traditions": [
@@ -20,8 +20,8 @@
           "school_style": "second_line_derived"
         },
         "scores": {
-          "section": 1.54,
-          "school_style": 0.39
+          "section": 1.69,
+          "school_style": 3.3449999999999998
         }
       },
       {
@@ -31,8 +31,8 @@
           "era": "dci_classic"
         },
         "scores": {
-          "section": 3.9799999999999995,
-          "era": 0.37499999999999994
+          "section": 4.9799999999999995,
+          "era": 0.195
         }
       },
       {
@@ -42,7 +42,7 @@
           "drumline_school_marching_context": "drumline_school_marching_halftime"
         },
         "scores": {
-          "section": 0.4799999999999999,
+          "section": 0.585,
           "drumline_school_marching_context": 4.16
         }
       },
@@ -54,7 +54,7 @@
         },
         "scores": {
           "sections": 1,
-          "school_style": 0.435
+          "school_style": 1.8900000000000001
         }
       },
       {
@@ -79,8 +79,8 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "vibe_motor": 0.15,
-          "vibe_mallets": 0.39
+          "vibe_motor": 0.375,
+          "vibe_mallets": 0.9500000000000001
         }
       },
       {
@@ -93,7 +93,7 @@
         "scores": {
           "percussion_technique": -0.05,
           "timpani_size": 0.3,
-          "timpani_head": 0.195
+          "timpani_head": 0.65
         }
       }
     ],

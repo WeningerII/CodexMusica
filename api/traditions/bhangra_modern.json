@@ -3,8 +3,8 @@
   "name": "Bhangra (modern)",
   "family": "global",
   "lineage": "Modern bhangra — the post-1980s British-Asian diaspora extension of the originating Punjab village male-harvest-dance tradition into urban electronic pop format, codified through Bally Sagoo, Apache Indian, Malkit Singh, Bally Jagpal, the Punjabi MC dance-floor crossover era (the 1998 Mundian To Bach Ke that found its global breakthrough through Jay-Z 2003 remix), and the broader UK-Punjab Sangeeta / Multitone label catalogs",
-  "recipe": "classic mid-1980s bhangra, functional Song, south Asian pop branch, west African groove percussion hiplife jùjú. thick, rap, tasteful, equal tempered. synthetic synthetic remo modern stable bolt tuned modern concert stable dholak, synthetic gut pre modern Punjabi tumbi, behringer rd 8 modern clone analog circuit reproduction TR-808. punjab village bhangra dhol outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 501,
+  "recipe": "classic mid-1980s bhangra, functional Song, south Asian pop branch, west African groove percussion hiplife jùjú. thick, rap, tasteful, narrative. synthetic synthetic remo modern stable bolt tuned modern concert stable dholak, synthetic gut pre modern Punjabi tumbi, behringer rd 8 modern clone analog circuit reproduction TR-808. punjab village bhangra dhol outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 496,
   "score": 165.706,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 10.985,
+          "voice_register": 14.426499999999992,
           "voice_quality": 2.21,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.5193749999999997,
-          "voice_articulation": 0.39,
-          "voice_microtone": 9.489499999999998,
-          "voice_tradition": 16.348125,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 1.1049999999999998,
-          "voice_speech_song": 5.525,
-          "voice_ensemble_config": 3.5100000000000002,
-          "voice_ornament_system": 2.795,
-          "voice_pitch_organization": 2.2,
-          "voice_processing_chain": 8.019375,
-          "voice_multitrack_stack": 4.42
+          "voice_vibrato": 3.0193749999999997,
+          "voice_articulation": 2.8249999999999997,
+          "voice_microtone": 12.314499999999995,
+          "voice_tradition": 30.94,
+          "voice_mechanism_compound": 0.975,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 11.244999999999997,
+          "voice_ensemble_config": 8.58,
+          "voice_ornament_system": 3.6399999999999997,
+          "voice_pitch_organization": 7.692374999999998,
+          "voice_processing_chain": 9.694375,
+          "voice_multitrack_stack": 6.663874999999999
         }
       },
       {
@@ -61,10 +61,10 @@
           "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 0.78,
-          "dholak_construction": 2.5193749999999997,
-          "dholak_head": 2.5193749999999997,
-          "dholak_tensioning": 2.57
+          "dholak_use": 1.56,
+          "dholak_construction": 3.0193749999999997,
+          "dholak_head": 3.0193749999999997,
+          "dholak_tensioning": 3.2199999999999998
         }
       },
       {
@@ -77,9 +77,9 @@
         },
         "scores": {
           "plucked_traditional_technique": 2.2006250000000005,
-          "tumbi_construction": 2.8831249999999997,
-          "tumbi_context": 2.833125,
-          "tumbi_string": 5.150875
+          "tumbi_construction": 3.8831249999999997,
+          "tumbi_context": 3.8999999999999995,
+          "tumbi_string": 5.650875
         }
       },
       {
@@ -90,9 +90,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0.585,
-          "drum_machine_808_context": 5.785,
-          "tr808_production_origin": 2.6693749999999996
+          "tr808_voice": 3.195,
+          "drum_machine_808_context": 7.3125,
+          "tr808_production_origin": 3.1693749999999996
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Czech pijácká píseň (drinking song)",
   "family": "global",
   "lineage": "Czech drinking-song (pijácká píseň) tradition continuous from medieval Bohemian-tavern-song origins through 19th-century Czech-Republican-era Smetana-and-Dvořák-folk-collection era continuous through 20th-century Czechoslovak-and-Czech continuous pub-practice; foundational repertoire includes \"Pivo, pivo, pivo\" (Beer, beer, beer)",
-  "recipe": "classic modern czech pijácká píseň, drinking Song, European branch, balkan drinking song, iberian functional song, Slavic bard ballad poetry georgian supra feast-singing macedonian-serbian kafana drinking song. thick, low dynamic level, tasteful, continuous-phonation. castagnari Italian premium folk music straight accordion. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 467,
+  "recipe": "classic modern czech pijácká píseň, drinking Song, European branch, balkan drinking song, iberian functional song, Slavic bard ballad poetry georgian supra feast-singing macedonian-serbian kafana drinking song. thick, low dynamic level, tasteful, continuous-phonation. steel castagnari Italian premium folk music straight accordion. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 473,
   "score": 118.83,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 4.430000000000001,
-          "voice_quality": 3.185,
+          "voice_register": 5.355,
+          "voice_quality": 4.875,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.17,
-          "voice_articulation": 4.919999999999999,
-          "voice_microtone": 0,
-          "voice_tradition": 9.945,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 0.22499999999999998,
-          "voice_speech_song": 12.544999999999998,
-          "voice_ensemble_config": 4.419999999999999,
-          "voice_ornament_system": 1.9399999999999997,
-          "voice_pitch_organization": 4.919999999999999,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 8.17,
+          "voice_microtone": 0.39,
+          "voice_tradition": 27.31,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 27.169999999999995,
+          "voice_ensemble_config": 12.479999999999995,
+          "voice_ornament_system": 2.8149999999999995,
+          "voice_pitch_organization": 8.17,
           "voice_processing_chain": 0.9749999999999996,
-          "voice_multitrack_stack": 1.0399999999999991
+          "voice_multitrack_stack": 1.8849999999999991
         }
       },
       {
@@ -64,12 +64,12 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 5.16,
-          "accordion_reed_material": 0.48,
-          "musette_offset": 0.7650000000000001,
+          "free_reed_technique": 5.885000000000001,
+          "accordion_reed_material": 1.69,
+          "musette_offset": 1.69,
           "reed_config": 0.105,
           "bellows": 0.09,
-          "voicing_chamber": 0.9099999999999999,
+          "voicing_chamber": 1.69,
           "accordion_maker_school": 4.03
         }
       }

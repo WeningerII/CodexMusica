@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 3.3,
-          "voice_quality": 1.295,
+          "voice_register": 7,
+          "voice_quality": 2.1449999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9899999999999998,
-          "voice_articulation": 1.25,
-          "voice_microtone": 7.475000000000001,
-          "voice_tradition": 3.185,
-          "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 4.44075,
-          "voice_speech_song": 7.02,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 2.4450000000000003,
-          "voice_pitch_organization": 2.4000000000000004,
+          "voice_vibrato": 4.29,
+          "voice_articulation": 1.4299999999999997,
+          "voice_microtone": 12.512500000000003,
+          "voice_tradition": 10.3025,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 13.81575,
+          "voice_speech_song": 16.2825,
+          "voice_ensemble_config": 12.544999999999998,
+          "voice_ornament_system": 11.125,
+          "voice_pitch_organization": 4.9,
           "voice_processing_chain": 4.095000000000001,
           "voice_multitrack_stack": 5.352500000000001
         }
@@ -67,16 +67,16 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 5.75,
+          "bowed_technique": 6.625,
           "orch_strings": 3.55,
-          "orch_top_wood": 4.40075,
-          "orch_back_wood": 7.735,
-          "orch_varnish": 7.35,
-          "orch_setup_period": 5.48925,
+          "orch_top_wood": 5.925750000000001,
+          "orch_back_wood": 11.2775,
+          "orch_varnish": 10.025,
+          "orch_setup_period": 8.86425,
           "orch_bow": 1.69,
-          "orch_bow_stick": 8.06,
-          "orch_articulation": 0.9099999999999999,
-          "orch_rosin": 6.25
+          "orch_bow_stick": 12.447499999999998,
+          "orch_articulation": 2.2099999999999995,
+          "orch_rosin": 10.172500000000001
         }
       }
     ],

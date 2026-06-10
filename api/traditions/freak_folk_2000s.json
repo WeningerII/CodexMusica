@@ -3,8 +3,8 @@
   "name": "Freak folk",
   "family": "global",
   "lineage": "Mid-2000s psychedelic-folk revival emerging from the Devendra Banhart / Vetiver / Joanna Newsom / CocoRosie cluster extending the 1960s-70s Vashti Bunyan / Karen Dalton / Linda Perhacs psychedelic-folk lineage into the post-millennium era; recordings: Devendra Banhart Rejoicing in the Hands 2004 and Cripple Crow 2005, Joanna Newsom The Milk-Eyed Mender 2004 and Ys 2006, CocoRosie La Maison de mon Rêve 2004, Vetiver Vetiver 2004",
-  "recipe": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop. thick, incomplete closure resting, chest resonance low mid, unrestrained. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 777,
+  "recipe": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop. thick, incomplete closure resting, chest resonance low mid, unrestrained. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, mass production synthetic varnish polyurethane violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 824,
   "score": 266.97,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 17.811249999999998,
+          "voice_register": 25.98624999999999,
           "voice_quality": 2.6120000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.042,
-          "voice_articulation": 0.795,
-          "voice_microtone": 1.6162499999999995,
-          "voice_tradition": 18.482374999999998,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 2.5090000000000003,
-          "voice_speech_song": 9.049624999999997,
-          "voice_ensemble_config": 6.532249999999998,
+          "voice_articulation": 0.945,
+          "voice_microtone": 9.791249999999998,
+          "voice_tradition": 18.782375,
+          "voice_mechanism_compound": 0.956,
+          "voice_estill_quality": 2.6590000000000003,
+          "voice_speech_song": 12.699624999999996,
+          "voice_ensemble_config": 9.532249999999996,
           "voice_ornament_system": 1.4264999999999999,
           "voice_pitch_organization": 0.652,
-          "voice_processing_chain": 1.532375,
-          "voice_multitrack_stack": 3.9612500000000006
+          "voice_processing_chain": 2.1323749999999997,
+          "voice_multitrack_stack": 4.46125
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "acoustic_technique": 20.599999999999994,
-          "string_tuning": 0,
+          "string_tuning": 0.45500000000000007,
           "top_wood": 1.010125,
           "back_sides": 1.010125,
-          "string_acoustic": 1.081375,
+          "string_acoustic": 1.2313749999999999,
           "acoustic_om_technique": 20.599999999999994
         }
       },
@@ -77,7 +77,7 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 0.38587499999999997,
+          "harp_strings": 0.535875,
           "harp_pedals": 0.031875
         }
       },
@@ -93,9 +93,9 @@
         "scores": {
           "bowed_technique": 16.449999999999996,
           "fiddle_strings": 0.06187499999999999,
-          "fiddle_bow": 0.058124999999999996,
-          "fiddle_mute": 0.058124999999999996,
-          "fiddle_articulation": 0.1075
+          "fiddle_bow": 0.195,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.195
         }
       },
       {
@@ -110,13 +110,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 16.794374999999995,
-          "accordion_reed_material": 1.055125,
-          "musette_offset": 0.09375,
-          "reed_config": 0.354,
-          "bellows": 0.09375,
+          "free_reed_technique": 16.944374999999994,
+          "accordion_reed_material": 1.205125,
+          "musette_offset": 0.195,
+          "reed_config": 0.504,
+          "bellows": 0.195,
           "voicing_chamber": 0.042624999999999996,
-          "accordion_maker_school": 7.053499999999999
+          "accordion_maker_school": 7.703499999999999
         }
       },
       {
@@ -138,12 +138,12 @@
           "orch_strings": 0.042624999999999996,
           "orch_top_wood": 0.7,
           "orch_back_wood": 0.7,
-          "orch_varnish": 0.325,
+          "orch_varnish": 1.9399999999999997,
           "orch_setup_period": 0.7324999999999999,
-          "orch_bow": 0.050624999999999996,
-          "orch_bow_stick": -0.035,
-          "orch_articulation": 0.1075,
-          "orch_rosin": -0.035
+          "orch_bow": 0.195,
+          "orch_bow_stick": 0.12999999999999998,
+          "orch_articulation": 0.195,
+          "orch_rosin": 0.12999999999999998
         }
       },
       {
@@ -156,9 +156,9 @@
           "autoharp_body_wood": "autoharp_spruce_maple"
         },
         "scores": {
-          "acoustic_technique": 3.7,
+          "acoustic_technique": 10.95,
           "autoharp_chord_bars": 6.747249999999998,
-          "autoharp_context": 2.271375,
+          "autoharp_context": 2.9213750000000003,
           "autoharp_strings": 0.097,
           "autoharp_body_wood": 0.075625
         }
@@ -179,17 +179,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 16.550624999999997,
-          "banjo_back": 0.050624999999999996,
+          "plucked_traditional_technique": 16.700625,
+          "banjo_back": 0.195,
           "tone_ring": 0.005625,
-          "banjo_head": 6.570874999999997,
-          "banjo_pot": 0.136375,
+          "banjo_head": 9.570874999999997,
+          "banjo_pot": 0.195,
           "banjo_play": 0.005625,
           "banjo_rim_wood": 0.005625,
           "banjo_neck_wood": 1.025125,
           "banjo_strings": 0.043125,
           "banjo_bridge": 0.0045,
-          "banjo_setup_period": 6.5208749999999975
+          "banjo_setup_period": 9.520874999999997
         }
       },
       {
@@ -216,7 +216,7 @@
         "scores": {
           "wind_articulation": 16.499374999999997,
           "recorder_size": 0.331875,
-          "recorder_context": 0.39,
+          "recorder_context": 1.2349999999999999,
           "recorder_body_wood": 1.310125
         }
       }

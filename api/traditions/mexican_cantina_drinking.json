@@ -3,8 +3,8 @@
   "name": "Mexican cantina drinking song (mariachi-and-ranchera lineage)",
   "family": "global",
   "lineage": "Mexican cantina-drinking song tradition continuous from 19th-century post-Independence Mexican ranchera-and-corrido tradition through 20th-century mariachi-and-banda canonical performance into modern Mexican-and-Mexican-American continuous cantina-practice; foundational repertoire includes \"El Rey,\" \"Volver, volver,\" \"La Llorona\" (canonical cantina-drinking-grief)",
-  "recipe": "classic modern mexican cantina drinking song, drinking Song, americas branch, European drinking song, americas wedding, iberian Latin protest song french chansons à boire irish pub song / drinking song. full chest belt, tasteful, continuous-phonation, Mediterranean demotic vocal. concert modern carbon fiber classical nylon-string guitar, cedar caoba paracho nylon treble steel bass guitarron mexicano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison student friendly trumpet, synthetic magic rosin modern acrylic base fiddle, banda sinaloense. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 744,
+  "recipe": "classic modern mexican cantina drinking song, drinking Song, americas branch, European drinking song, americas wedding, iberian Latin protest song french chansons à boire irish pub song / drinking song. thick, full chest belt, tasteful, continuous-phonation. concert modern carbon fiber fingerpicked classical nylon-string guitar, cedar caoba paracho nylon treble steel bass guitarron mexicano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison student friendly trumpet, synthetic magic rosin modern acrylic base drone like fiddle, banda sinaloense. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 746,
   "score": 214.762,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.045,
+          "voice_register": 1.125,
           "voice_quality": 12.399999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.3799999999999994,
+          "voice_vibrato": 3.38,
+          "voice_articulation": 6.759999999999999,
           "voice_microtone": 0,
-          "voice_tradition": 4.745,
-          "voice_mechanism_compound": 0.39,
+          "voice_tradition": 9.6525,
+          "voice_mechanism_compound": 0.78,
           "voice_estill_quality": 5.549999999999999,
-          "voice_speech_song": 15.404999999999998,
-          "voice_ensemble_config": 8.189999999999998,
-          "voice_ornament_system": 1.6999999999999997,
-          "voice_pitch_organization": 4.549999999999999,
-          "voice_processing_chain": 4.3549999999999995,
-          "voice_multitrack_stack": 0.18562499999999998
+          "voice_speech_song": 33.99499999999999,
+          "voice_ensemble_config": 15.989999999999995,
+          "voice_ornament_system": 2.5749999999999993,
+          "voice_pitch_organization": 6.759999999999999,
+          "voice_processing_chain": 5.329999999999999,
+          "voice_multitrack_stack": 0.195
         }
       },
       {
@@ -63,11 +63,11 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": -0.05,
+          "acoustic_technique": 3.885625,
           "string_tuning": 0,
-          "top_wood_classical": 0.6543749999999999,
-          "bracing_classical": 1.69,
-          "string_classical": 1.69,
+          "top_wood_classical": 0.845,
+          "bracing_classical": 3.38,
+          "string_classical": 3.38,
           "attack_technique_cl": 0.045
         }
       },
@@ -81,11 +81,11 @@
           "guitarron_technique": "guitarron_octave_pair_plucking"
         },
         "scores": {
-          "guitarron_body": 1.69,
-          "guitarron_body_wood": 8.252499999999998,
+          "guitarron_body": 2.73,
+          "guitarron_body_wood": 9.002499999999998,
           "guitarron_strings": 0.045,
-          "guitarron_string_material": 6.629999999999999,
-          "guitarron_technique": 7.929999999999998
+          "guitarron_string_material": 9.294999999999998,
+          "guitarron_technique": 10.464999999999998
         }
       },
       {
@@ -101,12 +101,12 @@
         },
         "scores": {
           "wind_articulation": 7.249999999999999,
-          "brass_size": 0.28312499999999996,
-          "trumpet_mouthpiece": 3.68,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 6.930000000000001,
           "brass_mute": 0,
           "trumpet_technique": 7.249999999999999,
-          "trumpet_bell_metal": 4.549999999999999,
-          "trumpet_maker_school": 6.239999999999998
+          "trumpet_bell_metal": 5.524999999999999,
+          "trumpet_maker_school": 7.214999999999998
         }
       },
       {
@@ -119,11 +119,11 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "fiddle_strings": 1.69,
-          "fiddle_bow": 4.225,
-          "fiddle_mute": 0.9099999999999999,
-          "fiddle_articulation": 0.140625
+          "bowed_technique": 3.25,
+          "fiddle_strings": 3.38,
+          "fiddle_bow": 8.14125,
+          "fiddle_mute": 1.8199999999999998,
+          "fiddle_articulation": 0.195
         }
       },
       {
@@ -134,7 +134,7 @@
         },
         "scores": {
           "sections": 0,
-          "banda_sinaloense_context": 3.3799999999999994
+          "banda_sinaloense_context": 7.799999999999999
         }
       }
     ],

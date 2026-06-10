@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.78,
-          "voice_quality": 18.83062499999999,
+          "voice_register": 1.625,
+          "voice_quality": 31.780624999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 0.15,
-          "voice_tradition": 53.03999999999999,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.39,
-          "voice_speech_song": 10.594999999999999,
-          "voice_ensemble_config": 6.499999999999999,
-          "voice_ornament_system": 17.449375,
-          "voice_pitch_organization": 22.853125,
-          "voice_processing_chain": 1.4949999999999999,
-          "voice_multitrack_stack": 0.78
+          "voice_vibrato": 1.885,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 0.6249999999999997,
+          "voice_tradition": 81.095625,
+          "voice_mechanism_compound": 1.625,
+          "voice_estill_quality": 1.2349999999999999,
+          "voice_speech_song": 15.599999999999994,
+          "voice_ensemble_config": 11.049999999999995,
+          "voice_ornament_system": 25.374375,
+          "voice_pitch_organization": 33.378125000000004,
+          "voice_processing_chain": 2.2424999999999997,
+          "voice_multitrack_stack": 2.015
         }
       },
       {
@@ -61,9 +61,9 @@
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 0.39,
-          "talking_drum_context": 1.69,
-          "talking_drum_shell_wood": 12.22,
+          "talking_drum_origin": 0.78,
+          "talking_drum_context": 3.38,
+          "talking_drum_shell_wood": 16.199375,
           "talking_drum_head": 1.69
         }
       },
@@ -76,10 +76,10 @@
           "dunun_head": "dunun_cowhide_canonical"
         },
         "scores": {
-          "dunun_size": 0.8812500000000001,
-          "dunun_bell": 1.69,
-          "dunun_shell_wood": 5.590000000000001,
-          "dunun_head": 1.69
+          "dunun_size": 0.585,
+          "dunun_bell": 4.1274999999999995,
+          "dunun_shell_wood": 10.790000000000001,
+          "dunun_head": 3.185
         }
       },
       {
@@ -89,8 +89,8 @@
           "shekere_beads": "shekere_cowrie"
         },
         "scores": {
-          "shekere_size": 0.6749999999999999,
-          "shekere_beads": 20.385
+          "shekere_size": 0.65,
+          "shekere_beads": 30.16
         }
       }
     ],

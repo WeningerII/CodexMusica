@@ -3,8 +3,8 @@
   "name": "Nu metal",
   "family": "rock_punk",
   "lineage": "Late-1990s-and-early-2000s American heavy-rock subgenre integrating hip-hop rhythmic-vocal influence, down-tuned-seven-string-guitar metal aesthetic, and confessional-aggressive-personal-trauma lyrical content. Korn (Bakersfield, 1993-onward), Deftones, Limp Bizkit, Slipknot, and Linkin Park constitute the canonical roster. The 1998 Family Values Tour consolidated the genre's commercial peak.",
-  "recipe": "classic Los Angeles modern nu metal, distorted Rock, avant branch, us hip hop gangsta. thick, rap, narrative, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit, turntable. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 618,
+  "recipe": "classic Los Angeles modern nu metal, distorted Rock, avant branch, us hip hop gangsta. thick, rap, chest resonance low mid, narrative. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit, sampled chopped turntable. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 643,
   "score": 261.803,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 6.611750000000001,
-          "voice_quality": 6.381,
+          "voice_register": 7.83675,
+          "voice_quality": 15.506,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.4515,
-          "voice_articulation": 3.27,
-          "voice_microtone": 6.75,
-          "voice_tradition": 4.93,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 9.07,
+          "voice_microtone": 7.175,
+          "voice_tradition": 8.830000000000002,
           "voice_mechanism_compound": 12.459999999999999,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 5.6875,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 0.04875,
-          "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 5.2885,
-          "voice_multitrack_stack": 5.789250000000001
+          "voice_estill_quality": 0.7799999999999998,
+          "voice_speech_song": 14.812499999999998,
+          "voice_ensemble_config": 10.334999999999997,
+          "voice_ornament_system": 0.175,
+          "voice_pitch_organization": 4.03,
+          "voice_processing_chain": 10.62,
+          "voice_multitrack_stack": 6.66425
         }
       },
       {
@@ -70,17 +70,17 @@
         },
         "scores": {
           "electric_technique": 14.354,
-          "amp_make": 6.76,
-          "body_wood": 6.629999999999999,
-          "neck_wood": 0.27525,
-          "fretboard": 0.168,
+          "amp_make": 7.605,
+          "body_wood": 7.475,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
           "pickup_magnet": 0.105,
           "pickup_winding": 0.105,
           "string_material": 0.168,
-          "bridge": 0.27525,
+          "bridge": 0.845,
           "scale_length": 6.629999999999999,
-          "string_gauge": 0.27525,
-          "finish": 0.1815,
+          "string_gauge": 0.845,
+          "finish": 0.195,
           "string_tuning": 10.27
         }
       },
@@ -98,11 +98,11 @@
         },
         "scores": {
           "electric_technique": 1.9000000000000001,
-          "amp_make": 3.575,
-          "body_wood": 0.5504999999999999,
+          "amp_make": 4.2575,
+          "body_wood": 0.845,
           "pickup_config": 0.105,
           "string_type": 9.099999999999998,
-          "scale_length_b": 0.27525,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.0315,
           "bass_technique": 6.949999999999999
         }
@@ -123,17 +123,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 4.9399999999999995,
+          "percussion_technique": 10.334999999999997,
           "shell_wood": 1.69,
-          "shell_thickness": 0.045,
-          "bearing_edges": 0.27525,
-          "drumhead": 0.27525,
-          "snare_wires": 0.27525,
+          "shell_thickness": 0.195,
+          "bearing_edges": 0.845,
+          "drumhead": 0.845,
+          "snare_wires": 0.845,
           "cymbal_alloy": 16.618,
-          "cymbal_hammering": 7.661999999999999,
+          "cymbal_hammering": 8.161999999999999,
           "cymbal_lathing": 6.9315,
-          "cymbal_finish": 0.168,
-          "drum_technique": 6.999999999999999
+          "cymbal_finish": 0.195,
+          "drum_technique": 10.334999999999997
         }
       },
       {
@@ -143,8 +143,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 2.95,
-          "turntable_technique": 4.534
+          "electronic_technique": 6.550000000000001,
+          "turntable_technique": 9.334000000000001
         }
       }
     ],

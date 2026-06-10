@@ -3,8 +3,8 @@
   "name": "Field hollers and work songs",
   "family": "vernacular",
   "lineage": "African-American vernacular work-song tradition of the agricultural and prison-labor south — including field hollers (solo melismatic vocal under physical labor), call-and-response group work songs (cotton-chopping, railroad-tie-laying, levee-construction), and the related prison work-song tradition documented at Mississippi State Penitentiary at Parchman Farm and Louisiana State Penitentiary at Angola through Alan Lomax's field-recording campaigns of the 1930s-40s",
-  "recipe": "classic North American mid-1930s field hollers and work songs, ballad Poetry, work song branch, vocal drone modal, American sacred ritual devotional southern sámi vuelie sámi yoik. vocal fry, declaimed, unrestrained, blues inflected. open air. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 338,
+  "recipe": "classic North American mid-1930s field hollers and work songs, ballad Poetry, work song branch, vocal drone modal, American sacred ritual devotional southern sámi vuelie sámi yoik. vocal fry, declaimed, chest resonance low mid, unrestrained. open air. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 346,
   "score": 127.509,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.093750000000001,
-          "voice_quality": 4.485,
+          "voice_register": 6.629999999999999,
+          "voice_quality": 6.97625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
+          "voice_vibrato": 1.04,
           "voice_articulation": 9,
           "voice_microtone": 2.04,
-          "voice_tradition": 15.86,
-          "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 0.9099999999999999,
-          "voice_speech_song": 13.324999999999998,
-          "voice_ensemble_config": 7.93,
-          "voice_ornament_system": 1.885,
-          "voice_pitch_organization": 1.2149999999999996,
-          "voice_processing_chain": 4.095,
-          "voice_multitrack_stack": 2.9899999999999998
+          "voice_tradition": 24.375,
+          "voice_mechanism_compound": 6.175,
+          "voice_estill_quality": 3.705,
+          "voice_speech_song": 24.245000000000005,
+          "voice_ensemble_config": 19.5,
+          "voice_ornament_system": 8.58,
+          "voice_pitch_organization": 3.2175000000000007,
+          "voice_processing_chain": 6.5,
+          "voice_multitrack_stack": 7.475
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Western swing",
   "family": "country",
   "lineage": "1930s-1940s Texas-Oklahoma string-band swing-era jazz hybrid — codified through Bob Wills and His Texas Playboys (formed 1934, hits \"San Antonio Rose\" 1938, \"New San Antonio Rose\" 1940), Milton Brown and His Musical Brownies, Spade Cooley’s Orchestra; characterized by fiddle-and-steel-guitar lead, big-band swing-rhythm-section, and Texas-roadhouse repertoire blending country, jazz, blues, and polka idioms",
-  "recipe": "classic North American mid-1930s western swing, functional Song, western swing branch, honky tonk era country, American jazz early new orleans jazz honky-tonk. thick, blues-shouter, melodic, rhythmic. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, growly gut upright bass, steel vintage ambassador asymmetric bronze bell bronze drum kit, American tradition oversize maple tension resonator grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-  "recipe_chars": 999,
+  "recipe": "classic North American mid-1930s western swing, functional Song, western swing branch, honky tonk era country, American jazz early new orleans jazz honky-tonk. thick, blues-shouter, melodic, rhythmic. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, growly gut upright bass, steel vintage ambassador asymmetric bronze bell bronze drum kit, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre.",
+  "recipe_chars": 981,
   "score": 781.799,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 28.929999999999996,
-          "voice_quality": 2.470000000000001,
+          "voice_register": 45.23000000000001,
+          "voice_quality": 5.616875000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 14.306249999999999,
-          "voice_articulation": 0.78,
-          "voice_microtone": 15.084999999999996,
-          "voice_tradition": 13.649999999999999,
-          "voice_mechanism_compound": 1.95,
-          "voice_estill_quality": 16.973749999999995,
-          "voice_speech_song": 14.755000000000003,
-          "voice_ensemble_config": 11.83,
-          "voice_ornament_system": 0.09,
-          "voice_pitch_organization": 0.9099999999999999,
-          "voice_processing_chain": 5.784999999999999,
-          "voice_multitrack_stack": 2.8600000000000003
+          "voice_vibrato": 19.206249999999997,
+          "voice_articulation": 1.17,
+          "voice_microtone": 23.459999999999994,
+          "voice_tradition": 24.468124999999993,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 22.173749999999995,
+          "voice_speech_song": 22.685,
+          "voice_ensemble_config": 18.33,
+          "voice_ornament_system": 0.26,
+          "voice_pitch_organization": 1.885,
+          "voice_processing_chain": 7.474999999999999,
+          "voice_multitrack_stack": 5.07
         }
       },
       {
@@ -62,11 +62,11 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 23.549999999999997,
-          "fiddle_strings": 1.69,
+          "bowed_technique": 29.924999999999997,
+          "fiddle_strings": 2.8812500000000005,
           "fiddle_bow": 0.041249999999999995,
-          "fiddle_mute": 0.15562499999999999,
-          "fiddle_articulation": 0.056249999999999994
+          "fiddle_mute": 0.65,
+          "fiddle_articulation": 0.195
         }
       },
       {
@@ -82,14 +82,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 15.934999999999997,
-          "amp_make": 19.268124999999998,
-          "pickup_steel": 0.43499999999999994,
-          "string_setup": 7.409999999999999,
-          "bar_material": 1.69,
-          "pedal_steel_brand": 15.388749999999998,
-          "pedal_steel_neck_config": 18.9,
-          "pedal_steel_strings": 14.684999999999999
+          "electric_technique": 22.36,
+          "amp_make": 27.343124999999997,
+          "pickup_steel": 0.195,
+          "string_setup": 9.399999999999999,
+          "bar_material": 2.4318750000000002,
+          "pedal_steel_brand": 20.438749999999995,
+          "pedal_steel_neck_config": 23.65,
+          "pedal_steel_strings": 19.734999999999996
         }
       },
       {
@@ -109,18 +109,18 @@
           "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": 15.499999999999996,
-          "amp_make": 19.268124999999998,
-          "body_wood": 0.585,
-          "neck_wood": 0.585,
-          "fretboard": 0.35062499999999996,
+          "electric_technique": 20.674999999999997,
+          "amp_make": 27.343124999999997,
+          "body_wood": 0.195,
+          "neck_wood": 0.195,
+          "fretboard": 0.500625,
           "pickup_magnet": 0.046875,
-          "string_material": 1.69,
-          "string_gauge": 0.43499999999999994,
+          "string_material": 2.535,
+          "string_gauge": 0.195,
           "bridge": 0,
-          "scale_length": 1.0199999999999998,
+          "scale_length": 0.195,
           "finish": 0.195,
-          "string_tuning": 3.38
+          "string_tuning": 5.07
         }
       },
       {
@@ -131,9 +131,9 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
-          "upright_strings": 10.499999999999998,
-          "upright_play": 10.499999999999998
+          "acoustic_technique": 0.12999999999999998,
+          "upright_strings": 18.499999999999996,
+          "upright_play": 18.499999999999996
         }
       },
       {
@@ -152,17 +152,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 17.29,
-          "shell_wood": 1.69,
-          "shell_thickness": 0.045,
-          "bearing_edges": 0.43499999999999994,
-          "drumhead": 13.584999999999999,
-          "snare_wires": 0.43499999999999994,
-          "cymbal_alloy": 14.094999999999997,
-          "cymbal_hammering": 12.451875,
-          "cymbal_lathing": 10.755624999999997,
-          "cymbal_finish": 0.14625,
-          "drum_technique": 17.29
+          "percussion_technique": 27.754999999999995,
+          "shell_wood": 2.4318750000000002,
+          "shell_thickness": 0.195,
+          "bearing_edges": 0.195,
+          "drumhead": 22.963124999999998,
+          "snare_wires": 0.195,
+          "cymbal_alloy": 25.119999999999997,
+          "cymbal_hammering": 21.751875,
+          "cymbal_lathing": 18.755624999999995,
+          "cymbal_finish": 0.45499999999999996,
+          "drum_technique": 27.754999999999995
         }
       },
       {
@@ -179,14 +179,14 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 0.85,
-          "grand_piano_size": 0.825,
-          "grand_piano_brand": 1.3,
-          "piano_hammer": 0.8449999999999999,
-          "piano_rim": 1.3,
-          "piano_soundboard": 0.745,
+          "keyboard_technique": 0.8949999999999999,
+          "grand_piano_size": 0.195,
+          "grand_piano_brand": 1.95,
+          "piano_hammer": 3.3150000000000004,
+          "piano_rim": 5.200000000000001,
+          "piano_soundboard": 2.015,
           "piano_pinblock": -0.044375000000000005,
-          "piano_plate": 0.325,
+          "piano_plate": 0.5199999999999999,
           "piano_pitch_standard": 0.325
         }
       },
@@ -202,13 +202,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 3.0550000000000006,
-          "sax_size": 0.43499999999999994,
-          "sax_reed": 0.105,
-          "sax_body_alloy": 10.499999999999998,
-          "sax_mouthpiece": 0.3,
-          "sax_technique": 10.499999999999998,
-          "sax_maker_school": 13.584999999999999
+          "wind_articulation": 4.680000000000001,
+          "sax_size": 0.585,
+          "sax_reed": 0.45499999999999996,
+          "sax_body_alloy": 18.499999999999996,
+          "sax_mouthpiece": 0.45499999999999996,
+          "sax_technique": 18.499999999999996,
+          "sax_maker_school": 23.353124999999995
         }
       },
       {
@@ -227,17 +227,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 12.22,
-          "banjo_back": 0.14625,
+          "plucked_traditional_technique": 18.525,
+          "banjo_back": 0.45499999999999996,
           "tone_ring": 0,
-          "banjo_head": 11.96,
+          "banjo_head": 18.46,
           "banjo_pot": 0.19125,
           "banjo_play": 0.045,
           "banjo_rim_wood": 0.21375,
-          "banjo_neck_wood": 0.44999999999999996,
-          "banjo_strings": 2.08,
+          "banjo_neck_wood": 0.195,
+          "banjo_strings": 2.8800000000000003,
           "banjo_bridge": 0.005625,
-          "banjo_setup_period": 11.895
+          "banjo_setup_period": 18.2
         }
       },
       {
@@ -252,13 +252,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 3.0550000000000006,
+          "wind_articulation": 4.680000000000001,
           "brass_size": 0.046875,
-          "trumpet_mouthpiece": 13.649999999999999,
-          "brass_mute": 0.15,
-          "trumpet_technique": 3.0550000000000006,
-          "trumpet_bell_metal": 0.796875,
-          "trumpet_maker_school": 1.69
+          "trumpet_mouthpiece": 22.863124999999997,
+          "brass_mute": 0.195,
+          "trumpet_technique": 4.680000000000001,
+          "trumpet_bell_metal": 0.845,
+          "trumpet_maker_school": 3.185
         }
       }
     ],

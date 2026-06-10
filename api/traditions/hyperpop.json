@@ -3,8 +3,8 @@
   "name": "Hyperpop",
   "family": "electronic",
   "lineage": "Late-2010s onward maximalist pop subgenre fusing the production language of EDM-Bigroom, mainstream-pop, online-fandom-internet-culture, and bedroom-DAW-production aesthetics — codified through the PC Music label (A.G. Cook, SOPHIE), 100 gecs (1000 gecs 2019), Charli XCX (Pop 2 2017, how i'm feeling now 2020), Dorian Electra, Hannah Diamond, and the broader Discord-and-SoundCloud-distributed scene",
-  "recipe": "classic 2017-2019 hyperpop, experimental Elec, pop experimental branch, pop rock functional song new wave synthpop. thick, chest resonance low mid, equal tempered, modern pop training. drum machine analog, plucked short envelope wavetable synth, sampler drum machine, lead plus third fifth 3 part stack late 1980s reverb saturated bus stack heavy bus compression glue post 2010 multitrack vocal stack. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 547,
+  "recipe": "classic 2017-2019 hyperpop, experimental Elec, pop experimental branch, pop rock functional song new wave synthpop. thick, chest resonance low mid, rhythmic, equal tempered. drum machine analog, plucked short envelope wavetable synth, sampler drum machine, lead plus third fifth 3 part stack late 1980s reverb saturated bus stack heavy bus compression glue post 2010 multitrack vocal stack. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 536,
   "score": 279.28,
   "config": {
     "traditions": [
@@ -22,10 +22,10 @@
           "shuffle_quantize": "shuffle_high"
         },
         "scores": {
-          "kick_voice": 0.24,
-          "snare_voice": 0.24,
+          "kick_voice": 0.39,
+          "snare_voice": 0.39,
           "hat_voice": 0,
-          "shuffle_quantize": 1.515
+          "shuffle_quantize": 0.845
         }
       },
       {
@@ -37,10 +37,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 17.84,
-          "wt_position": 1.69,
-          "wt_family": 0.39,
-          "wt_polyphony": 0.9450000000000001
+          "electronic_technique": 35.24,
+          "wt_position": 4.419999999999999,
+          "wt_family": 0.78,
+          "wt_polyphony": 0.845
         }
       },
       {
@@ -53,9 +53,9 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0.39,
-          "sample_swing": 3.25,
-          "sample_processing": 0.39
+          "sample_bitdepth": 0.975,
+          "sample_swing": 9.249999999999998,
+          "sample_processing": 1.4300000000000002
         }
       },
       {
@@ -79,22 +79,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 18.785,
+          "voice_register": 46.62500000000002,
           "voice_quality": 0.325,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.0050000000000001,
-          "voice_articulation": 0.39,
-          "voice_microtone": 16.049999999999997,
-          "voice_tradition": 19.174999999999997,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 9.424999999999997,
-          "voice_ensemble_config": 7.669999999999998,
-          "voice_ornament_system": 0.045,
-          "voice_pitch_organization": 0.9749999999999996,
-          "voice_processing_chain": 4.295,
-          "voice_multitrack_stack": 4.62
+          "voice_vibrato": 1.04,
+          "voice_articulation": 1.17,
+          "voice_microtone": 45.55,
+          "voice_tradition": 41.755,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 0.9749999999999999,
+          "voice_speech_song": 24.244999999999994,
+          "voice_ensemble_config": 18.004999999999992,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 1.4699999999999998,
+          "voice_processing_chain": 18.779999999999998,
+          "voice_multitrack_stack": 6.760000000000002
         }
       },
       {
@@ -105,9 +105,9 @@
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 1.065,
-          "multitrack_stack_era_aesthetic": 3.245,
-          "multitrack_stack_processing": 1.6899999999999997
+          "multitrack_stack_density": 1.04,
+          "multitrack_stack_era_aesthetic": 6.760000000000002,
+          "multitrack_stack_processing": 3.575
         }
       }
     ],

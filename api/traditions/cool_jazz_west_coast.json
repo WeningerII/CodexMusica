@@ -3,8 +3,8 @@
   "name": "Cool jazz / West Coast (1950s)",
   "family": "jazz",
   "lineage": "Late-1940s-1950s jazz substyle emerging in response to bebop's frenetic energy, characterized by lighter timbral palette, restrained dynamic register, and arrangement-heavy compositional approach. Miles Davis's Birth of the Cool sessions (1949-1950) established the canonical sound; the West Coast cool subgenre developed in 1950s Los Angeles through Gerry Mulligan, Chet Baker, Lennie Niehaus, Shorty Rogers, and Dave Brubeck. Distinguished from bebop by cool's slower-and-more-relaxed (vs frenetic) emotional register.",
-  "recipe": "classic North American cool jazz / west coast, improv On Frame, bop branch, American jazz smooth vocal cool jazz vocal. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, mahogany vintage ambassador asymmetric bronze bell bronze drum kit. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 690,
+  "recipe": "classic North American cool jazz / west coast, improv On Frame, bop branch, American jazz smooth vocal cool jazz vocal. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, mahogany vintage ambassador asymmetric bronze bell bronze drum kit. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 703,
   "score": 447.38,
   "config": {
     "traditions": [
@@ -25,13 +25,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 12.7225,
+          "wind_articulation": 15.972499999999998,
           "brass_size": 0.0315,
-          "trumpet_mouthpiece": 17.441875,
-          "brass_mute": 5.353,
+          "trumpet_mouthpiece": 32.691874999999996,
+          "brass_mute": 6.653,
           "trumpet_technique": 6.499999999999999,
           "trumpet_bell_metal": 1.36825,
-          "trumpet_maker_school": 4.55
+          "trumpet_maker_school": 6.37925
         }
       },
       {
@@ -46,13 +46,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 12.7225,
+          "wind_articulation": 15.972499999999998,
           "sax_size": 6.550999999999999,
           "sax_reed": 0.0315,
-          "sax_body_alloy": 13.7815,
+          "sax_body_alloy": 29.0315,
           "sax_mouthpiece": 0.0315,
-          "sax_technique": 13.75,
-          "sax_maker_school": 18.929625
+          "sax_technique": 29,
+          "sax_maker_school": 34.679625
         }
       },
       {
@@ -69,15 +69,15 @@
           "piano_pitch_standard": "a_415_baroque"
         },
         "scores": {
-          "keyboard_technique": 1.9695000000000003,
-          "grand_piano_size": 1.3,
-          "grand_piano_brand": 0.5775,
-          "piano_hammer": 2.7950000000000004,
-          "piano_rim": 2.7950000000000004,
-          "piano_soundboard": -0.035,
+          "keyboard_technique": 4.099,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 4.745,
+          "piano_rim": 4.94,
+          "piano_soundboard": 3.7281250000000004,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 1.4565
         }
       },
       {
@@ -89,8 +89,8 @@
         },
         "scores": {
           "acoustic_technique": 2.349,
-          "upright_strings": 13.75,
-          "upright_play": 13.75
+          "upright_strings": 29,
+          "upright_play": 29
         }
       },
       {
@@ -109,17 +109,17 @@
           "drum_technique": "brushes_jazz"
         },
         "scores": {
-          "percussion_technique": 12.089999999999996,
+          "percussion_technique": 24.76175,
           "shell_wood": 1.3,
           "shell_thickness": 0,
-          "bearing_edges": 0.26437499999999997,
-          "drumhead": 17.755625,
-          "snare_wires": 0.26437499999999997,
-          "cymbal_alloy": 13.599999999999998,
-          "cymbal_hammering": 14.224,
-          "cymbal_lathing": 14.100874999999998,
-          "cymbal_finish": 0.25087499999999996,
-          "drum_technique": 13.75
+          "bearing_edges": 0.845,
+          "drumhead": 33.655625,
+          "snare_wires": 0.845,
+          "cymbal_alloy": 30.525,
+          "cymbal_hammering": 30.007749999999998,
+          "cymbal_lathing": 30.000874999999997,
+          "cymbal_finish": 0.845,
+          "drum_technique": 29
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Russian estrada",
   "family": "global",
   "lineage": "Soviet-era (1940s-1991) and post-Soviet (1991-onward) Russian-language commercial-stage popular song — Edita Piekha, Joseph Kobzon, Lev Leshchenko, Alla Pugacheva (Pesnya goda annual TV festival regular), Sofia Rotaru, Filipp Kirkorov; characterized by sentimental minor-key lyrical content, orchestrated arrangements with strings and brass, and the centralized State-controlled distribution through Melodiya / Soviet TV / Radio infrastructure",
-  "recipe": "classic North American modern russian estrada, functional Song, europop branch, pop rock functional song new wave folk rock. thick, melodic, equal tempered, modern pop training. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, accordion, mahogany ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, bass foundation Soviet orchestra canon balalaika, domra. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 742,
+  "recipe": "classic North American modern russian estrada, functional Song, europop branch, pop rock functional song new wave folk rock. thick, incomplete closure resting, melodic, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, castagnari Italian premium folk music straight accordion, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, Soviet orchestra canon strummed balalaika, rhythmic dance rhythm strummed domra. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 843,
   "score": 614.842,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 8.075000000000001,
-          "voice_quality": 0.39,
+          "voice_register": 52.625000000000014,
+          "voice_quality": 2.16,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.15,
-          "voice_articulation": 0.45,
-          "voice_microtone": 7.800000000000001,
-          "voice_tradition": 6.630000000000001,
-          "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 2.665000000000001,
-          "voice_speech_song": 13.064999999999996,
-          "voice_ensemble_config": 8.449999999999998,
-          "voice_ornament_system": 0.8299999999999998,
-          "voice_pitch_organization": 1.6199999999999999,
-          "voice_processing_chain": 3.1500000000000004,
-          "voice_multitrack_stack": 1.56
+          "voice_vibrato": 3.1550000000000002,
+          "voice_articulation": 0.8249999999999998,
+          "voice_microtone": 39.07500000000001,
+          "voice_tradition": 22.294999999999998,
+          "voice_mechanism_compound": 4.030000000000001,
+          "voice_estill_quality": 7.1825,
+          "voice_speech_song": 27.13749999999999,
+          "voice_ensemble_config": 18.264999999999993,
+          "voice_ornament_system": 0.9799999999999998,
+          "voice_pitch_organization": 2.0699999999999994,
+          "voice_processing_chain": 9.265,
+          "voice_multitrack_stack": 6.142500000000001
         }
       },
       {
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 5.2700000000000005,
-          "grand_piano_size": 0.9450000000000001,
-          "grand_piano_brand": 0.78,
-          "piano_hammer": 3.5300000000000002,
-          "piano_rim": 6.185,
-          "piano_soundboard": 4.745,
-          "piano_pinblock": 0.9099999999999999,
-          "piano_plate": 0.835,
-          "piano_pitch_standard": 1.2999999999999998
+          "keyboard_technique": 17.544999999999998,
+          "grand_piano_size": 2.08,
+          "grand_piano_brand": 2.6649999999999996,
+          "piano_hammer": 15.58,
+          "piano_rim": 19.285,
+          "piano_soundboard": 16.795,
+          "piano_pinblock": 1.455,
+          "piano_plate": 1.26,
+          "piano_pitch_standard": 2.6975
         }
       },
       {
@@ -89,13 +89,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 0.84,
-          "accordion_reed_material": 1.195,
-          "musette_offset": 1.18,
+          "free_reed_technique": 13.874999999999996,
+          "accordion_reed_material": 2.08,
+          "musette_offset": 1.3299999999999998,
           "reed_config": 1.275,
           "bellows": 0,
-          "voicing_chamber": 0.22499999999999998,
-          "accordion_maker_school": 0.81
+          "voicing_chamber": 0.195,
+          "accordion_maker_school": 5.589999999999998
         }
       },
       {
@@ -111,14 +111,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 1.625,
-          "body_wood": 1.7700000000000002,
+          "electric_technique": 4.1899999999999995,
+          "amp_make": 12.089999999999998,
+          "body_wood": 2.08,
           "pickup_config": 0.045,
-          "string_type": 4.225,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0.045,
-          "bass_technique": 3.29
+          "string_type": 29.4125,
+          "scale_length_b": 2.47,
+          "fretted_or_not": 0.195,
+          "bass_technique": 26.865
         }
       },
       {
@@ -137,17 +137,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 8.059999999999999,
+          "percussion_technique": 20.799999999999994,
           "shell_wood": 1.18,
-          "shell_thickness": 0.045,
-          "bearing_edges": 0.81,
-          "drumhead": 5.79,
-          "snare_wires": 0.81,
-          "cymbal_alloy": 9.135,
-          "cymbal_hammering": 8.595,
-          "cymbal_lathing": 8.265,
-          "cymbal_finish": 0.39,
-          "drum_technique": 8.059999999999999
+          "shell_thickness": 0.195,
+          "bearing_edges": 2.08,
+          "drumhead": 17.84,
+          "snare_wires": 2.08,
+          "cymbal_alloy": 40.28499999999999,
+          "cymbal_hammering": 40.17,
+          "cymbal_lathing": 39.839999999999996,
+          "cymbal_finish": 0.585,
+          "drum_technique": 22.67
         }
       },
       {
@@ -159,10 +159,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 1.56,
-          "choir_polyphonic_configuration": 1.56,
-          "choir_regional_canonical_configuration": 0.39,
-          "choir_ensemble_repertoire": 1.3
+          "choir_size": 2.795,
+          "choir_polyphonic_configuration": 2.145,
+          "choir_regional_canonical_configuration": 0.975,
+          "choir_ensemble_repertoire": 1.8200000000000003
         }
       },
       {
@@ -175,9 +175,9 @@
           "balalaika_tradition": "balalaika_soviet_orchestra"
         },
         "scores": {
-          "plucked_traditional_technique": 0.325,
-          "balalaika_size": 1.1700000000000002,
-          "balalaika_strings": -1.05,
+          "plucked_traditional_technique": 12.014999999999999,
+          "balalaika_size": 0.39,
+          "balalaika_strings": -0.385,
           "balalaika_body_wood": 0,
           "balalaika_tradition": 6.449999999999998
         }
@@ -192,8 +192,8 @@
           "domra_strings": "domra_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 0.325,
-          "domra_courses": 0.39,
+          "plucked_traditional_technique": 12.014999999999999,
+          "domra_courses": 5.784999999999999,
           "domra_size": 0.66,
           "domra_body_wood": 0,
           "domra_strings": -0.035

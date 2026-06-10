@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 2.9450000000000007,
-          "voice_quality": 4.145,
+          "voice_quality": 7.914999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.873375,
           "voice_articulation": 2.1195000000000004,
-          "voice_microtone": 0.195,
-          "voice_tradition": 18.096624999999996,
-          "voice_mechanism_compound": 6.949999999999999,
+          "voice_microtone": 0.325,
+          "voice_tradition": 23.346624999999996,
+          "voice_mechanism_compound": 7.045,
           "voice_estill_quality": 16.253375,
-          "voice_speech_song": 16.705000000000002,
-          "voice_ensemble_config": 19.630000000000003,
+          "voice_speech_song": 19.240000000000002,
+          "voice_ensemble_config": 21.870625,
           "voice_ornament_system": 11.45,
           "voice_pitch_organization": 5.935,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 2.6
+          "voice_processing_chain": 5.9799999999999995,
+          "voice_multitrack_stack": 2.9899999999999998
         }
       },
       {
@@ -59,8 +59,8 @@
           "rolmo_tradition": "rolmo_yang_chant_ensemble_canonical"
         },
         "scores": {
-          "rolmo_body": 17.222749999999998,
-          "rolmo_tradition": 9.879999999999999
+          "rolmo_body": 18.17275,
+          "rolmo_tradition": 13.455000000000002
         }
       },
       {
@@ -70,8 +70,8 @@
           "damaru_tradition": "damaru_gelug_ritual_canonical"
         },
         "scores": {
-          "damaru_body": 14.007749999999998,
-          "damaru_tradition": 16.38
+          "damaru_body": 14.807749999999999,
+          "damaru_tradition": 20.605
         }
       }
     ],

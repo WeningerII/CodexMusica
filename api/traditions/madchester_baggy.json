@@ -3,8 +3,8 @@
   "name": "Madchester / baggy",
   "family": "rock_punk",
   "lineage": "Late-1980s-and-early-1990s Manchester-based British rock-and-dance subgenre synthesizing indie-rock with acid-house club rhythmic-influence. The Stone Roses, Happy Mondays, Inspiral Carpets, the Charlatans, and James constitute the canonical roster; the Hacienda nightclub (Manchester, opened 1982) provided the canonical performance venue. The 1989 Stone Roses self-titled debut and the parallel Happy Mondays Bummed (1988) consolidated the canonical sound.",
-  "recipe": "classic British 1987-1989 madchester / baggy, distorted Rock, alternative branch, house electronic dance deep house tech-house. thick, blues-shouter, narrative, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sound design field sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus flanger.",
-  "recipe_chars": 739,
+  "recipe": "classic British 1987-1989 madchester / baggy, distorted Rock, alternative branch, house electronic dance deep house tech-house. thick, blues-shouter, nervy, narrative. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, vintage ambassador asymmetric machine hammered symmetric pattern organized rows drum kit, sound design field sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus flanger.",
+  "recipe_chars": 730,
   "score": 327.52,
   "config": {
     "traditions": [
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 10.259999999999993,
-          "voice_quality": 1.5,
+          "voice_register": 20.884999999999994,
+          "voice_quality": 4.125000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.37499999999999994,
-          "voice_articulation": 1.645,
-          "voice_microtone": 9.999999999999996,
-          "voice_tradition": -0.035,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 0.045,
+          "voice_vibrato": 0.585,
+          "voice_articulation": 3.0999999999999996,
+          "voice_microtone": 14.549999999999997,
+          "voice_tradition": 5.84,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 4.725,
+          "voice_speech_song": 15.924999999999997,
+          "voice_ensemble_config": 15.404999999999998,
+          "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 5.739999999999999,
-          "voice_processing_chain": 5.1450000000000005,
+          "voice_processing_chain": 9.92,
           "voice_multitrack_stack": 5.4350000000000005
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 7.72,
+          "electric_technique": 8.519999999999998,
           "amp_make": 5.485,
-          "body_wood": 4.2299999999999995,
-          "neck_wood": 0.32999999999999996,
-          "fretboard": 0.22499999999999998,
+          "body_wood": 4.529999999999999,
+          "neck_wood": 0.585,
+          "fretboard": 0.585,
           "pickup_magnet": 0.24,
           "pickup_winding": 0.24,
-          "string_material": 0.22499999999999998,
-          "bridge": 0.32999999999999996,
-          "scale_length": 4.424999999999999,
-          "string_gauge": 0.37499999999999994,
+          "string_material": 0.585,
+          "bridge": 0.39,
+          "scale_length": 5.375,
+          "string_gauge": 0.39,
           "finish": 0.045,
-          "string_tuning": 8.899999999999999
+          "string_tuning": 10.65
         }
       },
       {
@@ -99,11 +99,11 @@
         },
         "scores": {
           "electric_technique": 5.995,
-          "amp_make": 5.345,
-          "body_wood": 0.66,
-          "pickup_config": 0.42,
+          "amp_make": 7.31,
+          "body_wood": 0.39,
+          "pickup_config": 0.195,
           "string_type": 10.25,
-          "scale_length_b": 0.43500000000000005,
+          "scale_length_b": 0.65,
           "fretted_or_not": 0.135,
           "bass_technique": 10.395
         }
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 6.629999999999999,
-          "shell_wood": 0.495,
+          "percussion_technique": 29.244999999999997,
+          "shell_wood": 0.65,
           "shell_thickness": 0.24,
-          "bearing_edges": 0.4799999999999999,
-          "drumhead": 0.43499999999999994,
-          "snare_wires": 0.32999999999999996,
-          "cymbal_alloy": 10.374999999999998,
+          "bearing_edges": 0.585,
+          "drumhead": 5.139999999999999,
+          "snare_wires": 0.39,
+          "cymbal_alloy": 10.824999999999998,
           "cymbal_hammering": 10.629999999999999,
           "cymbal_lathing": 10.239999999999998,
-          "cymbal_finish": 0.22499999999999998,
-          "drum_technique": 10.25
+          "cymbal_finish": 0.585,
+          "drum_technique": 17.354999999999997
         }
       },
       {
@@ -148,10 +148,10 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sampler_archetypes": 0.3,
-          "sampler_bit_depth": 0.09,
-          "sampler_workflow": 1.335,
-          "sampler_classic_context": 13.194999999999999
+          "sampler_archetypes": 0.65,
+          "sampler_bit_depth": 0.9099999999999999,
+          "sampler_workflow": 1.4849999999999999,
+          "sampler_classic_context": 48.5875
         }
       }
     ],

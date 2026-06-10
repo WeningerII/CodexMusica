@@ -3,8 +3,8 @@
   "name": "UK hardcore (pre-jungle 91-93)",
   "family": "electronic",
   "lineage": "Early-1990s UK electronic subgenre developed in 1990-1993 London through synthesis of Belgian new-beat, Detroit techno, and US house with chopped-Amen-break percussion, ragga-MC vocal-sampling, and rapidly-accelerating tempo (138-150 BPM and rising toward jungle's 170+). The 1991 Acen \"Trip to the Moon\", 1992 SL2 \"On a Ragga Tip\", and the broader Production House and Suburban Base label rosters consolidated the canonical sound. Direct ancestor of jungle and drum-and-bass.",
-  "recipe": "classic British 1990-1993 uk hardcore, bass System, bass descendants branch, eurodance electronic dance freestyle music hi-nrg. thick, chest mix belt, pure, beatbox. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, chopped sampler, low sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 531,
+  "recipe": "classic British 1990-1993 uk hardcore, bass System, bass descendants branch, eurodance electronic dance freestyle music hi-nrg. thick, chest mix belt, pure, narrative. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, chopped sampler, low sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 533,
   "score": 214.826,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 1.625,
+          "voice_register": 5.8515000000000015,
+          "voice_quality": 7.433,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6765,
-          "voice_articulation": 0.21675,
-          "voice_microtone": 0.0765,
-          "voice_tradition": 3.3150000000000004,
-          "voice_mechanism_compound": 2.6235000000000004,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 11.765,
-          "voice_ensemble_config": 11.7,
+          "voice_vibrato": 2.4765,
+          "voice_articulation": 1.6749999999999998,
+          "voice_microtone": 3.9250000000000007,
+          "voice_tradition": 6.142499999999999,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 3.6715000000000004,
+          "voice_speech_song": 19.435000000000002,
+          "voice_ensemble_config": 18.525,
           "voice_ornament_system": 1.95,
           "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 7.945,
-          "voice_multitrack_stack": 3.38
+          "voice_processing_chain": 21.2615,
+          "voice_multitrack_stack": 6.2330000000000005
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 5.525,
-          "drum_machine_808_context": 5.59,
-          "tr808_production_origin": 1.625
+          "tr808_voice": 9.3925,
+          "drum_machine_808_context": 8.709999999999999,
+          "tr808_production_origin": 2.8600000000000003
         }
       },
       {
@@ -75,11 +75,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.47975,
-          "sampler_archetypes": 1.625,
-          "sampler_bit_depth": 0.09,
-          "sampler_workflow": 10.47975,
-          "sampler_classic_context": 21.905
+          "electronic_technique": 2.05475,
+          "sampler_archetypes": 2.3725,
+          "sampler_bit_depth": 0.7149999999999999,
+          "sampler_workflow": 11.054749999999999,
+          "sampler_classic_context": 34.385000000000005
         }
       },
       {
@@ -92,11 +92,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 5.3950000000000005,
-          "oscillator": 5.59,
-          "filter_topology": 5.59,
-          "envelope": 0.255,
-          "modulation": 0.045
+          "electronic_technique": 9.4575,
+          "oscillator": 8.905,
+          "filter_topology": 9.099999999999998,
+          "envelope": 0.21675,
+          "modulation": 0.195
         }
       }
     ],

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 18.551249999999996,
-          "voice_quality": 20.759999999999994,
+          "voice_register": 49.17625000000001,
+          "voice_quality": 48.28500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.78,
-          "voice_articulation": 13.75,
-          "voice_microtone": 0.39,
-          "voice_tradition": 22.294999999999998,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 16.107499999999998,
-          "voice_speech_song": 6.824999999999999,
-          "voice_ensemble_config": 15.194374999999997,
-          "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 0.585,
-          "voice_processing_chain": 2.2749999999999995,
-          "voice_multitrack_stack": 3.25
+          "voice_articulation": 36.5,
+          "voice_microtone": 2.55375,
+          "voice_tradition": 50.496875,
+          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_estill_quality": 41.35750000000001,
+          "voice_speech_song": 15.209999999999994,
+          "voice_ensemble_config": 38.09437500000001,
+          "voice_ornament_system": 11.775,
+          "voice_pitch_organization": 0.9749999999999999,
+          "voice_processing_chain": 3.3668750000000003,
+          "voice_multitrack_stack": 4.1831249999999995
         }
       },
       {
@@ -60,7 +60,7 @@
         },
         "scores": {
           "voices": 0.78,
-          "arrangement": 2.08
+          "arrangement": 2.92875
         }
       },
       {
@@ -72,10 +72,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 2.08,
-          "choir_polyphonic_configuration": 2.7299999999999995,
-          "choir_regional_canonical_configuration": 1.56,
-          "choir_ensemble_repertoire": 2.47
+          "choir_size": 3.6399999999999997,
+          "choir_polyphonic_configuration": 4.029999999999999,
+          "choir_regional_canonical_configuration": 3.25,
+          "choir_ensemble_repertoire": 4.03
         }
       }
     ],

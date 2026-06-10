@@ -3,8 +3,8 @@
   "name": "Andean Quechua-Aymara spinning song",
   "family": "global",
   "lineage": "Andean Quechua-and-Aymara spinning-and-weaving song tradition continuous from pre-Hispanic Andean-textile labor practice through Spanish-colonial-era continuous performance into modern Quechua-and-Aymara-speaking Andean-rural continuous practice across Bolivia, Peru, and Ecuador",
-  "recipe": "classic modern andean quechua-aymara spinning song, domestic Rhythm, south Asian branch, sub saharan African domestic rhythm, European lullaby, andean field work andean huayno-de-trabajo wolof-senegambian grain-grinding women's song. forward-resonance, tasteful, continuous-phonation, andean quechua vocal. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 462,
+  "recipe": "classic modern andean quechua-aymara spinning song, domestic Rhythm, south Asian branch, sub saharan African domestic rhythm, European lullaby, andean field work andean huayno-de-trabajo wolof-senegambian grain-grinding women's song. vocal fry, forward-resonance, tasteful, continuous-phonation. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 451,
   "score": 232.83,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 16.949999999999992,
+          "voice_register": 0.78,
+          "voice_quality": 32.7,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 5.069999999999999,
+          "voice_vibrato": 3.38,
+          "voice_articulation": 8.905,
           "voice_microtone": 0.045,
-          "voice_tradition": 37.34,
-          "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 16.149999999999995,
-          "voice_speech_song": 12.414999999999996,
-          "voice_ensemble_config": 16.284999999999997,
-          "voice_ornament_system": 23.999999999999996,
-          "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39
+          "voice_tradition": 57.114999999999995,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 25.774999999999995,
+          "voice_speech_song": 21.124999999999996,
+          "voice_ensemble_config": 26.359999999999996,
+          "voice_ornament_system": 36.675,
+          "voice_pitch_organization": 8.95,
+          "voice_processing_chain": 1.2999999999999998,
+          "voice_multitrack_stack": 1.3649999999999998
         }
       }
     ],

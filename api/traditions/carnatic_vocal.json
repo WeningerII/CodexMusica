@@ -3,8 +3,8 @@
   "name": "Carnatic vocal",
   "family": "classical",
   "lineage": "South Indian classical vocal tradition organized around the 72-melakarta scale system codified by Venkatamakhin in 1620 and the kriti-composition canon of the early-19th-century Trinity (Tyagaraja, Muthuswami Dikshitar, Syama Sastri); 20th-century lineage M.S. Subbulakshmi, D.K. Pattammal, M.D. Ramanathan, T.N. Krishnan, Semmangudi Srinivasa Iyer, T.R. Mahalingam",
-  "recipe": "classic North American early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, silvery treble-extended suited to female vocal tanpura, ghatam, thavil, jackwood frame canonical carnatic kanjira. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 687,
+  "recipe": "classic North American early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 841,
   "score": 362,
   "config": {
     "traditions": [
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 3.5899999999999994,
-          "voice_quality": 3.185,
+          "voice_quality": 6.0200000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.329999999999999,
-          "voice_articulation": 0.54,
-          "voice_microtone": 1.17,
-          "voice_tradition": 24.505000000000003,
-          "voice_mechanism_compound": 9.399999999999999,
-          "voice_estill_quality": 11.019999999999998,
-          "voice_speech_song": 9.999999999999996,
-          "voice_ensemble_config": 4.419999999999999,
-          "voice_ornament_system": 17.445,
-          "voice_pitch_organization": 18.615,
+          "voice_vibrato": 8.319999999999999,
+          "voice_articulation": 0.845,
+          "voice_microtone": 2.0149999999999997,
+          "voice_tradition": 42.325,
+          "voice_mechanism_compound": 15.149999999999999,
+          "voice_estill_quality": 16.769999999999996,
+          "voice_speech_song": 15.749999999999996,
+          "voice_ensemble_config": 10.205,
+          "voice_ornament_system": 34.81999999999999,
+          "voice_pitch_organization": 35.989999999999995,
           "voice_processing_chain": 3.4899999999999998,
-          "voice_multitrack_stack": 4.549999999999999
+          "voice_multitrack_stack": 5.2749999999999995
         }
       },
       {
@@ -62,11 +62,11 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 4.9399999999999995,
+          "mridangam_heads": 7.93,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 2.08,
-          "mridangam_heads_material": 0.9749999999999999,
-          "mridangam_lineage": 3.38
+          "mridangam_shell_wood": 10.334999999999999,
+          "mridangam_heads_material": 2.5349999999999997,
+          "mridangam_lineage": 10.79
         }
       },
       {
@@ -79,11 +79,11 @@
           "violin_carnatic_lineage": "violin_carnatic_lalgudi"
         },
         "scores": {
-          "bowed_technique": 9.5,
-          "violin_carnatic_tuning": 10.659999999999998,
+          "bowed_technique": 15.249999999999998,
+          "violin_carnatic_tuning": 18.525,
           "violin_carnatic_posture": 3.12,
-          "violin_carnatic_strings": 3.575,
-          "violin_carnatic_lineage": 3.38
+          "violin_carnatic_strings": 6.37,
+          "violin_carnatic_lineage": 10.79
         }
       },
       {
@@ -97,12 +97,12 @@
           "tanpura_body_wood": "tanpura_gourd_body"
         },
         "scores": {
-          "plucked_traditional_technique": 9.5,
+          "plucked_traditional_technique": 15.249999999999998,
           "tanpura_size": 4.159999999999999,
-          "tanpura_jawari": 9.5,
-          "tanpura_strings": 1.56,
-          "tanpura_string_material": 0.9749999999999999,
-          "tanpura_body_wood": 0.9749999999999999
+          "tanpura_jawari": 15.249999999999998,
+          "tanpura_strings": 3.25,
+          "tanpura_string_material": 2.5349999999999997,
+          "tanpura_body_wood": 2.5349999999999997
         }
       },
       {
@@ -127,8 +127,8 @@
         "scores": {
           "thavil_context": 0,
           "thavil_technique": 0,
-          "thavil_shell_wood": 0.39,
-          "thavil_head": 0.9749999999999999
+          "thavil_shell_wood": 3.769999999999999,
+          "thavil_head": 2.5349999999999997
         }
       },
       {
@@ -140,10 +140,10 @@
           "kanjira_jingle": "kanjira_brass_jingle"
         },
         "scores": {
-          "kanjira_skin": 0.39,
-          "kanjira_context": 4.9399999999999995,
-          "kanjira_shell_wood": 4.03,
-          "kanjira_jingle": 0.9749999999999999
+          "kanjira_skin": 1.2349999999999999,
+          "kanjira_context": 7.93,
+          "kanjira_shell_wood": 11.439999999999998,
+          "kanjira_jingle": 2.5349999999999997
         }
       }
     ],

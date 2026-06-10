@@ -3,8 +3,8 @@
   "name": "Sevdalinka",
   "family": "global",
   "lineage": "Bosnian melancholy-romantic urban song tradition that emerged in the late-Ottoman period (post-1463 Ottoman conquest of Bosnia) and codified through the Austro-Hungarian administrative period (1878-1918) into the recording-era 20th century — 20th-century figures Himzo Polovina, Safet Isović (the 1950s-70s sevdalinka voice), Zaim Imamović, Beba Selimović, and the modern Damir Imamović and Amira Medunjanin sevdalinka revival; melismatic vocal melody with Ottoman makam-influenced modal vocabulary over saz, accordion, and violin accompaniment",
-  "recipe": "classic North American early-1870s sevdalinka, ballad Poetry, Mediterranean ballad branch, vocal drone modal, balkan drinking song armenian duduk-accompanied chant flamenco. vocal fry, low dynamic level, melodic, bend inflected. makam correct mulberry bowl canonical anatolian steel canonical modern drone like saz baglama, castagnari Italian premium folk music accordion, brass band balkan romani, gusle, plum canonical bulgarian kaval, tambura balkan. balkan sevdalinka kafana tavern. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 618,
+  "recipe": "classic North American early-1870s sevdalinka, ballad Poetry, Mediterranean ballad branch, vocal drone modal, balkan drinking song armenian duduk-accompanied chant flamenco. vocal fry, low dynamic level, melodic, ornamental. makam correct mulberry bowl canonical anatolian steel canonical modern modern concert saz baglama, leather castagnari Italian premium folk music ensemble accordion, brass band balkan romani, maple carved canonical balkan horsehair canonical single string drone like gusle, plum canonical bulgarian continuous-airflow legato kaval, rhythmic dance rhythm strummed tambura balkan. balkan sevdalinka kafana tavern. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 767,
   "score": 256.572,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.6,
+          "voice_register": 7.279999999999999,
           "voice_quality": 2.7950000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6399999999999997,
-          "voice_articulation": 0.39,
-          "voice_microtone": 1.6949999999999998,
-          "voice_tradition": 17.159999999999997,
-          "voice_mechanism_compound": 5.07,
-          "voice_estill_quality": 2.665000000000001,
-          "voice_speech_song": 13.259999999999996,
-          "voice_ensemble_config": 10.659999999999995,
-          "voice_ornament_system": 1.895,
-          "voice_pitch_organization": 2.8850000000000002,
-          "voice_processing_chain": 2.4699999999999998,
-          "voice_multitrack_stack": 2.9899999999999998
+          "voice_vibrato": 3.29,
+          "voice_articulation": 1.5699999999999998,
+          "voice_microtone": 5.914999999999999,
+          "voice_tradition": 30.875,
+          "voice_mechanism_compound": 14.040000000000001,
+          "voice_estill_quality": 13.4875,
+          "voice_speech_song": 28.729999999999997,
+          "voice_ensemble_config": 23.139999999999997,
+          "voice_ornament_system": 6.755000000000001,
+          "voice_pitch_organization": 8.19,
+          "voice_processing_chain": 7.15,
+          "voice_multitrack_stack": 9.165
         }
       },
       {
@@ -63,12 +63,12 @@
           "saz_tradition": "saz_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": 4.029999999999999,
-          "saz_size": 0.78,
-          "saz_frets": 1.3,
-          "saz_body_wood": 1.9000000000000001,
-          "saz_strings": 1.945,
-          "saz_tradition": 0.21
+          "plucked_traditional_technique": 11.2125,
+          "saz_size": 1.625,
+          "saz_frets": 2.22,
+          "saz_body_wood": 2.795,
+          "saz_strings": 2.145,
+          "saz_tradition": 1.3
         }
       },
       {
@@ -83,13 +83,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 2.34,
-          "accordion_reed_material": 0.39,
-          "musette_offset": 1.2750000000000001,
+          "free_reed_technique": 4.93,
+          "accordion_reed_material": 1.3,
+          "musette_offset": 2.73,
           "reed_config": 0.51,
-          "bellows": 0.42000000000000004,
+          "bellows": 1.04,
           "voicing_chamber": 0,
-          "accordion_maker_school": 1.7549999999999997
+          "accordion_maker_school": 4.225
         }
       },
       {
@@ -99,8 +99,8 @@
           "origin": "romani_diaspora"
         },
         "scores": {
-          "sections": 1.3,
-          "origin": 1.3
+          "sections": 1.95,
+          "origin": 1.95
         }
       },
       {
@@ -113,11 +113,11 @@
           "gusle_string_material": "gusle_horsehair_canonical"
         },
         "scores": {
-          "bowed_technique": 2.795,
-          "gusle_region": 2.47,
-          "gusle_context": 0.6149999999999999,
-          "gusle_body_wood": 0.9099999999999999,
-          "gusle_string_material": 0.39
+          "bowed_technique": 7.7025,
+          "gusle_region": 4.875,
+          "gusle_context": 1.56,
+          "gusle_body_wood": 3.0549999999999997,
+          "gusle_string_material": 2.73
         }
       },
       {
@@ -129,10 +129,10 @@
           "kaval_body_wood": "kaval_plum_canonical"
         },
         "scores": {
-          "wind_articulation": 2.125,
-          "kaval_region": 0.39,
-          "kaval_context": 0.6900000000000001,
-          "kaval_body_wood": 2.849999999999999
+          "wind_articulation": 4.625,
+          "kaval_region": 1.04,
+          "kaval_context": 1.3,
+          "kaval_body_wood": 2.145
         }
       },
       {
@@ -143,8 +143,8 @@
           "tambura_balkan_use": "tambura_song"
         },
         "scores": {
-          "plucked_traditional_technique": 1.95,
-          "tambura_balkan_school": 2.17,
+          "plucked_traditional_technique": 4.555,
+          "tambura_balkan_school": 2.9699999999999998,
           "tambura_balkan_use": 9
         }
       }

@@ -3,8 +3,8 @@
   "name": "Symphonic metal",
   "family": "global",
   "lineage": "Metal-orchestral-choral hybrid subgenre codified through Nightwish (Oceanborn 1998), Within Temptation (Mother Earth 2000), Epica (The Phantom Agony 2003), Therion, and Edenbridge; characterized by operatic-soprano-led-vocal performances, full-orchestral arrangements (often with film-score session ensembles), choral-backing-vocal stacks, and fantasy-and-mythology lyrical subject-matter tradition",
-  "recipe": "classic late-1990s symphonic metal, distorted Rock, symphonic branch, western common practice art music grand opera the mighty handful. thick, low dynamic level, chest resonance low mid, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, balanced ernie ball slinky electric bass, brass machine hammered symmetric pattern organized rows full lathed drum kit, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, string quartet inst, European maple sycamore maple liebenzeller metal infused plucked violin orchestral, mallets timpani. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 842,
+  "recipe": "classic late-1990s symphonic metal, distorted Rock, symphonic branch, western common practice art music grand opera the mighty handful. thick, low dynamic level, chest resonance low mid, narrative. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, alder ernie ball slinky electric bass, brass pre muffled edge muffled machine hammered symmetric pattern drum kit, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, string quartet inst, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, mallets timpani. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 837,
   "score": 366.57,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.289999999999999,
-          "voice_quality": 1.2,
+          "voice_register": 7.0500000000000025,
+          "voice_quality": 2.1449999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8649999999999993,
-          "voice_articulation": 0.3,
-          "voice_microtone": 5.460000000000001,
-          "voice_tradition": 5.265,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 1.4299999999999997,
+          "voice_microtone": 10.627500000000001,
+          "voice_tradition": 9.5225,
           "voice_mechanism_compound": 18.39999999999999,
-          "voice_estill_quality": 3.3550000000000004,
-          "voice_speech_song": 5.784999999999999,
-          "voice_ensemble_config": 6.389999999999999,
-          "voice_ornament_system": 0.18,
-          "voice_pitch_organization": 1.605,
-          "voice_processing_chain": 3.2349999999999994,
-          "voice_multitrack_stack": 3.589999999999999
+          "voice_estill_quality": 9.979999999999999,
+          "voice_speech_song": 14.137499999999998,
+          "voice_ensemble_config": 12.934999999999995,
+          "voice_ornament_system": 8.625,
+          "voice_pitch_organization": 2.4000000000000004,
+          "voice_processing_chain": 4.55,
+          "voice_multitrack_stack": 4.134999999999999
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 18.944999999999993,
-          "amp_make": 8.239999999999998,
-          "body_wood": 8.149999999999999,
+          "electric_technique": 20.944999999999993,
+          "amp_make": 9.165,
+          "body_wood": 9.799999999999997,
           "neck_wood": 0.195,
-          "fretboard": 0.9099999999999999,
-          "pickup_magnet": 0.9099999999999999,
-          "pickup_winding": 0.9099999999999999,
-          "string_material": 0.9099999999999999,
+          "fretboard": 1.3649999999999998,
+          "pickup_magnet": 1.3649999999999998,
+          "pickup_winding": 1.3649999999999998,
+          "string_material": 1.3649999999999998,
           "bridge": 0.18,
-          "scale_length": 8.104999999999999,
-          "string_gauge": 3.5100000000000002,
+          "scale_length": 9.754999999999997,
+          "string_gauge": 4.419999999999999,
           "finish": 0,
-          "string_tuning": 9.424999999999997
+          "string_tuning": 10.724999999999998
         }
       },
       {
@@ -98,12 +98,12 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.05,
+          "electric_technique": 1.9000000000000001,
           "amp_make": 1.8199999999999998,
-          "body_wood": 0.9099999999999999,
-          "pickup_config": 2.6,
-          "string_type": 5.71,
-          "scale_length_b": 0.96,
+          "body_wood": 1.3649999999999998,
+          "pickup_config": 3.51,
+          "string_type": 6.06,
+          "scale_length_b": 0.45499999999999996,
           "fretted_or_not": 0.345,
           "bass_technique": 3.7
         }
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 5.329999999999999,
-          "shell_wood": 2.9899999999999998,
-          "shell_thickness": 0.9099999999999999,
-          "bearing_edges": 0.8699999999999999,
-          "drumhead": 0.26,
-          "snare_wires": 0.9099999999999999,
+          "percussion_technique": 12.934999999999995,
+          "shell_wood": 3.4449999999999994,
+          "shell_thickness": 1.3649999999999998,
+          "bearing_edges": 0.45499999999999996,
+          "drumhead": 2.2399999999999998,
+          "snare_wires": 1.3649999999999998,
           "cymbal_alloy": 20.93999999999999,
-          "cymbal_hammering": 3.6500000000000004,
-          "cymbal_lathing": 5.625,
+          "cymbal_hammering": 4.574999999999999,
+          "cymbal_lathing": 6.55,
           "cymbal_finish": 0.195,
-          "drum_technique": 9.499999999999996
+          "drum_technique": 12.934999999999995
         }
       },
       {
@@ -146,10 +146,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 4.429999999999999,
+          "choir_size": 6.88,
           "choir_polyphonic_configuration": 3.4849999999999994,
-          "choir_regional_canonical_configuration": 2.9899999999999998,
-          "choir_ensemble_repertoire": 5.329999999999998
+          "choir_regional_canonical_configuration": 3.8349999999999995,
+          "choir_ensemble_repertoire": 11.46
         }
       },
       {
@@ -160,9 +160,9 @@
           "string_quartet_inst_era": "string_quartet_inst_romantic"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "quartet_school": 0.24,
-          "string_quartet_inst_era": 0.39
+          "bowed_technique": 2.5,
+          "quartet_school": 0.845,
+          "string_quartet_inst_era": 5.069999999999999
         }
       },
       {
@@ -180,16 +180,16 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 9.449999999999998,
-          "orch_strings": 0.9099999999999999,
-          "orch_top_wood": 0.325,
-          "orch_back_wood": 2.275,
-          "orch_varnish": 0.325,
-          "orch_setup_period": 0.26,
+          "bowed_technique": 13.624999999999998,
+          "orch_strings": 1.3649999999999998,
+          "orch_top_wood": 3.385,
+          "orch_back_wood": 4.605,
+          "orch_varnish": 3.375,
+          "orch_setup_period": 4.395,
           "orch_bow": 1.32,
-          "orch_bow_stick": -0.035,
-          "orch_articulation": 2.6,
-          "orch_rosin": 6.699999999999998
+          "orch_bow_stick": 4.3225,
+          "orch_articulation": 3.8999999999999995,
+          "orch_rosin": 10.174999999999997
         }
       },
       {
@@ -200,9 +200,9 @@
           "timpani_head": "timpani_synthetic"
         },
         "scores": {
-          "percussion_technique": 9.499999999999996,
-          "timpani_size": 4.939999999999999,
-          "timpani_head": 0.6749999999999999
+          "percussion_technique": 11.124999999999998,
+          "timpani_size": 7.084999999999999,
+          "timpani_head": 0.45499999999999996
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Kazakh aitys (improvisational poetic contest)",
   "family": "global",
   "lineage": "Kazakh aitys improvisational poetic-contest tradition: a competitive verbal-dueling form in which two akyn improvising poet-singers face off in extempore Kazakh-language verse exchange, each responding to the previous while introducing new poetic-philosophical material, accompanied by akyn's own dombyra. Performance traditionally at weddings, autumn-harvest celebrations, and festival days, with audience reaction signaling who is winning. Survived Soviet period as sanctioned-folk practice and entered post-1991 cultural revival as national-cultural symbol. Annual televised aitys competitions broadcast since the 1990s.",
-  "recipe": "classic mid-1990s kazakh aitys, ballad Poetry, Slavic bard branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. kargyraa, declaimed, melodic, punctuated. turkmen long necked bagshy tradition silk canonical pre modern shashmaqam fergana tashkent maqom tradition distinct from bukharan dutar. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 497,
+  "recipe": "classic mid-1990s kazakh aitys, ballad Poetry, Slavic bard branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. kargyraa, declaimed, melodic, punctuated. turkmen long necked bagshy tradition fergana tashkent maqom tradition distinct from bukharan dutar. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 460,
   "score": 187.076,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.1424999999999996,
-          "voice_quality": 2.1643749999999997,
+          "voice_register": 7.734375,
+          "voice_quality": 8.288125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 0.9993750000000001,
-          "voice_microtone": 0.39,
-          "voice_tradition": 7.475000000000001,
-          "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 4.252499999999999,
-          "voice_ensemble_config": 3.25,
-          "voice_ornament_system": 1.6893749999999996,
-          "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 3.25,
-          "voice_multitrack_stack": 4.897499999999999
+          "voice_vibrato": 2.275,
+          "voice_articulation": 0.845,
+          "voice_microtone": 7.880000000000002,
+          "voice_tradition": 37.595000000000006,
+          "voice_mechanism_compound": 22.58,
+          "voice_estill_quality": 7.930000000000001,
+          "voice_speech_song": 20.28,
+          "voice_ensemble_config": 20.669999999999998,
+          "voice_ornament_system": 7.15,
+          "voice_pitch_organization": 7.633125000000001,
+          "voice_processing_chain": 6.89,
+          "voice_multitrack_stack": 2.9899999999999998
         }
       },
       {
@@ -60,9 +60,9 @@
           "dutar_tradition": "dutar_fergana_tashkent_maqom"
         },
         "scores": {
-          "dutar_body": 1.69,
-          "dutar_strings": 1.9537499999999999,
-          "dutar_tradition": 1.69
+          "dutar_body": 5.329999999999999,
+          "dutar_strings": 0.65,
+          "dutar_tradition": 9.23
         }
       }
     ],

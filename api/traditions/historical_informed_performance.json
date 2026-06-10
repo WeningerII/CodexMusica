@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 3.55,
-          "voice_quality": 1.1449999999999998,
+          "voice_register": 7.3999999999999995,
+          "voice_quality": 1.5994999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.004999999999999,
+          "voice_vibrato": 5.525,
           "voice_articulation": 1.25,
-          "voice_microtone": 8.32,
-          "voice_tradition": 13.62,
-          "voice_mechanism_compound": 5.6499999999999995,
-          "voice_estill_quality": 7.359500000000001,
-          "voice_speech_song": 8.2,
-          "voice_ensemble_config": 3.25,
-          "voice_ornament_system": 5.6995,
-          "voice_pitch_organization": 5.6499999999999995,
-          "voice_processing_chain": 1.3800000000000003,
-          "voice_multitrack_stack": 0.5295000000000001
+          "voice_microtone": 15.8275,
+          "voice_tradition": 18.494999999999997,
+          "voice_mechanism_compound": 10.525,
+          "voice_estill_quality": 12.3845,
+          "voice_speech_song": 13.075,
+          "voice_ensemble_config": 8.125,
+          "voice_ornament_system": 10.724499999999999,
+          "voice_pitch_organization": 10.524999999999999,
+          "voice_processing_chain": 1.885,
+          "voice_multitrack_stack": 0.26
         }
       },
       {
@@ -64,9 +64,9 @@
         "scores": {
           "acoustic_technique": -0.07,
           "cittern_config": 6.369999999999999,
-          "cittern_context": 2.6,
-          "cittern_body_wood": 1.6740000000000002,
-          "cittern_strings": 1.6740000000000002
+          "cittern_context": 2.795,
+          "cittern_body_wood": 1.04,
+          "cittern_strings": 1.5150000000000001
         }
       },
       {
@@ -79,11 +79,11 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 5.75,
+          "bowed_technique": 10.625,
           "fiddle_strings": 5.069999999999999,
           "fiddle_bow": 3.7049999999999996,
-          "fiddle_mute": 1.2645,
-          "fiddle_articulation": 1.8199999999999998
+          "fiddle_mute": 1.3649999999999998,
+          "fiddle_articulation": 2.2749999999999995
         }
       },
       {
@@ -98,13 +98,13 @@
           "pipe_organ_action": "pipe_organ_pneumatic"
         },
         "scores": {
-          "keyboard_technique": 5.75,
+          "keyboard_technique": 10.625,
           "pipe_organ_class": 1.195,
-          "pipe_organ_context": 10.01,
-          "pipe_organ_voicing_school": 4.55,
-          "pipe_organ_pipe_alloy": 2.6,
-          "pipe_organ_temperament": 3.25,
-          "pipe_organ_action": 2.6
+          "pipe_organ_context": 18.265,
+          "pipe_organ_voicing_school": 5.85,
+          "pipe_organ_pipe_alloy": 2.795,
+          "pipe_organ_temperament": 4.355,
+          "pipe_organ_action": 2.9899999999999998
         }
       },
       {
@@ -119,13 +119,13 @@
           "gamba_lineage": "gamba_william_lawes"
         },
         "scores": {
-          "bowed_technique": 5.75,
+          "bowed_technique": 10.625,
           "gamba_size": 0.045,
-          "viola_da_gamba_context": 10.01,
+          "viola_da_gamba_context": 18.265,
           "gamba_strings": 8.774999999999999,
           "gamba_frets": -0.035,
           "gamba_bow_stick": 13.075,
-          "gamba_lineage": 1.3
+          "gamba_lineage": 1.95
         }
       },
       {
@@ -137,9 +137,9 @@
           "recorder_body_wood": "recorder_boxwood_canonical"
         },
         "scores": {
-          "wind_articulation": 5.954999999999999,
-          "recorder_size": 4.29,
-          "recorder_context": 10.01,
+          "wind_articulation": 11.33,
+          "recorder_size": 6.825,
+          "recorder_context": 18.265,
           "recorder_body_wood": 1.3
         }
       },
@@ -154,9 +154,9 @@
           "lute_renaissance_strings": "lute_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 5.75,
-          "lute_courses": 1.3,
-          "lute_renaissance_context": 9.620000000000001,
+          "plucked_traditional_technique": 10.625,
+          "lute_courses": 1.95,
+          "lute_renaissance_context": 16.380000000000003,
           "lute_renaissance_ribs": 0.585,
           "lute_renaissance_soundboard": 0.585,
           "lute_renaissance_strings": 0.6749999999999999
@@ -174,7 +174,7 @@
         "scores": {
           "wind_articulation": -0.15000000000000002,
           "shawm_pitch": 0,
-          "shawm_context": 2.6,
+          "shawm_context": 2.795,
           "shawm_body_wood": 1.1700000000000002,
           "shawm_reed": 0.585
         }

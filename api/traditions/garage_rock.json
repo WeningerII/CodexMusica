@@ -3,8 +3,8 @@
   "name": "Garage rock",
   "family": "rock_punk",
   "lineage": "Mid-1960s American teenage-band rock-and-roll tradition characterized by raw production, basic three-chord songwriting, and amateur-virtuoso instrumental performance — codified through the original garage-rock canon documented on Nuggets (Lenny Kaye compilation, 1972): The Sonics, The Standells, ? and the Mysterians, The Seeds, Count Five, The Electric Prunes, with the form serving as the protopunk template",
-  "recipe": "classic North American 1964-1966 garage rock, distorted Rock, classic branch, punk distorted rock hardcore punk. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 707,
+  "recipe": "classic North American 1964-1966 garage rock, distorted Rock, classic branch, punk distorted rock hardcore punk. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 764,
   "score": 559.688,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 15.139999999999993,
-          "voice_quality": 1.1049999999999998,
+          "voice_register": 28.339999999999993,
+          "voice_quality": 1.9499999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 2.145,
           "voice_articulation": 0.195,
-          "voice_microtone": 14.999999999999996,
-          "voice_tradition": 1.755,
-          "voice_mechanism_compound": 3.0550000000000006,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 7.344999999999998,
-          "voice_ensemble_config": 7.2799999999999985,
+          "voice_microtone": 28.049999999999997,
+          "voice_tradition": 3.835,
+          "voice_mechanism_compound": 12.544999999999998,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 17.614999999999995,
+          "voice_ensemble_config": 18.004374999999996,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.95,
-          "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 2.8600000000000003
+          "voice_pitch_organization": 2.99,
+          "voice_processing_chain": 7.57375,
+          "voice_multitrack_stack": 4.615
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 5.2,
-          "amp_make": 11.764999999999999,
-          "body_wood": 1.3,
-          "neck_wood": 1.3,
-          "fretboard": 1.2349999999999999,
+          "electric_technique": 14.249999999999998,
+          "amp_make": 33.07187499999999,
+          "body_wood": 2.145,
+          "neck_wood": 2.145,
+          "fretboard": 2.0799999999999996,
           "pickup_magnet": 0.09,
           "string_material": 0.09,
-          "string_gauge": 1.3,
+          "string_gauge": 2.145,
           "bridge": 0.39,
-          "scale_length": 1.3,
+          "scale_length": 2.145,
           "finish": 1.7950000000000002,
-          "string_tuning": 10.009999999999998
+          "string_tuning": 17.225
         }
       },
       {
@@ -96,14 +96,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.5006250000000003,
-          "amp_make": 8.19,
-          "body_wood": 1.3,
+          "electric_technique": 13.150624999999998,
+          "amp_make": 14.9175,
+          "body_wood": 2.145,
           "pickup_config": 0.39,
-          "string_type": 21.125,
-          "scale_length_b": 1.3,
-          "fretted_or_not": 0.045,
-          "bass_technique": 17.800625
+          "string_type": 33.661874999999995,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 0.195,
+          "bass_technique": 40.70062499999999
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 6.889999999999999,
-          "shell_wood": 0.15,
+          "percussion_technique": 15.827499999999993,
+          "shell_wood": 0.65,
           "shell_thickness": 0,
-          "bearing_edges": 1.3,
-          "drumhead": 1.3,
-          "snare_wires": 1.3,
-          "cymbal_alloy": 17.789999999999996,
-          "cymbal_hammering": 15.539999999999997,
-          "cymbal_lathing": 15.149999999999997,
+          "bearing_edges": 2.145,
+          "drumhead": 2.145,
+          "snare_wires": 2.145,
+          "cymbal_alloy": 41.84,
+          "cymbal_hammering": 28.59,
+          "cymbal_lathing": 28.2,
           "cymbal_finish": 0.09,
-          "drum_technique": 15.249999999999998
+          "drum_technique": 27.5
         }
       },
       {
@@ -146,12 +146,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 1.95,
-          "drawbar_setting": 15.300624999999998,
-          "rotary_speed": 15.589999999999998,
-          "percussion_setting": 7.93,
-          "tonewheel_model": 5.135,
-          "leslie_cabinet_model": 0.9825000000000002
+          "keyboard_technique": 3.499375,
+          "drawbar_setting": 27.700625,
+          "rotary_speed": 27.84,
+          "percussion_setting": 14.3,
+          "tonewheel_model": 11.894999999999998,
+          "leslie_cabinet_model": 1.3
         }
       }
     ],

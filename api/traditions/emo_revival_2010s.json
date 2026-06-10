@@ -3,8 +3,8 @@
   "name": "Emo revival (2010s)",
   "family": "rock_punk",
   "lineage": "Early-2010s revival of late-1990s midwest emo aesthetic through new bands continuing the Cap'n Jazz, American Football, and Promise Ring lineage. The World Is a Beautiful Place & I Am No Longer Afraid to Die (2009-onward), Algernon Cadwallader, Snowing, Joyce Manor, and the broader Topshelf Records and Run for Cover Records label rosters anchor the canonical roster. The 2014 American Football reunion and 1999-album re-release consolidated the revival's historical lineage.",
-  "recipe": "classic emo revival, distorted Rock, emo branch, alternative distorted rock funk metal madchester / baggy. thick, chest resonance low mid, punctuated, equal tempered. Fender blackface amp American 60s amp spring reverb bright basswood low output no compression humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany vintage ambassador asymmetric machine hammered symmetric pattern drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 635,
+  "recipe": "classic emo revival, distorted Rock, emo branch, alternative distorted rock funk metal madchester / baggy. thick, rap, chest resonance low mid, punctuated. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany vintage ambassador asymmetric machine hammered symmetric pattern drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 607,
   "score": 369.885,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.079999999999997,
-          "voice_quality": 0.39,
+          "voice_register": 22.205,
+          "voice_quality": 1.56,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.9750000000000001,
-          "voice_articulation": 0.585,
-          "voice_microtone": 8.549999999999999,
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 2.145,
+          "voice_microtone": 21.675,
           "voice_tradition": 3.25,
-          "voice_mechanism_compound": 2.665000000000001,
+          "voice_mechanism_compound": 8.4175,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 1.69,
-          "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 3.059999999999999,
-          "voice_multitrack_stack": 8.409999999999998
+          "voice_speech_song": 12.609999999999996,
+          "voice_ensemble_config": 13.389999999999997,
+          "voice_ornament_system": 2.3400000000000003,
+          "voice_pitch_organization": 8.45,
+          "voice_processing_chain": 13.194999999999999,
+          "voice_multitrack_stack": 9.709999999999999
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 5.330000000000001,
-          "amp_make": 3.1200000000000006,
-          "body_wood": 1.69,
-          "neck_wood": 0.9750000000000001,
-          "fretboard": 0.3,
-          "pickup_magnet": 0.345,
-          "pickup_winding": 1.69,
+          "electric_technique": 16.31,
+          "amp_make": 13.894999999999998,
+          "body_wood": 8.904999999999998,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4299999999999997,
+          "pickup_magnet": 0.845,
+          "pickup_winding": 2.535,
           "string_material": 0.15,
-          "bridge": 0.9750000000000001,
-          "scale_length": 1.9500000000000002,
-          "string_gauge": 0.9750000000000001,
+          "bridge": 1.4949999999999999,
+          "scale_length": 7.409999999999999,
+          "string_gauge": 1.4949999999999999,
           "finish": 0,
-          "string_tuning": 4.55
+          "string_tuning": 17.095
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9500000000000002,
-          "amp_make": 5.720000000000001,
-          "body_wood": 1.9500000000000002,
+          "electric_technique": 8.705,
+          "amp_make": 12.805,
+          "body_wood": 1.4949999999999999,
           "pickup_config": 0.8850000000000001,
-          "string_type": 7.15,
-          "scale_length_b": 0.9750000000000001,
-          "fretted_or_not": 0.105,
-          "bass_technique": 5.45
+          "string_type": 24.2125,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0.45499999999999996,
+          "bass_technique": 18.575
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 8.319999999999999,
-          "shell_wood": 1.02,
+          "percussion_technique": 14.234999999999996,
+          "shell_wood": 1.4949999999999999,
           "shell_thickness": 0.43499999999999994,
-          "bearing_edges": 1.17,
+          "bearing_edges": 1.4949999999999999,
           "drumhead": 3.35,
-          "snare_wires": 1.365,
-          "cymbal_alloy": 5.840000000000001,
-          "cymbal_hammering": 5.445,
-          "cymbal_lathing": 5.760000000000001,
+          "snare_wires": 1.4949999999999999,
+          "cymbal_alloy": 21.599999999999998,
+          "cymbal_hammering": 18.57,
+          "cymbal_lathing": 18.72,
           "cymbal_finish": 0.38999999999999996,
-          "drum_technique": 8.319999999999999
+          "drum_technique": 18.625
         }
       }
     ],

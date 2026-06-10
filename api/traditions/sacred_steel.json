@@ -3,8 +3,8 @@
   "name": "Sacred steel",
   "family": "blues_gospel",
   "lineage": "Black Pentecostal pedal-and-lap-steel-guitar gospel tradition developed in the House of God and Church of the Living God Pentecostal denominations from the 1930s onward — the pedal steel guitar functions as the foreground praise-and-worship instrument substituting for the tonewheel organ standard in most Black Pentecostal churches; codified through Aubrey Ghent, Sonny Treadway, Calvin Cooke, the modern Robert Randolph and the Family Band post-2000s extension",
-  "recipe": "classic North American mid-1930s sacred steel, ritual Devotional, sacred steel branch, christian gospel black gospel gospel quartet. thick, declaimed, melodic, ornamental. steel zum steel modern boutique single neck e9 only pedal steel, stainless steel roundwound sub heavy electric bass, steel pre muffled edge muffled fx9 manganese bronze drum kit. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 518,
+  "recipe": "classic North American mid-1930s sacred steel, ritual Devotional, sacred steel branch, christian gospel black gospel gospel quartet. thick, declaimed, melodic, ornamental. Fender blackface amp American 60s amp spring reverb bright steel zum steel pedal steel, ampeg b15 amp American 60s bass amp flip top character stainless steel roundwound electric bass, steel pre muffled edge muffled fx9 manganese bronze drum kit. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 586,
   "score": 440.297,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 15.906249999999996,
-          "voice_quality": 21.572499999999994,
+          "voice_register": 47.50625,
+          "voice_quality": 49.09750000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.0574999999999999,
-          "voice_articulation": 13.5,
-          "voice_microtone": 1.17,
-          "voice_tradition": 23.83625,
-          "voice_mechanism_compound": 1.0075,
-          "voice_estill_quality": 13.312499999999996,
-          "voice_speech_song": 10.204999999999997,
-          "voice_ensemble_config": 13.772499999999997,
-          "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 0.3,
-          "voice_processing_chain": 2.3737500000000002,
-          "voice_multitrack_stack": 2.3102500000000004
+          "voice_articulation": 36.25,
+          "voice_microtone": 3.9749999999999996,
+          "voice_tradition": 51.18625,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 38.61250000000001,
+          "voice_speech_song": 17.4485,
+          "voice_ensemble_config": 36.67250000000001,
+          "voice_ornament_system": 10.025000000000002,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 2.5075,
+          "voice_multitrack_stack": 3.26025
         }
       },
       {
@@ -66,11 +66,11 @@
         },
         "scores": {
           "electric_technique": 13.649999999999997,
-          "amp_make": 2.1449999999999996,
+          "amp_make": 7.34075,
           "pickup_steel": 0.32625,
-          "string_setup": 0.3525,
-          "bar_material": 7.244999999999998,
-          "pedal_steel_brand": 7.048749999999999,
+          "string_setup": 0.5025,
+          "bar_material": 7.394999999999999,
+          "pedal_steel_brand": 8.04875,
           "pedal_steel_neck_config": 1.7575,
           "pedal_steel_strings": 1.76125
         }
@@ -88,14 +88,14 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": -0.046250000000000006,
-          "amp_make": 1.56,
+          "electric_technique": 2.4000000000000004,
+          "amp_make": 7.1365,
           "body_wood": 0.3525,
-          "pickup_config": 0,
-          "string_type": 7.093749999999998,
+          "pickup_config": 0.65,
+          "string_type": 8.243749999999999,
           "scale_length_b": 1.00375,
           "fretted_or_not": 1.00375,
-          "bass_technique": 2.5
+          "bass_technique": 5
         }
       },
       {
@@ -114,17 +114,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 9.749999999999998,
-          "shell_wood": 7.244999999999998,
+          "percussion_technique": 15.639749999999998,
+          "shell_wood": 7.394999999999999,
           "shell_thickness": 1.00375,
-          "bearing_edges": 0.32625,
-          "drumhead": 2.6037500000000002,
+          "bearing_edges": 0.8449999999999999,
+          "drumhead": 6.90375,
           "snare_wires": 0.32625,
-          "cymbal_alloy": 1.3624999999999996,
-          "cymbal_hammering": 2.4524999999999997,
-          "cymbal_lathing": 3.45625,
-          "cymbal_finish": 0.045,
-          "drum_technique": 9.749999999999998
+          "cymbal_alloy": 3.79875,
+          "cymbal_hammering": 6.4025,
+          "cymbal_lathing": 7.40625,
+          "cymbal_finish": 0.195,
+          "drum_technique": 15.639749999999998
         }
       }
     ],

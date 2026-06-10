@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.395000000000001,
-          "voice_quality": 2.2749999999999995,
+          "voice_register": 7.495000000000001,
+          "voice_quality": 9.91,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.0075,
+          "voice_vibrato": 1.4949999999999999,
           "voice_articulation": 0.7424999999999999,
-          "voice_microtone": 3.9500000000000006,
-          "voice_tradition": 3.9650000000000007,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 2.665000000000001,
-          "voice_speech_song": 11.245000000000001,
-          "voice_ensemble_config": 12.48,
-          "voice_ornament_system": 2.607500000000001,
-          "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 0.5325
+          "voice_microtone": 6.275,
+          "voice_tradition": 24.094499999999996,
+          "voice_mechanism_compound": 3.7049999999999996,
+          "voice_estill_quality": 7.0200000000000005,
+          "voice_speech_song": 23.822500000000005,
+          "voice_ensemble_config": 21.319999999999997,
+          "voice_ornament_system": 2.9749999999999996,
+          "voice_pitch_organization": 3.0199999999999996,
+          "voice_processing_chain": 5.459999999999999,
+          "voice_multitrack_stack": 1.8200000000000003
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 4.452500000000001,
-          "string_tuning": 1.4949999999999999,
+          "acoustic_technique": 10.627500000000001,
+          "string_tuning": 1.6899999999999997,
           "top_wood": 0.5725,
           "back_sides": 0.625,
-          "string_acoustic": 0.5725,
-          "acoustic_om_technique": 4.452500000000001
+          "string_acoustic": 0.585,
+          "acoustic_om_technique": 10.627500000000001
         }
       },
       {
@@ -85,15 +85,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 1.2349999999999999,
+          "keyboard_technique": 2.5,
           "grand_piano_size": 0.5725,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 1.46,
-          "piano_rim": 2.9899999999999998,
-          "piano_soundboard": 2.015,
-          "piano_pinblock": -0.05,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "grand_piano_brand": 0.585,
+          "piano_hammer": 5.6850000000000005,
+          "piano_rim": 9.5225,
+          "piano_soundboard": 7.41,
+          "piano_pinblock": 4.515000000000001,
+          "piano_plate": 4.125,
+          "piano_pitch_standard": 5.64
         }
       }
     ],

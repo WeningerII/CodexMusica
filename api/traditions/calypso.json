@@ -3,8 +3,8 @@
   "name": "Calypso",
   "family": "global",
   "lineage": "Trinidadian narrative-and-topical song tradition emerging from post-1834 Emancipation kalinda stick-fighting chant, codified through the post-WWII commercial recording era — Mighty Sparrow (Slinger Francisco), Lord Kitchener (Aldwyn Roberts), Lord Invader, the Roaring Lion, Lord Melody, Calypso Rose; performed during the Trinidad and Tobago Carnival season (October-February preparation, with Carnival Monday-Tuesday peak) in calypso tent venues and competition contexts",
-  "recipe": "classic North American mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional garifuna paranda and hungu-hungu bachata. thick, narrative, Yoruba tonal vocal, m1 with m0 pulse borrowing. dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, bach stradivarius 180 canonical American orchestral trumpet, gold brass warmer tone rubber saxophone. trinidad calypso panyard outdoor. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 634,
+  "recipe": "classic North American mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional garifuna paranda and hungu-hungu bachata. thick, full chest belt, melodic, narrative. narrative fingerpicked dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, tenor gold brass warmer tone saxophone. trinidad calypso panyard outdoor. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 730,
   "score": 171.995,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.78,
-          "voice_quality": 0.45499999999999985,
+          "voice_register": 4.460000000000001,
+          "voice_quality": 9.424999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.435,
+          "voice_vibrato": 0.78,
           "voice_articulation": 1.2799999999999998,
-          "voice_microtone": 0.15,
-          "voice_tradition": 5.654999999999999,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 2.275,
-          "voice_speech_song": 10.854999999999997,
-          "voice_ensemble_config": 6.889999999999999,
-          "voice_ornament_system": 0.15,
-          "voice_pitch_organization": 0.9749999999999996,
-          "voice_processing_chain": 4.08,
-          "voice_multitrack_stack": 1.17
+          "voice_microtone": 3.4750000000000005,
+          "voice_tradition": 15.34,
+          "voice_mechanism_compound": 5.07,
+          "voice_estill_quality": 5.265000000000001,
+          "voice_speech_song": 33.864999999999995,
+          "voice_ensemble_config": 24.31,
+          "voice_ornament_system": 0.9099999999999999,
+          "voice_pitch_organization": 2.9850000000000008,
+          "voice_processing_chain": 6.779999999999999,
+          "voice_multitrack_stack": 3.3149999999999995
         }
       },
       {
@@ -62,8 +62,8 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 2.5300000000000007,
-          "string_tuning": 0,
+          "acoustic_technique": 3.1050000000000004,
+          "string_tuning": 0.65,
           "top_wood": 0.435,
           "back_sides": 0.435,
           "string_acoustic": 0.48000000000000004
@@ -76,8 +76,8 @@
           "claves_wood": "claves_cuban_hardwood"
         },
         "scores": {
-          "claves_pattern": 1.98,
-          "claves_wood": 0.6
+          "claves_pattern": 2.7299999999999995,
+          "claves_wood": 0.65
         }
       },
       {
@@ -93,14 +93,14 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 0.25,
-          "amp_make": 0,
+          "electric_technique": 0.7,
+          "amp_make": 2.7300000000000004,
           "body_wood": 0.8700000000000001,
           "pickup_config": 0.045,
-          "string_type": 1.56,
+          "string_type": 3.2500000000000004,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.3,
-          "bass_technique": 1.43
+          "bass_technique": 1.445
         }
       },
       {
@@ -110,8 +110,8 @@
           "steelpan_context": "steelpan_panyard"
         },
         "scores": {
-          "steelpan_voice": 0.585,
-          "steelpan_context": 2.08
+          "steelpan_voice": 1.04,
+          "steelpan_context": 3.38
         }
       },
       {
@@ -126,13 +126,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.7,
+          "wind_articulation": 1.4299999999999997,
           "brass_size": 0.435,
-          "trumpet_mouthpiece": 0.325,
-          "brass_mute": 0.15,
-          "trumpet_technique": 0.7,
-          "trumpet_bell_metal": 0.78,
-          "trumpet_maker_school": 1.6199999999999997
+          "trumpet_mouthpiece": 1.79,
+          "brass_mute": 0.65,
+          "trumpet_technique": 1.4299999999999997,
+          "trumpet_bell_metal": 1.625,
+          "trumpet_maker_school": 2.9899999999999998
         }
       },
       {
@@ -147,12 +147,12 @@
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 0.7,
-          "sax_size": 0.435,
+          "wind_articulation": 1.4299999999999997,
+          "sax_size": 2.990000000000001,
           "sax_reed": 0.435,
-          "sax_body_alloy": 1.55,
-          "sax_mouthpiece": 1.0799999999999998,
-          "sax_technique": -0.035,
+          "sax_body_alloy": 1.7999999999999998,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": 0.325,
           "sax_maker_school": 0.195
         }
       }

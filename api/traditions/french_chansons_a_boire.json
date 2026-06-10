@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 1.41,
-          "voice_quality": 4.875,
+          "voice_register": 2.795,
+          "voice_quality": 6.5649999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 0.38999999999999996,
-          "voice_tradition": 4.16,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.645,
-          "voice_speech_song": 17.095,
-          "voice_ensemble_config": 7.799999999999999,
-          "voice_ornament_system": 1.7449999999999997,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 0.435,
-          "voice_multitrack_stack": 1.8
+          "voice_vibrato": 2.535,
+          "voice_articulation": 5.635,
+          "voice_microtone": 1.4949999999999999,
+          "voice_tradition": 13.909999999999997,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 3.835,
+          "voice_speech_song": 38.349999999999994,
+          "voice_ensemble_config": 23.075,
+          "voice_ornament_system": 2.619999999999999,
+          "voice_pitch_organization": 4.789999999999999,
+          "voice_processing_chain": 2.6650000000000005,
+          "voice_multitrack_stack": 4.29
         }
       },
       {
@@ -64,13 +64,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 0,
+          "free_reed_technique": 1.4949999999999999,
           "accordion_reed_material": 0.345,
-          "musette_offset": 0.495,
+          "musette_offset": 0.65,
           "reed_config": 10.11,
           "bellows": 0.39,
-          "voicing_chamber": 0.9099999999999999,
-          "accordion_maker_school": 1.2324999999999997
+          "voicing_chamber": 1.2774999999999999,
+          "accordion_maker_school": 3.314999999999999
         }
       }
     ],

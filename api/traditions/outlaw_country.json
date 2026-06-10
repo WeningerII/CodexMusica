@@ -3,8 +3,8 @@
   "name": "Outlaw country",
   "family": "vernacular",
   "lineage": "Early-to-mid 1970s reaction against the slick Nashville Sound establishment — codified through Waylon Jennings (Honky Tonk Heroes 1973, Dreaming My Dreams 1975), Willie Nelson (his return to Texas after the early-1970s Nashville disillusionment, Shotgun Willie 1973, Red Headed Stranger 1975, the Phases and Stages 1974), Kris Kristofferson, Johnny Cash (whose career outlaw turn aligned with the movement), David Allan Coe, Townes Van Zandt, the broader Austin Texas scene (Jerry Jeff Walker, Guy Clark) where outlaw country found its sympathetic recording-and-touring infrastructure outside the Nashville Music Row system",
-  "recipe": "classic North American 1974-1976 outlaw country, functional Song, outlaw branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, expressive, equal tempered. cedar phosphor bronze pre war martin fingerpicked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany pyramid electric bass, bass drum, brass traditional straight harmonica, autoharp. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 903,
+  "recipe": "classic North American 1974-1976 outlaw country, functional Song, outlaw branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, expressive, equal tempered. cedar phosphor bronze pre war martin fingerpicked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany pyramid electric bass, bass drum, pearwood marine band tradition brass traditional straight harmonica, folk strummed open chord ringing overtones autoharp. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 977,
   "score": 310.185,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 10.619374999999994,
-          "voice_quality": 0.8851249999999998,
+          "voice_register": 21.469374999999996,
+          "voice_quality": 12.075,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 9.5,
           "voice_articulation": 0.022125,
-          "voice_microtone": 1.2499999999999996,
-          "voice_tradition": 1.0238749999999999,
-          "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 10.79075,
-          "voice_speech_song": 6.175,
-          "voice_ensemble_config": 3.25,
-          "voice_ornament_system": 1.345,
-          "voice_pitch_organization": 2.3,
+          "voice_microtone": 3.8500000000000005,
+          "voice_tradition": 11.066374999999999,
+          "voice_mechanism_compound": 2.2901249999999997,
+          "voice_estill_quality": 11.890749999999999,
+          "voice_speech_song": 10.871625,
+          "voice_ensemble_config": 4.7555,
+          "voice_ornament_system": 4.4967500000000005,
+          "voice_pitch_organization": 3.3,
           "voice_processing_chain": 5.0065,
-          "voice_multitrack_stack": 3.3200000000000003
+          "voice_multitrack_stack": 4.470000000000001
         }
       },
       {
@@ -62,11 +62,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 9.45,
-          "string_tuning": 0,
+          "acoustic_technique": 23.810000000000002,
+          "string_tuning": 0.7249999999999998,
           "top_wood": 1.028875,
-          "back_sides": 0.09,
-          "string_acoustic": 1.073875
+          "back_sides": 0.39,
+          "string_acoustic": 1.2238749999999998
         }
       },
       {
@@ -86,18 +86,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 9.635,
-          "amp_make": 9.688124999999998,
+          "electric_technique": 10.084999999999999,
+          "amp_make": 11.113124999999997,
           "body_wood": 1.028875,
           "neck_wood": 1.028875,
           "fretboard": 0.9788749999999999,
-          "pickup_magnet": 0.09,
-          "string_material": 0.39,
+          "pickup_magnet": 0.39,
+          "string_material": 0.78,
           "string_gauge": 1.010125,
           "bridge": 0,
           "scale_length": 1.039,
           "finish": 0.0045,
-          "string_tuning": 0.78
+          "string_tuning": 1.9040000000000001
         }
       },
       {
@@ -114,13 +114,13 @@
         },
         "scores": {
           "electric_technique": 10.312624999999999,
-          "amp_make": 9.688124999999998,
+          "amp_make": 11.113124999999997,
           "pickup_steel": 1.010125,
           "string_setup": 4.207,
           "bar_material": 1.028875,
-          "pedal_steel_brand": 14.446499999999997,
-          "pedal_steel_neck_config": 9.962125,
-          "pedal_steel_strings": 13.258374999999997
+          "pedal_steel_brand": 15.246499999999997,
+          "pedal_steel_neck_config": 10.112124999999999,
+          "pedal_steel_strings": 13.408374999999998
         }
       },
       {
@@ -137,13 +137,13 @@
         },
         "scores": {
           "electric_technique": 0.2,
-          "amp_make": 9.498124999999998,
+          "amp_make": 9.848125,
           "body_wood": 1.039,
           "pickup_config": 0,
-          "string_type": 1.588875,
+          "string_type": 2.07725,
           "scale_length_b": 1.014625,
-          "fretted_or_not": 0.05512499999999999,
-          "bass_technique": 9.635
+          "fretted_or_not": 0.195,
+          "bass_technique": 10.084999999999999
         }
       },
       {
@@ -153,8 +153,8 @@
           "bass_drum_beater": "bass_drum_wood_click"
         },
         "scores": {
-          "bass_drum_size": 0.15,
-          "bass_drum_beater": 0.0525
+          "bass_drum_size": 0.65,
+          "bass_drum_beater": 0.195
         }
       },
       {
@@ -169,13 +169,13 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "free_reed_technique": 9.907499999999999,
-          "harmonica_type": 1.118125,
-          "harmonica_comb": 0.26,
-          "harmonica_reed": 1.018875,
-          "harmonica_technique": 9.907499999999999,
+          "free_reed_technique": 20.957499999999996,
+          "harmonica_type": 1.4681250000000001,
+          "harmonica_comb": 1.8525,
+          "harmonica_reed": 1.7438749999999998,
+          "harmonica_technique": 20.957499999999996,
           "harmonica_maker_school": 0.024375,
-          "harmonica_tuning": 0.19124999999999998
+          "harmonica_tuning": 0.8749999999999999
         }
       },
       {
@@ -188,9 +188,9 @@
           "autoharp_body_wood": "autoharp_spruce_maple"
         },
         "scores": {
-          "acoustic_technique": -0.07,
-          "autoharp_chord_bars": 0.9393749999999998,
-          "autoharp_context": 2.8600000000000003,
+          "acoustic_technique": 3.4445,
+          "autoharp_chord_bars": 3.964999999999999,
+          "autoharp_context": 6.493625000000001,
           "autoharp_strings": 0.381375,
           "autoharp_body_wood": 0
         }

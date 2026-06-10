@@ -3,8 +3,8 @@
   "name": "Russian kolybelnaya (колыбельная, cradle song)",
   "family": "global",
   "lineage": "Russian cradle-song tradition continuous from peasant-folksong rural practice through 19th-century romance art-song setting (Mussorgsky, Tchaikovsky) into Soviet-era and post-Soviet domestic practice",
-  "recipe": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song schlager chanson pop. low dynamic level, continuous-phonation, equal tempered, modern pop training. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 386,
+  "recipe": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song schlager chanson pop. thick, low dynamic level, melodic, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 365,
   "score": 78.86,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.435,
-          "voice_quality": 1.885,
+          "voice_register": 8.999999999999996,
+          "voice_quality": 3.7700000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.325,
+          "voice_vibrato": 2.21,
           "voice_articulation": 1.69,
-          "voice_microtone": 0.5049999999999999,
-          "voice_tradition": 2.145,
-          "voice_mechanism_compound": 1.8,
-          "voice_estill_quality": 0.345,
-          "voice_speech_song": 9.165,
-          "voice_ensemble_config": 3.1200000000000006,
+          "voice_microtone": 8.004999999999999,
+          "voice_tradition": 10.26,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 18.784999999999997,
+          "voice_ensemble_config": 9.294999999999998,
           "voice_ornament_system": 0.795,
           "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 0.825
+          "voice_processing_chain": 6.734999999999999,
+          "voice_multitrack_stack": 4.114999999999999
         }
       }
     ],

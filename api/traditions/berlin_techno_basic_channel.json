@@ -22,8 +22,8 @@
         },
         "scores": {
           "tr808_voice": 1.34,
-          "drum_machine_808_context": 1.69,
-          "tr808_production_origin": 1.625
+          "drum_machine_808_context": 4.2525,
+          "tr808_production_origin": 3.3150000000000004
         }
       },
       {
@@ -36,10 +36,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 5.235,
+          "electronic_technique": 8.985,
           "oscillator": 1.3900000000000001,
-          "filter_topology": 1.69,
-          "envelope": 2.6,
+          "filter_topology": 3.7874999999999996,
+          "envelope": 4.55,
           "modulation": 0.045
         }
       }

@@ -3,8 +3,8 @@
   "name": "Nepali lok (folk-popular song)",
   "family": "global",
   "lineage": "Nepali lok geet (\"folk songs\") encompass the broad popular-and-traditional song repertoire of Nepal, including regional variants from the Newari, Tharu, Gurung, Magar, Tamang, Rai, Limbu, and other ethnic communities, plus the urban Kathmandu Valley pan-Nepali pop synthesis. The genre developed through the twentieth-century Radio Nepal (founded 1951) commercial-recording era. Standard instrumentation centers on madal two-headed barrel-drum, tabla, sarangi (Nepali, four-string short-neck bowed lute distinct from Hindustani sarangi), and bansuri flute. Repertoire spans selo (Tamang call-and-response), tappa (regional ballad), and roila (Karnali region).",
-  "recipe": "classic early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. dholak, dark folk clay tabla, kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century melodic bansuri, microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 558,
+  "recipe": "classic early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. dholak, dark folk clay tabla, kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 609,
   "score": 171.994,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 12.689999999999998,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 14.814999999999998,
+          "voice_quality": 2.665,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8250000000000001,
-          "voice_articulation": 0.9165,
-          "voice_microtone": 6.945,
-          "voice_tradition": 10.543499999999998,
-          "voice_mechanism_compound": 1.7865,
-          "voice_estill_quality": 1.0949999999999998,
-          "voice_speech_song": 13.324999999999998,
-          "voice_ensemble_config": 10.009999999999998,
-          "voice_ornament_system": 6.275,
-          "voice_pitch_organization": 2.2,
-          "voice_processing_chain": 3.35,
-          "voice_multitrack_stack": 1.9529999999999996
+          "voice_vibrato": 0.845,
+          "voice_articulation": 0.845,
+          "voice_microtone": 7.595,
+          "voice_tradition": 30.322499999999998,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 19.694999999999993,
+          "voice_ensemble_config": 16.379999999999995,
+          "voice_ornament_system": 6.775,
+          "voice_pitch_organization": 8.334999999999997,
+          "voice_processing_chain": 5.225,
+          "voice_multitrack_stack": 3.0875
         }
       },
       {
@@ -62,7 +62,7 @@
         },
         "scores": {
           "dholak_use": 0.573,
-          "dholak_construction": 3.38,
+          "dholak_construction": 4.03,
           "dholak_head": 0.4365,
           "dholak_tensioning": 0.48149999999999993
         }
@@ -76,8 +76,8 @@
         },
         "scores": {
           "tabla_dayan": 0.24,
-          "tabla_bayan": 2.558,
-          "tabla_syahi": 1.275
+          "tabla_bayan": 3.2079999999999997,
+          "tabla_syahi": 1.8849999999999996
         }
       },
       {
@@ -90,10 +90,10 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 6.273,
-          "bansuri_length": 6.575,
-          "bansuri_ornament": 0,
-          "bansuri_body_material": 1.95,
+          "wind_articulation": 7.898,
+          "bansuri_length": 8.7,
+          "bansuri_ornament": 2.2099999999999995,
+          "bansuri_body_material": 2.8024999999999998,
           "bansuri_lineage": 1.69
         }
       },
@@ -109,11 +109,11 @@
         },
         "scores": {
           "bowed_technique": 3.1500000000000004,
-          "sarangi_belly": 1.69,
+          "sarangi_belly": 5.46,
           "sarangi_taraf": 0,
-          "sarangi_bow": 0.8700000000000001,
-          "sarangi_main_strings": 0.7215,
-          "sarangi_body_wood": 0.6765
+          "sarangi_bow": 0.845,
+          "sarangi_main_strings": 2.0149999999999997,
+          "sarangi_body_wood": 1.04
         }
       }
     ],

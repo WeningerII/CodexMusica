@@ -21,9 +21,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 5.915,
-          "drum_machine_808_context": 5.9799999999999995,
-          "tr808_production_origin": 0.1365
+          "tr808_voice": 11.602500000000001,
+          "drum_machine_808_context": 10.92,
+          "tr808_production_origin": 0.7150000000000001
         }
       },
       {
@@ -36,10 +36,10 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 5.785,
-          "oscillator": 7.669999999999999,
-          "filter_topology": 7.669999999999999,
-          "envelope": 0.585,
+          "electronic_technique": 13.65,
+          "oscillator": 12.610000000000001,
+          "filter_topology": 13.455000000000002,
+          "envelope": 0.845,
           "modulation": 0
         }
       }

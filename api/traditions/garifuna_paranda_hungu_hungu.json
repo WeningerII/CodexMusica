@@ -3,8 +3,8 @@
   "name": "Garifuna paranda and hungu-hungu",
   "family": "global",
   "lineage": "Garifuna paranda and hungu-hungu Afro-Indigenous-Caribbean song traditions of the Garifuna (Garinagu) community of the Central American Caribbean coast — Belize (Stann Creek and Toledo districts), Honduras (Atlántida and Colón departments), Guatemala (Izabal department), and Nicaragua (Caribbean coast). Garifuna culture, language, and music. The Garifuna are descended from West African Black-Carib peoples deported from St. Vincent by British colonial authorities in 1797 to the Honduran Caribbean coast and subsequently spread along the Central American littoral; the Garifuna language is a unique Arawakan-with-African-and-Spanish-French-substrate hybrid. Paranda is the canonical Garifuna song-form: solo-or-small-group voice accompanied by acoustic guitar, atabaque-style barrel-drums (the primero/segunda paired drum configuration in Garifuna nomenclature), sisera gourd-shaker, and characteristic male tenor-and-falsetto-alternation vocal style. Hungu-hungu is the parallel drum-rhythm cycle (in a characteristic 3/4-against-6/8 polyrhythm) that anchors much Garifuna sacred-and-secular repertoire. Andy Palacio (1960-2008) and the Stonetree Records Paranda Project (1990s, recording elderly first-generation parandero performers) brought paranda to international attention. Aurelio Martínez (born 1969) continues the post-Palacio paranda lineage. Distinguished from Trinidadian calypso by Garifuna-language repertoire and characteristic 3/4-against-6/8 hungu-hungu polyrhythmic foundation; distinguished from Honduran-mestizo punta rock by paranda's acoustic-and-traditional (vs electric-pop) instrumentation; distinguished from Afro-Brazilian samba de roda by Garifuna's Central-American-Caribbean specific Afro-Indigenous-hybrid linguistic-cultural identity.",
-  "recipe": "classic early-1960s garifuna paranda and hungu-hungu, functional Song, tropical song branch, Caribbean groove percussion zydeco cadence-lypso. thick, forward-resonance, punctuated, equal tempered. cowhide canonical candomble jacaranda canonical bahian candomble atabaque, gourd seeds hardwood handle canonical garifuna paranda accompaniment canonical garifuna sisera. garifuna beach hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 518,
+  "recipe": "classic early-1960s garifuna paranda and hungu-hungu, functional Song, tropical song branch, Caribbean groove percussion zydeco cadence-lypso. thick, forward-resonance, equal tempered, Yoruba tonal vocal. cowhide canonical candomble jacaranda canonical bahian candomble atabaque, gourd seeds hardwood handle canonical garifuna paranda accompaniment canonical garifuna sisera. garifuna beach hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 526,
   "score": 180.175,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 4.985000000000001,
-          "voice_quality": 2.2500000000000004,
+          "voice_register": 7.960000000000001,
+          "voice_quality": 6.844999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.345,
-          "voice_articulation": 0.765,
+          "voice_articulation": 0.39,
           "voice_microtone": 4.800000000000001,
-          "voice_tradition": 16.894999999999996,
+          "voice_tradition": 19.694999999999997,
           "voice_mechanism_compound": 6.949999999999999,
-          "voice_estill_quality": 5.065,
-          "voice_speech_song": 27.365000000000002,
-          "voice_ensemble_config": 21.710000000000004,
-          "voice_ornament_system": 1.56,
-          "voice_pitch_organization": 3.6350000000000007,
-          "voice_processing_chain": 7.279999999999999,
-          "voice_multitrack_stack": 2.84
+          "voice_estill_quality": 5.215,
+          "voice_speech_song": 32.695,
+          "voice_ensemble_config": 27.429999999999996,
+          "voice_ornament_system": 1.755,
+          "voice_pitch_organization": 3.9350000000000005,
+          "voice_processing_chain": 8.934999999999999,
+          "voice_multitrack_stack": 3.4899999999999998
         }
       },
       {
@@ -60,7 +60,7 @@
           "atabaque_shell_wood": "atabaque_jacaranda"
         },
         "scores": {
-          "atabaque_role": 0.24,
+          "atabaque_role": 0.195,
           "atabaque_skin": 2.3,
           "atabaque_shell_wood": 1.25
         }

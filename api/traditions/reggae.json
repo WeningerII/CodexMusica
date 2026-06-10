@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 0.345,
-          "voice_quality": 2.2950000000000004,
+          "voice_register": 0.195,
+          "voice_quality": 7.12,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.325,
           "voice_articulation": 0.69,
           "voice_microtone": 0.24,
-          "voice_tradition": 2.665000000000001,
-          "voice_mechanism_compound": 1.545,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 3.7049999999999996,
-          "voice_ensemble_config": 3.6399999999999997,
-          "voice_ornament_system": 2.4,
-          "voice_pitch_organization": 0.645,
-          "voice_processing_chain": 1.335,
+          "voice_tradition": 5.9799999999999995,
+          "voice_mechanism_compound": 1.675,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 7.929999999999998,
+          "voice_ensemble_config": 8.514999999999999,
+          "voice_ornament_system": 6.15,
+          "voice_pitch_organization": 0.26,
+          "voice_processing_chain": 1.3,
           "voice_multitrack_stack": 0.9750000000000001
         }
       },
@@ -66,11 +66,11 @@
         },
         "scores": {
           "electric_technique": 8.749999999999998,
-          "amp_make": 1.885,
+          "amp_make": 2.295,
           "body_wood": 0.6,
           "pickup_config": 0.09,
-          "string_type": 1.8199999999999998,
-          "scale_length_b": 0.3,
+          "string_type": 2.4699999999999998,
+          "scale_length_b": 0.65,
           "fretted_or_not": 0.135,
           "bass_technique": 8.749999999999998
         }
@@ -92,14 +92,14 @@
         },
         "scores": {
           "percussion_technique": 8.749999999999998,
-          "shell_wood": 0.44999999999999996,
+          "shell_wood": 0.65,
           "shell_thickness": 0,
           "bearing_edges": 0.44999999999999996,
           "drumhead": 0.3,
           "snare_wires": 0.3,
           "cymbal_alloy": 0,
           "cymbal_hammering": -0.035,
-          "cymbal_lathing": 0.26,
+          "cymbal_lathing": 0.7149999999999997,
           "cymbal_finish": 0,
           "drum_technique": 8.749999999999998
         }
@@ -132,7 +132,7 @@
           "bridge": 0.24,
           "scale_length": 0.6,
           "finish": 0,
-          "string_tuning": 0.75
+          "string_tuning": 0.65
         }
       },
       {
@@ -150,7 +150,7 @@
           "drawbar_setting": -0.035,
           "rotary_speed": 0,
           "percussion_setting": 0.195,
-          "tonewheel_model": 2.7950000000000004,
+          "tonewheel_model": 5.3950000000000005,
           "leslie_cabinet_model": 0
         }
       },
@@ -165,8 +165,8 @@
         "scores": {
           "keyboard_technique": -0.07,
           "melodica_use": 0.75,
-          "melodica_pitch": 0.045,
-          "melodica_maker_school": 3.0549999999999997
+          "melodica_pitch": 0.195,
+          "melodica_maker_school": 4.9399999999999995
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Latin rock (late-1960s Afro-Cuban-percussion rock)",
   "family": "rock_punk",
   "lineage": "Late-1960s-and-onward rock subgenre integrating Afro-Cuban percussion (congas, timbales, bongos) and Latin-American rhythmic-harmonic-vocabulary with rock guitar-bass-drum aesthetic. Santana (San Francisco, 1966-onward) inaugurated the canonical Latin rock sound through the 1969 Woodstock performance and the first three Santana albums (1969-1971); Malo, El Chicano, War, and (later) Café Tacuba and Maná in Spanish-language Latin-rock extended the genre.",
-  "recipe": "classic North American latin rock, distorted Rock, regional branch, son salsa Cuban salsa dura salsa colombiana. thick, rap, nervy, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 822,
+  "recipe": "classic North American latin rock, distorted Rock, regional branch, son salsa Cuban salsa dura salsa colombiana. thick, rap, nervy, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 828,
   "score": 448.506,
   "config": {
     "traditions": [
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 21.444999999999997,
-          "voice_quality": 1.56,
+          "voice_quality": 4.101500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 1.69,
+          "voice_vibrato": 2.3887500000000004,
+          "voice_articulation": 3.26525,
           "voice_microtone": 21.605,
-          "voice_tradition": 3.835,
-          "voice_mechanism_compound": 1.755,
+          "voice_tradition": 5.785,
+          "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 1.55,
-          "voice_multitrack_stack": 4.5264999999999995
+          "voice_speech_song": 12.609999999999996,
+          "voice_ensemble_config": 13.389999999999997,
+          "voice_ornament_system": 2.23875,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 2.34,
+          "voice_multitrack_stack": 5.0375
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 3.9250000000000003,
+          "electric_technique": 4.900000000000001,
           "amp_make": 9.888999999999998,
-          "body_wood": 0.38999999999999996,
-          "neck_wood": 1.69,
-          "fretboard": 1.69,
+          "body_wood": 0.5850000000000002,
+          "neck_wood": 2.3887500000000004,
+          "fretboard": 2.3887500000000004,
           "pickup_magnet": 0.0765,
           "pickup_winding": 0.22349999999999998,
-          "string_material": 1.69,
-          "bridge": 0.38999999999999996,
-          "scale_length": 1.4300000000000002,
+          "string_material": 2.3887500000000004,
+          "bridge": 0.845,
+          "scale_length": 3.1200000000000006,
           "string_gauge": 0.38999999999999996,
           "finish": 0,
-          "string_tuning": 13.712750000000003
+          "string_tuning": 15.01275
         }
       },
       {
@@ -98,10 +98,10 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9765000000000001,
+          "electric_technique": 2.9515000000000002,
           "amp_make": 11.9555,
-          "body_wood": 0.7799999999999999,
-          "pickup_config": 0.195,
+          "body_wood": 0.845,
+          "pickup_config": 0.845,
           "string_type": 23.289,
           "scale_length_b": 0.38999999999999996,
           "fretted_or_not": 0.0315,
@@ -124,16 +124,16 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 8.319999999999999,
-          "shell_wood": 1.69,
+          "percussion_technique": 12.544999999999996,
+          "shell_wood": 2.3887500000000004,
           "shell_thickness": 0.0315,
-          "bearing_edges": 0.38999999999999996,
-          "drumhead": 1.69,
+          "bearing_edges": 0.5850000000000002,
+          "drumhead": 2.3887500000000004,
           "snare_wires": 0.38999999999999996,
-          "cymbal_alloy": 23.38875,
+          "cymbal_alloy": 24.03875,
           "cymbal_hammering": 21.65,
           "cymbal_lathing": 21.6815,
-          "cymbal_finish": 1.69,
+          "cymbal_finish": 2.3887500000000004,
           "drum_technique": 21.75
         }
       },
@@ -145,8 +145,8 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 19.689999999999998,
-          "timbales_shell": 0.495,
+          "percussion_technique": 23.065,
+          "timbales_shell": 6.239999999999998,
           "timbales_context": 0.24
         }
       },
@@ -159,10 +159,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 19.689999999999998,
+          "percussion_technique": 23.065,
           "conga_set": 0.21300000000000002,
-          "conga_skin": 5.59,
-          "conga_shell_wood": 5.59
+          "conga_skin": 8.385,
+          "conga_shell_wood": 8.385
         }
       },
       {
@@ -174,10 +174,10 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 19.689999999999998,
-          "bongos_skin": 7.865,
+          "percussion_technique": 23.065,
+          "bongos_skin": 15.535000000000002,
           "bongos_context": 0.0765,
-          "bongos_shell_wood": 5.59
+          "bongos_shell_wood": 8.385
         }
       }
     ],

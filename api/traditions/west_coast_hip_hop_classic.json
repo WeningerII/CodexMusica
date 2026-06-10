@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 0.8302499999999996,
-          "voice_quality": 13.8635,
+          "voice_register": 2.05525,
+          "voice_quality": 22.9385,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 8.36875,
+          "voice_vibrato": 2.703,
+          "voice_articulation": 14.168750000000003,
           "voice_microtone": 0.1365,
-          "voice_tradition": 7.1325,
-          "voice_mechanism_compound": 0.5429999999999999,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 13.329749999999999,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 0.02625,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 16.374,
-          "voice_multitrack_stack": 3.1237500000000002
+          "voice_tradition": 11.032500000000002,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.7799999999999998,
+          "voice_speech_song": 22.40475,
+          "voice_ensemble_config": 13.644499999999994,
+          "voice_ornament_system": 1.2850000000000001,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 19.499000000000002,
+          "voice_multitrack_stack": 5.623750000000001
         }
       },
       {
@@ -61,11 +61,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.7,
-          "sampler_archetypes": 11.7,
-          "sampler_bit_depth": 1.56,
-          "sampler_workflow": 6.918,
-          "sampler_classic_context": 16.2995
+          "electronic_technique": 10.3,
+          "sampler_archetypes": 17.124000000000002,
+          "sampler_bit_depth": 2.3765000000000005,
+          "sampler_workflow": 10.525,
+          "sampler_classic_context": 23.899499999999996
         }
       },
       {
@@ -76,9 +76,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 6.90375,
-          "drum_machine_808_context": 3.60175,
-          "tr808_production_origin": 0.1365
+          "tr808_voice": 10.803750000000003,
+          "drum_machine_808_context": 5.75175,
+          "tr808_production_origin": 0.195
         }
       },
       {
@@ -91,9 +91,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 6.83525,
+          "electronic_technique": 11.910250000000001,
           "oscillator": 2.38625,
-          "filter_topology": 4.202999999999999,
+          "filter_topology": 5.1530000000000005,
           "envelope": 0.105,
           "modulation": 0.0375
         }

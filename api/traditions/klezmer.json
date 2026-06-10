@@ -3,8 +3,8 @@
   "name": "Klezmer",
   "family": "vernacular",
   "lineage": "Eastern European Ashkenazi Jewish wedding-band tradition that was the central popular-celebratory music of the Yiddish-speaking world from the 16th-early-20th centuries before the Holocaust decimated its practitioner community; revived from the 1970s onward through The Klezmer Conservatory Band, Andy Statman, the Klezmatics, Brave Old World, and the Margot Leverett-Klezmer-Mountain-Boys lineage",
-  "recipe": "classic North American mid-1970s klezmer, improv On Frame, klezmer improv branch, string drone modal, European wedding maskandi greek gamílio glendí. ebonite hard rubber klezmer tradition clarinet, ornamented fiddle, castagnari Italian premium folk music bellows articulated accordion, bellows articulated piano accordion, upright bass, trumpet, klezmer ensemble, art music Italian alpine brescian tradition European maple mandola, hammered dulcimer. klezmer simcha celebration hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 615,
+  "recipe": "classic North American mid-1970s klezmer, improv On Frame, klezmer improv branch, string drone modal, European wedding maskandi greek gamílio glendí. ebonite hard rubber klezmer tradition clarinet, ornamented fiddle, leather castagnari Italian premium folk music bellows articulated accordion, bellows articulated piano accordion, upright bass, medium cup standard rim orchestral balance trumpet, klezmer ensemble, art music Italian alpine brescian tradition European maple drone like mandola, mellow traditional leather hammered dulcimer. klezmer simcha celebration hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 704,
   "score": 116.452,
   "config": {
     "traditions": [
@@ -23,8 +23,8 @@
           "clarinet_articulation": "glissando_clarinet"
         },
         "scores": {
-          "wind_articulation": -0.035,
-          "clarinet_body": 16.63,
+          "wind_articulation": 1.7287499999999996,
+          "clarinet_body": 18.08,
           "clarinet_size": 0.21,
           "clarinet_reed": 0.345,
           "clarinet_articulation": 12
@@ -40,11 +40,11 @@
           "fiddle_articulation": "pizz"
         },
         "scores": {
-          "bowed_technique": 13.995,
-          "fiddle_strings": 0.09,
-          "fiddle_bow": 0,
-          "fiddle_mute": 0.20749999999999996,
-          "fiddle_articulation": 0.42
+          "bowed_technique": 14.894999999999998,
+          "fiddle_strings": 0.74,
+          "fiddle_bow": 0.6500000000000002,
+          "fiddle_mute": 0.65,
+          "fiddle_articulation": 0.35
         }
       },
       {
@@ -60,12 +60,12 @@
         },
         "scores": {
           "free_reed_technique": 11.95,
-          "accordion_reed_material": 0.20749999999999996,
-          "musette_offset": 0.7925,
+          "accordion_reed_material": 0.65,
+          "musette_offset": 1.4300000000000002,
           "reed_config": 0.42,
-          "bellows": 0.7925,
+          "bellows": 1.4300000000000002,
           "voicing_chamber": 0.21,
-          "accordion_maker_school": 1.69
+          "accordion_maker_school": 3.965
         }
       },
       {
@@ -76,7 +76,7 @@
           "upright_play": "slap_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
+          "acoustic_technique": 0.585,
           "upright_strings": 0.045,
           "upright_play": 0.22499999999999998
         }
@@ -93,13 +93,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.19500000000000003,
+          "wind_articulation": 1.7287499999999996,
           "brass_size": 0.045,
-          "trumpet_mouthpiece": 0.7149999999999999,
+          "trumpet_mouthpiece": 2.34,
           "brass_mute": 0.15,
-          "trumpet_technique": 0.19500000000000003,
-          "trumpet_bell_metal": 0.99,
-          "trumpet_maker_school": 0.39
+          "trumpet_technique": 0.585,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.78
         }
       },
       {
@@ -109,8 +109,8 @@
           "rhythm_section": "klez_accordion"
         },
         "scores": {
-          "sections": 0.7925,
-          "rhythm_section": 0.20749999999999996
+          "sections": 1.4300000000000002,
+          "rhythm_section": 0.65
         }
       },
       {
@@ -124,11 +124,11 @@
           "mandola_strings": "mandola_eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 2.4699999999999998,
-          "mandola_size": 0.39,
-          "mandola_context": 3.77,
-          "mandola_top": 2.535,
-          "mandola_back": 2.57,
+          "acoustic_technique": 5.525,
+          "mandola_size": 1.2349999999999999,
+          "mandola_context": 9.035,
+          "mandola_top": 3.575,
+          "mandola_back": 3.32,
           "mandola_strings": 0.24
         }
       },
@@ -142,7 +142,7 @@
         "scores": {
           "free_reed_technique": 11.95,
           "pa_size": 0.195,
-          "pa_use": 0.20749999999999996
+          "pa_use": 0.65
         }
       },
       {
@@ -155,8 +155,8 @@
         },
         "scores": {
           "hammer_dulcimer_courses": 0.15,
-          "hammer_material": 0.7925,
-          "hammered_dulcimer_body_wood": 0.7949999999999999,
+          "hammer_material": 1.4300000000000002,
+          "hammered_dulcimer_body_wood": 0.39,
           "hammered_dulcimer_strings": 0
         }
       }

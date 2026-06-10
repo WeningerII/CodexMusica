@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.575,
+          "voice_register": 11.634749999999995,
           "voice_quality": 19.411374999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.39,
-          "voice_articulation": 1.363625,
-          "voice_microtone": 2.250000000000001,
-          "voice_tradition": 8.809625,
-          "voice_mechanism_compound": 2.405875,
-          "voice_estill_quality": 1.885,
+          "voice_articulation": 1.513625,
+          "voice_microtone": 10.424999999999997,
+          "voice_tradition": 12.559625,
+          "voice_mechanism_compound": 2.555875,
+          "voice_estill_quality": 2.0799999999999996,
           "voice_speech_song": 18.468499999999995,
-          "voice_ensemble_config": 6.369999999999998,
+          "voice_ensemble_config": 10.269999999999996,
           "voice_ornament_system": 0.19500000000000003,
-          "voice_pitch_organization": 1.345,
+          "voice_pitch_organization": 1.4949999999999999,
           "voice_processing_chain": 14.949999999999996,
-          "voice_multitrack_stack": 5.720625
+          "voice_multitrack_stack": 7.845625
         }
       },
       {
@@ -59,9 +59,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 5.673125000000001,
-          "va_archetypes": 0.4589999999999999,
-          "digital_subtractive_context": 6.499999999999997
+          "electronic_technique": 11.375,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 10.399999999999997
         }
       },
       {
@@ -74,11 +74,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 7.231500000000001,
+          "electronic_technique": 10.9815,
           "sampler_archetypes": 2.1,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": 10.49,
-          "sampler_classic_context": 12.869999999999996
+          "sampler_bit_depth": 0.578625,
+          "sampler_workflow": 14.54,
+          "sampler_classic_context": 20.377499999999994
         }
       },
       {
@@ -90,7 +90,7 @@
         },
         "scores": {
           "tr808_voice": 2.468625,
-          "drum_machine_808_context": 2.464,
+          "drum_machine_808_context": 3.9139999999999997,
           "tr808_production_origin": 0.027749999999999997
         }
       },
@@ -102,9 +102,9 @@
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 0.31375,
-          "multitrack_stack_era_aesthetic": 4.00175,
-          "multitrack_stack_processing": 0.32025
+          "multitrack_stack_density": 0.46375,
+          "multitrack_stack_era_aesthetic": 5.62675,
+          "multitrack_stack_processing": 0.8125
         }
       }
     ],

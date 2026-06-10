@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.750000000000001,
-          "voice_quality": 1.9,
+          "voice_register": 4.4,
+          "voice_quality": 10.469999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.445,
-          "voice_articulation": 0.9299999999999999,
-          "voice_microtone": 0.045,
-          "voice_tradition": 10.075000000000001,
-          "voice_mechanism_compound": 2.4299999999999993,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 3.25,
-          "voice_ornament_system": 0,
+          "voice_vibrato": 1.595,
+          "voice_articulation": 0.585,
+          "voice_microtone": 1.4999999999999998,
+          "voice_tradition": 11.309999999999999,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 2.5024999999999995,
+          "voice_speech_song": 16.639999999999997,
+          "voice_ensemble_config": 12.414999999999996,
+          "voice_ornament_system": 0.7149999999999999,
           "voice_pitch_organization": 0.75,
-          "voice_processing_chain": 2.07,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 3.5949999999999998,
+          "voice_multitrack_stack": 2.9575
         }
       },
       {
@@ -61,8 +61,8 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 10.1,
-          "conga_set": 1.57,
+          "percussion_technique": 10.549999999999999,
+          "conga_set": 2.02,
           "conga_skin": 0.705,
           "conga_shell_wood": 0.705
         }
@@ -79,9 +79,9 @@
         "scores": {
           "acoustic_technique": 5.050000000000001,
           "string_tuning": 0,
-          "top_wood_parlor": 0.24,
+          "top_wood_parlor": 0.21,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.24
+          "string_acoustic_parlor": 0.845
         }
       },
       {
@@ -91,8 +91,8 @@
           "cajon_peruano_role": "cajon_peruano_festejo"
         },
         "scores": {
-          "cajon_peruano_construction": 10.659999999999998,
-          "cajon_peruano_role": 4.68
+          "cajon_peruano_construction": 11.05,
+          "cajon_peruano_role": 5.069999999999999
         }
       }
     ],

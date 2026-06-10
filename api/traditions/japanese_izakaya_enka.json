@@ -3,8 +3,8 @@
   "name": "Japanese izakaya enka (居酒屋演歌, tavern enka)",
   "family": "global",
   "lineage": "Japanese izakaya (居酒屋, tavern) enka drinking-song tradition continuous from postwar-Japanese enka-popularization era (1950s-1960s Misora Hibari era) through 20th-century continuous performance into modern Japanese-and-Japanese-diaspora continuous izakaya-and-snack-bar (スナック) practice; the izakaya-enka repertoire emphasizes melancholic-drinking-song aesthetic distinct from the more-celebratory Korean-jubu-ga or German-trinklied",
-  "recipe": "classic North American mid-1950s japanese izakaya enka, drinking Song, east Asian branch, European drinking song, anglo singer song ballad poetry, east Asian lullaby 1960s greenwich village confessional folk freak folk. thick, incomplete closure resting, continuous-phonation, min yo. narrative fingerpicked acoustic guitar, min yo folk song accompaniment shamisen. bedroom. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 506,
+  "recipe": "classic North American mid-1950s japanese izakaya enka, drinking Song, east Asian branch, European drinking song, anglo singer song ballad poetry, east Asian lullaby 1960s greenwich village confessional folk freak folk. thick, incomplete closure resting, chest resonance low mid, continuous-phonation. fingerpicked acoustic guitar, min yo folk song accompaniment shamisen. bedroom. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 513,
   "score": 212.064,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.2,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 16.275,
+          "voice_quality": 8.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.045,
+          "voice_vibrato": 0.545,
           "voice_articulation": 5.069999999999999,
-          "voice_microtone": 0,
-          "voice_tradition": 26.654999999999998,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 0.7149999999999997,
-          "voice_speech_song": 12.804999999999996,
-          "voice_ensemble_config": 7.2799999999999985,
-          "voice_ornament_system": 5.800000000000001,
+          "voice_microtone": 1.275,
+          "voice_tradition": 42.279999999999994,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 4.710000000000001,
+          "voice_speech_song": 20.669999999999995,
+          "voice_ensemble_config": 11.699999999999996,
+          "voice_ornament_system": 7.5150000000000015,
           "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 1.0999999999999999,
-          "voice_multitrack_stack": 4.9399999999999995
+          "voice_processing_chain": 1.95,
+          "voice_multitrack_stack": 10.394999999999996
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 1.1049999999999998,
-          "string_tuning": 0,
+          "acoustic_technique": 26.731249999999996,
+          "string_tuning": 0.7249999999999998,
           "top_wood": 0.9581249999999999,
           "back_sides": 0.9581249999999999,
-          "string_acoustic": 0.219375,
-          "acoustic_om_technique": 1.1049999999999998
+          "string_acoustic": 0.5,
+          "acoustic_om_technique": 26.731249999999996
         }
       },
       {
@@ -85,11 +85,11 @@
         "scores": {
           "plucked_traditional_technique": -0.05,
           "shamisen_size": 0.045,
-          "shamisen_skin": 0.045,
-          "shamisen_pick": -0.035,
-          "shamisen_neck_wood": 0.7149999999999999,
+          "shamisen_skin": 0.345,
+          "shamisen_pick": 0.495,
+          "shamisen_neck_wood": 0.8450000000000001,
           "shamisen_strings": 0.78,
-          "shamisen_tradition": 7.15
+          "shamisen_tradition": 18.199999999999996
         }
       }
     ],

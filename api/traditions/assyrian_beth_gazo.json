@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.635000000000001,
-          "voice_quality": 7.540000000000001,
+          "voice_register": 8.635,
+          "voice_quality": 11.040000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9899999999999998,
-          "voice_articulation": 3.99,
-          "voice_microtone": 1.9499999999999993,
-          "voice_tradition": 10.725,
-          "voice_mechanism_compound": 5.6499999999999995,
-          "voice_estill_quality": 9.034999999999998,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 5.65,
-          "voice_pitch_organization": 5.994999999999999,
-          "voice_processing_chain": 3.185,
-          "voice_multitrack_stack": 1.17
+          "voice_vibrato": 4.29,
+          "voice_articulation": 5.74,
+          "voice_microtone": 7.670000000000002,
+          "voice_tradition": 16.509999999999998,
+          "voice_mechanism_compound": 8.149999999999999,
+          "voice_estill_quality": 14.519999999999998,
+          "voice_speech_song": 18.33,
+          "voice_ensemble_config": 25.675,
+          "voice_ornament_system": 9.825,
+          "voice_pitch_organization": 12.805,
+          "voice_processing_chain": 4.875,
+          "voice_multitrack_stack": 1.6899999999999997
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 4.29,
-          "choir_polyphonic_configuration": 3.3799999999999994,
-          "choir_regional_canonical_configuration": 4.095,
-          "choir_ensemble_repertoire": 5.069999999999999
+          "choir_size": 7.93,
+          "choir_polyphonic_configuration": 10.985,
+          "choir_regional_canonical_configuration": 5.524999999999999,
+          "choir_ensemble_repertoire": 9.944999999999999
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Arena rock",
   "family": "rock",
   "lineage": "1970s-1980s American stadium-rock genre crafting anthemic compositions for large-venue performance — codified through Boston (Boston 1976), Foreigner (Foreigner 1977), Journey (Escape 1981), Styx (Paradise Theatre 1981), REO Speedwagon (Hi Infidelity 1980), Kansas (Leftoverture 1976), and continuing through Bon Jovi (Slippery When Wet 1986) and Heart",
-  "recipe": "classic North American mid-1970s arena rock, distorted Rock, late analog major branch, pop rock functional song, classic distorted rock new wave yacht rock. thick, equal tempered, modern pop training, false fold distorted phonation. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, string machine, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay MXR phase 90 electro-harmonix deluxe memory man.",
-  "recipe_chars": 834,
+  "recipe": "classic North American mid-1970s arena rock, distorted Rock, late analog major branch, pop rock functional song, classic distorted rock new wave yacht rock. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, string machine, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay MXR phase 90 electro-harmonix deluxe memory man.",
+  "recipe_chars": 840,
   "score": 736.37,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 18.824999999999992,
-          "voice_quality": 0.295,
+          "voice_register": 57.40000000000001,
+          "voice_quality": 2.4700000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
-          "voice_articulation": 0.45,
-          "voice_microtone": 18.549999999999997,
-          "voice_tradition": 3.9650000000000003,
-          "voice_mechanism_compound": 2.665000000000001,
-          "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 5.395,
-          "voice_ensemble_config": 4.419999999999999,
-          "voice_ornament_system": 0.045,
+          "voice_vibrato": 2.6650000000000005,
+          "voice_articulation": 0.39,
+          "voice_microtone": 55.60000000000001,
+          "voice_tradition": 23.009999999999998,
+          "voice_mechanism_compound": 3.365000000000001,
+          "voice_estill_quality": 1.3649999999999998,
+          "voice_speech_song": 17.029999999999994,
+          "voice_ensemble_config": 12.609999999999994,
+          "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0.54,
-          "voice_processing_chain": 6.505000000000001,
-          "voice_multitrack_stack": 6.369999999999999
+          "voice_processing_chain": 15.555000000000003,
+          "voice_multitrack_stack": 14.104999999999999
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 2.7300000000000004,
-          "amp_make": 10.92,
-          "body_wood": 0.39,
-          "neck_wood": 0.39,
-          "fretboard": 0.36,
-          "pickup_magnet": 0.28500000000000003,
+          "electric_technique": 17.705,
+          "amp_make": 24.179999999999996,
+          "body_wood": 3.055,
+          "neck_wood": 2.6650000000000005,
+          "fretboard": 2.6000000000000005,
+          "pickup_magnet": 0.195,
           "pickup_winding": 0.7,
-          "string_material": 0.27,
-          "bridge": 0.39,
-          "scale_length": 0.75,
-          "string_gauge": 0.39,
+          "string_material": 0.585,
+          "bridge": 2.6650000000000005,
+          "scale_length": 2.6650000000000005,
+          "string_gauge": 3.3150000000000004,
           "finish": 0.09,
-          "string_tuning": 9.75
+          "string_tuning": 21.125
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.26,
-          "amp_make": 10.985,
-          "body_wood": 0.39,
-          "pickup_config": 1.3,
-          "string_type": 21.125,
-          "scale_length_b": 0.39,
+          "electric_technique": 4.039999999999999,
+          "amp_make": 21.71,
+          "body_wood": 2.6650000000000005,
+          "pickup_config": 1.4949999999999999,
+          "string_type": 43.85,
+          "scale_length_b": 2.6650000000000005,
           "fretted_or_not": 0.045,
-          "bass_technique": 16.29
+          "bass_technique": 40.965
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 4.809999999999999,
-          "shell_wood": 0.5399999999999999,
+          "percussion_technique": 15.534999999999997,
+          "shell_wood": 0.78,
           "shell_thickness": 0.045,
-          "bearing_edges": 0.42,
-          "drumhead": 2.54,
-          "snare_wires": 0.39,
-          "cymbal_alloy": 18.885,
-          "cymbal_hammering": 19.345,
-          "cymbal_lathing": 19.015,
-          "cymbal_finish": 0.375,
-          "drum_technique": 16.295
+          "bearing_edges": 2.6650000000000005,
+          "drumhead": 16.59,
+          "snare_wires": 2.6650000000000005,
+          "cymbal_alloy": 53.285,
+          "cymbal_hammering": 54.32,
+          "cymbal_lathing": 53.83999999999999,
+          "cymbal_finish": 0.585,
+          "drum_technique": 36.92
         }
       },
       {
@@ -146,9 +146,9 @@
           "sm_voicing": "sm_cellos"
         },
         "scores": {
-          "electronic_technique": 0.26,
+          "electronic_technique": 0.635,
           "sm_voice_count": 0.7199999999999999,
-          "sm_chorus": 0.7,
+          "sm_chorus": 1.17,
           "sm_voicing": 0.345
         }
       },
@@ -166,15 +166,15 @@
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 3.0200000000000005,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.51,
-          "piano_hammer": 8.71,
-          "piano_rim": 9.49,
-          "piano_soundboard": 2.495,
-          "piano_pinblock": 0.325,
-          "piano_plate": 1.95,
-          "piano_pitch_standard": 0.325
+          "keyboard_technique": 17.244999999999997,
+          "grand_piano_size": 2.6650000000000005,
+          "grand_piano_brand": 2.6650000000000005,
+          "piano_hammer": 20.377499999999998,
+          "piano_rim": 20.8,
+          "piano_soundboard": 16.545,
+          "piano_pinblock": 2.0549999999999997,
+          "piano_plate": 3.0875,
+          "piano_pitch_standard": 2.405
         }
       }
     ],

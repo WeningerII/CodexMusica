@@ -3,8 +3,8 @@
   "name": "Shōmyō (Japanese Buddhist liturgical chant)",
   "family": "global",
   "lineage": "Tendai-school-and-Shingon-school Japanese Buddhist sutra-chant tradition with characteristic neumed-melisma vocal-line preserving Tang-dynasty Chinese-Buddhist liturgical music transmitted via 8th-9th-century Japanese-monastic-pilgrimage. The two surviving lineages — Tendai-shōmyō (anchored at Mount Hiei monastic complex, established 805 CE by Saichō) and Shingon-shōmyō (anchored at Mount Kōya monastic complex, established 816 CE by Kūkai) — preserve separate but related sutra-and-bonbai canonical-chant-vocabulary repertoires. The chant unfolds in free-rhythm ametrical-pulse, layers single-monk solo-leader against full-monastic-choir responsorial sections, and uses three-pitch-level neumed notation (kotsufu) for melodic contour preservation across centuries.",
-  "recipe": "classic North American mid-1970s shōmyō, ritual Devotional, buddhist branch, east Asian art music, indian subcontinent praise song tibetan ache lhamo opera beijing opera. vocal fry, pressed, chest resonance low mid, bend inflected. noh stage japanese. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 383,
+  "recipe": "classic North American mid-1970s shōmyō, ritual Devotional, buddhist branch, east Asian art music, indian subcontinent praise song tibetan ache lhamo opera beijing opera. vocal fry, pressed, chest resonance low mid, narrative. noh stage japanese. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 378,
   "score": 180.177,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.08,
-          "voice_quality": 5.720000000000001,
+          "voice_register": 3.4450000000000003,
+          "voice_quality": 12.574999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3399999999999994,
-          "voice_articulation": 0.33,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 1.4299999999999995,
           "voice_microtone": 2.015,
-          "voice_tradition": 15.079999999999997,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 2.405,
-          "voice_speech_song": 9.294999999999998,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 2.8600000000000003,
-          "voice_processing_chain": 2.6,
-          "voice_multitrack_stack": 3.38
+          "voice_tradition": 35.5225,
+          "voice_mechanism_compound": 7.049999999999999,
+          "voice_estill_quality": 23.334999999999994,
+          "voice_speech_song": 24.44,
+          "voice_ensemble_config": 23.4,
+          "voice_ornament_system": 16.099999999999998,
+          "voice_pitch_organization": 9.11,
+          "voice_processing_chain": 5.720000000000001,
+          "voice_multitrack_stack": 6.630000000000001
         }
       }
     ],

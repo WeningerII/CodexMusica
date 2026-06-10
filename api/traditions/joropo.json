@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 2.08,
-          "voice_quality": 16.195,
+          "voice_register": 5.69,
+          "voice_quality": 16.345,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8250000000000002,
+          "voice_vibrato": 1.4299999999999997,
           "voice_articulation": 1.8449999999999998,
           "voice_microtone": 0.95,
-          "voice_tradition": 5.329999999999999,
-          "voice_mechanism_compound": 4.549999999999999,
-          "voice_estill_quality": 5.654999999999999,
-          "voice_speech_song": 14.625000000000004,
-          "voice_ensemble_config": 14.560000000000004,
-          "voice_ornament_system": 2.2749999999999995,
-          "voice_pitch_organization": 2.6,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 3.38
+          "voice_tradition": 12.935000000000002,
+          "voice_mechanism_compound": 7.929999999999998,
+          "voice_estill_quality": 9.229999999999999,
+          "voice_speech_song": 24.18,
+          "voice_ensemble_config": 21.515,
+          "voice_ornament_system": 2.4699999999999998,
+          "voice_pitch_organization": 2.795,
+          "voice_processing_chain": 4.8100000000000005,
+          "voice_multitrack_stack": 3.575
         }
       },
       {
@@ -61,10 +61,10 @@
           "arpa_llanera_role": "arpa_llanera_bass_and_treble"
         },
         "scores": {
-          "arpa_llanera_strings": 13.305,
+          "arpa_llanera_strings": 15.355,
           "arpa_llanera_body_wood": 4.68,
-          "arpa_llanera_string_material": 3.635,
-          "arpa_llanera_role": 10.524999999999999
+          "arpa_llanera_string_material": 3.785,
+          "arpa_llanera_role": 12.424999999999999
         }
       },
       {
@@ -77,9 +77,9 @@
           "cuatro_venezolano_strings": "cuatro_venezolano_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 3.7050000000000005,
+          "plucked_traditional_technique": 11.525000000000002,
           "cuatro_venezolano_tuning": 0.39,
-          "cuatro_venezolano_technique": 0.39,
+          "cuatro_venezolano_technique": 0.975,
           "cuatro_venezolano_body_wood": 6.669999999999999,
           "cuatro_venezolano_strings": 2.6
         }
@@ -102,7 +102,7 @@
           "bandola_andina_use": "bandola_bambuco"
         },
         "scores": {
-          "plucked_traditional_technique": 3.7050000000000005,
+          "plucked_traditional_technique": 11.525000000000002,
           "bandola_andina_use": 8.7
         }
       }

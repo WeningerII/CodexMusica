@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 3.3799999999999994,
-          "voice_quality": 3.4450000000000003,
+          "voice_register": 7.42,
+          "voice_quality": 9.514999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 1.69,
-          "voice_microtone": 1.2999999999999998,
-          "voice_tradition": 16.444999999999997,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 7.569999999999999,
-          "voice_ornament_system": 1.6649999999999998,
+          "voice_vibrato": 2.275,
+          "voice_articulation": 2.535,
+          "voice_microtone": 7.880000000000002,
+          "voice_tradition": 37.595000000000006,
+          "voice_mechanism_compound": 22.58,
+          "voice_estill_quality": 9.620000000000001,
+          "voice_speech_song": 23.66,
+          "voice_ensemble_config": 24.05,
+          "voice_ornament_system": 7.15,
           "voice_pitch_organization": 16.039999999999996,
-          "voice_processing_chain": 6.595,
-          "voice_multitrack_stack": 5.8999999999999995
+          "voice_processing_chain": 7.67,
+          "voice_multitrack_stack": 7.409999999999999
         }
       },
       {
@@ -61,7 +61,7 @@
           "kendang_head": "kendang_cowhide_alternative"
         },
         "scores": {
-          "kendang_size": 4.515,
+          "kendang_size": 5.015,
           "kendang_context": 10.099999999999998,
           "kendang_shell_wood": 1.495,
           "kendang_head": 1.495
@@ -74,8 +74,8 @@
           "characteristic": "gb_kotekan"
         },
         "scores": {
-          "type": 0.39,
-          "characteristic": 0.44999999999999996
+          "type": 1.4949999999999999,
+          "characteristic": 0.65
         }
       }
     ],

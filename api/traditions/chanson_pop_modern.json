@@ -3,8 +3,8 @@
   "name": "Chanson pop (modern)",
   "family": "global",
   "lineage": "Modern French songwriter pop tradition extending the chanson lineage past the 1960s yé-yé era — Vanessa Paradis, MC Solaar, Mylène Farmer in the 1990s; Carla Bruni, Cœur de Pirate, Christine and the Queens, Stromae (Belgian) extending the form into the 2000s-2020s with electronic and hip-hop production influences",
-  "recipe": "classic mid-1960s chanson pop, functional Song, europop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, lament wail, tasteful, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, strummed open chord ringing overtones acoustic guitar, modeled amp modern rig stainless steel roundwound sub heavy electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 625,
+  "recipe": "classic mid-1960s chanson pop, functional Song, europop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, lament wail, tasteful, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, strummed open chord ringing overtones fingerpicked acoustic guitar, modeled amp modern rig stainless steel roundwound sub heavy electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 638,
   "score": 409.041,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 10.194999999999991,
-          "voice_quality": 3.7400000000000007,
+          "voice_register": 14.144999999999996,
+          "voice_quality": 6.085,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9825,
+          "voice_vibrato": 3.6325,
           "voice_articulation": 2.2950000000000004,
-          "voice_microtone": 10.249999999999996,
-          "voice_tradition": 15.818499999999998,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 7.604999999999999,
-          "voice_ensemble_config": 5.199999999999999,
-          "voice_ornament_system": 0.48,
-          "voice_pitch_organization": 0.885,
-          "voice_processing_chain": 6.9265,
-          "voice_multitrack_stack": 6.66775
+          "voice_microtone": 12.124999999999998,
+          "voice_tradition": 26.55925,
+          "voice_mechanism_compound": 7.409999999999999,
+          "voice_estill_quality": 7.5075,
+          "voice_speech_song": 27.1375,
+          "voice_ensemble_config": 18.265,
+          "voice_ornament_system": 2.6314999999999995,
+          "voice_pitch_organization": 2.6449999999999996,
+          "voice_processing_chain": 7.9014999999999995,
+          "voice_multitrack_stack": 7.79275
         }
       },
       {
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 7.994999999999998,
+          "keyboard_technique": 8.749999999999998,
           "grand_piano_size": 0.78,
           "grand_piano_brand": 0.78,
-          "piano_hammer": 14.432499999999997,
-          "piano_rim": 17.05175,
-          "piano_soundboard": 13.749999999999998,
-          "piano_pinblock": 5.9399999999999995,
-          "piano_plate": 8.282499999999999,
-          "piano_pitch_standard": 7.864999999999998
+          "piano_hammer": 16.057499999999997,
+          "piano_rim": 20.77675,
+          "piano_soundboard": 15.374999999999998,
+          "piano_pinblock": 10.24,
+          "piano_plate": 12.082499999999998,
+          "piano_pitch_standard": 13.6465
         }
       },
       {
@@ -88,12 +88,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 8.144999999999998,
+          "acoustic_technique": 8.794999999999998,
           "string_tuning": 0.98,
           "top_wood": 0.39,
-          "back_sides": 0.39,
-          "string_acoustic": 0.43499999999999994,
-          "acoustic_om_technique": 0.8949999999999999
+          "back_sides": 0.78,
+          "string_acoustic": 0.845,
+          "acoustic_om_technique": 7.120000000000001
         }
       },
       {
@@ -109,14 +109,14 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 0.5449999999999999,
-          "amp_make": 3.1825,
+          "electric_technique": 1.4299999999999997,
+          "amp_make": 3.8325,
           "body_wood": 0.39,
-          "pickup_config": 2.9825,
-          "string_type": 2.9899999999999998,
-          "scale_length_b": 2.9825,
-          "fretted_or_not": 0.345,
-          "bass_technique": 5.75
+          "pickup_config": 3.6325,
+          "string_type": 3.8349999999999995,
+          "scale_length_b": 3.6325,
+          "fretted_or_not": 1.4949999999999999,
+          "bass_technique": 7.375
         }
       },
       {
@@ -135,17 +135,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 6.369999999999998,
+          "percussion_technique": 18.98,
           "shell_wood": 0.28500000000000003,
           "shell_thickness": 0,
-          "bearing_edges": 2.9899999999999998,
-          "drumhead": 13.884999999999998,
+          "bearing_edges": 3.7824999999999998,
+          "drumhead": 15.509999999999998,
           "snare_wires": 0.39,
-          "cymbal_alloy": 9.694999999999999,
-          "cymbal_hammering": 15.249999999999996,
-          "cymbal_lathing": 15.294999999999996,
-          "cymbal_finish": 0.15,
-          "drum_technique": 6.700000000000001
+          "cymbal_alloy": 10.344999999999999,
+          "cymbal_hammering": 16.874999999999996,
+          "cymbal_lathing": 16.919999999999998,
+          "cymbal_finish": 0.195,
+          "drum_technique": 18.98
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Arabesk (Turkish)",
   "family": "global",
   "lineage": "Turkish urban-melancholic Egyptian-music-influenced crossover-pop tradition that dominated Turkish mass culture from the 1970s through the 1990s — codified through Orhan Gencebay (the founder, 1968 onward), Müslüm Gürses, İbrahim Tatlıses (the 80s-90s voice), Ferdi Tayfur, Bülent Ersoy; thematically anchored in the urban-rural migration anxiety of Turkish working-class internal-migrant audiences, with characteristic minor-key Egyptian-inspired string arrangements over Turkish-language vocals",
-  "recipe": "classic North American mid-1970s arabesk, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. extended whistle, declaimed, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish la bella Turkish school canon oud, maple body Turkish school qanun, mahogany rosewood clean strummed single coil electric guitar, alder electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, kanun tortoiseshell traditional kanun. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 745,
+  "recipe": "classic North American mid-1970s arabesk, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. extended whistle, declaimed, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish la bella Turkish school canon drone like oud, metal finger picks maple body Turkish school drone like modal qanun, mahogany rosewood clean strummed single coil electric guitar, alder electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, kanun drone like modal tortoiseshell traditional kanun. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 809,
   "score": 267.393,
   "config": {
     "traditions": [
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 8.806999999999999,
-          "voice_quality": 2.6688750000000003,
+          "voice_quality": 4.118875,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.34,
+          "voice_vibrato": 4.485,
           "voice_articulation": 0.06675,
-          "voice_microtone": 21.953749999999996,
-          "voice_tradition": 9.424999999999999,
-          "voice_mechanism_compound": 2.6765,
-          "voice_estill_quality": 2.145,
-          "voice_speech_song": 1.885,
-          "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 3.1849999999999996,
-          "voice_pitch_organization": 16.319999999999997,
+          "voice_microtone": 25.828749999999996,
+          "voice_tradition": 16.055,
+          "voice_mechanism_compound": 11.7765,
+          "voice_estill_quality": 7.359125000000001,
+          "voice_speech_song": 5.330000000000001,
+          "voice_ensemble_config": 4.615,
+          "voice_ornament_system": 14.553250000000002,
+          "voice_pitch_organization": 17.044999999999998,
           "voice_processing_chain": 3.4132500000000006,
-          "voice_multitrack_stack": 1.640625
+          "voice_multitrack_stack": 2.795
         }
       },
       {
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_la_bella_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 0.75,
-          "oud_school": 1.95,
-          "oud_strings": 0.47962499999999997,
+          "plucked_traditional_technique": 5.03175,
+          "oud_school": 4.095,
+          "oud_strings": 2.535,
           "oud_pick": 1.95,
-          "oud_body_wood": 7.469999999999999,
-          "oud_soundboard_wood": 0.649125,
-          "oud_string_material": 6.9087499999999995
+          "oud_body_wood": 9.919999999999998,
+          "oud_soundboard_wood": 0.65,
+          "oud_string_material": 7.4087499999999995
         }
       },
       {
@@ -85,12 +85,12 @@
           "qanun_string_material": "qanun_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 0.75,
-          "qanun_strings": 0.39,
+          "plucked_traditional_technique": 5.03175,
+          "qanun_strings": 2.535,
           "qanun_levers": 0.28462499999999996,
-          "qanun_pick": 0.39,
-          "qanun_body_wood": 7.058749999999999,
-          "qanun_bridge_skin": 0.28462499999999996,
+          "qanun_pick": 2.535,
+          "qanun_body_wood": 8.05875,
+          "qanun_bridge_skin": 0.65,
           "qanun_string_material": 0.32962499999999995
         }
       },
@@ -112,7 +112,7 @@
         },
         "scores": {
           "electric_technique": 6.949999999999999,
-          "amp_make": 1.755,
+          "amp_make": 2.405,
           "body_wood": 1.95,
           "neck_wood": 1.95,
           "fretboard": 1.885,
@@ -121,8 +121,8 @@
           "string_gauge": 1.95,
           "bridge": 0.28462499999999996,
           "scale_length": 1.95,
-          "finish": 0.15,
-          "string_tuning": 1.3
+          "finish": 0.65,
+          "string_tuning": 2.34
         }
       },
       {
@@ -164,7 +164,7 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 0.7799999999999998,
+          "percussion_technique": 3.3150000000000004,
           "shell_wood": 0.08662499999999998,
           "shell_thickness": 0.045,
           "bearing_edges": 1.95,
@@ -174,7 +174,7 @@
           "cymbal_hammering": 6.966749999999999,
           "cymbal_lathing": 6.944999999999999,
           "cymbal_finish": 0.045,
-          "drum_technique": 0.8449999999999999
+          "drum_technique": 3.3150000000000004
         }
       },
       {
@@ -185,7 +185,7 @@
           "kanun_articulation": "kanun_tortoiseshell_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 0.75,
+          "plucked_traditional_technique": 5.03175,
           "kanun_school": 16.445,
           "kanun_articulation": 1.885
         }

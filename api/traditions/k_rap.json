@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 6.11,
+          "voice_register": 21.899999999999995,
           "voice_quality": 13.855,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.7899999999999999,
+          "voice_vibrato": 2.015,
           "voice_articulation": 8.204999999999998,
-          "voice_microtone": 5.295000000000001,
-          "voice_tradition": 23.054999999999996,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 1.5299999999999998,
-          "voice_speech_song": 13.729999999999999,
-          "voice_ensemble_config": 7.149999999999998,
-          "voice_ornament_system": 20.299999999999997,
-          "voice_pitch_organization": 2.795000000000001,
+          "voice_microtone": 21.419999999999998,
+          "voice_tradition": 40.08,
+          "voice_mechanism_compound": 4.614999999999999,
+          "voice_estill_quality": 3.575,
+          "voice_speech_song": 23.075000000000003,
+          "voice_ensemble_config": 20.150000000000002,
+          "voice_ornament_system": 33.55,
+          "voice_pitch_organization": 11.749999999999996,
           "voice_processing_chain": 11.899999999999999,
-          "voice_multitrack_stack": 5.235
+          "voice_multitrack_stack": 6.185000000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 8.234999999999998,
-          "drum_machine_808_context": 1.69,
-          "tr808_production_origin": 0.39
+          "tr808_voice": 8.384999999999998,
+          "drum_machine_808_context": 4.875,
+          "tr808_production_origin": 0.9749999999999996
         }
       },
       {
@@ -74,10 +74,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 8.934999999999997,
+          "electronic_technique": 13.945000000000002,
           "poly_archetypes": 0.6900000000000001,
-          "poly_voices": 0.41999999999999993,
-          "poly_maker_lineage": -1.435
+          "poly_voices": 0.52,
+          "poly_maker_lineage": -0.07000000000000003
         }
       },
       {

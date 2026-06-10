@@ -3,8 +3,8 @@
   "name": "Salsa colombiana (Cali)",
   "family": "global",
   "lineage": "Colombian regional variant of salsa centered in Cali (Valle del Cauca, southwestern Colombia, \"world capital of salsa\"). Distinguished from New York and Puerto Rican salsa by faster-tempo, more aggressive-rhythmic-pulse, and the Cali dance-school choreographic culture emphasizing fast complex footwork. Grupo Niche (1980, Jairo Varela) and Orquesta Guayacán anchor canonical Cali sound.",
-  "recipe": "classic tropical early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm south african kwaito kwaito. rap, chest resonance low mid, punctuated, Yoruba tonal vocal. grand piano, fast-attack-transient mid rich alder electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, pre modern classic salsa brass timbales, mule hide canonical Cuban premium oak staved canonical Cuban congas. bogota colombian andean studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 633,
+  "recipe": "classic tropical early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm south african kwaito kwaito. vocal fry, rap, chest resonance low mid, punctuated. 7 ply quartersawn maple grand piano, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. bogota colombian andean studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 689,
   "score": 118.042,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 0.3165,
-          "voice_quality": 2.4699999999999998,
+          "voice_register": 1.2349999999999999,
+          "voice_quality": 5.345250000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.5129999999999999,
+          "voice_vibrato": 1.04,
           "voice_articulation": 1.6705,
           "voice_microtone": 0,
-          "voice_tradition": 1.885,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 0.1365,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 0.105,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 1.69
+          "voice_tradition": 12.234,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 1.0399999999999998,
+          "voice_speech_song": 12.934999999999997,
+          "voice_ensemble_config": 14.559999999999997,
+          "voice_ornament_system": 1.0399999999999998,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 4.09675,
+          "voice_multitrack_stack": 3.12
         }
       },
       {
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.5129999999999999,
-          "grand_piano_brand": 0.9359999999999999,
-          "piano_hammer": -0.035,
-          "piano_rim": -0.035,
+          "grand_piano_size": 1.04,
+          "grand_piano_brand": 1.235,
+          "piano_hammer": 0.975,
+          "piano_rim": 0.7149999999999999,
           "piano_soundboard": -0.035,
-          "piano_pinblock": -0.035,
+          "piano_pinblock": 1.3649999999999998,
           "piano_plate": -0.05,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.78
         }
       },
       {
@@ -90,14 +90,14 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 0,
-          "body_wood": 1.69,
+          "electric_technique": 3.25,
+          "amp_make": 1.4299999999999997,
+          "body_wood": 2.613,
           "pickup_config": 1.3,
-          "string_type": 0.5129999999999999,
-          "scale_length_b": 0.5129999999999999,
+          "string_type": 2.6000000000000005,
+          "scale_length_b": 1.04,
           "fretted_or_not": 0,
-          "bass_technique": -0.035
+          "bass_technique": 3.25
         }
       },
       {
@@ -114,11 +114,11 @@
         "scores": {
           "wind_articulation": 1.4949999999999999,
           "brass_size": 0.3705,
-          "trumpet_mouthpiece": -0.035,
+          "trumpet_mouthpiece": 0.585,
           "brass_mute": 0,
           "trumpet_technique": 1.4949999999999999,
-          "trumpet_bell_metal": 1.69,
-          "trumpet_maker_school": 1.69
+          "trumpet_bell_metal": 2.535,
+          "trumpet_maker_school": 2.535
         }
       },
       {
@@ -129,8 +129,8 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 2.018,
-          "timbales_shell": 6.369999999999999,
+          "percussion_technique": 5.918,
+          "timbales_shell": 6.564999999999999,
           "timbales_context": 0.18525000000000003
         }
       },
@@ -143,10 +143,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 2.018,
+          "percussion_technique": 5.918,
           "conga_set": 0.18525000000000003,
-          "conga_skin": 3.6399999999999997,
-          "conga_shell_wood": 3.6399999999999997
+          "conga_skin": 4.485,
+          "conga_shell_wood": 4.485
         }
       }
     ],

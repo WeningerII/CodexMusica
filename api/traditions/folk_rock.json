@@ -3,8 +3,8 @@
   "name": "Folk rock",
   "family": "rock_punk",
   "lineage": "Mid-1960s through 1970s amplified folk-rock fusion codified by The Byrds Mr. Tambourine Man (1965), Buffalo Springfield, Crosby Stills Nash and Young, Simon and Garfunkel late-60s catalog",
-  "recipe": "classic Los Angeles 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock country-pop crossover. thick, incomplete closure resting, melodic, rhythmic. cedar phosphor bronze pre war martin travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 895,
+  "recipe": "classic Los Angeles 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock country-pop crossover. thick, incomplete closure resting, melodic, rhythmic. cedar phosphor bronze pre war martin travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 884,
   "score": 849.526,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 49.88999999999999,
-          "voice_quality": 3.045,
+          "voice_register": 91.31500000000001,
+          "voice_quality": 3.2699999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.85125,
+          "voice_vibrato": 22.501250000000002,
           "voice_articulation": 0.78,
-          "voice_microtone": 25.56,
-          "voice_tradition": 26.48624999999999,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 7.200000000000001,
-          "voice_speech_song": 12.804999999999994,
-          "voice_ensemble_config": 9.879999999999995,
+          "voice_microtone": 47.06000000000001,
+          "voice_tradition": 30.836249999999993,
+          "voice_mechanism_compound": 2.405,
+          "voice_estill_quality": 25.8,
+          "voice_speech_song": 20.929999999999993,
+          "voice_ensemble_config": 15.339999999999991,
           "voice_ornament_system": 0.585,
-          "voice_pitch_organization": 0.65625,
-          "voice_processing_chain": 6.345000000000001,
-          "voice_multitrack_stack": 6.13875
+          "voice_pitch_organization": 0.9062499999999999,
+          "voice_processing_chain": 8.995,
+          "voice_multitrack_stack": 8.56375
         }
       },
       {
@@ -62,11 +62,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 24.749999999999993,
-          "string_tuning": 0.2,
+          "acoustic_technique": 44.24999999999999,
+          "string_tuning": 0.475,
           "top_wood": 1.99,
-          "back_sides": 0.045,
-          "string_acoustic": 2.08
+          "back_sides": 0.6950000000000001,
+          "string_acoustic": 2.925
         }
       },
       {
@@ -86,18 +86,18 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 5.25,
-          "amp_make": 10.659999999999997,
+          "electric_technique": 22.745000000000005,
+          "amp_make": 24.622500000000006,
           "body_wood": 1.99,
           "neck_wood": 1.99,
           "fretboard": 1.94,
           "pickup_magnet": 0.045,
-          "string_material": 0.39,
+          "string_material": 2.0149999999999997,
           "string_gauge": 1.84,
-          "bridge": 0,
+          "bridge": 0.5,
           "scale_length": 2.08,
           "finish": 0.045,
-          "string_tuning": 10.79
+          "string_tuning": 17.503750000000004
         }
       },
       {
@@ -114,13 +114,13 @@
         },
         "scores": {
           "electric_technique": 0.5449999999999999,
-          "amp_make": 11.504999999999999,
+          "amp_make": 23.2475,
           "body_wood": 2.08,
-          "pickup_config": 0.045,
-          "string_type": 23.4575,
-          "scale_length_b": 2.08,
+          "pickup_config": 0.6950000000000001,
+          "string_type": 37.4575,
+          "scale_length_b": 2.6175,
           "fretted_or_not": 0.345,
-          "bass_technique": 21.056249999999995
+          "bass_technique": 35.206250000000004
         }
       },
       {
@@ -139,17 +139,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 13.584999999999994,
-          "shell_wood": 0.735,
+          "percussion_technique": 20.76749999999999,
+          "shell_wood": 2.0149999999999997,
           "shell_thickness": 0.345,
           "bearing_edges": 1.84,
-          "drumhead": 5.245,
+          "drumhead": 12.745,
           "snare_wires": 1.84,
-          "cymbal_alloy": 25.295,
-          "cymbal_hammering": 25.5,
-          "cymbal_lathing": 25.589999999999996,
+          "cymbal_alloy": 46.795,
+          "cymbal_hammering": 47,
+          "cymbal_lathing": 47.74000000000001,
           "cymbal_finish": 0.39,
-          "drum_technique": 20.93
+          "drum_technique": 34.93
         }
       },
       {
@@ -163,12 +163,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 5.445,
-          "drawbar_setting": 21.151249999999997,
-          "rotary_speed": 20.7,
-          "percussion_setting": 10.79,
-          "tonewheel_model": 8.385,
-          "leslie_cabinet_model": 2.08
+          "keyboard_technique": 12.945,
+          "drawbar_setting": 35.30125,
+          "rotary_speed": 34.7,
+          "percussion_setting": 16.652500000000003,
+          "tonewheel_model": 15.665000000000001,
+          "leslie_cabinet_model": 2.925
         }
       },
       {

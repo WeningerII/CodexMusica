@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 8.095,
-          "voice_quality": 2.6,
+          "voice_register": 8.895000000000001,
+          "voice_quality": 14.574999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
-          "voice_articulation": 1.2349999999999999,
-          "voice_microtone": 6.045000000000001,
-          "voice_tradition": 21.58,
-          "voice_mechanism_compound": 6.24,
-          "voice_estill_quality": 5.3950000000000005,
-          "voice_speech_song": 11.505000000000003,
-          "voice_ensemble_config": 20.41,
-          "voice_ornament_system": 8.24,
-          "voice_pitch_organization": 5.495,
-          "voice_processing_chain": 6.89,
-          "voice_multitrack_stack": 7.67
+          "voice_articulation": 1.9500000000000002,
+          "voice_microtone": 7.07,
+          "voice_tradition": 44.07,
+          "voice_mechanism_compound": 12.675,
+          "voice_estill_quality": 10.075,
+          "voice_speech_song": 22.750000000000004,
+          "voice_ensemble_config": 41.08,
+          "voice_ornament_system": 11.04,
+          "voice_pitch_organization": 6.11,
+          "voice_processing_chain": 9.19,
+          "voice_multitrack_stack": 12.165000000000001
         }
       },
       {
@@ -59,8 +59,8 @@
           "sopele_tradition": "sopele_istrian_diaphonic_canonical"
         },
         "scores": {
-          "sopele_body": 27.380000000000003,
-          "sopele_tradition": 32.370000000000005
+          "sopele_body": 29.03,
+          "sopele_tradition": 36.67
         }
       }
     ],

@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 1.0314999999999999,
-          "sampler_archetypes": 1.8199999999999998,
-          "sampler_bit_depth": 1.455,
-          "sampler_workflow": 1.323,
-          "sampler_classic_context": 11.179999999999996
+          "electronic_technique": 7.4815000000000005,
+          "sampler_archetypes": 13,
+          "sampler_bit_depth": 1.955,
+          "sampler_workflow": 9.106499999999999,
+          "sampler_classic_context": 21.839999999999996
         }
       },
       {
@@ -39,8 +39,8 @@
         },
         "scores": {
           "tr909_voice": 0,
-          "drum_machine_909_context": 2.535,
-          "tr909_production_origin": 0.15
+          "drum_machine_909_context": 4.1530000000000005,
+          "tr909_production_origin": 0.25999999999999945
         }
       },
       {
@@ -51,9 +51,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 12.704499999999998,
+          "electronic_technique": 19.854499999999994,
           "va_archetypes": 0.3,
-          "digital_subtractive_context": 7.409999999999998
+          "digital_subtractive_context": 12.479999999999997
         }
       },
       {
@@ -70,11 +70,11 @@
         },
         "scores": {
           "electric_technique": 0.7,
-          "amp_make": 5.719999999999999,
-          "body_wood": 1.6,
+          "amp_make": 6.629999999999999,
+          "body_wood": 2.1,
           "pickup_config": 0.39,
-          "string_type": 6.699999999999999,
-          "scale_length_b": 2.75,
+          "string_type": 7.8999999999999995,
+          "scale_length_b": 3.25,
           "fretted_or_not": 0,
           "bass_technique": 0.7
         }

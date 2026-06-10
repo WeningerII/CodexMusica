@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.5805000000000002,
-          "voice_quality": 9.899999999999999,
+          "voice_register": 3.0055000000000005,
+          "voice_quality": 19.925,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6,
-          "voice_articulation": 0.2025,
+          "voice_vibrato": 4.485,
+          "voice_articulation": 0.195,
           "voice_microtone": 1.181,
-          "voice_tradition": 20.605,
-          "voice_mechanism_compound": 2.4852499999999997,
-          "voice_estill_quality": 19.87625,
-          "voice_speech_song": 15.91225,
-          "voice_ensemble_config": 14.040000000000001,
-          "voice_ornament_system": 16.055,
-          "voice_pitch_organization": 8.31175,
-          "voice_processing_chain": 2.7950000000000004,
-          "voice_multitrack_stack": 2.6
+          "voice_tradition": 31.070000000000004,
+          "voice_mechanism_compound": 4.4,
+          "voice_estill_quality": 28.326249999999995,
+          "voice_speech_song": 23.412249999999997,
+          "voice_ensemble_config": 19.045,
+          "voice_ornament_system": 23.554999999999996,
+          "voice_pitch_organization": 19.136749999999992,
+          "voice_processing_chain": 4.6155,
+          "voice_multitrack_stack": 3.185
         }
       },
       {
@@ -62,12 +62,12 @@
           "sanxian_body_wood": "sanxian_padauk"
         },
         "scores": {
-          "plucked_traditional_technique": 2.563,
-          "sanxian_size": 2.9899999999999998,
-          "sanxian_context": 5.569,
+          "plucked_traditional_technique": 4.563,
+          "sanxian_size": 5.145,
+          "sanxian_context": 7.119,
           "sanxian_head": 2.925,
           "sanxian_strings": 2.9899999999999998,
-          "sanxian_body_wood": 1.3
+          "sanxian_body_wood": 2.449
         }
       },
       {
@@ -80,11 +80,11 @@
           "pipa_body_wood": "pipa_red_sandalwood"
         },
         "scores": {
-          "plucked_traditional_technique": 2.563,
-          "pipa_frets": 0.168,
-          "pipa_strings": 3.9,
+          "plucked_traditional_technique": 4.563,
+          "pipa_frets": 0.195,
+          "pipa_strings": 6.175,
           "pipa_pick": 0.1365,
-          "pipa_body_wood": 2.925
+          "pipa_body_wood": 3.575
         }
       },
       {
@@ -97,8 +97,8 @@
           "janggu_lineage": "janggu_pansori_godo"
         },
         "scores": {
-          "janggu_use": 2.6,
-          "janggu_construction": 4.29,
+          "janggu_use": 2.9899999999999998,
+          "janggu_construction": 7.0200000000000005,
           "janggu_shell_wood": 2.9899999999999998,
           "janggu_head": 2.9899999999999998,
           "janggu_lineage": 2.9899999999999998

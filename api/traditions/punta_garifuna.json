@@ -3,8 +3,8 @@
   "name": "Punta (Garifuna)",
   "family": "global",
   "lineage": "Garifuna (Black-Carib) Honduran-Belizean-Guatemalan-Nicaraguan Caribbean-coast Afro-Amerindian song-and-dance tradition descended from the 1797 British-deportation of the surviving Carib-Arawak-Afro-Caribbean people from St-Vincent to Roatan-island (now eastern-Caribbean-coast Central-America). The canonical punta ensemble: three garaon barrel-drums (primero high-improvisation, segunda middle-rhythm, tercera bass-drum) with maracas (sisira), conch-shell-trumpet, and call-and-response female-vocal-leadership. The 2/4 rapid-tempo punta-rhythm accentuates the dance characterized by virtuosic hip-and-glute movement. (under the broader Garifuna language-music-and-dance category). The 1980s-onward punta-rock electrified-and-commercialized variant brought guitar-and-keyboard to the genre.",
-  "recipe": "classic mid-1980s punta, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, declaimed, unrestrained, equal tempered. log drum, maracas, a cappella small 3 to 8 one per part three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 507,
+  "recipe": "classic mid-1980s punta, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, declaimed, melodic, unrestrained. log drum, maracas, a cappella small 3 to 8 one per part three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 500,
   "score": 117.495,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.435000000000002,
-          "voice_quality": 4.500000000000001,
+          "voice_register": 3.6600000000000015,
+          "voice_quality": 5.875000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.345,
-          "voice_articulation": 0.765,
-          "voice_microtone": 2.250000000000001,
-          "voice_tradition": 9.555,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 12.284999999999998,
-          "voice_ensemble_config": 10.919999999999998,
-          "voice_ornament_system": 5.2,
-          "voice_pitch_organization": 1.45,
+          "voice_vibrato": 1.13,
+          "voice_articulation": 1.675,
+          "voice_microtone": 3.0500000000000007,
+          "voice_tradition": 10.985,
+          "voice_mechanism_compound": 2.0799999999999996,
+          "voice_estill_quality": 4.38,
+          "voice_speech_song": 19.305,
+          "voice_ensemble_config": 18.394999999999996,
+          "voice_ornament_system": 6.075,
+          "voice_pitch_organization": 1.7449999999999999,
           "voice_processing_chain": 3.12,
-          "voice_multitrack_stack": 1.3
+          "voice_multitrack_stack": 3.25
         }
       },
       {
@@ -59,8 +59,8 @@
           "log_drum_context": "log_drum_sa_house"
         },
         "scores": {
-          "log_drum_voice": 0.825,
-          "log_drum_context": 4.3205
+          "log_drum_voice": 0.66,
+          "log_drum_context": 5.1705000000000005
         }
       },
       {
@@ -70,8 +70,8 @@
           "maracas_filling": "maracas_beads"
         },
         "scores": {
-          "maracas_construction": 0.345,
-          "maracas_filling": 1.02
+          "maracas_construction": 0.65,
+          "maracas_filling": 0.65
         }
       },
       {
@@ -83,10 +83,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 3.3799999999999994,
-          "choir_polyphonic_configuration": 3.1550000000000002,
-          "choir_regional_canonical_configuration": 2.645,
-          "choir_ensemble_repertoire": 2.6
+          "choir_size": 5.9799999999999995,
+          "choir_polyphonic_configuration": 4.34,
+          "choir_regional_canonical_configuration": 3.445,
+          "choir_ensemble_repertoire": 3.9
         }
       }
     ],

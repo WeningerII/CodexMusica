@@ -47,7 +47,7 @@ For full structured arrangements (ensemble, room, chain, tuning) per tradition:
   "name": "Bluegrass",
   "family": "vernacular",
   "recipe": "classic North American 1945-1948 bluegrass, …",
-  "recipe_chars": 711,
+  "recipe_chars": 759,
   "score": 234.156,
   "config": { "traditions": ["bluegrass", …], "instruments": [ … ], "room": "bristol_sessions_appalachian_pre_commercial", "archetype": "arch_late60s_us_multitrack", "inline_chain": { … }, "tuning": "bluegrass_high_lonesome_pentatonic", "aesthetic": …, "arrangement": …, "fx_extras": [ … ] }
 }

@@ -3,8 +3,8 @@
   "name": "Andean matrimonio huayno (wedding huayno)",
   "family": "global",
   "lineage": "Andean Quechua-and-Aymara wedding-music tradition continuous from pre-Columbian Andean ritual-practice through colonial-period syncretic continuous performance into modern Quechua-and-Aymara-speaking domestic practice across Peru, Bolivia, Ecuador, and the Andean diaspora; the huayno is the canonical Andean dance-form across multiple ceremonial contexts including weddings",
-  "recipe": "classic modern andean matrimonio huayno, wedding, americas branch, south Asian wedding, Latin am groove percussion, Latin am troubadour ballad poetry milonga indian sangeet. thick, forward-resonance, tasteful, continuous-phonation. naranjillo andean premium wood cedar andean andean classical charango, ceremonial pre hispanic bone quena, andean tradition paired rows interlocking siku panpipes, castagnari Italian premium folk music accordion. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 600,
+  "recipe": "classic modern andean matrimonio huayno, wedding, americas branch, south Asian wedding, Latin am groove percussion, Latin am troubadour ballad poetry milonga indian sangeet. thick, forward-resonance, tasteful, continuous-phonation. naranjillo andean premium wood cedar andean andean classical charango, bone continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, castagnari Italian premium folk music bellows articulated accordion. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 622,
   "score": 268.831,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.8850000000000002,
-          "voice_quality": 25.799999999999997,
+          "voice_register": 7.761250000000001,
+          "voice_quality": 25.949999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.0593749999999997,
-          "voice_microtone": 1.7000000000000002,
-          "voice_tradition": 39.38625,
-          "voice_mechanism_compound": 0.78,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 3.8593749999999996,
+          "voice_microtone": 3.6,
+          "voice_tradition": 39.536249999999995,
+          "voice_mechanism_compound": 2.8599999999999994,
           "voice_estill_quality": 17.5,
-          "voice_speech_song": 7.344999999999998,
-          "voice_ensemble_config": 17.694999999999997,
-          "voice_ornament_system": 24.264999999999993,
-          "voice_pitch_organization": 3.0593749999999997,
-          "voice_processing_chain": 1.885,
-          "voice_multitrack_stack": 1.065
+          "voice_speech_song": 18.525,
+          "voice_ensemble_config": 18.794999999999998,
+          "voice_ornament_system": 24.414999999999996,
+          "voice_pitch_organization": 4.875000000000001,
+          "voice_processing_chain": 2.795,
+          "voice_multitrack_stack": 2.1125
         }
       },
       {
@@ -62,11 +62,11 @@
           "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 2.4050000000000002,
+          "plucked_traditional_technique": 8.0275,
           "charango_back": 7.369999999999999,
           "charango_top_wood": 10.214999999999998,
-          "charango_strings": 7.488124999999998,
-          "charango_string_material": 7.008125
+          "charango_strings": 7.988124999999998,
+          "charango_string_material": 8.308124999999999
         }
       },
       {
@@ -77,8 +77,8 @@
           "quena_pitch": "quena_g"
         },
         "scores": {
-          "wind_articulation": 2.959375,
-          "quena_material": 2.988125,
+          "wind_articulation": 5.059374999999999,
+          "quena_material": 4.288124999999999,
           "quena_pitch": 9
         }
       },
@@ -89,8 +89,8 @@
           "siku_size": "siku_malta"
         },
         "scores": {
-          "siku_construction": 10.040624999999999,
-          "siku_size": 0.39
+          "siku_construction": 10.790624999999999,
+          "siku_size": 0.585
         }
       },
       {
@@ -105,13 +105,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 0.325,
+          "free_reed_technique": 7.4499999999999975,
           "accordion_reed_material": 0.795,
-          "musette_offset": 0.49124999999999996,
+          "musette_offset": 0.39,
           "reed_config": 0.195,
-          "bellows": 0.29625,
-          "voicing_chamber": 0.140625,
-          "accordion_maker_school": 3.7700000000000005
+          "bellows": 0.39,
+          "voicing_chamber": 0.195,
+          "accordion_maker_school": 7.540000000000001
         }
       }
     ],

@@ -45,18 +45,18 @@
         },
         "scores": {
           "electric_technique": 4.7545,
-          "amp_make": 8.742125000000001,
+          "amp_make": 11.092125000000001,
           "body_wood": 1.1216249999999999,
-          "neck_wood": 1.50475,
-          "fretboard": 1.50475,
-          "pickup_magnet": 0.3225,
-          "pickup_winding": 0.27375,
-          "string_material": 1.50475,
-          "bridge": 0.155625,
-          "scale_length": 1.69,
+          "neck_wood": 1.65475,
+          "fretboard": 1.65475,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.21075000000000002,
+          "string_material": 1.65475,
+          "bridge": 0.195,
+          "scale_length": 2.0799999999999996,
           "string_gauge": 0.155625,
           "finish": 0.0045,
-          "string_tuning": 6.239999999999998
+          "string_tuning": 8.905
         }
       },
       {
@@ -73,13 +73,13 @@
         },
         "scores": {
           "electric_technique": 4.75,
-          "amp_make": 4.432874999999999,
+          "amp_make": 6.630000000000002,
           "body_wood": 0.31125,
           "pickup_config": 0.22499999999999998,
-          "string_type": 23.725,
+          "string_type": 37.944625,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.0045,
-          "bass_technique": 18.25
+          "bass_technique": 31.375
         }
       },
       {
@@ -98,17 +98,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 25.804999999999993,
+          "percussion_technique": 36.00999999999999,
           "shell_wood": 1.514875,
           "shell_thickness": 0.0045,
-          "bearing_edges": 1.69,
-          "drumhead": 23.66,
+          "bearing_edges": 1.87975,
+          "drumhead": 37.9685,
           "snare_wires": 0.155625,
-          "cymbal_alloy": 25.15,
-          "cymbal_hammering": 18.86125,
-          "cymbal_lathing": 18.270875,
-          "cymbal_finish": 1.50475,
-          "drum_technique": 25.804999999999993
+          "cymbal_alloy": 39.075,
+          "cymbal_hammering": 33.301875,
+          "cymbal_lathing": 31.545875,
+          "cymbal_finish": 1.65475,
+          "drum_technique": 36.00999999999999
         }
       },
       {
@@ -121,11 +121,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 0.19500000000000003,
-          "oscillator": 1.50475,
+          "electronic_technique": 0.7623749999999998,
+          "oscillator": 1.77775,
           "filter_topology": 1,
-          "envelope": 0.39,
-          "modulation": 0.15
+          "envelope": 1.04,
+          "modulation": 0.65
         }
       },
       {
@@ -140,13 +140,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.19500000000000003,
-          "sax_size": 1.460375,
-          "sax_reed": 1.50475,
-          "sax_body_alloy": 18.29875,
-          "sax_mouthpiece": 1.50475,
-          "sax_technique": 18.25,
-          "sax_maker_school": 21.06
+          "wind_articulation": 4,
+          "sax_size": 5.660375,
+          "sax_reed": 1.65475,
+          "sax_body_alloy": 31.573749999999997,
+          "sax_mouthpiece": 1.65475,
+          "sax_technique": 31.375,
+          "sax_maker_school": 36.646874999999994
         }
       },
       {
@@ -161,13 +161,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.9166249999999998,
-          "brass_size": 1.50475,
-          "trumpet_mouthpiece": 23.725,
-          "brass_mute": 0.8444999999999998,
-          "trumpet_technique": 0.9166249999999998,
+          "wind_articulation": 4,
+          "brass_size": 1.65475,
+          "trumpet_mouthpiece": 37.944625,
+          "brass_mute": 0.39,
+          "trumpet_technique": 4,
           "trumpet_bell_metal": 0.7410000000000001,
-          "trumpet_maker_school": 2.8600000000000003
+          "trumpet_maker_school": 5.265000000000001
         }
       },
       {
@@ -182,10 +182,10 @@
         },
         "scores": {
           "keyboard_technique": 4.7,
-          "rhodes_model": 18.405625,
+          "rhodes_model": 31.530625,
           "rhodes_use": 0.260625,
           "rhodes_tine_material": 1.2349999999999999,
-          "rhodes_hammer_tip": 2.6,
+          "rhodes_hammer_tip": 3.25,
           "rhodes_pickup_position": 0.39
         }
       },
@@ -202,7 +202,7 @@
           "keyboard_technique": 4.7,
           "wurlitzer_use": 0,
           "wurlitzer_ep_voice": 4.161499999999999,
-          "wurlitzer_model": 0.325,
+          "wurlitzer_model": 0.84625,
           "wurlitzer_reed_material": 0.39
         }
       }

@@ -3,8 +3,8 @@
   "name": "Dance pop (2010s American-European EDM-influenced commercial pop)",
   "family": "pop",
   "lineage": "2010s American-and-international pop subgenre integrating European-dance-music production-aesthetic with American pop-vocal-feature mainstream commercial framework. Lady Gaga's The Fame (2008-2009 launch), Ke$ha's Animal (2010), Katy Perry's Teenage Dream (2010), and the broader Max Martin, RedOne, Dr. Luke, and Ryan Tedder producer-network consolidated the canonical 2010s dance-pop production aesthetic. Distinguished by EDM-festival-aesthetic absorption into pop chart-mainstream.",
-  "recipe": "classic dance pop, functional Song, pop rock branch, house electronic dance deep house chicago house. thick, equal tempered, modern pop training, m1 with m0 pulse borrowing. plucked short envelope analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 614,
+  "recipe": "classic dance pop, functional Song, pop rock branch, house electronic dance deep house chicago house. thick, blues-shouter, chest resonance low mid, narrative. plucked short envelope analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 600,
   "score": 272.955,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 28.060000000000002,
-          "voice_quality": 0.21,
+          "voice_register": 40.98500000000002,
+          "voice_quality": 7.125000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.37499999999999994,
-          "voice_articulation": 0.345,
-          "voice_microtone": 27.800000000000004,
-          "voice_tradition": 26.695000000000007,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 6.954999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 0.045,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 8.54,
-          "voice_multitrack_stack": 9.37
+          "voice_vibrato": 0.845,
+          "voice_articulation": 5.099999999999999,
+          "voice_microtone": 31.475000000000005,
+          "voice_tradition": 27.070000000000007,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 8.849999999999998,
+          "voice_speech_song": 18.2,
+          "voice_ensemble_config": 16.185,
+          "voice_ornament_system": 0.7749999999999999,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 8.69,
+          "voice_multitrack_stack": 9.519999999999998
         }
       },
       {
@@ -62,9 +62,9 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 30.000000000000007,
-          "oscillator": 0.705,
-          "filter_topology": 0.9450000000000002,
+          "electronic_technique": 30.375000000000007,
+          "oscillator": 1.4300000000000002,
+          "filter_topology": 1.6899999999999997,
           "envelope": 0.3,
           "modulation": 0.15
         }
@@ -77,9 +77,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 0,
-          "drum_machine_808_context": 6.369999999999999,
-          "tr808_production_origin": 0.375
+          "tr808_voice": 0.78,
+          "drum_machine_808_context": 7.699999999999999,
+          "tr808_production_origin": 0.78
         }
       },
       {
@@ -95,14 +95,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 2.095,
-          "amp_make": 4.21,
-          "body_wood": 0.66,
-          "pickup_config": 0.42,
-          "string_type": 3.75,
-          "scale_length_b": 0.43500000000000005,
+          "electric_technique": 5.194999999999999,
+          "amp_make": 11.659999999999998,
+          "body_wood": 0.845,
+          "pickup_config": 0.195,
+          "string_type": 7.209999999999998,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.135,
-          "bass_technique": 3.895
+          "bass_technique": 5.1949999999999985
         }
       },
       {
@@ -113,9 +113,9 @@
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 0.24,
+          "multitrack_stack_density": 0.78,
           "multitrack_stack_era_aesthetic": 9.145,
-          "multitrack_stack_processing": 8.584999999999999
+          "multitrack_stack_processing": 8.735
         }
       }
     ],

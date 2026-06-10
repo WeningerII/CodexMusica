@@ -3,8 +3,8 @@
   "name": "Rapso",
   "family": "global",
   "lineage": "Trinidadian chantwell spoken-word over soca-derived rhythm bed — codified through Brother Resistance (Lutalo Masimba) and the Network Riddum Band starting late 1970s, then Brother Marvin and the broader 3 Canal collective bringing rapso into Trinidad’s carnival mainstream; characterized by oratorical-political rapso-flow delivery over Caribbean percussion-and-electronic-instrument production",
-  "recipe": "classic North American 1977-1979 rapso, ballad Poetry, anglo singer song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, full chest belt, nervy, Yoruba tonal vocal. thomastik infeld low tension jazz warm fingerstyle locked electric bass, over hammered post lathe strikes brushes-and-sticks drum kit, bell like soca engine room iron trinidadian iron, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, steelpan, clean strummed single coil electric guitar, darker dense phosphor bronze saxophone, yellow brass canonical 70 30 bach stradivarius trumpet, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. brent black community studio london. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 911,
+  "recipe": "classic North American 1977-1979 rapso, ballad Poetry, anglo singer song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, full chest belt, nervy, narrative. thomastik infeld low tension jazz warm pocket fingerstyle electric bass, steel vintage ambassador asymmetric bronze bell bronze drum kit, bell like soca engine room iron trinidadian iron, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, steelpan, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. brent black community studio london. large-diaphragm condenser.",
+  "recipe_chars": 998,
   "score": 272.104,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 2.128000000000002,
-          "voice_quality": 3.094,
+          "voice_register": 5.5280000000000005,
+          "voice_quality": 5.262,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.78,
-          "voice_articulation": 0.3899999999999999,
-          "voice_microtone": 0.4035,
-          "voice_tradition": 3.3799999999999994,
-          "voice_mechanism_compound": 3.12,
-          "voice_estill_quality": 3.835000000000001,
-          "voice_speech_song": 10.464999999999996,
-          "voice_ensemble_config": 8.449999999999998,
-          "voice_ornament_system": 1.755,
-          "voice_pitch_organization": 0.78,
-          "voice_processing_chain": 8.3135,
-          "voice_multitrack_stack": 2.3440000000000003
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 2.08,
+          "voice_microtone": 3.0235000000000007,
+          "voice_tradition": 11.0175,
+          "voice_mechanism_compound": 4.81,
+          "voice_estill_quality": 5.005000000000001,
+          "voice_speech_song": 17.939999999999998,
+          "voice_ensemble_config": 14.819999999999993,
+          "voice_ornament_system": 2.0845,
+          "voice_pitch_organization": 2.7960000000000003,
+          "voice_processing_chain": 11.0635,
+          "voice_multitrack_stack": 3.0060000000000002
         }
       },
       {
@@ -65,14 +65,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 2.3265,
-          "amp_make": 0.9099999999999997,
-          "body_wood": 0.78,
-          "pickup_config": 0.105,
-          "string_type": 1.0399999999999998,
-          "scale_length_b": 0.7695,
+          "electric_technique": 3.6380000000000003,
+          "amp_make": 1.755,
+          "body_wood": 0.975,
+          "pickup_config": 0.195,
+          "string_type": 3.1045,
+          "scale_length_b": 0.9195,
           "fretted_or_not": 0.3315,
-          "bass_technique": 2.3265
+          "bass_technique": 3.6380000000000003
         }
       },
       {
@@ -91,17 +91,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 8.449999999999998,
-          "shell_wood": 0.6,
+          "percussion_technique": 20.149999999999995,
+          "shell_wood": 1.885,
           "shell_thickness": 0.0315,
-          "bearing_edges": 0.7695,
-          "drumhead": 0.8044999999999998,
-          "snare_wires": 0.78,
-          "cymbal_alloy": 0.3,
-          "cymbal_hammering": 3.3329999999999997,
-          "cymbal_lathing": 0.7799999999999998,
-          "cymbal_finish": 0.78,
-          "drum_technique": 8.449999999999998
+          "bearing_edges": 1.6899999999999997,
+          "drumhead": 3.1985,
+          "snare_wires": 0.951,
+          "cymbal_alloy": 3.8480000000000003,
+          "cymbal_hammering": 6.332999999999999,
+          "cymbal_lathing": 5.925,
+          "cymbal_finish": 1.4949999999999999,
+          "drum_technique": 20.149999999999995
         }
       },
       {
@@ -111,7 +111,7 @@
           "iron_pattern": "iron_quarter"
         },
         "scores": {
-          "iron_source": 4.9449999999999985,
+          "iron_source": 5.094999999999999,
           "iron_pattern": 0.054
         }
       },
@@ -123,9 +123,9 @@
           "tassa_lineage": "tassa_modern_carnival"
         },
         "scores": {
-          "tassa_skin": 12.219999999999999,
-          "tassa_shell": 2.705,
-          "tassa_lineage": 3.7800000000000002
+          "tassa_skin": 18.784999999999997,
+          "tassa_shell": 2.855,
+          "tassa_lineage": 4.43
         }
       },
       {
@@ -135,8 +135,8 @@
           "steelpan_context": "steelpan_panyard"
         },
         "scores": {
-          "steelpan_voice": 0.39,
-          "steelpan_context": 2.671
+          "steelpan_voice": 0.78,
+          "steelpan_context": 3.1209999999999996
         }
       },
       {
@@ -156,18 +156,18 @@
           "string_tuning": "c_standard"
         },
         "scores": {
-          "electric_technique": 5,
-          "amp_make": 2.5595000000000003,
-          "body_wood": 0.7695,
-          "neck_wood": 0.7695,
-          "fretboard": 0.7149999999999999,
-          "pickup_magnet": 0.44999999999999996,
-          "string_material": 0.39,
-          "string_gauge": 0.78,
-          "bridge": 0.39,
-          "scale_length": 0.78,
+          "electric_technique": 7.425000000000001,
+          "amp_make": 3.7415000000000003,
+          "body_wood": 0.9195,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4949999999999999,
+          "pickup_magnet": 1.4949999999999999,
+          "string_material": 1.885,
+          "string_gauge": 0.975,
+          "bridge": 0.5549999999999999,
+          "scale_length": 0.975,
           "finish": 0.0045,
-          "string_tuning": 0.8474999999999998
+          "string_tuning": 2.275
         }
       },
       {
@@ -182,13 +182,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.2,
-          "sax_size": 0.78,
-          "sax_reed": 0.44999999999999996,
-          "sax_body_alloy": 1.0399999999999998,
-          "sax_mouthpiece": 0.44999999999999996,
-          "sax_technique": -0.035,
-          "sax_maker_school": 0.39
+          "wind_articulation": 4.4430000000000005,
+          "sax_size": 2.1745000000000005,
+          "sax_reed": 1.4949999999999999,
+          "sax_body_alloy": 3.1635,
+          "sax_mouthpiece": 1.4949999999999999,
+          "sax_technique": 2.695,
+          "sax_maker_school": 1.625
         }
       },
       {
@@ -203,13 +203,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.2,
-          "brass_size": 0.44999999999999996,
-          "trumpet_mouthpiece": 0.325,
-          "brass_mute": 0.39,
-          "trumpet_technique": 0.19500000000000003,
-          "trumpet_bell_metal": 1.17,
-          "trumpet_maker_school": 0.39
+          "wind_articulation": 4.4430000000000005,
+          "brass_size": 1.4949999999999999,
+          "trumpet_mouthpiece": 3.706,
+          "brass_mute": 0.726,
+          "trumpet_technique": 4.4430000000000005,
+          "trumpet_bell_metal": 1.7315,
+          "trumpet_maker_school": 1.2349999999999999
         }
       },
       {
@@ -221,10 +221,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 1.3849999999999998,
+          "electronic_technique": 1.535,
           "poly_archetypes": 0.39,
           "poly_voices": 0.414,
-          "poly_maker_lineage": 1.1049999999999998
+          "poly_maker_lineage": 2.34
         }
       }
     ],

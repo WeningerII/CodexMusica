@@ -3,8 +3,8 @@
   "name": "Welsh hymn-balladry",
   "family": "global",
   "lineage": "Welsh-language sacred-and-secular balladry tradition rooted in the Welsh Nonconformist chapel (capel) singing-school (cymanfa ganu) movement of the 18th-19th centuries — characterized by Welsh male voice choir (côr meibion) four-part harmony, hymn-tunes by William Williams Pantycelyn, Cwm Rhondda (1907), Calon Lân, and the broader Welsh-language hymnody-secular-balladry continuation",
-  "recipe": "classic North American late-1900s welsh hymn-balladry, ballad Poetry, Welsh hymn ballad branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, ornamental, Scottish Gaelic vocal. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, concert harp, choir welsh male. country church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 544,
+  "recipe": "classic North American late-1900s welsh hymn-balladry, ballad Poetry, Welsh hymn ballad branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, nervy, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, concert harp, choir welsh male. country church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 528,
   "score": 87.32,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 2.8,
-          "voice_quality": 3.1687499999999997,
+          "voice_register": 4.675000000000001,
+          "voice_quality": 6.91875,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.15,
-          "voice_articulation": 1.7499999999999998,
-          "voice_microtone": 0,
-          "voice_tradition": 9.28325,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 1.5544999999999995,
-          "voice_speech_song": 6.319124999999998,
-          "voice_ensemble_config": 8.550374999999997,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 3.625,
+          "voice_microtone": 0.06500000000000002,
+          "voice_tradition": 10.08325,
+          "voice_mechanism_compound": 1.949875,
+          "voice_estill_quality": 3.4295000000000004,
+          "voice_speech_song": 9.669124999999998,
+          "voice_ensemble_config": 12.050374999999995,
           "voice_ornament_system": 4.4045000000000005,
           "voice_pitch_organization": 3.5601249999999998,
-          "voice_processing_chain": 3.6529999999999996,
-          "voice_multitrack_stack": 2.3899999999999997
+          "voice_processing_chain": 4.752999999999999,
+          "voice_multitrack_stack": 2.6899999999999995
         }
       },
       {
@@ -60,10 +60,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 2.099125,
-          "choir_polyphonic_configuration": 2.3884999999999996,
-          "choir_regional_canonical_configuration": 2.9585,
-          "choir_ensemble_repertoire": 2.4275
+          "choir_size": 2.5491249999999996,
+          "choir_polyphonic_configuration": 2.5385,
+          "choir_regional_canonical_configuration": 5.0085,
+          "choir_ensemble_repertoire": 3.5774999999999997
         }
       },
       {
@@ -73,7 +73,7 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 0.09,
+          "harp_strings": 0.39,
           "harp_pedals": 0
         }
       },

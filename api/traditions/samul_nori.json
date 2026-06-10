@@ -19,7 +19,7 @@
           "kkwaenggwari_role": "kkwaenggwari_lead"
         },
         "scores": {
-          "kkwaenggwari_role": 15.044999999999995
+          "kkwaenggwari_role": 16.069999999999997
         }
       },
       {
@@ -28,7 +28,7 @@
           "jing_role": "jing_phrase_marker"
         },
         "scores": {
-          "jing_role": 14.789999999999994
+          "jing_role": 15.814999999999994
         }
       },
       {
@@ -41,10 +41,10 @@
           "janggu_lineage": "janggu_samul_lineage"
         },
         "scores": {
-          "janggu_use": 3.6400000000000006,
-          "janggu_construction": 1.8850000000000002,
-          "janggu_shell_wood": 6.759999999999999,
-          "janggu_head": 6.759999999999999,
+          "janggu_use": 10.18,
+          "janggu_construction": 2.08,
+          "janggu_shell_wood": 10.474999999999998,
+          "janggu_head": 10.325,
           "janggu_lineage": 16.299999999999997
         }
       },
@@ -58,9 +58,9 @@
         },
         "scores": {
           "buk_korean_context": 10.744999999999997,
-          "buk_korean_construction": 1.8850000000000002,
-          "buk_korean_shell_wood": 6.759999999999999,
-          "buk_korean_head": 6.759999999999999
+          "buk_korean_construction": 2.825,
+          "buk_korean_shell_wood": 10.474999999999998,
+          "buk_korean_head": 10.325
         }
       }
     ],

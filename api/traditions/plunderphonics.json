@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.185,
-          "sampler_archetypes": 1.8199999999999998,
-          "sampler_bit_depth": 1.23,
-          "sampler_workflow": 5.1000000000000005,
-          "sampler_classic_context": 5.46
+          "electronic_technique": 16.085,
+          "sampler_archetypes": 15.86,
+          "sampler_bit_depth": 0.65,
+          "sampler_workflow": 11.364999999999998,
+          "sampler_classic_context": 26.78
         }
       },
       {
@@ -39,10 +39,10 @@
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 6.185,
-          "sample_bitdepth": 0.8999999999999999,
-          "sample_swing": 1.8199999999999998,
-          "sample_processing": 0.48
+          "electronic_technique": 16.085,
+          "sample_bitdepth": 0.65,
+          "sample_swing": 15.86,
+          "sample_processing": 0.375
         }
       },
       {
@@ -53,9 +53,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 3.7,
-          "granular_use": 0.24,
-          "granular_synth_source": 2.9949999999999997
+          "electronic_technique": 4.575,
+          "granular_use": 2.04,
+          "granular_synth_source": 3.345
         }
       }
     ],

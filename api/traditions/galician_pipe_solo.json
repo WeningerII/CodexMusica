@@ -23,12 +23,12 @@
           "gaita_galega_bag": "gaita_galega_goatskin_canonical"
         },
         "scores": {
-          "wind_articulation": -0.07,
+          "wind_articulation": 2.6000000000000005,
           "gaita_galega_drones": 25.261,
-          "gaita_galega_use": 17.664999999999996,
-          "gaita_galega_chanter_wood": 4.589999999999999,
-          "gaita_galega_reed": 4.589999999999999,
-          "gaita_galega_bag": 4.589999999999999
+          "gaita_galega_use": 20.914999999999996,
+          "gaita_galega_chanter_wood": 5.239999999999999,
+          "gaita_galega_reed": 5.239999999999999,
+          "gaita_galega_bag": 5.239999999999999
         }
       }
     ],

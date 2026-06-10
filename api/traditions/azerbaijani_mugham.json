@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 3.835,
+          "voice_quality": 3.7330000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.9399999999999995,
+          "voice_vibrato": 9.879999999999999,
           "voice_articulation": 0.31875,
-          "voice_microtone": 8.71,
-          "voice_tradition": 35.295,
-          "voice_mechanism_compound": 17.23775,
-          "voice_estill_quality": 15.375375,
-          "voice_speech_song": 12.7,
-          "voice_ensemble_config": 6.759999999999999,
-          "voice_ornament_system": 19.140625,
-          "voice_pitch_organization": 23.055625,
-          "voice_processing_chain": 6.369999999999999,
-          "voice_multitrack_stack": 2.6033749999999998
+          "voice_microtone": 15.080375,
+          "voice_tradition": 48.03524999999999,
+          "voice_mechanism_compound": 28.762749999999997,
+          "voice_estill_quality": 25.450374999999994,
+          "voice_speech_song": 21.825,
+          "voice_ensemble_config": 10.984999999999996,
+          "voice_ornament_system": 32.662749999999996,
+          "voice_pitch_organization": 34.580625,
+          "voice_processing_chain": 7.6049999999999995,
+          "voice_multitrack_stack": 3.835
         }
       },
       {
@@ -63,12 +63,12 @@
           "tar_tradition": "tar_radif_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 10.424624999999999,
+          "plucked_traditional_technique": 18.625,
           "tar_belly": 1,
-          "tar_pick": 17.615,
-          "tar_body_wood": 7.279999999999999,
-          "tar_string_material": 4.68,
-          "tar_tradition": 17.129875
+          "tar_pick": 21.505999999999993,
+          "tar_body_wood": 8.125,
+          "tar_string_material": 5.525,
+          "tar_tradition": 17.779875
         }
       },
       {
@@ -80,10 +80,10 @@
           "kamancha_tradition": "kamancha_garabagh_school"
         },
         "scores": {
-          "bowed_technique": 9.5,
-          "kamancha_body": 4.68,
-          "kamancha_string": 14.040000000000001,
-          "kamancha_tradition": 18.102874999999997
+          "bowed_technique": 18.625,
+          "kamancha_body": 5.525,
+          "kamancha_string": 14.884999999999998,
+          "kamancha_tradition": 18.752875
         }
       },
       {
@@ -97,10 +97,10 @@
         },
         "scores": {
           "daf_rings": 0.33375,
-          "daf_context": 14.040000000000001,
-          "daf_shell_wood": 8.58,
-          "daf_head_material": 3.3799999999999994,
-          "daf_jingle_metal": 3.3799999999999994
+          "daf_context": 22.944999999999997,
+          "daf_shell_wood": 11.375,
+          "daf_head_material": 4.225,
+          "daf_jingle_metal": 4.225
         }
       },
       {
@@ -110,8 +110,8 @@
           "gaval_tradition": "gaval_khananda_canonical"
         },
         "scores": {
-          "gaval_body": 10.659999999999998,
-          "gaval_tradition": 11.244625
+          "gaval_body": 12.48,
+          "gaval_tradition": 11.894625
         }
       }
     ],

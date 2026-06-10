@@ -3,8 +3,8 @@
   "name": "Bulgarian dance traditional (horo, ruchenitsa)",
   "family": "global",
   "lineage": "Bulgarian village dance tradition built on aksak additive odd-meter rhythms (7/8 rachenitsa, 9/8 devetorka, 11/8 kopanitsa, 13/8 from Shopluk region) — performed at village celebrations, weddings, and (post-1944) on the State Ensemble stage circuit; characteristic instrumentation: gaida (bulgarian bagpipe), kaval (rim-blown flute), tambura, accordion, gadulka (bowed lute)",
-  "recipe": "classic North American mid-1940s bulgarian dance traditional, groove Percussion, Slavic bard ballad poetry, Mediterranean ballad ballad poetry berber ahidus and ahwash bulería. vocal fry, nasal, Mediterranean demotic vocal, m1 with m0 pulse borrowing. cane arundo donax single reed canonical bulgarian gaida bulgarian, plum canonical bulgarian kaval, horo dance driving strummed tambura balkan, responsive traditional leather accordion. bulgarian state radio choir hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 602,
+  "recipe": "classic North American mid-1940s bulgarian dance traditional, groove Percussion, Slavic bard ballad poetry, Mediterranean ballad ballad poetry berber ahidus and ahwash bulería. vocal fry, nasal, melodic, rhythmic. plum canonical rhodope cane arundo donax single reed canonical bulgarian whole goatskin fleece outside canonical rhodope gaida bulgarian, plum canonical bulgarian kaval, horo dance driving strummed tambura balkan, leather castagnari Italian premium folk music accordion. bulgarian state radio choir hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 650,
   "score": 172.97,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.4849999999999999,
-          "voice_quality": 0.585,
+          "voice_register": 1.8850000000000002,
+          "voice_quality": 4.5,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
-          "voice_articulation": 0.435,
-          "voice_microtone": 0.39,
-          "voice_tradition": 8.58,
-          "voice_mechanism_compound": 1.8,
-          "voice_estill_quality": 0.345,
-          "voice_speech_song": 2.4050000000000002,
-          "voice_ensemble_config": 2.34,
-          "voice_ornament_system": 0.795,
-          "voice_pitch_organization": 1.2,
-          "voice_processing_chain": 4.45,
-          "voice_multitrack_stack": 0.39
+          "voice_vibrato": 0.78,
+          "voice_articulation": 1.6899999999999997,
+          "voice_microtone": 4.5,
+          "voice_tradition": 17.485,
+          "voice_mechanism_compound": 5.525,
+          "voice_estill_quality": 9.754999999999999,
+          "voice_speech_song": 20.085000000000004,
+          "voice_ensemble_config": 19.175000000000004,
+          "voice_ornament_system": 4.45,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 5.1000000000000005,
+          "voice_multitrack_stack": 3.575
         }
       },
       {
@@ -63,12 +63,12 @@
           "gaida_bag": "gaida_goatskin_canonical"
         },
         "scores": {
-          "wind_articulation": 1.885,
+          "wind_articulation": 2.685,
           "gaida_origin": 0.78,
           "gaida_bulgarian_context": 1.3,
-          "gaida_chanter_wood": 0.735,
-          "gaida_reed": 4.335,
-          "gaida_bag": 0.735
+          "gaida_chanter_wood": 1.6899999999999997,
+          "gaida_reed": 6.284999999999999,
+          "gaida_bag": 1.6899999999999997
         }
       },
       {
@@ -80,10 +80,10 @@
           "kaval_body_wood": "kaval_plum_canonical"
         },
         "scores": {
-          "wind_articulation": 1.885,
-          "kaval_region": 1,
-          "kaval_context": 1.24,
-          "kaval_body_wood": 4.335
+          "wind_articulation": 2.685,
+          "kaval_region": 1.74,
+          "kaval_context": 2.54,
+          "kaval_body_wood": 5.635
         }
       },
       {
@@ -94,9 +94,9 @@
           "tambura_balkan_use": "tambura_horo"
         },
         "scores": {
-          "plucked_traditional_technique": 4.835,
+          "plucked_traditional_technique": 6.784999999999999,
           "tambura_balkan_school": 10.24,
-          "tambura_balkan_use": 4.949999999999999
+          "tambura_balkan_use": 5.6
         }
       },
       {
@@ -111,13 +111,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 1.835,
+          "free_reed_technique": 2.6650000000000005,
           "accordion_reed_material": 0.3,
           "musette_offset": 1.3,
           "reed_config": 0.15,
           "bellows": 1.24,
           "voicing_chamber": 0.045,
-          "accordion_maker_school": 0.78
+          "accordion_maker_school": 2.4699999999999998
         }
       }
     ],

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 3.6475000000000004,
-          "voice_quality": 3.853500000000002,
+          "voice_register": 8.522499999999997,
+          "voice_quality": 5.103500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.6,
-          "voice_microtone": 2.8654999999999995,
-          "voice_tradition": 7.264500000000001,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 3.6550000000000002,
-          "voice_speech_song": 15.404999999999998,
-          "voice_ensemble_config": 10.009999999999998,
-          "voice_ornament_system": 1.4049999999999998,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 17.352999999999998,
-          "voice_multitrack_stack": 4.2459999999999996
+          "voice_vibrato": 2.3895,
+          "voice_articulation": 4.8500000000000005,
+          "voice_microtone": 3.0154999999999994,
+          "voice_tradition": 8.9645,
+          "voice_mechanism_compound": 1.885,
+          "voice_estill_quality": 4.905000000000001,
+          "voice_speech_song": 24.179999999999996,
+          "voice_ensemble_config": 17.484999999999996,
+          "voice_ornament_system": 1.9049999999999998,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 28.502999999999997,
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 15.231499999999999,
-          "amp_make": 15.567999999999998,
-          "body_wood": 3.38,
-          "neck_wood": 1.69,
-          "fretboard": 1.625,
+          "electric_technique": 27.4815,
+          "amp_make": 28.468,
+          "body_wood": 5.07,
+          "neck_wood": 2.3895,
+          "fretboard": 3.055,
           "pickup_magnet": 0.42,
           "pickup_winding": 0.42,
-          "string_material": 1.5550000000000002,
-          "bridge": 1.69,
-          "scale_length": 3.38,
-          "string_gauge": 1.69,
+          "string_material": 2.055,
+          "bridge": 2.3895,
+          "scale_length": 4.875,
+          "string_gauge": 2.3895,
           "finish": 0,
-          "string_tuning": 3.38
+          "string_tuning": 6.1235
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 15.2,
-          "amp_make": 5.7655,
-          "body_wood": 1.69,
-          "pickup_config": 0.6015,
-          "string_type": 6.5,
-          "scale_length_b": 1.69,
-          "fretted_or_not": 0.9099999999999999,
-          "bass_technique": 15.2
+          "electric_technique": 27.45,
+          "amp_make": 7.8155,
+          "body_wood": 2.535,
+          "pickup_config": 0.195,
+          "string_type": 8.97,
+          "scale_length_b": 2.3895,
+          "fretted_or_not": 3.055,
+          "bass_technique": 27.45
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 10.009999999999998,
-          "shell_wood": 1.5865,
+          "percussion_technique": 17.289999999999996,
+          "shell_wood": 2.0865,
           "shell_thickness": 0,
-          "bearing_edges": 1.69,
-          "drumhead": 1.69,
-          "snare_wires": 1.69,
-          "cymbal_alloy": 1.4049999999999998,
-          "cymbal_hammering": -0.035,
-          "cymbal_lathing": 2.4699999999999998,
-          "cymbal_finish": 1.5550000000000002,
-          "drum_technique": 10.009999999999998
+          "bearing_edges": 2.3895,
+          "drumhead": 2.5130000000000003,
+          "snare_wires": 2.3895,
+          "cymbal_alloy": 3.2095,
+          "cymbal_hammering": 3.248,
+          "cymbal_lathing": 5.655000000000001,
+          "cymbal_finish": 2.055,
+          "drum_technique": 17.289999999999996
         }
       },
       {
@@ -146,10 +146,10 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 3.8675,
-          "conga_set": 0.258,
-          "conga_skin": 1.69,
-          "conga_shell_wood": 1.69
+          "percussion_technique": 4.0175,
+          "conga_set": 0.195,
+          "conga_skin": 2.3895,
+          "conga_shell_wood": 2.535
         }
       },
       {
@@ -160,7 +160,7 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 3.8675,
+          "percussion_technique": 4.0175,
           "timbales_shell": 0.756,
           "timbales_context": 0.36750000000000005
         }
@@ -177,13 +177,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 7.396,
-          "brass_size": 1.5550000000000002,
-          "trumpet_mouthpiece": 1.625,
+          "wind_articulation": 9.946000000000002,
+          "brass_size": 2.055,
+          "trumpet_mouthpiece": 3.0550000000000006,
           "brass_mute": 0.1365,
-          "trumpet_technique": 7.396,
-          "trumpet_bell_metal": 1.69,
-          "trumpet_maker_school": 1.69
+          "trumpet_technique": 9.946000000000002,
+          "trumpet_bell_metal": 2.3760000000000003,
+          "trumpet_maker_school": 3.38
         }
       },
       {
@@ -198,13 +198,13 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 7.396,
-          "sax_size": 3.6500000000000004,
-          "sax_reed": 1.5550000000000002,
-          "sax_body_alloy": -0.035,
-          "sax_mouthpiece": 1.5550000000000002,
-          "sax_technique": 3.65,
-          "sax_maker_school": 0.6599999999999999
+          "wind_articulation": 9.946000000000002,
+          "sax_size": 4.9,
+          "sax_reed": 2.055,
+          "sax_body_alloy": 0.12999999999999998,
+          "sax_mouthpiece": 2.055,
+          "sax_technique": 4.9,
+          "sax_maker_school": 0.845
         }
       }
     ],

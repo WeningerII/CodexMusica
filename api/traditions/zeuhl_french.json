@@ -3,8 +3,8 @@
   "name": "Zeuhl (French progressive Magma)",
   "family": "rock_punk",
   "lineage": "1970s French progressive-rock subgenre invented by drummer-composer Christian Vander's Magma (founded 1969), characterized by Kobaïan invented-language vocals, complex polyrhythmic compositional structures, dark-symphonic orchestration, and explicit science-fiction mythological-narrative content. Magma's Mëkanïk Dëstruktïẁ Kömmandöh (1973), Köhntarkösz (1974), and Üdü Ẁüdü (1976) constitute the canonical core. The genre influenced subsequent French-progressive Univers Zéro, Art Zoyd, and Magma-affiliated solo projects.",
-  "recipe": "classic European mid-1970s zeuhl, distorted Rock, progressive rock branch, western modern art music second viennese school. thick, larynx lowered, tasteful, narrative. hiwatt amp British clean amp high wattage headroom basswood pau ferro humbucker electric guitar, hiwatt amp British clean amp high wattage headroom mahogany ernie ball slinky electric bass, walnut fiberskyn synthetic calf machine hammered symmetric pattern drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. intimate paris small studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 625,
+  "recipe": "classic European mid-1970s zeuhl, distorted Rock, progressive rock branch, western modern art music second viennese school. thick, larynx lowered, tasteful, narrative. hiwatt amp British clean amp high wattage headroom basswood alnico humbucker electric guitar, hiwatt amp British clean amp high wattage headroom ernie ball slinky electric bass, walnut fiberskyn synthetic calf machine hammered symmetric pattern drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. intimate paris small studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 613,
   "score": 343.34,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 11.349999999999994,
+          "voice_register": 16.824999999999996,
           "voice_quality": 1.2349999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.085,
+          "voice_vibrato": 2.8600000000000003,
           "voice_articulation": 1.0999999999999999,
-          "voice_microtone": 15.074999999999998,
-          "voice_tradition": 2.2099999999999995,
-          "voice_mechanism_compound": 1.3650000000000002,
-          "voice_estill_quality": 0.9750000000000001,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 4.16
+          "voice_microtone": 22.75,
+          "voice_tradition": 7.085000000000001,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 13.78,
+          "voice_ensemble_config": 10.854999999999997,
+          "voice_ornament_system": 2.6400000000000006,
+          "voice_pitch_organization": 3.9000000000000004,
+          "voice_processing_chain": 6.759999999999999,
+          "voice_multitrack_stack": 5.005000000000001
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 3.4000000000000004,
+          "electric_technique": 5.3500000000000005,
           "amp_make": 6.694999999999999,
-          "body_wood": 2.6,
+          "body_wood": 6.240000000000001,
           "neck_wood": 0.585,
-          "fretboard": 1.275,
-          "pickup_magnet": 1.035,
-          "pickup_winding": 1.035,
-          "string_material": 1.275,
+          "fretboard": 0.45499999999999996,
+          "pickup_magnet": 2.8600000000000003,
+          "pickup_winding": 2.8600000000000003,
+          "string_material": 0.45499999999999996,
           "bridge": 0.585,
-          "scale_length": 2.6,
-          "string_gauge": 1.8749999999999998,
+          "scale_length": 6.240000000000001,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 7.279999999999999
+          "string_tuning": 8.700000000000001
         }
       },
       {
@@ -98,12 +98,12 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9000000000000001,
+          "electric_technique": 3.8500000000000005,
           "amp_make": 6.694999999999999,
-          "body_wood": 1.425,
-          "pickup_config": 0.9099999999999999,
-          "string_type": 11.785,
-          "scale_length_b": 0.9099999999999999,
+          "body_wood": 0.9750000000000001,
+          "pickup_config": 3.3150000000000004,
+          "string_type": 12.134999999999998,
+          "scale_length_b": 2.8600000000000003,
           "fretted_or_not": 0,
           "bass_technique": 10.7
         }
@@ -124,17 +124,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 4.9399999999999995,
+          "percussion_technique": 11.699999999999998,
           "shell_wood": 1.495,
-          "shell_thickness": 1.035,
-          "bearing_edges": 0.9099999999999999,
-          "drumhead": 2.09,
-          "snare_wires": 1.035,
+          "shell_thickness": 0.45499999999999996,
+          "bearing_edges": 2.8600000000000003,
+          "drumhead": 7.125,
+          "snare_wires": 0.45499999999999996,
           "cymbal_alloy": 23.5,
-          "cymbal_hammering": 12.45,
-          "cymbal_lathing": 12.645,
+          "cymbal_hammering": 16.2,
+          "cymbal_lathing": 16.395,
           "cymbal_finish": 1.495,
-          "drum_technique": 10.75
+          "drum_technique": 11.699999999999998
         }
       },
       {
@@ -151,15 +151,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.84,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 6,
-          "piano_rim": 6,
-          "piano_soundboard": 1.6999999999999997,
-          "piano_pinblock": 1.7499999999999998,
-          "piano_plate": 2.2099999999999995,
-          "piano_pitch_standard": 2.2749999999999995
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 0.585,
+          "grand_piano_brand": 4.03,
+          "piano_hammer": 12.3,
+          "piano_rim": 12.3,
+          "piano_soundboard": 8,
+          "piano_pinblock": 8,
+          "piano_plate": 10.25,
+          "piano_pitch_standard": 8.39
         }
       }
     ],

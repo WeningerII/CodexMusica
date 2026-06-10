@@ -3,8 +3,8 @@
   "name": "Brostep (American dubstep)",
   "family": "electronic",
   "lineage": "Late-2000s and early-2010s American adaptation of UK dubstep, characterized by aggressive distorted-synth \"wobble\" bass-line designs, half-time drum-and-bass rhythm, simplified song-structure, and explicit teen-festival-EDM targeting. Skrillex's Scary Monsters and Nice Sprites (2010), Excision, Datsik, Borgore, and the broader Mad Decent-OWSLA label rosters consolidated the canonical aesthetic.",
-  "recipe": "classic 2007-2009 brostep, bass System, bass descendants branch, house electronic dance deep house acid house. TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 429,
+  "recipe": "classic 2007-2009 brostep, bass System, bass descendants branch, house electronic dance deep house acid house. TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 444,
   "score": 76.394,
   "config": {
     "traditions": [
@@ -21,9 +21,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 6.21,
-          "drum_machine_808_context": 6.305,
-          "tr808_production_origin": 0.375
+          "tr808_voice": 7.51,
+          "drum_machine_808_context": 7.6049999999999995,
+          "tr808_production_origin": 0.845
         }
       },
       {
@@ -36,9 +36,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 11.91,
-          "oscillator": 6.26,
-          "filter_topology": 6.764374999999999,
+          "electronic_technique": 13.209999999999999,
+          "oscillator": 7.56,
+          "filter_topology": 8.214375,
           "envelope": 0.3,
           "modulation": 0.105
         }
@@ -56,14 +56,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 8.51,
-          "body_wood": 1.0987500000000001,
-          "pickup_config": 0.42,
-          "string_type": 7.06,
-          "scale_length_b": 0.5493750000000001,
+          "electric_technique": 3.6199999999999997,
+          "amp_make": 14.609999999999998,
+          "body_wood": 0.195,
+          "pickup_config": 0.195,
+          "string_type": 11.609999999999996,
+          "scale_length_b": 0.43500000000000005,
           "fretted_or_not": 0.135,
-          "bass_technique": -0.035
+          "bass_technique": 3.619999999999999
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Frevo",
   "family": "global",
   "lineage": "Brazilian Pernambuco (Recife) carnival fast-tempo brass-band marcha tradition codified 1907-onward as the working-class-and-capoeira-defense response to the elite-elite carnival-club tradition. The canonical frevo-orquestra ensemble: trumpets, trombones, saxophones, and rhythm-section (snare-and-bass-drum military-marching kit, sometimes augmented with percussive surdo-and-tamborim Brazilian-samba percussion). The frevo-de-rua street-version is purely instrumental and very fast (typically 200+ BPM), led by passistas dancers carrying small umbrellas (sombrinhas) executing the characteristic acrobatic-jumping passo-de-frevo footwork. Three sub-genres: frevo-canção (sung-frevo with vocal-lyrics), frevo-de-bloco (more relaxed bloco-carnival-association style), and frevo-de-rua (instrumental-street-version).",
-  "recipe": "classic North American modern frevo, groove Percussion, Brazilian branch, charanga danza Cuban, American jazz improv on frame latin jazz hard bop. thick, intimate aspirated, pure, punctuated. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, nickel silver bright projecting ensemble continuous-airflow legato saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, brass vintage ambassador asymmetric bronze bell bronze drum kit, samba bateria. estudio rozenblit recife. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 858,
+  "recipe": "classic North American modern frevo, groove Percussion, Brazilian branch, charanga danza Cuban, American jazz improv on frame latin jazz hard bop. thick, intimate aspirated, pure, punctuated. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, brass vintage ambassador asymmetric bronze bell bronze drum kit, samba bateria. estudio rozenblit recife. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 883,
   "score": 773.123,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.6249999999999993,
+          "voice_register": 39.800000000000026,
           "voice_quality": 3.000000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.24,
-          "voice_articulation": 1.3,
-          "voice_microtone": 1.5749999999999995,
-          "voice_tradition": 5.785,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 8.905,
-          "voice_ensemble_config": 10.14,
-          "voice_ornament_system": 0.8949999999999999,
-          "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 2.54
+          "voice_articulation": 3.795,
+          "voice_microtone": 30.42000000000002,
+          "voice_tradition": 37.37000000000002,
+          "voice_mechanism_compound": 8.45,
+          "voice_estill_quality": 7.085,
+          "voice_speech_song": 22.132499999999997,
+          "voice_ensemble_config": 20.604999999999993,
+          "voice_ornament_system": 1.0449999999999997,
+          "voice_pitch_organization": 1.8199999999999998,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 3.9
         }
       },
       {
@@ -64,13 +64,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 5.3950000000000005,
-          "brass_size": 0.24,
-          "trumpet_mouthpiece": 2.2749999999999995,
-          "brass_mute": 0.045,
-          "trumpet_technique": 5.3950000000000005,
+          "wind_articulation": 8.547500000000001,
+          "brass_size": 0.65,
+          "trumpet_mouthpiece": 36.66500000000002,
+          "brass_mute": 0.375,
+          "trumpet_technique": 8.547500000000001,
           "trumpet_bell_metal": 3.38,
-          "trumpet_maker_school": 2.21
+          "trumpet_maker_school": 6.565000000000001
         }
       },
       {
@@ -85,13 +85,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 5.3950000000000005,
-          "sax_size": 0.22499999999999998,
-          "sax_reed": 0.15,
-          "sax_body_alloy": 2.0349999999999997,
-          "sax_mouthpiece": 0.24,
-          "sax_technique": 1.7499999999999998,
-          "sax_maker_school": 0.9099999999999997
+          "wind_articulation": 8.547500000000001,
+          "sax_size": 6.675000000000001,
+          "sax_reed": 0.65,
+          "sax_body_alloy": 32.17500000000002,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": 30.125000000000018,
+          "sax_maker_school": 36.41000000000002
         }
       },
       {
@@ -106,13 +106,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 5.3950000000000005,
-          "trombone_type": 1.7499999999999998,
-          "trombone_mouthpiece": 1.6999999999999997,
-          "trombone_mute": 0.045,
-          "trombone_technique": 1.3,
-          "trombone_bell_metal": 3.38,
-          "trombone_maker_school": 2.21
+          "wind_articulation": 8.547500000000001,
+          "trombone_type": 30.125000000000018,
+          "trombone_mouthpiece": 30.075000000000017,
+          "trombone_mute": 0.195,
+          "trombone_technique": 4.484999999999999,
+          "trombone_bell_metal": 3.575,
+          "trombone_maker_school": 6.565000000000001
         }
       },
       {
@@ -128,14 +128,14 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 1.2899999999999998,
-          "amp_make": 3.3799999999999994,
-          "body_wood": 2.525,
+          "electric_technique": 1.9949999999999999,
+          "amp_make": 13.455,
+          "body_wood": 2.8249999999999997,
           "pickup_config": 2.3449999999999998,
-          "string_type": 2.2749999999999995,
-          "scale_length_b": 0.31499999999999995,
-          "fretted_or_not": 1.195,
-          "bass_technique": 2.0349999999999997
+          "string_type": 36.71000000000002,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 1.345,
+          "bass_technique": 30.410000000000018
         }
       },
       {
@@ -154,17 +154,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 10.14,
+          "percussion_technique": 37.245000000000005,
           "shell_wood": 2.08,
-          "shell_thickness": 0.045,
-          "bearing_edges": 0.26999999999999996,
-          "drumhead": 2.2099999999999995,
-          "snare_wires": 0.22499999999999998,
-          "cymbal_alloy": 2.08,
-          "cymbal_hammering": 3.965,
-          "cymbal_lathing": 5.07,
-          "cymbal_finish": 0.15,
-          "drum_technique": 10.14
+          "shell_thickness": 0.195,
+          "bearing_edges": 0.39,
+          "drumhead": 38.71500000000002,
+          "snare_wires": 0.39,
+          "cymbal_alloy": 35.245000000000026,
+          "cymbal_hammering": 33.390000000000015,
+          "cymbal_lathing": 34.04500000000002,
+          "cymbal_finish": 0.65,
+          "drum_technique": 37.245000000000005
         }
       },
       {

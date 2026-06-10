@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.69,
+          "voice_register": 8.814999999999998,
           "voice_quality": 13.261999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.813,
+          "voice_vibrato": 0.845,
           "voice_articulation": 4.291499999999999,
-          "voice_microtone": 1.4999999999999996,
+          "voice_microtone": 8.674999999999999,
           "voice_tradition": 6.661,
-          "voice_mechanism_compound": 0.7149999999999997,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 12.993749999999999,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 0.27149999999999996,
-          "voice_pitch_organization": 1.521,
+          "voice_mechanism_compound": 11.07,
+          "voice_estill_quality": 2.3115,
+          "voice_speech_song": 15.144999999999996,
+          "voice_ensemble_config": 15.924999999999995,
+          "voice_ornament_system": 0.845,
+          "voice_pitch_organization": 2.535,
           "voice_processing_chain": 9.931499999999998,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 4.517499999999999
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr808_voice": 4.847249999999999,
-          "drum_machine_808_context": 1.1917499999999999,
+          "drum_machine_808_context": 3.6474999999999995,
           "tr808_production_origin": 0.74475
         }
       },
@@ -78,7 +78,7 @@
           "electronic_technique": 4.747249999999999,
           "oscillator": 0.87225,
           "filter_topology": 0.1365,
-          "envelope": 0.39,
+          "envelope": 0.845,
           "modulation": 0
         }
       }

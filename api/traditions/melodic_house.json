@@ -3,8 +3,8 @@
   "name": "Melodic house (2010s emotional-melodic deep-house)",
   "family": "electronic",
   "lineage": "2010s deep-and-progressive-house subgenre emphasizing melodic-and-harmonic-development over rhythmic-and-functional dance-floor utility. The Anjunadeep label (founded 2005 as Anjunabeats deep-house sublabel, ran by Above & Beyond) consolidated the canonical melodic house roster. Yotto, Lane 8, Eli & Fur, Jody Wisternoff, and the broader Anjunadeep-Mango Alley-Last Night On Earth label network extended the genre into ambient-leaning deep-house adjacency.",
-  "recipe": "classic melodic house, electronic Dance, house branch, ambient experimental electric outrun / synthwave vaporwave aesthetic. extended whistle, rap, melodic, punctuated. behringer rd 8 modern clone analog circuit reproduction TR-808, pad like pad analog synth, Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 495,
+  "recipe": "classic melodic house, electronic Dance, house branch, ambient experimental electric outrun / synthwave vaporwave aesthetic. extended whistle, rap, melodic, punctuated. behringer rd 8 modern clone analog circuit reproduction TR-808, pad like pad analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 544,
   "score": 138.85,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.2500000000000004,
+          "voice_register": 5.255,
           "voice_quality": 1.29,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.55,
           "voice_articulation": 1.3900000000000001,
-          "voice_microtone": 0,
-          "voice_tradition": 4.795,
-          "voice_mechanism_compound": 1.275,
-          "voice_estill_quality": 0.45,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 6.629999999999999,
+          "voice_microtone": 3.0500000000000007,
+          "voice_tradition": 11.115,
+          "voice_mechanism_compound": 1.6899999999999997,
+          "voice_estill_quality": 1.4949999999999997,
+          "voice_speech_song": 13.454999999999997,
+          "voice_ensemble_config": 13.389999999999997,
           "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 8.025,
-          "voice_multitrack_stack": 7.41
+          "voice_pitch_organization": 4.875,
+          "voice_processing_chain": 18.124999999999996,
+          "voice_multitrack_stack": 12.405
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr808_voice": 0,
-          "drum_machine_808_context": 1.625,
+          "drum_machine_808_context": 6.82,
           "tr808_production_origin": 1.45
         }
       },
@@ -75,10 +75,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 5.235,
+          "electronic_technique": 8.985,
           "oscillator": 1.69,
           "filter_topology": 0.6299999999999999,
-          "envelope": 2.6,
+          "envelope": 4.55,
           "modulation": 0.045
         }
       },
@@ -96,15 +96,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 1.6999999999999997,
+          "keyboard_technique": 7.200000000000001,
           "grand_piano_size": 0.585,
           "grand_piano_brand": 1.995,
-          "piano_hammer": -0.035,
-          "piano_rim": -0.035,
-          "piano_soundboard": 1.2,
+          "piano_hammer": 2.5700000000000003,
+          "piano_rim": 2.465,
+          "piano_soundboard": 1.8150000000000002,
           "piano_pinblock": -0.05,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "piano_plate": 0.7149999999999999,
+          "piano_pitch_standard": 0.78
         }
       }
     ],

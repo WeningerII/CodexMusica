@@ -3,8 +3,8 @@
   "name": "Noise rock",
   "family": "rock_punk",
   "lineage": "Late-1970s through 1990s experimental dissonance-foregrounded rock — codified through Sonic Youth (Daydream Nation 1988), The Jesus Lizard, Big Black (Songs About Fucking 1987), Swans, Glenn Branca’s symphonies, and the broader Touch and Go / SST label ecosystem; characterized by detuned guitars, feedback as compositional material, and aggressive-confrontational performance aesthetic",
-  "recipe": "classic North American 1977-1979 noise rock, distorted Rock, noise rock branch, experimental distorted rock, alternative distorted rock grunge madchester / baggy. thick, false fold engaged, pure, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation lower tension down tuning single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled machine hammered symmetric pattern organized rows drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape electro-harmonix big muff pi proco turbo RAT.",
-  "recipe_chars": 852,
+  "recipe": "classic North American 1977-1979 noise rock, distorted Rock, noise rock branch, experimental distorted rock, alternative distorted rock grunge madchester / baggy. thick, false fold engaged, pure, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation lower tension down tuning single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, mahogany pre muffled edge muffled machine hammered symmetric pattern drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape electro-harmonix big muff pi proco turbo RAT.",
+  "recipe_chars": 829,
   "score": 587.622,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 22.324999999999996,
-          "voice_quality": 0.6499999999999999,
+          "voice_register": 37.700000000000024,
+          "voice_quality": 1.9649999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.02,
-          "voice_articulation": 0.78,
-          "voice_microtone": 21.855,
+          "voice_articulation": 1.625,
+          "voice_microtone": 34.53000000000001,
           "voice_tradition": 8.57,
-          "voice_mechanism_compound": 10.594999999999995,
-          "voice_estill_quality": 1.755,
-          "voice_speech_song": 12.415,
-          "voice_ensemble_config": 11.569999999999999,
-          "voice_ornament_system": 0.585,
-          "voice_pitch_organization": 2.7299999999999995,
-          "voice_processing_chain": 4.3950000000000005,
-          "voice_multitrack_stack": 4.78
+          "voice_mechanism_compound": 17.485,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 19.824999999999996,
+          "voice_ensemble_config": 18.784999999999997,
+          "voice_ornament_system": 1.95,
+          "voice_pitch_organization": 3.575,
+          "voice_processing_chain": 8.91,
+          "voice_multitrack_stack": 8.385
         }
       },
       {
@@ -70,7 +70,7 @@
         },
         "scores": {
           "electric_technique": 13.349999999999998,
-          "amp_make": 13.194999999999999,
+          "amp_make": 25.2525,
           "body_wood": 0.585,
           "neck_wood": 0.78,
           "fretboard": 0.78,
@@ -80,7 +80,7 @@
           "bridge": 0.3,
           "scale_length": 0.78,
           "finish": 0,
-          "string_tuning": 12.22
+          "string_tuning": 21.125
         }
       },
       {
@@ -102,18 +102,18 @@
         },
         "scores": {
           "electric_technique": 13.349999999999998,
-          "amp_make": 13.194999999999999,
-          "body_wood": 0.78,
+          "amp_make": 25.2525,
+          "body_wood": 4.3549999999999995,
           "neck_wood": 0.78,
           "fretboard": 0.78,
           "pickup_magnet": 0.3,
-          "pickup_winding": 1.02,
+          "pickup_winding": 0.195,
           "string_material": 0.78,
           "bridge": 0.39,
-          "scale_length": 1.17,
+          "scale_length": 4.549999999999999,
           "string_gauge": 0.39,
           "finish": 0,
-          "string_tuning": 12.610000000000001
+          "string_tuning": 21.71
         }
       },
       {
@@ -129,14 +129,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.75,
-          "amp_make": 11.765,
+          "electric_technique": 7.475,
+          "amp_make": 19.207499999999996,
           "body_wood": 0.39,
           "pickup_config": 0.345,
-          "string_type": 28.6,
+          "string_type": 40.185,
           "scale_length_b": 0.495,
           "fretted_or_not": 0,
-          "bass_technique": 23.800000000000004
+          "bass_technique": 37.55
         }
       },
       {
@@ -155,17 +155,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 11.179999999999996,
-          "shell_wood": 0.78,
-          "shell_thickness": 0.43499999999999994,
+          "percussion_technique": 20.084999999999997,
+          "shell_wood": 1.4300000000000002,
+          "shell_thickness": 0.39,
           "bearing_edges": 0.78,
-          "drumhead": 1.395,
+          "drumhead": 1.5750000000000002,
           "snare_wires": 0.39,
-          "cymbal_alloy": 25.39,
-          "cymbal_hammering": 22.335000000000004,
-          "cymbal_lathing": 22.095,
+          "cymbal_alloy": 40.76499999999999,
+          "cymbal_hammering": 35.01,
+          "cymbal_lathing": 34.77,
           "cymbal_finish": 1.3,
-          "drum_technique": 22
+          "drum_technique": 33
         }
       }
     ],

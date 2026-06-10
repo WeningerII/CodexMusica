@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.7,
-          "voice_quality": 1.1049999999999998,
+          "voice_register": 8.624999999999998,
+          "voice_quality": 3.6400000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.95,
+          "voice_vibrato": 6.240000000000001,
           "voice_articulation": 0.168,
-          "voice_microtone": 3.7700000000000005,
-          "voice_tradition": 12.089999999999998,
-          "voice_mechanism_compound": 8.008,
-          "voice_estill_quality": 6.045,
-          "voice_speech_song": 12.48,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 10.075,
-          "voice_pitch_organization": 10.075,
-          "voice_processing_chain": 2.08,
-          "voice_multitrack_stack": 1.86
+          "voice_microtone": 11.342500000000001,
+          "voice_tradition": 28.145000000000003,
+          "voice_mechanism_compound": 20.158,
+          "voice_estill_quality": 15.3955,
+          "voice_speech_song": 17.485,
+          "voice_ensemble_config": 13.129999999999997,
+          "voice_ornament_system": 25.586,
+          "voice_pitch_organization": 25.367,
+          "voice_processing_chain": 3.3150000000000004,
+          "voice_multitrack_stack": 3.445
         }
       },
       {
@@ -63,12 +63,12 @@
           "duduk_lineage": "duduk_djivan_gasparyan"
         },
         "scores": {
-          "wind_articulation": 3.7630000000000003,
-          "duduk_use": 1.6155000000000002,
+          "wind_articulation": 11.638000000000002,
+          "duduk_use": 2.795,
           "duduk_pitch": 0.0765,
           "duduk_body_wood": 6.359499999999999,
           "duduk_reed": 6.059499999999999,
-          "duduk_lineage": 11.05
+          "duduk_lineage": 13.558499999999999
         }
       },
       {
@@ -79,9 +79,9 @@
           "kanun_articulation": "kanun_tortoiseshell_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 3.75,
+          "plucked_traditional_technique": 11.625,
           "kanun_school": 14.307999999999996,
-          "kanun_articulation": 0.325
+          "kanun_articulation": 0.5199999999999999
         }
       },
       {
@@ -96,13 +96,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 3.75,
-          "oud_school": 2.3219999999999996,
-          "oud_strings": 1.95,
-          "oud_pick": 0.21300000000000002,
-          "oud_body_wood": 1.0214999999999999,
-          "oud_soundboard_wood": 1.95,
-          "oud_string_material": 1.3
+          "plucked_traditional_technique": 11.625,
+          "oud_school": 4.225,
+          "oud_strings": 6.045,
+          "oud_pick": 0.195,
+          "oud_body_wood": 2.145,
+          "oud_soundboard_wood": 2.4050000000000002,
+          "oud_string_material": 4.9399999999999995
         }
       }
     ],

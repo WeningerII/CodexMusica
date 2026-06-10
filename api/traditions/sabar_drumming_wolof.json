@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 2.9945000000000004,
+          "voice_register": 2.925,
+          "voice_quality": 4.062500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.008,
-          "voice_articulation": 0.6194999999999999,
+          "voice_vibrato": 3.8080000000000003,
+          "voice_articulation": 0.8250000000000001,
           "voice_microtone": 0.0315,
-          "voice_tradition": 14.754999999999999,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 4.875,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 8.319999999999999,
-          "voice_ornament_system": 1.5207142857142857,
-          "voice_pitch_organization": 3.0550000000000006,
-          "voice_processing_chain": 2.8765000000000005,
-          "voice_multitrack_stack": 1.6594285714285713
+          "voice_tradition": 27.852499999999996,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 5.954428571428572,
+          "voice_speech_song": 16.314999999999998,
+          "voice_ensemble_config": 16.249999999999996,
+          "voice_ornament_system": 1.8707142857142856,
+          "voice_pitch_organization": 3.6081428571428575,
+          "voice_processing_chain": 5.184714285714285,
+          "voice_multitrack_stack": 2.8925000000000005
         }
       },
       {
@@ -62,9 +62,9 @@
         },
         "scores": {
           "talking_drum_origin": 1.3347142857142857,
-          "talking_drum_context": 1.5184285714285712,
-          "talking_drum_shell_wood": 3.9,
-          "talking_drum_head": 1.5297142857142858
+          "talking_drum_context": 0.65,
+          "talking_drum_shell_wood": 8.384999999999998,
+          "talking_drum_head": 2.1797142857142857
         }
       },
       {
@@ -79,9 +79,9 @@
         "scores": {
           "sabar_use": 5.836499999999999,
           "sabar_articulation": -0.05,
-          "sabar_shell_wood": 4.005,
-          "sabar_head": 3.9629999999999996,
-          "sabar_lineage": 5.4415000000000004
+          "sabar_shell_wood": 4.655,
+          "sabar_head": 4.6129999999999995,
+          "sabar_lineage": 6.0915
         }
       }
     ],

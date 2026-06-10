@@ -3,8 +3,8 @@
   "name": "Sákárà (Yoruba Muslim frame-drum song)",
   "family": "global",
   "lineage": "Yoruba sákárà Muslim-Yoruba vocal-and-percussion tradition of southwestern Nigeria, predating both apàlà and fuji as the earliest documented Yoruba urban-Muslim popular music — emerging in 1930s Lagos and Ibadan from rural Muslim-Yoruba devotional song. Performance: male lead singer with sákárà frame-drums (clay-bowled, single-headed, struck with curved stick) and goje one-string spike-fiddle providing melodic-counter-voice. Lyric base draws on Islamic-devotional praise, Yoruba moral-philosophical commentary, and social-political commentary on Nigerian urban life.",
-  "recipe": "classic West African mid-1930s sákárà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, melodic, punctuated. walnut bent frame canonical Iranian tar frame drum. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 447,
+  "recipe": "classic West African mid-1930s sákárà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, melodic, punctuated. walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 475,
   "score": 193.63,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.8100000000000005,
-          "voice_quality": 9.688749999999999,
+          "voice_register": 5.815000000000002,
+          "voice_quality": 12.463749999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 0.939,
-          "voice_microtone": 3.743750000000001,
-          "voice_tradition": 38.87,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 13.324999999999998,
-          "voice_ensemble_config": 10.009999999999998,
-          "voice_ornament_system": 9.555,
-          "voice_pitch_organization": 20.028999999999996,
-          "voice_processing_chain": 2.51775,
-          "voice_multitrack_stack": 3.38
+          "voice_vibrato": 2.47,
+          "voice_articulation": 0.845,
+          "voice_microtone": 4.393750000000002,
+          "voice_tradition": 62.529999999999994,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 19.694999999999993,
+          "voice_ensemble_config": 16.379999999999995,
+          "voice_ornament_system": 11.808249999999996,
+          "voice_pitch_organization": 26.253999999999998,
+          "voice_processing_chain": 5.225,
+          "voice_multitrack_stack": 5.459999999999999
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "percussion_technique": -0.07,
-          "tar_size": 0.24375000000000002,
-          "tar_frame_drum_context": 0.23624999999999996,
-          "tar_frame_shell_wood": 2.72525,
-          "tar_frame_head": 0.28875
+          "tar_size": 0.845,
+          "tar_frame_drum_context": 0.9099999999999999,
+          "tar_frame_shell_wood": 2.87525,
+          "tar_frame_head": 1.04
         }
       }
     ],

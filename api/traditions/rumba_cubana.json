@@ -3,8 +3,8 @@
   "name": "Rumba cubana",
   "family": "global",
   "lineage": "Afro-Cuban secular drum-and-vocal folkloric tradition (yambú / guaguancó / columbia subforms) originating in Havana and Matanzas tenement-courtyard contexts",
-  "recipe": "classic tropical mid-1950s rumba cubana, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. vocal fry, blues-shouter, punctuated, Yoruba tonal vocal. mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, claves, a cappella small 3 to 8 one per part three voice polyphonic regional sacred liturgical global choir ensemble. havana solar outdoor courtyard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 560,
+  "recipe": "classic tropical mid-1950s rumba cubana, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. vocal fry, blues-shouter, Yoruba tonal vocal, m1 with m0 pulse borrowing. lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, claves, a cappella small 3 to 8 one per part three voice polyphonic regional sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. havana solar outdoor courtyard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 629,
   "score": 110.32,
   "config": {
     "traditions": [
@@ -39,17 +39,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.3,
-          "voice_articulation": 0.69,
-          "voice_microtone": 0.24,
-          "voice_tradition": 3.9650000000000003,
-          "voice_mechanism_compound": 1.5524999999999998,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 3.7049999999999996,
-          "voice_ensemble_config": 3.6399999999999997,
-          "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 0.67,
+          "voice_articulation": 0.195,
+          "voice_microtone": 0.195,
+          "voice_tradition": 20.8975,
+          "voice_mechanism_compound": 1.625,
+          "voice_estill_quality": 1.4299999999999997,
+          "voice_speech_song": 8.19,
+          "voice_ensemble_config": 7.93,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 8.092500000000001,
           "voice_processing_chain": 1.395,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 1.885
         }
       },
       {
@@ -61,10 +61,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 8.125,
-          "conga_set": 0.78,
-          "conga_skin": 3.6399999999999997,
-          "conga_shell_wood": 3.6399999999999997
+          "percussion_technique": 14.534999999999998,
+          "conga_set": 1.625,
+          "conga_skin": 3.8349999999999995,
+          "conga_shell_wood": 3.8349999999999995
         }
       },
       {
@@ -74,7 +74,7 @@
           "claves_wood": "claves_cuban_hardwood"
         },
         "scores": {
-          "claves_pattern": 6.629999999999999,
+          "claves_pattern": 10.659999999999998,
           "claves_wood": 0.39
         }
       },
@@ -87,10 +87,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 2.0399999999999996,
-          "choir_polyphonic_configuration": 1.645,
-          "choir_regional_canonical_configuration": 0.78,
-          "choir_ensemble_repertoire": 1.3
+          "choir_size": 1.625,
+          "choir_polyphonic_configuration": 2.47,
+          "choir_regional_canonical_configuration": 2.21,
+          "choir_ensemble_repertoire": 4.485
         }
       }
     ],

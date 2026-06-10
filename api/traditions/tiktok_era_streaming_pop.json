@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 17.81,
-          "voice_quality": 1.1049999999999998,
+          "voice_register": 27.235,
+          "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.273,
-          "voice_articulation": 0.325,
-          "voice_microtone": 17.299999999999997,
-          "voice_tradition": 17.81,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 10.464999999999998,
-          "voice_ensemble_config": 5.46,
+          "voice_articulation": 0.4765,
+          "voice_microtone": 25.424999999999997,
+          "voice_tradition": 27.43,
+          "voice_mechanism_compound": 1.885,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 15.209999999999999,
+          "voice_ensemble_config": 9.36,
           "voice_ornament_system": 1.15,
           "voice_pitch_organization": 1.3315000000000001,
           "voice_processing_chain": 4.5045,
-          "voice_multitrack_stack": 1.17
+          "voice_multitrack_stack": 2.6975000000000002
         }
       },
       {
@@ -61,11 +61,11 @@
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": 3.481499999999999,
+          "electronic_technique": 7.2315,
           "sampler_archetypes": 0.399,
           "sampler_bit_depth": 1.17,
-          "sampler_workflow": 4.023,
-          "sampler_classic_context": 13.9915
+          "sampler_workflow": 8.072999999999999,
+          "sampler_classic_context": 21.2415
         }
       },
       {
@@ -77,7 +77,7 @@
         },
         "scores": {
           "tr808_voice": 1.2815,
-          "drum_machine_808_context": 1.69,
+          "drum_machine_808_context": 2.2749999999999995,
           "tr808_production_origin": 0.2415
         }
       },
@@ -90,8 +90,8 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 15,
-          "poly_archetypes": 1.95,
+          "electronic_technique": 23.925000000000004,
+          "poly_archetypes": 2.6,
           "poly_voices": 0.4725,
           "poly_maker_lineage": -0.7350000000000001
         }

@@ -3,8 +3,8 @@
   "name": "Contemporary alt-R&B (2010s)",
   "family": "pop",
   "lineage": "2010s R&B subgenre developed in the wake of Frank Ocean's 2011 Nostalgia, Ultra mixtape and 2012 Channel Orange album, characterized by electronic-production-and-traditional-R&B-hybrid aesthetic, intimate-confessional lyrical content, atmospheric-and-spacious arrangements, and explicit indie-rock-meets-R&B cross-genre orientation. The Weeknd's 2011 House of Balloons-Thursday-Echoes of Silence mixtape trilogy, Miguel's Kaleidoscope Dream (2012), and the broader OVO Sound and XO Records label rosters anchor the canonical sound.",
-  "recipe": "classic contemporary alt-r&b, functional Song, soul R&B branch, us hip hop MC rhythm conscious hip-hop west coast hip-hop. thick, rap, chest resonance low mid, narrative. analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 495,
+  "recipe": "classic contemporary alt-r&b, functional Song, soul R&B branch, us hip hop MC rhythm conscious hip-hop west coast hip-hop. thick, rap, chest resonance low mid, narrative. low sub bass analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 493,
   "score": 258.255,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.294999999999998,
-          "voice_quality": 3.150000000000002,
+          "voice_register": 17.994999999999994,
+          "voice_quality": 26.085,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.57,
-          "voice_articulation": 5.404999999999999,
-          "voice_microtone": 5.550000000000001,
-          "voice_tradition": 4.17,
-          "voice_mechanism_compound": 1.5599999999999996,
-          "voice_estill_quality": 4.42,
-          "voice_speech_song": 12.024999999999999,
-          "voice_ensemble_config": 10.009999999999998,
-          "voice_ornament_system": 0.045,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 4.12,
-          "voice_multitrack_stack": 6.285
+          "voice_vibrato": 1.04,
+          "voice_articulation": 18.529999999999998,
+          "voice_microtone": 9.974999999999998,
+          "voice_tradition": 10.274999999999999,
+          "voice_mechanism_compound": 0.845,
+          "voice_estill_quality": 8.195,
+          "voice_speech_song": 23.98,
+          "voice_ensemble_config": 21.71,
+          "voice_ornament_system": 0.925,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 17.884999999999994,
+          "voice_multitrack_stack": 7.735
         }
       },
       {
@@ -62,10 +62,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 2.795,
-          "oscillator": 0.69,
-          "filter_topology": 1.63,
-          "envelope": 0.5399999999999999,
+          "electronic_technique": 10.899999999999999,
+          "oscillator": 1.15,
+          "filter_topology": 2.535,
+          "envelope": 0.43499999999999994,
           "modulation": 0.105
         }
       },
@@ -77,9 +77,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 1.3649999999999998,
-          "drum_machine_808_context": 1.69,
-          "tr808_production_origin": 0.525
+          "tr808_voice": 10.139999999999999,
+          "drum_machine_808_context": 6.130000000000001,
+          "tr808_production_origin": 0.45499999999999996
         }
       },
       {
@@ -95,14 +95,14 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 3.6500000000000004,
-          "amp_make": 4.680000000000001,
-          "body_wood": 0.9600000000000002,
-          "pickup_config": 0.87,
-          "string_type": 4.8100000000000005,
-          "scale_length_b": 1.1849999999999998,
+          "electric_technique": 13.825,
+          "amp_make": 12.229999999999997,
+          "body_wood": 1.04,
+          "pickup_config": 0.45499999999999996,
+          "string_type": 12.145,
+          "scale_length_b": 1.04,
           "fretted_or_not": 0.21,
-          "bass_technique": 3.65
+          "bass_technique": 13.825
         }
       }
     ],

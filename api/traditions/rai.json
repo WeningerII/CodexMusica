@@ -3,8 +3,8 @@
   "name": "Raï",
   "family": "global",
   "lineage": "Algerian popular-music genre that emerged in Oran in the 1970s as modernization of older raï bedoui (rural bedouin praise-poetry) — codified through the Cheb generation of the 1980s: Cheb Khaled (the king of raï, his 1992 Didi the international breakthrough), Cheb Mami, Cheb Hasni (assassinated 1994 during the Algerian civil war), Chaba Fadela, Cheb Hamid",
-  "recipe": "classic North American mid-1970s raï, functional Song, mid east n African pop branch, med east poetic ballad poetry ethiopian azmari minstrel-poet pontic greek music. extended whistle, declaimed, chest resonance low mid, equal tempered. weltmeister east German mid tier vintage volk accordion, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka, singing lead analog poly synth. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 586,
+  "recipe": "classic North American mid-1970s raï, functional Song, mid east n African pop branch, med east poetic ballad poetry ethiopian azmari minstrel-poet pontic greek music. extended whistle, declaimed, chest resonance low mid, narrative. weltmeister east German mid tier vintage volk accordion, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, singing lead analog poly synth. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 585,
   "score": 164.246,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 9.099999999999998,
-          "voice_quality": 3.1200000000000014,
+          "voice_register": 9.915,
+          "voice_quality": 7.581500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.73,
-          "voice_articulation": 0.063,
-          "voice_microtone": 6.890000000000001,
-          "voice_tradition": 8.97,
-          "voice_mechanism_compound": 1.4315,
-          "voice_estill_quality": 2.2099999999999995,
-          "voice_speech_song": 6.174999999999999,
-          "voice_ensemble_config": 4.159999999999999,
+          "voice_vibrato": 3.575,
+          "voice_articulation": 0.585,
+          "voice_microtone": 8.190000000000001,
+          "voice_tradition": 23.139999999999997,
+          "voice_mechanism_compound": 5.004999999999999,
+          "voice_estill_quality": 4.643,
+          "voice_speech_song": 19.695000000000004,
+          "voice_ensemble_config": 17.68,
           "voice_ornament_system": 2.4684999999999997,
-          "voice_pitch_organization": 3.4450000000000003,
-          "voice_processing_chain": 8.1,
-          "voice_multitrack_stack": 3.1715
+          "voice_pitch_organization": 13.725,
+          "voice_processing_chain": 11.35,
+          "voice_multitrack_stack": 6.4215
         }
       },
       {
@@ -70,7 +70,7 @@
           "reed_config": 0.3,
           "bellows": 0.3,
           "voicing_chamber": 0.585,
-          "accordion_maker_school": 4.8100000000000005
+          "accordion_maker_school": 6.76
         }
       },
       {
@@ -82,10 +82,10 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 0.6499999999999999,
-          "darbuka_material": 1.173,
-          "darbuka_skin": 0.39,
-          "darbuka_regional_style": 4.8100000000000005
+          "percussion_technique": 2.19,
+          "darbuka_material": 0.845,
+          "darbuka_skin": 2.08,
+          "darbuka_regional_style": 7.6049999999999995
         }
       },
       {
@@ -98,9 +98,9 @@
         },
         "scores": {
           "electronic_technique": 6.7,
-          "poly_archetypes": 0.495,
+          "poly_archetypes": 0.845,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -1.225
+          "poly_maker_lineage": -0.31499999999999995
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Sophisti-pop",
   "family": "global",
   "lineage": "1980s British adult-contemporary jazz-pop subgenre characterized by smooth chord-rich production, electric-piano-led harmonic foundation, atmospheric backing vocals — codified through Sade (Diamond Life 1984, Promise 1985), Everything But the Girl (Eden 1984), the Style Council (Café Bleu 1984), Prefab Sprout (Steve McQueen 1985), and the early Swing Out Sister releases",
-  "recipe": "classic North American mid-1980s sophisti-pop, functional Song, pop rock branch, crooners functional song great american songbook brill building pop. thick, low dynamic level, chest resonance low mid, equal tempered. singing lead analog poly synth, marshall plexi amp British rock amp mahogany thomastik infeld low tension electric ebony unlined jaco canon flatwound jazz warm fretless bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, torrington spring steel tine canonical Rhodes 1965 1984 block chord rhodes electric. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 826,
+  "recipe": "classic North American mid-1980s sophisti-pop, functional Song, pop rock branch, crooners functional song great american songbook brill building pop. thick, low dynamic level, chest resonance low mid, equal tempered. singing lead analog poly synth, marshall plexi amp British rock amp mahogany thomastik infeld low tension electric ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, torrington spring steel tine canonical Rhodes 1965 1984 centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 909,
   "score": 437.414,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 22.54999999999999,
-          "voice_quality": 1.0315,
+          "voice_register": 33.82500000000001,
+          "voice_quality": 4.4525,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.17,
+          "voice_vibrato": 1.4299999999999997,
           "voice_articulation": 0,
-          "voice_microtone": 22.454999999999995,
-          "voice_tradition": 19.044999999999995,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.363,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 5.069999999999999,
-          "voice_ornament_system": 0.1665,
+          "voice_microtone": 33.58,
+          "voice_tradition": 24.775499999999994,
+          "voice_mechanism_compound": 0.975,
+          "voice_estill_quality": 4.375,
+          "voice_speech_song": 18.914999999999996,
+          "voice_ensemble_config": 12.544999999999996,
+          "voice_ornament_system": 0.39,
           "voice_pitch_organization": 1.21,
           "voice_processing_chain": 5.691,
-          "voice_multitrack_stack": 4.0225
+          "voice_multitrack_stack": 4.1725
         }
       },
       {
@@ -61,8 +61,8 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 13.126499999999997,
-          "poly_archetypes": 1.95,
+          "electronic_technique": 18.501499999999997,
+          "poly_archetypes": 2.795,
           "poly_voices": 2.2,
           "poly_maker_lineage": -0.035
         }
@@ -80,14 +80,14 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 0.85,
-          "amp_make": 3.5100000000000002,
-          "body_wood": 1.69,
+          "electric_technique": 0.9999999999999999,
+          "amp_make": 4.355,
+          "body_wood": 2.7299999999999995,
           "pickup_config": 0.603,
-          "string_type": 7.045,
-          "scale_length_b": 0.39,
+          "string_type": 11.17,
+          "scale_length_b": 1.4299999999999997,
           "fretted_or_not": 0.3,
-          "bass_technique": 6.25
+          "bass_technique": 10.375
         }
       },
       {
@@ -106,17 +106,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 8.319999999999999,
+          "percussion_technique": 18.134999999999998,
           "shell_wood": 0.3315,
           "shell_thickness": 0.09,
-          "bearing_edges": 0.39,
-          "drumhead": 12.766499999999997,
-          "snare_wires": 0.39,
-          "cymbal_alloy": 16.371499999999997,
-          "cymbal_hammering": 16.625999999999998,
-          "cymbal_lathing": 16.479,
+          "bearing_edges": 1.4299999999999997,
+          "drumhead": 18.291499999999996,
+          "snare_wires": 1.4299999999999997,
+          "cymbal_alloy": 23.5215,
+          "cymbal_hammering": 23.625999999999998,
+          "cymbal_lathing": 23.478999999999996,
           "cymbal_finish": 0.3,
-          "drum_technique": 8.319999999999999
+          "drum_technique": 18.134999999999998
         }
       },
       {
@@ -131,13 +131,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": -0.035,
-          "sax_size": 0.39,
+          "wind_articulation": 0.12999999999999998,
+          "sax_size": 1.4299999999999997,
           "sax_reed": 0.39,
-          "sax_body_alloy": 6.2945,
+          "sax_body_alloy": 10.4195,
           "sax_mouthpiece": 1,
-          "sax_technique": 6.25,
-          "sax_maker_school": 5.1
+          "sax_technique": 10.375,
+          "sax_maker_school": 9.225000000000001
         }
       },
       {
@@ -151,12 +151,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 14.157999999999996,
-          "rhodes_model": 7.1665,
-          "rhodes_use": 0.78,
-          "rhodes_tine_material": 2.0799999999999996,
-          "rhodes_hammer_tip": -0.525,
-          "rhodes_pickup_position": 0.7515
+          "keyboard_technique": 19.532999999999998,
+          "rhodes_model": 12.091500000000002,
+          "rhodes_use": 3.965,
+          "rhodes_tine_material": 2.85,
+          "rhodes_hammer_tip": -0.42000000000000004,
+          "rhodes_pickup_position": 1.04
         }
       },
       {
@@ -171,11 +171,11 @@
         },
         "scores": {
           "electric_technique": 0.75,
-          "amp_make": 2.275,
-          "fretless_use": 1.69,
-          "fretless_bass_construction": 1.2630000000000001,
-          "fretless_fingerboard_wood": 7.12,
-          "fretless_bass_strings": 7.045
+          "amp_make": 3.5100000000000007,
+          "fretless_use": 2.6849999999999996,
+          "fretless_bass_construction": 0.845,
+          "fretless_fingerboard_wood": 11.245,
+          "fretless_bass_strings": 11.17
         }
       }
     ],

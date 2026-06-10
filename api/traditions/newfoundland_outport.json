@@ -3,8 +3,8 @@
   "name": "Newfoundland outport balladry",
   "family": "global",
   "lineage": "Newfoundland and Labrador outport fishing-community song heritage of Irish, West Country English, and Scottish settler-fishing-family origin — preserved across the 17th-21st centuries in the small isolated coastal-settlement (outport) communities along the Newfoundland coastline; standard ensemble: fiddle (the dominant melodic instrument, played in the distinctive Newfoundland style combining Irish ornamentation with Cape Breton bowing), accordion or button accordion, sometimes mandolin or guitar — 20th-century preservation through Émile Benoit, Rufus Guinchard, Wilf Doyle, Minnie White, the modern Great Big Sea folk-rock crossover, the Newfoundland and Labrador Folklore and Language Archive fieldwork collection",
-  "recipe": "classic modern newfoundland outport balladry, ballad Poetry, newfoundland revival branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, melodic, equal tempered. castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base double stops fiddle, dadgad tuning fingerpicked acoustic guitar. newfoundland outport kitchen party. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 525,
+  "recipe": "classic modern newfoundland outport balladry, ballad Poetry, newfoundland revival branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, melodic, unrestrained. castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base double stops fiddle, dadgad tuning fingerpicked acoustic guitar. newfoundland outport kitchen party. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 523,
   "score": 157.868,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.440000000000001,
-          "voice_quality": 3.3699999999999997,
+          "voice_register": 10.939999999999998,
+          "voice_quality": 10.794999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.614375,
-          "voice_articulation": 0.13000000000000003,
-          "voice_microtone": 2.250000000000001,
-          "voice_tradition": 7.968125,
-          "voice_mechanism_compound": 1.2175,
-          "voice_estill_quality": 3.5537500000000004,
-          "voice_speech_song": 8.344375,
-          "voice_ensemble_config": 5.990625,
-          "voice_ornament_system": 3.6500000000000004,
+          "voice_vibrato": 3.9143749999999997,
+          "voice_articulation": 1.25,
+          "voice_microtone": 2.6250000000000004,
+          "voice_tradition": 12.943125000000002,
+          "voice_mechanism_compound": 1.6675,
+          "voice_estill_quality": 3.8537500000000002,
+          "voice_speech_song": 11.494374999999998,
+          "voice_ensemble_config": 8.240624999999998,
+          "voice_ornament_system": 5.4,
           "voice_pitch_organization": 0.7799999999999998,
-          "voice_processing_chain": 1.036875,
-          "voice_multitrack_stack": 1.1837499999999999
+          "voice_processing_chain": 1.336875,
+          "voice_multitrack_stack": 1.63375
         }
       },
       {
@@ -63,13 +63,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 6.07,
+          "free_reed_technique": 10.745,
           "accordion_reed_material": 0.024375,
-          "musette_offset": 0.106875,
+          "musette_offset": 0.39,
           "reed_config": 0.035625000000000004,
-          "bellows": 0.106875,
+          "bellows": 0.39,
           "voicing_chamber": 0.013124999999999998,
-          "accordion_maker_school": 1.3
+          "accordion_maker_school": 2.771875
         }
       },
       {
@@ -86,7 +86,7 @@
           "fiddle_strings": 2.005625,
           "fiddle_bow": 2.505625,
           "fiddle_mute": 0.013125,
-          "fiddle_articulation": 1.114375
+          "fiddle_articulation": 1.414375
         }
       },
       {
@@ -100,12 +100,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 7.74625,
-          "string_tuning": 8.338125,
+          "acoustic_technique": 15.94625,
+          "string_tuning": 14.738124999999998,
           "top_wood": 0.024375,
           "back_sides": 0.03,
-          "string_acoustic": 0.3,
-          "acoustic_om_technique": 7.74625
+          "string_acoustic": 0.65,
+          "acoustic_om_technique": 15.94625
         }
       }
     ],

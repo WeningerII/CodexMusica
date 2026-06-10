@@ -3,8 +3,8 @@
   "name": "Javali (Carnatic light-classical love-song)",
   "family": "global",
   "lineage": "Carnatic light-classical romantic-love song genre at faster tempo than padam, setting Telugu and Tamil and Kannada erotic-and-romantic poetry to elaborated vocal performance — emerged in the 19th century at the Mysore and Tanjore courts, codified through Patnam Subramania Iyer and Veene Sheshanna",
-  "recipe": "classic North American mid-1970s javali, ritual Devotional, hindu branch, indian classical improv improv on frame dadra tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 483,
+  "recipe": "classic North American mid-1970s javali, ritual Devotional, hindu branch, indian classical improv improv on frame dadra tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 520,
   "score": 248.958,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 2.7024999999999997,
-          "voice_quality": 3.6425000000000005,
+          "voice_register": 4.68,
+          "voice_quality": 6.942500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9,
-          "voice_articulation": 0.64,
-          "voice_microtone": 1.2149999999999999,
-          "voice_tradition": 13.584999999999999,
-          "voice_mechanism_compound": 7.4,
-          "voice_estill_quality": 9.814999999999998,
-          "voice_speech_song": 10.205,
-          "voice_ensemble_config": 7.54,
-          "voice_ornament_system": 14.219999999999999,
-          "voice_pitch_organization": 14.399999999999999,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 1.69
+          "voice_vibrato": 9.49,
+          "voice_articulation": 0.65,
+          "voice_microtone": 0.65,
+          "voice_tradition": 30.975000000000005,
+          "voice_mechanism_compound": 18.150000000000002,
+          "voice_estill_quality": 21.564999999999998,
+          "voice_speech_song": 19.065,
+          "voice_ensemble_config": 10.854999999999997,
+          "voice_ornament_system": 26.495,
+          "voice_pitch_organization": 25.725,
+          "voice_processing_chain": 4.550000000000001,
+          "voice_multitrack_stack": 5.329999999999999
         }
       },
       {
@@ -62,11 +62,11 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 3.9,
+          "mridangam_heads": 9.49,
           "mridangam_use": 0,
           "mridangam_shell_wood": 2.9899999999999998,
           "mridangam_heads_material": 0,
-          "mridangam_lineage": 2.9899999999999998
+          "mridangam_lineage": 3.6399999999999997
         }
       },
       {
@@ -79,11 +79,11 @@
           "violin_carnatic_lineage": "violin_carnatic_lalgudi"
         },
         "scores": {
-          "bowed_technique": 7.695,
-          "violin_carnatic_tuning": 8.58,
-          "violin_carnatic_posture": 0.9099999999999999,
-          "violin_carnatic_strings": -0.9450000000000001,
-          "violin_carnatic_lineage": 3.7099999999999995
+          "bowed_technique": 18.945,
+          "violin_carnatic_tuning": 14.105,
+          "violin_carnatic_posture": 2.8600000000000003,
+          "violin_carnatic_strings": 1.04,
+          "violin_carnatic_lineage": 3.6399999999999997
         }
       }
     ],

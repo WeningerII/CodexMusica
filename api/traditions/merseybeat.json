@@ -3,8 +3,8 @@
   "name": "Merseybeat (Liverpool beat 1962-65)",
   "family": "rock_punk",
   "lineage": "Early-1960s Liverpool-and-Merseyside beat-music style emerging from the convergence of skiffle, American R&B, and rock-and-roll into the canonical guitar-bass-drums-and-vocal-harmony four-piece beat-group format. The Beatles, Gerry and the Pacemakers, the Searchers, the Merseybeats, and Cilla Black constituted the canonical roster; the Cavern Club Liverpool and the Star-Club Hamburg anchored the institutional performance circuit. Distinguished from broader British Invasion by Merseybeat's Liverpool-specific geographic-cultural identity.",
-  "recipe": "classic British merseybeat, distorted Rock, classic branch, regional distorted rock aussie pub rock greek rock. thick, nervy, equal tempered, Mediterranean demotic vocal. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb spring reverb.",
-  "recipe_chars": 624,
+  "recipe": "classic British merseybeat, distorted Rock, classic branch, regional distorted rock aussie pub rock greek rock. thick, lament wail, nervy, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oil filled machine hammered symmetric pattern organized rows full lathed drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb spring reverb.",
+  "recipe_chars": 601,
   "score": 390.343,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 8.249999999999993,
-          "voice_quality": 0.105,
+          "voice_register": 26.79999999999999,
+          "voice_quality": 0.8749999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.50175,
+          "voice_vibrato": 0.845,
           "voice_articulation": 0.24,
-          "voice_microtone": 8.844999999999997,
-          "voice_tradition": 3.3150000000000004,
-          "voice_mechanism_compound": 2.665000000000001,
+          "voice_microtone": 24.744999999999994,
+          "voice_tradition": 16.255749999999995,
+          "voice_mechanism_compound": 5.070000000000002,
           "voice_estill_quality": 1.1815,
-          "voice_speech_song": 11.765,
-          "voice_ensemble_config": 13.39,
+          "voice_speech_song": 20.214999999999996,
+          "voice_ensemble_config": 21.839999999999996,
           "voice_ornament_system": 1.345,
-          "voice_pitch_organization": 4.548749999999999,
-          "voice_processing_chain": 3.5100000000000002,
-          "voice_multitrack_stack": 4.16
+          "voice_pitch_organization": 5.1987499999999995,
+          "voice_processing_chain": 8.528,
+          "voice_multitrack_stack": 9.175999999999998
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 7.865,
-          "amp_make": 6.11,
+          "electric_technique": 11.5375,
+          "amp_make": 14.559999999999997,
           "body_wood": 0.2415,
-          "neck_wood": 0.50175,
-          "fretboard": 0.50175,
-          "pickup_magnet": 0.50175,
-          "string_material": 0.50175,
+          "neck_wood": 0.845,
+          "fretboard": 0.845,
+          "pickup_magnet": 0.845,
+          "string_material": 0.845,
           "string_gauge": 0.2415,
           "bridge": 0,
           "scale_length": 0.48300000000000004,
           "finish": 0.168,
-          "string_tuning": 9.879999999999999
+          "string_tuning": 19.11
         }
       },
       {
@@ -96,14 +96,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 3.8949999999999996,
-          "amp_make": 6.175,
+          "electric_technique": 4.869999999999999,
+          "amp_make": 14.105,
           "body_wood": 0.48300000000000004,
           "pickup_config": 0,
-          "string_type": 11.375,
+          "string_type": 31.2,
           "scale_length_b": 0.2415,
           "fretted_or_not": 0.195,
-          "bass_technique": 8.745
+          "bass_technique": 23.995
         }
       },
       {
@@ -122,17 +122,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 11.7,
-          "shell_wood": 0.50175,
+          "percussion_technique": 20.15,
+          "shell_wood": 0.845,
           "shell_thickness": 0.09,
           "bearing_edges": 0.2415,
-          "drumhead": 0.50175,
+          "drumhead": 1.4299999999999997,
           "snare_wires": 0.2415,
-          "cymbal_alloy": 9.151749999999998,
-          "cymbal_hammering": 8.844999999999999,
-          "cymbal_lathing": 8.739999999999998,
-          "cymbal_finish": 0.50175,
-          "drum_technique": 11.7
+          "cymbal_alloy": 25.05175,
+          "cymbal_hammering": 24.095,
+          "cymbal_lathing": 23.99,
+          "cymbal_finish": 0.845,
+          "drum_technique": 24
         }
       }
     ],

@@ -3,8 +3,8 @@
   "name": "Chinese xǐqìng (喜慶) wedding music",
   "family": "global",
   "lineage": "Chinese wedding-music tradition continuous from imperial-era Chinese ceremonial-music practice through Republican-period and post-1949 evolution into modern Chinese-Mandarin-speaking domestic practice across mainland China, Taiwan, and Chinese-diaspora communities; the suona (Chinese shawm) is the canonical wedding-music instrument though here represented by sheng-and-dizi-and-erhu substitute ensemble",
-  "recipe": "classic late-1940s chinese xǐqìng (喜慶) wedding music, wedding, east Asian branch, south Asian wedding, east Asian art music, carnival processional beijing opera tibetan ache lhamo opera. thick, melodic, continuous-phonation, equal tempered. traditional bamboo pipes copper brass free reeds canonical Chinese sheng, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou bangdi northern sharp opera percussive dizi, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, boxwood canonical renaissance European arundo donax wooden pirouette canonical renaissance shawm. shanghai emi pathe 1930s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 792,
+  "recipe": "classic late-1940s chinese xǐqìng (喜慶) wedding music, wedding, east Asian branch, south Asian wedding, east Asian art music, carnival processional beijing opera tibetan ache lhamo opera. thick, pressed, melodic, continuous-phonation. traditional bamboo pipes copper brass free reeds canonical Chinese straight sheng, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou bangdi northern sharp opera percussive continuous-airflow legato dizi, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, boxwood canonical renaissance European arundo donax wooden pirouette canonical renaissance shawm. shanghai emi pathe 1930s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 820,
   "score": 321.484,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.7875,
-          "voice_quality": 0.325,
+          "voice_register": 4.062500000000001,
+          "voice_quality": 13.699999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.405,
+          "voice_vibrato": 4.248749999999999,
           "voice_articulation": 1.69,
-          "voice_microtone": 1.8050000000000002,
-          "voice_tradition": 33.345,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.72,
-          "voice_speech_song": 7.864999999999998,
-          "voice_ensemble_config": 7.799999999999999,
-          "voice_ornament_system": 4.460000000000001,
-          "voice_pitch_organization": 4.703750000000001,
-          "voice_processing_chain": 1.8445,
-          "voice_multitrack_stack": 1.10775
+          "voice_microtone": 2.2550000000000003,
+          "voice_tradition": 55.9685,
+          "voice_mechanism_compound": 7.049999999999999,
+          "voice_estill_quality": 20.494999999999994,
+          "voice_speech_song": 25.544999999999998,
+          "voice_ensemble_config": 24.569999999999997,
+          "voice_ornament_system": 18.21,
+          "voice_pitch_organization": 8.459999999999999,
+          "voice_processing_chain": 4.81,
+          "voice_multitrack_stack": 4.029999999999999
         }
       },
       {
@@ -61,10 +61,10 @@
           "sheng_pipe_material": "sheng_bamboo_canonical"
         },
         "scores": {
-          "free_reed_technique": 0.585,
-          "sheng_size": 1.9107499999999997,
-          "sheng_context": 9.879999999999999,
-          "sheng_pipe_material": 12.219999999999999
+          "free_reed_technique": 4.13375,
+          "sheng_size": 3.3799999999999994,
+          "sheng_context": 22.035000000000004,
+          "sheng_pipe_material": 15.209499999999998
         }
       },
       {
@@ -77,11 +77,11 @@
           "dizi_regional_style": "dizi_bangdi_northern"
         },
         "scores": {
-          "wind_articulation": 1.56,
-          "dizi_membrane": 2.5887499999999997,
-          "dizi_pitch": 0.9450000000000002,
-          "dizi_body_material": 2.08,
-          "dizi_regional_style": 2.08
+          "wind_articulation": 9.02475,
+          "dizi_membrane": 4.029999999999999,
+          "dizi_pitch": 7.994999999999998,
+          "dizi_body_material": 2.925,
+          "dizi_regional_style": 4.9399999999999995
         }
       },
       {
@@ -95,12 +95,12 @@
           "erhu_bow": "erhu_bamboo_horsehair"
         },
         "scores": {
-          "bowed_technique": -0.035,
-          "erhu_skin": 2.9764999999999993,
-          "erhu_use": 2.08,
-          "erhu_body_wood": 2.015,
-          "erhu_strings": 3.7700000000000005,
-          "erhu_bow": 2.08
+          "bowed_technique": 6.589999999999999,
+          "erhu_skin": 4.744999999999999,
+          "erhu_use": 3.965,
+          "erhu_body_wood": 2.7445000000000004,
+          "erhu_strings": 5.005,
+          "erhu_bow": 2.925
         }
       },
       {
@@ -113,11 +113,11 @@
           "pipa_body_wood": "pipa_red_sandalwood"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
+          "plucked_traditional_technique": 6.638749999999999,
           "pipa_frets": 0.195,
-          "pipa_strings": 3.216499999999999,
+          "pipa_strings": 4.744999999999999,
           "pipa_pick": 0.195,
-          "pipa_body_wood": 2.015
+          "pipa_body_wood": 2.7445000000000004
         }
       },
       {
@@ -133,8 +133,8 @@
           "wind_articulation": -0.10500000000000001,
           "shawm_pitch": 0.39,
           "shawm_context": 2.08,
-          "shawm_body_wood": 1.9945,
-          "shawm_reed": 2.0395000000000003
+          "shawm_body_wood": 2.6445,
+          "shawm_reed": 2.8395
         }
       }
     ],

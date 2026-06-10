@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.4,
-          "voice_quality": 1.4949999999999999,
+          "voice_register": 10.775,
+          "voice_quality": 2.34,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 2.6,
           "voice_articulation": 1.0999999999999999,
-          "voice_microtone": 5.915000000000001,
-          "voice_tradition": 6.412500000000001,
-          "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 4.8100000000000005,
-          "voice_speech_song": 6.434999999999999,
-          "voice_ensemble_config": 4.9399999999999995,
-          "voice_ornament_system": 2.6725000000000003,
-          "voice_pitch_organization": 2.8387500000000006,
-          "voice_processing_chain": 2.8799999999999994,
+          "voice_microtone": 13.412500000000001,
+          "voice_tradition": 9.555,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 9.417499999999999,
+          "voice_speech_song": 16.574999999999996,
+          "voice_ensemble_config": 11.699999999999996,
+          "voice_ornament_system": 5.8225,
+          "voice_pitch_organization": 5.98875,
+          "voice_processing_chain": 4.225,
           "voice_multitrack_stack": 1.495
         }
       },
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 2.5,
-          "grand_piano_size": 0.8837499999999999,
-          "grand_piano_brand": 1.8937500000000003,
-          "piano_hammer": 5.525,
-          "piano_rim": 4.685,
-          "piano_soundboard": 4.25,
-          "piano_pinblock": 4.25,
-          "piano_plate": 4.25,
-          "piano_pitch_standard": 5.9399999999999995
+          "keyboard_technique": 5,
+          "grand_piano_size": 0.9099999999999999,
+          "grand_piano_brand": 4.029999999999999,
+          "piano_hammer": 13.34625,
+          "piano_rim": 10.935,
+          "piano_soundboard": 10.5,
+          "piano_pinblock": 10.5,
+          "piano_plate": 11.34375,
+          "piano_pitch_standard": 12.190000000000001
         }
       },
       {
@@ -92,16 +92,16 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.65,
-          "orch_strings": 1.11125,
-          "orch_top_wood": 3.965,
-          "orch_back_wood": 5.135,
-          "orch_varnish": 4.25,
-          "orch_setup_period": 3.575,
-          "orch_bow": 0.845,
-          "orch_bow_stick": 5.46,
-          "orch_articulation": 1.69,
-          "orch_rosin": 4.875
+          "bowed_technique": 5.15,
+          "orch_strings": 1.7550000000000001,
+          "orch_top_wood": 9.8225,
+          "orch_back_wood": 12.8125,
+          "orch_varnish": 10.5,
+          "orch_setup_period": 11.34375,
+          "orch_bow": 1.6899999999999997,
+          "orch_bow_stick": 12.0125,
+          "orch_articulation": 2.6,
+          "orch_rosin": 12.61
         }
       }
     ],

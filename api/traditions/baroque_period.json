@@ -28,14 +28,14 @@
         },
         "scores": {
           "bowed_technique": 3.25,
-          "orch_strings": 0.39,
+          "orch_strings": 0.9500000000000001,
           "orch_top_wood": 10.009500000000001,
           "orch_back_wood": 10.177500000000002,
-          "orch_varnish": 8.269,
-          "orch_setup_period": 14.94892857142857,
+          "orch_varnish": 8.419,
+          "orch_setup_period": 15.44892857142857,
           "orch_bow": 3.6159285714285705,
           "orch_bow_stick": 10.115714285714287,
-          "orch_articulation": 3.5100000000000002,
+          "orch_articulation": 3.9,
           "orch_rosin": 11.016499999999999
         }
       },
@@ -50,12 +50,12 @@
           "harpsichord_temperament": "harpsichord_meantone_quarter"
         },
         "scores": {
-          "keyboard_technique": 3.295,
+          "keyboard_technique": 3.4450000000000003,
           "harpsichord_register": 1.69,
-          "harpsichord_context": 8.059999999999999,
-          "harpsichord_maker_school": 3.494999999999999,
+          "harpsichord_context": 10.269999999999998,
+          "harpsichord_maker_school": 2.08,
           "harpsichord_plectrum": 0.819,
-          "harpsichord_temperament": 6.5
+          "harpsichord_temperament": 6.955000000000001
         }
       },
       {
@@ -76,8 +76,8 @@
           "cello_strings": 3.6094999999999993,
           "cello_top_wood": 10.009500000000001,
           "cello_back_wood": 10.177500000000002,
-          "cello_varnish": 8.269,
-          "cello_setup_period": 14.94892857142857,
+          "cello_varnish": 8.419,
+          "cello_setup_period": 15.44892857142857,
           "cello_bow_grip": 2.47,
           "cello_rosin": 10.0655,
           "cello_bow_stick": 12
@@ -96,10 +96,10 @@
         "scores": {
           "plucked_traditional_technique": 3.5500000000000003,
           "theorbo_config": 2.47,
-          "theorbo_context": 2.47,
+          "theorbo_context": 2.5596428571428573,
           "theorbo_ribs": 2.8600000000000003,
           "theorbo_soundboard": 0.39,
-          "theorbo_strings": 5.655000000000001
+          "theorbo_strings": 6.955000000000001
         }
       },
       {
@@ -116,8 +116,8 @@
         "scores": {
           "bowed_technique": 3.25,
           "gamba_size": 2.0365,
-          "viola_da_gamba_context": 8.839999999999998,
-          "gamba_strings": 4.094999999999999,
+          "viola_da_gamba_context": 11.894999999999998,
+          "gamba_strings": 4.735714285714286,
           "gamba_frets": 0.7149999999999999,
           "gamba_bow_stick": 13.7385,
           "gamba_lineage": 2.8600000000000003
@@ -135,7 +135,7 @@
         "scores": {
           "wind_articulation": 3.3865,
           "oboe_reed": 0.39,
-          "oboe_class": 0.2265,
+          "oboe_class": 0.39,
           "oboe_body_wood": 1.5600000000000003,
           "oboe_maker_school": 1.8512142857142855
         }
@@ -152,11 +152,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 3.5500000000000003,
-          "lute_courses": 2.0532142857142857,
-          "lute_renaissance_context": 9.099999999999998,
+          "lute_courses": 2.553214285714286,
+          "lute_renaissance_context": 13.454999999999997,
           "lute_renaissance_ribs": 0.39,
           "lute_renaissance_soundboard": 0.39,
-          "lute_renaissance_strings": 3.185
+          "lute_renaissance_strings": 4.485
         }
       },
       {
@@ -187,10 +187,10 @@
         },
         "scores": {
           "wind_articulation": 3.3865,
-          "bassoon_school": 0.9099999999999999,
+          "bassoon_school": 1.3,
           "bassoon_body_wood": 0.6824999999999999,
           "bassoon_reed": 0.39,
-          "bassoon_context": 2.1646428571428573
+          "bassoon_context": 2.6646428571428573
         }
       }
     ],

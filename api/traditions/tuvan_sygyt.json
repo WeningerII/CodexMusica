@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 52.18000000000001,
+          "voice_register": 55.63,
           "voice_quality": 29.60999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 10.375000000000002,
-          "voice_articulation": 1.69,
+          "voice_articulation": 2.25,
           "voice_microtone": 14.464999999999998,
           "voice_tradition": 31.939999999999998,
-          "voice_mechanism_compound": 31.334999999999997,
-          "voice_estill_quality": 6.5649999999999995,
-          "voice_speech_song": 8.515,
-          "voice_ensemble_config": 9.75,
-          "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 40.725,
-          "voice_processing_chain": 5.59,
-          "voice_multitrack_stack": 3.9
+          "voice_mechanism_compound": 34.785000000000004,
+          "voice_estill_quality": 10.749999999999996,
+          "voice_speech_song": 26.715,
+          "voice_ensemble_config": 27.95,
+          "voice_ornament_system": 15.47,
+          "voice_pitch_organization": 45.675,
+          "voice_processing_chain": 8.84,
+          "voice_multitrack_stack": 10.075
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "bowed_technique": 1.625,
-          "igil_body": 11.959999999999999,
+          "igil_body": 14.725,
           "igil_string": 0,
-          "igil_body_wood": 7.8149999999999995,
-          "igil_tradition": 3.9
+          "igil_body_wood": 8.315,
+          "igil_tradition": 4.55
         }
       }
     ],

@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.500000000000001,
-          "voice_quality": 3.185,
+          "voice_register": 9.875,
+          "voice_quality": 8.915000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.3799999999999994,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 5.25,
           "voice_microtone": 0,
-          "voice_tradition": 17.029999999999998,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.39,
-          "voice_speech_song": 14.104999999999997,
-          "voice_ensemble_config": 7.409999999999999,
-          "voice_ornament_system": 2.1449999999999996,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.868125
+          "voice_tradition": 34.2225,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 0.78,
+          "voice_speech_song": 20.799999999999997,
+          "voice_ensemble_config": 12.804999999999994,
+          "voice_ornament_system": 5.338125000000001,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 2.015,
+          "voice_multitrack_stack": 0.585
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 8.805000000000001,
-          "string_tuning": 12.149999999999999,
+          "acoustic_technique": 22.405000000000005,
+          "string_tuning": 20.824999999999996,
           "top_wood": 0.8225,
           "back_sides": 0.8225,
           "string_acoustic": 1.3,
-          "acoustic_om_technique": 8.805000000000001
+          "acoustic_om_technique": 22.405000000000005
         }
       },
       {
@@ -81,9 +81,9 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 4.1000000000000005,
-          "fiddle_strings": 1.69,
-          "fiddle_bow": 4.225,
+          "bowed_technique": 12.15,
+          "fiddle_strings": 2.535,
+          "fiddle_bow": 6.284375,
           "fiddle_mute": 0.8225,
           "fiddle_articulation": 0.39
         }

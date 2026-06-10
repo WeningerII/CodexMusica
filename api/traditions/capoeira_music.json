@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.3,
-          "voice_quality": 3.4895000000000005,
+          "voice_register": 3.1849999999999996,
+          "voice_quality": 6.294999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.24,
-          "voice_articulation": 1.69,
-          "voice_microtone": 0.045,
-          "voice_tradition": 4.9055,
-          "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 1.1049999999999998,
-          "voice_speech_song": 7.215,
-          "voice_ensemble_config": 8.45,
+          "voice_vibrato": 2.54,
+          "voice_articulation": 2.535,
+          "voice_microtone": 2.3,
+          "voice_tradition": 8.06,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.8025,
+          "voice_speech_song": 17.257499999999997,
+          "voice_ensemble_config": 17.419999999999995,
           "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 2.1399999999999997,
-          "voice_processing_chain": 2.6,
-          "voice_multitrack_stack": 1.69
+          "voice_pitch_organization": 2.4400000000000004,
+          "voice_processing_chain": 5.46,
+          "voice_multitrack_stack": 4.225
         }
       },
       {
@@ -59,8 +59,8 @@
           "berimbau_use": "berimbau_capoeira"
         },
         "scores": {
-          "berimbau_size": 2.08,
-          "berimbau_use": 12.61
+          "berimbau_size": 2.535,
+          "berimbau_use": 17.81
         }
       },
       {
@@ -71,7 +71,7 @@
           "atabaque_shell_wood": "atabaque_jacaranda"
         },
         "scores": {
-          "atabaque_role": 1.135,
+          "atabaque_role": 1.435,
           "atabaque_skin": 1.045,
           "atabaque_shell_wood": 1.625
         }
@@ -87,12 +87,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 6.949999999999999,
-          "pandeiro_size": 2.8199999999999994,
-          "pandeiro_context": 3.38,
-          "pandeiro_head": 2.6,
-          "pandeiro_shell_wood": 2.6,
-          "pandeiro_jingles": 2.6
+          "percussion_technique": 7.825,
+          "pandeiro_size": 3.379999999999999,
+          "pandeiro_context": 6.795,
+          "pandeiro_head": 7.345000000000001,
+          "pandeiro_shell_wood": 7.345000000000001,
+          "pandeiro_jingles": 7.345000000000001
         }
       },
       {
@@ -102,8 +102,8 @@
           "agogo_context": "agogo_candomble"
         },
         "scores": {
-          "agogo_bell": 1.9049999999999998,
-          "agogo_context": 4.819999999999999
+          "agogo_bell": 5.914999999999998,
+          "agogo_context": 4.97
         }
       },
       {
@@ -112,7 +112,7 @@
           "reco_source": "reco_metal_springs"
         },
         "scores": {
-          "reco_source": 2.09
+          "reco_source": 6.564999999999999
         }
       },
       {
@@ -122,8 +122,8 @@
           "caxixi_filling": "caxixi_seeds"
         },
         "scores": {
-          "caxixi_size": 6.095000000000001,
-          "caxixi_filling": 0.09
+          "caxixi_size": 6.745,
+          "caxixi_filling": 0.195
         }
       },
       {
@@ -134,7 +134,7 @@
         },
         "scores": {
           "members": 4.065,
-          "school": 1.135
+          "school": 1.285
         }
       }
     ],

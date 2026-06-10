@@ -3,8 +3,8 @@
   "name": "Mento",
   "family": "global",
   "lineage": "Jamaican rural folk-and-dance music tradition that preceded ska as the dominant Jamaican popular music genre — codified through the post-WWII commercial recordings of Lord Flea, Count Lasher, the Jolly Boys, Stanley Beckford, Harold Richardson; built on a fusion of West African rhythmic foundations, European-derived quadrille dance forms, and Caribbean Spanish-influenced song structures",
-  "recipe": "classic tropical mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata garifuna paranda and hungu-hungu. thick, full chest belt, melodic, rhythmic. alternating thumb travis picked parlor acoustic guitar, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, traditional gourd calabash maracas. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 580,
+  "recipe": "classic tropical mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata garifuna paranda and hungu-hungu. thick, full chest belt, melodic, rhythmic. alternating thumb travis picked parlor acoustic guitar, 3 ply maple Gibson mastertone canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, traditional gourd calabash maracas. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 578,
   "score": 203.488,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 6.885000000000001,
-          "voice_quality": 1.95,
+          "voice_register": 10.610000000000001,
+          "voice_quality": 10.724999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2899999999999998,
+          "voice_vibrato": 1.94,
           "voice_articulation": 2.47,
-          "voice_microtone": 0.49999999999999983,
-          "voice_tradition": 8.515,
-          "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 2.405,
-          "voice_speech_song": 8.774999999999999,
-          "voice_ensemble_config": 5.589999999999998,
-          "voice_ornament_system": 0.5199999999999999,
-          "voice_pitch_organization": 0.39,
-          "voice_processing_chain": 3.12,
-          "voice_multitrack_stack": 2.47
+          "voice_microtone": 4.2250000000000005,
+          "voice_tradition": 18.2,
+          "voice_mechanism_compound": 4.55,
+          "voice_estill_quality": 5.3950000000000005,
+          "voice_speech_song": 31.784999999999997,
+          "voice_ensemble_config": 23.009999999999998,
+          "voice_ornament_system": 1.56,
+          "voice_pitch_organization": 1.8199999999999996,
+          "voice_processing_chain": 6.029999999999999,
+          "voice_multitrack_stack": 4.430000000000001
         }
       },
       {
@@ -63,7 +63,7 @@
         },
         "scores": {
           "acoustic_technique": 4.3,
-          "string_tuning": 0.44499999999999995,
+          "string_tuning": 0.65,
           "top_wood_parlor": 0.435,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 0.48000000000000004
@@ -85,17 +85,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 8.905000000000001,
+          "plucked_traditional_technique": 25.252499999999998,
           "banjo_back": 0.435,
           "tone_ring": 0,
-          "banjo_head": 5.719999999999998,
-          "banjo_pot": 1.5150000000000001,
+          "banjo_head": 22.1,
+          "banjo_pot": 0.65,
           "banjo_play": 0.3,
-          "banjo_rim_wood": 0.33,
-          "banjo_neck_wood": 0.915,
+          "banjo_rim_wood": 1.4299999999999997,
+          "banjo_neck_wood": 0.52,
           "banjo_strings": 0.15,
           "banjo_bridge": 0,
-          "banjo_setup_period": 5.6549999999999985
+          "banjo_setup_period": 22.035
         }
       },
       {
@@ -105,8 +105,8 @@
           "maracas_filling": "maracas_beads"
         },
         "scores": {
-          "maracas_construction": 1.275,
-          "maracas_filling": 1.0799999999999998
+          "maracas_construction": 1.4949999999999999,
+          "maracas_filling": 0.7800000000000001
         }
       }
     ],

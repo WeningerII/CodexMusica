@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.25,
-          "voice_quality": 5.945,
+          "voice_register": 8.72,
+          "voice_quality": 10.815,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.5999999999999996,
-          "voice_articulation": 0.9750000000000001,
-          "voice_microtone": 6.29,
-          "voice_tradition": 21.039999999999996,
-          "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 9.035,
-          "voice_speech_song": 5.004999999999999,
-          "voice_ensemble_config": 3.1200000000000006,
-          "voice_ornament_system": 6.09,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 3.3799999999999994
+          "voice_articulation": 0.845,
+          "voice_microtone": 7.880000000000002,
+          "voice_tradition": 38.895,
+          "voice_mechanism_compound": 22.58,
+          "voice_estill_quality": 13.714999999999998,
+          "voice_speech_song": 21.970000000000002,
+          "voice_ensemble_config": 18.98,
+          "voice_ornament_system": 7.15,
+          "voice_pitch_organization": 7.620000000000001,
+          "voice_processing_chain": 7.67,
+          "voice_multitrack_stack": 4.68
         }
       },
       {
@@ -60,9 +60,9 @@
           "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
         },
         "scores": {
-          "flamenco_body": 2.9899999999999998,
+          "flamenco_body": 6.629999999999999,
           "flamenco_features": 0,
-          "flamenco_technique": 2.9899999999999998
+          "flamenco_technique": 3.4899999999999998
         }
       }
     ],

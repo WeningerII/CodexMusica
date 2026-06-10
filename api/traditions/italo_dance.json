@@ -3,8 +3,8 @@
   "name": "Italo dance",
   "family": "global",
   "lineage": "Late-1990s through early-2000s Italian commercial-dance genre evolved from italo-disco through eurodance, characterized by accelerated 140-150 bpm tempo, melodic synth-lead lines, and earnest pop-vocal hooks — codified through Eiffel 65 (Blue 1999), Gigi D'Agostino (L'Amour Toujours 1999, La Passion 2000), DJ Lhasa, Prezioso, with the genre serving as a distinct continental commercial-dance regional scene",
-  "recipe": "classic 1997-1999 italo dance, electronic Dance, eurodance branch, continental electronic dance disco. thick, chest mix belt, melodic, equal tempered. singing lead digital subtractive, singing lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, melodic orchestral imitation pitched sampler. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 483,
+  "recipe": "classic 1997-1999 italo dance, electronic Dance, eurodance branch, continental electronic dance disco. thick, chest mix belt, melodic, narrative. singing lead digital subtractive, oberheim tom oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, melodic orchestral imitation pitched sampler. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 546,
   "score": 165.27,
   "config": {
     "traditions": [
@@ -33,22 +33,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 6.0705,
-          "voice_quality": 13.057499999999997,
+          "voice_register": 8.988999999999999,
+          "voice_quality": 14.157499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.72475,
-          "voice_articulation": 0.045,
-          "voice_microtone": 4.500000000000001,
-          "voice_tradition": 8.82775,
-          "voice_mechanism_compound": 2.47,
+          "voice_articulation": 2.7249999999999996,
+          "voice_microtone": 6.125000000000001,
+          "voice_tradition": 10.952749999999998,
+          "voice_mechanism_compound": 3.055,
           "voice_estill_quality": 7.166999999999999,
-          "voice_speech_song": 2.7950000000000004,
-          "voice_ensemble_config": 3.1200000000000006,
+          "voice_speech_song": 7.344999999999999,
+          "voice_ensemble_config": 7.214999999999998,
           "voice_ornament_system": 6.8999999999999995,
           "voice_pitch_organization": 1.07525,
-          "voice_processing_chain": 7.149999999999999,
-          "voice_multitrack_stack": 4.02625
+          "voice_processing_chain": 10.295,
+          "voice_multitrack_stack": 4.32625
         }
       },
       {
@@ -59,9 +59,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 7.096000000000001,
-          "va_archetypes": 0.16724999999999995,
-          "digital_subtractive_context": 5.330000000000001
+          "electronic_technique": 8.871,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 9.23
         }
       },
       {
@@ -73,10 +73,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 7.096000000000001,
-          "poly_archetypes": 0.09974999999999999,
+          "electronic_technique": 8.871,
+          "poly_archetypes": 0.195,
           "poly_voices": 0.03899999999999999,
-          "poly_maker_lineage": 0.7149999999999999
+          "poly_maker_lineage": 1.83525
         }
       },
       {
@@ -87,8 +87,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 2.25,
-          "drum_machine_909_context": 2.808,
+          "tr909_voice": 2.6249999999999996,
+          "drum_machine_909_context": 2.9579999999999997,
           "tr909_production_origin": 0.09049999999999998
         }
       },
@@ -103,10 +103,10 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sampler_archetypes": 0.20699999999999996,
-          "sampler_bit_depth": 0.10299999999999998,
-          "sampler_workflow": 1.97225,
-          "sampler_classic_context": 10.79
+          "sampler_archetypes": 1.25,
+          "sampler_bit_depth": 0.52,
+          "sampler_workflow": 2.7722500000000005,
+          "sampler_classic_context": 16.412499999999994
         }
       },
       {
@@ -119,11 +119,11 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 7.096000000000001,
-          "fm_algorithm": 0.09899999999999999,
+          "electronic_technique": 8.871,
+          "fm_algorithm": 0.5199999999999999,
           "fm_modulator_ratio": 0.04649999999999999,
-          "fm_polyphony": 2.35325,
-          "fm_model_lineage": 2.4050000000000002
+          "fm_polyphony": 2.5032500000000004,
+          "fm_model_lineage": 3.9000000000000004
         }
       }
     ],

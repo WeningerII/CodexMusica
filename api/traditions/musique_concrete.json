@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 3.7,
-          "sampler_archetypes": 2.5,
-          "sampler_bit_depth": 0.9099999999999999,
-          "sampler_workflow": 4.795000000000001,
-          "sampler_classic_context": 3.65
+          "electronic_technique": 5.450000000000001,
+          "sampler_archetypes": 7.15,
+          "sampler_bit_depth": 2.8600000000000003,
+          "sampler_workflow": 6.545000000000001,
+          "sampler_classic_context": 9.23
         }
       },
       {
@@ -38,9 +38,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 3.7,
+          "electronic_technique": 5.45,
           "granular_use": 0.195,
-          "granular_synth_source": 1.95
+          "granular_synth_source": 2.8150000000000004
         }
       },
       {
@@ -51,9 +51,9 @@
           "eurorack_modular_context": "eurorack_modular_film"
         },
         "scores": {
-          "electronic_technique": 3.7,
-          "eurorack_focus": 1.92,
-          "eurorack_modular_context": 1.92
+          "electronic_technique": 5.45,
+          "eurorack_focus": 2.62,
+          "eurorack_modular_context": 2.8600000000000003
         }
       },
       {
@@ -65,10 +65,10 @@
           "ondes_martenot_lineage": "ondes_martenot_radiohead_modern"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "ondes_martenot_model": 1.69,
-          "ondes_martenot_context": 3.12,
-          "ondes_martenot_lineage": 3.5249999999999995
+          "electronic_technique": 1.4749999999999999,
+          "ondes_martenot_model": 2.34,
+          "ondes_martenot_context": 10.399999999999999,
+          "ondes_martenot_lineage": 5.2
         }
       },
       {
@@ -81,9 +81,9 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "theremin_model": 1.7499999999999998,
-          "theremin_technique": 0.645,
-          "theremin_lineage": 1.8199999999999998
+          "theremin_model": 5.5,
+          "theremin_technique": 1.105,
+          "theremin_lineage": 11.05
         }
       }
     ],

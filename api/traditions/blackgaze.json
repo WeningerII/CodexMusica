@@ -3,8 +3,8 @@
   "name": "Blackgaze (2010s black-metal-and-shoegaze hybrid)",
   "family": "rock_punk",
   "lineage": "2010s heavy-metal subgenre integrating black-metal extreme-vocal-and-percussion aggression with shoegaze-and-post-rock textural-and-melodic-arrangement. Alcest (France, 2000-onward) inaugurated the canonical sound; Deafheaven's Sunbather (2013) consolidated international visibility and the broader 2010s blackgaze wave through Bosse-de-Nage, Astronoid, Underling, and adjacent acts. Distinguished from atmospheric black metal by blackgaze's explicit shoegaze-textural-influence and major-key/melodic-emphasis.",
-  "recipe": "classic blackgaze, distorted Rock, death branch, alternative distorted rock madchester / baggy math rock. thick, larynx lowered, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, mahogany kevlar aramid extreme tension machine hammered drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 608,
+  "recipe": "classic blackgaze, distorted Rock, death branch, alternative distorted rock madchester / baggy math rock. thick, larynx lowered, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, mahogany kevlar aramid extreme tension machine hammered drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 599,
   "score": 483.997,
   "config": {
     "traditions": [
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.029999999999992,
+          "voice_register": 24.654999999999994,
           "voice_quality": 8.699999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2699999999999996,
-          "voice_articulation": 0.585,
-          "voice_microtone": 8.499999999999996,
-          "voice_tradition": 3.3150000000000004,
-          "voice_mechanism_compound": 21.595,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 11.375,
-          "voice_ensemble_config": 11.309999999999999,
-          "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 1.69,
+          "voice_articulation": 1.69,
+          "voice_microtone": 24.124999999999996,
+          "voice_tradition": 3.6725000000000008,
+          "voice_mechanism_compound": 24.319999999999997,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 18.134999999999998,
+          "voice_ensemble_config": 18.069999999999997,
+          "voice_ornament_system": 0.6499999999999999,
+          "voice_pitch_organization": 6.76,
+          "voice_processing_chain": 5.720000000000001,
           "voice_multitrack_stack": 11.659999999999998
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 23.06,
-          "amp_make": 7.87,
-          "body_wood": 10.009999999999998,
-          "neck_wood": 0.9750000000000001,
-          "fretboard": 0.3,
+          "electric_technique": 30.66,
+          "amp_make": 14.007499999999999,
+          "body_wood": 15.534999999999998,
+          "neck_wood": 0.845,
+          "fretboard": 0.8,
           "pickup_magnet": 0.345,
           "pickup_winding": 1.02,
-          "string_material": 0.15,
-          "bridge": 0.9750000000000001,
-          "scale_length": 10.009999999999998,
-          "string_gauge": 0.9750000000000001,
+          "string_material": 0.8,
+          "bridge": 0.845,
+          "scale_length": 14.934999999999999,
+          "string_gauge": 0.845,
           "finish": 0,
-          "string_tuning": 14.559999999999999
+          "string_tuning": 28.21
         }
       },
       {
@@ -98,14 +98,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9000000000000001,
-          "amp_make": 4.485,
-          "body_wood": 1.9500000000000002,
+          "electric_technique": 6.7749999999999995,
+          "amp_make": 13.389999999999999,
+          "body_wood": 0.845,
           "pickup_config": 0.8850000000000001,
-          "string_type": 11.375,
-          "scale_length_b": 0.9750000000000001,
+          "string_type": 31.6875,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.105,
-          "bass_technique": 8.7
+          "bass_technique": 24.325
         }
       },
       {
@@ -124,17 +124,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 11.309999999999999,
+          "percussion_technique": 18.069999999999997,
           "shell_wood": 1.69,
           "shell_thickness": 0.43499999999999994,
-          "bearing_edges": 1.17,
+          "bearing_edges": 0.845,
           "drumhead": 1.625,
-          "snare_wires": 1.365,
-          "cymbal_alloy": 24.849999999999998,
-          "cymbal_hammering": 8.694999999999999,
-          "cymbal_lathing": 8.844999999999999,
-          "cymbal_finish": 0.38999999999999996,
-          "drum_technique": 11.309999999999999
+          "snare_wires": 0.845,
+          "cymbal_alloy": 42,
+          "cymbal_hammering": 24.32,
+          "cymbal_lathing": 24.47,
+          "cymbal_finish": 0.8,
+          "drum_technique": 24.375
         }
       }
     ],

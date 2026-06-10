@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 11.126499999999997,
-          "voice_quality": 2.650000000000002,
+          "voice_register": 36.626500000000014,
+          "voice_quality": 5.150000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.6765000000000001,
-          "voice_articulation": 3.1000000000000005,
-          "voice_microtone": 8.104999999999997,
-          "voice_tradition": 10.725,
-          "voice_mechanism_compound": 1.4767500000000002,
-          "voice_estill_quality": 3.638750000000001,
-          "voice_speech_song": 11.765,
-          "voice_ensemble_config": 11.7,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 6.625,
+          "voice_microtone": 31.104999999999997,
+          "voice_tradition": 38.7005,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 7.43875,
+          "voice_speech_song": 19.825,
+          "voice_ensemble_config": 19.305,
           "voice_ornament_system": 1.95,
-          "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 6.949999999999999,
-          "voice_multitrack_stack": 6.39825
+          "voice_pitch_organization": 5.07,
+          "voice_processing_chain": 13.499999999999996,
+          "voice_multitrack_stack": 8.02325
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 5.525,
-          "drum_machine_808_context": 5.59,
+          "tr808_voice": 6.8575,
+          "drum_machine_808_context": 8.169499999999998,
           "tr808_production_origin": 1.6
         }
       },
@@ -75,10 +75,10 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 5.3950000000000005,
+          "electronic_technique": 6.727500000000001,
           "oscillator": 5.59,
           "filter_topology": 5.59,
-          "envelope": 1.04175,
+          "envelope": 1.69,
           "modulation": 0
         }
       },
@@ -95,14 +95,14 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 3.1500000000000004,
-          "amp_make": 13.129999999999997,
+          "electric_technique": 5.65,
+          "amp_make": 22.554999999999996,
           "body_wood": 0.663,
           "pickup_config": 0.3,
-          "string_type": 10.725,
+          "string_type": 38.5055,
           "scale_length_b": 0.408,
           "fretted_or_not": 0,
-          "bass_technique": 8.25
+          "bass_technique": 31.25
         }
       }
     ],

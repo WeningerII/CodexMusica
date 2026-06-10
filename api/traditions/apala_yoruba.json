@@ -3,8 +3,8 @@
   "name": "Apàlà (Yoruba Muslim percussion-song)",
   "family": "global",
   "lineage": "Yoruba apàlà percussion-and-vocal genre originating in 1930s-1940s Ibadan as a Muslim-Yoruba devotional-and-praise music for post-Ramadan ìdí-l-Fitr celebrations. Performance centers on male lead singer with a battery of dùndún talking-drums (iyaalu mother-drum plus gangan pressure-drums), agogo bell, sekere shaker, and chorus response. The talking-drum lineage carries percussive-and-melodic-allusion content through standardized Yoruba drum-language. Distinguished from sákárà by apàlà's dùndún-talking-drum (vs sákárà's frame-drum-with-shawm) instrumental signature. Direct ancestor of later fuji genre.",
-  "recipe": "classic mid-1930s apàlà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, pure, punctuated. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, agogo, shawm. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 494,
+  "recipe": "classic mid-1930s apàlà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, pure, punctuated. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, agogo, maple alternative German shawm. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 519,
   "score": 184.67,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.8100000000000005,
-          "voice_quality": 6.3900000000000015,
+          "voice_register": 5.815000000000002,
+          "voice_quality": 9.165,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.69,
-          "voice_articulation": 1.69,
-          "voice_microtone": 3.6950000000000007,
-          "voice_tradition": 32.11,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 9.945,
-          "voice_ensemble_config": 6.629999999999999,
-          "voice_ornament_system": 6.175,
-          "voice_pitch_organization": 14.594999999999999,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 3.38
+          "voice_articulation": 2.535,
+          "voice_microtone": 4.3450000000000015,
+          "voice_tradition": 55.76999999999999,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 16.314999999999998,
+          "voice_ensemble_config": 12.999999999999995,
+          "voice_ornament_system": 8.84,
+          "voice_pitch_organization": 20.819999999999997,
+          "voice_processing_chain": 5.225,
+          "voice_multitrack_stack": 5.459999999999999
         }
       },
       {
@@ -61,10 +61,10 @@
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 0.24,
-          "talking_drum_context": 2.3055,
-          "talking_drum_shell_wood": 6.369999999999999,
-          "talking_drum_head": 1.54
+          "talking_drum_origin": 0.195,
+          "talking_drum_context": 0.845,
+          "talking_drum_shell_wood": 9.879999999999999,
+          "talking_drum_head": 1.69
         }
       },
       {
@@ -74,8 +74,8 @@
           "agogo_context": "agogo_candomble"
         },
         "scores": {
-          "agogo_bell": 1.95,
-          "agogo_context": 1.69
+          "agogo_bell": 2.6,
+          "agogo_context": 3.8349999999999995
         }
       },
       {
@@ -90,8 +90,8 @@
         "scores": {
           "wind_articulation": -0.10500000000000002,
           "shawm_pitch": 0.15,
-          "shawm_context": 0.345,
-          "shawm_body_wood": 0.39,
+          "shawm_context": 0.65,
+          "shawm_body_wood": 1.04,
           "shawm_reed": 0.195
         }
       }

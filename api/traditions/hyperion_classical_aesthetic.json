@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 5.0440000000000005,
-          "voice_quality": 1.1199999999999999,
+          "voice_register": 9.119000000000002,
+          "voice_quality": 1.7899999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.68,
-          "voice_articulation": 0.9749999999999999,
-          "voice_microtone": 11.05,
-          "voice_tradition": 11.634999999999998,
-          "voice_mechanism_compound": 8.899999999999999,
-          "voice_estill_quality": 11.959999999999997,
-          "voice_speech_song": 9.094999999999999,
-          "voice_ensemble_config": 3.7700000000000005,
-          "voice_ornament_system": 9.2,
-          "voice_pitch_organization": 9.245,
-          "voice_processing_chain": 2.1449999999999996,
+          "voice_vibrato": 7.0200000000000005,
+          "voice_articulation": 1.9149999999999998,
+          "voice_microtone": 16.982000000000003,
+          "voice_tradition": 25.453500000000002,
+          "voice_mechanism_compound": 13.400000000000002,
+          "voice_estill_quality": 18.685000000000002,
+          "voice_speech_song": 18.570000000000004,
+          "voice_ensemble_config": 10.205,
+          "voice_ornament_system": 15.125000000000002,
+          "voice_pitch_organization": 14.245000000000003,
+          "voice_processing_chain": 2.925,
           "voice_multitrack_stack": 1.17
         }
       },
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_415_baroque"
         },
         "scores": {
-          "keyboard_technique": 9,
-          "grand_piano_size": 0.9099999999999999,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 11.634999999999998,
-          "piano_rim": 10.4995,
-          "piano_soundboard": 11.3745,
-          "piano_pinblock": 9.459999999999999,
-          "piano_plate": 11.203999999999999,
-          "piano_pitch_standard": 11.071
+          "keyboard_technique": 13.500000000000002,
+          "grand_piano_size": 1.8199999999999998,
+          "grand_piano_brand": 1.885,
+          "piano_hammer": 17.1255,
+          "piano_rim": 16.2495,
+          "piano_soundboard": 17.1245,
+          "piano_pinblock": 14.96,
+          "piano_plate": 15.704,
+          "piano_pitch_standard": 18.461
         }
       },
       {
@@ -92,16 +92,16 @@
           "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 9,
+          "bowed_technique": 13.500000000000002,
           "orch_strings": 1.91,
-          "orch_top_wood": 9.924999999999999,
-          "orch_back_wood": 10.774999999999999,
-          "orch_varnish": 8.95,
-          "orch_setup_period": 9.318999999999999,
-          "orch_bow": 1.1594999999999998,
-          "orch_bow_stick": 13.055499999999997,
-          "orch_articulation": 0.9099999999999999,
-          "orch_rosin": 9.39
+          "orch_top_wood": 18.75,
+          "orch_back_wood": 19.144500000000004,
+          "orch_varnish": 17.805000000000003,
+          "orch_setup_period": 15.235,
+          "orch_bow": 4.614999999999999,
+          "orch_bow_stick": 17.5555,
+          "orch_articulation": 3.575,
+          "orch_rosin": 22.1085
         }
       },
       {
@@ -118,15 +118,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 9,
-          "cello_strings": 1.1234999999999997,
-          "cello_top_wood": 9.924999999999999,
-          "cello_back_wood": 10.774999999999999,
-          "cello_varnish": 8.95,
-          "cello_setup_period": 9.318999999999999,
-          "cello_bow_grip": 5.9799999999999995,
-          "cello_rosin": 9.39,
-          "cello_bow_stick": 13.055499999999997
+          "bowed_technique": 13.500000000000002,
+          "cello_strings": 4.614999999999999,
+          "cello_top_wood": 18.75,
+          "cello_back_wood": 19.144500000000004,
+          "cello_varnish": 17.805000000000003,
+          "cello_setup_period": 14.934999999999999,
+          "cello_bow_grip": 8.2555,
+          "cello_rosin": 20.983500000000003,
+          "cello_bow_stick": 17.5555
         }
       }
     ],

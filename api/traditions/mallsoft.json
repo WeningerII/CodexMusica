@@ -23,11 +23,11 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 3.835,
-          "oscillator": 0.435,
-          "filter_topology": 1.69,
+          "electronic_technique": 12.919999999999996,
+          "oscillator": 0.32999999999999996,
+          "filter_topology": 2.73,
           "envelope": 1.59,
-          "modulation": 0.9299999999999999
+          "modulation": 0.845
         }
       },
       {
@@ -41,10 +41,10 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sampler_archetypes": 0.6,
-          "sampler_bit_depth": 1.53,
+          "sampler_archetypes": 0.65,
+          "sampler_bit_depth": 2.18,
           "sampler_workflow": 3.745,
-          "sampler_classic_context": 6.694999999999999
+          "sampler_classic_context": 24.18
         }
       }
     ],

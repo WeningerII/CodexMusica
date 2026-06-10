@@ -3,8 +3,8 @@
   "name": "Jangle pop",
   "family": "global",
   "lineage": "1980s indie genre extending the 1960s Byrds twelve-string-electric chimey-guitar sound — codified through R.E.M. (the Athens Georgia voice, Murmur 1983, Reckoning 1984, Fables of the Reconstruction 1985), The dB s, the Smiths (the UK parallel canon, with Johnny Marrs Rickenbacker arpeggios over Morrisseys baritone), the Replacements early period, the Feelies, Game Theory, and the broader Paisley Underground Los Angeles scene (Dream Syndicate, Rain Parade, Three OClock); foundational sound: chiming Rickenbacker 12-string-electric over driving rhythm-section and melodic vocal hooks",
-  "recipe": "classic North American mid-1980s jangle pop, functional Song, pop rock branch, alternative distorted rock modern indie rock bedroom pop. thick, melodic, rhythmic, equal tempered. vox ac amp British 60s amp top boost chime rotosound toaster twelve string electric, marshall plexi amp British rock amp clean strummed single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 685,
+  "recipe": "classic North American mid-1980s jangle pop, functional Song, pop rock branch, alternative distorted rock modern indie rock bedroom pop. thick, low dynamic level, melodic, rhythmic. vox ac amp British 60s amp top boost chime rotosound toaster twelve string electric, marshall plexi amp British rock amp clean strummed single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 679,
   "score": 473.915,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 19.629999999999995,
-          "voice_quality": 0.39,
+          "voice_register": 36.505000000000024,
+          "voice_quality": 0.6499999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.925,
+          "voice_vibrato": 3.62,
           "voice_articulation": 0.585,
-          "voice_microtone": 17.549999999999997,
-          "voice_tradition": 10.894999999999998,
-          "voice_mechanism_compound": 2.08,
+          "voice_microtone": 34.42500000000001,
+          "voice_tradition": 19.619999999999997,
+          "voice_mechanism_compound": 3.1200000000000006,
           "voice_estill_quality": 1.885,
-          "voice_speech_song": 7.214999999999998,
-          "voice_ensemble_config": 6.499999999999999,
+          "voice_speech_song": 14.429999999999996,
+          "voice_ensemble_config": 13.259999999999996,
           "voice_ornament_system": 0.8999999999999999,
-          "voice_pitch_organization": 2.2,
-          "voice_processing_chain": 5.195,
-          "voice_multitrack_stack": 3.6399999999999997
+          "voice_pitch_organization": 2.9899999999999998,
+          "voice_processing_chain": 6.825,
+          "voice_multitrack_stack": 9.234999999999998
         }
       },
       {
@@ -63,10 +63,10 @@
           "twelve_string_electric_pickup": "twelve_string_toaster_rick"
         },
         "scores": {
-          "electric_technique": 13.039999999999997,
+          "electric_technique": 19.164999999999996,
           "amp_make": 4.69,
-          "twelve_string_electric_model": 2.6649999999999996,
-          "twelve_string_electric_context": 5.719999999999998,
+          "twelve_string_electric_model": 7.185000000000001,
+          "twelve_string_electric_context": 15.014999999999997,
           "twelve_string_electric_strings": 1.495,
           "twelve_string_electric_pickup": 5.3500000000000005
         }
@@ -88,18 +88,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 13.039999999999997,
-          "amp_make": 4.69,
-          "body_wood": 0.9750000000000001,
-          "neck_wood": 0.9750000000000001,
-          "fretboard": 0.3,
+          "electric_technique": 19.164999999999996,
+          "amp_make": 10.27,
+          "body_wood": 0.845,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
           "pickup_magnet": 0.195,
           "string_material": 0.15,
-          "string_gauge": 0.9750000000000001,
-          "bridge": 0.345,
-          "scale_length": 1.9500000000000002,
+          "string_gauge": 0.845,
+          "bridge": 0.65,
+          "scale_length": 0.845,
           "finish": 0,
-          "string_tuning": 5.589999999999998
+          "string_tuning": 12.870000000000001
         }
       },
       {
@@ -115,14 +115,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 4.68,
-          "body_wood": 1.9500000000000002,
-          "pickup_config": 0.8850000000000001,
-          "string_type": 12.35,
-          "scale_length_b": 0.9750000000000001,
+          "electric_technique": 1.9000000000000001,
+          "amp_make": 10.27,
+          "body_wood": 0.845,
+          "pickup_config": 2.34,
+          "string_type": 26.325,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.105,
-          "bass_technique": 8.45
+          "bass_technique": 19.2
         }
       },
       {
@@ -141,17 +141,17 @@
           "drum_technique": "sticks_rock"
         },
         "scores": {
-          "percussion_technique": 4.809999999999999,
+          "percussion_technique": 12.414999999999996,
           "shell_wood": 1.02,
           "shell_thickness": 0.43499999999999994,
-          "bearing_edges": 1.17,
-          "drumhead": 9.395,
-          "snare_wires": 1.365,
-          "cymbal_alloy": 18.14,
-          "cymbal_hammering": 18.044999999999998,
-          "cymbal_lathing": 18.194999999999997,
+          "bearing_edges": 0.845,
+          "drumhead": 16.82,
+          "snare_wires": 0.845,
+          "cymbal_alloy": 35.015,
+          "cymbal_hammering": 36.22,
+          "cymbal_lathing": 36.37,
           "cymbal_finish": 0.38999999999999996,
-          "drum_technique": 8.5
+          "drum_technique": 19.25
         }
       }
     ],

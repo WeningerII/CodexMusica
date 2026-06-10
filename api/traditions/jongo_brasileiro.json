@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.78,
-          "voice_quality": 3.4850000000000003,
+          "voice_register": 1.8849999999999996,
+          "voice_quality": 6.294999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.445,
-          "voice_articulation": 0.9299999999999999,
-          "voice_microtone": 1.345,
-          "voice_tradition": 3.185000000000001,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 10.075,
-          "voice_ensemble_config": 6.629999999999999,
+          "voice_vibrato": 1.595,
+          "voice_articulation": 0.845,
+          "voice_microtone": 1.4999999999999998,
+          "voice_tradition": 7.5075,
+          "voice_mechanism_compound": 5.85,
+          "voice_estill_quality": 5.8825,
+          "voice_speech_song": 20.1175,
+          "voice_ensemble_config": 15.599999999999998,
           "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 1.2899999999999998,
-          "voice_processing_chain": 2.07,
-          "voice_multitrack_stack": 1.69
+          "voice_pitch_organization": 1.5899999999999999,
+          "voice_processing_chain": 2.8599999999999994,
+          "voice_multitrack_stack": 2.957499999999999
         }
       },
       {
@@ -59,8 +59,8 @@
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.045,
-          "tambourine_orch_context": 0.045
+          "tambourine_orch_jingle": 0.12999999999999998,
+          "tambourine_orch_context": 1.17
         }
       }
     ],

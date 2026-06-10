@@ -3,8 +3,8 @@
   "name": "Cloud rap (experimental)",
   "family": "global",
   "lineage": "Early-2010s atmospheric-trap experimental hip-hop subgenre extending cloud-rap aesthetic through more ambient-arrangement, washed-out post-rock textures, and surreal lyrical content — codified through early Lil B (Rain in England 2010), Yung Lean (Unknown Death 2013), Sad Boys, Spaceghostpurrp, Awful Records, with the form serving as a key conduit for the late-2010s online-distributed rap scene",
-  "recipe": "classic Southern American 2010-2013 cloud rap, mc Rhythm, experimental branch, lofi experimental electric chillwave hypnagogic pop. thick, rap, narrative, equal tempered. glitched textural sampler, singing lead digital subtractive, TR-808. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay lexicon 224 / 480L.",
-  "recipe_chars": 399,
+  "recipe": "classic Southern American 2010-2013 cloud rap, mc Rhythm, experimental branch, lofi experimental electric chillwave hypnagogic pop. thick, rap, pure, narrative. glitched textural sampler, singing lead digital subtractive, TR-808. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay lexicon 224 / 480L.",
+  "recipe_chars": 389,
   "score": 190.949,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.3476250000000016,
+          "voice_register": 10.522624999999994,
           "voice_quality": 13.05825,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39525,
+          "voice_vibrato": 0.585,
           "voice_articulation": 1.8000000000000003,
-          "voice_microtone": 2.250000000000001,
-          "voice_tradition": 12.62775,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 12.161499999999998,
-          "voice_ensemble_config": 3.2500000000000004,
-          "voice_ornament_system": 0.126,
-          "voice_pitch_organization": 2.2145,
+          "voice_microtone": 10.424999999999997,
+          "voice_tradition": 17.252750000000002,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 12.311499999999999,
+          "voice_ensemble_config": 10.139999999999997,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 2.3645,
           "voice_processing_chain": 9.399999999999999,
-          "voice_multitrack_stack": 7.799999999999999
+          "voice_multitrack_stack": 8.9375
         }
       },
       {
@@ -62,11 +62,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 10.492750000000001,
-          "sampler_archetypes": 2.73,
-          "sampler_bit_depth": 0.45299999999999996,
-          "sampler_workflow": 10.831,
-          "sampler_classic_context": 10.400000000000002
+          "electronic_technique": 15.117750000000003,
+          "sampler_archetypes": 5.265000000000001,
+          "sampler_bit_depth": 1.7952500000000002,
+          "sampler_workflow": 15.669000000000002,
+          "sampler_classic_context": 19.304999999999996
         }
       },
       {
@@ -77,9 +77,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 4.829000000000001,
-          "va_archetypes": 0.384,
-          "digital_subtractive_context": 2.08
+          "electronic_technique": 7.286,
+          "va_archetypes": 0.845,
+          "digital_subtractive_context": 9.359999999999996
         }
       },
       {
@@ -91,7 +91,7 @@
         },
         "scores": {
           "tr808_voice": 2.334,
-          "drum_machine_808_context": 0.5339999999999999,
+          "drum_machine_808_context": 7.41,
           "tr808_production_origin": 0.105
         }
       }

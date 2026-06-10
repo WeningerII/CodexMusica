@@ -3,8 +3,8 @@
   "name": "Persian aroosi (عروسی, wedding music)",
   "family": "global",
   "lineage": "Persian wedding-music tradition continuous from medieval Persian-domestic-music practice through Qajar-and-Pahlavi-era documented performance into modern Iranian and Iranian-diaspora practice; defined by daf-and-tar-and-vocal ensemble",
-  "recipe": "classic modern persian aroosi, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab andalusī nūba. vocal fry, chest resonance low mid, continuous-phonation, maqam neutral step. walnut bent frame canonical Persian synthetic remo modern stable brass rings canonical Iranian daf, synthetic brass gut historical pre modern qajar modern concert tar walnut bowl canonical Persian steel brass wound radif lotfi alizadeh lineage setar persian, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian darbuka. tehran classical dastgah context. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 761,
+  "recipe": "classic modern persian aroosi, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. walnut bent frame canonical Persian synthetic remo modern stable brass rings canonical Iranian daf, synthetic brass gut historical pre modern qajar modern concert tar walnut bowl canonical Persian steel brass wound radif lotfi alizadeh lineage setar persian, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. tehran classical dastgah context. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 796,
   "score": 347.275,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 0.325,
+          "voice_register": 4.485,
+          "voice_quality": 1.6899999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 7.41,
           "voice_articulation": 2.08,
-          "voice_microtone": 3.5700000000000007,
-          "voice_tradition": 25.804999999999996,
-          "voice_mechanism_compound": 19.639999999999997,
-          "voice_estill_quality": 3.825,
-          "voice_speech_song": 10.659999999999998,
-          "voice_ensemble_config": 8.579999999999998,
-          "voice_ornament_system": 20.674999999999997,
-          "voice_pitch_organization": 21.439999999999998,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 1.69
+          "voice_microtone": 11.144999999999998,
+          "voice_tradition": 43.30499999999999,
+          "voice_mechanism_compound": 34.54,
+          "voice_estill_quality": 16.799999999999997,
+          "voice_speech_song": 16.184999999999995,
+          "voice_ensemble_config": 13.324999999999996,
+          "voice_ornament_system": 35.574999999999996,
+          "voice_pitch_organization": 36.489999999999995,
+          "voice_processing_chain": 4.355,
+          "voice_multitrack_stack": 4.68
         }
       },
       {
@@ -63,8 +63,8 @@
         },
         "scores": {
           "daf_rings": 0.43499999999999994,
-          "daf_context": 8.58,
-          "daf_shell_wood": 9.23,
+          "daf_context": 19.5,
+          "daf_shell_wood": 11.18,
           "daf_head_material": 1.69,
           "daf_jingle_metal": 4.159999999999999
         }
@@ -80,11 +80,11 @@
           "tar_tradition": "tar_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": 3.4850000000000008,
+          "plucked_traditional_technique": 13.965,
           "tar_belly": 1.69,
-          "tar_pick": 1.2349999999999999,
+          "tar_pick": 7.15,
           "tar_body_wood": 0.78,
-          "tar_string_material": 3.7050000000000005,
+          "tar_string_material": 3.9,
           "tar_tradition": 2.08
         }
       },
@@ -99,10 +99,10 @@
           "setar_tradition": "setar_radif_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 3.4850000000000008,
-          "setar_strings": -0.035,
-          "setar_pluck": 1.3,
-          "setar_body_wood": 7.929999999999998,
+          "plucked_traditional_technique": 13.965,
+          "setar_strings": 0.12999999999999998,
+          "setar_pluck": 7.215,
+          "setar_body_wood": 8.904999999999998,
           "setar_string_material": 2.4699999999999998,
           "setar_tradition": 1.4949999999999999
         }
@@ -117,9 +117,9 @@
         },
         "scores": {
           "percussion_technique": 0.6499999999999999,
-          "darbuka_material": 2.08,
-          "darbuka_skin": 2.4699999999999998,
-          "darbuka_regional_style": 0.9449999999999998
+          "darbuka_material": 2.4699999999999998,
+          "darbuka_skin": 4.159999999999999,
+          "darbuka_regional_style": 4.42
         }
       }
     ],

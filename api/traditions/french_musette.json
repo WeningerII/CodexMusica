@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
         },
         "scores": {
-          "voice_register": 2.795000000000001,
-          "voice_quality": 3.945,
+          "voice_register": 19.920000000000005,
+          "voice_quality": 4.82,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.0300000000000002,
           "voice_articulation": 1.69,
           "voice_microtone": 0.195,
-          "voice_tradition": 4.83,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 5.365,
-          "voice_speech_song": 9.294999999999998,
-          "voice_ensemble_config": 8.319999999999999,
+          "voice_tradition": 27.665000000000006,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 6.015000000000001,
+          "voice_speech_song": 20.345,
+          "voice_ensemble_config": 14.234999999999996,
           "voice_ornament_system": 3.1500000000000004,
           "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 5.914999999999998,
+          "voice_multitrack_stack": 2.535
         }
       },
       {
@@ -60,9 +60,9 @@
           "pa_use": "pa_polka"
         },
         "scores": {
-          "free_reed_technique": 4.780000000000001,
-          "pa_size": 1.69,
-          "pa_use": 2.585
+          "free_reed_technique": 21.905,
+          "pa_size": 10.205000000000002,
+          "pa_use": 10.400000000000002
         }
       },
       {
@@ -75,8 +75,8 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 5.3950000000000005,
-          "string_tuning": 0,
+          "acoustic_technique": 27.295000000000005,
+          "string_tuning": 2.4,
           "top_wood_parlor": 0.39,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 0.39

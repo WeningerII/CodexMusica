@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.5824999999999996,
-          "voice_quality": 3.185000000000001,
+          "voice_register": 7.6375,
+          "voice_quality": 8.905000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 1.7550000000000001,
           "voice_articulation": 1.4299999999999997,
-          "voice_microtone": 0.845,
-          "voice_tradition": 9.165,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 5.785000000000001,
-          "voice_speech_song": 6.694999999999999,
-          "voice_ensemble_config": 10.009999999999998,
-          "voice_ornament_system": 4.095000000000001,
-          "voice_pitch_organization": 4.095000000000001,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 5.7725
+          "voice_microtone": 7.880000000000002,
+          "voice_tradition": 37.595000000000006,
+          "voice_mechanism_compound": 22.755,
+          "voice_estill_quality": 12.052499999999998,
+          "voice_speech_song": 23.66,
+          "voice_ensemble_config": 27.43,
+          "voice_ornament_system": 7.15,
+          "voice_pitch_organization": 7.760000000000001,
+          "voice_processing_chain": 7.67,
+          "voice_multitrack_stack": 2.9899999999999998
         }
       },
       {
@@ -59,8 +59,8 @@
           "komuz_tradition": "komuz_akyn_kuy_canonical"
         },
         "scores": {
-          "komuz_body": 8.969999999999999,
-          "komuz_tradition": 12.397499999999999
+          "komuz_body": 9.469999999999999,
+          "komuz_tradition": 13.3975
         }
       }
     ],

@@ -19,7 +19,7 @@
           "characteristic": "gb_kotekan"
         },
         "scores": {
-          "type": 2.6,
+          "type": 6.249999999999999,
           "characteristic": 0.04875
         }
       },
@@ -35,8 +35,8 @@
         "scores": {
           "wind_articulation": -0.15000000000000002,
           "shawm_pitch": 0,
-          "shawm_context": 1.522857142857143,
-          "shawm_body_wood": 1.46625,
+          "shawm_context": 2.172857142857143,
+          "shawm_body_wood": 1.61625,
           "shawm_reed": 2.7375000000000003
         }
       }

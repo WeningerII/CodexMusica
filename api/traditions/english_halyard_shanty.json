@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 3.500000000000001,
-          "voice_quality": 3.185,
+          "voice_register": 26.4,
+          "voice_quality": 4.68,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 2.1850000000000005,
           "voice_articulation": 5.069999999999999,
-          "voice_microtone": 0.24,
-          "voice_tradition": 7.540000000000001,
+          "voice_microtone": 5.925000000000001,
+          "voice_tradition": 28.878124999999997,
           "voice_mechanism_compound": 1.0499999999999998,
-          "voice_estill_quality": 0.7149999999999997,
-          "voice_speech_song": 7.085,
-          "voice_ensemble_config": 2.600000000000001,
-          "voice_ornament_system": 1.770625,
+          "voice_estill_quality": 2.7450000000000006,
+          "voice_speech_song": 16.639999999999997,
+          "voice_ensemble_config": 8.32,
+          "voice_ornament_system": 2.7000000000000006,
           "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 2.665000000000001,
-          "voice_multitrack_stack": 1.3
+          "voice_processing_chain": 6.9225,
+          "voice_multitrack_stack": 8.62
         }
       },
       {
@@ -60,9 +60,9 @@
           "concertina_reed_grade": "concertina_hybrid_accordion_reed"
         },
         "scores": {
-          "free_reed_technique": 4.035,
-          "concertina_type": 13,
-          "concertina_reed_grade": 1.69
+          "free_reed_technique": 20.635,
+          "concertina_type": 14.689999999999998,
+          "concertina_reed_grade": 2.73
         }
       }
     ],

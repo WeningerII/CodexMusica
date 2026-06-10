@@ -3,8 +3,8 @@
   "name": "Korean jubu-ga (drinking-and-celebration songs)",
   "family": "global",
   "lineage": "Korean drinking-and-celebration song tradition continuous from premodern Korean banquet-and-tavern song-tradition through Japanese-colonial-era and post-1945 continuous performance into modern Korean-and-Korean-diaspora continuous noraebang (가요방, song-room) and drinking-establishment practice; the broader Korean drinking-culture integrates extensive trot (트로트) and folk-drinking-song repertoire",
-  "recipe": "classic mid-1940s korean jubu-ga, drinking Song, east Asian branch, European drinking song, east Asian pop functional song, east Asian protest song shidaiqu korean trot. thick, tasteful, continuous-phonation, equal tempered. mahogany strummed open chord ringing overtones fingerpicked acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 440,
+  "recipe": "classic mid-1940s korean jubu-ga, drinking Song, east Asian branch, European drinking song, east Asian pop functional song, east Asian protest song shidaiqu korean trot. thick, chest mix belt, tasteful, continuous-phonation. mahogany flatwound thomastik strummed open chord ringing overtones acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 447,
   "score": 269.894,
   "config": {
     "traditions": [
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.550000000000002,
-          "voice_quality": 0.325,
+          "voice_register": 25.949999999999996,
+          "voice_quality": 2.828750000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.08,
           "voice_articulation": 5.069999999999999,
-          "voice_microtone": 3.785000000000001,
-          "voice_tradition": 31.637500000000003,
-          "voice_mechanism_compound": 0.6749999999999999,
-          "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 24.375000000000004,
-          "voice_ensemble_config": 13.260000000000003,
-          "voice_ornament_system": 26.55,
-          "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 3.2,
-          "voice_multitrack_stack": 2.185
+          "voice_microtone": 21.859999999999996,
+          "voice_tradition": 48.61249999999999,
+          "voice_mechanism_compound": 3.9249999999999994,
+          "voice_estill_quality": 3.0275,
+          "voice_speech_song": 39.32500000000002,
+          "voice_ensemble_config": 26.26000000000001,
+          "voice_ornament_system": 39.8,
+          "voice_pitch_organization": 8.462499999999999,
+          "voice_processing_chain": 4.875000000000001,
+          "voice_multitrack_stack": 5.260000000000001
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 3.2450000000000006,
+          "acoustic_technique": 12.474999999999998,
           "string_tuning": 0,
           "top_wood": 1.0062499999999999,
           "back_sides": 1.0062499999999999,
-          "string_acoustic": 0.8249999999999998,
-          "acoustic_om_technique": 3.2450000000000006
+          "string_acoustic": 3.5749999999999993,
+          "acoustic_om_technique": 6.470000000000001
         }
       }
     ],
