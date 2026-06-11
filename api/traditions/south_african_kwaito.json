@@ -5,7 +5,7 @@
   "lineage": "South African house-and-hip-hop hybrid genre emerging in mid-1990s post-apartheid Johannesburg as a celebration of newly-democratic South African cultural identity. Characterized by slowed-down house tempo (90-110 BPM), Zulu-Xhosa-Sesotho-English vocal delivery, dub-and-reggae-influenced bass-and-keyboard production, and explicit South African township cultural lyrical content. Boom Shaka, Arthur Mafokate, Mandoza, Brenda Fassie (transitional), and TKZee consolidated the canonical 1990s-2000s commercial sound.",
   "recipe": "classic 1994-1996 south african kwaito, mc Rhythm, Afro-diasporic branch, house electronic dance, Jamaican bass system jamaican dancehall. vocal fry, rap, chest resonance low mid, narrative. roland tr 8s modern aira digital recreation TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 563,
-  "score": 154.645,
+  "score": 158.355,
   "config": {
     "traditions": [
       "south_african_kwaito",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "blue_notes",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.675,
           "voice_articulation": 1.8000000000000003,
           "voice_microtone": 0.195,
-          "voice_tradition": 18.66,
+          "voice_tradition": 22.37,
           "voice_mechanism_compound": 1.14,
           "voice_estill_quality": 0.9599999999999997,
           "voice_speech_song": 14.299999999999997,

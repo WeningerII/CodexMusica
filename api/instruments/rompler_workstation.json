@@ -1,20 +1,20 @@
 {
-  "id": "analog_poly_synth",
-  "name": "Analog polyphonic synthesizer",
+  "id": "rompler_workstation",
+  "name": "ROM-playback workstation / arranger keyboard",
   "family": "electronic",
   "class": "electronic",
   "axes": {
     "pitchFix": 1,
-    "sustain": 2,
+    "sustain": 1,
     "polyphony": 2,
-    "harmonicity": 0,
+    "harmonicity": 1,
     "register": 0,
     "range": 2,
-    "articulation": 1,
+    "articulation": 0,
     "transduction": 2,
-    "dynamics": 1
+    "dynamics": 0
   },
-  "short": "analog poly synth",
+  "short": "workstation",
   "parts": [
     {
       "id": "electronic_technique",
@@ -163,130 +163,147 @@
       "_fromFamily": true
     },
     {
-      "id": "poly_archetypes",
-      "surface": false,
-      "name": "Archetypal model",
+      "id": "rompler_preset_bank",
+      "name": "Preset bank",
       "variants": [
         {
-          "id": "prophet_5",
+          "id": "rompler_preset_gm_combo",
           "default": true,
-          "name": "Sequential Prophet-5",
+          "name": "General-MIDI multitimbral combo",
           "descriptors": [
-            "full"
+            "preset-palette",
+            "multitimbral",
+            "polished"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
             "synthesized"
           ]
         },
         {
-          "id": "jupiter_8",
-          "name": "Roland Jupiter-8",
+          "id": "rompler_preset_mallet_marimba",
+          "name": "Mallet / marimba PCM bank",
           "descriptors": [
-            "overtone-rich-sustained",
-            "pad-suited"
+            "midi-marimba-preset",
+            "bright",
+            "percussive"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
+            "synthesized",
+            "mallets"
+          ]
+        },
+        {
+          "id": "rompler_preset_oriental_arranger",
+          "name": "Oriental / regional arranger bank",
+          "descriptors": [
+            "ornamented-lead",
+            "regional-style-kit",
+            "party-arranger"
+          ],
+          "match_tokens": [
+            "electronic",
             "synthesized"
           ]
         },
         {
-          "id": "oberheim_obxa",
-          "name": "Oberheim OB-Xa",
+          "id": "rompler_preset_dance_stabs",
+          "name": "Dance stab / organ bank",
           "descriptors": [
-            "wide",
-            "rock-context",
-            "beefy"
+            "stabby",
+            "organ-preset"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "house",
+            "edm"
+          ]
+        },
+        {
+          "id": "rompler_preset_piano_orchestral",
+          "name": "Piano / orchestral ROM bank",
+          "descriptors": [
+            "sampled-realism",
+            "ballad-suited"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rompler_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "rompler_context_pop_workstation",
+          "default": true,
+          "name": "90s workstation pop production",
+          "descriptors": [
+            "radio-ready",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        },
+        {
+          "id": "rompler_context_township_midi",
+          "name": "Township / DIY MIDI dance production",
+          "descriptors": [
+            "DIY-sequenced",
+            "preset-driven",
+            "high-tempo"
+          ],
+          "match_tokens": [
+            "electronic",
             "synthesized"
           ]
         },
         {
-          "id": "juno_60",
-          "name": "Roland Juno-60/106",
+          "id": "rompler_context_arranger_party",
+          "name": "Arranger-keyboard party / wedding band",
           "descriptors": [
-            "accessible",
-            "classic-pad"
+            "auto-accompaniment",
+            "live-banquet",
+            "one-man-band"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
             "synthesized"
           ]
         }
       ]
     },
     {
-      "id": "poly_voices",
+      "id": "rompler_lineage",
       "surface": false,
-      "name": "Voice count",
+      "name": "Hardware lineage",
       "variants": [
         {
-          "id": "poly_5_voice",
+          "id": "rompler_korg_m1_canonical",
           "default": true,
-          "name": "5-voice",
+          "name": "Korg M1 (canonical 1988-1995 — first mass-market workstation, 4 MB PCM ROM, universal preset canon)",
           "descriptors": [
-            "vintage",
-            "analog-drift-character"
+            "korg-m1-canonical-1988-1995-first-mass-market-workstation-4mb-pcm-rom-universal-preset-canon"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
-            "synthesized"
-          ]
-        },
-        {
-          "id": "poly_8_voice",
-          "surface": false,
-          "name": "8-voice",
-          "descriptors": [
-            "overtone-rich-sustained",
-            "pad-suited",
-            "flagship"
-          ],
-          "match_tokens": [
-            "electronic",
-            "analog",
-            "synthesized"
-          ]
-        },
-        {
-          "id": "poly_16_voice",
-          "surface": false,
-          "name": "16-voice modern",
-          "descriptors": [
-            "contemporary",
-            "virtuoso"
-          ],
-          "match_tokens": [
-            "electronic",
-            "analog",
-            "synthesized"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "poly_maker_lineage",
-      "surface": false,
-      "name": "Maker lineage",
-      "variants": [
-        {
-          "id": "poly_sequential_smith",
-          "default": true,
-          "name": "Sequential Dave Smith lineage (canonical Prophet-5 1978 — San Jose CA)",
-          "descriptors": [
-            "sequential-dave-smith-lineage-canonical-prophet-5-1978-san-jose-ca"
-          ],
-          "match_tokens": [
-            "electronic",
-            "analog",
             "synthesized"
           ],
           "canonical_tags": [
@@ -294,14 +311,13 @@
           ]
         },
         {
-          "id": "poly_oberheim_tom",
-          "name": "Oberheim Tom Oberheim lineage (canonical OB-X 1979 / OB-Xa 1980 — Los Angeles CA)",
+          "id": "rompler_roland_jv_xp",
+          "name": "Roland JV / XP series (1992-2000s — expandable PCM rack standard)",
           "descriptors": [
-            "oberheim-tom-oberheim-lineage-canonical-ob-x-1979-ob-xa-1980-los-angeles-ca"
+            "roland-jv-xp-series-1992-2000s-expandable-pcm-rack-standard"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
             "synthesized"
           ],
           "canonical_tags": [
@@ -309,33 +325,25 @@
           ]
         },
         {
-          "id": "poly_roland_jupiter",
-          "name": "Roland Jupiter lineage (canonical Jupiter-8 1981 — Osaka Japan)",
+          "id": "rompler_yamaha_psr_casio",
+          "name": "Yamaha PSR / Casio home keyboard (1990s-2000s — GM auto-accompaniment, home and township studios)",
           "descriptors": [
-            "roland-jupiter-lineage-canonical-jupiter-8-1981-osaka"
+            "yamaha-psr-casio-home-keyboard-1990s-2000s-gm-auto-accompaniment-home-township-studios"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
             "synthesized"
-          ],
-          "canonical_tags": [
-            "vintage"
           ]
         },
         {
-          "id": "poly_yamaha_cs",
-          "name": "Yamaha CS lineage (canonical CS-80 1976 — Hamamatsu Japan, polyphonic flagship)",
+          "id": "rompler_korg_pa_arranger",
+          "name": "Korg Pa series arranger (2001-present — pro regional style banks, Balkan and Middle Eastern wedding circuits)",
           "descriptors": [
-            "yamaha-cs-lineage-canonical-cs-80-1976-hamamatsu-polyphonic-flagship"
+            "korg-pa-series-arranger-2001-present-pro-regional-style-banks-balkan-middle-eastern-wedding-circuits"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
             "synthesized"
-          ],
-          "canonical_tags": [
-            "vintage"
           ]
         }
       ]
@@ -343,130 +351,147 @@
   ],
   "_ownParts": [
     {
-      "id": "poly_archetypes",
-      "surface": false,
-      "name": "Archetypal model",
+      "id": "rompler_preset_bank",
+      "name": "Preset bank",
       "variants": [
         {
-          "id": "prophet_5",
+          "id": "rompler_preset_gm_combo",
           "default": true,
-          "name": "Sequential Prophet-5",
+          "name": "General-MIDI multitimbral combo",
           "descriptors": [
-            "full"
+            "preset-palette",
+            "multitimbral",
+            "polished"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
             "synthesized"
           ]
         },
         {
-          "id": "jupiter_8",
-          "name": "Roland Jupiter-8",
+          "id": "rompler_preset_mallet_marimba",
+          "name": "Mallet / marimba PCM bank",
           "descriptors": [
-            "overtone-rich-sustained",
-            "pad-suited"
+            "midi-marimba-preset",
+            "bright",
+            "percussive"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
+            "synthesized",
+            "mallets"
+          ]
+        },
+        {
+          "id": "rompler_preset_oriental_arranger",
+          "name": "Oriental / regional arranger bank",
+          "descriptors": [
+            "ornamented-lead",
+            "regional-style-kit",
+            "party-arranger"
+          ],
+          "match_tokens": [
+            "electronic",
             "synthesized"
           ]
         },
         {
-          "id": "oberheim_obxa",
-          "name": "Oberheim OB-Xa",
+          "id": "rompler_preset_dance_stabs",
+          "name": "Dance stab / organ bank",
           "descriptors": [
-            "wide",
-            "rock-context",
-            "beefy"
+            "stabby",
+            "organ-preset"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "house",
+            "edm"
+          ]
+        },
+        {
+          "id": "rompler_preset_piano_orchestral",
+          "name": "Piano / orchestral ROM bank",
+          "descriptors": [
+            "sampled-realism",
+            "ballad-suited"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized",
+            "orchestral"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rompler_context",
+      "surface": false,
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "rompler_context_pop_workstation",
+          "default": true,
+          "name": "90s workstation pop production",
+          "descriptors": [
+            "radio-ready",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ],
+          "canonical_tags": [
+            "pop"
+          ]
+        },
+        {
+          "id": "rompler_context_township_midi",
+          "name": "Township / DIY MIDI dance production",
+          "descriptors": [
+            "DIY-sequenced",
+            "preset-driven",
+            "high-tempo"
+          ],
+          "match_tokens": [
+            "electronic",
             "synthesized"
           ]
         },
         {
-          "id": "juno_60",
-          "name": "Roland Juno-60/106",
+          "id": "rompler_context_arranger_party",
+          "name": "Arranger-keyboard party / wedding band",
           "descriptors": [
-            "accessible",
-            "classic-pad"
+            "auto-accompaniment",
+            "live-banquet",
+            "one-man-band"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
             "synthesized"
           ]
         }
       ]
     },
     {
-      "id": "poly_voices",
+      "id": "rompler_lineage",
       "surface": false,
-      "name": "Voice count",
+      "name": "Hardware lineage",
       "variants": [
         {
-          "id": "poly_5_voice",
+          "id": "rompler_korg_m1_canonical",
           "default": true,
-          "name": "5-voice",
+          "name": "Korg M1 (canonical 1988-1995 — first mass-market workstation, 4 MB PCM ROM, universal preset canon)",
           "descriptors": [
-            "vintage",
-            "analog-drift-character"
+            "korg-m1-canonical-1988-1995-first-mass-market-workstation-4mb-pcm-rom-universal-preset-canon"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
-            "synthesized"
-          ]
-        },
-        {
-          "id": "poly_8_voice",
-          "surface": false,
-          "name": "8-voice",
-          "descriptors": [
-            "overtone-rich-sustained",
-            "pad-suited",
-            "flagship"
-          ],
-          "match_tokens": [
-            "electronic",
-            "analog",
-            "synthesized"
-          ]
-        },
-        {
-          "id": "poly_16_voice",
-          "surface": false,
-          "name": "16-voice modern",
-          "descriptors": [
-            "contemporary",
-            "virtuoso"
-          ],
-          "match_tokens": [
-            "electronic",
-            "analog",
-            "synthesized"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "poly_maker_lineage",
-      "surface": false,
-      "name": "Maker lineage",
-      "variants": [
-        {
-          "id": "poly_sequential_smith",
-          "default": true,
-          "name": "Sequential Dave Smith lineage (canonical Prophet-5 1978 — San Jose CA)",
-          "descriptors": [
-            "sequential-dave-smith-lineage-canonical-prophet-5-1978-san-jose-ca"
-          ],
-          "match_tokens": [
-            "electronic",
-            "analog",
             "synthesized"
           ],
           "canonical_tags": [
@@ -474,14 +499,13 @@
           ]
         },
         {
-          "id": "poly_oberheim_tom",
-          "name": "Oberheim Tom Oberheim lineage (canonical OB-X 1979 / OB-Xa 1980 — Los Angeles CA)",
+          "id": "rompler_roland_jv_xp",
+          "name": "Roland JV / XP series (1992-2000s — expandable PCM rack standard)",
           "descriptors": [
-            "oberheim-tom-oberheim-lineage-canonical-ob-x-1979-ob-xa-1980-los-angeles-ca"
+            "roland-jv-xp-series-1992-2000s-expandable-pcm-rack-standard"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
             "synthesized"
           ],
           "canonical_tags": [
@@ -489,33 +513,25 @@
           ]
         },
         {
-          "id": "poly_roland_jupiter",
-          "name": "Roland Jupiter lineage (canonical Jupiter-8 1981 — Osaka Japan)",
+          "id": "rompler_yamaha_psr_casio",
+          "name": "Yamaha PSR / Casio home keyboard (1990s-2000s — GM auto-accompaniment, home and township studios)",
           "descriptors": [
-            "roland-jupiter-lineage-canonical-jupiter-8-1981-osaka"
+            "yamaha-psr-casio-home-keyboard-1990s-2000s-gm-auto-accompaniment-home-township-studios"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
             "synthesized"
-          ],
-          "canonical_tags": [
-            "vintage"
           ]
         },
         {
-          "id": "poly_yamaha_cs",
-          "name": "Yamaha CS lineage (canonical CS-80 1976 — Hamamatsu Japan, polyphonic flagship)",
+          "id": "rompler_korg_pa_arranger",
+          "name": "Korg Pa series arranger (2001-present — pro regional style banks, Balkan and Middle Eastern wedding circuits)",
           "descriptors": [
-            "yamaha-cs-lineage-canonical-cs-80-1976-hamamatsu-polyphonic-flagship"
+            "korg-pa-series-arranger-2001-present-pro-regional-style-banks-balkan-middle-eastern-wedding-circuits"
           ],
           "match_tokens": [
             "electronic",
-            "analog",
             "synthesized"
-          ],
-          "canonical_tags": [
-            "vintage"
           ]
         }
       ]

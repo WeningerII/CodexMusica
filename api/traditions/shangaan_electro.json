@@ -1,0 +1,135 @@
+{
+  "id": "shangaan_electro",
+  "name": "Shangaan electro",
+  "family": "electronic",
+  "lineage": "Ultra-fast Tsonga dance music from Limpopo and Soweto codified by producer Nozinja around 2005-2010 (Tshetsha Boys, Zinja Hlungwani) — 170-189bpm MIDI-marimba and organ presets over skeletal, often kick-less drum programming, chanted Xitsonga hooks answered by the dance troupe, and the whirlwind xibelani dance culture",
+  "recipe": "classic mid-2000s shangaan electro, electronic Dance, African dance branch, central east south African groove percussion, footwork electronic dance juke jersey club. vocal fry, rap, chest resonance low mid, punctuated. MIDI marimba preset diy sequenced rompler workstation, sampler drum machine. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 434,
+  "score": 90.862,
+  "config": {
+    "traditions": [
+      "shangaan_electro",
+      "juke_chicago",
+      "jersey_club"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.08,
+          "voice_quality": 1.9174999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 0.845,
+          "voice_microtone": 0.195,
+          "voice_tradition": 12.601,
+          "voice_mechanism_compound": 0.845,
+          "voice_estill_quality": 0.7149999999999997,
+          "voice_speech_song": 8.709999999999999,
+          "voice_ensemble_config": 8.645,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 0.9999999999999998,
+          "voice_processing_chain": 17.175874999999998,
+          "voice_multitrack_stack": 7.280000000000001
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "rompler_preset_bank": "rompler_preset_mallet_marimba",
+          "rompler_context": "rompler_context_township_midi",
+          "rompler_lineage": "rompler_korg_pa_arranger"
+        },
+        "scores": {
+          "electronic_technique": 1.0074999999999998,
+          "rompler_preset_bank": 3.263,
+          "rompler_context": 2.8599999999999994,
+          "rompler_lineage": 0.195
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 2.6975000000000002,
+          "sample_bitdepth": 0.285,
+          "sample_swing": 15.874999999999998,
+          "sample_processing": 0.845
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_articulation": "call_response_voice",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "electronic_technique": "electronic_arpeggiated",
+      "rompler_preset_bank": "rompler_preset_mallet_marimba",
+      "rompler_context": "rompler_context_township_midi",
+      "rompler_lineage": "rompler_yamaha_psr_casio",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
+    },
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

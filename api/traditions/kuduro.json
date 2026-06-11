@@ -5,7 +5,7 @@
   "lineage": "Angolan high-tempo electronic dance genre codified in late-1980s Luanda — characterized by 140-150 BPM hectic kick patterns, Portuguese-Kimbundu vocals, batida rhythmic foundation; Tony Amado, Buraka Som Sistema (Portuguese-Angolan diaspora), and DJ Marfox extending the canon through the 2000s into international electronic music",
   "recipe": "classic 1987-1989 kuduro, electronic Dance, African dance branch, Afro-diasporic electric groove percussion, Afro-diasporic MC rhythm kwaito south african kwaito. sygyt, rap, chest resonance low mid, punctuated. TR-808, sub bass analog poly synth, high-gain-saturation sub bass monosynth acid bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 443,
-  "score": 107.962,
+  "score": 109.968,
   "config": {
     "traditions": [
       "kuduro",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "staccato_voice",
           "voice_microtone": "blue_notes",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_oral_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.04,
           "voice_articulation": 1.418125,
           "voice_microtone": 0.045,
-          "voice_tradition": 19.012499999999996,
+          "voice_tradition": 21.018124999999998,
           "voice_mechanism_compound": 2.015,
           "voice_estill_quality": 1.9915,
           "voice_speech_song": 13.844999999999995,

@@ -1,5 +1,5 @@
 {
-  "count": 1113,
+  "count": 1119,
   "items": [
     {
       "id": "honky_tonk",
@@ -6678,6 +6678,42 @@
       "name": "Darkpsy",
       "family": "global",
       "href": "traditions/darkpsy.json"
+    },
+    {
+      "id": "gengetone",
+      "name": "Gengetone",
+      "family": "global",
+      "href": "traditions/gengetone.json"
+    },
+    {
+      "id": "manele",
+      "name": "Manele",
+      "family": "global",
+      "href": "traditions/manele.json"
+    },
+    {
+      "id": "chalga",
+      "name": "Chalga",
+      "family": "global",
+      "href": "traditions/chalga.json"
+    },
+    {
+      "id": "marrabenta",
+      "name": "Marrabenta",
+      "family": "global",
+      "href": "traditions/marrabenta.json"
+    },
+    {
+      "id": "murga_uruguaya",
+      "name": "Murga uruguaya",
+      "family": "global",
+      "href": "traditions/murga_uruguaya.json"
+    },
+    {
+      "id": "shangaan_electro",
+      "name": "Shangaan electro",
+      "family": "electronic",
+      "href": "traditions/shangaan_electro.json"
     }
   ]
 }

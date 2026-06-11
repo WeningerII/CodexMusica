@@ -1,5 +1,5 @@
 {
-  "count": 418,
+  "count": 419,
   "items": [
     {
       "id": "choir_ensemble",
@@ -1674,6 +1674,12 @@
       "name": "Ondes Martenot",
       "family": "electronic",
       "href": "instruments/ondes_martenot.json"
+    },
+    {
+      "id": "rompler_workstation",
+      "name": "ROM-playback workstation / arranger keyboard",
+      "family": "electronic",
+      "href": "instruments/rompler_workstation.json"
     },
     {
       "id": "sampler_classic",

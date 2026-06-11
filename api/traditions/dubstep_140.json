@@ -5,7 +5,7 @@
   "lineage": "Mid-2000s south London electronic-dance genre evolved from UK garage through tempo deceleration to 140 bpm and the introduction of the dubstep half-step rhythmic feel — codified through Skream (Skream! 2006), Benga, Burial (Burial 2006, Untrue 2007), Mala, Coki, Loefah, Plastician, and the FWD>> club and DMZ night which served as the genre's incubator",
   "recipe": "classic 2004-2006 dubstep, bass System, uk soundsystem branch, intl hip hop MC rhythm uk grime korean hip-hop. chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion hall reverb.",
   "recipe_chars": 431,
-  "score": 116.1,
+  "score": 115.097,
   "config": {
     "traditions": [
       "dubstep_140",
@@ -39,7 +39,7 @@
         },
         "scores": {
           "tr909_voice": 0,
-          "drum_machine_909_context": 4.1530000000000005,
+          "drum_machine_909_context": 4.0165,
           "tr909_production_origin": 0.25999999999999945
         }
       },
@@ -51,7 +51,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 19.854499999999994,
+          "electronic_technique": 19.560499999999998,
           "va_archetypes": 0.3,
           "digital_subtractive_context": 12.479999999999997
         }
@@ -70,10 +70,10 @@
         },
         "scores": {
           "electric_technique": 0.7,
-          "amp_make": 6.629999999999999,
+          "amp_make": 6.350999999999999,
           "body_wood": 2.1,
           "pickup_config": 0.39,
-          "string_type": 7.8999999999999995,
+          "string_type": 7.606,
           "scale_length_b": 3.25,
           "fretted_or_not": 0,
           "bass_technique": 0.7

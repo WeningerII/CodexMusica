@@ -5,7 +5,7 @@
   "lineage": "Congolese fast-tempo dance derivation of Congolese rumba, codified through Tabu Ley Rochereau, Sam Mangwana, Papa Wemba (Viva la Musica band), Pepe Kalle, Kanda Bongo Man (the mid-1980s Paris-recorded breakthrough), Diblo Dibala — characterized by the structural chanson-then-sebene form with sebene section accelerated to 130-180 BPM and the mi-solo / mi-composé interlocking-guitar foreground",
   "recipe": "classic West African 1984-1986 soukous, groove Percussion, central east south African branch, African pop functional song congolese rumba isicathamiya. thick, declaimed, chest resonance low mid, rhythmic. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, mule hide canonical Cuban premium oak staved canonical Cuban congas. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 707,
-  "score": 242.197,
+  "score": 244.84,
   "config": {
     "traditions": [
       "soukous",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "spoken_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,7 +41,7 @@
           "voice_vibrato": 2.125,
           "voice_articulation": 1.9499999999999997,
           "voice_microtone": 11.659999999999997,
-          "voice_tradition": 29.7375,
+          "voice_tradition": 32.379999999999995,
           "voice_mechanism_compound": 3.835,
           "voice_estill_quality": 4.550000000000001,
           "voice_speech_song": 19.435,

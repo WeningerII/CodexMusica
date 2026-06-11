@@ -5,7 +5,7 @@
   "lineage": "South African Pretoria-Johannesburg late-2010s house-jazz hybrid characterized by deep log-drum sub-bass figures, jazzy keys, and slowed 110-115 BPM tempo — codified through Kabza De Small, DJ Maphorisa, Mas Musiq, MFR Souls, and Vigro Deep from 2017 onward, exploding internationally 2020-2023",
   "recipe": "classic 2020-2023 amapiano, electronic Dance, African dance branch, central east south African groove percussion ndombolo soukous. thick, low dynamic level, chest resonance low mid, punctuated. log drum, rhodes electric, low sub bass digital subtractive, TR-808, sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 416,
-  "score": 160.988,
+  "score": 161.038,
   "config": {
     "traditions": [
       "amapiano",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.8200000000000003,
           "voice_articulation": 1.17,
           "voice_microtone": 5.8,
-          "voice_tradition": 25.561875,
+          "voice_tradition": 25.642500000000002,
           "voice_mechanism_compound": 2.275,
           "voice_estill_quality": 1.4299999999999997,
           "voice_speech_song": 9.359999999999998,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.008,
           "voice_pitch_organization": 3.2500000000000004,
           "voice_processing_chain": 6.11,
-          "voice_multitrack_stack": 5.52125
+          "voice_multitrack_stack": 5.5024999999999995
         }
       },
       {
@@ -75,7 +75,7 @@
         },
         "scores": {
           "keyboard_technique": 1.7114999999999998,
-          "rhodes_model": 6.593624999999999,
+          "rhodes_model": 6.588,
           "rhodes_use": 3.1849999999999996,
           "rhodes_tine_material": 0.78,
           "rhodes_hammer_tip": -0.35,
@@ -105,7 +105,7 @@
         "scores": {
           "tr808_voice": 4.344,
           "drum_machine_808_context": 4.745,
-          "tr808_production_origin": 0.18712499999999999
+          "tr808_production_origin": 0.1815
         }
       },
       {
