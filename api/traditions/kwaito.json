@@ -5,7 +5,7 @@
   "lineage": "South African post-apartheid (1994-onward) township urban dance music codified through Boom Shaka, Brenda Fassie (her late-career kwaito turn), Trompies, M_du Masilela, Arthur Mafokate, TKZee — slower-tempo (90-110 BPM) derivation of house music with Zulu and Tsotsitaal language vocals and characteristic shouted-and-rapped delivery; precursor to the post-2010 amapiano genre",
   "recipe": "classic modern kwaito, mc Rhythm, Afro-diasporic branch, African dance electronic dance amapiano kuduro. thick, rap, overtone rich sustained, punctuated. TR-909, analog poly synth, monosynth acid bass. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 416,
-  "score": 97.311,
+  "score": 99.64,
   "config": {
     "traditions": [
       "kwaito",
@@ -23,7 +23,7 @@
           "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "staccato_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,14 +41,14 @@
           "voice_vibrato": 0.9099999999999999,
           "voice_articulation": 1.04,
           "voice_microtone": 1.7500000000000002,
-          "voice_tradition": 18.0375,
+          "voice_tradition": 20.29575,
           "voice_mechanism_compound": 2.8600000000000003,
           "voice_estill_quality": 2.665000000000001,
           "voice_speech_song": 12.804999999999994,
           "voice_ensemble_config": 12.934999999999995,
           "voice_ornament_system": 1.6249999999999998,
           "voice_pitch_organization": 1.4299999999999997,
-          "voice_processing_chain": 10.909999999999998,
+          "voice_processing_chain": 10.884999999999998,
           "voice_multitrack_stack": 4.9725
         }
       },
@@ -60,24 +60,24 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 8.64,
+          "tr909_voice": 8.79,
           "drum_machine_909_context": 4.9399999999999995,
-          "tr909_production_origin": 0.29000000000000004
+          "tr909_production_origin": 0.265
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": 2.8600000000000003,
-          "poly_archetypes": 0.21,
+          "poly_archetypes": 0.195,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -1.5085000000000002
+          "poly_maker_lineage": -1.5235
         }
       },
       {

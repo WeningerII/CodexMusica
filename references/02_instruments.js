@@ -66,6 +66,7 @@ const INSTRUMENTS = [
         { id: 'choir_regional_andean_three_voice_parallel_thirds', name: 'Andean three-voice parallel-thirds (Quechua-Aymara)', descriptors: ['andean-three-voice-parallel-thirds-quechua-aymara'], match_tokens: ['choir-blendable', 'ensemble'] },
         { id: 'choir_regional_polynesian_himene_tarava', name: 'Polynesian himene-tarava parallel-thirds (Tahitian congregational polyphonic)', descriptors: ['polynesian-himene-tarava-parallel-thirds-congregational'], match_tokens: ['choir-blendable', 'ensemble'], canonical_tags: ['polynesian-himene-tarava'] },
         { id: 'choir_regional_sub_saharan_call_response_ostinato', name: 'Sub-Saharan call-response ostinato (single-leader + group-response with polyrhythmic-layered cycles)', descriptors: ['sub-saharan-call-response-ostinato-polyrhythmic'], match_tokens: ['choir-blendable', 'ensemble', 'call-response'] },
+        { id: 'choir_regional_rioplatense_murga', name: 'Rioplatense murga block-chorus (Montevideo tablado cuplé belting)', descriptors: ['murga-tablado-cuple-belt', 'murga-carnaval-coro-block'], match_tokens: ['choir-blendable', 'ensemble'], canonical_tags: ['murga'] },
       ] },
       { id: 'choir_ensemble_repertoire', surface: false, name: 'Repertoire / period', variants: [
         { id: 'choir_ensemble_renaissance', default: true, name: 'Renaissance polyphony', descriptors: ['sacred-Latin', 'historical'], match_tokens: ['renaissance', 'choir-blendable', 'ensemble'] },
@@ -327,6 +328,7 @@ const INSTRUMENTS = [
         { id: 'andean_quechua_tradition', name: 'Andean Quechua / Aymara wayno vocal (Andes highland)', descriptors: ['andean-quechua-vocal', 'wayno-huayno-aymara', 'altiplano-quena-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['andean', 'quechua', 'aymara'] },
         { id: 'native_american_vocal_tradition', name: 'Native American vocal (Plains/Southwest powwow & ceremonial)', descriptors: ['amerindian-powwow-vocal', 'pueblo-amerindian-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['amerindian', 'powwow', 'pueblo'] },
         { id: 'southeast_asian_folk_vocal_tradition', name: 'Southeast Asian folk vocal (lam / mor-lam, luk-thung)', descriptors: ['morlam-lam-vocal', 'isan-luk-thung-vocal', 'mekong-khmer-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['isan', 'morlam', 'mekong'] },
+        { id: 'southern_african_bantu_vocal_tradition', name: 'Southern African Bantu vocal (Zulu / Xhosa / Tsonga choral chant, isicathamiya to township pop)', descriptors: ['nguni-tsonga-sotho-vocal', 'isicathamiya-mbube-cothoza', 'township-jive-chant-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['tsonga', 'zulu', 'african'] },
       ] },
       { id: 'voice_mechanism_compound', surface: false, name: 'Compound mechanism (multi-source phonation)', variants: [
         { id: 'voice_mechanism_single_source', default: true, name: 'Single-source phonation (standard fold vibration)', descriptors: ['single-source-phonation', 'standard-fold-vibration'], match_tokens: ['speech-derived', 'breathing'] },
@@ -8217,6 +8219,34 @@ const INSTRUMENTS = [
         { id: 'ondes_martenot_maurice_canonical', default: true, name: 'Maurice Martenot Paris 1928 lineage (canonical inventor — Conservatoire de Paris pedagogy)', descriptors: ['maurice-martenot-paris-1928-lineage-canonical-inventor-conservatoire-de-paris-pedagogy'], match_tokens: ['classical', 'classical-trained', 'electronic', 'sustained-tone'] },
         { id: 'ondes_martenot_messiaen_repertoire', name: 'Messiaen Turangalîla repertoire tradition (canonical mid-20th-century French)', descriptors: ['messiaen-turangalila-repertoire-canonical-mid-20th-century-french'], match_tokens: ['classical', 'classical-trained', 'electronic', 'sustained-tone'] },
         { id: 'ondes_martenot_radiohead_modern', name: 'Modern Greenwood revival (Radiohead post-2000 — solo and Ennio Morricone film)', descriptors: ['modern-greenwood-revival-radiohead-post-2000-ennio-morricone-film'], match_tokens: ['electronic', 'sustained-tone'] },
+      ] },
+    ]
+  },
+  {
+    id: 'rompler_workstation',
+    name: 'ROM-playback workstation / arranger keyboard',
+    family: 'electronic',
+    class: 'electronic',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 2, harmonicity: 1, register: 0, range: 2, articulation: 0, transduction: 2, dynamics: 0 },
+    short: 'workstation',
+    parts: [
+      { id: 'rompler_preset_bank', name: 'Preset bank', variants: [
+        { id: 'rompler_preset_gm_combo', default: true, name: 'General-MIDI multitimbral combo', descriptors: ['preset-palette', 'multitimbral', 'polished'], match_tokens: ['electronic', 'synthesized'] },
+        { id: 'rompler_preset_mallet_marimba', name: 'Mallet / marimba PCM bank', descriptors: ['midi-marimba-preset', 'bright', 'percussive'], match_tokens: ['electronic', 'synthesized', 'mallets'] },
+        { id: 'rompler_preset_oriental_arranger', name: 'Oriental / regional arranger bank', descriptors: ['ornamented-lead', 'regional-style-kit', 'party-arranger'], match_tokens: ['electronic', 'synthesized'] },
+        { id: 'rompler_preset_dance_stabs', name: 'Dance stab / organ bank', descriptors: ['stabby', 'organ-preset'], match_tokens: ['electronic', 'synthesized'], canonical_tags: ['house', 'edm'] },
+        { id: 'rompler_preset_piano_orchestral', name: 'Piano / orchestral ROM bank', descriptors: ['sampled-realism', 'ballad-suited'], match_tokens: ['electronic', 'synthesized', 'orchestral'], canonical_tags: ['pop'] },
+      ] },
+      { id: 'rompler_context', surface: false, name: 'Use context', variants: [
+        { id: 'rompler_context_pop_workstation', default: true, name: '90s workstation pop production', descriptors: ['radio-ready', 'sequenced'], match_tokens: ['electronic', 'synthesized'], canonical_tags: ['pop'] },
+        { id: 'rompler_context_township_midi', name: 'Township / DIY MIDI dance production', descriptors: ['DIY-sequenced', 'preset-driven', 'high-tempo'], match_tokens: ['electronic', 'synthesized'] },
+        { id: 'rompler_context_arranger_party', name: 'Arranger-keyboard party / wedding band', descriptors: ['auto-accompaniment', 'live-banquet', 'one-man-band'], match_tokens: ['electronic', 'synthesized'] },
+      ] },
+      { id: 'rompler_lineage', surface: false, name: 'Hardware lineage', variants: [
+        { id: 'rompler_korg_m1_canonical', default: true, name: 'Korg M1 (canonical 1988-1995 — first mass-market workstation, 4 MB PCM ROM, universal preset canon)', descriptors: ['korg-m1-canonical-1988-1995-first-mass-market-workstation-4mb-pcm-rom-universal-preset-canon'], match_tokens: ['electronic', 'synthesized'], canonical_tags: ['vintage'] },
+        { id: 'rompler_roland_jv_xp', name: 'Roland JV / XP series (1992-2000s — expandable PCM rack standard)', descriptors: ['roland-jv-xp-series-1992-2000s-expandable-pcm-rack-standard'], match_tokens: ['electronic', 'synthesized'], canonical_tags: ['vintage'] },
+        { id: 'rompler_yamaha_psr_casio', name: 'Yamaha PSR / Casio home keyboard (1990s-2000s — GM auto-accompaniment, home and township studios)', descriptors: ['yamaha-psr-casio-home-keyboard-1990s-2000s-gm-auto-accompaniment-home-township-studios'], match_tokens: ['electronic', 'synthesized'] },
+        { id: 'rompler_korg_pa_arranger', name: 'Korg Pa series arranger (2001-present — pro regional style banks, Balkan and Middle Eastern wedding circuits)', descriptors: ['korg-pa-series-arranger-2001-present-pro-regional-style-banks-balkan-middle-eastern-wedding-circuits'], match_tokens: ['electronic', 'synthesized'] },
       ] },
     ]
   },

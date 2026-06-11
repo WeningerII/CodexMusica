@@ -34,7 +34,8 @@
             "granular_synth",
             "ondes_martenot",
             "modular_synth",
-            "eurorack_modular"
+            "eurorack_modular",
+            "rompler_workstation"
           ],
           "descriptors": [
             "sustained",
@@ -63,7 +64,8 @@
             "wavetable_synth",
             "modular_synth",
             "eurorack_modular",
-            "monosynth_acid_bass"
+            "monosynth_acid_bass",
+            "rompler_workstation"
           ],
           "descriptors": [
             "arpeggiated",
@@ -88,7 +90,8 @@
             "digital_subtractive",
             "wavetable_synth",
             "ondes_martenot",
-            "theremin"
+            "theremin",
+            "rompler_workstation"
           ],
           "descriptors": [
             "lead",
@@ -115,7 +118,8 @@
             "wavetable_synth",
             "modular_synth",
             "eurorack_modular",
-            "digital_subtractive"
+            "digital_subtractive",
+            "rompler_workstation"
           ],
           "descriptors": [
             "sub-bass",
@@ -139,7 +143,8 @@
             "analog_poly_synth",
             "fm_synth",
             "digital_subtractive",
-            "wavetable_synth"
+            "wavetable_synth",
+            "rompler_workstation"
           ],
           "descriptors": [
             "plucked",

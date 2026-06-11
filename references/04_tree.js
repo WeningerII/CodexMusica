@@ -343,6 +343,7 @@ const TREE_NODES = [
   { id: 'carnivalProcessional.americanSouth', name: 'American South carnival processional', parent: 'carnivalProcessional', description: 'New Orleans Mardi Gras Indians and second-line brass-band processional.' },
   { id: 'carnivalProcessional.european', name: 'European carnival processional', parent: 'carnivalProcessional', description: 'Cologne and Rhineland Karneval, Venice Carnevale, Aalst Carnival Belgium processional traditions.' },
   { id: 'carnivalProcessional.andean', name: 'Andean carnival processional', parent: 'carnivalProcessional', description: 'Bolivian diablada of Oruro, Peruvian Virgen del Carmen and broader Andean festival processionals.' },
+  { id: 'carnivalProcessional.riverPlate', name: 'Río de la Plata carnival', parent: 'carnivalProcessional', description: 'Montevideo and Buenos Aires Carnaval stage-and-street traditions: murga chorus-theatre on the neighborhood tablados, alongside the candombe llamadas parade culture.' },
   { id: 'carnivalProcessional.eastAsian', name: 'East Asian festival processional', parent: 'carnivalProcessional', description: 'Korean daeboreum lunar-new-year and Japanese matsuri with taiko-and-fue.' },
   { id: 'carnivalProcessional.southAsian', name: 'South Asian festival processional', parent: 'carnivalProcessional', description: 'Indian Diwali and Holi processionals with shehnai and dhol.' },
 ];

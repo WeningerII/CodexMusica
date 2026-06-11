@@ -1805,6 +1805,24 @@
             "morlam",
             "mekong"
           ]
+        },
+        {
+          "id": "southern_african_bantu_vocal_tradition",
+          "name": "Southern African Bantu vocal (Zulu / Xhosa / Tsonga choral chant, isicathamiya to township pop)",
+          "descriptors": [
+            "nguni-tsonga-sotho-vocal",
+            "isicathamiya-mbube-cothoza",
+            "township-jive-chant-vocal"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "tsonga",
+            "zulu",
+            "african"
+          ]
         }
       ]
     },
@@ -5475,6 +5493,24 @@
             "isan",
             "morlam",
             "mekong"
+          ]
+        },
+        {
+          "id": "southern_african_bantu_vocal_tradition",
+          "name": "Southern African Bantu vocal (Zulu / Xhosa / Tsonga choral chant, isicathamiya to township pop)",
+          "descriptors": [
+            "nguni-tsonga-sotho-vocal",
+            "isicathamiya-mbube-cothoza",
+            "township-jive-chant-vocal"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "tsonga",
+            "zulu",
+            "african"
           ]
         }
       ]

@@ -5,7 +5,7 @@
   "lineage": "1920s-onward Zulu South African male a-cappella vocal-group tradition (the name derives from the Zulu word cathama, to tread softly) that developed among Zulu migrant labourers in the Johannesburg mining hostels — codified through Solomon Linda Mbube 1939 recording (the recording that became The Lion Sleeps Tonight after a tortured rights-acquisition history), Ladysmith Black Mambazo (founded 1960 by Joseph Shabalala, the internationally famous group through their Paul Simon Graceland 1986 collaboration), and the broader Friday-night isicathamiya competition circuit in Johannesburg",
   "recipe": "classic North American mid-1920s isicathamiya, functional Song, isicathamiya branch, Afro-diasporic ritual devotional, christian gospel jubilee quartet umbanda ceremonial. thick, declaimed, chest resonance low mid, ornamental. choir southern black gospel, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 641,
-  "score": 189.235,
+  "score": 195.637,
   "config": {
     "traditions": [
       "isicathamiya",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "melisma_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,7 +41,7 @@
           "voice_vibrato": 0.78,
           "voice_articulation": 9.375,
           "voice_microtone": 4.250000000000001,
-          "voice_tradition": 25.739999999999995,
+          "voice_tradition": 32.14249999999999,
           "voice_mechanism_compound": 2.3437500000000004,
           "voice_estill_quality": 10.774999999999999,
           "voice_speech_song": 15.599999999999998,

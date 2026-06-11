@@ -7,6 +7,55 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased] — production hardening
 
 ### Added
+- **Genre expansion (focused everynoise cut) completed: six new traditions**
+  (1113 → 1119): `gengetone` (revived from the PR #33 revert), `manele`,
+  `chalga`, `marrabenta`, `murga_uruguaya`, `shangaan_electro` — the full
+  vetted-gap queue from the darkpsy pilot recon. Each modeled to full standard
+  (catalog entry + extras with hand-authored axes/description/exemplars,
+  era-correct rooms/chains, part-variant picks) and verified: validate clean,
+  placement pre-flight, per-entry coherence audit, compiled recipes distinct
+  and ≤1000 chars. One new tree node (`carnivalProcessional.riverPlate`, 311 →
+  312) places Río de la Plata carnival; murga crossRefs candombe's
+  `groovePercussion.latinAm` and `protestSong.iberianLatin`.
+- **Placement policy decided (the PR #33 question): accuracy over strict
+  additivity.** New genres are placed where they genuinely belong even when
+  that updates relatives' genre-signature neighbor lists; the affected recipes
+  are inspected diff-by-diff and re-blessed. Gengetone's accurate
+  `mcRhythm.intlHipHop` placement updates 4 relatives (genge_kenyan,
+  bongo_flava, mahraganat, algerian_rap): "korean rap" → "gengetone" in their
+  neighbor lists — gengetone is genuinely the nearer neighbor — plus a
+  one-descriptor budget ripple where the shorter name freed recipe chars.
+- **`rompler_workstation` instrument** (418 → 419, the genre cut's
+  instrument-add): the ROM-playback workstation / arranger keyboard the
+  electronic family lacked — Korg M1 / Roland JV / Yamaha-PSR-Casio home /
+  Korg Pa arranger lineages, preset-bank part (GM combo, MIDI-marimba, oriental
+  arranger, dance stabs, piano/orchestral), use-context part, and membership in
+  the shared `electronic_technique` applies_to pools. Carries shangaan
+  electro's MIDI-marimba signature and manele/chalga's wedding-circuit arranger
+  sound; used by no pre-existing tradition, so zero recipe churn from the add
+  itself.
+- **Two palette-gap variants, anchored by the proper-noun-stem discipline**
+  (zero spurious cross-genre bleed, verified by sweeping the scorer over all
+  1119): `southern_african_bantu_vocal_tradition` (voice_tradition #34 — Zulu/
+  Xhosa/Tsonga choral chant; wins exactly kwaito, gqom, maskandi, isicathamiya,
+  mbaqanga, south_african_kwaito, shangaan_electro, all previously stamped with
+  the West-African `yoruba_tonal_vocal_tradition`) and
+  `choir_regional_rioplatense_murga` (murga block-chorus; wins exactly
+  murga_uruguaya — previously the tie-broken pick was Georgian
+  `kakhetian_three_voice`). Both fix visibly wrong-region tokens in rendered
+  recipes; the Bantu reassignments are accuracy improvements re-blessed under
+  the placement policy above.
+- **check_docs count-gate hardened against the forms that actually drifted.**
+  The darkpsy artifact regen (1112 → 1113) left AGENTS.md, SKILL.md,
+  index.html, and package.json stale because the gate only matched a bare
+  "N traditions". Now gated: modifier forms ("N recorded-music traditions",
+  line-wrapped counts), adjectival forms ("1119-tradition codex", "312-node
+  genre tree", ≥3 digits so example builds don't false-positive), SKILL.md §1
+  table rows, loader-output shorthand ("loaded: 419 insts, 1119 trads"), and
+  the derived facts "global dominates at 678/1119" and "288 of 312 ids contain
+  dots"; package.json joined the scanned surfaces. All doc counts trued up to
+  1119/419/312 in the same pass.
+
 - **Default build flipped to the lazy shell (phase 4 — the flip).** `npm run
   build:html` (and `node scripts/build_html.js` with no flags) now produces the
   lazy shell, and the committed `codex.html` is that shell (~2.5 MB vs ~6.3 MB
@@ -195,6 +244,10 @@ All notable changes to this project are recorded here. Format loosely follows
   unset part contributes no descriptors — both descriptor builders already skip a falsy variant
   id (`app.js` `Variant()` → null guard; `scripts/_card_descriptors.js`), so no engine change was
   needed and browser↔node parity is unaffected (app 56/56, equivalence 8/8).
+
+### Removed
+- `scripts/_instrument_asset_map.json` — orphaned since the original import;
+  nothing reads it (`fetch_commons.js` reads `_instrument_asset_map_full.json`).
 
 ### Changed
 - Tradition defaults refined (61 traditions; recipe outputs re-snapshotted, all

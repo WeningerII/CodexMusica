@@ -443,6 +443,21 @@
             "ensemble",
             "call-response"
           ]
+        },
+        {
+          "id": "choir_regional_rioplatense_murga",
+          "name": "Rioplatense murga block-chorus (Montevideo tablado cuplé belting)",
+          "descriptors": [
+            "murga-tablado-cuple-belt",
+            "murga-carnaval-coro-block"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "murga"
+          ]
         }
       ]
     },
@@ -948,6 +963,21 @@
             "choir-blendable",
             "ensemble",
             "call-response"
+          ]
+        },
+        {
+          "id": "choir_regional_rioplatense_murga",
+          "name": "Rioplatense murga block-chorus (Montevideo tablado cuplé belting)",
+          "descriptors": [
+            "murga-tablado-cuple-belt",
+            "murga-carnaval-coro-block"
+          ],
+          "match_tokens": [
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "murga"
           ]
         }
       ]

@@ -5,7 +5,7 @@
   "lineage": "Mid-2000s UK garage subgenre developed in Sheffield through the Niche nightclub scene (active 1992-2005). Characterized by aggressive 4×4 garage rhythmic foundation, hyperactive bass-line designs, and explicit Yorkshire-northern-English MC vocal-delivery. The 2008 closure of Niche and police-action against the scene defined a peak-and-collapse cycle; T2's \"Heartbroken\" (2007) constitutes the canonical commercial-mainstream bassline track.",
   "recipe": "classic British mid-1990s bassline, bass System, uk soundsystem branch, intl hip hop MC rhythm german deutschrap uk grime. vocal fry, rap, chest resonance low mid, narrative. TR-808, sub bass analog synth, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 501,
-  "score": 145.699,
+  "score": 143.392,
   "config": {
     "traditions": [
       "bassline_uk",
@@ -38,18 +38,18 @@
           "voice_quality": 15.8275,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0865,
+          "voice_vibrato": 1.95,
           "voice_articulation": 5.67,
           "voice_microtone": 0,
-          "voice_tradition": 7.864,
-          "voice_mechanism_compound": 0.624,
+          "voice_tradition": 7.7695,
+          "voice_mechanism_compound": 0.5295,
           "voice_estill_quality": 0.6499999999999999,
-          "voice_speech_song": 12.171,
+          "voice_speech_song": 12.3645,
           "voice_ensemble_config": 10.854999999999997,
-          "voice_ornament_system": 2.4050000000000002,
+          "voice_ornament_system": 2.315,
           "voice_pitch_organization": 3.38,
           "voice_processing_chain": 5.9115,
-          "voice_multitrack_stack": 11.7715
+          "voice_multitrack_stack": 11.829999999999998
         }
       },
       {
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 10.8185,
+          "tr808_voice": 10.3355,
           "drum_machine_808_context": 4.55,
           "tr808_production_origin": 0.195
         }
@@ -75,11 +75,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 12.3935,
+          "electronic_technique": 11.910499999999999,
           "oscillator": 4.55,
-          "filter_topology": 7.54,
-          "envelope": 1.4365,
-          "modulation": 0.105
+          "filter_topology": 7.066,
+          "envelope": 1.3315000000000001,
+          "modulation": 0.21
         }
       },
       {
@@ -97,10 +97,10 @@
         "scores": {
           "electric_technique": -0.05,
           "amp_make": 4.485,
-          "body_wood": 2.34,
-          "pickup_config": 0.1815,
-          "string_type": 6.76,
-          "scale_length_b": 2.223,
+          "body_wood": 2.1,
+          "pickup_config": 0.345,
+          "string_type": 6.406000000000001,
+          "scale_length_b": 1.95,
           "fretted_or_not": 0,
           "bass_technique": -0.035
         }

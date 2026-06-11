@@ -1,0 +1,176 @@
+{
+  "id": "manele",
+  "name": "Manele",
+  "family": "global",
+  "lineage": "Romanian Romani party-pop risen from the lăutari wedding circuit through 1990s dedicații cassette culture to streaming-era dominance (Florin Salam, Adrian Minune, Dani Mocanu) — melismatic Turkish-tinged vocal lines over arranger-keyboard orientale grooves and programmed dembow-leaning percussion",
+  "recipe": "classic mid-1990s manele, functional Song, europop branch, mid east n African pop functional song, European wedding khaliji shaabi. extended whistle, low dynamic level, chest resonance low mid, maqam neutral step. korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, weltmeister east German mid tier vintage volk ensemble accordion, grenadilla African blackwood traditional legato clarinet, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 732,
+  "score": 200.357,
+  "config": {
+    "traditions": [
+      "manele",
+      "khaliji_gulf",
+      "shaabi_egyptian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "crooner_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 13.4225,
+          "voice_quality": 3.705,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.044999999999999,
+          "voice_articulation": 0.3749999999999999,
+          "voice_microtone": 12.100000000000001,
+          "voice_tradition": 14.917500000000002,
+          "voice_mechanism_compound": 7.344999999999999,
+          "voice_estill_quality": 6.1499999999999995,
+          "voice_speech_song": 14.169999999999998,
+          "voice_ensemble_config": 9.1,
+          "voice_ornament_system": 10.895000000000001,
+          "voice_pitch_organization": 10.700000000000001,
+          "voice_processing_chain": 3.77,
+          "voice_multitrack_stack": 3.3149999999999995
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "rompler_preset_bank": "rompler_preset_piano_orchestral",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_korg_pa_arranger"
+        },
+        "scores": {
+          "electronic_technique": 10.325,
+          "rompler_preset_bank": 10.48,
+          "rompler_context": 10.42,
+          "rompler_lineage": 5.3950000000000005
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "demi_swing",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 4.365,
+          "accordion_reed_material": 3.8999999999999995,
+          "musette_offset": 0.9099999999999999,
+          "reed_config": 0.195,
+          "bellows": 0.045,
+          "voicing_chamber": 0.195,
+          "accordion_maker_school": 6.759999999999999
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 5.034999999999999,
+          "clarinet_body": 8.4825,
+          "clarinet_size": 2.145,
+          "clarinet_reed": 0.195,
+          "clarinet_articulation": 0.9099999999999999
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_synthetic_mylar",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "darbuka_material": 1.95,
+          "darbuka_skin": 1.95,
+          "darbuka_regional_style": 8.71
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": "maximalist_streaming_pop",
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_persian_tahrir",
+      "voice_estill_quality": "voice_estill_belt",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "electronic_technique": "electronic_lead_line",
+      "rompler_preset_bank": "rompler_preset_oriental_arranger",
+      "rompler_context": "rompler_context_arranger_party",
+      "rompler_lineage": "rompler_korg_pa_arranger",
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "reed_config": "lmmh",
+      "musette_offset": "demi_swing",
+      "wind_articulation": "wind_bebop_runs",
+      "darbuka_material": "darbuka_aluminum_sombaty",
+      "darbuka_skin": "darbuka_synthetic_mylar",
+      "darbuka_regional_style": "darbuka_egyptian_sombaty"
+    },
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

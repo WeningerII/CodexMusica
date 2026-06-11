@@ -32,7 +32,8 @@
             "wavetable_synth",
             "modular_synth",
             "eurorack_modular",
-            "monosynth_acid_bass"
+            "monosynth_acid_bass",
+            "rompler_workstation"
           ],
           "descriptors": [
             "arpeggiated",
@@ -58,7 +59,8 @@
             "wavetable_synth",
             "modular_synth",
             "eurorack_modular",
-            "digital_subtractive"
+            "digital_subtractive",
+            "rompler_workstation"
           ],
           "descriptors": [
             "sub-bass",

@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-06-10",
-  "count": 1113,
+  "count": 1119,
   "items": [
     {
       "id": "honky_tonk",
@@ -631,8 +631,8 @@
       "id": "highlife",
       "name": "Highlife",
       "family": "global",
-      "recipe": "classic West African modern highlife, groove Percussion, west African branch, African pop functional song congolese rumba afrobeats. roland jc120 amp solid state stereo chorus maple pau ferro ceramic single coil electric guitar, yellow brass canonical 70 30 bach stradivarius schilke chicago lead bright ensemble shallow cup lead trumpet trumpet, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, thomastik infeld low tension jazz warm walking fingerstyle electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, shekere, yellow brass canonical 70 30 bach 42 standard ensemble student commercial trombone. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 975
+      "recipe": "classic West African modern highlife, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, schilke chicago lead bright ensemble shallow cup lead trumpet trumpet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, thomastik infeld low tension jazz warm walking fingerstyle electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, shekere, ensemble student commercial trombone. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 868
     },
     {
       "id": "mbira_tradition",
@@ -1009,8 +1009,8 @@
       "id": "makossa",
       "name": "Makossa",
       "family": "global",
-      "recipe": "classic West African early-1970s makossa, groove Percussion, west African branch, African pop functional song congolese rumba afrobeats. thick, blues-shouter, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, mule hide canonical Cuban premium oak staved canonical Cuban congas, yellow brass canonical 70 30 bach 42 standard ensemble student commercial trombone, yellow brass canonical 70 30 bach stradivarius ensemble shallow cup lead trumpet trumpet. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ.",
-      "recipe_chars": 994
+      "recipe": "classic West African early-1970s makossa, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. thick, blues-shouter, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, mule hide canonical Cuban premium oak staved canonical Cuban congas, ensemble student commercial trombone, ensemble shallow cup lead trumpet trumpet. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 941
     },
     {
       "id": "soukous",
@@ -3165,8 +3165,8 @@
       "id": "mahraganat",
       "name": "Mahraganat (Egyptian)",
       "family": "global",
-      "recipe": "classic 2007-2010 mahraganat, functional Song, mid east n African pop branch, intl hip hop MC rhythm french rap korean rap. extended whistle, rap, chest resonance low mid, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog poly synth, chopped sampler. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 430
+      "recipe": "classic 2007-2010 mahraganat, functional Song, mid east n African pop branch, intl hip hop MC rhythm gengetone french rap. extended whistle, rap, chest resonance low mid, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog poly synth, pitched chopped sampler. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 437
     },
     {
       "id": "chaabi_moroccan",
@@ -3263,15 +3263,15 @@
       "id": "bongo_flava",
       "name": "Bongo flava (Tanzanian)",
       "family": "global",
-      "recipe": "classic 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm french rap korean rap. extended whistle, rap, overtone rich sustained, narrative. TR-808, chopped sampler, sub bass analog poly synth, sub heavy electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 421
+      "recipe": "classic 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, overtone rich sustained, narrative. TR-808, pitched chopped sampler, sub bass analog poly synth, sub heavy electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 428
     },
     {
       "id": "genge_kenyan",
       "name": "Genge (Kenyan)",
       "family": "global",
-      "recipe": "classic early-2000s genge, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm french rap korean rap. extended whistle, rap, overtone rich sustained, narrative. TR-808, chopped sampler, sub bass analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 385
+      "recipe": "classic early-2000s genge, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, overtone rich sustained, narrative. TR-808, chopped sampler, sub bass analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 384
     },
     {
       "id": "ethio_pop_modern",
@@ -3305,8 +3305,8 @@
       "id": "algerian_rap",
       "name": "Algerian rap (rap algérien)",
       "family": "global",
-      "recipe": "classic mid-1990s algerian rap, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Persian arab improv improv on frame french rap korean rap. extended whistle, rap, chest resonance low mid, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 458
+      "recipe": "classic mid-1990s algerian rap, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Persian arab improv improv on frame gengetone french rap. extended whistle, rap, chest resonance low mid, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 457
     },
     {
       "id": "ecm_jazz_aesthetic",
@@ -7794,6 +7794,48 @@
       "family": "global",
       "recipe": "classic mid-2000s darkpsy, electronic Dance, trance branch, idm glitch experimental electric breakcore chiptune / 8-bit. analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, glitched textural sampler, glitched textural eurorack modular. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ring modulator high-gain distortion flanger analog bucket-brigade delay.",
       "recipe_chars": 528
+    },
+    {
+      "id": "gengetone",
+      "name": "Gengetone",
+      "family": "global",
+      "recipe": "classic 2018-2019 gengetone, mc Rhythm, intl hip hop branch, Afro-diasporic MC rhythm conscious hip-hop gangsta rap. thick, rap, chest resonance low mid, narrative. TR-808, chopped sampler, low sub bass analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 366
+    },
+    {
+      "id": "manele",
+      "name": "Manele",
+      "family": "global",
+      "recipe": "classic mid-1990s manele, functional Song, europop branch, mid east n African pop functional song, European wedding khaliji shaabi. extended whistle, low dynamic level, chest resonance low mid, maqam neutral step. korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, weltmeister east German mid tier vintage volk ensemble accordion, grenadilla African blackwood traditional legato clarinet, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 732
+    },
+    {
+      "id": "chalga",
+      "name": "Chalga",
+      "family": "global",
+      "recipe": "classic 1994-1996 chalga, functional Song, europop branch, mid east n African pop functional song, balkan drinking song mahraganat mizrahi. extended whistle, declaimed, chest resonance low mid, equal tempered. korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, grenadilla African blackwood traditional clarinet, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 643
+    },
+    {
+      "id": "marrabenta",
+      "name": "Marrabenta",
+      "family": "global",
+      "recipe": "classic West African mid-1950s marrabenta, functional Song, African pop branch, central east south African groove percussion soukous ndombolo. extended whistle, chest mix belt, chest resonance low mid, punctuated. mahogany ebony clean strummed single coil electric cedar phosphor bronze pre war martin strummed open chord ringing overtones dreadnought acoustic guitar, alder la bella flats Detroit soul bass canon electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 719
+    },
+    {
+      "id": "murga_uruguaya",
+      "name": "Murga uruguaya",
+      "family": "global",
+      "recipe": "classic mid-1910s murga uruguaya, carnival Processional, river plate branch, Latin am groove percussion, iberian Latin protest song. a cappella small 3 to 8 one per part three voice polyphonic regional murga tablado cuple belt murga carnaval coro block choir ensemble, ceibo canonical Argentine leguero hollowed trunk bombo andino, drumline school marching. montevideo candombe barrio sur carnival. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 528
+    },
+    {
+      "id": "shangaan_electro",
+      "name": "Shangaan electro",
+      "family": "electronic",
+      "recipe": "classic mid-2000s shangaan electro, electronic Dance, African dance branch, central east south African groove percussion, footwork electronic dance juke jersey club. vocal fry, rap, chest resonance low mid, punctuated. MIDI marimba preset diy sequenced rompler workstation, sampler drum machine. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 434
     }
   ]
 }
