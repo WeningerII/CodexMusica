@@ -310,10 +310,16 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
     { name: 'habitat-fallback (mustHaveAny)', re: /mustHaveAny/, where: 'both' },
     { name: 'habitat-fallback (register)', re: /register/, where: 'both' },
   ];
+  // Strip comments before matching: these invariants must hold in real CODE, not
+  // be satisfied by a comment that merely mentions `register` or `mustHave`
+  // (the habitat-fallback tokens are the easiest to fake this way).
+  const stripComments = (s) => s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '');
+  const embedCode = stripComments(embedBody);
+  const nodeCode = stripComments(nodeSrc);
   const issues = [];
   for (const inv of invariants) {
-    if (!inv.re.test(embedBody)) issues.push(`HTML embed missing: ${inv.name}`);
-    if (!inv.re.test(nodeSrc)) issues.push(`Node primitive missing: ${inv.name}`);
+    if (!inv.re.test(embedCode)) issues.push(`HTML embed missing: ${inv.name}`);
+    if (!inv.re.test(nodeCode)) issues.push(`Node primitive missing: ${inv.name}`);
   }
 
   // Also verify the alphabetical-id tiebreak — lives in suggestPrefaceForCard
@@ -321,10 +327,10 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
   // likely to drift silently because it's invisible until two tokens tie.
   const htmlSuggest = htmlSrc.match(/function suggestPrefaceForCard[\s\S]*?\n\}/);
   if (!htmlSuggest) issues.push('suggestPrefaceForCard not found in HTML template');
-  else if (!/localeCompare/.test(htmlSuggest[0])) {
+  else if (!/localeCompare/.test(stripComments(htmlSuggest[0]))) {
     issues.push('HTML suggestPrefaceForCard missing alphabetical tiebreak (localeCompare)');
   }
-  if (!/localeCompare/.test(nodeSrc)) {
+  if (!/localeCompare/.test(nodeCode)) {
     issues.push('Node primitive rank() missing alphabetical tiebreak (localeCompare)');
   }
 

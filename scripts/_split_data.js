@@ -211,6 +211,21 @@ function splitFileIntoChunks(source, maxChars) {
   }
 
   // Declaration is too big — chunk it.
+  // The chunked path regenerates `const NAME = …` from scratch and CANNOT carry
+  // the source preceding the declaration. Header comments are fine to drop, but
+  // any real statement above an oversized declaration (e.g. `const VERSION = 7;`
+  // sitting above a >600 KB table) would vanish silently — valid JS, lost
+  // semantics. Convert that into a loud failure instead. (The fits-path above
+  // keeps `leading` intact, so this only guards the chunked branch.)
+  const preamble = leading.replace(/(?:^|\n)[ \t]*(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=\s*$/, '');
+  const preambleCode = preamble.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '').trim();
+  if (preambleCode) {
+    throw new Error(
+      `splitFileIntoChunks: "${name}" must be chunked, but non-comment source precedes its ` +
+      `declaration and would be dropped: ${JSON.stringify(preambleCode.slice(0, 80))}… ` +
+      `Move it after the declaration (or keep the declaration under the chunk threshold).`
+    );
+  }
   const chunks = chunkElements(elements, maxChars);
   const declLines = emitChunkedDeclaration(name, kind, chunks);
 
