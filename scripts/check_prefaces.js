@@ -47,7 +47,7 @@ function productionDescriptorUniverse() {
     for (const it of (s.items || [])) for (const d of (it.descriptors || [])) live.add(d);
   }
   let sigs = {};
-  try { sigs = require('../references/_tradition_signatures.json'); } catch (e) { /* optional */ }
+  try { sigs = require('../references/_tradition_signatures.json'); } catch { /* optional */ }
   for (const k of Object.keys(sigs)) for (const d of (sigs[k] || [])) live.add(d);
   return live;
 }
