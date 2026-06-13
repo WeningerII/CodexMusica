@@ -4100,14 +4100,43 @@ async function delWS(key) {
 }
 
 // ---- Modals ----
+// Keyboard focus is trapped inside an open modal (Tab/Shift+Tab wrap) and restored
+// to the triggering control on close — honoring the aria-modal="true" contract the
+// markup declares.
+let _modalReturnFocus = null;
+function _focusables(root) {
+  return [...root.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+    .filter(el => el.offsetParent !== null);
+}
+function _trapTab(e, modal) {
+  if (e.key !== 'Tab' || !modal) return;
+  const f = _focusables(modal);
+  if (!f.length) return;
+  const first = f[0], last = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
 function openModal(id) {
-  document.getElementById(id).classList.add('open');
+  const bg = document.getElementById(id);
+  _modalReturnFocus = document.activeElement; // restore focus here on close
+  bg.classList.add('open');
+  bg._trapHandler = (e) => _trapTab(e, bg.querySelector('.modal') || bg);
+  bg.addEventListener('keydown', bg._trapHandler);
   setTimeout(() => {
-    const i = document.querySelector('#' + id + ' input[type=search], #' + id + ' input[type=text]');
-    if (i) i.focus();
+    const i = bg.querySelector('input[type=search], input[type=text]');
+    (i || _focusables(bg)[0] || bg).focus();
   }, UI_TIMING_MS.MODAL_FOCUS_DELAY);
 }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function closeModal(id) {
+  const bg = document.getElementById(id);
+  if (!bg) return;
+  bg.classList.remove('open');
+  if (bg._trapHandler) { bg.removeEventListener('keydown', bg._trapHandler); bg._trapHandler = null; }
+  if (_modalReturnFocus && typeof _modalReturnFocus.focus === 'function' && document.contains(_modalReturnFocus)) {
+    _modalReturnFocus.focus();
+  }
+  _modalReturnFocus = null;
+}
 
 // ---- Confirm Dialog ----
 // Replaces native confirm() which is unreliable: browsers can suppress
@@ -4147,14 +4176,17 @@ function confirmDialog(opts) {
       </div>
     `;
     document.body.appendChild(bg);
+    const returnFocus = document.activeElement;
     const close = (result) => {
       bg.remove();
       document.removeEventListener('keydown', onKey);
+      if (returnFocus && typeof returnFocus.focus === 'function' && document.contains(returnFocus)) returnFocus.focus();
       resolve(result);
     };
     const onKey = (e) => {
       if (e.key === 'Escape') { e.preventDefault(); close(false); }
       else if (e.key === 'Enter') { e.preventDefault(); close(true); }
+      else if (e.key === 'Tab') _trapTab(e, bg.querySelector('.modal'));
     };
     document.addEventListener('keydown', onKey);
     bg.querySelector('[data-confirm-action="cancel"]').addEventListener('click', () => close(false));
@@ -4495,6 +4527,10 @@ function renderSidebarTraditions() {
       if (app.collapsedTraditionGroups.has(tradId)) app.collapsedTraditionGroups.delete(tradId);
       else app.collapsedTraditionGroups.add(tradId);
       renderSidebarTraditions();
+    });
+    // Keyboard parity for the role="button" header (Enter/Space activate).
+    h.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); h.click(); }
     });
   });
 
@@ -5027,6 +5063,10 @@ function renderDetailBreadcrumb(card, _inst) {
       // Scroll sidebar to that tradition group
       const grp = document.querySelector('#sidebar-traditions [data-tradition-id="' + card.traditionId + '"]');
       if (grp) grp.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    // Keyboard parity for the role="button" breadcrumb (Enter/Space activate).
+    left.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); left.click(); }
     });
   }
   wrap.appendChild(left);
@@ -6421,8 +6461,15 @@ function _initApp() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       const open = document.querySelector('.modal-bg.open');
-      if (open) open.classList.remove('open');
+      if (open && open.id) closeModal(open.id); // restores focus + clears the trap
+      else if (open) open.classList.remove('open');
     }
+  });
+  // Warn before discarding an unsaved in-progress workspace: the canvas lives in
+  // memory only (Save persists it), so a reload/close/crash would silently lose
+  // it. Respects the explicit-save model — it warns, it never autosaves.
+  window.addEventListener('beforeunload', (e) => {
+    if (app.cards && app.cards.length > 0) { e.preventDefault(); e.returnValue = ''; }
   });
   document.getElementById('btn-add').addEventListener('click', () => {
     app.pickerSearch = '';
