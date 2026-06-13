@@ -1285,7 +1285,7 @@ const PREFACE_LEXICON = [
   {
     id: 'tahrir-ornamenting',
     note: "Persian dastgah vocal — modal-improvisation with characteristic avaz ornamentation and tahrir vocal-yodel ornament",
-    tokens: ['dastgah', 'persian-classical', 'modal-improvisation', 'avaz-ornamentation', 'avaz-ornamentation', 'persian-classical', 'modal-improvisation', 'ornamented', 'melismatic']
+    tokens: ['dastgah', 'persian-classical', 'modal-improvisation', 'avaz-ornamentation', 'ornamented', 'melismatic']
   },
   {
     id: 'interlocking-hocketing',
@@ -1305,17 +1305,17 @@ const PREFACE_LEXICON = [
   {
     id: 'narrating',
     note: "Narrative declamatory vocal style — storytelling delivery for ballad, praise-poetry, recitation, and bardic-text settings",
-    tokens: ['narrative', 'declamatory', 'storytelling', 'speech-derived', 'narrative', 'classical', 'sustained-tone', 'expressive', 'flowing']
+    tokens: ['narrative', 'declamatory', 'storytelling', 'speech-derived', 'classical', 'sustained-tone', 'expressive', 'flowing']
   },
   {
     id: 'clapping-and-syllabicizing',
     note: "Staccato syllabic vocal — punctuated rhythmic delivery typical of nursery rhyme, hand-clap game, jump-rope, and counting-rhyme contexts",
-    tokens: ['punctuated', 'percussive', 'syllabic-singing-one-note-per-syllable', 'call-response', 'rhythmic-speech', 'syllabic-singing-one-note-per-syllable', 'projecting', 'percussive', 'ensemble']
+    tokens: ['punctuated', 'percussive', 'syllabic-singing-one-note-per-syllable', 'call-response', 'rhythmic-speech', 'projecting', 'ensemble']
   },
   {
     id: 'melisma-spinning',
     note: "Melismatic singing — many-notes-per-syllable elaborate vocal-ornament typical of lament, devotional, qawwali, and praise-poetry traditions",
-    tokens: ['melismatic-singing-many-notes-per-syllable', 'ornamental', 'expressive', 'melismatic', 'ornamented', 'glissando-heavy', 'sustained-tone', 'vibrato-rich', 'expressive']
+    tokens: ['melismatic-singing-many-notes-per-syllable', 'ornamental', 'expressive', 'melismatic', 'ornamented', 'glissando-heavy', 'sustained-tone', 'vibrato-rich']
   },
   {
     id: 'declaiming',
@@ -1335,32 +1335,32 @@ const PREFACE_LEXICON = [
   {
     id: 'spoken-flowing',
     note: "Rhythmic-spoken-flow no-pitch syncopated speech-rhythm — rap, hip-hop, dub-poetry, and spoken-word delivery",
-    tokens: ['rhythmic-spoken-flow-no-pitch', 'syncopated-speech-rhythm', 'rhythmic-speech', 'speech-derived', 'rhythmic-speech', 'narrative', 'flowing', 'connected', 'syllabic-singing-one-note-per-syllable']
+    tokens: ['rhythmic-spoken-flow-no-pitch', 'syncopated-speech-rhythm', 'rhythmic-speech', 'speech-derived', 'narrative', 'flowing', 'connected', 'syllabic-singing-one-note-per-syllable']
   },
   {
     id: 'syllabicizing',
     note: "One-note-per-syllable singing — folk-strophic delivery for ballad, hymn, work-song, lullaby, and group-anthem contexts",
-    tokens: ['syllabic-singing-one-note-per-syllable', 'syllabic-singing-one-note-per-syllable', 'speech-derived', 'rhythmic-speech', 'choir-blendable', 'liturgical', 'ensemble', 'historical', 'classical']
+    tokens: ['syllabic-singing-one-note-per-syllable', 'speech-derived', 'rhythmic-speech', 'choir-blendable', 'liturgical', 'ensemble', 'historical', 'classical']
   },
   {
     id: 'yodel-throating',
     note: "Mongolian-Tuvan khoomei throat-singing — multi-pitch-simultaneous overtone vocal-production characteristic of steppe hunter-herder tradition",
-    tokens: ['khoomei', 'overtone-singing', 'multi-pitch-simultaneous', 'urtiin-duu-long-song-and-khoomei-overtone-pastoral-context', 'khoomei', 'tuvan-throat', 'mongolian-throat', 'overtone-singing', 'harmonic-series']
+    tokens: ['khoomei', 'overtone-singing', 'multi-pitch-simultaneous', 'urtiin-duu-long-song-and-khoomei-overtone-pastoral-context', 'tuvan-throat', 'mongolian-throat', 'harmonic-series']
   },
   {
     id: 'qawwali-flying',
     note: "Sufi qawwali devotional-vocal — call-response Persian-melismatic ecstatic-praise tradition",
-    tokens: ['qawwali', 'sufi-devotional', 'call-response', 'persian-melismatic', 'sufi-devotional', 'qawwali', 'call-response', 'persian-melismatic', 'melismatic']
+    tokens: ['qawwali', 'sufi-devotional', 'call-response', 'persian-melismatic', 'melismatic']
   },
   {
     id: 'sean-nos-cascading',
     note: "Sean-nós Gaelic-vocal — unaccompanied free-rhythm ornamented Gaelic-tradition vocal",
-    tokens: ['sean-nos', 'unaccompanied', 'gaelic-tradition', 'free-rhythm', 'sean-nos', 'unaccompanied', 'free-rhythm', 'ornamented', 'melismatic']
+    tokens: ['sean-nos', 'unaccompanied', 'gaelic-tradition', 'free-rhythm', 'ornamented', 'melismatic']
   },
   {
     id: 'jondo-tearing',
     note: "Flamenco cante jondo — flamenco-deep gypsy-Andalusian melismatic-raw lament vocal",
-    tokens: ['cante-jondo', 'flamenco-deep', 'gypsy-andalusian', 'melismatic-raw', 'cante-jondo', 'flamenco-deep', 'gypsy-andalusian', 'melismatic-raw', 'lament-wail']
+    tokens: ['cante-jondo', 'flamenco-deep', 'gypsy-andalusian', 'melismatic-raw', 'lament-wail']
   },
   {
     id: 'articulate',
