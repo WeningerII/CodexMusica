@@ -3,9 +3,9 @@
   "name": "Descarga (Cuban jam session)",
   "family": "jazz",
   "lineage": "Cuban improvisational ensemble-form developed in 1950s Havana through after-hours jam sessions at Tropicana, Sans Souci, Habana Hilton hotel-clubs. Combines son montuno rhythmic framework with jazz-improvisational solos over canonical guajeo ostinato. Cachao y Su Ritmo Caliente sessions (1957, Israel \"Cachao\" López) are the foundational recorded document. Post-1960 exile to Miami and New York extended into broader Latin-jazz.",
-  "recipe": "classic tropical mid-1950s descarga, improv On Frame, Latin jazz branch, American jazz fusion nu jazz / electro-jazz acid jazz. thick, rap, nervy, punctuated. cold pressed wurzen felt oversize maple tension resonator grand piano, gut chord melody upright bass, jazz leaning cedar canonical Cuban strummed tres cubano, bronze open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 621,
-  "score": 354.56,
+  "recipe": "classic tropical mid-1950s descarga, improv On Frame, Latin jazz branch, American jazz fusion nu jazz / electro-jazz acid jazz. thick, rap, nervy, punctuated. cold pressed wurzen felt oversize maple tension resonator grand piano, gut chord melody upright bass, jazz leaning cedar canonical Cuban steel modern son montuno conjunto canon strummed tres cubano, bronze open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 661,
+  "score": 355.889,
   "config": {
     "traditions": [
       "descarga_cubana",
@@ -97,14 +97,14 @@
           "tres_courses": "tres_3x2",
           "tres_cubano_context": "tres_cubano_latin_jazz",
           "tres_cubano_body_wood": "tres_cubano_cedar",
-          "tres_cubano_strings": "tres_cubano_octave_doubled"
+          "tres_cubano_strings": "tres_cubano_steel_modern"
         },
         "scores": {
           "plucked_traditional_technique": 5.85,
           "tres_courses": 4.095000000000001,
           "tres_cubano_context": 19.5,
           "tres_cubano_body_wood": 6.0275,
-          "tres_cubano_strings": 0.1005
+          "tres_cubano_strings": 1.4300000000000002
         }
       },
       {

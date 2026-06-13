@@ -3,9 +3,9 @@
   "name": "Pre-commercial country roots",
   "family": "country",
   "lineage": "The Anglo-Appalachian and Southern-Mountain folk tradition that was caught and codified by the 1927 Bristol Sessions (the Big Bang of country music, when Ralph Peer of the Victor Talking Machine Company recorded the Carter Family and Jimmie Rodgers) and the parallel 1928 Johnson City Sessions — featuring the Carter Family (A.P. Carter, Sara Carter, Maybelle Carter, their 1927 Bristol session establishing the Carter Family songbook and the Carter scratch guitar technique), Jimmie Rodgers (the singing brakeman, the commercial country founder, his 13 blue yodels), Vernon Dalhart, Uncle Dave Macon, Charlie Poole",
-  "recipe": "classic late-1920s pre-commercial country roots, functional Song, pre commercial branch, blues narrative ballad poetry classic blues women jug band. thick, worn fold, melodic, narrative. open e tuning plain gut sheep gut pre 1900 parlor travis picked parlor acoustic guitar, plain gut sheep gut double stops fiddle, folk solid birch vintage 1920s 1940s autoharp, bowl back Italian adirondack red spruce loar canon big leaf maple mandolin, wood plain gut minstrel pre 1860s fretless canon compensated bridge banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 751,
-  "score": 597.6,
+  "recipe": "classic late-1920s pre-commercial country roots, functional Song, pre commercial branch, blues narrative ballad poetry classic blues women jug band. thick, worn fold, melodic, narrative. open e tuning plain gut sheep gut pre 1900 parlor alternating thumb bass picked parlor acoustic guitar, plain gut sheep gut double stops fiddle, folk solid birch vintage 1920s 1940s autoharp, bowl back Italian adirondack red spruce loar canon big leaf maple mandolin, wood plain gut minstrel pre 1860s fretless canon compensated bridge banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 767,
+  "score": 599.24,
   "config": {
     "traditions": [
       "pre_commercial_country",
@@ -55,14 +55,14 @@
       {
         "id": "acoustic_guitar_parlor",
         "slots": {
-          "acoustic_technique": "acoustic_travis_picking",
+          "acoustic_technique": "acoustic_alternating_bass",
           "string_tuning": "open_e",
           "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "rosewood_bs_p",
           "string_acoustic_parlor": "gut_pre_1900_p"
         },
         "scores": {
-          "acoustic_technique": 22.315,
+          "acoustic_technique": 23.954999999999995,
           "string_tuning": 11.474999999999998,
           "top_wood_parlor": 0.78,
           "back_sides_parlor": 0.995,
@@ -139,7 +139,7 @@
           "banjo_neck_wood": "banjo_maple_neck",
           "banjo_strings": "banjo_gut_minstrel",
           "banjo_bridge": "banjo_compensated_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 22.74999999999999,

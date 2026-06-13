@@ -3,9 +3,9 @@
   "name": "City pop (Japanese)",
   "family": "global",
   "lineage": "Japanese 1976-1986 sophisticated urban-adult-pop genre fusing late-1970s American AOR (adult-oriented rock), funk, fusion-jazz, and disco-soul into a distinct Tokyo-bubble-era mature-pop aesthetic. The instrumentation features electric-piano (Rhodes-and-Wurlitzer), fretless-bass, clean-electric-guitar (often with chorus pedal), brass section (often Roland JX-3P synth-brass), and breathy-intimate close-miked vocal-style. Lyrically focused on urban-leisure: nighttime-driving, summer-resort-and-beach, romantic-rendezvous-in-cafes-and-bars, and Tokyo-Yokohama-Shōnan coastal lifestyle. Originally a quiet commercial-niche aimed at the Japanese middle-class consumer-boom audience, city-pop gained massive 2010s-onward Western internet-re-discovery via vaporwave and YouTube-algorithmic-suggestion.",
-  "recipe": "classic North American mid-1980s city pop, functional Song, east Asian pop branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, nervy, narrative. harder neoprene late 1970s bark grit centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, brass pre muffled edge muffled hot rolled annealed drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, Wurlitzer 270 butterfly rare combo grand 1981 1982 steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA.",
-  "recipe_chars": 999,
-  "score": 654.618,
+  "recipe": "classic North American mid-1980s city pop, functional Song, east Asian pop branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, nervy, narrative. harder neoprene late 1970s bark grit centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, brass pre muffled edge muffled hot rolled annealed drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, Wurlitzer 200a canonical 1974 1982 solid state 70s pop canon steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console.",
+  "recipe_chars": 996,
+  "score": 668.237,
   "config": {
     "traditions": [
       "city_pop",
@@ -117,7 +117,7 @@
           "amp_make": 18.49,
           "fretless_use": 5.395,
           "fretless_bass_construction": 1.845,
-          "fretless_fingerboard_wood": 4.945,
+          "fretless_fingerboard_wood": 8.55,
           "fretless_bass_strings": 5.35
         }
       },
@@ -190,16 +190,16 @@
         "id": "wurlitzer_ep",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "wurlitzer_use": "wurlitzer_supertramp",
+          "wurlitzer_use": "wurlitzer_70s_pop_rock",
           "wurlitzer_ep_voice": "wurlitzer_ep_overdrive",
-          "wurlitzer_model": "wurlitzer_270_butterfly",
+          "wurlitzer_model": "wurlitzer_200a_canonical",
           "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
         },
         "scores": {
           "keyboard_technique": 25.089999999999993,
           "wurlitzer_use": 0,
           "wurlitzer_ep_voice": 2.51,
-          "wurlitzer_model": 1.595,
+          "wurlitzer_model": 11.609999999999998,
           "wurlitzer_reed_material": 2.925
         }
       }

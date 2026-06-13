@@ -5,7 +5,7 @@
   "lineage": "Indian Holi (festival of colors) and Diwali (festival of lights) processional tradition continuous from premodern Indian festival celebration practice through 19th-20th century continuous performance into modern Indian-and-Indian-diaspora continuous festival-practice; Holi processional integrates extensive dholak-and-shehnai-and-vocal participation alongside color-throwing, Diwali integrates devotional kirtan-and-bhajan with lamp-procession",
   "recipe": "classic modern indian holi-and-diwali festival processional, carnival Processional, south Asian branch, indian subcontinent praise song, south Asian wedding, hindu ritual devotional hindu stuti and bhajan indian sangeet. thick, declaimed, tasteful, continuous-phonation. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, pitched indian rosewood rosewood tabla. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 661,
-  "score": 213.003,
+  "score": 214.843,
   "config": {
     "traditions": [
       "indian_holi_diwali_processional",
@@ -74,14 +74,14 @@
           "shehnai_use": "shehnai_naubat_ensemble",
           "shehnai_body_wood": "shehnai_sheesham_canonical",
           "shehnai_reed": "shehnai_arundo_quadruple",
-          "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+          "shehnai_lineage": "shehnai_banaras"
         },
         "scores": {
           "shehnai_register": 9.684999999999999,
           "shehnai_use": 12.48,
           "shehnai_body_wood": 15.989999999999997,
           "shehnai_reed": 0.5399999999999999,
-          "shehnai_lineage": 1.13625
+          "shehnai_lineage": 2.97625
         }
       },
       {
@@ -143,7 +143,7 @@
       "shehnai_use": "shehnai_naubat_ensemble",
       "shehnai_body_wood": "shehnai_sheesham_canonical",
       "shehnai_reed": "shehnai_arundo_quadruple",
-      "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+      "shehnai_lineage": "shehnai_banaras"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

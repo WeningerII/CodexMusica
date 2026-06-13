@@ -288,11 +288,11 @@
         {
           "id": "fretless_ebony_unlined",
           "default": true,
-          "name": "Ebony unlined (Jaco canon — unmarked)",
+          "name": "Ebony unlined (fretless jazz canon — unmarked)",
           "descriptors": [
             "ebony",
             "unlined",
-            "jaco-canon",
+            "fretless-jazz-fusion-mwah-canon",
             "singing-mwah"
           ],
           "match_tokens": [
@@ -306,7 +306,7 @@
         },
         {
           "id": "fretless_ebony_lined",
-          "name": "Ebony lined (pedagogical / Pino Palladino canon)",
+          "name": "Ebony lined (pedagogical / session-fretless canon)",
           "descriptors": [
             "ebony",
             "lined",
@@ -333,7 +333,7 @@
         },
         {
           "id": "fretless_epoxy_maple",
-          "name": "Epoxy-coated maple (the original Jaco conversion)",
+          "name": "Epoxy-coated maple (the original fretless conversion)",
           "descriptors": [
             "maple-base",
             "epoxy-coated",
@@ -347,7 +347,7 @@
         },
         {
           "id": "fretless_micarta",
-          "name": "Micarta (Steve Bailey / 6-string boutique)",
+          "name": "Micarta (6-string boutique)",
           "descriptors": [
             "micarta",
             "synthetic",
@@ -538,11 +538,11 @@
         {
           "id": "fretless_ebony_unlined",
           "default": true,
-          "name": "Ebony unlined (Jaco canon — unmarked)",
+          "name": "Ebony unlined (fretless jazz canon — unmarked)",
           "descriptors": [
             "ebony",
             "unlined",
-            "jaco-canon",
+            "fretless-jazz-fusion-mwah-canon",
             "singing-mwah"
           ],
           "match_tokens": [
@@ -556,7 +556,7 @@
         },
         {
           "id": "fretless_ebony_lined",
-          "name": "Ebony lined (pedagogical / Pino Palladino canon)",
+          "name": "Ebony lined (pedagogical / session-fretless canon)",
           "descriptors": [
             "ebony",
             "lined",
@@ -583,7 +583,7 @@
         },
         {
           "id": "fretless_epoxy_maple",
-          "name": "Epoxy-coated maple (the original Jaco conversion)",
+          "name": "Epoxy-coated maple (the original fretless conversion)",
           "descriptors": [
             "maple-base",
             "epoxy-coated",
@@ -597,7 +597,7 @@
         },
         {
           "id": "fretless_micarta",
-          "name": "Micarta (Steve Bailey / 6-string boutique)",
+          "name": "Micarta (6-string boutique)",
           "descriptors": [
             "micarta",
             "synthetic",

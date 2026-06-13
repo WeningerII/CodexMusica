@@ -501,8 +501,8 @@
           ]
         },
         {
-          "id": "yamaha_bobby_shew_lead_mp",
-          "name": "Yamaha Bobby Shew Lead",
+          "id": "yamaha_lead_mp",
+          "name": "Yamaha lead mouthpiece",
           "descriptors": [
             "shallow-cup",
             "tight-backbore",
@@ -519,8 +519,8 @@
           ]
         },
         {
-          "id": "yamaha_bobby_shew_jazz_mp",
-          "name": "Yamaha Bobby Shew Jazz",
+          "id": "yamaha_jazz_mp",
+          "name": "Yamaha jazz mouthpiece",
           "descriptors": [
             "medium-cup",
             "jazz-balance"
@@ -1023,8 +1023,8 @@
           ]
         },
         {
-          "id": "yamaha_bobby_shew_lead_mp",
-          "name": "Yamaha Bobby Shew Lead",
+          "id": "yamaha_lead_mp",
+          "name": "Yamaha lead mouthpiece",
           "descriptors": [
             "shallow-cup",
             "tight-backbore",
@@ -1041,8 +1041,8 @@
           ]
         },
         {
-          "id": "yamaha_bobby_shew_jazz_mp",
-          "name": "Yamaha Bobby Shew Jazz",
+          "id": "yamaha_jazz_mp",
+          "name": "Yamaha jazz mouthpiece",
           "descriptors": [
             "medium-cup",
             "jazz-balance"

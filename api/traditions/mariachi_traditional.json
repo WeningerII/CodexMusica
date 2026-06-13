@@ -3,60 +3,60 @@
   "name": "Mariachi traditional",
   "family": "global",
   "lineage": "Pre-studio mariachi tradition (Jalisco rural origins, Plaza Garibaldi outdoor serenata) before the 20th-century studio standardization of trumpets and orquesta size",
-  "recipe": "classic tropical mid-1950s mariachi traditional, functional Song, Mexican branch, tejano border functional song, americas wedding ranchera mariachi. sygyt, full chest belt, chest resonance low mid, unrestrained. sitka spruce European maple sycamore maple French Polish shellac pad violin orchestral, low mid rich spectrum cedar classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana, foundational rural mariachi full. plaza garibaldi outdoor mariachi. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 703,
-  "score": 205.587,
+  "recipe": "classic tropical mid-1950s mariachi traditional, functional Song, Mexican branch, tejano border functional song, americas wedding ranchera corrido. thick, full chest belt, chest resonance low mid, narrative. sitka spruce European maple sycamore maple French Polish shellac pad violin orchestral, cedar nylon fingerpicked classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana, foundational rural mariachi full. plaza garibaldi outdoor mariachi. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 705,
+  "score": 223.124,
   "config": {
     "traditions": [
       "mariachi_traditional",
       "ranchera",
-      "mariachi"
+      "corrido"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "chest_voice",
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "shouted_voice",
+          "voice_articulation": "narrative_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.5350000000000006,
-          "voice_quality": 32.52625000000001,
+          "voice_register": 2.9390000000000005,
+          "voice_quality": 29.75124999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.975,
-          "voice_articulation": 1.0865,
-          "voice_microtone": 0.7749999999999999,
-          "voice_tradition": 6.9875,
-          "voice_mechanism_compound": 3.8999999999999995,
-          "voice_estill_quality": 14.235,
-          "voice_speech_song": 24.082499999999996,
-          "voice_ensemble_config": 15.014999999999997,
+          "voice_vibrato": 1.925,
+          "voice_articulation": 4.029999999999999,
+          "voice_microtone": 0.9999999999999999,
+          "voice_tradition": 8.6775,
+          "voice_mechanism_compound": 4.9399999999999995,
+          "voice_estill_quality": 13.359999999999996,
+          "voice_speech_song": 24.212499999999995,
+          "voice_ensemble_config": 14.299999999999994,
           "voice_ornament_system": 1.025,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 7.53125,
-          "voice_multitrack_stack": 4.095000000000001
+          "voice_pitch_organization": 1.95,
+          "voice_processing_chain": 6.13125,
+          "voice_multitrack_stack": 4.387500000000001
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "plain_beef_gut_violin",
+          "orch_strings": "synthetic_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "french_polish_violin",
@@ -68,21 +68,21 @@
         },
         "scores": {
           "bowed_technique": 1.125,
-          "orch_strings": 0.78,
-          "orch_top_wood": 4.0755,
-          "orch_back_wood": 3.39125,
-          "orch_varnish": 2.7700000000000005,
-          "orch_setup_period": 2.8600000000000003,
-          "orch_bow": 0.39,
-          "orch_bow_stick": 2.79,
-          "orch_articulation": 1.00125,
-          "orch_rosin": 2.75
+          "orch_strings": 0.195,
+          "orch_top_wood": 4.8255,
+          "orch_back_wood": 4.491249999999999,
+          "orch_varnish": 4.02,
+          "orch_setup_period": 3.834999999999999,
+          "orch_bow": 1.235,
+          "orch_bow_stick": 4.04,
+          "orch_articulation": 0.85125,
+          "orch_rosin": 4
         }
       },
       {
         "id": "classical_nylon_string_guitar",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
+          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
@@ -90,12 +90,12 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 2.425,
+          "acoustic_technique": 7.76,
           "string_tuning": 0,
-          "top_wood_classical": 2.9899999999999998,
+          "top_wood_classical": 4.485,
           "bracing_classical": 1.6,
-          "string_classical": 0.325,
-          "attack_technique_cl": 1.5262499999999999
+          "string_classical": 1.29,
+          "attack_technique_cl": 1.37625
         }
       },
       {
@@ -108,11 +108,11 @@
           "guitarron_technique": "guitarron_octave_pair_plucking"
         },
         "scores": {
-          "guitarron_body": 1.4299999999999997,
-          "guitarron_body_wood": 8.189999999999998,
-          "guitarron_strings": 3.69,
-          "guitarron_string_material": 1.17,
-          "guitarron_technique": 11.699999999999998
+          "guitarron_body": 0.78,
+          "guitarron_body_wood": 9.034999999999998,
+          "guitarron_strings": 2.89,
+          "guitarron_string_material": 2.4699999999999998,
+          "guitarron_technique": 12.025
         }
       },
       {
@@ -120,26 +120,26 @@
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
           "vihuela_mexicana_back": "vihuela_mexicana_arched",
-          "vihuela_mexicana_context": "vihuela_mexicana_huasteca",
+          "vihuela_mexicana_context": "vihuela_mexicana_modern",
           "vihuela_mexicana_body_wood": "vihuela_mexicana_mahogany",
           "vihuela_mexicana_strings": "vihuela_mexicana_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 2.405,
-          "vihuela_mexicana_back": 7.738749999999999,
-          "vihuela_mexicana_context": 1.6,
-          "vihuela_mexicana_body_wood": 8.189999999999998,
-          "vihuela_mexicana_strings": 8.579999999999998
+          "plucked_traditional_technique": 3.4125,
+          "vihuela_mexicana_back": 7.23875,
+          "vihuela_mexicana_context": 1.885,
+          "vihuela_mexicana_body_wood": 9.034999999999998,
+          "vihuela_mexicana_strings": 9.424999999999999
         }
       },
       {
         "id": "mariachi_full",
         "slots": {
-          "sections": "mariachi_violins",
+          "sections": "mariachi_guitar",
           "era": "mariachi_traditional"
         },
         "scores": {
-          "sections": 0.6,
+          "sections": 1.04,
           "era": 4.029999999999999
         }
       }

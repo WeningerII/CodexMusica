@@ -3,8 +3,8 @@
   "name": "Saidi music (Upper Egyptian)",
   "family": "global",
   "lineage": "Saidi music of Upper Egypt (south of Cairo extending to Aswan), the canonical pre-modern rural musical tradition of the Egyptian Nile Valley peasant Saidi communities. Performance centers on the mizmar pair (loud double-reed conical-bore aerophone played in heterophonic-melodic-elaboration) over tabla baladi or tabla dohola two-headed barrel-drum. Repertoire spans wedding-celebration cycles, mawwal vocal-lament solo declamations (free-rhythm extended-melismatic-ornament register), and tahtib stick-dance accompaniment cycles for which Saidi music is particularly known.",
-  "recipe": "classic North American mid-1950s saidi music, functional Song, mid east n African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, tabla, apricot canonical Egyptian arundo donax canonical nile delta mizmar. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 543,
+  "recipe": "classic North American mid-1950s saidi music, functional Song, mid east n African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, tabla, apricot canonical Egyptian arundo donax canonical nile delta mizmar. cairo major flagship studio 1934-present major-flagship cairo studio misr era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 531,
   "score": 128.876,
   "config": {
     "traditions": [
@@ -100,7 +100,7 @@
         }
       }
     ],
-    "room": "cairo_studio_misr_umm_kulthum_era",
+    "room": "cairo_studio_misr_era",
     "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
       "mic": "mic_sm57_dynamic_shure",
@@ -118,7 +118,7 @@
   },
   "source": {
     "tuning": "maqam_24edo",
-    "room": "cairo_studio_misr_umm_kulthum_era",
+    "room": "cairo_studio_misr_era",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "opera_voice",

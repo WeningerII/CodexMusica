@@ -3,9 +3,9 @@
   "name": "Freak folk (mid-2000s American psychedelic-experimental folk)",
   "family": "rock_punk",
   "lineage": "Mid-2000s American indie folk subgenre characterized by psychedelic-experimental orientation, intimate-eccentric-vocal-delivery, broad-folk-instrumentation including unusual instruments (autoharp, harpsichord, sitar), and explicit countercultural-and-mystical thematic content. Devendra Banhart (California 2002-onward) inaugurated the canonical sound; Joanna Newsom, Vetiver, Espers, and the broader Drag City Records label roster anchor the canonical freak folk roster.",
-  "recipe": "classic North American freak folk, ballad Poetry, indie folk branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, folk steel modern canonical 36 37 string set spruce maple modern strummed open chord ringing overtones autoharp, low mid rich spectrum traditional teak sitar, English kirkman shudi canonical mid 18th century London delrin plastic plectra canonical modern stable replacement vallotti canonical late Baroque Italian well temperament prepared harpsichord. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 941,
-  "score": 272.758,
+  "recipe": "classic North American freak folk, ballad Poetry, indie folk branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, walnut mid tier bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, folk steel modern canonical 36 37 string set spruce maple modern strummed open chord ringing overtones autoharp, teak open jawari etawah gharana sitar canon long sustain buzzing overtones sitar, English kirkman shudi canonical mid 18th century London delrin plastic plectra canonical modern stable replacement vallotti canonical late Baroque Italian well temperament prepared harpsichord. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 988,
+  "score": 275.358,
   "config": {
     "traditions": [
       "freak_folk",
@@ -82,7 +82,7 @@
           "banjo_neck_wood": "banjo_walnut_neck",
           "banjo_strings": "banjo_fluorocarbon",
           "banjo_bridge": "banjo_compensated_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 27.365249999999996,
@@ -138,8 +138,8 @@
           "sitar_frets": 0.39,
           "sitar_pluck": 0,
           "sitar_main_strings": 0.23124999999999998,
-          "sitar_jawari_style": 0.195,
-          "sitar_gharana": 0.014999999999999998
+          "sitar_jawari_style": 1.4949999999999999,
+          "sitar_gharana": 1.315
         }
       },
       {

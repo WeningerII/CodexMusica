@@ -3,8 +3,8 @@
   "name": "Yemenite Torah cantillation",
   "family": "global",
   "lineage": "Yemenite Jewish liturgical Torah-cantillation tradition that preserves what scholars consider one of the most archaic surviving teamim (Masoretic cantillation-sign) reading traditions, descended from the Yemenite Jewish community continuously resident in Yemen from at least the 5th century until the Operation Magic Carpet mass-emigration to Israel 1949-50; characterized by Saadia Gaon-derived liturgical Hebrew pronunciation and microtonal modal vocabulary distinct from Ashkenazi or Sephardi traditions",
-  "recipe": "classic late-1940s yemenite torah cantillation, ritual Devotional, Jewish branch, med east poetic ballad poetry kurdish dengbêj romanian doina. extended whistle, declaimed, nervy, ornamental. call ritual shofar. yerevan armenian komitas studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 374,
+  "recipe": "classic late-1940s yemenite torah cantillation, ritual Devotional, Jewish branch, med east poetic ballad poetry kurdish dengbêj romanian doina. extended whistle, declaimed, nervy, ornamental. call ritual shofar. yerevan armenian conservatoire studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 380,
   "score": 80.733,
   "config": {
     "traditions": [
@@ -66,7 +66,7 @@
         }
       }
     ],
-    "room": "yerevan_armenian_komitas_studio",
+    "room": "yerevan_armenian_conservatoire_studio",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -84,7 +84,7 @@
   },
   "source": {
     "tuning": "just_intonation",
-    "room": "yerevan_armenian_komitas_studio",
+    "room": "yerevan_armenian_conservatoire_studio",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "opera_voice",

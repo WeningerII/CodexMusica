@@ -372,7 +372,7 @@
       "variants": [
         {
           "id": "three_finger",
-          "name": "Three-finger / Scruggs",
+          "name": "Three-finger bluegrass roll",
           "descriptors": [
             "rolling",
             "bluegrass"
@@ -551,7 +551,7 @@
         {
           "id": "banjo_medium_bluegrass",
           "default": true,
-          "name": "Medium steel (bluegrass canon, GHS PF135 / J.D. Crowe)",
+          "name": "Medium steel (bluegrass canon, GHS PF135)",
           "descriptors": [
             "medium-steel",
             "bluegrass-canon",
@@ -690,11 +690,11 @@
       "name": "Setup period / canon",
       "variants": [
         {
-          "id": "banjo_scruggs_bluegrass_setup",
+          "id": "banjo_bluegrass_flathead_setup",
           "default": true,
-          "name": "Scruggs / Stelling bluegrass (Mastertone flathead, picks, high bridge)",
+          "name": "Stelling bluegrass flathead (Mastertone flathead, picks, high bridge)",
           "descriptors": [
-            "scruggs-stelling",
+            "bluegrass-flathead-stelling",
             "bluegrass-setup",
             "mastertone-flathead",
             "picks-and-thumbpick"
@@ -966,7 +966,7 @@
       "variants": [
         {
           "id": "three_finger",
-          "name": "Three-finger / Scruggs",
+          "name": "Three-finger bluegrass roll",
           "descriptors": [
             "rolling",
             "bluegrass"
@@ -1145,7 +1145,7 @@
         {
           "id": "banjo_medium_bluegrass",
           "default": true,
-          "name": "Medium steel (bluegrass canon, GHS PF135 / J.D. Crowe)",
+          "name": "Medium steel (bluegrass canon, GHS PF135)",
           "descriptors": [
             "medium-steel",
             "bluegrass-canon",
@@ -1284,11 +1284,11 @@
       "name": "Setup period / canon",
       "variants": [
         {
-          "id": "banjo_scruggs_bluegrass_setup",
+          "id": "banjo_bluegrass_flathead_setup",
           "default": true,
-          "name": "Scruggs / Stelling bluegrass (Mastertone flathead, picks, high bridge)",
+          "name": "Stelling bluegrass flathead (Mastertone flathead, picks, high bridge)",
           "descriptors": [
-            "scruggs-stelling",
+            "bluegrass-flathead-stelling",
             "bluegrass-setup",
             "mastertone-flathead",
             "picks-and-thumbpick"

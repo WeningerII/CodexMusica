@@ -284,11 +284,11 @@
       "name": "Lineage / tradition",
       "variants": [
         {
-          "id": "kora_diabate_lineage",
+          "id": "kora_mande_jeli_lineage",
           "default": true,
-          "name": "Diabaté lineage (Sidiki / Toumani / Sona, Mali canonical)",
+          "name": "Mande jeli kora lineage (Mali canonical)",
           "descriptors": [
-            "diabate-lineage",
+            "mande-jeli-kora-lineage",
             "mali-canonical"
           ],
           "match_tokens": [
@@ -322,10 +322,10 @@
         },
         {
           "id": "kora_modern_concert",
-          "name": "Modern concert (Ballaké Sissoko fusion)",
+          "name": "Modern concert (kora fusion)",
           "descriptors": [
             "modern-concert",
-            "ballake-sissoko-fusion"
+            "kora-fusion"
           ],
           "match_tokens": [
             "plucked",
@@ -540,11 +540,11 @@
       "name": "Lineage / tradition",
       "variants": [
         {
-          "id": "kora_diabate_lineage",
+          "id": "kora_mande_jeli_lineage",
           "default": true,
-          "name": "Diabaté lineage (Sidiki / Toumani / Sona, Mali canonical)",
+          "name": "Mande jeli kora lineage (Mali canonical)",
           "descriptors": [
-            "diabate-lineage",
+            "mande-jeli-kora-lineage",
             "mali-canonical"
           ],
           "match_tokens": [
@@ -578,10 +578,10 @@
         },
         {
           "id": "kora_modern_concert",
-          "name": "Modern concert (Ballaké Sissoko fusion)",
+          "name": "Modern concert (kora fusion)",
           "descriptors": [
             "modern-concert",
-            "ballake-sissoko-fusion"
+            "kora-fusion"
           ],
           "match_tokens": [
             "plucked",

@@ -176,10 +176,10 @@
           ]
         },
         {
-          "id": "theremin_clara_rockmore",
-          "name": "Clara Rockmore concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)",
+          "id": "theremin_concert",
+          "name": "Theremin concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)",
           "descriptors": [
-            "clara-rockmore-concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso"
+            "theremin-concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso"
           ],
           "match_tokens": [
             "electronic",
@@ -330,10 +330,10 @@
           ]
         },
         {
-          "id": "theremin_clara_rockmore",
-          "name": "Clara Rockmore concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)",
+          "id": "theremin_concert",
+          "name": "Theremin concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)",
           "descriptors": [
-            "clara-rockmore-concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso"
+            "theremin-concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso"
           ],
           "match_tokens": [
             "electronic",

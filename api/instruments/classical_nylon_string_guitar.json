@@ -76,8 +76,8 @@
           ]
         },
         {
-          "id": "acoustic_travis_picking",
-          "name": "Travis picking",
+          "id": "acoustic_alternating_bass",
+          "name": "Alternating-bass fingerstyle",
           "applies_to": [
             "acoustic_guitar_dread",
             "acoustic_guitar_om",
@@ -85,7 +85,7 @@
             "classical_nylon_string_guitar"
           ],
           "descriptors": [
-            "travis-picked",
+            "alternating-thumb-bass-picked",
             "alternating-thumb"
           ],
           "match_tokens": [

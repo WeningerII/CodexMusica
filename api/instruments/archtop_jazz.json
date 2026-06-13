@@ -392,10 +392,10 @@
           ]
         },
         {
-          "id": "archtop_charlie_christian_blade",
-          "name": "Charlie Christian blade (ES-150 canonical)",
+          "id": "archtop_vintage_blade",
+          "name": "vintage blade (ES-150 canonical)",
           "descriptors": [
-            "charlie-christian-blade",
+            "vintage-blade-pickup",
             "es-150",
             "pre-war-jazz-canon"
           ],
@@ -521,7 +521,7 @@
         },
         {
           "id": "pure_nickel_jazz_round",
-          "name": "Pure nickel roundwound (Tal Farlow / vintage jazz)",
+          "name": "Pure nickel roundwound (vintage jazz)",
           "descriptors": [
             "pure-nickel",
             "roundwound",
@@ -704,10 +704,10 @@
           ]
         },
         {
-          "id": "archtop_charlie_christian_blade",
-          "name": "Charlie Christian blade (ES-150 canonical)",
+          "id": "archtop_vintage_blade",
+          "name": "vintage blade (ES-150 canonical)",
           "descriptors": [
-            "charlie-christian-blade",
+            "vintage-blade-pickup",
             "es-150",
             "pre-war-jazz-canon"
           ],
@@ -833,7 +833,7 @@
         },
         {
           "id": "pure_nickel_jazz_round",
-          "name": "Pure nickel roundwound (Tal Farlow / vintage jazz)",
+          "name": "Pure nickel roundwound (vintage jazz)",
           "descriptors": [
             "pure-nickel",
             "roundwound",

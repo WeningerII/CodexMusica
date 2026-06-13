@@ -3,9 +3,9 @@
   "name": "Armenian liturgical and folk",
   "family": "global",
   "lineage": "Armenian Apostolic Christian liturgical tradition (the sharakan hymn repertoire dating to the 5th-century Mesrop Mashtots alphabet creation) and Armenian folk-and-ashugh-poetry-song tradition — codified by Komitas (1869-1935, the founding ethnomusicologist of Armenian musical scholarship) and preserved through the Yerevan Komitas State Conservatory; signature instrument the duduk, modern voices Djivan Gasparyan and Tigran Hamasyan",
-  "recipe": "classic North American early-1860s armenian liturgical and folk, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. thick, low dynamic level, chest resonance low mid, maqam neutral step. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk, traditional kanun kanun, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. yerevan armenian komitas studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 679,
-  "score": 284.562,
+  "recipe": "classic North American early-1860s armenian liturgical and folk, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. thick, low dynamic level, chest resonance low mid, maqam neutral step. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley duduk canonical 20th century armenian continuous-airflow legato duduk, traditional kanun kanun, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. yerevan armenian conservatoire studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 674,
+  "score": 283.862,
   "config": {
     "traditions": [
       "armenian_traditional",
@@ -60,7 +60,7 @@
           "duduk_pitch": "duduk_a",
           "duduk_body_wood": "duduk_apricot_canonical",
           "duduk_reed": "duduk_arundo_canonical",
-          "duduk_lineage": "duduk_djivan_gasparyan"
+          "duduk_lineage": "duduk_armenian"
         },
         "scores": {
           "wind_articulation": 11.638000000000002,
@@ -68,7 +68,7 @@
           "duduk_pitch": 0.0765,
           "duduk_body_wood": 6.359499999999999,
           "duduk_reed": 6.059499999999999,
-          "duduk_lineage": 13.558499999999999
+          "duduk_lineage": 12.8585
         }
       },
       {
@@ -106,7 +106,7 @@
         }
       }
     ],
-    "room": "yerevan_armenian_komitas_studio",
+    "room": "yerevan_armenian_conservatoire_studio",
     "archetype": "arch_late60s_us_multitrack",
     "inline_chain": {
       "mic": "condenser_ldc",
@@ -124,7 +124,7 @@
   },
   "source": {
     "tuning": "just_intonation",
-    "room": "yerevan_armenian_komitas_studio",
+    "room": "yerevan_armenian_conservatoire_studio",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "opera_voice",
@@ -149,7 +149,7 @@
       "duduk_pitch": "duduk_a",
       "duduk_body_wood": "duduk_apricot_canonical",
       "duduk_reed": "duduk_arundo_canonical",
-      "duduk_lineage": "duduk_djivan_gasparyan"
+      "duduk_lineage": "duduk_armenian"
     },
     "chain_mic": "condenser_ldc",
     "chain_pre": "pre_tube_german_v72",

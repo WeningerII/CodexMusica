@@ -432,10 +432,10 @@
         },
         {
           "id": "saz_modern_concert",
-          "name": "Modern concert (Arif Sağ / Erkan Oğur lineage)",
+          "name": "Modern concert (baglama lineage)",
           "descriptors": [
             "modern-concert",
-            "arif-sag-erkan-ogur"
+            "modern-baglama-concert"
           ],
           "match_tokens": [
             "plucked",
@@ -646,10 +646,10 @@
         },
         {
           "id": "saz_modern_concert",
-          "name": "Modern concert (Arif Sağ / Erkan Oğur lineage)",
+          "name": "Modern concert (baglama lineage)",
           "descriptors": [
             "modern-concert",
-            "arif-sag-erkan-ogur"
+            "modern-baglama-concert"
           ],
           "match_tokens": [
             "plucked",

@@ -3,9 +3,9 @@
   "name": "Musique concrète",
   "family": "global",
   "lineage": "Post-WWII Paris-school tape-collage composition tradition founded by Pierre Schaeffer at RTF in 1948 — Schaeffer’s Études aux chemins de fer (1948) the genre-founding work, joined by Pierre Henry (Symphonie pour un homme seul 1950), Luc Ferrari, and the GRM (Groupe de Recherches Musicales) studio that institutionalized the practice through the 1950s-1970s",
-  "recipe": "classic mid-1950s musique concrète, experimental Elec, musique concrete branch, western modern art music minimalist fluxus intermedia composition. field textural sampler, modular granular synth, modular eurorack modular, modern art rock modern greenwood revival radiohead post 2000 ennio morricone film ondes martenot, moog music etherwave canonical modern robert moog reissue 1996 present theremin. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 545,
-  "score": 85.345,
+  "recipe": "classic mid-1950s musique concrète, experimental Elec, musique concrete branch, western modern art music minimalist fluxus intermedia composition. field textural sampler, modular granular synth, modular eurorack modular, modern art rock modern ondes revival post 2000 and film ondes martenot, moog music etherwave canonical modern robert moog reissue 1996 present theremin. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 519,
+  "score": 92.755,
   "config": {
     "traditions": [
       "musique_concrete",
@@ -62,13 +62,13 @@
           "electronic_technique": "electronic_pad_drone",
           "ondes_martenot_model": "ondes_martenot_mark_vi",
           "ondes_martenot_context": "ondes_martenot_rock",
-          "ondes_martenot_lineage": "ondes_martenot_radiohead_modern"
+          "ondes_martenot_lineage": "ondes_martenot_modern"
         },
         "scores": {
           "electronic_technique": 1.4749999999999999,
           "ondes_martenot_model": 2.34,
           "ondes_martenot_context": 10.399999999999999,
-          "ondes_martenot_lineage": 5.2
+          "ondes_martenot_lineage": 12.61
         }
       },
       {

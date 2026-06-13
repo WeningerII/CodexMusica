@@ -226,7 +226,7 @@
         {
           "id": "flugelhorn_couesnon_vintage",
           "default": true,
-          "name": "Couesnon vintage (canonical pre-1970 — Chuck Mangione / Clark Terry canon)",
+          "name": "Couesnon vintage (canonical pre-1970 flugelhorn)",
           "descriptors": [
             "couesnon-vintage-canonical-pre-1970"
           ],
@@ -363,7 +363,7 @@
         {
           "id": "flugelhorn_couesnon_vintage",
           "default": true,
-          "name": "Couesnon vintage (canonical pre-1970 — Chuck Mangione / Clark Terry canon)",
+          "name": "Couesnon vintage (canonical pre-1970 flugelhorn)",
           "descriptors": [
             "couesnon-vintage-canonical-pre-1970"
           ],

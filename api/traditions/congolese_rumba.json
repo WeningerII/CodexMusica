@@ -3,8 +3,8 @@
   "name": "Congolese rumba",
   "family": "global",
   "lineage": "1940s-1960s Congolese-Kinshasa-and-Brazzaville Cuban-rumba-influenced urban dance music — codified through Joseph Kabasele (Grand Kallé) and African Jazz (Indépendance Cha-Cha 1960, the de facto anthem of Congolese independence) and Luambo Makiadi (Franco) and OK Jazz; built on the GV series Cuban son 78 records that came to the Congo through Belgian colonial trade in the 1930s-40s, then reinterpreted through Congolese guitar-and-voice ensembles into a distinct genre",
-  "recipe": "classic West African mid-1940s congolese rumba, functional Song, congolese rumba branch, central east south African groove percussion, tropical song functional song bachata soukous. thick, full chest belt, chest resonance low mid, rhythmic. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, fiberskyn synthetic calf bronze bell bronze machine hammered drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, maracas, weltmeister east German mid tier vintage volk accordion, claves. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 814,
+  "recipe": "classic West African mid-1940s congolese rumba, functional Song, congolese rumba branch, central east south African groove percussion, tropical song functional song bachata soukous. thick, full chest belt, chest resonance low mid, rhythmic. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, fiberskyn synthetic calf bronze bell bronze machine hammered drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, maracas, weltmeister east German mid tier vintage volk accordion, claves. kinshasa leopoldville defining 1953-present mid tier kinshasa congolese studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 811,
   "score": 340.855,
   "config": {
     "traditions": [
@@ -194,7 +194,7 @@
         }
       }
     ],
-    "room": "kinshasa_african_jazz_studio",
+    "room": "kinshasa_congolese_studio",
     "archetype": "arch_emi_lagos_african_70s",
     "inline_chain": {
       "mic": "ribbon_passive",
@@ -212,7 +212,7 @@
   },
   "source": {
     "tuning": "soukous_rumba_seben_4_4",
-    "room": "kinshasa_african_jazz_studio",
+    "room": "kinshasa_congolese_studio",
     "parts": {
       "body_wood": "alder",
       "pickup_magnet": "alnico_5",

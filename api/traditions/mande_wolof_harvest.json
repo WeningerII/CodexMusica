@@ -5,7 +5,7 @@
   "lineage": "Mande-and-Wolof West-African harvest-and-field song tradition continuous from premodern Mande-and-Wolof agricultural village-labor practice through colonial-period continuous performance into modern West-African-and-West-African-diaspora practice across Mali, Senegal, Guinea, Gambia, Burkina Faso; foundational repertoire integrates rice-planting and millet-harvesting and rice-pounding songs accompanying specific agricultural-tasks",
   "recipe": "classic modern mande-wolof west-african harvest-and-field song, field Work, sub saharan African branch, American south field work, sub saharan African praise song, African diasporic wedding mande jeli / griot praise-song shona mbira praise music. thick, declaimed, tasteful, unrestrained. calabash nylon fishing line cowhide mande traditional kora, balafon. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 523,
-  "score": 312.485,
+  "score": 323.546,
   "config": {
     "traditions": [
       "mande_wolof_harvest",
@@ -61,7 +61,7 @@
           "kora_strings_mat": "kora_fishing_line",
           "kora_top_skin": "kora_cowhide_canonical",
           "kora_neck_wood": "kora_hardwood_local",
-          "kora_lineage": "kora_suso_lineage"
+          "kora_lineage": "kora_mande_jeli_lineage"
         },
         "scores": {
           "plucked_traditional_technique": 35.48199999999999,
@@ -70,7 +70,7 @@
           "kora_strings_mat": 3.38,
           "kora_top_skin": 9.993249999999998,
           "kora_neck_wood": 8.437999999999999,
-          "kora_lineage": 6.11
+          "kora_lineage": 17.171249999999997
         }
       },
       {
@@ -125,7 +125,7 @@
       "kora_strings_mat": "kora_fishing_line",
       "kora_top_skin": "kora_cowhide_canonical",
       "kora_neck_wood": "kora_hardwood_local",
-      "kora_lineage": "kora_diabate_lineage",
+      "kora_lineage": "kora_mande_jeli_lineage",
       "balafon_tuning": "balafon_mandinka",
       "balafon_resonator": "balafon_gourd"
     },

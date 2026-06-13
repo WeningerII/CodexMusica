@@ -3,9 +3,9 @@
   "name": "Gothic Americana (Southern Gothic literary tradition)",
   "family": "vernacular",
   "lineage": "Broader Southern Gothic literary tradition (Faulkner, Flannery OConnor, Cormac McCarthy) rendered in folk-country-blues instrumentation with Pentecostal / Old Testament / frontier-violence thematic vocabulary — encompasses the Denver gothic-country canon (Sixteen Horsepower, Wovenhand, Slim Cessna Auto Club, the Reverend Glasseye) plus broader practitioners like Nick Cave (Murder Ballads, The Boatmans Call), late-period Tom Waits (Bone Machine onward), R.L. Burnside, the Handsome Family, the Bad Livers — distinct from gothic_country in scope (encompasses non-country instrumentation) and from folk_noir in literary lineage (Southern Gothic vs Victorian/Pre-Raphaelite)",
-  "recipe": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry folk noir texas country-folk storyteller. thick, incomplete closure resting, melodic, narrative. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, plain gut sheep gut double stops fiddle, folk autoharp, open d tuning phosphor bronze pre war martin travis picked dreadnought acoustic wood body spider bridge spruce resonator national canon medium heavy resonator 28 625 inch bass vi canon p90 Gretsch canon baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 793,
-  "score": 386.16,
+  "recipe": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry folk noir texas country-folk storyteller. thick, incomplete closure resting, melodic, narrative. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, plain gut sheep gut double stops fiddle, folk autoharp, open d tuning phosphor bronze pre war martin alternating thumb bass picked alternating thumb dreadnought acoustic wood body spider bridge spruce resonator national canon medium heavy resonator 28 625 inch bass vi canon p90 Gretsch canon baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 827,
+  "score": 386.145,
   "config": {
     "traditions": [
       "gothic_americana",
@@ -65,7 +65,7 @@
           "banjo_neck_wood": "banjo_mahogany_neck",
           "banjo_strings": "banjo_gut_minstrel",
           "banjo_bridge": "banjo_maple_ebony_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 20.56,
@@ -118,14 +118,14 @@
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_travis_picking",
+          "acoustic_technique": "acoustic_alternating_bass",
           "string_tuning": "open_d",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 39.934999999999995,
+          "acoustic_technique": 39.92,
           "string_tuning": 3.2050000000000005,
           "top_wood": 0.32999999999999996,
           "back_sides": 0.38999999999999996,

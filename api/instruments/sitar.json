@@ -455,10 +455,10 @@
         {
           "id": "sitar_jawari_open",
           "default": true,
-          "name": "Open jawari (Vilayat Khan canon — long sustain, buzzing overtones)",
+          "name": "Open jawari (Etawah gharana canon — long sustain, buzzing overtones)",
           "descriptors": [
             "open-jawari",
-            "vilayat-khan-canon",
+            "etawah-gharana-sitar-canon",
             "long-sustain",
             "buzzing-overtones"
           ],
@@ -469,10 +469,10 @@
         },
         {
           "id": "sitar_jawari_closed",
-          "name": "Closed jawari (Ravi Shankar canon — articulate, less buzz)",
+          "name": "Closed jawari (Maihar gharana canon — articulate, less buzz)",
           "descriptors": [
             "closed-jawari",
-            "ravi-shankar-canon",
+            "maihar-gharana-sitar-canon",
             "articulate-less-buzz"
           ],
           "match_tokens": [
@@ -514,11 +514,11 @@
         {
           "id": "sitar_maihar_gharana",
           "default": true,
-          "name": "Maihar gharana (Allauddin Khan / Ravi Shankar / Nikhil Banerjee)",
+          "name": "Maihar gharana (sitar)",
           "descriptors": [
             "maihar-gharana",
-            "allauddin-khan-lineage",
-            "ravi-shankar-lineage"
+            "maihar-gharana-lineage",
+            "maihar-gharana-sitar-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -528,11 +528,11 @@
         },
         {
           "id": "sitar_imdadkhani_gharana",
-          "name": "Imdadkhani / Etawah gharana (Vilayat Khan)",
+          "name": "Imdadkhani / Etawah gharana (sitar)",
           "descriptors": [
             "imdadkhani-gharana",
             "etawah-gharana",
-            "vilayat-khan-lineage",
+            "etawah-gharana-sitar-lineage",
             "gayaki-ang"
           ],
           "match_tokens": [
@@ -555,7 +555,7 @@
         },
         {
           "id": "sitar_rampur_gharana",
-          "name": "Rampur / Sahaswan gharana (Ustad Rashid Khan lineage)",
+          "name": "Rampur / Sahaswan gharana lineage",
           "descriptors": [
             "rampur-sahaswan-gharana"
           ],
@@ -871,10 +871,10 @@
         {
           "id": "sitar_jawari_open",
           "default": true,
-          "name": "Open jawari (Vilayat Khan canon — long sustain, buzzing overtones)",
+          "name": "Open jawari (Etawah gharana canon — long sustain, buzzing overtones)",
           "descriptors": [
             "open-jawari",
-            "vilayat-khan-canon",
+            "etawah-gharana-sitar-canon",
             "long-sustain",
             "buzzing-overtones"
           ],
@@ -885,10 +885,10 @@
         },
         {
           "id": "sitar_jawari_closed",
-          "name": "Closed jawari (Ravi Shankar canon — articulate, less buzz)",
+          "name": "Closed jawari (Maihar gharana canon — articulate, less buzz)",
           "descriptors": [
             "closed-jawari",
-            "ravi-shankar-canon",
+            "maihar-gharana-sitar-canon",
             "articulate-less-buzz"
           ],
           "match_tokens": [
@@ -930,11 +930,11 @@
         {
           "id": "sitar_maihar_gharana",
           "default": true,
-          "name": "Maihar gharana (Allauddin Khan / Ravi Shankar / Nikhil Banerjee)",
+          "name": "Maihar gharana (sitar)",
           "descriptors": [
             "maihar-gharana",
-            "allauddin-khan-lineage",
-            "ravi-shankar-lineage"
+            "maihar-gharana-lineage",
+            "maihar-gharana-sitar-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -944,11 +944,11 @@
         },
         {
           "id": "sitar_imdadkhani_gharana",
-          "name": "Imdadkhani / Etawah gharana (Vilayat Khan)",
+          "name": "Imdadkhani / Etawah gharana (sitar)",
           "descriptors": [
             "imdadkhani-gharana",
             "etawah-gharana",
-            "vilayat-khan-lineage",
+            "etawah-gharana-sitar-lineage",
             "gayaki-ang"
           ],
           "match_tokens": [
@@ -971,7 +971,7 @@
         },
         {
           "id": "sitar_rampur_gharana",
-          "name": "Rampur / Sahaswan gharana (Ustad Rashid Khan lineage)",
+          "name": "Rampur / Sahaswan gharana lineage",
           "descriptors": [
             "rampur-sahaswan-gharana"
           ],

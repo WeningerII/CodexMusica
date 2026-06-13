@@ -500,11 +500,11 @@
           ]
         },
         {
-          "id": "semi_es355_bb_king",
-          "name": "Gibson ES-355 (Lucille — BB King canon)",
+          "id": "semi_es355_blues",
+          "name": "Gibson ES-355 (semi-hollow blues canon)",
           "descriptors": [
             "es-355",
-            "lucille-canon",
+            "semi-hollow-blues-canon",
             "varitone-switch"
           ],
           "match_tokens": [
@@ -774,11 +774,11 @@
           ]
         },
         {
-          "id": "semi_es355_bb_king",
-          "name": "Gibson ES-355 (Lucille — BB King canon)",
+          "id": "semi_es355_blues",
+          "name": "Gibson ES-355 (semi-hollow blues canon)",
           "descriptors": [
             "es-355",
-            "lucille-canon",
+            "semi-hollow-blues-canon",
             "varitone-switch"
           ],
           "match_tokens": [

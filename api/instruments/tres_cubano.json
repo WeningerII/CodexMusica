@@ -254,10 +254,10 @@
         {
           "id": "tres_cubano_steel_modern",
           "default": true,
-          "name": "Steel (modern canonical, Arsenio Rodríguez canon)",
+          "name": "Steel (modern canonical, son-montuno canon)",
           "descriptors": [
             "steel-modern",
-            "arsenio-rodriguez-canon"
+            "son-montuno-conjunto-canon"
           ],
           "match_tokens": [
             "plucked",
@@ -404,10 +404,10 @@
         {
           "id": "tres_cubano_steel_modern",
           "default": true,
-          "name": "Steel (modern canonical, Arsenio Rodríguez canon)",
+          "name": "Steel (modern canonical, son-montuno canon)",
           "descriptors": [
             "steel-modern",
-            "arsenio-rodriguez-canon"
+            "son-montuno-conjunto-canon"
           ],
           "match_tokens": [
             "plucked",

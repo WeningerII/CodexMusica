@@ -294,10 +294,10 @@
           ]
         },
         {
-          "id": "uilleann_rowsome",
-          "name": "Rowsome Dublin tradition (Leo Rowsome / Liam O'Flynn lineage)",
+          "id": "uilleann_dublin",
+          "name": "Dublin uilleann tradition (concert lineage)",
           "descriptors": [
-            "rowsome-dublin-tradition"
+            "dublin-uilleann-tradition"
           ],
           "match_tokens": [
             "wind-driven",
@@ -509,10 +509,10 @@
           ]
         },
         {
-          "id": "uilleann_rowsome",
-          "name": "Rowsome Dublin tradition (Leo Rowsome / Liam O'Flynn lineage)",
+          "id": "uilleann_dublin",
+          "name": "Dublin uilleann tradition (concert lineage)",
           "descriptors": [
-            "rowsome-dublin-tradition"
+            "dublin-uilleann-tradition"
           ],
           "match_tokens": [
             "wind-driven",

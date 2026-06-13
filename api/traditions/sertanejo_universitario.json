@@ -3,9 +3,9 @@
   "name": "Sertanejo universitário (Brazilian pop-country)",
   "family": "country",
   "lineage": "Brazilian sertanejo subgenre emerging in late-2000s as a urban-modern revival of the older sertanejo country-music tradition, targeted at younger university-student audiences. Characterized by pop-country-influenced harmonic vocabulary, slower mid-tempo love-ballad register, and twin-male-vocal-harmony presentation. Goiânia, Brasília, and São Paulo studios anchored the canonical sound. Michel Teló's 2011 \"Ai Se Eu Te Pego\" became the international-crossover hit.",
-  "recipe": "classic 2007-2009 sertanejo universitário, functional Song, Brazilian song branch, country functional song country rock western swing. thick, register break ornamental, melodic, equal tempered. cedar flatwound thomastik travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, steel pre muffled edge muffled hot rolled annealed drum kit, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 657,
-  "score": 567.885,
+  "recipe": "classic 2007-2009 sertanejo universitário, functional Song, Brazilian song branch, country functional song country rock western swing. thick, register break ornamental, melodic, equal tempered. cedar flatwound thomastik alternating thumb bass picked alternating thumb dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, steel pre muffled edge muffled hot rolled annealed drum kit, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 691,
+  "score": 568.65,
   "config": {
     "traditions": [
       "sertanejo_universitario",
@@ -55,14 +55,14 @@
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_travis_picking",
+          "acoustic_technique": "acoustic_alternating_bass",
           "string_tuning": "drop_d",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
           "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": 33.5,
+          "acoustic_technique": 34.265,
           "string_tuning": 1.85,
           "top_wood": 1.69,
           "back_sides": 0.045,

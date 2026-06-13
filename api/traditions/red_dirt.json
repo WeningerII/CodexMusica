@@ -3,9 +3,9 @@
   "name": "Red Dirt",
   "family": "country",
   "lineage": "Oklahoma-Texas roots-country movement that emerged in 1970s-80s Stillwater Oklahoma as a regional alternative to the Nashville Music Row commercial-country machine — codified through the figures Bob Childers (the Red Dirt poet who became the genres elder statesman), the Red Dirt Rangers, Cross Canadian Ragweed, Stoney LaRue, Jason Boland and the Stragglers, Turnpike Troubadours, and the broader 21st-century Texas Country / Red Dirt circuit (Robert Earl Keen, Ray Wylie Hubbard, Hayes Carll) that maintains a parallel infrastructure to Nashville commercial country",
-  "recipe": "classic mid-1970s red dirt, functional Song, neo trad branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, incomplete closure resting, melodic, narrative. cedar phosphor bronze bronze travis picked parlor acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 579,
-  "score": 275.55,
+  "recipe": "classic mid-1970s red dirt, functional Song, neo trad branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, incomplete closure resting, melodic, narrative. cedar phosphor bronze bronze alternating thumb bass picked alternating thumb parlor acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 613,
+  "score": 275.835,
   "config": {
     "traditions": [
       "red_dirt",
@@ -55,14 +55,14 @@
       {
         "id": "acoustic_guitar_parlor",
         "slots": {
-          "acoustic_technique": "acoustic_travis_picking",
+          "acoustic_technique": "acoustic_alternating_bass",
           "string_tuning": "standard_tuning",
           "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "mahogany_bs_p",
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 39.559999999999995,
+          "acoustic_technique": 39.845,
           "string_tuning": 0,
           "top_wood_parlor": 1.48,
           "back_sides_parlor": 0.045,

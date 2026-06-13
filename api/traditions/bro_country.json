@@ -3,8 +3,8 @@
   "name": "Bro-country",
   "family": "global",
   "lineage": "2010s mainstream country-pop-rap hybrid codified through Florida Georgia Line \"Cruise\" (2012), Luke Bryan, Jason Aldean, and the Nashville radio-format that adopted hip-hop-derived production cues — characterized by 808-bass-and-drum-machine programming, party-celebrating lyrical subject matter, and pop-rock guitar work over country-vocal lead",
-  "recipe": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 682,
+  "recipe": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, bluegrass flathead stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 693,
   "score": 368.056,
   "config": {
     "traditions": [
@@ -150,7 +150,7 @@
           "banjo_neck_wood": "banjo_walnut_neck",
           "banjo_strings": "banjo_fluorocarbon",
           "banjo_bridge": "banjo_compensated_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 10.464999999999996,

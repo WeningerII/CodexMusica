@@ -3,8 +3,8 @@
   "name": "Piedmont fingerpicking blues",
   "family": "global",
   "lineage": "Eastern-seaboard fingerpicked country blues tradition that flourished in the Piedmont region (Virginia, the Carolinas, Georgia) from the early 20th century — distinguished from the Mississippi Delta blues tradition (which is harder-edged and rhythmically heavier) by its lighter ragtime-derived right-hand fingerpicking, brighter harmonic vocabulary, and parlor-music influence; codified through Blind Boy Fuller (the Piedmont voice, recorded 1935-40), Blind Blake, the Reverend Gary Davis, Brownie McGhee, Sonny Terry, Etta Baker, Elizabeth Cotten (Freight Train, Shake Sugaree)",
-  "recipe": "classic mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song piedmont blues. thick, worn fold, melodic, narrative. open g tuning fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 485,
+  "recipe": "classic mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song piedmont blues. thick, worn fold, melodic, narrative. open g tuning fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor field recording. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 487,
   "score": 318.875,
   "config": {
     "traditions": [
@@ -109,7 +109,7 @@
         }
       }
     ],
-    "room": "us_dustbowl_outdoor_woody_guthrie",
+    "room": "us_dustbowl_outdoor_field_recording",
     "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -127,7 +127,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "us_dustbowl_outdoor_woody_guthrie",
+    "room": "us_dustbowl_outdoor_field_recording",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",

@@ -275,11 +275,11 @@
       "name": "Performance lineage",
       "variants": [
         {
-          "id": "duduk_djivan_gasparyan",
+          "id": "duduk_armenian",
           "default": true,
-          "name": "Djivan Gasparyan lineage (canonical 20th-century Armenian)",
+          "name": "Duduk lineage (canonical 20th-century Armenian)",
           "descriptors": [
-            "djivan-gasparyan-canonical-20th-century-armenian"
+            "duduk-canonical-20th-century-armenian"
           ],
           "match_tokens": [
             "wind-driven",
@@ -433,11 +433,11 @@
       "name": "Performance lineage",
       "variants": [
         {
-          "id": "duduk_djivan_gasparyan",
+          "id": "duduk_armenian",
           "default": true,
-          "name": "Djivan Gasparyan lineage (canonical 20th-century Armenian)",
+          "name": "Duduk lineage (canonical 20th-century Armenian)",
           "descriptors": [
-            "djivan-gasparyan-canonical-20th-century-armenian"
+            "duduk-canonical-20th-century-armenian"
           ],
           "match_tokens": [
             "wind-driven",

@@ -141,12 +141,12 @@
         {
           "id": "kamancheh_dastgah",
           "default": true,
-          "name": "Persian dastgāh (Kayhan Kalhor canon)",
+          "name": "Persian dastgāh (kamancheh concert canon)",
           "descriptors": [
             "radif-suited",
             "vocal-imitating",
             "classical",
-            "kayhan-kalhor-canon"
+            "kamancheh-concert-canon"
           ],
           "match_tokens": [
             "bowed",
@@ -267,12 +267,12 @@
         {
           "id": "kamancheh_dastgah",
           "default": true,
-          "name": "Persian dastgāh (Kayhan Kalhor canon)",
+          "name": "Persian dastgāh (kamancheh concert canon)",
           "descriptors": [
             "radif-suited",
             "vocal-imitating",
             "classical",
-            "kayhan-kalhor-canon"
+            "kamancheh-concert-canon"
           ],
           "match_tokens": [
             "bowed",

@@ -3,9 +3,9 @@
   "name": "Tillana (Carnatic concert-closer rhythmic showpiece)",
   "family": "global",
   "lineage": "Carnatic rhythmic showpiece genre using non-lexical jathi syllables (dhim, tarana, dhirana) alongside short Sanskrit or Telugu praise-text — the Carnatic counterpart of the Hindustani tarana, typically performed as the concert-closer of a kutcheri; composers Swati Tirunal Rama Varma (Maharaja of Travancore, 1813-1846), Pallavi Seshayyar, the modern composer Lalgudi Jayaraman",
-  "recipe": "classic North American early-1810s tillana, ritual Devotional, hindu branch, indian classical improv improv on frame tarana tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, steel projecting modern concert lalgudi lineage carnatic legato violin carnatic, silvery suited to female vocal tanpura. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 559,
-  "score": 203.236,
+  "recipe": "classic North American early-1810s tillana, ritual Devotional, hindu branch, indian classical improv improv on frame tarana tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic carnatic mridangam canonical lineage mridangam, steel projecting modern concert carnatic violin canonical lineage legato violin carnatic, silvery suited to female vocal tanpura. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 570,
+  "score": 201.546,
   "config": {
     "traditions": [
       "tillana",
@@ -83,7 +83,7 @@
           "violin_carnatic_tuning": 4.745,
           "violin_carnatic_posture": 4.09,
           "violin_carnatic_strings": 3.6399999999999997,
-          "violin_carnatic_lineage": 7.215
+          "violin_carnatic_lineage": 5.525
         }
       },
       {

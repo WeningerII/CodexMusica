@@ -3,8 +3,8 @@
   "name": "Dixieland (traditional/New Orleans-Chicago)",
   "family": "jazz",
   "lineage": "Earliest documented jazz style (c.1905-1928) emerging from New Orleans through cornet-led front-line (cornet/trumpet, clarinet, trombone) playing collective polyphonic improvisation over banjo/guitar-bass-drums rhythm section. Original Dixieland Jass Band's 1917 Livery Stable Blues was the first commercial jazz recording. Distinguished from later swing era by Dixieland's collective-improvisation (vs solo-feature) ensemble principle and 2/4 march-derived rhythmic pulse.",
-  "recipe": "classic mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, walnut warmer than maple scruggs stelling bluegrass setup mastertone flathead banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
-  "recipe_chars": 689,
+  "recipe": "classic mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, walnut warmer than maple bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 700,
   "score": 453.235,
   "config": {
     "traditions": [
@@ -17,7 +17,7 @@
         "slots": {
           "wind_articulation": "wind_dixieland_lead",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "trumpet_mouthpiece": "yamaha_jazz_mp",
           "brass_mute": "straight_mute",
           "trumpet_technique": "trumpet_dixieland_lead",
           "trumpet_bell_metal": "trumpet_yellow_brass",
@@ -126,7 +126,7 @@
           "banjo_neck_wood": "banjo_maple_neck",
           "banjo_strings": "banjo_gut_minstrel",
           "banjo_bridge": "banjo_maple_ebony_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 6.89,

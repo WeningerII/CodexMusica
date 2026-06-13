@@ -162,9 +162,9 @@
         },
         {
           "id": "janggu_samul_lineage",
-          "name": "Samul nori (Kim Duk-soo lineage, 1978 founding)",
+          "name": "Samul nori (1978 founding lineage)",
           "descriptors": [
-            "samul-nori-kim-duk-soo-1978-founding"
+            "samul-nori-1978-founding"
           ],
           "match_tokens": [
             "percussive-attack",
@@ -332,9 +332,9 @@
         },
         {
           "id": "janggu_samul_lineage",
-          "name": "Samul nori (Kim Duk-soo lineage, 1978 founding)",
+          "name": "Samul nori (1978 founding lineage)",
           "descriptors": [
-            "samul-nori-kim-duk-soo-1978-founding"
+            "samul-nori-1978-founding"
           ],
           "match_tokens": [
             "percussive-attack",

@@ -395,11 +395,11 @@
         {
           "id": "sarod_maihar_gharana",
           "default": true,
-          "name": "Maihar gharana (Ali Akbar Khan / Allauddin Khan)",
+          "name": "Maihar gharana (sarod)",
           "descriptors": [
             "maihar-gharana",
-            "ali-akbar-khan-lineage",
-            "allauddin-khan-lineage"
+            "maihar-gharana-sarod-lineage",
+            "maihar-gharana-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -408,10 +408,10 @@
         },
         {
           "id": "sarod_shahjahanpur_gharana",
-          "name": "Shahjahanpur / Bangash gharana (Amjad Ali Khan)",
+          "name": "Shahjahanpur / Bangash gharana (sarod)",
           "descriptors": [
             "shahjahanpur-bangash-gharana",
-            "amjad-ali-khan-lineage"
+            "bangash-gharana-sarod-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -676,11 +676,11 @@
         {
           "id": "sarod_maihar_gharana",
           "default": true,
-          "name": "Maihar gharana (Ali Akbar Khan / Allauddin Khan)",
+          "name": "Maihar gharana (sarod)",
           "descriptors": [
             "maihar-gharana",
-            "ali-akbar-khan-lineage",
-            "allauddin-khan-lineage"
+            "maihar-gharana-sarod-lineage",
+            "maihar-gharana-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -689,10 +689,10 @@
         },
         {
           "id": "sarod_shahjahanpur_gharana",
-          "name": "Shahjahanpur / Bangash gharana (Amjad Ali Khan)",
+          "name": "Shahjahanpur / Bangash gharana (sarod)",
           "descriptors": [
             "shahjahanpur-bangash-gharana",
-            "amjad-ali-khan-lineage"
+            "bangash-gharana-sarod-lineage"
           ],
           "match_tokens": [
             "plucked",

@@ -137,11 +137,11 @@
       "name": "Performance lineage",
       "variants": [
         {
-          "id": "taiko_oedo_sukeroku",
+          "id": "taiko_festival",
           "default": true,
-          "name": "Oedo Sukeroku Daiko (canonical kumi-daiko lineage, post-1951)",
+          "name": "Festival kumi-daiko (canonical lineage, post-1951)",
           "descriptors": [
-            "oedo-sukeroku-canonical-kumi-daiko"
+            "festival-kumi-daiko-canonical"
           ],
           "match_tokens": [
             "percussive-attack",
@@ -149,10 +149,10 @@
           ]
         },
         {
-          "id": "taiko_kodo_sado",
-          "name": "Kodo Sado Island lineage",
+          "id": "taiko_sado",
+          "name": "Sado Island kumi-daiko lineage",
           "descriptors": [
-            "kodo-sado-island-lineage"
+            "sado-island-kumi-daiko-lineage"
           ],
           "match_tokens": [
             "percussive-attack",
@@ -161,9 +161,9 @@
         },
         {
           "id": "taiko_san_francisco",
-          "name": "San Francisco Taiko Dojo (Tanaka 1968 diasporic lineage)",
+          "name": "San Francisco Taiko Dojo (1968 diasporic lineage)",
           "descriptors": [
-            "sf-taiko-dojo-tanaka-1968-diasporic"
+            "sf-taiko-dojo-1968-diasporic"
           ],
           "match_tokens": [
             "percussive-attack",
@@ -339,11 +339,11 @@
       "name": "Performance lineage",
       "variants": [
         {
-          "id": "taiko_oedo_sukeroku",
+          "id": "taiko_festival",
           "default": true,
-          "name": "Oedo Sukeroku Daiko (canonical kumi-daiko lineage, post-1951)",
+          "name": "Festival kumi-daiko (canonical lineage, post-1951)",
           "descriptors": [
-            "oedo-sukeroku-canonical-kumi-daiko"
+            "festival-kumi-daiko-canonical"
           ],
           "match_tokens": [
             "percussive-attack",
@@ -351,10 +351,10 @@
           ]
         },
         {
-          "id": "taiko_kodo_sado",
-          "name": "Kodo Sado Island lineage",
+          "id": "taiko_sado",
+          "name": "Sado Island kumi-daiko lineage",
           "descriptors": [
-            "kodo-sado-island-lineage"
+            "sado-island-kumi-daiko-lineage"
           ],
           "match_tokens": [
             "percussive-attack",
@@ -363,9 +363,9 @@
         },
         {
           "id": "taiko_san_francisco",
-          "name": "San Francisco Taiko Dojo (Tanaka 1968 diasporic lineage)",
+          "name": "San Francisco Taiko Dojo (1968 diasporic lineage)",
           "descriptors": [
-            "sf-taiko-dojo-tanaka-1968-diasporic"
+            "sf-taiko-dojo-1968-diasporic"
           ],
           "match_tokens": [
             "percussive-attack",

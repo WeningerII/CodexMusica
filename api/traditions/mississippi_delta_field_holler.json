@@ -3,8 +3,8 @@
   "name": "Mississippi Delta field holler",
   "family": "global",
   "lineage": "Mississippi-Delta-and-broader-American-South field-holler tradition continuous from antebellum-slavery-era African-American field-labor work-song practice through Reconstruction-era and Jim-Crow-era sharecropping-and-tenant-farming-labor continuous practice; the field-holler is documented as the foundational pre-blues vocal-tradition where solo field-laborers communicated across cotton-fields by stylized melismatic-shouting",
-  "recipe": "classic modern mississippi delta field holler, field Work, American south branch, sub saharan African field work, African diasporic funeral lament, anglo American protest song west-african rice-planting song mande-wolof west-african harvest-and-field song. thick, blues-shouter, tasteful, unrestrained. us dustbowl outdoor woody guthrie. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 467,
+  "recipe": "classic modern mississippi delta field holler, field Work, American south branch, sub saharan African field work, African diasporic funeral lament, anglo American protest song west-african rice-planting song mande-wolof west-african harvest-and-field song. thick, blues-shouter, tasteful, unrestrained. us dustbowl outdoor field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 469,
   "score": 192.255,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "us_dustbowl_outdoor_woody_guthrie",
+    "room": "us_dustbowl_outdoor_field_recording",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "us_dustbowl_outdoor_woody_guthrie",
+    "room": "us_dustbowl_outdoor_field_recording",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_recitative_free_rhythm",

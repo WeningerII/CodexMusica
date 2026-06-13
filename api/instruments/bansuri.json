@@ -252,11 +252,11 @@
       "name": "Performance lineage",
       "variants": [
         {
-          "id": "bansuri_hariprasad_maihar",
+          "id": "bansuri_maihar",
           "default": true,
-          "name": "Hariprasad Chaurasia / Maihar gharana (canonical 20th-century Hindustani concert)",
+          "name": "Bansuri / Maihar gharana (canonical 20th-century Hindustani concert)",
           "descriptors": [
-            "hariprasad-chaurasia-maihar-gharana-canonical-20th-century"
+            "bansuri-maihar-gharana-canonical-20th-century"
           ],
           "match_tokens": [
             "classical",
@@ -266,10 +266,10 @@
           ]
         },
         {
-          "id": "bansuri_pannalal_ghosh",
-          "name": "Pannalal Ghosh lineage (foundational concert-bansuri tradition)",
+          "id": "bansuri_concert",
+          "name": "Foundational concert-bansuri tradition",
           "descriptors": [
-            "pannalal-ghosh-foundational-concert-bansuri"
+            "foundational-concert-bansuri"
           ],
           "match_tokens": [
             "classical",
@@ -423,11 +423,11 @@
       "name": "Performance lineage",
       "variants": [
         {
-          "id": "bansuri_hariprasad_maihar",
+          "id": "bansuri_maihar",
           "default": true,
-          "name": "Hariprasad Chaurasia / Maihar gharana (canonical 20th-century Hindustani concert)",
+          "name": "Bansuri / Maihar gharana (canonical 20th-century Hindustani concert)",
           "descriptors": [
-            "hariprasad-chaurasia-maihar-gharana-canonical-20th-century"
+            "bansuri-maihar-gharana-canonical-20th-century"
           ],
           "match_tokens": [
             "classical",
@@ -437,10 +437,10 @@
           ]
         },
         {
-          "id": "bansuri_pannalal_ghosh",
-          "name": "Pannalal Ghosh lineage (foundational concert-bansuri tradition)",
+          "id": "bansuri_concert",
+          "name": "Foundational concert-bansuri tradition",
           "descriptors": [
-            "pannalal-ghosh-foundational-concert-bansuri"
+            "foundational-concert-bansuri"
           ],
           "match_tokens": [
             "classical",

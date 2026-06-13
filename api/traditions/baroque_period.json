@@ -5,7 +5,7 @@
   "lineage": "1600-1750 European art-music period encompassing the development of opera (Monteverdi Orfeo 1607), the concerto grosso (Corelli), the cantata and fugue (Bach), the oratorio (Handel), and the harpsichord and early-fortepiano keyboard repertoire — characterized by figured-bass continuo practice, contrapuntal compositional technique, ornamental melodic style, and the moderate-pitch (A=415 Hz typical) tuning convention",
   "recipe": "classic early-1600s baroque period-instrument, art Music, western early branch, christian gospel anglican choral anglican choral evensong. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, flemish ruckers antwerp canonical late 16th 17th century bach era reference quarter comma meantone canonical renaissance early Baroque legato harpsichord, gut norway spruce European alpine European maple bosnian source cello, yew ribs Italian Baroque pistoy bass gut plain gut treble historical canonical Baroque theorbo, pistoy silver wound gut treble canonical bass viol snakewood underhand grip viola da gamba, boxwood canonical Baroque classical pre 1850 loree paris canonical American school legato oboe, ayre and lieder pistoy bass gut plain gut treble lute renaissance, boxwood canonical renaissance European shawm, controlled legato bassoon. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
   "recipe_chars": 969,
-  "score": 283.69,
+  "score": 290.32,
   "config": {
     "traditions": [
       "baroque_period",
@@ -111,7 +111,7 @@
           "gamba_strings": "gamba_pistoy_silver_wound",
           "gamba_frets": "gamba_gut_tied_frets",
           "gamba_bow_stick": "gamba_snakewood_underhand",
-          "gamba_lineage": "gamba_marais_french_baroque"
+          "gamba_lineage": "gamba_modern_revival"
         },
         "scores": {
           "bowed_technique": 3.25,
@@ -120,7 +120,7 @@
           "gamba_strings": 4.735714285714286,
           "gamba_frets": 0.7149999999999999,
           "gamba_bow_stick": 13.7385,
-          "gamba_lineage": 2.8600000000000003
+          "gamba_lineage": 9.489999999999998
         }
       },
       {

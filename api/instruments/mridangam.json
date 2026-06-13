@@ -119,7 +119,7 @@
           "default": true,
           "name": "Palghat lineage (canonical Carnatic)",
           "descriptors": [
-            "palghat-lineage-canonical-carnatic"
+            "carnatic-mridangam-canonical-lineage"
           ],
           "match_tokens": [
             "percussive-attack",
@@ -143,7 +143,7 @@
           "id": "mridangam_umayalpuram",
           "name": "Umayalpuram lineage",
           "descriptors": [
-            "umayalpuram-lineage"
+            "carnatic-mridangam-lineage"
           ],
           "match_tokens": [
             "percussive-attack",
@@ -258,7 +258,7 @@
           "default": true,
           "name": "Palghat lineage (canonical Carnatic)",
           "descriptors": [
-            "palghat-lineage-canonical-carnatic"
+            "carnatic-mridangam-canonical-lineage"
           ],
           "match_tokens": [
             "percussive-attack",
@@ -282,7 +282,7 @@
           "id": "mridangam_umayalpuram",
           "name": "Umayalpuram lineage",
           "descriptors": [
-            "umayalpuram-lineage"
+            "carnatic-mridangam-lineage"
           ],
           "match_tokens": [
             "percussive-attack",

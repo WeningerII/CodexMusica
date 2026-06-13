@@ -3,9 +3,9 @@
   "name": "Guaracha",
   "family": "global",
   "lineage": "Cuban up-tempo song-and-dance form, the satirical-comic cousin to son cubano, prominent in the Sonora Matancera repertoire and the Celia Cruz canon",
-  "recipe": "classic tropical mid-1950s guaracha, groove Percussion, son salsa branch, rumba Cuban rumba cubana guaguancó. vocal fry, blues-shouter, chest resonance low mid, narrative. cedar canonical Cuban strummed tres cubano, cold pressed wurzen felt grand piano, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, open slap hand drum timbales, claves, schilke chicago lead bright heavy one piece matched to monette horn trumpet. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 659,
-  "score": 152.302,
+  "recipe": "classic tropical mid-1950s guaracha, groove Percussion, son salsa branch, rumba Cuban rumba cubana guaguancó. vocal fry, blues-shouter, chest resonance low mid, narrative. cedar canonical Cuban steel modern son montuno conjunto canon strummed tres cubano, cold pressed wurzen felt grand piano, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, open slap hand drum timbales, claves, schilke chicago lead bright heavy one piece matched to monette horn trumpet. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 699,
+  "score": 155.858,
   "config": {
     "traditions": [
       "guaracha",
@@ -59,14 +59,14 @@
           "tres_courses": "tres_3x3",
           "tres_cubano_context": "tres_cubano_son",
           "tres_cubano_body_wood": "tres_cubano_cedar",
-          "tres_cubano_strings": "tres_cubano_octave_doubled"
+          "tres_cubano_strings": "tres_cubano_steel_modern"
         },
         "scores": {
           "plucked_traditional_technique": 3.4450000000000003,
           "tres_courses": 8.84,
           "tres_cubano_context": 1.235,
           "tres_cubano_body_wood": 8.84,
-          "tres_cubano_strings": 0.474
+          "tres_cubano_strings": 4.029999999999999
         }
       },
       {

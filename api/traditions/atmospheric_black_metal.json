@@ -149,13 +149,13 @@
       "amp": "amp_marshall_jcm800",
       "medium": "digital_high"
     },
-    "tuning": "doom_sabbath_tritone_diminished",
+    "tuning": "doom_tritone_diminished",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "doom_sabbath_tritone_diminished",
+    "tuning": "doom_tritone_diminished",
     "room": "gothenburg_swedish_melodic_death_studio",
     "parts": {
       "pickup_magnet": "ceramic_h",

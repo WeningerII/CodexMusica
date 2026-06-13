@@ -3,9 +3,9 @@
   "name": "Bluegrass",
   "family": "vernacular",
   "lineage": "Kentucky-and-Appalachian string-band genre codified by Bill Monroe (the founding figure, his Blue Grass Boys band of 1939-onward giving the genre its name, with the 1945-1948 lineup of Earl Scruggs banjo, Lester Flatt guitar, Chubby Wise fiddle, Cedric Rainwater bass marking the genre birth) — extended through Lester Flatt and Earl Scruggs (their post-Monroe Foggy Mountain Boys, 1948 onward), the Stanley Brothers, Jim and Jesse, the Osborne Brothers, the second-wave New Grass Revival (Sam Bush, Bela Fleck) and the modern Alison Krauss and Union Station era",
-  "recipe": "classic North American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian mississippi delta field holler. open g tuning sitka spruce spruce maple phosphor bronze dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, steel flatpicked upright bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 759,
-  "score": 234.156,
+  "recipe": "classic North American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian mississippi delta field holler. open g tuning sitka spruce spruce maple phosphor bronze dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze bluegrass 3 ply maple Gibson mastertone canon maple banjo 5 string, steel flatpicked upright bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 753,
+  "score": 230.701,
   "config": {
     "traditions": [
       "bluegrass",
@@ -66,7 +66,7 @@
           "banjo_neck_wood": "banjo_maple_neck",
           "banjo_strings": "banjo_medium_bluegrass",
           "banjo_bridge": "banjo_maple_ebony_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 13.134249999999998,
@@ -79,7 +79,7 @@
           "banjo_neck_wood": 8.56,
           "banjo_strings": 8.56,
           "banjo_bridge": 8.56,
-          "banjo_setup_period": 24.251749999999998
+          "banjo_setup_period": 20.796749999999996
         }
       },
       {
@@ -163,7 +163,7 @@
       "banjo_back": "resonator",
       "tone_ring": "flathead",
       "banjo_play": "three_finger",
-      "banjo_setup_period": "banjo_scruggs_bluegrass_setup",
+      "banjo_setup_period": "banjo_bluegrass_flathead_setup",
       "banjo_strings": "banjo_medium_bluegrass",
       "top_wood": "sitka",
       "back_sides": "rosewood_bs",

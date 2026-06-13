@@ -30,7 +30,7 @@
     ]
   },
   "bluegrass": {
-    "output": "classic North American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian mississippi delta field holler. open g tuning sitka spruce spruce maple phosphor bronze dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, steel flatpicked upright bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian mississippi delta field holler. open g tuning sitka spruce spruce maple phosphor bronze dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze bluegrass 3 ply maple Gibson mastertone canon maple banjo 5 string, steel flatpicked upright bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "bluegrass"
     ]
@@ -78,13 +78,13 @@
     ]
   },
   "bluegrass_gospel": {
-    "output": "classic North American mid-1970s bluegrass gospel, ritual Devotional, southern gospel branch, bluegrass improv on frame. thick, declaimed, nervy, ornamental. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, flatpicked acoustic guitar, magic rosin modern acrylic base double stops fiddle, flatpicked upright bass. southern white church gospel quartet. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mid-1970s bluegrass gospel, ritual Devotional, southern gospel branch, bluegrass improv on frame. thick, declaimed, nervy, ornamental. bronze bluegrass 3 ply maple Gibson mastertone canon maple banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, flatpicked acoustic guitar, magic rosin modern acrylic base double stops fiddle, flatpicked upright bass. southern white church gospel quartet. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "bluegrass_gospel"
     ]
   },
   "mande_griot": {
-    "output": "classic modern mandé jeli, ballad Poetry, west African griot branch, west African groove percussion, Sufi ritual devotional, African pop functional song congolese rumba sufi inshad. griot voice, nylon fishing line cowhide mande traditional mande hardwood kora, balafon, calabash gourd canonical bambara cowhide nylon modern call-and-response ngoni, donso ritual large calabash mande call-and-response donso ngoni, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, goat skin canonical jola call-and-response akonting, gourd cowhide call-and-response xalam. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic modern mandé jeli, ballad Poetry, west African griot branch, west African groove percussion, Sufi ritual devotional, African pop functional song sufi inshad congolese rumba. griot voice, nylon fishing line cowhide mande traditional mande hardwood kora, balafon, calabash gourd canonical bambara cowhide nylon modern call-and-response ngoni, donso ritual large calabash mande call-and-response donso ngoni, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, goat skin canonical jola call-and-response akonting, gourd cowhide call-and-response xalam. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "mande_griot"
     ]
@@ -210,13 +210,13 @@
     ]
   },
   "hindustani": {
-    "output": "classic North American mid-1970s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, steel modern tun indian cedar alternative shivkumar sharma canonical lineage santoor, coconut shell shell tun indian cedar maihar gharana sarod, low overtone rich kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
+    "output": "classic North American mid-1970s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. open jawari etawah gharana sitar canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, steel modern tun indian cedar alternative santoor canonical Hindustani lineage santoor, coconut shell shell tun indian cedar maihar gharana sarod, low overtone rich kerala bamboo alternative south indian bansuri maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
     "traditions": [
       "hindustani"
     ]
   },
   "new_orleans": {
-    "output": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop cool jazz / west coast. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, growly gut upright bass, brass vintage ambassador asymmetric bronze bell bronze drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+    "output": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop cool jazz / west coast. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, bluegrass flathead stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, growly gut upright bass, brass vintage ambassador asymmetric bronze bell bronze drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
     "traditions": [
       "new_orleans"
     ]
@@ -294,19 +294,19 @@
     ]
   },
   "japanese_taiko_ensemble": {
-    "output": "classic modern japanese kumi-daiko, groove Percussion, east Asian branch, east Asian art music, buddhist ritual devotional tibetan ache lhamo opera beijing opera. thick, pressed, chest resonance low mid, rhythmic. rope tensioned cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic modern japanese kumi-daiko, groove Percussion, east Asian branch, east Asian art music, buddhist ritual devotional tibetan ache lhamo opera beijing opera. thick, pressed, chest resonance low mid, rhythmic. rope tensioned cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk festival kumi daiko modern ensemble taiko drum, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "japanese_taiko_ensemble"
     ]
   },
   "armenian_traditional": {
-    "output": "classic North American early-1860s armenian liturgical and folk, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. thick, low dynamic level, chest resonance low mid, maqam neutral step. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk, traditional kanun kanun, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. yerevan armenian komitas studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American early-1860s armenian liturgical and folk, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. thick, low dynamic level, chest resonance low mid, maqam neutral step. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley duduk canonical 20th century armenian continuous-airflow legato duduk, traditional kanun kanun, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. yerevan armenian conservatoire studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "armenian_traditional"
     ]
   },
   "turkish_romani_cumbus": {
-    "output": "classic North American early-1930s turkish-romani çümbüş music, improv On Frame, Persian arab improv branch, med east poetic ballad poetry, klezmer improv improv on frame ethiopian azmari minstrel-poet pontic greek music. vocal fry, declaimed, pure, narrative. aluminum rim zeynel abidin skin head modern banjo like nylon oud courses strummed cumbus, kanun tortoiseshell traditional kanun, goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka, ebonite hard rubber klezmer tradition clarinet. budapest carpathian csarda tavern. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American early-1930s turkish-romani çümbüş music, improv On Frame, Persian arab improv branch, med east poetic ballad poetry, klezmer improv improv on frame ethiopian azmari minstrel-poet pontic greek music. vocal fry, declaimed, pure, narrative. nylon oud courses strummed cumbus, kanun tortoiseshell traditional kanun, goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka, ebonite hard rubber klezmer tradition clarinet. budapest carpathian csarda tavern. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "turkish_romani_cumbus"
     ]
@@ -373,7 +373,7 @@
     ]
   },
   "son_cubano": {
-    "output": "classic tropical mid-1900s son cubano, groove Percussion, son salsa branch, rumba Cuban rumba cubana yambú. kargyraa, blues-shouter, chest resonance low mid, Yoruba tonal vocal. cedar canonical Cuban octave doubled bronze steel rural traditional strummed tres cubano, low mid rich spectrum cedar classical nylon-string guitar, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, regional wood hardwood claves, maracas, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+    "output": "classic tropical mid-1900s son cubano, groove Percussion, son salsa branch, rumba Cuban rumba cubana yambú. kargyraa, blues-shouter, chest resonance low mid, Yoruba tonal vocal. cedar canonical Cuban steel modern son montuno conjunto canon strummed tres cubano, low mid rich spectrum cedar classical nylon-string guitar, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, regional wood hardwood claves, maracas, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
     "traditions": [
       "son_cubano"
     ]
@@ -439,7 +439,7 @@
     ]
   },
   "city_pop": {
-    "output": "classic North American mid-1980s city pop, functional Song, east Asian pop branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, nervy, narrative. harder neoprene late 1970s bark grit centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, brass pre muffled edge muffled hot rolled annealed drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, Wurlitzer 270 butterfly rare combo grand 1981 1982 steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA.",
+    "output": "classic North American mid-1980s city pop, functional Song, east Asian pop branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, nervy, narrative. harder neoprene late 1970s bark grit centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, brass pre muffled edge muffled hot rolled annealed drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, Wurlitzer 200a canonical 1974 1982 solid state 70s pop canon steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console.",
     "traditions": [
       "city_pop"
     ]
@@ -487,7 +487,7 @@
     ]
   },
   "bachata": {
-    "output": "classic mid-1960s bachata, functional Song, tropical song branch, Latin am troubadour ballad poetry filipino harana milonga. thick, full chest belt, melodic, unrestrained. alder clean strummed single coil electric fingerpicked acoustic guitar, la bella flats Detroit soul bass canon sub heavy electric bass, synthetic modern durable fiberglass modern durable open slap hand drum bongos, pvc guiro. Dominican canon 1970-1995 mid tier dominican capital studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic mid-1960s bachata, functional Song, tropical song branch, Latin am troubadour ballad poetry milonga filipino harana. thick, full chest belt, melodic, unrestrained. alder clean strummed single coil electric fingerpicked acoustic guitar, la bella flats Detroit soul bass canon sub heavy electric bass, synthetic modern durable fiberglass modern durable open slap hand drum bongos, pvc guiro. Dominican canon 1970-1995 mid tier dominican capital studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "bachata"
     ]
@@ -523,7 +523,7 @@
     ]
   },
   "uilleann_pipe_solo": {
-    "output": "classic North American mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame irish trad session. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed rowsome dublin tradition uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+    "output": "classic North American mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame irish trad session. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed dublin uilleann tradition uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
     "traditions": [
       "uilleann_pipe_solo"
     ]
@@ -559,7 +559,7 @@
     ]
   },
   "musique_concrete": {
-    "output": "classic mid-1950s musique concrète, experimental Elec, musique concrete branch, western modern art music minimalist fluxus intermedia composition. field textural sampler, modular granular synth, modular eurorack modular, modern art rock modern greenwood revival radiohead post 2000 ennio morricone film ondes martenot, moog music etherwave canonical modern robert moog reissue 1996 present theremin. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic mid-1950s musique concrète, experimental Elec, musique concrete branch, western modern art music minimalist fluxus intermedia composition. field textural sampler, modular granular synth, modular eurorack modular, modern art rock modern ondes revival post 2000 and film ondes martenot, moog music etherwave canonical modern robert moog reissue 1996 present theremin. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "musique_concrete"
     ]
@@ -631,7 +631,7 @@
     ]
   },
   "country_rap_hick_hop": {
-    "output": "classic late-2000s country rap, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, melodic, narrative. light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, Fender blackface amp American 60s amp spring reverb bright basswood nickel plated steel humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, TR-808, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic late-2000s country rap, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, melodic, narrative. light steel clawhammer canon bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, Fender blackface amp American 60s amp spring reverb bright basswood nickel plated steel humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, TR-808, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "country_rap_hick_hop"
     ]
@@ -643,7 +643,7 @@
     ]
   },
   "javali": {
-    "output": "classic North American mid-1970s javali, ritual Devotional, hindu branch, indian classical improv improv on frame dadra tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mid-1970s javali, ritual Devotional, hindu branch, indian classical improv improv on frame dadra tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic carnatic mridangam canonical lineage mridangam, gut pre 1900 south indian historical carnatic violin canonical lineage legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "javali"
     ]
@@ -679,7 +679,7 @@
     ]
   },
   "pre_commercial_country": {
-    "output": "classic late-1920s pre-commercial country roots, functional Song, pre commercial branch, blues narrative ballad poetry classic blues women jug band. thick, worn fold, melodic, narrative. open e tuning plain gut sheep gut pre 1900 parlor travis picked parlor acoustic guitar, plain gut sheep gut double stops fiddle, folk solid birch vintage 1920s 1940s autoharp, bowl back Italian adirondack red spruce loar canon big leaf maple mandolin, wood plain gut minstrel pre 1860s fretless canon compensated bridge banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+    "output": "classic late-1920s pre-commercial country roots, functional Song, pre commercial branch, blues narrative ballad poetry classic blues women jug band. thick, worn fold, melodic, narrative. open e tuning plain gut sheep gut pre 1900 parlor alternating thumb bass picked parlor acoustic guitar, plain gut sheep gut double stops fiddle, folk solid birch vintage 1920s 1940s autoharp, bowl back Italian adirondack red spruce loar canon big leaf maple mandolin, wood plain gut minstrel pre 1860s fretless canon compensated bridge banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
     "traditions": [
       "pre_commercial_country"
     ]
@@ -727,7 +727,7 @@
     ]
   },
   "red_dirt": {
-    "output": "classic mid-1970s red dirt, functional Song, neo trad branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, incomplete closure resting, melodic, narrative. cedar phosphor bronze bronze travis picked parlor acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic mid-1970s red dirt, functional Song, neo trad branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, incomplete closure resting, melodic, narrative. cedar phosphor bronze bronze alternating thumb bass picked alternating thumb parlor acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "red_dirt"
     ]
@@ -751,7 +751,7 @@
     ]
   },
   "krautrock": {
-    "output": "classic European mid-1970s krautrock, distorted Rock, experimental branch, ambient experimental electric mallsoft vaporwave aesthetic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation wenge single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, pad like pad analog synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo phaser.",
+    "output": "classic European mid-1970s krautrock, distorted Rock, experimental branch, ambient experimental electric mallsoft vaporwave aesthetic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation wenge single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, pad like pad analog synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo phaser.",
     "traditions": [
       "krautrock"
     ]
@@ -805,7 +805,7 @@
     ]
   },
   "sevdalinka": {
-    "output": "classic North American early-1870s sevdalinka, ballad Poetry, Mediterranean ballad branch, vocal drone modal, balkan drinking song armenian duduk-accompanied chant flamenco. vocal fry, low dynamic level, melodic, ornamental. makam correct mulberry bowl canonical anatolian steel canonical modern modern concert saz baglama, leather castagnari Italian premium folk music ensemble accordion, brass band balkan romani, maple carved canonical balkan horsehair canonical single string drone like gusle, plum canonical bulgarian continuous-airflow legato kaval, rhythmic dance rhythm strummed tambura balkan. balkan sevdalinka kafana tavern. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American early-1870s sevdalinka, ballad Poetry, Mediterranean ballad branch, vocal drone modal, balkan drinking song armenian duduk-accompanied chant flamenco. vocal fry, low dynamic level, melodic, ornamental. makam correct mulberry bowl canonical anatolian steel canonical modern drone like saz baglama, leather castagnari Italian premium folk music ensemble accordion, brass band balkan romani, maple carved canonical balkan horsehair canonical single string drone like gusle, plum canonical bulgarian continuous-airflow legato kaval, rhythmic dance rhythm strummed tambura balkan. balkan sevdalinka kafana tavern. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "sevdalinka"
     ]
@@ -823,7 +823,7 @@
     ]
   },
   "persian_dastgah": {
-    "output": "classic North American mid-1970s persian dastgāh, art Music, middle eastern classical branch, Persian arab improv improv on frame, string drone modal tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. brass radif shahnazi lineage tar walnut bowl canonical Persian radif lotfi alizadeh lineage setar tanbur persian, santur, kayhan kalhor canon walnut canonical Persian legato kamancheh, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. tehran classical dastgah context. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mid-1970s persian dastgāh, art Music, middle eastern classical branch, Persian arab improv improv on frame, string drone modal tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. brass radif radif tar lineage tar walnut bowl canonical Persian Sufi meditative radif preservation lineage setar tanbur persian, santur, kamancheh concert canon walnut canonical Persian legato kamancheh, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. tehran classical dastgah context. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "persian_dastgah"
     ]
@@ -853,13 +853,13 @@
     ]
   },
   "parchman_prison_song": {
-    "output": "classic modern parchman prison work song, ballad Poetry, prison song branch, christian gospel black gospel contemporary urban gospel. thick, declaimed, pure, ornamental. a cappella small 3 to 8 one per part antiphonal double choir alternating sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+    "output": "classic modern parchman prison work song, ballad Poetry, prison song branch, christian gospel black gospel contemporary urban gospel. thick, declaimed, pure, ornamental. a cappella small 3 to 8 one per part antiphonal double choir alternating sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. us dustbowl outdoor field recording. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
     "traditions": [
       "parchman_prison_song"
     ]
   },
   "piedmont_fingerpicking": {
-    "output": "classic mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song piedmont blues. thick, worn fold, melodic, narrative. open g tuning fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+    "output": "classic mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song piedmont blues. thick, worn fold, melodic, narrative. open g tuning fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor field recording. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
     "traditions": [
       "piedmont_fingerpicking"
     ]
@@ -907,7 +907,7 @@
     ]
   },
   "ndombolo": {
-    "output": "classic West African 1997-1999 ndombolo, groove Percussion, central east south African branch, west African groove percussion hiplife makossa. thick, chest mix belt, melodic, narrative. wenge ebony clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit, congas. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+    "output": "classic West African 1997-1999 ndombolo, groove Percussion, central east south African branch, west African groove percussion hiplife makossa. thick, chest mix belt, melodic, narrative. wenge ebony clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit, congas. kinshasa leopoldville defining 1953-present mid tier kinshasa congolese studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
     "traditions": [
       "ndombolo"
     ]
@@ -943,7 +943,7 @@
     ]
   },
   "mariachi_traditional": {
-    "output": "classic tropical mid-1950s mariachi traditional, functional Song, Mexican branch, tejano border functional song, americas wedding ranchera mariachi. sygyt, full chest belt, chest resonance low mid, unrestrained. sitka spruce European maple sycamore maple French Polish shellac pad violin orchestral, low mid rich spectrum cedar classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana, foundational rural mariachi full. plaza garibaldi outdoor mariachi. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+    "output": "classic tropical mid-1950s mariachi traditional, functional Song, Mexican branch, tejano border functional song, americas wedding ranchera corrido. thick, full chest belt, chest resonance low mid, narrative. sitka spruce European maple sycamore maple French Polish shellac pad violin orchestral, cedar nylon fingerpicked classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana, foundational rural mariachi full. plaza garibaldi outdoor mariachi. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
     "traditions": [
       "mariachi_traditional"
     ]
@@ -979,7 +979,7 @@
     ]
   },
   "yemenite_torah_cantillation": {
-    "output": "classic late-1940s yemenite torah cantillation, ritual Devotional, Jewish branch, med east poetic ballad poetry kurdish dengbêj romanian doina. extended whistle, declaimed, nervy, ornamental. call ritual shofar. yerevan armenian komitas studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic late-1940s yemenite torah cantillation, ritual Devotional, Jewish branch, med east poetic ballad poetry kurdish dengbêj romanian doina. extended whistle, declaimed, nervy, ornamental. call ritual shofar. yerevan armenian conservatoire studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "yemenite_torah_cantillation"
     ]
@@ -1045,7 +1045,7 @@
     ]
   },
   "mento": {
-    "output": "classic tropical mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata garifuna paranda and hungu-hungu. thick, full chest belt, melodic, rhythmic. alternating thumb travis picked parlor acoustic guitar, 3 ply maple Gibson mastertone canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, traditional gourd calabash maracas. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+    "output": "classic tropical mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata garifuna paranda and hungu-hungu. thick, full chest belt, melodic, rhythmic. alternating thumb bass picked alternating thumb parlor acoustic guitar, 3 ply maple Gibson mastertone canon bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, traditional gourd calabash maracas. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
     "traditions": [
       "mento"
     ]
@@ -1178,7 +1178,7 @@
     ]
   },
   "blend_carnatic_minimalist": {
-    "output": "classic North American early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional minimalist sinhala vannama. vocal fry, low dynamic level, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, beech laminated maple laminated European tradition European spruce norway spruce grand piano, analog synth, continuous-airflow legato bass flute. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional minimalist sinhala vannama. vocal fry, low dynamic level, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai carnatic mridangam canonical lineage mridangam, gut pre 1900 south indian historical carnatic violin canonical lineage legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, beech laminated maple laminated European tradition European spruce norway spruce grand piano, analog synth, continuous-airflow legato bass flute. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
     "traditions": [
       "carnatic_vocal",
       "minimalist"
@@ -1192,7 +1192,7 @@
     ]
   },
   "blend_country_jazz": {
-    "output": "classic North American 1974-1976 outlaw country, functional Song, outlaw branch, anglo singer song confessional60s jazz manouche late-60s interior confessional songwriter. thick, incomplete closure resting, melodic, equal tempered. cedar flatwound thomastik travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany open string slide resonance single coil electric cedar phosphor bronze bronze travis picked parlor acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany thomastik infeld electric growly gut upright bass, bass drum, pearwood marine band tradition double brass chromatic canon solo canonical chromatic harmonica, steel modern canonical 36 37 string set autoharp, sitka spruce hard rock maple acer saccharum double stops violin orchestral, gypsy jazz quintet.",
+    "output": "classic North American 1974-1976 outlaw country, functional Song, outlaw branch, anglo singer song confessional60s jazz manouche late-60s interior confessional songwriter. thick, incomplete closure resting, melodic, equal tempered. cedar flatwound thomastik alternating thumb bass picked alternating thumb dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany open string slide resonance single coil electric cedar phosphor bronze bronze alternating thumb bass picked alternating thumb parlor acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany thomastik infeld electric growly gut upright bass, bass drum, pearwood marine band tradition double brass chromatic canon solo canonical chromatic harmonica, steel modern canonical 36 37 string set autoharp, sitka spruce hard rock maple acer saccharum double stops violin orchestral, gypsy jazz quintet.",
     "traditions": [
       "outlaw_country",
       "gypsy_jazz"
@@ -1206,7 +1206,7 @@
     ]
   },
   "blend_gagaku_ambient": {
-    "output": "classic modern gagaku, art Music, east Asian branch, buddhist ritual devotional ambient. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, silk biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage modern ensemble taiko drum, pad like pad analog synth, tape replay keyboard, handpan. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic modern gagaku, art Music, east Asian branch, buddhist ritual devotional ambient. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, silk biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk sado island kumi daiko lineage modern ensemble taiko drum, pad like pad analog synth, tape replay keyboard, handpan. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "gagaku",
       "ambient"
@@ -1227,7 +1227,7 @@
     ]
   },
   "blend_classic_blues_neo_soul": {
-    "output": "classic mid-1920s classic blues women, ballad Poetry, classic blues women branch, blues narrative hokum blues, American jazz early neo-soul new orleans jazz. thick, blues-shouter, melodic, narrative. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, yellow brass canonical brass band conn vintage early jazz canon front line cornet, grenadilla African blackwood traditional front line clarinet, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, growly gut upright ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, compensated bridge snuffy smith scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica.",
+    "output": "classic mid-1920s classic blues women, ballad Poetry, classic blues women branch, blues narrative hokum blues, American jazz early neo-soul new orleans jazz. thick, blues-shouter, melodic, narrative. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, yellow brass canonical brass band conn vintage early jazz canon front line cornet, grenadilla African blackwood traditional front line clarinet, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, growly gut upright ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, compensated bridge snuffy smith bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string.",
     "traditions": [
       "classic_blues_women",
       "neo_soul_classic"
@@ -1241,7 +1241,7 @@
     ]
   },
   "blend_new_orleans_acid_jazz": {
-    "output": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop acid jazz bebop. thick, blues-shouter, melodic, narrative. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, growly gut upright ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, brass vintage ambassador asymmetric bronze bell bronze drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, turntable.",
+    "output": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop acid jazz bebop. thick, blues-shouter, melodic, narrative. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, bluegrass flathead stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, growly gut upright ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, brass vintage ambassador asymmetric bronze bell bronze drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, turntable.",
     "traditions": [
       "new_orleans",
       "acid_jazz_uk_90s"
@@ -1290,7 +1290,7 @@
     ]
   },
   "blend_bluegrass_dub": {
-    "output": "classic North American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian. sitka spruce spruce maple bronze clawhammer dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, steel flatpicked upright ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola, birch pre muffled edge muffled fx9 manganese bronze drum kit, Hammond a 100 built in Leslie home spinet full spectrum fast tremolo tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. bristol sessions appalachian pre commercial.",
+    "output": "classic North American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian. sitka spruce spruce maple bronze clawhammer dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze bluegrass 3 ply maple Gibson mastertone canon maple banjo 5 string, steel flatpicked upright ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola, birch pre muffled edge muffled fx9 manganese bronze drum kit, Hammond a 100 built in Leslie home spinet full spectrum fast tremolo tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. bristol sessions appalachian pre commercial. large-diaphragm condenser.",
     "traditions": [
       "bluegrass",
       "dub"
@@ -1304,7 +1304,7 @@
     ]
   },
   "blend_celtic_techno": {
-    "output": "classic North American mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal detroit techno polish village fiddle. magic rosin modern acrylic base double stops fiddle, melodic tin whistle, yamaha modern Japanese mid to premium flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning parlor classic steel silk parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed taylor egan philadelphia canonical wide bore Irish American uilleann pipes, drum machine analog, analog synth. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ.",
+    "output": "classic North American mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal detroit techno polish village fiddle. magic rosin modern acrylic base double stops fiddle, melodic tin whistle, yamaha modern Japanese mid to premium flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning parlor classic steel silk parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed dublin uilleann tradition uilleann pipes, drum machine analog, analog synth. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
     "traditions": [
       "celtic_irish_trad",
       "detroit_techno"
@@ -1318,14 +1318,14 @@
     ]
   },
   "blend_carnatic_jazz_fusion": {
-    "output": "classic North American early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional fusion sinhala vannama. thick, low dynamic level, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, electric piano tine, Fender blackface amp American 60s amp spring reverb bright humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, analog synth.",
+    "output": "classic North American early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional fusion sinhala vannama. thick, low dynamic level, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai carnatic mridangam canonical lineage mridangam, gut pre 1900 south indian historical carnatic violin canonical lineage legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, electric piano tine, Fender blackface amp American 60s amp spring reverb bright humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, analog synth.",
     "traditions": [
       "carnatic_vocal",
       "fusion"
     ]
   },
   "blend_western_swing_outlaw": {
-    "output": "classic North American mid-1930s western swing, functional Song, western swing branch, honky tonk era country, American jazz early outlaw country new orleans jazz. thick, blues-shouter, melodic, rhythmic. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric flatwound thomastik travis picked dreadnought acoustic guitar, growly gut upright Fender tweed amp American 50s amp tweed breakup thomastik infeld low tension electric bass, steel vintage ambassador asymmetric bronze bell bronze drum kit, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string.",
+    "output": "classic North American mid-1930s western swing, functional Song, western swing branch, honky tonk era country, American jazz early outlaw country new orleans jazz. thick, blues-shouter, melodic, rhythmic. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric flatwound thomastik alternating thumb bass picked alternating thumb dreadnought acoustic guitar, growly gut upright Fender tweed amp American 50s amp tweed breakup thomastik infeld low tension electric bass, steel vintage ambassador asymmetric bronze bell bronze drum kit, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone.",
     "traditions": [
       "western_swing",
       "outlaw_country"
@@ -1353,7 +1353,7 @@
     ]
   },
   "blend_taiko_metal": {
-    "output": "classic modern japanese kumi-daiko, groove Percussion, east Asian branch, east Asian art music, buddhist ritual devotional thrash metal tibetan ache lhamo opera. thick, declaimed, tasteful, rhythmic. rope tensioned cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi, mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder stainless steel roundwound electric bass, pre muffled edge muffled machine hammered symmetric pattern organized rows drum kit. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic modern japanese kumi-daiko, groove Percussion, east Asian branch, east Asian art music, buddhist ritual devotional thrash metal tibetan ache lhamo opera. thick, declaimed, tasteful, rhythmic. rope tensioned cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk festival kumi daiko modern ensemble taiko drum, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi, mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder stainless steel roundwound electric bass, pre muffled edge muffled machine hammered symmetric pattern organized rows drum kit. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "japanese_taiko_ensemble",
       "thrash_metal"
@@ -1395,14 +1395,14 @@
     ]
   },
   "blend_carnatic_hindustani": {
-    "output": "classic North American early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional hindustani classical sinhala vannama. vocal fry, low dynamic level, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, steel modern tun indian cedar alternative shivkumar sharma canonical lineage santoor, coconut shell shell tun indian cedar maihar gharana sarod.",
+    "output": "classic North American early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional hindustani classical sinhala vannama. vocal fry, low dynamic level, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai carnatic mridangam canonical lineage mridangam, gut pre 1900 south indian historical carnatic violin canonical lineage legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, open jawari etawah gharana sitar canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, steel modern tun indian cedar alternative santoor canonical Hindustani lineage santoor, coconut shell shell tun indian cedar maihar gharana sarod.",
     "traditions": [
       "carnatic_vocal",
       "hindustani"
     ]
   },
   "blend_bossa_choro": {
-    "output": "classic North American mid-1960s bossa nova, functional Song, Brazilian song branch, Latin am troubadour ballad poetry choro milonga. thick, intimate aspirated, pure, rhythmic. cedar fingerpicked classical nylon-string guitar, no chemical hardener t rivet beech laminated maple laminated European tradition grand piano, fiberskyn synthetic calf bronze bell bronze cluster hammered drum kit, growly gut upright bass, Brazilian flat back European spruce choro luthier canon Brazilian rosewood pre 1992 vintage bandolim, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, samba foundation mahogany samba canon strummed cavaquinho, flute, ebonite hard rubber klezmer tradition clarinet, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, choro group. parlor. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
+    "output": "classic North American mid-1960s bossa nova, functional Song, Brazilian song branch, Latin am troubadour ballad poetry choro milonga. thick, intimate aspirated, pure, rhythmic. cedar fingerpicked classical nylon-string guitar, no chemical hardener t rivet beech laminated maple laminated European tradition grand piano, fiberskyn synthetic calf bronze bell bronze cluster hammered drum kit, growly gut upright bass, bowl back pre choro golden age European spruce choro luthier canon Brazilian rosewood bandolim, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, samba foundation mahogany samba canon strummed cavaquinho, flute, ebonite hard rubber klezmer tradition clarinet, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, choro group. parlor. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
     "traditions": [
       "bossa_nova",
       "choro"
@@ -1423,7 +1423,7 @@
     ]
   },
   "blend_persian_azerbaijan": {
-    "output": "classic North American mid-1970s persian dastgāh, art Music, middle eastern classical branch, Persian arab improv improv on frame, string drone modal azerbaijani mugham tarab. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. brass mulberry bowl canonical double bowl radif shahnazi lineage tar walnut bowl canonical Persian gut historical pre modern radif radif setar mulberry bowl canonical kurdish tanbur persian, santur, kayhan kalhor canon walnut canonical Persian legato kamancheh, walnut tombak, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory legato kamancha, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval. tehran classical dastgah context.",
+    "output": "classic North American mid-1970s persian dastgāh, art Music, middle eastern classical branch, Persian arab improv improv on frame, string drone modal azerbaijani mugham tarab. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. brass mulberry bowl canonical double bowl radif radif tar lineage tar walnut bowl canonical Persian gut historical pre modern radif radif setar mulberry bowl canonical kurdish tanbur persian, santur, kamancheh concert canon walnut canonical Persian legato kamancheh, walnut tombak, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory legato kamancha, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval. tehran classical dastgah context.",
     "traditions": [
       "persian_dastgah",
       "azerbaijani_mugham"
@@ -1542,7 +1542,7 @@
     ]
   },
   "blend_spiritual_southern_gospel": {
-    "output": "classic British 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal southern gospel piano-bass flamenco. thick, declaimed, melodic, ornamental. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand gospel runs upright piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze fourteen step drum kit, hardwood calabash mbira, tabla, maihar gharana allauddin khan lineage ravi shankar lineage drone like modal sitar, pump organ harmonium. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+    "output": "classic British 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal southern gospel piano-bass flamenco. thick, declaimed, melodic, ornamental. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand gospel runs upright piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze fourteen step drum kit, hardwood calabash mbira, tabla, maihar gharana maihar gharana lineage maihar gharana sitar lineage drone like modal sitar, pump organ harmonium. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
     "traditions": [
       "spiritual_jazz",
       "southern_gospel"
@@ -1695,7 +1695,7 @@
     ]
   },
   "protest_anglo_pair": {
-    "output": "classic mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country irish rebel song texas country-folk storyteller. thick, incomplete closure resting, melodic, continuous-phonation. dadgad tuning martin lifespan fingerpicked acoustic guitar, reed bamboo stainless steel steel suzuki Japanese modern precision harmonica, fluorocarbon modern open back scruggs stelling bluegrass setup mastertone flathead banjo 5 string, synthetic magic rosin modern acrylic base drone like fiddle, African blackwood boxwood premium pre modern melodic tin whistle. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country irish rebel song texas country-folk storyteller. thick, incomplete closure resting, melodic, continuous-phonation. dadgad tuning martin lifespan fingerpicked acoustic guitar, reed bamboo stainless steel steel suzuki Japanese modern precision harmonica, fluorocarbon modern open back bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, synthetic magic rosin modern acrylic base drone like fiddle, African blackwood boxwood premium pre modern melodic tin whistle. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "american_folk_revival_protest",
       "irish_rebel_song"
@@ -1798,7 +1798,7 @@
     ]
   },
   "fieldwork_delta_holler": {
-    "output": "classic modern mississippi delta field holler, field Work, American south branch, sub saharan African field work, African diasporic funeral lament, anglo American protest song west-african rice-planting song mande-wolof west-african harvest-and-field song. thick, blues-shouter, tasteful, unrestrained. us dustbowl outdoor woody guthrie. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic modern mississippi delta field holler, field Work, American south branch, sub saharan African field work, African diasporic funeral lament, anglo American protest song west-african rice-planting song mande-wolof west-african harvest-and-field song. thick, blues-shouter, tasteful, unrestrained. us dustbowl outdoor field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "mississippi_delta_field_holler"
     ]
@@ -1873,7 +1873,7 @@
     ]
   },
   "british_invasion_rb": {
-    "output": "classic British british r&b and british invasion, distorted Rock, classic branch, blues electric functional song chicago blues jump blues. thick, blues-shouter, chest resonance low mid, equal tempered. slow-build minor-key ballad in 6 8, descending bass walk, slow build dynamic envelope, mid song instrumental break. marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, vox ac amp British 60s amp top boost chime dearmond vintage jazz archtop, marshall plexi amp British rock amp Rickenbacker dual p90 flatwound semi hollow, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, marshall plexi amp British rock amp alder ernie ball slinky electric marshall plexi amp British rock amp hofner blade dual blade la bella flat short scale marshall plexi amp British rock amp Gibson eb2 epiphone rivoli semi hollow archtop semi hollow bass.",
+    "output": "classic British british r&b and british invasion, distorted Rock, classic branch, blues electric functional song chicago blues jump blues. thick, blues-shouter, chest resonance low mid, equal tempered. slow-build minor-key ballad in 6 8, descending bass walk, slow build dynamic envelope, mid song instrumental break. marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, vox ac amp British 60s amp top boost chime dearmond vintage jazz archtop, marshall plexi amp British rock amp es 355 semi hollow blues canon dual p90 semi hollow, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, marshall plexi amp British rock amp alder ernie ball slinky electric marshall plexi amp British rock amp hofner blade dual blade la bella flat short scale marshall plexi amp British rock amp Gibson eb2 epiphone rivoli semi hollow archtop semi hollow bass.",
     "traditions": [
       "british_invasion_rb"
     ]
@@ -1885,7 +1885,7 @@
     ]
   },
   "skiffle": {
-    "output": "classic British mid-1950s skiffle, functional Song, skiffle branch, pop rock folk rock, blues narrative jug band. thick, worn fold, melodic, narrative. cedar walnut flatwound thomastik fingerpicked acoustic guitar, tea chest bass, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, wood walnut mid tier scruggs stelling bluegrass setup banjo 5 string. bedroom. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
+    "output": "classic British mid-1950s skiffle, functional Song, skiffle branch, pop rock folk rock, blues narrative jug band. thick, worn fold, melodic, narrative. cedar walnut flatwound thomastik fingerpicked acoustic guitar, tea chest bass, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, wood walnut mid tier bluegrass flathead stelling bluegrass setup banjo 5 string. bedroom. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
     "traditions": [
       "skiffle"
     ]
@@ -1903,7 +1903,7 @@
     ]
   },
   "dixieland_traditional_jazz": {
-    "output": "classic mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, walnut warmer than maple scruggs stelling bluegrass setup mastertone flathead banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
+    "output": "classic mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, walnut warmer than maple bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
     "traditions": [
       "dixieland_traditional_jazz"
     ]
@@ -1945,7 +1945,7 @@
     ]
   },
   "western_swing": {
-    "output": "classic North American mid-1930s western swing, functional Song, western swing branch, honky tonk era country, American jazz early new orleans jazz honky-tonk. thick, blues-shouter, melodic, rhythmic. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, growly gut upright bass, steel vintage ambassador asymmetric bronze bell bronze drum kit, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre.",
+    "output": "classic North American mid-1930s western swing, functional Song, western swing branch, honky tonk era country, American jazz early new orleans jazz honky-tonk. thick, blues-shouter, melodic, rhythmic. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, growly gut upright bass, steel vintage ambassador asymmetric bronze bell bronze drum kit, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, light steel clawhammer canon bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre.",
     "traditions": [
       "western_swing"
     ]
@@ -2143,7 +2143,7 @@
     ]
   },
   "folk_rock": {
-    "output": "classic Los Angeles 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock country-pop crossover. thick, incomplete closure resting, melodic, rhythmic. cedar phosphor bronze pre war martin travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+    "output": "classic Los Angeles 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock country-pop crossover. thick, incomplete closure resting, melodic, rhythmic. cedar phosphor bronze pre war martin alternating thumb bass picked alternating thumb dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
     "traditions": [
       "folk_rock"
     ]
@@ -2341,7 +2341,7 @@
     ]
   },
   "gagaku": {
-    "output": "classic modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, silk biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, silk biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk sado island kumi daiko lineage taiko drum. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "gagaku"
     ]
@@ -2359,7 +2359,7 @@
     ]
   },
   "hindustani_sarod": {
-    "output": "classic North American early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. coconut shell shell tun indian cedar maihar gharana sarod, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. coconut shell shell tun indian cedar shahjahanpur bangash gharana sarod, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, closed jawari maihar gharana sitar canon articulate less buzz maihar gharana maihar gharana lineage sitar. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "hindustani_sarod"
     ]
@@ -2389,13 +2389,13 @@
     ]
   },
   "carnatic_vocal": {
-    "output": "classic North American early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai carnatic mridangam canonical lineage mridangam, gut pre 1900 south indian historical carnatic violin canonical lineage legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "carnatic_vocal"
     ]
   },
   "carnatic_instrumental": {
-    "output": "classic North American mid-1970s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional telugu kirtana sinhala vannama. jackwood canonical thanjavur mysore thanjavur canonical south indian veena, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic brass jingle pair kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning thomastik flatwound jazz mandolin mandolin, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, low overtone rich kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century continuous-airflow legato bansuri, gold brass warmer tone continuous-airflow legato saxophone.",
+    "output": "classic North American mid-1970s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional telugu kirtana sinhala vannama. jackwood canonical thanjavur mysore thanjavur canonical south indian veena, jackwood barrel canonical carnatic goat buffalo rice paste karanai carnatic mridangam canonical lineage mridangam, ghatam, jackwood frame canonical carnatic brass jingle pair kanjira, gut pre 1900 south indian historical carnatic violin canonical lineage legato violin carnatic, German spruce classical leaning thomastik flatwound jazz mandolin mandolin, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, low overtone rich kerala bamboo alternative south indian bansuri maihar gharana canonical 20th century continuous-airflow legato bansuri, gold brass warmer tone continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram.",
     "traditions": [
       "carnatic_instrumental"
     ]
@@ -2653,7 +2653,7 @@
     ]
   },
   "celtic_irish_trad": {
-    "output": "classic North American mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal polish village fiddle huayno. magic rosin modern acrylic base double stops fiddle, African blackwood boxwood premium pre modern melodic tin whistle, flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning fingerpicked parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed rowsome dublin tradition uilleann pipes. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+    "output": "classic North American mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal polish village fiddle huayno. magic rosin modern acrylic base double stops fiddle, African blackwood boxwood premium pre modern melodic tin whistle, flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning fingerpicked parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed dublin uilleann tradition uilleann pipes. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
     "traditions": [
       "celtic_irish_trad"
     ]
@@ -2713,7 +2713,7 @@
     ]
   },
   "gothic_country": {
-    "output": "classic North American mid-1970s gothic country, functional Song, americana branch, anglo singer song ballad poetry, honky tonk era country folk noir texas country-folk storyteller. thick, incomplete closure resting, melodic, narrative. travis picked parlor acoustic baritone electric guitar, folk autoharp, wood walnut warmer than maple mid tier scruggs stelling banjo 5 string. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mid-1970s gothic country, functional Song, americana branch, anglo singer song ballad poetry, honky tonk era country folk noir texas country-folk storyteller. thick, incomplete closure resting, melodic, narrative. alternating thumb bass picked alternating thumb parlor acoustic baritone electric guitar, folk autoharp, wood walnut warmer than maple mid tier bluegrass flathead stelling banjo 5 string. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "gothic_country"
     ]
@@ -2725,7 +2725,7 @@
     ]
   },
   "sertanejo_universitario": {
-    "output": "classic 2007-2009 sertanejo universitário, functional Song, Brazilian song branch, country functional song country rock western swing. thick, register break ornamental, melodic, equal tempered. cedar flatwound thomastik travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, steel pre muffled edge muffled hot rolled annealed drum kit, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic 2007-2009 sertanejo universitário, functional Song, Brazilian song branch, country functional song country rock western swing. thick, register break ornamental, melodic, equal tempered. cedar flatwound thomastik alternating thumb bass picked alternating thumb dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, steel pre muffled edge muffled hot rolled annealed drum kit, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "sertanejo_universitario"
     ]
@@ -2851,7 +2851,7 @@
     ]
   },
   "nepali_lok": {
-    "output": "classic early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. dholak, dark folk clay tabla, kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. dholak, dark folk clay tabla, kerala bamboo alternative south indian bansuri maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "nepali_lok"
     ]
@@ -3253,7 +3253,7 @@
     ]
   },
   "talking_blues_dustbowl": {
-    "output": "classic mid-1920s talking blues, ballad Poetry, talking blues branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, melodic, narrative. mahogany flatwound thomastik fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+    "output": "classic mid-1920s talking blues, ballad Poetry, talking blues branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, melodic, narrative. mahogany flatwound thomastik fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. us dustbowl outdoor field recording. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
     "traditions": [
       "talking_blues_dustbowl"
     ]
@@ -3289,7 +3289,7 @@
     ]
   },
   "drone_dark_ambient": {
-    "output": "classic North American mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal drone metal. pad like pad analog serge tcherepnin lineage canonical 1973 1980s cal arts patch programmable west coast pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal drone metal. pad like pad analog serge tcherepnin lineage canonical 1973 1980s cal arts patch programmable west coast pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "drone_dark_ambient"
     ]
@@ -3439,7 +3439,7 @@
     ]
   },
   "arab_tarab": {
-    "output": "classic North American mid-1970s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, med east poetic ballad poetry shashmaqam azerbaijani mugham. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, kayhan kalhor canon walnut canonical Persian steel modern legato kamancheh, court tradition pre twentieth century takht arab, kanun kanun. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
+    "output": "classic North American mid-1970s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, med east poetic ballad poetry shashmaqam azerbaijani mugham. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, arundo donax cane canonical Persian nine segment ney canonical 20th century Persian radif continuous-airflow legato ney, kamancheh concert canon walnut canonical Persian steel modern legato kamancheh, court tradition pre twentieth century takht arab, kanun kanun. cairo major flagship studio 1934-present major-flagship cairo studio misr era. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
     "traditions": [
       "arab_tarab"
     ]
@@ -3451,7 +3451,7 @@
     ]
   },
   "samul_nori": {
-    "output": "classic North American modern samul nori, groove Percussion, samul nori branch, east Asian art music korean sinawi tibetan ache lhamo opera. lead kkwaenggwari, jing paulownia canonical Korean cowhide canonical Korean buk korean, composite material paulownia canonical Korean horse dog asymmetric canonical Korean samul nori kim duk soo 1978 founding janggu. korean gugak hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American modern samul nori, groove Percussion, samul nori branch, east Asian art music korean sinawi tibetan ache lhamo opera. lead kkwaenggwari, jing paulownia canonical Korean cowhide canonical Korean buk korean, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "samul_nori"
     ]
@@ -3637,7 +3637,7 @@
     ]
   },
   "gothic_americana": {
-    "output": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry folk noir texas country-folk storyteller. thick, incomplete closure resting, melodic, narrative. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, plain gut sheep gut double stops fiddle, folk autoharp, open d tuning phosphor bronze pre war martin travis picked dreadnought acoustic wood body spider bridge spruce resonator national canon medium heavy resonator 28 625 inch bass vi canon p90 Gretsch canon baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+    "output": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry folk noir texas country-folk storyteller. thick, incomplete closure resting, melodic, narrative. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, plain gut sheep gut double stops fiddle, folk autoharp, open d tuning phosphor bronze pre war martin alternating thumb bass picked alternating thumb dreadnought acoustic wood body spider bridge spruce resonator national canon medium heavy resonator 28 625 inch bass vi canon p90 Gretsch canon baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
     "traditions": [
       "gothic_americana"
     ]
@@ -3787,7 +3787,7 @@
     ]
   },
   "spiritual_jazz": {
-    "output": "classic British 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, declaimed, melodic, punctuated. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze over hammered drum kit, hardwood calabash mbira, tabla, teak bone open jawari vilayat khan canon long sustain sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+    "output": "classic British 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, declaimed, melodic, punctuated. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze over hammered drum kit, hardwood calabash mbira, tabla, teak bone open jawari etawah gharana sitar canon long sustain sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
     "traditions": [
       "spiritual_jazz"
     ]
@@ -3805,7 +3805,7 @@
     ]
   },
   "american_primitive": {
-    "output": "classic North American 2004-2006 american primitive guitar, ballad Poetry, anglo singer song branch, indian classical improv improv on frame hindustani classical carnatic instrumental. open g tuning cedar indian rosewood rosewood steel dreadnought acoustic wood body spider bridge spruce resonator national canon medium heavy resonator guitar, open tuning 12 string silk steel acoustic guitar 12 string. takoma home recording fahey. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+    "output": "classic North American 2004-2006 american primitive guitar, ballad Poetry, anglo singer song branch, indian classical improv improv on frame hindustani classical carnatic instrumental. open g tuning cedar indian rosewood rosewood steel dreadnought acoustic wood body spider bridge spruce resonator national canon medium heavy resonator guitar, open tuning 12 string silk steel acoustic guitar 12 string. takoma home recording. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
     "traditions": [
       "american_primitive"
     ]
@@ -3847,7 +3847,7 @@
     ]
   },
   "japanese_minyo": {
-    "output": "classic North American mid-1920s japanese min'yō, functional Song, east Asian pop branch, blues narrative work song coco brasileiro bahraini fjiri. thick, blues-shouter, melodic, narrative. dog skin red sandalwood premium silk nagauta jiuta shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert shakuhachi, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko outdoor traditional taiko drum. kabuki theater japanese. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mid-1920s japanese min'yō, functional Song, east Asian pop branch, blues narrative work song coco brasileiro bahraini fjiri. thick, blues-shouter, melodic, narrative. dog skin red sandalwood premium silk nagauta jiuta shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert shakuhachi, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk festival kumi daiko outdoor traditional taiko drum. kabuki theater japanese. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "japanese_minyo"
     ]
@@ -3859,7 +3859,7 @@
     ]
   },
   "sertanejo": {
-    "output": "classic tropical mid-1930s sertanejo, groove Percussion, Brazilian branch, country functional song country rock nashville sound. thick, conversational, melodic, equal tempered. cedar travis picked classical nylon-string guitar, steel castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, banda sinaloense, pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira. live tracking. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+    "output": "classic tropical mid-1930s sertanejo, groove Percussion, Brazilian branch, country functional song country rock western swing. thick, blues-shouter, melodic, equal tempered. alternating thumb bass picked alternating thumb classical nylon-string guitar, steel castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, banda sinaloense, pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira. live tracking. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
     "traditions": [
       "sertanejo"
     ]
@@ -3889,13 +3889,13 @@
     ]
   },
   "freak_folk": {
-    "output": "classic North American freak folk, ballad Poetry, indie folk branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, folk steel modern canonical 36 37 string set spruce maple modern strummed open chord ringing overtones autoharp, low mid rich spectrum traditional teak sitar, English kirkman shudi canonical mid 18th century London delrin plastic plectra canonical modern stable replacement vallotti canonical late Baroque Italian well temperament prepared harpsichord. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+    "output": "classic North American freak folk, ballad Poetry, indie folk branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, walnut mid tier bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, folk steel modern canonical 36 37 string set spruce maple modern strummed open chord ringing overtones autoharp, teak open jawari etawah gharana sitar canon long sustain buzzing overtones sitar, English kirkman shudi canonical mid 18th century London delrin plastic plectra canonical modern stable replacement vallotti canonical late Baroque Italian well temperament prepared harpsichord. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
     "traditions": [
       "freak_folk"
     ]
   },
   "alt_country_americana": {
-    "output": "classic North American modern americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller folk noir. thick, incomplete closure resting, melodic, narrative. phosphor bronze pre war martin travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, walnut pre muffled edge muffled machine hammered symmetric pattern drum kit, folk autoharp, block chord wurlitzer ep, bowl back Italian hard rock maple k and k twin internal mounted acoustic faithful mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American modern americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller folk noir. thick, incomplete closure resting, melodic, narrative. phosphor bronze pre war martin alternating thumb bass picked alternating thumb dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, walnut pre muffled edge muffled machine hammered symmetric pattern drum kit, folk autoharp, block chord wurlitzer ep, bowl back Italian hard rock maple k and k twin internal mounted acoustic faithful mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
     "traditions": [
       "alt_country_americana"
     ]
@@ -3913,7 +3913,7 @@
     ]
   },
   "freak_folk_2000s": {
-    "output": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop. thick, incomplete closure resting, chest resonance low mid, unrestrained. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, mass production synthetic varnish polyurethane violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+    "output": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop. thick, incomplete closure resting, chest resonance low mid, unrestrained. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, mass production synthetic varnish polyurethane violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
     "traditions": [
       "freak_folk_2000s"
     ]
@@ -3931,7 +3931,7 @@
     ]
   },
   "saidi_upper_egyptian": {
-    "output": "classic North American mid-1950s saidi music, functional Song, mid east n African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, tabla, apricot canonical Egyptian arundo donax canonical nile delta mizmar. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+    "output": "classic North American mid-1950s saidi music, functional Song, mid east n African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, tabla, apricot canonical Egyptian arundo donax canonical nile delta mizmar. cairo major flagship studio 1934-present major-flagship cairo studio misr era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
     "traditions": [
       "saidi_upper_egyptian"
     ]
@@ -3973,7 +3973,7 @@
     ]
   },
   "hokum_blues_vaudeville": {
-    "output": "classic mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early dixieland new orleans jazz. thick, worn fold, melodic, narrative. flatwound thomastik fingerpicked slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+    "output": "classic mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early dixieland new orleans jazz. thick, worn fold, melodic, narrative. flatwound thomastik fingerpicked slide acoustic guitar, growly gut upright bass, frottoir, bluegrass flathead stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
     "traditions": [
       "hokum_blues_vaudeville"
     ]
@@ -4003,7 +4003,7 @@
     ]
   },
   "jug_band": {
-    "output": "classic mid-1930s jug band, ballad Poetry, jug band branch, blues narrative hokum blues, blues narrative delta narrative, pop rock skiffle. thick, worn fold, melodic, narrative. traditional ceramic clay jug inst, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, open g tuning mahogany fingerpicked parlor acoustic guitar, wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, drone like fiddle, bowl back Italian adirondack red spruce loar canon hard rock maple mandolin. wooden barn. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+    "output": "classic mid-1930s jug band, ballad Poetry, jug band branch, blues narrative hokum blues, blues narrative delta narrative, pop rock skiffle. thick, worn fold, melodic, narrative. traditional ceramic clay jug inst, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, open g tuning mahogany fingerpicked parlor acoustic guitar, wood bluegrass flathead stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, drone like fiddle, bowl back Italian adirondack red spruce loar canon hard rock maple mandolin. wooden barn. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
     "traditions": [
       "jug_band"
     ]
@@ -4075,7 +4075,7 @@
     ]
   },
   "descarga_cubana": {
-    "output": "classic tropical mid-1950s descarga, improv On Frame, Latin jazz branch, American jazz fusion nu jazz / electro-jazz acid jazz. thick, rap, nervy, punctuated. cold pressed wurzen felt oversize maple tension resonator grand piano, gut chord melody upright bass, jazz leaning cedar canonical Cuban strummed tres cubano, bronze open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+    "output": "classic tropical mid-1950s descarga, improv On Frame, Latin jazz branch, American jazz fusion nu jazz / electro-jazz acid jazz. thick, rap, nervy, punctuated. cold pressed wurzen felt oversize maple tension resonator grand piano, gut chord melody upright bass, jazz leaning cedar canonical Cuban steel modern son montuno conjunto canon strummed tres cubano, bronze open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
     "traditions": [
       "descarga_cubana"
     ]
@@ -4117,7 +4117,7 @@
     ]
   },
   "okinawan_sanshin_eisa": {
-    "output": "classic North American mid-1970s okinawan sanshin-and-eisa music, functional Song, east Asian pop branch, blues narrative work song coco brasileiro bahraini fjiri. thick, worn fold, chest resonance low mid, narrative. python skin silk canonical traditional padauk mid tier sanxian, cowhide canonical Japanese sen castor aralia mid tier oedo sukeroku canonical kumi daiko taiko drum, cat skin ivory mulberry kuwa mid tier traditional silk shamisen. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mid-1970s okinawan sanshin-and-eisa music, functional Song, east Asian pop branch, blues narrative work song coco brasileiro bahraini fjiri. thick, worn fold, chest resonance low mid, narrative. python skin silk canonical traditional padauk mid tier sanxian, cowhide canonical Japanese sen castor aralia mid tier festival kumi daiko taiko drum, cat skin ivory mulberry kuwa mid tier traditional silk shamisen. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "okinawan_sanshin_eisa"
     ]
@@ -4171,7 +4171,7 @@
     ]
   },
   "tarab_egyptian": {
-    "output": "classic North American early-1890s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, Sufi ritual devotional armenian liturgical and folk andalusī nūba. thick, low dynamic level, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, brass nickel silver Egyptian modern hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, gut 3 main playing strings tun cedar legato sarangi, court tradition pre twentieth century takht arab, traditional kanun kanun, half rectified carpathian spruce European maple sycamore maple cremonese pre 1750 violin orchestral. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American early-1890s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, Sufi ritual devotional armenian liturgical and folk andalusī nūba. thick, low dynamic level, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, brass nickel silver Egyptian modern ney canonical 20th century Persian radif continuous-airflow legato ney, gut 3 main playing strings tun cedar legato sarangi, court tradition pre twentieth century takht arab, traditional kanun kanun, half rectified carpathian spruce European maple sycamore maple cremonese pre 1750 violin orchestral. cairo major flagship studio 1934-present major-flagship cairo studio misr era. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "tarab_egyptian"
     ]
@@ -4183,7 +4183,7 @@
     ]
   },
   "armenian_duduk_chant": {
-    "output": "classic early-1920s armenian duduk-accompanied chant, drone Modal, vocal branch, middle eastern classical art music, christian gospel coptic iraqi maqam of baghdad yemeni sanaani song. thick, declaimed, chest resonance low mid, ornamental. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic early-1920s armenian duduk-accompanied chant, drone Modal, vocal branch, middle eastern classical art music, christian gospel coptic iraqi maqam of baghdad yemeni sanaani song. thick, declaimed, chest resonance low mid, ornamental. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley duduk canonical 20th century armenian continuous-airflow legato duduk. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "armenian_duduk_chant"
     ]
@@ -4309,7 +4309,7 @@
     ]
   },
   "congolese_rumba": {
-    "output": "classic West African mid-1940s congolese rumba, functional Song, congolese rumba branch, central east south African groove percussion, tropical song functional song bachata soukous. thick, full chest belt, chest resonance low mid, rhythmic. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, fiberskyn synthetic calf bronze bell bronze machine hammered drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, maracas, weltmeister east German mid tier vintage volk accordion, claves. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+    "output": "classic West African mid-1940s congolese rumba, functional Song, congolese rumba branch, central east south African groove percussion, tropical song functional song bachata soukous. thick, full chest belt, chest resonance low mid, rhythmic. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, fiberskyn synthetic calf bronze bell bronze machine hammered drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, maracas, weltmeister east German mid tier vintage volk accordion, claves. kinshasa leopoldville defining 1953-present mid tier kinshasa congolese studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
     "traditions": [
       "congolese_rumba"
     ]
@@ -4327,7 +4327,7 @@
     ]
   },
   "laurel_canyon_70s": {
-    "output": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country. thick, incomplete closure resting, expressive, equal tempered. travis picked fingerpicked acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state supertramp canon block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET.",
+    "output": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country. thick, incomplete closure resting, expressive, equal tempered. alternating thumb bass picked alternating thumb fingerpicked acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state 70s pop canon block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre.",
     "traditions": [
       "laurel_canyon_70s"
     ]
@@ -4339,7 +4339,7 @@
     ]
   },
   "texas_country_folk_storyteller": {
-    "output": "classic North American mid-1970s texas country-folk storyteller, ballad Poetry, country folk story branch, outlaw country. thick, incomplete closure resting, expressive, narrative. travis picked fingerpicked acoustic guitar, double stops fiddle, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit, bowl back Italian k and k twin internal mounted acoustic faithful mandolin, pearwood marine band tradition straight harmonica. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mid-1970s texas country-folk storyteller, ballad Poetry, country folk story branch, outlaw country. thick, incomplete closure resting, expressive, narrative. alternating thumb bass picked alternating thumb fingerpicked acoustic guitar, double stops fiddle, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit, bowl back Italian k and k twin internal mounted acoustic faithful mandolin, pearwood marine band tradition straight harmonica. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "texas_country_folk_storyteller"
     ]
@@ -4357,7 +4357,7 @@
     ]
   },
   "classic_blues_women": {
-    "output": "classic mid-1920s classic blues women, ballad Poetry, classic blues women branch, blues narrative hokum blues, American jazz early new orleans jazz. thick, blues-shouter, melodic, narrative. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, yellow brass canonical brass band conn vintage early jazz canon front line cornet, ebonite hard rubber klezmer tradition front line clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, compensated bridge snuffy smith scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console.",
+    "output": "classic mid-1920s classic blues women, ballad Poetry, classic blues women branch, blues narrative hokum blues, American jazz early new orleans jazz. thick, blues-shouter, melodic, narrative. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, yellow brass canonical brass band conn vintage early jazz canon front line cornet, ebonite hard rubber klezmer tradition front line clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, compensated bridge snuffy smith bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre.",
     "traditions": [
       "classic_blues_women"
     ]
@@ -4567,7 +4567,7 @@
     ]
   },
   "japanese_matsuri_taiko": {
-    "output": "classic early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, declaimed, melodic, continuous-phonation. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, declaimed, melodic, continuous-phonation. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk festival kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "japanese_matsuri_taiko"
     ]
@@ -4627,7 +4627,7 @@
     ]
   },
   "dub": {
-    "output": "classic tropical 1967-1969 dub, bass System, Jamaican branch, ambient experimental electric mallsoft vaporwave aesthetic. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, walnut vintage ambassador asymmetric fx9 manganese bronze drum kit, Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 122 canonical 6l6 tube 40w rotary Hammond matched tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. kingston king tubby dub workshop. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb roland RE-201 space echo plate reverb.",
+    "output": "classic tropical 1967-1969 dub, bass System, Jamaican branch, ambient experimental electric mallsoft vaporwave aesthetic. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, walnut vintage ambassador asymmetric fx9 manganese bronze drum kit, Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 122 canonical 6l6 tube 40w rotary Hammond matched tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. kingston dub workshop. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb roland RE-201 space echo plate reverb.",
     "traditions": [
       "dub"
     ]
@@ -4687,7 +4687,7 @@
     ]
   },
   "hindi_filmi": {
-    "output": "classic North American early-1920s hindi filmi, functional Song, south Asian pop branch, indian classical improv improv on frame thumrī carnatic vocal. thick, low dynamic level, chest resonance low mid, equal tempered. vocal female straight harmonium indian, indian rosewood rosewood copper tabla, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century continuous-airflow legato bansuri, closed jawari ravi shankar canon articulate less buzz maihar gharana allauddin khan lineage sitar, goat skin syahi rope laced steel ring dholak, steel modern tun indian cedar alternative shivkumar sharma canonical lineage santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai.",
+    "output": "classic North American early-1920s hindi filmi, functional Song, south Asian pop branch, indian classical improv improv on frame thumrī carnatic vocal. thick, low dynamic level, chest resonance low mid, equal tempered. vocal female straight harmonium indian, indian rosewood rosewood copper tabla, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, kerala bamboo alternative south indian bansuri maihar gharana canonical 20th century continuous-airflow legato bansuri, open jawari etawah gharana sitar canon long sustain buzzing overtones maihar gharana sitar, goat skin syahi rope laced steel ring dholak, steel modern tun indian cedar alternative santoor canonical Hindustani lineage santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio.",
     "traditions": [
       "hindi_filmi"
     ]
@@ -4795,7 +4795,7 @@
     ]
   },
   "guaracha": {
-    "output": "classic tropical mid-1950s guaracha, groove Percussion, son salsa branch, rumba Cuban rumba cubana guaguancó. vocal fry, blues-shouter, chest resonance low mid, narrative. cedar canonical Cuban strummed tres cubano, cold pressed wurzen felt grand piano, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, open slap hand drum timbales, claves, schilke chicago lead bright heavy one piece matched to monette horn trumpet. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+    "output": "classic tropical mid-1950s guaracha, groove Percussion, son salsa branch, rumba Cuban rumba cubana guaguancó. vocal fry, blues-shouter, chest resonance low mid, narrative. cedar canonical Cuban steel modern son montuno conjunto canon strummed tres cubano, cold pressed wurzen felt grand piano, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, open slap hand drum timbales, claves, schilke chicago lead bright heavy one piece matched to monette horn trumpet. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
     "traditions": [
       "guaracha"
     ]
@@ -4885,7 +4885,7 @@
     ]
   },
   "indie_folk_2000s": {
-    "output": "classic indie folk, ballad Poetry, indie folk branch, pop rock functional song folk rock new wave. thick, incomplete closure resting, melodic, narrative. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, walnut mid tier light steel clawhammer canon scruggs stelling banjo 5 string, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, bowl back Italian redwood hard rock maple phosphor bronze bronze mandolin. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic indie folk, ballad Poetry, indie folk branch, pop rock functional song folk rock new wave. thick, incomplete closure resting, melodic, narrative. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, walnut mid tier light steel clawhammer canon bluegrass flathead stelling banjo 5 string, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, bowl back Italian redwood hard rock maple phosphor bronze bronze mandolin. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "indie_folk_2000s"
     ]
@@ -4897,7 +4897,7 @@
     ]
   },
   "bro_country": {
-    "output": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, bluegrass flathead stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "bro_country"
     ]
@@ -5017,19 +5017,19 @@
     ]
   },
   "kriti": {
-    "output": "classic North American mid-1970s kriti, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music telugu kirtana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mid-1970s kriti, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music telugu kirtana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic carnatic mridangam canonical lineage mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical carnatic violin canonical lineage legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "kriti"
     ]
   },
   "padam": {
-    "output": "classic North American mid-1970s padam, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music telugu kirtana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mid-1970s padam, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music telugu kirtana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic carnatic mridangam canonical lineage mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical carnatic violin canonical lineage legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "padam"
     ]
   },
   "tillana": {
-    "output": "classic North American early-1810s tillana, ritual Devotional, hindu branch, indian classical improv improv on frame tarana tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, steel projecting modern concert lalgudi lineage carnatic legato violin carnatic, silvery suited to female vocal tanpura. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American early-1810s tillana, ritual Devotional, hindu branch, indian classical improv improv on frame tarana tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic carnatic mridangam canonical lineage mridangam, steel projecting modern concert carnatic violin canonical lineage legato violin carnatic, silvery suited to female vocal tanpura. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "tillana"
     ]
@@ -5077,7 +5077,7 @@
     ]
   },
   "shaabi_egyptian": {
-    "output": "classic North American mid-1970s shaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, intl hip hop MC rhythm malhun iraqi maqam. extended whistle, low dynamic level, chest resonance low mid, narrative. padauk Egyptian Syrian premium pyramid nylon arab school oud, metal finger picks rosewood body arab premium qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, mahogany pyramid pure nickel bass British mid 60s era electric bass. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+    "output": "classic North American mid-1970s shaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, intl hip hop MC rhythm malhun iraqi maqam. extended whistle, low dynamic level, chest resonance low mid, narrative. padauk Egyptian Syrian premium pyramid nylon arab school oud, metal finger picks rosewood body arab premium qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, mahogany pyramid pure nickel bass British mid 60s era electric bass. cairo major flagship studio 1934-present major-flagship cairo studio misr era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
     "traditions": [
       "shaabi_egyptian"
     ]
@@ -5161,7 +5161,7 @@
     ]
   },
   "mbaqanga": {
-    "output": "classic North American mbaqanga, functional Song, African pop branch, African pop isicathamiya. extended whistle, declaimed, chest resonance low mid, ornamental. mahogany rosewood alnico flatwound clean single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, low onset attack dark ebonite saxophone, wood walnut mid tier scruggs stelling bluegrass setup banjo 5 string. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mbaqanga, functional Song, African pop branch, African pop isicathamiya. extended whistle, declaimed, chest resonance low mid, ornamental. mahogany rosewood alnico flatwound clean single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, low onset attack dark ebonite saxophone, wood walnut mid tier bluegrass flathead stelling bluegrass setup banjo 5 string. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "mbaqanga"
     ]
@@ -5233,7 +5233,7 @@
     ]
   },
   "nubian_music_nile": {
-    "output": "classic mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, chest resonance low mid, rhythmic. mahogany modern alternative western red cedar oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka, walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, chest resonance low mid, rhythmic. mahogany modern alternative western red cedar oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka, walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. cairo major flagship studio 1934-present major-flagship cairo studio misr era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "nubian_music_nile"
     ]
@@ -5281,7 +5281,7 @@
     ]
   },
   "algerian_chaabi": {
-    "output": "classic North American mid-1920s algerian chaabi, functional Song, mid east n African pop branch, middle eastern classical art music shashmaqam uyghur on ikki muqam. thick, low dynamic level, chest resonance low mid, maqam neutral step. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American mid-1920s algerian chaabi, functional Song, mid east n African pop branch, middle eastern classical art music shashmaqam uyghur on ikki muqam. thick, low dynamic level, chest resonance low mid, maqam neutral step. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, walnut mid tier bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "algerian_chaabi"
     ]
@@ -5977,7 +5977,7 @@
     ]
   },
   "folk_punk": {
-    "output": "classic North American modern folk punk, distorted Rock, punk branch, anglo singer song indie folk freak folk. thick, low dynamic level, chest resonance low mid, equal tempered. cedar phosphor bronze pre war martin fingerpicked dreadnought acoustic guitar, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, castagnari Italian premium folk music straight accordion, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, pre muffled edge muffled machine hammered symmetric pattern organized rows drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+    "output": "classic North American modern folk punk, distorted Rock, punk branch, anglo singer song indie folk freak folk. thick, low dynamic level, chest resonance low mid, equal tempered. cedar phosphor bronze pre war martin fingerpicked dreadnought acoustic guitar, walnut mid tier bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, castagnari Italian premium folk music straight accordion, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, pre muffled edge muffled machine hammered symmetric pattern organized rows drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
     "traditions": [
       "folk_punk"
     ]
@@ -6061,7 +6061,7 @@
     ]
   },
   "space_rock": {
-    "output": "classic North American space rock, distorted Rock, progressive rock branch, experimental distorted rock chillwave post-rock. thick, low dynamic level, nervy, equal tempered. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky riff driven electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, ambient pad like analog synth. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
+    "output": "classic North American space rock, distorted Rock, progressive rock branch, experimental distorted rock chillwave post-rock. thick, low dynamic level, nervy, equal tempered. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky riff driven electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, ambient pad like analog synth. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
     "traditions": [
       "space_rock"
     ]
@@ -6733,7 +6733,7 @@
     ]
   },
   "persian_aroosi": {
-    "output": "classic modern persian aroosi, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. walnut bent frame canonical Persian synthetic remo modern stable brass rings canonical Iranian daf, synthetic brass gut historical pre modern qajar modern concert tar walnut bowl canonical Persian steel brass wound radif lotfi alizadeh lineage setar persian, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. tehran classical dastgah context. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic modern persian aroosi, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. walnut bent frame canonical Persian synthetic remo modern stable brass rings canonical Iranian daf, synthetic brass gut historical pre modern qajar modern concert tar walnut bowl canonical Persian steel brass wound setar persian, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. tehran classical dastgah context. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "persian_aroosi"
     ]
@@ -6757,7 +6757,7 @@
     ]
   },
   "american_folk_revival_protest": {
-    "output": "classic mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country texas country-folk storyteller 1960s greenwich village confessional folk. thick, incomplete closure resting, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar, pearwood marine band tradition stainless steel steel suzuki Japanese modern precision harmonica, walnut mid tier fluorocarbon modern open back scruggs stelling banjo 5 string. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country texas country-folk storyteller 1960s greenwich village confessional folk. thick, incomplete closure resting, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar, pearwood marine band tradition stainless steel steel suzuki Japanese modern precision harmonica, walnut mid tier fluorocarbon modern open back bluegrass flathead stelling banjo 5 string. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "american_folk_revival_protest"
     ]
@@ -7045,7 +7045,7 @@
     ]
   },
   "american_drinking_song": {
-    "output": "classic modern american drinking song, drinking Song, americas branch, European drinking song, americana country, atlantic Southeast Asian shanty gothic americana gothic country. thick, low dynamic level, melodic, continuous-phonation. dadgad tuning phosphor bronze pre war martin travis picked dreadnought acoustic guitar, wood fluorocarbon modern open back scruggs stelling bluegrass setup banjo 5 string, pearwood marine band tradition double brass chromatic canon suzuki Japanese modern precision harmonica. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic modern american drinking song, drinking Song, americas branch, European drinking song, americana country, atlantic Southeast Asian shanty gothic americana gothic country. thick, low dynamic level, melodic, continuous-phonation. dadgad tuning phosphor bronze pre war martin alternating thumb bass picked alternating thumb dreadnought acoustic guitar, wood fluorocarbon modern open back bluegrass flathead stelling bluegrass setup banjo 5 string, pearwood marine band tradition double brass chromatic canon suzuki Japanese modern precision harmonica. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "american_drinking_song"
     ]
@@ -7123,7 +7123,7 @@
     ]
   },
   "mississippi_delta_field_holler": {
-    "output": "classic modern mississippi delta field holler, field Work, American south branch, sub saharan African field work, African diasporic funeral lament, anglo American protest song west-african rice-planting song mande-wolof west-african harvest-and-field song. thick, blues-shouter, tasteful, unrestrained. us dustbowl outdoor woody guthrie. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic modern mississippi delta field holler, field Work, American south branch, sub saharan African field work, African diasporic funeral lament, anglo American protest song west-african rice-planting song mande-wolof west-african harvest-and-field song. thick, blues-shouter, tasteful, unrestrained. us dustbowl outdoor field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "mississippi_delta_field_holler"
     ]
@@ -7177,7 +7177,7 @@
     ]
   },
   "west_african_rice_planting": {
-    "output": "classic modern west-african rice-planting song, field Work, sub saharan African branch, American south field work, sub saharan African praise song, sub saharan African protest song zulu izibongo yoruba oríkì. extended whistle, declaimed, tasteful, continuous-phonation. calabash nylon fishing line cowhide mande traditional kora. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic modern west-african rice-planting song, field Work, sub saharan African branch, American south field work, sub saharan African praise song, sub saharan African protest song south african freedom song zulu izibongo. thick, declaimed, tasteful, continuous-phonation. calabash nylon fishing line cowhide mande traditional kora. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "west_african_rice_planting"
     ]

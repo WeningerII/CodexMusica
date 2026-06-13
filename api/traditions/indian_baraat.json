@@ -5,7 +5,7 @@
   "lineage": "Pan-Indian groom's wedding-procession music tradition continuous from medieval-era Indian royal-and-domestic processional-music practice through 19th-20th century commercial-baraat-band evolution into modern South-Asian-and-diaspora wedding practice; defined by the band-baaja-baaraat ensemble with shehnai, dhol, trumpet, and brass-and-percussion arrangement",
   "recipe": "classic modern indian baraat, wedding, south Asian branch, carnival processional, south Asian pop functional song, south Asian art music indian holi-and-diwali festival processional new orleans brass band second-line. thick, low dynamic level, tasteful, continuous-phonation. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato student friendly trumpet, indian rosewood rosewood brass tabla. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 845,
-  "score": 237.045,
+  "score": 240.165,
   "config": {
     "traditions": [
       "indian_baraat",
@@ -74,14 +74,14 @@
           "shehnai_use": "shehnai_naubat_ensemble",
           "shehnai_body_wood": "shehnai_sheesham_canonical",
           "shehnai_reed": "shehnai_arundo_quadruple",
-          "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+          "shehnai_lineage": "shehnai_banaras"
         },
         "scores": {
           "shehnai_register": 12.415000000000001,
           "shehnai_use": 18.589999999999996,
           "shehnai_body_wood": 10.464999999999998,
           "shehnai_reed": 0.78,
-          "shehnai_lineage": 0.975
+          "shehnai_lineage": 4.095000000000001
         }
       },
       {
@@ -167,7 +167,7 @@
       "shehnai_use": "shehnai_naubat_ensemble",
       "shehnai_body_wood": "shehnai_sheesham_canonical",
       "shehnai_reed": "shehnai_arundo_quadruple",
-      "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+      "shehnai_lineage": "shehnai_banaras"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Japanese matsuri festival drumming (祭, matsuri-bayashi)",
   "family": "global",
   "lineage": "Japanese matsuri (祭, festival) drumming tradition continuous from premodern Shinto-Buddhist festival-procession practice through Edo-period (1603-1868) codification of canonical city-festival drumming (the Tokyo-Asakusa Sanja Matsuri, Kyoto Gion Matsuri, Osaka Tenjin Matsuri, Aomori Nebuta Matsuri) into modern Japanese-and-Japanese-diaspora continuous festival-practice",
-  "recipe": "classic early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, declaimed, melodic, continuous-phonation. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 791,
-  "score": 161.601,
+  "recipe": "classic early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, declaimed, melodic, continuous-phonation. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk festival kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 776,
+  "score": 168.571,
   "config": {
     "traditions": [
       "japanese_matsuri_taiko",
@@ -19,14 +19,14 @@
           "taiko_size": "taiko_o_daiko",
           "taiko_skin": "taiko_cowhide",
           "taiko_shell_wood": "taiko_keyaki_canonical",
-          "taiko_lineage": "taiko_oedo_sukeroku",
+          "taiko_lineage": "taiko_festival",
           "taiko_technique": "taiko_kumi_daiko"
         },
         "scores": {
           "taiko_size": 0.195,
           "taiko_skin": 9.27,
           "taiko_shell_wood": 9.809999999999999,
-          "taiko_lineage": 3.1200000000000006,
+          "taiko_lineage": 10.089999999999998,
           "taiko_technique": 6.045
         }
       },
@@ -157,7 +157,7 @@
       "taiko_size": "taiko_chu_daiko",
       "taiko_skin": "taiko_cowhide",
       "taiko_shell_wood": "taiko_keyaki_canonical",
-      "taiko_lineage": "taiko_oedo_sukeroku",
+      "taiko_lineage": "taiko_festival",
       "taiko_technique": "taiko_festival_matsuri"
     },
     "chain_mic": "condenser_sdc",

@@ -110,13 +110,13 @@
       "amp": "amp_british_orange_dirty",
       "medium": "digital_high"
     },
-    "tuning": "doom_sabbath_tritone_diminished",
+    "tuning": "doom_tritone_diminished",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "doom_sabbath_tritone_diminished",
+    "tuning": "doom_tritone_diminished",
     "room": "stoner_doom_garage_amplifier_room",
     "parts": {
       "body_wood": "mahogany_h",

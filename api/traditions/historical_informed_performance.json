@@ -5,7 +5,7 @@
   "lineage": "Late-twentieth-century classical-performance movement aiming to play pre-1900 Western art-music repertoire on period-appropriate instruments using period-appropriate technique, tuning (typically A=415 Hz baroque, A=430 Hz classical), tempo, articulation, and ornamentation — codified through ensembles including The English Concert (Trevor Pinnock), Concentus Musicus Wien (Nikolaus Harnoncourt), Academy of Ancient Music (Christopher Hogwood), and continuing through generations of period-instrument-trained performers",
   "recipe": "classic early-1900s historically-informed performance recording, art Music, western early branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, declaimed, chest resonance low mid, hocket articulation. maple modern British folk brass wire canonical renaissance cittern, gut galeazzi 1791 Baroque recipe period rosin legato fiddle, Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ, plain lamb gut canonical period performance snakewood underhand grip canonical Baroque viol viola da gamba, boxwood canonical renaissance Baroque continuous-airflow legato recorder, mid renaissance English Spanish lute renaissance, boxwood canonical renaissance European shawm. parish church.",
   "recipe_chars": 988,
-  "score": 326.049,
+  "score": 336.513,
   "config": {
     "traditions": [
       "historical_informed_performance",
@@ -116,7 +116,7 @@
           "gamba_strings": "gamba_plain_lamb_gut",
           "gamba_frets": "gamba_gut_tied_frets",
           "gamba_bow_stick": "gamba_snakewood_underhand",
-          "gamba_lineage": "gamba_william_lawes"
+          "gamba_lineage": "gamba_modern_revival"
         },
         "scores": {
           "bowed_technique": 10.625,
@@ -125,7 +125,7 @@
           "gamba_strings": 8.774999999999999,
           "gamba_frets": -0.035,
           "gamba_bow_stick": 13.075,
-          "gamba_lineage": 1.95
+          "gamba_lineage": 12.415000000000001
         }
       },
       {

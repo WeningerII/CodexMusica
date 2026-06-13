@@ -233,10 +233,10 @@
         {
           "id": "cumbus_aluminum_rim",
           "default": true,
-          "name": "Aluminum rim with skin head (Zeynel Abidin Cümbüş 1930 canonical)",
+          "name": "Aluminum rim with skin head (Cümbüş 1930 canonical)",
           "descriptors": [
             "aluminum-rim",
-            "zeynel-abidin-canonical",
+            "cumbus-canonical",
             "skin-head-modern-banjo-like"
           ],
           "match_tokens": [
@@ -404,10 +404,10 @@
         {
           "id": "cumbus_aluminum_rim",
           "default": true,
-          "name": "Aluminum rim with skin head (Zeynel Abidin Cümbüş 1930 canonical)",
+          "name": "Aluminum rim with skin head (Cümbüş 1930 canonical)",
           "descriptors": [
             "aluminum-rim",
-            "zeynel-abidin-canonical",
+            "cumbus-canonical",
             "skin-head-modern-banjo-like"
           ],
           "match_tokens": [

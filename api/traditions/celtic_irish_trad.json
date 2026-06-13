@@ -3,9 +3,9 @@
   "name": "Irish trad session",
   "family": "vernacular",
   "lineage": "Irish traditional instrumental dance-tune session tradition — modal melodies (Dorian and Mixolydian dominant) played on fiddle, tin whistle, flute, uilleann pipes, button accordion, concertina, bodhrán, and (in the post-Bothy-Band revival era) bouzouki and guitar in DADGAD tuning — revived from the 1960s-70s through Sean Ó Riada, Ceoltóirí Chualann, the Chieftains, the Bothy Band, Planxty, Altan, and the broader Doolin / Clare / Galway pub-session circuit",
-  "recipe": "classic North American mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal polish village fiddle huayno. magic rosin modern acrylic base double stops fiddle, African blackwood boxwood premium pre modern melodic tin whistle, flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning fingerpicked parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed rowsome dublin tradition uilleann pipes. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 917,
-  "score": 168.175,
+  "recipe": "classic North American mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal polish village fiddle huayno. magic rosin modern acrylic base double stops fiddle, African blackwood boxwood premium pre modern melodic tin whistle, flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning fingerpicked parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed dublin uilleann tradition uilleann pipes. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 918,
+  "score": 170.255,
   "config": {
     "traditions": [
       "celtic_irish_trad",
@@ -161,7 +161,7 @@
           "uilleann_chanter_wood": "uilleann_african_blackwood",
           "uilleann_reed": "uilleann_cane_canonical",
           "uilleann_bag": "uilleann_leather_canonical",
-          "uilleann_lineage": "uilleann_rowsome"
+          "uilleann_lineage": "uilleann_dublin"
         },
         "scores": {
           "wind_articulation": 5.92,
@@ -170,7 +170,7 @@
           "uilleann_chanter_wood": 4.16,
           "uilleann_reed": 3.4,
           "uilleann_bag": 3.4,
-          "uilleann_lineage": 4.03
+          "uilleann_lineage": 6.11
         }
       }
     ],

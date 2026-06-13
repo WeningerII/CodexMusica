@@ -3,9 +3,9 @@
   "name": "Uilleann pipe solo (Irish)",
   "family": "global",
   "lineage": "Irish bellows-blown indoor bagpipe (uilleann pipes, formerly called union pipes) solo virtuoso tradition codified through Leo Rowsome, Seamus Ennis, Willie Clancy, Liam OFlynn, Paddy Keenan, Davy Spillane — the most complex bagpipe instrument in the world with three drones, three regulators (chord-producing keys operated by the elbow), and a chanter capable of full chromatic range",
-  "recipe": "classic North American mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame irish trad session. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed rowsome dublin tradition uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 475,
-  "score": 31.071,
+  "recipe": "classic North American mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame irish trad session. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed dublin uilleann tradition uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 476,
+  "score": 33.454,
   "config": {
     "traditions": [
       "uilleann_pipe_solo",
@@ -21,7 +21,7 @@
           "uilleann_chanter_wood": "uilleann_african_blackwood",
           "uilleann_reed": "uilleann_cane_canonical",
           "uilleann_bag": "uilleann_leather_canonical",
-          "uilleann_lineage": "uilleann_rowsome"
+          "uilleann_lineage": "uilleann_dublin"
         },
         "scores": {
           "wind_articulation": 4.325,
@@ -30,7 +30,7 @@
           "uilleann_chanter_wood": 4.00375,
           "uilleann_reed": 3.808636363636363,
           "uilleann_bag": 5.238636363636363,
-          "uilleann_lineage": 3.835
+          "uilleann_lineage": 6.218579545454546
         }
       }
     ],

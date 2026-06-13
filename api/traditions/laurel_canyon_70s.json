@@ -3,9 +3,9 @@
   "name": "70s Laurel Canyon",
   "family": "global",
   "lineage": "Early-1970s Laurel Canyon (Los Angeles hill-neighborhood) singer-songwriter scene centered around Joni Mitchell, Crosby Stills Nash and Young, Jackson Browne, the Eagles, Linda Ronstadt, Carole King — codified through the A and M / Sunset Sound / Wally Heider studio canon",
-  "recipe": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country. thick, incomplete closure resting, expressive, equal tempered. travis picked fingerpicked acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state supertramp canon block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET.",
-  "recipe_chars": 996,
-  "score": 216.755,
+  "recipe": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country. thick, incomplete closure resting, expressive, equal tempered. alternating thumb bass picked alternating thumb fingerpicked acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state 70s pop canon block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre.",
+  "recipe_chars": 997,
+  "score": 218.251,
   "config": {
     "traditions": [
       "laurel_canyon_70s",
@@ -54,7 +54,7 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_travis_picking",
+          "acoustic_technique": "acoustic_alternating_bass",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -62,7 +62,7 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 10.265,
+          "acoustic_technique": 10.2575,
           "string_tuning": 0,
           "top_wood": 0.96875,
           "back_sides": 0.96875,
@@ -201,7 +201,7 @@
         "id": "wurlitzer_ep",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "wurlitzer_use": "wurlitzer_supertramp",
+          "wurlitzer_use": "wurlitzer_70s_pop_rock",
           "wurlitzer_ep_voice": "wurlitzer_ep_overdrive",
           "wurlitzer_model": "wurlitzer_200a_canonical",
           "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
@@ -210,7 +210,7 @@
           "keyboard_technique": 3.375,
           "wurlitzer_use": 0.022499999999999996,
           "wurlitzer_ep_voice": 1.6425,
-          "wurlitzer_model": 2.225,
+          "wurlitzer_model": 3.7287500000000002,
           "wurlitzer_reed_material": 0.49499999999999994
         }
       }

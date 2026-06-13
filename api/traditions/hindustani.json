@@ -3,9 +3,9 @@
   "name": "Hindustani classical",
   "family": "classical",
   "lineage": "North Indian classical raga tradition organized through the gharana (lineage-school) transmission system across Gwalior, Agra, Patiala, Kirana, Atrauli-Jaipur, Indore, Mewati, Benares gharanas — codified through V.N. Bhatkhandes 10-thaat system in the early 20th century, 20th-century lineage Ustad Bismillah Khan (shehnai), Ravi Shankar (sitar), Vilayat Khan (sitar), Ali Akbar Khan (sarod), Pandit Bhimsen Joshi (Kirana vocal), Pandit Hariprasad Chaurasia (bansuri)",
-  "recipe": "classic North American mid-1970s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, steel modern tun indian cedar alternative shivkumar sharma canonical lineage santoor, coconut shell shell tun indian cedar maihar gharana sarod, low overtone rich kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
-  "recipe_chars": 986,
-  "score": 321.429,
+  "recipe": "classic North American mid-1970s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. open jawari etawah gharana sitar canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, steel modern tun indian cedar alternative santoor canonical Hindustani lineage santoor, coconut shell shell tun indian cedar maihar gharana sarod, low overtone rich kerala bamboo alternative south indian bansuri maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
+  "recipe_chars": 983,
+  "score": 312.479,
   "config": {
     "traditions": [
       "hindustani",
@@ -36,8 +36,8 @@
           "sitar_frets": 0.39,
           "sitar_pluck": 8.674999999999999,
           "sitar_main_strings": -1.05,
-          "sitar_jawari_style": 4.4799999999999995,
-          "sitar_gharana": 9.791428571428572
+          "sitar_jawari_style": 4.079999999999999,
+          "sitar_gharana": 7.091428571428571
         }
       },
       {
@@ -80,7 +80,7 @@
           "santoor_mallets": "walnut_mallets",
           "santoor_strings": "steel_strings_santoor",
           "santoor_body_wood": "santoor_tun",
-          "santoor_lineage": "santoor_shivkumar_sharma_canon"
+          "santoor_lineage": "santoor_canonical"
         },
         "scores": {
           "plucked_traditional_technique": 19.535,
@@ -88,7 +88,7 @@
           "santoor_mallets": 0.7307142857142858,
           "santoor_strings": 10.519999999999998,
           "santoor_body_wood": 3.0999999999999996,
-          "santoor_lineage": 5.525
+          "santoor_lineage": 7.075714285714286
         }
       },
       {
@@ -111,7 +111,7 @@
           "sarod_taraf": 9.565,
           "sarod_body_wood": 3.0999999999999996,
           "sarod_strings": 0,
-          "sarod_gharana": 9.791428571428572
+          "sarod_gharana": 6.091428571428572
         }
       },
       {
@@ -121,14 +121,14 @@
           "bansuri_length": "classical_bansuri",
           "bansuri_ornament": "meend_bansuri",
           "bansuri_body_material": "bansuri_kerala_bamboo",
-          "bansuri_lineage": "bansuri_hariprasad_maihar"
+          "bansuri_lineage": "bansuri_maihar"
         },
         "scores": {
           "wind_articulation": 19.38,
           "bansuri_length": 2.745,
           "bansuri_ornament": 10.8875,
           "bansuri_body_material": 6.789999999999999,
-          "bansuri_lineage": 12.170714285714286
+          "bansuri_lineage": 11.470714285714283
         }
       },
       {
@@ -138,14 +138,14 @@
           "shehnai_use": "shehnai_classical_solo",
           "shehnai_body_wood": "shehnai_sheesham_canonical",
           "shehnai_reed": "shehnai_arundo_quadruple",
-          "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+          "shehnai_lineage": "shehnai_banaras"
         },
         "scores": {
           "shehnai_register": 8.125,
           "shehnai_use": 19.240000000000002,
           "shehnai_body_wood": 7.229999999999999,
           "shehnai_reed": 2.5349999999999997,
-          "shehnai_lineage": 11.075714285714286
+          "shehnai_lineage": 8.075714285714286
         }
       }
     ],
@@ -191,11 +191,11 @@
       "shehnai_use": "shehnai_classical_solo",
       "shehnai_body_wood": "shehnai_sheesham_canonical",
       "shehnai_reed": "shehnai_arundo_quadruple",
-      "shehnai_lineage": "shehnai_bismillah_khan_banaras",
+      "shehnai_lineage": "shehnai_banaras",
       "bansuri_length": "classical_bansuri",
       "bansuri_ornament": "meend_bansuri",
       "bansuri_body_material": "bansuri_assam_bamboo",
-      "bansuri_lineage": "bansuri_hariprasad_maihar"
+      "bansuri_lineage": "bansuri_maihar"
     },
     "chain_mic": "mic_u87_condenser_neumann",
     "chain_pre": "tube_pre",

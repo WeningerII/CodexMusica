@@ -3,8 +3,8 @@
   "name": "Country rap (hick-hop)",
   "family": "global",
   "lineage": "Country-hip-hop hybrid subgenre codified through Cowboy Troy, Big Smo, Colt Ford (Ride Through the Country 2008), and the broader Average Joes Entertainment label catalog — characterized by trap-derived 808 production with country-rapped vocals, banjo and steel-guitar accents, and rural-Americana lyrical subject matter",
-  "recipe": "classic late-2000s country rap, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, melodic, narrative. light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, Fender blackface amp American 60s amp spring reverb bright basswood nickel plated steel humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, TR-808, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 630,
+  "recipe": "classic late-2000s country rap, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, melodic, narrative. light steel clawhammer canon bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, Fender blackface amp American 60s amp spring reverb bright basswood nickel plated steel humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, TR-808, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 641,
   "score": 413.75,
   "config": {
     "traditions": [
@@ -65,7 +65,7 @@
           "banjo_neck_wood": "banjo_walnut_neck",
           "banjo_strings": "banjo_light_clawhammer",
           "banjo_bridge": "banjo_compensated_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 13.194999999999993,

@@ -3,9 +3,9 @@
   "name": "British R&B and British Invasion (1962–1968)",
   "family": "vernacular",
   "lineage": "Mid-1960s British R&B and blues-rock interpretation of American sources — codified through The Rolling Stones (The Rolling Stones 1964, their early Chess-blues covers), The Animals (\"The House of the Rising Sun\" 1964, \"I’m Crying\" 1964), The Yardbirds (Five Live Yardbirds 1964), and Them (Van Morrison’s early band) — characterized by white English musicians performing African-American blues and R&B repertoire with electric-rock-band instrumentation through Marshall amplifiers and the British studio sound",
-  "recipe": "classic British british r&b and british invasion, distorted Rock, classic branch, blues electric functional song chicago blues jump blues. thick, blues-shouter, chest resonance low mid, equal tempered. slow-build minor-key ballad in 6 8, descending bass walk, slow build dynamic envelope, mid song instrumental break. marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, vox ac amp British 60s amp top boost chime dearmond vintage jazz archtop, marshall plexi amp British rock amp Rickenbacker dual p90 flatwound semi hollow, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, marshall plexi amp British rock amp alder ernie ball slinky electric marshall plexi amp British rock amp hofner blade dual blade la bella flat short scale marshall plexi amp British rock amp Gibson eb2 epiphone rivoli semi hollow archtop semi hollow bass.",
-  "recipe_chars": 936,
-  "score": 675.453,
+  "recipe": "classic British british r&b and british invasion, distorted Rock, classic branch, blues electric functional song chicago blues jump blues. thick, blues-shouter, chest resonance low mid, equal tempered. slow-build minor-key ballad in 6 8, descending bass walk, slow build dynamic envelope, mid song instrumental break. marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, vox ac amp British 60s amp top boost chime dearmond vintage jazz archtop, marshall plexi amp British rock amp es 355 semi hollow blues canon dual p90 semi hollow, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, marshall plexi amp British rock amp alder ernie ball slinky electric marshall plexi amp British rock amp hofner blade dual blade la bella flat short scale marshall plexi amp British rock amp Gibson eb2 epiphone rivoli semi hollow archtop semi hollow bass.",
+  "recipe_chars": 944,
+  "score": 687.697,
   "config": {
     "traditions": [
       "british_invasion_rb",
@@ -109,7 +109,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "semi_archetypes": "semi_rickenbacker_330_360",
+          "semi_archetypes": "semi_es355_blues",
           "semi_hollow_pickup": "semi_dual_p90",
           "semi_hollow_strings": "semi_flatwound_jazz",
           "semi_hollow_context": "semi_hollow_british_invasion"
@@ -117,7 +117,7 @@
         "scores": {
           "electric_technique": 1.375,
           "amp_make": 24.342499999999998,
-          "semi_archetypes": 9.259999999999998,
+          "semi_archetypes": 21.503499999999995,
           "semi_hollow_pickup": 12.089999999999996,
           "semi_hollow_strings": 1.9914999999999998,
           "semi_hollow_context": 10.709999999999999
@@ -129,7 +129,7 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "combo_organ_model": "vox_jaguar_combo",
           "combo_organ_voicing": "combo_organ_16_pedal",
-          "combo_organ_context": "combo_organ_doors_psych",
+          "combo_organ_context": "combo_organ_psych",
           "amp_make": "amp_british_60s_vox_ac"
         },
         "scores": {

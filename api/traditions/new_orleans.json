@@ -3,8 +3,8 @@
   "name": "New Orleans jazz",
   "family": "jazz",
   "lineage": "New Orleans turn-of-the-20th-century African-American Creole funeral / parade / Storyville-district ensemble tradition that fused brass-band, blues, and ragtime into the foundational jazz vocabulary",
-  "recipe": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop cool jazz / west coast. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, growly gut upright bass, brass vintage ambassador asymmetric bronze bell bronze drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 899,
+  "recipe": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop cool jazz / west coast. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, bluegrass flathead stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, growly gut upright bass, brass vintage ambassador asymmetric bronze bell bronze drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 910,
   "score": 512.825,
   "config": {
     "traditions": [
@@ -18,7 +18,7 @@
         "slots": {
           "wind_articulation": "wind_dixieland_lead",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "trumpet_mouthpiece": "yamaha_jazz_mp",
           "brass_mute": "harmon_out",
           "trumpet_technique": "trumpet_dixieland_lead",
           "trumpet_bell_metal": "trumpet_yellow_brass",
@@ -68,7 +68,7 @@
           "banjo_neck_wood": "banjo_mahogany_neck",
           "banjo_strings": "banjo_light_clawhammer",
           "banjo_bridge": "banjo_compensated_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 12.317499999999999,

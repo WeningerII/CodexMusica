@@ -618,7 +618,7 @@ const INSTRUMENTS = [
       { id: 'archtop_pickup', surface: false, name: 'Pickup configuration', variants: [
         { id: 'archtop_floating', name: 'Floating pickup (acoustic-leaning)', descriptors: ['acoustic-leaning', 'low-mid-rich-spectrum', 'classical-jazz'], match_tokens: ['electric', 'plucked'] },
         { id: 'archtop_set_humbucker', default: true, name: 'Set humbucker (Es-175)', descriptors: ['versatile', 'low-mid-rich-spectrum'], match_tokens: ['electric', 'plucked'] },
-        { id: 'archtop_charlie_christian_blade', name: 'Charlie Christian blade (ES-150 canonical)', descriptors: ['charlie-christian-blade', 'es-150', 'pre-war-jazz-canon'], match_tokens: ['electric', 'plucked'], canonical_tags: ['jazz', 'vintage'] },
+        { id: 'archtop_vintage_blade', name: 'vintage blade (ES-150 canonical)', descriptors: ['vintage-blade-pickup', 'es-150', 'pre-war-jazz-canon'], match_tokens: ['electric', 'plucked'], canonical_tags: ['jazz', 'vintage'] },
         { id: 'archtop_dearmond_rhythm_chief', name: 'DeArmond Rhythm Chief (vintage clip-on)', descriptors: ['dearmond', 'clip-on', 'vintage-jazz'], match_tokens: ['electric', 'plucked'], canonical_tags: ['jazz', 'vintage'] },
       ] },
       { id: 'archtop_top_wood', surface: false, name: 'Top construction', variants: [
@@ -629,7 +629,7 @@ const INSTRUMENTS = [
       { id: 'archtop_strings', surface: false, name: 'Strings', variants: [
         { id: 'thomastik_jazz_flat', default: true, name: 'Thomastik flatwound jazz (canonical archtop)', descriptors: ['thomastik', 'flatwound', 'jazz-warm', 'reduced-finger-squeak'], match_tokens: ['electric', 'plucked'], canonical_tags: ['jazz'] },
         { id: 'daddario_chromes_jazz', name: 'D\'Addario Chromes flatwound', descriptors: ['daddario-chromes', 'flatwound', 'jazz-warm'], match_tokens: ['electric', 'plucked'], canonical_tags: ['jazz'] },
-        { id: 'pure_nickel_jazz_round', name: 'Pure nickel roundwound (Tal Farlow / vintage jazz)', descriptors: ['pure-nickel', 'roundwound', 'vintage-jazz'], match_tokens: ['electric', 'plucked'] },
+        { id: 'pure_nickel_jazz_round', name: 'Pure nickel roundwound (vintage jazz)', descriptors: ['pure-nickel', 'roundwound', 'vintage-jazz'], match_tokens: ['electric', 'plucked'] },
         { id: 'la_bella_jazz_flat', name: 'La Bella jazz flatwound', descriptors: ['la-bella', 'flatwound', 'warm-archtop'], match_tokens: ['electric', 'plucked'], canonical_tags: ['jazz'] },
       ] },
       { id: 'archtop_technique', surface: false, name: 'Playing technique', variants: [
@@ -666,7 +666,7 @@ const INSTRUMENTS = [
       { id: 'baritone_electric_strings', surface: false, name: 'Strings', variants: [
         { id: 'baritone_nickel_plated', default: true, name: 'Nickel-plated baritone set (.013-.062 typical)', descriptors: ['nickel-plated-steel', 'baritone-gauge', 'medium-heavy'], match_tokens: ['electric', 'plucked', 'low-register'] },
         { id: 'baritone_stainless_heavy', name: 'Stainless steel heavy (drop-tune metal)', descriptors: ['stainless-steel', 'heavy-gauge', 'drop-tuned'], match_tokens: ['electric', 'plucked', 'low-register'], canonical_tags: ['metal'] },
-        { id: 'baritone_pure_nickel_surf', name: 'Pure nickel surf-twang (Duane Eddy canon)', descriptors: ['pure-nickel', 'surf-twang', 'vintage'], match_tokens: ['electric', 'plucked', 'low-register'], canonical_tags: ['vintage'] },
+        { id: 'baritone_pure_nickel_surf', name: 'Pure nickel surf-twang (surf canon)', descriptors: ['pure-nickel', 'surf-twang', 'vintage'], match_tokens: ['electric', 'plucked', 'low-register'], canonical_tags: ['vintage'] },
       ] },
       { id: 'baritone_electric_pickup', surface: false, name: 'Pickup configuration', variants: [
         { id: 'baritone_dual_humbucker', default: true, name: 'Dual humbucker (modern metal)', descriptors: ['dual-humbucker', 'high-output'], match_tokens: ['electric', 'plucked'], canonical_tags: ['metal'] },
@@ -701,7 +701,7 @@ const INSTRUMENTS = [
         { id: 'flatwound', name: 'Flatwound (jazz / vintage)', descriptors: ['thumpy', 'dark', 'mellow', 'flatwound'], match_tokens: ['electric', 'low-register', 'foundational-bass'], canonical_tags: ['jazz', 'vintage'] },
         { id: 'half_round', name: 'Half-round', descriptors: ['between', 'balanced', 'low-mid-rich-spectrum'], match_tokens: ['electric', 'low-register', 'foundational-bass'] },
         { id: 'la_bella_flats_motown', name: 'La Bella jazz flats (Detroit soul bass canon)', descriptors: ['la-bella-flats', 'detroit-soul-bass-canon', 'heavy-gauge-flatwound'], match_tokens: ['electric', 'low-register', 'foundational-bass'], canonical_tags: ['motown', 'soul'] },
-        { id: 'pyramid_pure_nickel', name: 'Pyramid pure nickel (Beatles-era / vintage)', descriptors: ['pyramid', 'pure-nickel-bass', 'british-mid-60s-era'], match_tokens: ['electric', 'low-register', 'foundational-bass'], canonical_tags: ['british-invasion', 'vintage'] },
+        { id: 'pyramid_pure_nickel', name: 'Pyramid pure nickel (1960s-era / vintage)', descriptors: ['pyramid', 'pure-nickel-bass', 'british-mid-60s-era'], match_tokens: ['electric', 'low-register', 'foundational-bass'], canonical_tags: ['british-invasion', 'vintage'] },
         { id: 'ernie_ball_slinky_bass', name: 'Ernie Ball Slinky Bass', descriptors: ['ernie-ball-slinky', 'rock-canon', 'balanced'], match_tokens: ['electric', 'low-register', 'foundational-bass'], canonical_tags: ['rock'] },
         { id: 'tape_wound_bass', name: 'Tape-wound (upright-emulation)', descriptors: ['tape-wound', 'nylon-tape', 'upright-like'], match_tokens: ['electric', 'low-register', 'foundational-bass'] },
         { id: 'coated_nano_bass', name: 'Coated (Elixir Nanoweb bass)', descriptors: ['coated', 'elixir-nanoweb', 'long-life'], match_tokens: ['electric', 'low-register', 'foundational-bass'] },
@@ -747,11 +747,11 @@ const INSTRUMENTS = [
         { id: 'fretless_bass_lined', name: 'Lined fretless (pedagogical)', descriptors: ['hybrid', 'twentieth-century'], match_tokens: ['electric', 'low-register', 'fretless'] },
       ] },
       { id: 'fretless_fingerboard_wood', surface: false, name: 'Fretless fingerboard', variants: [
-        { id: 'fretless_ebony_unlined', default: true, name: 'Ebony unlined (Jaco canon — unmarked)', descriptors: ['ebony', 'unlined', 'jaco-canon', 'singing-mwah'], match_tokens: ['electric', 'low-register', 'fretless'], canonical_tags: ['jazz'] },
-        { id: 'fretless_ebony_lined', name: 'Ebony lined (pedagogical / Pino Palladino canon)', descriptors: ['ebony', 'lined', 'visual-guides'], match_tokens: ['electric', 'low-register', 'fretless'] },
+        { id: 'fretless_ebony_unlined', default: true, name: 'Ebony unlined (fretless jazz canon — unmarked)', descriptors: ['ebony', 'unlined', 'fretless-jazz-fusion-mwah-canon', 'singing-mwah'], match_tokens: ['electric', 'low-register', 'fretless'], canonical_tags: ['jazz'] },
+        { id: 'fretless_ebony_lined', name: 'Ebony lined (pedagogical / session-fretless canon)', descriptors: ['ebony', 'lined', 'visual-guides'], match_tokens: ['electric', 'low-register', 'fretless'] },
         { id: 'fretless_pao_ferro', name: 'Pau ferro unlined', descriptors: ['pau-ferro', 'unlined'], match_tokens: ['electric', 'low-register', 'fretless'] },
-        { id: 'fretless_epoxy_maple', name: 'Epoxy-coated maple (the original Jaco conversion)', descriptors: ['maple-base', 'epoxy-coated', 'extra-mwah-sustain'], match_tokens: ['electric', 'low-register', 'fretless'] },
-        { id: 'fretless_micarta', name: 'Micarta (Steve Bailey / 6-string boutique)', descriptors: ['micarta', 'synthetic', 'durable'], match_tokens: ['electric', 'low-register', 'fretless'] },
+        { id: 'fretless_epoxy_maple', name: 'Epoxy-coated maple (the original fretless conversion)', descriptors: ['maple-base', 'epoxy-coated', 'extra-mwah-sustain'], match_tokens: ['electric', 'low-register', 'fretless'] },
+        { id: 'fretless_micarta', name: 'Micarta (6-string boutique)', descriptors: ['micarta', 'synthetic', 'durable'], match_tokens: ['electric', 'low-register', 'fretless'] },
         { id: 'fretless_wenge', name: 'Wenge unlined (Warwick canon)', descriptors: ['wenge', 'percussive', 'warwick-canon'], match_tokens: ['electric', 'low-register', 'fretless'] },
       ] },
       { id: 'fretless_bass_strings', surface: false, name: 'Strings', variants: [
@@ -864,9 +864,9 @@ const INSTRUMENTS = [
         { id: 'glass_slide', name: 'Glass slide', descriptors: ['silvery', 'frictionless-glide', 'glass'], match_tokens: ['slide', 'electric', 'sustained-tone'] },
       ] },
       { id: 'pedal_steel_brand', surface: false, name: 'Builder / make', variants: [
-        { id: 'sho_bud_classic', default: true, name: 'Sho-Bud (classic Nashville, Buddy Emmons / Lloyd Green canon)', descriptors: ['sho-bud', 'classic-nashville', 'mid-60s-70s-canon'], match_tokens: ['electric', 'slide', 'sustained-tone'], canonical_tags: ['country', 'vintage'] },
+        { id: 'sho_bud_classic', default: true, name: 'Sho-Bud (classic Nashville pedal-steel canon)', descriptors: ['sho-bud', 'classic-nashville', 'mid-60s-70s-canon'], match_tokens: ['electric', 'slide', 'sustained-tone'], canonical_tags: ['country', 'vintage'] },
         { id: 'emmons_push_pull', name: 'Emmons push-pull (mechanical-canon vintage)', descriptors: ['emmons-push-pull', 'mechanical-canon', 'pre-1980'], match_tokens: ['electric', 'slide', 'sustained-tone'], canonical_tags: ['country', 'vintage'] },
-        { id: 'msa_classic', name: 'MSA Classic (Lloyd Green later, modernized)', descriptors: ['msa-classic', 'modernized-action'], match_tokens: ['electric', 'slide', 'sustained-tone'], canonical_tags: ['country'] },
+        { id: 'msa_classic', name: 'MSA Classic (later modernized)', descriptors: ['msa-classic', 'modernized-action'], match_tokens: ['electric', 'slide', 'sustained-tone'], canonical_tags: ['country'] },
         { id: 'mullen_d10', name: 'Mullen D10 (modern Nashville)', descriptors: ['mullen-d10', 'modern-nashville'], match_tokens: ['electric', 'slide', 'sustained-tone'], canonical_tags: ['country'] },
         { id: 'williams_gfi', name: 'Williams / GFI (modern student / mid-tier)', descriptors: ['williams', 'gfi', 'mid-tier-modern'], match_tokens: ['electric', 'slide', 'sustained-tone'] },
         { id: 'zum_steel_modern', name: 'ZumSteel (modern boutique)', descriptors: ['zum-steel', 'modern-boutique'], match_tokens: ['electric', 'slide', 'sustained-tone'] },
@@ -894,7 +894,7 @@ const INSTRUMENTS = [
       { id: 'semi_archetypes', name: 'Archetypal model', variants: [
         { id: 'semi_es335', default: true, name: 'Gibson ES-335 (with center block)', descriptors: ['balanced'], match_tokens: ['electric', 'plucked', 'warmed'], canonical_tags: ['blues-rock'] },
         { id: 'semi_casino', name: 'Epiphone Casino (full hollow)', descriptors: ['lively', 'folk-rock'], match_tokens: ['electric', 'plucked', 'warmed'], canonical_tags: ['british-pop'] },
-        { id: 'semi_es355_bb_king', name: 'Gibson ES-355 (Lucille — BB King canon)', descriptors: ['es-355', 'lucille-canon', 'varitone-switch'], match_tokens: ['electric', 'plucked', 'warmed'], canonical_tags: ['blues-rock'] },
+        { id: 'semi_es355_blues', name: 'Gibson ES-355 (semi-hollow blues canon)', descriptors: ['es-355', 'semi-hollow-blues-canon', 'varitone-switch'], match_tokens: ['electric', 'plucked', 'warmed'], canonical_tags: ['blues-rock'] },
         { id: 'semi_es175_gibson', name: 'Gibson ES-175 (jazz-leaning)', descriptors: ['es-175', 'jazz-leaning', 'laminated-maple'], match_tokens: ['electric', 'plucked', 'warmed'], canonical_tags: ['jazz'] },
         { id: 'semi_rickenbacker_330_360', name: 'Rickenbacker 330 / 360 (chime)', descriptors: ['rickenbacker', 'chimey', 'british-invasion'], match_tokens: ['electric', 'plucked'], canonical_tags: ['british-invasion'] },
       ] },
@@ -944,7 +944,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'short_scale_bass_strings', surface: false, name: 'Strings', variants: [
         { id: 'short_scale_bass_flat_la_bella', default: true, name: 'La Bella flatwound short-scale (Motown / Hofner canon)', descriptors: ['la-bella-flat', 'short-scale', 'detroit-soul-bass-canon'], match_tokens: ['electric', 'low-register'], canonical_tags: ['motown', 'british-invasion'] },
-        { id: 'short_scale_bass_pyramid_pure_nickel', name: 'Pyramid pure nickel short-scale (McCartney / Beatles canon)', descriptors: ['pyramid-pure-nickel', 'mccartney-canon'], match_tokens: ['electric', 'low-register'], canonical_tags: ['british-invasion', 'vintage'] },
+        { id: 'short_scale_bass_pyramid_pure_nickel', name: 'Pyramid pure nickel short-scale (1960s melodic-bass canon)', descriptors: ['pyramid-pure-nickel', 'melodic-bass-canon'], match_tokens: ['electric', 'low-register'], canonical_tags: ['british-invasion', 'vintage'] },
         { id: 'short_scale_bass_roundwound', name: 'Roundwound short-scale (modern)', descriptors: ['roundwound', 'modern', 'short-scale'], match_tokens: ['electric', 'low-register'] },
       ] },
     ]
@@ -960,7 +960,7 @@ const INSTRUMENTS = [
       { id: 'electric_technique', default_variant: 'electric_bass_pocket' },
       { id: 'semi_hollow_bass_model', surface: false, name: 'Archetypal model', variants: [
         { id: 'semi_hollow_bass_eb2_rivoli', default: true, name: 'Gibson EB-2 / Epiphone Rivoli (semi-hollow ES-335-scaled)', descriptors: ['gibson-eb2', 'epiphone-rivoli', 'semi-hollow-archtop', 'single-neck-humbucker', 'mid-heavy', 'woody-low-end'], match_tokens: ['electric', 'low-register', 'warmed'], canonical_tags: ['british-invasion', 'british-invasion', 'beat-boom'] },
-        { id: 'semi_hollow_bass_hofner_500_1', name: 'Höfner 500/1 violin bass (fully hollow)', descriptors: ['hofner-violin-bass', 'fully-hollow', 'thumpy-mwah', 'mccartney-archetype'], match_tokens: ['electric', 'low-register', 'warmed'], canonical_tags: ['british-invasion', 'beat-boom', 'beat-boom'] },
+        { id: 'semi_hollow_bass_hofner_500_1', name: 'Höfner 500/1 violin bass (fully hollow)', descriptors: ['hofner-violin-bass', 'fully-hollow', 'thumpy-mwah', 'melodic-bass-archetype'], match_tokens: ['electric', 'low-register', 'warmed'], canonical_tags: ['british-invasion', 'beat-boom', 'beat-boom'] },
         { id: 'semi_hollow_bass_gretsch_country_gent', name: 'Gretsch 6071 Country Gentleman bass (long-scale hollow)', descriptors: ['gretsch-country-gent-bass', 'long-scale-hollow', 'rockabilly-ancestry'], match_tokens: ['electric', 'low-register', 'warmed'] },
         { id: 'semi_hollow_bass_coronado', name: 'Fender Coronado bass (1966, long-scale semi-hollow)', descriptors: ['fender-coronado', 'late-60s-fender-semi-hollow', 'foam-mute-original'], match_tokens: ['electric', 'low-register'] },
         { id: 'semi_hollow_bass_rickenbacker_4005', name: 'Rickenbacker 4005 (hollow-body Rick)', descriptors: ['rickenbacker-hollow-bass', 'jangly-bass', 'cresting-wave-body'], match_tokens: ['electric', 'low-register'] },
@@ -1325,7 +1325,7 @@ const INSTRUMENTS = [
         { id: 'om_flatpicked_lead', name: 'Flatpicked single-note', descriptors: ['flatpicked', 'articulated'], match_tokens: ['lead', 'lead-melody', 'acoustic-only', 'plucked'], canonical_tags: ['bluegrass'] },
         { id: 'om_strummed_open', name: 'Open-chord strumming', descriptors: ['strummed', 'undamped-resonance', 'rhythm'], match_tokens: ['open-chord-ringing-overtones', 'open-tuned', 'acoustic-only'], canonical_tags: ['folk-revival'] },
         { id: 'om_bottleneck_slide', name: 'Bottleneck slide', descriptors: ['slide', 'open-tuned'], match_tokens: ['acoustic-only', 'plucked', 'fingerpicked'], canonical_tags: ['delta', 'blues', 'country-blues'] },
-        { id: 'om_travis_picking', surface: false, name: 'Travis picking', descriptors: ['travis-picked', 'alternating-thumb'], match_tokens: ['picked', 'acoustic-only', 'plucked', 'fingerpicked'], canonical_tags: ['country'] },
+        { id: 'om_alternating_bass', surface: false, name: 'Alternating-bass fingerstyle', descriptors: ['alternating-thumb-bass-picked', 'alternating-thumb'], match_tokens: ['picked', 'acoustic-only', 'plucked', 'fingerpicked'], canonical_tags: ['country'] },
         { id: 'om_drop_d_drone', name: 'Drop-D drone', descriptors: ['drone-like', 'modal'], match_tokens: ['drone-foundation', 'acoustic-only', 'plucked', 'fingerpicked'], canonical_tags: ['celtic', 'britfolk'] },
       ] },
     ]
@@ -1762,7 +1762,7 @@ const INSTRUMENTS = [
         { id: 'cumbus_balkan', name: 'Balkan-Anatolian fusion', descriptors: ['cross-genre', 'modern', 'concert'], match_tokens: ['plucked', 'ornamented'] },
       ] },
       { id: 'cumbus_body', surface: false, name: 'Body construction', variants: [
-        { id: 'cumbus_aluminum_rim', default: true, name: 'Aluminum rim with skin head (Zeynel Abidin Cümbüş 1930 canonical)', descriptors: ['aluminum-rim', 'zeynel-abidin-canonical', 'skin-head-modern-banjo-like'], match_tokens: ['plucked', 'ornamented'] },
+        { id: 'cumbus_aluminum_rim', default: true, name: 'Aluminum rim with skin head (Cümbüş 1930 canonical)', descriptors: ['aluminum-rim', 'cumbus-canonical', 'skin-head-modern-banjo-like'], match_tokens: ['plucked', 'ornamented'] },
         { id: 'cumbus_brass_rim', name: 'Brass rim (premium variant)', descriptors: ['brass-rim-premium'], match_tokens: ['plucked', 'ornamented'] },
       ] },
       { id: 'cumbus_head_skin', surface: false, name: 'Head material', variants: [
@@ -1898,7 +1898,7 @@ const INSTRUMENTS = [
         { id: 'pot_12', name: '12"', descriptors: ['deeper', 'warmer'], match_tokens: ['plucked', 'fingerpicked', 'ringing'] },
       ] },
       { id: 'banjo_play', surface: false, name: 'Playing technique', variants: [
-        { id: 'three_finger', name: 'Three-finger / Scruggs', descriptors: ['rolling', 'bluegrass'], match_tokens: ['plucked', 'fingerpicked', 'ringing'] },
+        { id: 'three_finger', name: 'Three-finger bluegrass roll', descriptors: ['rolling', 'bluegrass'], match_tokens: ['plucked', 'fingerpicked', 'ringing'] },
         { id: 'clawhammer', default: true, name: 'Clawhammer / frailing', descriptors: ['percussive', 'thumb-driven', 'old-time'], match_tokens: ['plucked', 'fingerpicked', 'ringing'] },
         { id: 'two_finger', name: 'Two-finger / drop-thumb', descriptors: ['archaic', 'driving', 'piedmont'], match_tokens: ['plucked', 'fingerpicked', 'ringing'] },
       ] },
@@ -1915,7 +1915,7 @@ const INSTRUMENTS = [
         { id: 'banjo_cherry_neck', name: 'Cherry (boutique open-back)', descriptors: ['cherry', 'boutique-open-back'], match_tokens: ['plucked', 'fingerpicked'] },
       ] },
       { id: 'banjo_strings', surface: false, name: 'Strings', variants: [
-        { id: 'banjo_medium_bluegrass', default: true, name: 'Medium steel (bluegrass canon, GHS PF135 / J.D. Crowe)', descriptors: ['medium-steel', 'bluegrass-canon', 'ghs-pf135'], match_tokens: ['plucked', 'fingerpicked', 'ringing'], canonical_tags: ['bluegrass'] },
+        { id: 'banjo_medium_bluegrass', default: true, name: 'Medium steel (bluegrass canon, GHS PF135)', descriptors: ['medium-steel', 'bluegrass-canon', 'ghs-pf135'], match_tokens: ['plucked', 'fingerpicked', 'ringing'], canonical_tags: ['bluegrass'] },
         { id: 'banjo_light_clawhammer', name: 'Light steel (clawhammer)', descriptors: ['light-steel', 'clawhammer-canon', 'easy-pull'], match_tokens: ['plucked', 'fingerpicked', 'ringing'] },
         { id: 'banjo_gut_minstrel', name: 'Plain gut (minstrel pre-1860s / fretless canon)', descriptors: ['plain-gut', 'minstrel-pre-1860s', 'fretless-canon'], match_tokens: ['plucked', 'fingerpicked', 'period-performance'], canonical_tags: ['historical-gut'] },
         { id: 'banjo_nylgut', name: 'Nylgut (Aquila — gut-emulating modern)', descriptors: ['nylgut', 'aquila', 'gut-emulating'], match_tokens: ['plucked', 'fingerpicked'] },
@@ -1928,7 +1928,7 @@ const INSTRUMENTS = [
         { id: 'banjo_compensated_bridge', name: 'Compensated bridge (modern Snuffy Smith)', descriptors: ['compensated-bridge', 'snuffy-smith'], match_tokens: ['plucked', 'fingerpicked'] },
       ] },
       { id: 'banjo_setup_period', surface: false, name: 'Setup period / canon', variants: [
-        { id: 'banjo_scruggs_bluegrass_setup', default: true, name: 'Scruggs / Stelling bluegrass (Mastertone flathead, picks, high bridge)', descriptors: ['scruggs-stelling', 'bluegrass-setup', 'mastertone-flathead', 'picks-and-thumbpick'], match_tokens: ['plucked', 'fingerpicked', 'ringing'], canonical_tags: ['bluegrass'] },
+        { id: 'banjo_bluegrass_flathead_setup', default: true, name: 'Stelling bluegrass flathead (Mastertone flathead, picks, high bridge)', descriptors: ['bluegrass-flathead-stelling', 'bluegrass-setup', 'mastertone-flathead', 'picks-and-thumbpick'], match_tokens: ['plucked', 'fingerpicked', 'ringing'], canonical_tags: ['bluegrass'] },
         { id: 'banjo_old_time_open_back_setup', name: 'Old-time / clawhammer open-back (low bridge, looser action)', descriptors: ['old-time-clawhammer', 'low-bridge-loose-action', 'open-back'], match_tokens: ['plucked', 'fingerpicked', 'old-time'] },
         { id: 'banjo_minstrel_period_setup', name: 'Minstrel pre-1860s (fretless, gut, low bridge)', descriptors: ['minstrel-pre-1860s', 'fretless', 'gut-strings', 'low-bridge'], match_tokens: ['plucked', 'period-performance'] },
         { id: 'banjo_classic_5_string_setup', name: 'Classic 5-string parlor (1880-1920, ragtime / classic banjo)', descriptors: ['classic-5-string', 'ragtime-banjo', '1880-1920-parlor'], match_tokens: ['plucked', 'fingerpicked'] },
@@ -2168,10 +2168,10 @@ const INSTRUMENTS = [
         { id: 'kora_rosewood_modern', name: 'Rosewood (modern boutique)', descriptors: ['rosewood', 'modern-boutique'], match_tokens: ['plucked', 'fingerpicked'], canonical_tags: ['cites-app-ii'] },
       ] },
       { id: 'kora_lineage', surface: false, name: 'Lineage / tradition', variants: [
-        { id: 'kora_diabate_lineage', default: true, name: 'Diabaté lineage (Sidiki / Toumani / Sona, Mali canonical)', descriptors: ['diabate-lineage', 'mali-canonical'], match_tokens: ['plucked', 'fingerpicked'] },
+        { id: 'kora_mande_jeli_lineage', default: true, name: 'Mande jeli kora lineage (Mali canonical)', descriptors: ['mande-jeli-kora-lineage', 'mali-canonical'], match_tokens: ['plucked', 'fingerpicked'] },
         { id: 'kora_konte_lineage', name: 'Konté lineage (Gambia / Casamance)', descriptors: ['konte-lineage', 'gambia-casamance'], match_tokens: ['plucked', 'fingerpicked'] },
         { id: 'kora_suso_lineage', name: 'Suso lineage (Gambia, modern revival)', descriptors: ['suso-lineage', 'gambia-modern-revival'], match_tokens: ['plucked', 'fingerpicked'] },
-        { id: 'kora_modern_concert', name: 'Modern concert (Ballaké Sissoko fusion)', descriptors: ['modern-concert', 'ballake-sissoko-fusion'], match_tokens: ['plucked', 'fingerpicked'] },
+        { id: 'kora_modern_concert', name: 'Modern concert (kora fusion)', descriptors: ['modern-concert', 'kora-fusion'], match_tokens: ['plucked', 'fingerpicked'] },
       ] },
     ]
   },
@@ -2250,7 +2250,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'lute_renaissance_context', surface: false, name: 'Use context', variants: [
         { id: 'lute_renaissance_solo', default: true, name: 'Solo polyphony', descriptors: ['art-music'], match_tokens: ['renaissance', 'soloistic', 'plucked'] },
-        { id: 'lute_renaissance_song', name: 'Song accompaniment (Dowland ayre, German lieder)', descriptors: ['ayre-and-lieder', 'consort-context', 'standard'], match_tokens: ['renaissance', 'plucked'] },
+        { id: 'lute_renaissance_song', name: 'Song accompaniment (Renaissance ayre, German lieder)', descriptors: ['ayre-and-lieder', 'consort-context', 'standard'], match_tokens: ['renaissance', 'plucked'] },
         { id: 'lute_renaissance_consort', name: 'Consort / chamber', descriptors: ['ensemble', 'sacred-secular', 'court'], match_tokens: ['renaissance', 'plucked'] },
       ] },
       { id: 'lute_renaissance_ribs', surface: false, name: 'Body rib wood', variants: [
@@ -2720,7 +2720,7 @@ const INSTRUMENTS = [
         { id: 'santoor_tun', name: 'Tun / Indian cedar (alternative)', descriptors: ['tun-indian-cedar-alternative'], match_tokens: ['plucked', 'classical-trained'] },
       ] },
       { id: 'santoor_lineage', surface: false, name: 'Performance lineage', variants: [
-        { id: 'santoor_shivkumar_sharma_canon', default: true, name: 'Shivkumar Sharma canonical Hindustani-introduction lineage', descriptors: ['shivkumar-sharma-canonical-lineage'], match_tokens: ['plucked', 'classical-trained'] },
+        { id: 'santoor_canonical', default: true, name: 'Santoor canonical Hindustani-introduction lineage', descriptors: ['santoor-canonical-hindustani-lineage'], match_tokens: ['plucked', 'classical-trained'] },
         { id: 'santoor_kashmiri_sufiana', name: 'Kashmiri Sufiana traditional (pre-classical adoption)', descriptors: ['kashmiri-sufiana-traditional'], match_tokens: ['plucked', 'classical-trained'] },
       ] },
     ]
@@ -2812,8 +2812,8 @@ const INSTRUMENTS = [
         { id: 'sarod_pure_steel', name: 'Pure steel (heavier brightness)', descriptors: ['pure-steel', 'heavier-brightness'], match_tokens: ['plucked', 'classical-trained'] },
       ] },
       { id: 'sarod_gharana', surface: false, name: 'Gharana lineage', variants: [
-        { id: 'sarod_maihar_gharana', default: true, name: 'Maihar gharana (Ali Akbar Khan / Allauddin Khan)', descriptors: ['maihar-gharana', 'ali-akbar-khan-lineage', 'allauddin-khan-lineage'], match_tokens: ['plucked', 'classical-trained'] },
-        { id: 'sarod_shahjahanpur_gharana', name: 'Shahjahanpur / Bangash gharana (Amjad Ali Khan)', descriptors: ['shahjahanpur-bangash-gharana', 'amjad-ali-khan-lineage'], match_tokens: ['plucked', 'classical-trained'] },
+        { id: 'sarod_maihar_gharana', default: true, name: 'Maihar gharana (sarod)', descriptors: ['maihar-gharana', 'maihar-gharana-sarod-lineage', 'maihar-gharana-lineage'], match_tokens: ['plucked', 'classical-trained'] },
+        { id: 'sarod_shahjahanpur_gharana', name: 'Shahjahanpur / Bangash gharana (sarod)', descriptors: ['shahjahanpur-bangash-gharana', 'bangash-gharana-sarod-lineage'], match_tokens: ['plucked', 'classical-trained'] },
         { id: 'sarod_senia_gharana', name: 'Senia gharana (Mughal-era origin)', descriptors: ['senia-gharana', 'mughal-era-origin'], match_tokens: ['plucked', 'classical-trained'] },
       ] },
     ]
@@ -2848,7 +2848,7 @@ const INSTRUMENTS = [
       { id: 'saz_tradition', surface: false, name: 'Tradition / canon', variants: [
         { id: 'saz_asik_tradition', default: true, name: 'Aşık (wandering bardic tradition)', descriptors: ['asik', 'wandering-bardic'], match_tokens: ['plucked', 'drone-foundation'] },
         { id: 'saz_alevi_cem', name: 'Alevi cem (devotional)', descriptors: ['alevi-cem', 'devotional'], match_tokens: ['plucked', 'drone-foundation'] },
-        { id: 'saz_modern_concert', name: 'Modern concert (Arif Sağ / Erkan Oğur lineage)', descriptors: ['modern-concert', 'arif-sag-erkan-ogur'], match_tokens: ['plucked', 'drone-foundation'] },
+        { id: 'saz_modern_concert', name: 'Modern concert (baglama lineage)', descriptors: ['modern-concert', 'modern-baglama-concert'], match_tokens: ['plucked', 'drone-foundation'] },
       ] },
     ]
   },
@@ -2875,8 +2875,8 @@ const INSTRUMENTS = [
         { id: 'setar_gut_historical', name: 'Gut historical (pre-modern radif canon)', descriptors: ['gut-historical', 'pre-modern-radif'], match_tokens: ['plucked', 'classical-trained', 'period-performance'], canonical_tags: ['historical-gut'] },
       ] },
       { id: 'setar_tradition', surface: false, name: 'Tradition / lineage', variants: [
-        { id: 'setar_radif_canonical', default: true, name: 'Radif canonical (Mohammad Reza Lotfi / Hossein Alizadeh lineage)', descriptors: ['radif-canonical', 'lotfi-alizadeh-lineage'], match_tokens: ['plucked', 'classical-trained'], canonical_tags: ['dastgah'] },
-        { id: 'setar_sufi_meditative', name: 'Sufi meditative (Nour Ali Boroumand lineage)', descriptors: ['sufi-meditative', 'boroumand-lineage'], match_tokens: ['plucked', 'classical-trained'] },
+        { id: 'setar_radif_canonical', default: true, name: 'Radif canonical (concert setar lineage)', descriptors: ['radif-canonical', 'radif-concert-lineage'], match_tokens: ['plucked', 'classical-trained'], canonical_tags: ['dastgah'] },
+        { id: 'setar_sufi_meditative', name: 'Sufi meditative (radif preservation lineage)', descriptors: ['sufi-meditative', 'radif-preservation-lineage'], match_tokens: ['plucked', 'classical-trained'] },
       ] },
     ]
   },
@@ -3003,16 +3003,16 @@ const INSTRUMENTS = [
         { id: 'sitar_phosphor_bronze', name: 'Phosphor bronze (modern alternative)', descriptors: ['phosphor-bronze', 'modern-alternative'], match_tokens: ['plucked', 'drone-foundation'] },
       ] },
       { id: 'sitar_jawari_style', surface: false, name: 'Jawari shape / style', variants: [
-        { id: 'sitar_jawari_open', default: true, name: 'Open jawari (Vilayat Khan canon — long sustain, buzzing overtones)', descriptors: ['open-jawari', 'vilayat-khan-canon', 'long-sustain', 'buzzing-overtones'], match_tokens: ['plucked', 'drone-foundation'] },
-        { id: 'sitar_jawari_closed', name: 'Closed jawari (Ravi Shankar canon — articulate, less buzz)', descriptors: ['closed-jawari', 'ravi-shankar-canon', 'articulate-less-buzz'], match_tokens: ['plucked', 'drone-foundation'] },
+        { id: 'sitar_jawari_open', default: true, name: 'Open jawari (Etawah gharana canon — long sustain, buzzing overtones)', descriptors: ['open-jawari', 'etawah-gharana-sitar-canon', 'long-sustain', 'buzzing-overtones'], match_tokens: ['plucked', 'drone-foundation'] },
+        { id: 'sitar_jawari_closed', name: 'Closed jawari (Maihar gharana canon — articulate, less buzz)', descriptors: ['closed-jawari', 'maihar-gharana-sitar-canon', 'articulate-less-buzz'], match_tokens: ['plucked', 'drone-foundation'] },
         { id: 'sitar_jawari_narrow', name: 'Narrow jawari (focused projection)', descriptors: ['narrow-jawari', 'focused-projection'], match_tokens: ['plucked', 'drone-foundation'] },
         { id: 'sitar_jawari_wide', name: 'Wide jawari (full overtone spread)', descriptors: ['wide-jawari', 'full-overtone-spread'], match_tokens: ['plucked', 'drone-foundation'] },
       ] },
       { id: 'sitar_gharana', surface: false, name: 'Gharana lineage', variants: [
-        { id: 'sitar_maihar_gharana', default: true, name: 'Maihar gharana (Allauddin Khan / Ravi Shankar / Nikhil Banerjee)', descriptors: ['maihar-gharana', 'allauddin-khan-lineage', 'ravi-shankar-lineage'], match_tokens: ['plucked', 'drone-foundation', 'classical-trained'] },
-        { id: 'sitar_imdadkhani_gharana', name: 'Imdadkhani / Etawah gharana (Vilayat Khan)', descriptors: ['imdadkhani-gharana', 'etawah-gharana', 'vilayat-khan-lineage', 'gayaki-ang'], match_tokens: ['plucked', 'drone-foundation', 'classical-trained'] },
+        { id: 'sitar_maihar_gharana', default: true, name: 'Maihar gharana (sitar)', descriptors: ['maihar-gharana', 'maihar-gharana-lineage', 'maihar-gharana-sitar-lineage'], match_tokens: ['plucked', 'drone-foundation', 'classical-trained'] },
+        { id: 'sitar_imdadkhani_gharana', name: 'Imdadkhani / Etawah gharana (sitar)', descriptors: ['imdadkhani-gharana', 'etawah-gharana', 'etawah-gharana-sitar-lineage', 'gayaki-ang'], match_tokens: ['plucked', 'drone-foundation', 'classical-trained'] },
         { id: 'sitar_jaipur_gharana', name: 'Jaipur / Senia gharana', descriptors: ['jaipur-senia-gharana'], match_tokens: ['plucked', 'drone-foundation', 'classical-trained'] },
-        { id: 'sitar_rampur_gharana', name: 'Rampur / Sahaswan gharana (Ustad Rashid Khan lineage)', descriptors: ['rampur-sahaswan-gharana'], match_tokens: ['plucked', 'drone-foundation', 'classical-trained'] },
+        { id: 'sitar_rampur_gharana', name: 'Rampur / Sahaswan gharana lineage', descriptors: ['rampur-sahaswan-gharana'], match_tokens: ['plucked', 'drone-foundation', 'classical-trained'] },
       ] },
     ]
   },
@@ -3099,8 +3099,8 @@ const INSTRUMENTS = [
         { id: 'tar_gut_historical', name: 'Gut (pre-modern Qajar canon)', descriptors: ['gut-historical', 'pre-modern-qajar'], match_tokens: ['plucked', 'ornamented', 'period-performance'], canonical_tags: ['historical-gut'] },
       ] },
       { id: 'tar_tradition', surface: false, name: 'Tradition / lineage', variants: [
-        { id: 'tar_radif_canonical', default: true, name: 'Radif canonical (Mirza Hossein Qoli / Ali Akbar Shahnazi lineage)', descriptors: ['radif-canonical', 'shahnazi-lineage'], match_tokens: ['plucked', 'ornamented'], canonical_tags: ['dastgah'] },
-        { id: 'tar_modern_concert', name: 'Modern concert (Hossein Alizadeh lineage)', descriptors: ['modern-concert', 'alizadeh-lineage'], match_tokens: ['plucked', 'ornamented'] },
+        { id: 'tar_radif_canonical', default: true, name: 'Radif canonical (tar lineage)', descriptors: ['radif-canonical', 'radif-tar-lineage'], match_tokens: ['plucked', 'ornamented'], canonical_tags: ['dastgah'] },
+        { id: 'tar_modern_concert', name: 'Modern concert (tar lineage)', descriptors: ['modern-concert', 'tar-concert-lineage'], match_tokens: ['plucked', 'ornamented'] },
       ] },
     ]
   },
@@ -3190,7 +3190,7 @@ const INSTRUMENTS = [
         { id: 'tres_cubano_mahogany', name: 'Mahogany (premium)', descriptors: ['mahogany-premium'], match_tokens: ['plucked', 'tremolo'] },
       ] },
       { id: 'tres_cubano_strings', surface: false, name: 'String material', variants: [
-        { id: 'tres_cubano_steel_modern', default: true, name: 'Steel (modern canonical, Arsenio Rodríguez canon)', descriptors: ['steel-modern', 'arsenio-rodriguez-canon'], match_tokens: ['plucked', 'tremolo'] },
+        { id: 'tres_cubano_steel_modern', default: true, name: 'Steel (modern canonical, son-montuno canon)', descriptors: ['steel-modern', 'son-montuno-conjunto-canon'], match_tokens: ['plucked', 'tremolo'] },
         { id: 'tres_cubano_octave_doubled', name: 'Octave-doubled bronze + steel (rural traditional)', descriptors: ['octave-doubled', 'bronze-steel', 'rural-traditional'], match_tokens: ['plucked', 'tremolo'] },
       ] },
     ]
@@ -3390,8 +3390,8 @@ const INSTRUMENTS = [
         { id: 'violin_carnatic_steel', name: 'Steel (projecting modern concert)', descriptors: ['steel-projecting-modern-concert'], match_tokens: ['bowed', 'microtonal-bend'] },
       ] },
       { id: 'violin_carnatic_lineage', surface: false, name: 'Performance lineage', variants: [
-        { id: 'violin_carnatic_lalgudi', default: true, name: 'Lalgudi lineage (Carnatic violin canonical)', descriptors: ['lalgudi-lineage-carnatic-canonical'], match_tokens: ['bowed', 'microtonal-bend', 'classical-trained'] },
-        { id: 'violin_carnatic_chowdiah_seven_string', name: 'Chowdiah seven-string variant (extended-range)', descriptors: ['chowdiah-seven-string-extended-range'], match_tokens: ['bowed', 'microtonal-bend'] },
+        { id: 'violin_carnatic_lalgudi', default: true, name: 'Lalgudi lineage (Carnatic violin canonical)', descriptors: ['carnatic-violin-canonical-lineage'], match_tokens: ['bowed', 'microtonal-bend', 'classical-trained'] },
+        { id: 'violin_carnatic_seven_string', name: 'Carnatic seven-string variant (extended-range)', descriptors: ['carnatic-seven-string-extended-range'], match_tokens: ['bowed', 'microtonal-bend'] },
         { id: 'violin_carnatic_hindustani_crossover', name: 'Hindustani crossover lineage', descriptors: ['hindustani-crossover-lineage'], match_tokens: ['bowed', 'microtonal-bend'] },
       ] },
     ]
@@ -3791,7 +3791,7 @@ const INSTRUMENTS = [
         { id: 'lamb_kamancheh', default: true, name: 'Lamb skin', descriptors: ['standard', 'low-mid-rich-spectrum', 'classical', 'lambskin', 'hide'], match_tokens: ['bowed', 'ornamented'] },
       ] },
       { id: 'kamancheh_use', surface: false, name: 'Stylistic use', variants: [
-        { id: 'kamancheh_dastgah', default: true, name: 'Persian dastgāh (Kayhan Kalhor canon)', descriptors: ['radif-suited', 'vocal-imitating', 'classical', 'kayhan-kalhor-canon'], match_tokens: ['bowed', 'ornamented'] },
+        { id: 'kamancheh_dastgah', default: true, name: 'Persian dastgāh (kamancheh concert canon)', descriptors: ['radif-suited', 'vocal-imitating', 'classical', 'kamancheh-concert-canon'], match_tokens: ['bowed', 'ornamented'] },
       ] },
       { id: 'kamancheh_body_wood', surface: false, name: 'Body wood', variants: [
         { id: 'kamancheh_walnut_body', default: true, name: 'Walnut (canonical Persian)', descriptors: ['walnut-canonical-persian'], match_tokens: ['bowed', 'ornamented'] },
@@ -4154,9 +4154,9 @@ const INSTRUMENTS = [
       ] },
       { id: 'gamba_lineage', surface: false, name: 'Compositional lineage', variants: [
         { id: 'gamba_marais_french_baroque', default: true, name: 'Marais / French baroque (basse de viole canonical)', descriptors: ['marais-lineage', 'french-baroque-basse-de-viole'], match_tokens: ['bowed', 'renaissance', 'baroque-leaning'] },
-        { id: 'gamba_sainte_colombe', name: 'Sainte-Colombe (French baroque master)', descriptors: ['sainte-colombe-lineage'], match_tokens: ['bowed', 'renaissance', 'baroque-leaning'] },
-        { id: 'gamba_william_lawes', name: 'William Lawes (English consort)', descriptors: ['william-lawes-lineage', 'english-consort'], match_tokens: ['bowed', 'renaissance'] },
-        { id: 'gamba_jordi_savall_modern_revival', name: 'Modern revival (Jordi Savall / Hespèrion XX lineage)', descriptors: ['modern-revival', 'savall-hesperion-lineage'], match_tokens: ['bowed', 'renaissance'] },
+        { id: 'gamba_french_baroque_consort', name: 'French baroque bass viol (consort)', descriptors: ['french-baroque-viol-lineage'], match_tokens: ['bowed', 'renaissance', 'baroque-leaning'] },
+        { id: 'gamba_english_consort', name: 'English consort viol', descriptors: ['english-consort-viol-lineage', 'english-consort'], match_tokens: ['bowed', 'renaissance'] },
+        { id: 'gamba_modern_revival', name: 'Modern early-music revival', descriptors: ['modern-revival', 'early-music-revival-lineage'], match_tokens: ['bowed', 'renaissance'] },
       ] },
     ]
   },
@@ -4446,7 +4446,7 @@ const INSTRUMENTS = [
         { id: 'sabar_synthetic_modern', name: 'Synthetic (modern alternative)', descriptors: ['synthetic-modern-alternative'], match_tokens: ['synthetic', 'percussive-attack', 'hands'] },
       ] },
       { id: 'sabar_lineage', surface: false, name: 'Lineage / griot family', variants: [
-        { id: 'sabar_rose_family', default: true, name: 'Rose family lineage (canonical Senegalese mbalax — Doudou Ndiaye Rose)', descriptors: ['rose-family-canonical-senegalese-mbalax'], match_tokens: ['percussive-attack', 'hands', 'polyrhythmic'] },
+        { id: 'sabar_mbalax_lineage', default: true, name: 'Sabar lineage (canonical Senegalese mbalax)', descriptors: ['rose-family-canonical-senegalese-mbalax'], match_tokens: ['percussive-attack', 'hands', 'polyrhythmic'] },
       ] },
     ]
   },
@@ -4621,7 +4621,7 @@ const INSTRUMENTS = [
         { id: 'darbuka_goat_skin', name: 'Goat-skin (Turkish darbuka regional)', descriptors: ['goat-skin-turkish-darbuka-regional'], match_tokens: ['percussive-attack', 'hands'] },
       ] },
       { id: 'darbuka_regional_style', surface: false, name: 'Regional style', variants: [
-        { id: 'darbuka_egyptian_sombaty', default: true, name: 'Egyptian Sombaty (canonical mid-East — Hossam Ramzy / Said El Artist lineage)', descriptors: ['egyptian-sombaty-canonical-mid-east'], match_tokens: ['percussive-attack', 'hands'] },
+        { id: 'darbuka_egyptian_sombaty', default: true, name: 'Egyptian Sombaty (canonical mid-East — darbuka lineage)', descriptors: ['egyptian-sombaty-canonical-mid-east'], match_tokens: ['percussive-attack', 'hands'] },
         { id: 'darbuka_turkish_split', name: 'Turkish darbuka (split-finger technique, smaller goat-skin)', descriptors: ['turkish-darbuka-split-finger-smaller-goat-skin'], match_tokens: ['percussive-attack', 'hands'] },
         { id: 'darbuka_iraqi_zarb', name: 'Iraqi maqam zarb (drier finger technique)', descriptors: ['iraqi-maqam-zarb-drier-finger'], match_tokens: ['percussive-attack', 'hands'] },
       ] },
@@ -5114,7 +5114,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'janggu_lineage', surface: false, name: 'Performance lineage', variants: [
         { id: 'janggu_pansori_godo', default: true, name: 'Pansori godo (one-drum song-cycle accompaniment, canonical)', descriptors: ['pansori-godo-canonical'], match_tokens: ['percussive-attack', 'hand-struck'] },
-        { id: 'janggu_samul_lineage', name: 'Samul nori (Kim Duk-soo lineage, 1978 founding)', descriptors: ['samul-nori-kim-duk-soo-1978-founding'], match_tokens: ['percussive-attack', 'hand-struck'] },
+        { id: 'janggu_samul_lineage', name: 'Samul nori (1978 founding lineage)', descriptors: ['samul-nori-1978-founding'], match_tokens: ['percussive-attack', 'hand-struck'] },
         { id: 'janggu_pungmul_outdoor', name: 'Pungmul outdoor village (pre-samul-nori)', descriptors: ['pungmul-outdoor-village-pre-samul-nori'], match_tokens: ['percussive-attack', 'hand-struck'] },
       ] },
     ]
@@ -5272,9 +5272,9 @@ const INSTRUMENTS = [
         { id: 'mridangam_goat_buffalo', default: true, name: 'Goat (treble) + buffalo (bass) with rice-paste karanai loading (canonical)', descriptors: ['goat-buffalo-rice-paste-karanai-canonical'], match_tokens: ['percussive-attack', 'hands', 'classical-trained'] },
       ] },
       { id: 'mridangam_lineage', surface: false, name: 'Performance lineage', variants: [
-        { id: 'mridangam_palghat', default: true, name: 'Palghat lineage (canonical Carnatic)', descriptors: ['palghat-lineage-canonical-carnatic'], match_tokens: ['percussive-attack', 'hands', 'classical-trained'] },
+        { id: 'mridangam_palghat', default: true, name: 'Palghat lineage (canonical Carnatic)', descriptors: ['carnatic-mridangam-canonical-lineage'], match_tokens: ['percussive-attack', 'hands', 'classical-trained'] },
         { id: 'mridangam_thanjavur', name: 'Thanjavur lineage', descriptors: ['thanjavur-lineage'], match_tokens: ['percussive-attack', 'hands', 'classical-trained'] },
-        { id: 'mridangam_umayalpuram', name: 'Umayalpuram lineage', descriptors: ['umayalpuram-lineage'], match_tokens: ['percussive-attack', 'hands', 'classical-trained'] },
+        { id: 'mridangam_umayalpuram', name: 'Umayalpuram lineage', descriptors: ['carnatic-mridangam-lineage'], match_tokens: ['percussive-attack', 'hands', 'classical-trained'] },
       ] },
     ]
   },
@@ -5300,7 +5300,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'pakhawaj_lineage', surface: false, name: 'Performance lineage', variants: [
         { id: 'pakhawaj_dagar_dhrupad', default: true, name: 'Dagar dhrupad lineage (canonical)', descriptors: ['dagar-dhrupad-lineage-canonical'], match_tokens: ['percussive-attack', 'hands'] },
-        { id: 'pakhawaj_kudau_singh', name: 'Kudau Singh lineage', descriptors: ['kudau-singh-lineage'], match_tokens: ['percussive-attack', 'hands'] },
+        { id: 'pakhawaj_canonical', name: 'Pakhawaj canonical lineage', descriptors: ['pakhawaj-canonical-lineage'], match_tokens: ['percussive-attack', 'hands'] },
         { id: 'pakhawaj_nathdwara', name: 'Nathdwara temple tradition', descriptors: ['nathdwara-temple-tradition'], match_tokens: ['percussive-attack', 'hands'] },
       ] },
     ]
@@ -6112,8 +6112,8 @@ const INSTRUMENTS = [
         { id: 'bansuri_kerala_bamboo', name: 'Kerala-region bamboo (alternative south Indian)', descriptors: ['kerala-bamboo-alternative-south-indian'], match_tokens: ['wind-driven', 'breathing'] },
       ] },
       { id: 'bansuri_lineage', surface: false, name: 'Performance lineage', variants: [
-        { id: 'bansuri_hariprasad_maihar', default: true, name: 'Hariprasad Chaurasia / Maihar gharana (canonical 20th-century Hindustani concert)', descriptors: ['hariprasad-chaurasia-maihar-gharana-canonical-20th-century'], match_tokens: ['classical', 'classical-trained', 'wind-driven', 'breathing'] },
-        { id: 'bansuri_pannalal_ghosh', name: 'Pannalal Ghosh lineage (foundational concert-bansuri tradition)', descriptors: ['pannalal-ghosh-foundational-concert-bansuri'], match_tokens: ['classical', 'classical-trained', 'wind-driven', 'breathing'] },
+        { id: 'bansuri_maihar', default: true, name: 'Bansuri / Maihar gharana (canonical 20th-century Hindustani concert)', descriptors: ['bansuri-maihar-gharana-canonical-20th-century'], match_tokens: ['classical', 'classical-trained', 'wind-driven', 'breathing'] },
+        { id: 'bansuri_concert', name: 'Foundational concert-bansuri tradition', descriptors: ['foundational-concert-bansuri'], match_tokens: ['classical', 'classical-trained', 'wind-driven', 'breathing'] },
       ] },
     ]
   },
@@ -6379,7 +6379,7 @@ const INSTRUMENTS = [
         { id: 'duduk_arundo_canonical', default: true, name: 'Arundo donax double-reed (ghamish — canonical Armenian Areni-valley cane)', descriptors: ['arundo-donax-ghamish-canonical-armenian-areni-valley'], match_tokens: ['wind-driven', 'reed-driven', 'ornamented'] },
       ] },
       { id: 'duduk_lineage', surface: false, name: 'Performance lineage', variants: [
-        { id: 'duduk_djivan_gasparyan', default: true, name: 'Djivan Gasparyan lineage (canonical 20th-century Armenian)', descriptors: ['djivan-gasparyan-canonical-20th-century-armenian'], match_tokens: ['wind-driven', 'reed-driven', 'ornamented'] },
+        { id: 'duduk_armenian', default: true, name: 'Duduk lineage (canonical 20th-century Armenian)', descriptors: ['duduk-canonical-20th-century-armenian'], match_tokens: ['wind-driven', 'reed-driven', 'ornamented'] },
       ] },
     ]
   },
@@ -6457,7 +6457,7 @@ const INSTRUMENTS = [
         { id: 'flugelhorn_rose_brass', name: 'Rose brass (warmer, canonical Couesnon)', descriptors: ['rose-brass-warmer-canonical-couesnon'], match_tokens: ['wind-driven'], canonical_tags: ['vintage'] },
       ] },
       { id: 'flugelhorn_maker_school', surface: false, name: 'Maker / school', variants: [
-        { id: 'flugelhorn_couesnon_vintage', default: true, name: 'Couesnon vintage (canonical pre-1970 — Chuck Mangione / Clark Terry canon)', descriptors: ['couesnon-vintage-canonical-pre-1970'], match_tokens: ['wind-driven'], canonical_tags: ['vintage', 'jazz'] },
+        { id: 'flugelhorn_couesnon_vintage', default: true, name: 'Couesnon vintage (canonical pre-1970 flugelhorn)', descriptors: ['couesnon-vintage-canonical-pre-1970'], match_tokens: ['wind-driven'], canonical_tags: ['vintage', 'jazz'] },
         { id: 'flugelhorn_yamaha', name: 'Yamaha (modern Japanese)', descriptors: ['yamaha-modern-japanese'], match_tokens: ['wind-driven'] },
         { id: 'flugelhorn_kanstul', name: 'Kanstul (American boutique)', descriptors: ['kanstul-american-boutique'], match_tokens: ['wind-driven'] },
       ] },
@@ -6871,8 +6871,8 @@ const INSTRUMENTS = [
         { id: 'ney_metal_brass', name: 'Brass / nickel-silver (Egyptian modern alternative)', descriptors: ['brass-nickel-silver-egyptian-modern'], match_tokens: ['wind-driven', 'breathing'] },
       ] },
       { id: 'ney_lineage', surface: false, name: 'Performance lineage', variants: [
-        { id: 'ney_hassan_kassai', default: true, name: 'Hassan Kassai lineage (canonical 20th-century Persian radif)', descriptors: ['hassan-kassai-canonical-20th-century-persian-radif'], match_tokens: ['classical', 'classical-trained', 'wind-driven'] },
-        { id: 'ney_hossein_omoumi', name: 'Hossein Omoumi lineage (Isfahan school)', descriptors: ['hossein-omoumi-isfahan-school'], match_tokens: ['classical', 'classical-trained', 'wind-driven'] },
+        { id: 'ney_radif', default: true, name: 'Ney radif lineage (canonical 20th-century Persian radif)', descriptors: ['ney-canonical-20th-century-persian-radif'], match_tokens: ['classical', 'classical-trained', 'wind-driven'] },
+        { id: 'ney_isfahan', name: 'Ney Isfahan lineage (Isfahan school)', descriptors: ['isfahan-ney-school'], match_tokens: ['classical', 'classical-trained', 'wind-driven'] },
         { id: 'ney_sufi_mevlevi', name: 'Mevlevi Sufi (Konya tradition — Turkish ney)', descriptors: ['mevlevi-sufi-konya-tradition-turkish-ney'], match_tokens: ['wind-driven', 'breathing'] },
       ] },
     ]
@@ -7067,7 +7067,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'shakuhachi_lineage', surface: false, name: 'Performance lineage', variants: [
         { id: 'shakuhachi_kinko', default: true, name: 'Kinko ryū (canonical Edo-period concert lineage)', descriptors: ['kinko-ryu-canonical-edo-period-concert'], match_tokens: ['wind-driven', 'breathing'] },
-        { id: 'shakuhachi_tozan', name: 'Tozan ryū (Nakao Tozan modern composed lineage, 1896 founding)', descriptors: ['tozan-ryu-nakao-1896-modern-composed'], match_tokens: ['wind-driven', 'breathing'] },
+        { id: 'shakuhachi_tozan', name: 'Tozan ryū (modern composed lineage, 1896 founding)', descriptors: ['tozan-ryu-1896-modern-composed'], match_tokens: ['wind-driven', 'breathing'] },
         { id: 'shakuhachi_komuso_fuke', name: 'Komuso Fuke-shū (canonical pre-Meiji honkyoku Zen tradition)', descriptors: ['komuso-fuke-shu-canonical-pre-meiji-honkyoku-zen'], match_tokens: ['wind-driven', 'breathing', 'period-performance'] },
       ] },
     ]
@@ -7231,8 +7231,8 @@ const INSTRUMENTS = [
         { id: 'bach_trumpet_mp_10half_c', name: 'Bach 10½C (shallow lead)', descriptors: ['shallow-cup', 'lead-trumpet', 'bright-high-register'], match_tokens: ['wind-driven', 'lead', 'big-band'], canonical_tags: ['jazz'] },
         { id: 'schilke_trumpet_mp_14a4a', name: 'Schilke 14A4a (Buchtel lead signature)', descriptors: ['shallow-cup', 'tight-backbore', 'lead-trumpet', 'high-register'], match_tokens: ['wind-driven', 'lead', 'big-band'], canonical_tags: ['jazz'] },
         { id: 'schilke_trumpet_mp_13a4a', name: 'Schilke 13A4a (lead, slightly narrower)', descriptors: ['shallow-cup', 'tight-backbore', 'lead-trumpet'], match_tokens: ['wind-driven', 'lead', 'big-band'], canonical_tags: ['jazz'] },
-        { id: 'yamaha_bobby_shew_lead_mp', name: 'Yamaha Bobby Shew Lead', descriptors: ['shallow-cup', 'tight-backbore', 'lead-trumpet', 'high-register-easy'], match_tokens: ['wind-driven', 'lead', 'big-band'], canonical_tags: ['jazz'] },
-        { id: 'yamaha_bobby_shew_jazz_mp', name: 'Yamaha Bobby Shew Jazz', descriptors: ['medium-cup', 'jazz-balance'], match_tokens: ['wind-driven', 'classical-trained'], canonical_tags: ['jazz'] },
+        { id: 'yamaha_lead_mp', name: 'Yamaha lead mouthpiece', descriptors: ['shallow-cup', 'tight-backbore', 'lead-trumpet', 'high-register-easy'], match_tokens: ['wind-driven', 'lead', 'big-band'], canonical_tags: ['jazz'] },
+        { id: 'yamaha_jazz_mp', name: 'Yamaha jazz mouthpiece', descriptors: ['medium-cup', 'jazz-balance'], match_tokens: ['wind-driven', 'classical-trained'], canonical_tags: ['jazz'] },
         { id: 'monette_unity_b1_mp', name: 'Monette Unity B1 (heavy one-piece)', descriptors: ['heavy-one-piece', 'matched-to-monette-horn', 'boutique'], match_tokens: ['wind-driven', 'classical-trained', 'classical'], canonical_tags: ['classical'] },
       ] },
       { id: 'brass_mute', surface: false, name: 'Mute', variants: [
@@ -7333,7 +7333,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'uilleann_lineage', surface: false, name: 'Pipemaker lineage', variants: [
         { id: 'uilleann_taylor_egan', default: true, name: 'Taylor-Egan Philadelphia tradition (canonical wide-bore Irish-American)', descriptors: ['taylor-egan-philadelphia-canonical-wide-bore-irish-american'], match_tokens: ['wind-driven', 'drone-foundation'] },
-        { id: 'uilleann_rowsome', name: 'Rowsome Dublin tradition (Leo Rowsome / Liam O\'Flynn lineage)', descriptors: ['rowsome-dublin-tradition'], match_tokens: ['wind-driven', 'drone-foundation'] },
+        { id: 'uilleann_dublin', name: 'Dublin uilleann tradition (concert lineage)', descriptors: ['dublin-uilleann-tradition'], match_tokens: ['wind-driven', 'drone-foundation'] },
       ] },
     ]
   },
@@ -7698,7 +7698,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'rhodes_pickup_position', surface: false, name: 'Tine-pickup positioning', variants: [
         { id: 'rhodes_pickup_centered', default: true, name: 'Centered tine-pickup gap (canonical balanced Rhodes voicing)', descriptors: ['centered-tine-pickup-gap-canonical-balanced-rhodes-voicing'], match_tokens: ['electric', 'warmed'] },
-        { id: 'rhodes_pickup_close_bark', name: 'Close pickup gap (more bark / dirt — Stevie Wonder canonical canon)', descriptors: ['close-pickup-gap-more-bark-dirt-motown-clavinet-canon'], match_tokens: ['electric'] },
+        { id: 'rhodes_pickup_close_bark', name: 'Close pickup gap (more bark / dirt — clavinet-funk canon)', descriptors: ['close-pickup-gap-more-bark-dirt-motown-clavinet-canon'], match_tokens: ['electric'] },
         { id: 'rhodes_pickup_far_bell', name: 'Wide pickup gap (more bell, less bark)', descriptors: ['wide-pickup-gap-more-bell-less-bark'], match_tokens: ['electric', 'warmed'] },
       ] },
     ]
@@ -7825,8 +7825,8 @@ const INSTRUMENTS = [
       { id: 'combo_organ_context', surface: false, name: 'Use context', variants: [
         { id: 'combo_organ_british_invasion', default: true, name: 'British Invasion / British R&B', descriptors: [], match_tokens: ['electric', 'reedy'], canonical_tags: ['lead-line'] },
         { id: 'combo_organ_garage_rock', name: '60s American garage rock', descriptors: ['square-wave-foregrounded'], match_tokens: ['rock-context', 'electric', 'reedy'], canonical_tags: ['amateur'] },
-        { id: 'combo_organ_early_ska', name: 'Early ska / rocksteady (Skatalites era)', descriptors: ['Jamaican-1960s', 'horn-section-paired'], match_tokens: ['electric', 'reedy'] },
-        { id: 'combo_organ_doors_psych', name: 'Late-60s psychedelic / The Doors archetype', descriptors: ['psychedelic-foregrounded', 'lead-instrument-elevated', 'organ-driven-rock'], match_tokens: ['electric', 'reedy'] },
+        { id: 'combo_organ_early_ska', name: 'Early ska / rocksteady era', descriptors: ['Jamaican-1960s', 'horn-section-paired'], match_tokens: ['electric', 'reedy'] },
+        { id: 'combo_organ_psych', name: 'Late-60s psychedelic combo-organ archetype', descriptors: ['psychedelic-foregrounded', 'lead-instrument-elevated', 'organ-driven-rock'], match_tokens: ['electric', 'reedy'] },
       ] },
       // Combo organs had no built-in speaker — they ran into a guitar amp. Mirrors
       // the electric_strings amp_make axis so the recipe can express organ-amp
@@ -7868,8 +7868,8 @@ const INSTRUMENTS = [
     short: 'Wurlitzer',
     parts: [
       { id: 'wurlitzer_use', surface: false, name: 'Use', variants: [
-        { id: 'wurlitzer_ray_charles', name: 'R&B / Soul', descriptors: ['nasal', 'barky', 'vintage'], match_tokens: ['electric', 'warmed'] },
-        { id: 'wurlitzer_supertramp', default: true, name: '70s pop / rock', descriptors: ['nasal', 'character-rich', 'vintage'], match_tokens: ['electric', 'warmed'] },
+        { id: 'wurlitzer_rnb_soul', name: 'R&B / Soul', descriptors: ['nasal', 'barky', 'vintage'], match_tokens: ['electric', 'warmed'] },
+        { id: 'wurlitzer_70s_pop_rock', default: true, name: '70s pop / rock', descriptors: ['nasal', 'character-rich', 'vintage'], match_tokens: ['electric', 'warmed'] },
       ] },
       { id: 'wurlitzer_ep_voice', surface: false, name: 'Voice character', variants: [
         { id: 'wurlitzer_ep_bell', default: true, name: 'Bell-like attack', descriptors: ['characteristic', 'reed-tine'], match_tokens: ['electric', 'warmed'] },
@@ -7877,9 +7877,9 @@ const INSTRUMENTS = [
         { id: 'wurlitzer_ep_overdrive', name: 'Distorted / overdriven', descriptors: ['rock-context', 'crunchy'], match_tokens: ['electric', 'warmed'] },
       ] },
       { id: 'wurlitzer_model', surface: false, name: 'Wurlitzer model', variants: [
-        { id: 'wurlitzer_200a_canonical', default: true, name: 'Wurlitzer 200A (canonical 1974-1982 solid-state — Supertramp Logical Song-era canon)', descriptors: ['wurlitzer-200a-canonical-1974-1982-solid-state-supertramp-canon'], match_tokens: ['electric', 'warmed'], canonical_tags: ['vintage'] },
+        { id: 'wurlitzer_200a_canonical', default: true, name: 'Wurlitzer 200A (canonical 1974-1982 solid-state — 70s pop-rock canon)', descriptors: ['wurlitzer-200a-canonical-1974-1982-solid-state-70s-pop-canon'], match_tokens: ['electric', 'warmed'], canonical_tags: ['vintage'] },
         { id: 'wurlitzer_200_tube', name: 'Wurlitzer 200 (1968-1974 tube-amplified — warmer)', descriptors: ['wurlitzer-200-1968-1974-tube-amplified-warmer'], match_tokens: ['electric', 'warmed'], canonical_tags: ['vintage'] },
-        { id: 'wurlitzer_140b_classic', name: 'Wurlitzer 140B (1960s tube — Ray Charles Whats I Say-era canon)', descriptors: ['wurlitzer-140b-1960s-tube-ray-charles-canon'], match_tokens: ['electric', 'warmed'], canonical_tags: ['vintage'] },
+        { id: 'wurlitzer_140b_classic', name: 'Wurlitzer 140B (1960s tube — early R&B canon)', descriptors: ['wurlitzer-140b-1960s-tube-rnb-canon'], match_tokens: ['electric', 'warmed'], canonical_tags: ['vintage'] },
         { id: 'wurlitzer_270_butterfly', name: 'Wurlitzer 270 Butterfly (rare combo grand version 1981-1982)', descriptors: ['wurlitzer-270-butterfly-rare-combo-grand-1981-1982'], match_tokens: ['electric', 'warmed'], canonical_tags: ['vintage'] },
       ] },
       { id: 'wurlitzer_reed_material', surface: false, name: 'Reed (struck-reed) material', variants: [
@@ -8217,8 +8217,8 @@ const INSTRUMENTS = [
       ] },
       { id: 'ondes_martenot_lineage', surface: false, name: 'Performance lineage', variants: [
         { id: 'ondes_martenot_maurice_canonical', default: true, name: 'Maurice Martenot Paris 1928 lineage (canonical inventor — Conservatoire de Paris pedagogy)', descriptors: ['maurice-martenot-paris-1928-lineage-canonical-inventor-conservatoire-de-paris-pedagogy'], match_tokens: ['classical', 'classical-trained', 'electronic', 'sustained-tone'] },
-        { id: 'ondes_martenot_messiaen_repertoire', name: 'Messiaen Turangalîla repertoire tradition (canonical mid-20th-century French)', descriptors: ['messiaen-turangalila-repertoire-canonical-mid-20th-century-french'], match_tokens: ['classical', 'classical-trained', 'electronic', 'sustained-tone'] },
-        { id: 'ondes_martenot_radiohead_modern', name: 'Modern Greenwood revival (Radiohead post-2000 — solo and Ennio Morricone film)', descriptors: ['modern-greenwood-revival-radiohead-post-2000-ennio-morricone-film'], match_tokens: ['electronic', 'sustained-tone'] },
+        { id: 'ondes_martenot_orchestral_repertoire', name: 'Ondes-Martenot orchestral repertoire (canonical mid-20th-century French)', descriptors: ['ondes-martenot-repertoire-canonical-mid-20th-century-french'], match_tokens: ['classical', 'classical-trained', 'electronic', 'sustained-tone'] },
+        { id: 'ondes_martenot_modern', name: 'Modern ondes revival (post-2000 — solo and film)', descriptors: ['modern-ondes-revival-post-2000-and-film'], match_tokens: ['electronic', 'sustained-tone'] },
       ] },
     ]
   },
@@ -8384,7 +8384,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'theremin_lineage', surface: false, name: 'Performance lineage', variants: [
         { id: 'theremin_lev_termen_canonical', default: true, name: 'Lev Sergeyevich Termen Petrograd 1920 lineage (canonical Russian inventor)', descriptors: ['lev-sergeyevich-termen-petrograd-1920-lineage-canonical-russian-inventor'], match_tokens: ['electronic', 'sustained-tone'] },
-        { id: 'theremin_clara_rockmore', name: 'Clara Rockmore concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)', descriptors: ['clara-rockmore-concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso'], match_tokens: ['electronic', 'sustained-tone'], canonical_tags: ['concert'] },
+        { id: 'theremin_concert', name: 'Theremin concert lineage (canonical 1930s-1960s aerial-fingering virtuoso)', descriptors: ['theremin-concert-lineage-canonical-1930s-1960s-aerial-fingering-virtuoso'], match_tokens: ['electronic', 'sustained-tone'], canonical_tags: ['concert'] },
         { id: 'theremin_moog_etherwave', name: 'Moog Music Etherwave (canonical modern Robert Moog reissue 1996-present)', descriptors: ['moog-music-etherwave-canonical-modern-robert-moog-reissue-1996-present'], match_tokens: ['electronic', 'sustained-tone'] },
       ] },
     ]
@@ -9409,7 +9409,7 @@ const INSTRUMENTS = [
     parts: [
       { id: 'bandolim_body', name: 'Body', variants: [
         { id: 'bandolim_flat_back', default: true, name: 'Flat-back (Brazilian choro canon)', descriptors: ['traditional', 'mid-forward', 'wood', 'brazilian-flat-back'], match_tokens: ['plucked', 'small-body', 'choro-tradition'] },
-        { id: 'bandolim_bowl_back', name: 'Bowl-back (Italian-influenced pre-Pixinguinha)', descriptors: ['overtone-rich', 'european-derived', 'bowl-back', 'pre-pixinguinha'], match_tokens: ['plucked', 'small-body'] },
+        { id: 'bandolim_bowl_back', name: 'Bowl-back (Italian-influenced early choro)', descriptors: ['overtone-rich', 'european-derived', 'bowl-back', 'pre-choro-golden-age'], match_tokens: ['plucked', 'small-body'] },
       ] },
       { id: 'bandolim_top_wood', surface: false, name: 'Top wood', variants: [
         { id: 'bandolim_european_spruce', default: true, name: 'European spruce (premium choro luthier canon)', descriptors: ['european-spruce', 'choro-luthier-canon'], match_tokens: ['plucked', 'choro-tradition'] },
@@ -9417,7 +9417,7 @@ const INSTRUMENTS = [
         { id: 'bandolim_sitka', name: 'Sitka spruce (modern standard)', descriptors: ['sitka', 'modern-standard'], match_tokens: ['plucked'] },
       ] },
       { id: 'bandolim_back_wood', surface: false, name: 'Back wood', variants: [
-        { id: 'bandolim_brazilian_rosewood', default: true, name: 'Brazilian rosewood (pre-1992 vintage canonical)', descriptors: ['brazilian-rosewood', 'pre-1992-vintage', 'jacob-do-bandolim-era'], match_tokens: ['plucked', 'choro-tradition'], canonical_tags: ['cites-app-i', 'vintage'] },
+        { id: 'bandolim_brazilian_rosewood', default: true, name: 'Brazilian rosewood (pre-1992 vintage canonical)', descriptors: ['brazilian-rosewood', 'pre-1992-vintage', 'choro-golden-age-bandolim'], match_tokens: ['plucked', 'choro-tradition'], canonical_tags: ['cites-app-i', 'vintage'] },
         { id: 'bandolim_indian_rosewood', name: 'Indian rosewood (modern standard)', descriptors: ['indian-rosewood'], match_tokens: ['plucked', 'choro-tradition'], canonical_tags: ['cites-app-ii'] },
         { id: 'bandolim_jacaranda_da_bahia', name: 'Jacarandá da Bahia (Dalbergia nigra alternative)', descriptors: ['jacaranda-bahia', 'dalbergia-nigra', 'restricted'], match_tokens: ['plucked'], canonical_tags: ['cites-app-i'] },
         { id: 'bandolim_pau_ferro', name: 'Pau ferro (modern CITES-friendly)', descriptors: ['pau-ferro', 'cites-friendly'], match_tokens: ['plucked'] },
@@ -9662,9 +9662,9 @@ const INSTRUMENTS = [
         { id: 'taiko_stave_built', name: 'Stave-built (modern non-trunk construction)', descriptors: ['stave-built-modern-non-trunk'], match_tokens: ['percussive-attack', 'sticks'] },
       ] },
       { id: 'taiko_lineage', surface: false, name: 'Performance lineage', variants: [
-        { id: 'taiko_oedo_sukeroku', default: true, name: 'Oedo Sukeroku Daiko (canonical kumi-daiko lineage, post-1951)', descriptors: ['oedo-sukeroku-canonical-kumi-daiko'], match_tokens: ['percussive-attack', 'sticks'] },
-        { id: 'taiko_kodo_sado', name: 'Kodo Sado Island lineage', descriptors: ['kodo-sado-island-lineage'], match_tokens: ['percussive-attack', 'sticks'] },
-        { id: 'taiko_san_francisco', name: 'San Francisco Taiko Dojo (Tanaka 1968 diasporic lineage)', descriptors: ['sf-taiko-dojo-tanaka-1968-diasporic'], match_tokens: ['percussive-attack', 'sticks'] },
+        { id: 'taiko_festival', default: true, name: 'Festival kumi-daiko (canonical lineage, post-1951)', descriptors: ['festival-kumi-daiko-canonical'], match_tokens: ['percussive-attack', 'sticks'] },
+        { id: 'taiko_sado', name: 'Sado Island kumi-daiko lineage', descriptors: ['sado-island-kumi-daiko-lineage'], match_tokens: ['percussive-attack', 'sticks'] },
+        { id: 'taiko_san_francisco', name: 'San Francisco Taiko Dojo (1968 diasporic lineage)', descriptors: ['sf-taiko-dojo-1968-diasporic'], match_tokens: ['percussive-attack', 'sticks'] },
       ] },
       { id: 'taiko_technique', name: 'Technique', variants: [
         { id: 'taiko_kumi_daiko', default: true, name: 'Kumi-daiko (modern ensemble, post-1951)', descriptors: ['modern-ensemble', 'choreographed'], match_tokens: ['percussive-attack', 'sticks'] },
@@ -10233,7 +10233,7 @@ const INSTRUMENTS = [
         { id: 'shehnai_arundo_quadruple', default: true, name: 'Quadruple-folded Arundo donax (canonical Banaras shehnai)', descriptors: ['arundo-donax-quadruple-folded-canonical-banaras'], match_tokens: ['wind', 'hindustani-tradition'] },
       ] },
       { id: 'shehnai_lineage', surface: false, name: 'Performance lineage', variants: [
-        { id: 'shehnai_bismillah_khan_banaras', default: true, name: 'Bismillah Khan Banaras lineage (canonical Hindustani)', descriptors: ['bismillah-khan-banaras-lineage-canonical-hindustani'], match_tokens: ['wind', 'hindustani-tradition'] },
+        { id: 'shehnai_banaras', default: true, name: 'Banaras shehnai lineage (canonical Hindustani)', descriptors: ['banaras-shehnai-lineage-canonical-hindustani'], match_tokens: ['wind', 'hindustani-tradition'] },
       ] },
     ]
   },

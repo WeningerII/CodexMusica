@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s LA-centered amplified country-and-rock fusion codified by The Byrds Sweetheart of the Rodeo (1968), The Flying Burrito Brothers, Poco, the Eagles Take It Easy era, Linda Ronstadt, Emmylou Harris",
   "recipe": "classic Los Angeles 1967-1969 country rock, functional Song, country rock branch, pop rock folk rock, southern rock distorted rock. thick, worn fold, melodic, ornamental. open e tuning sitka spruce spruce maple steel dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, steel double stops fiddle. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console.",
   "recipe_chars": 992,
-  "score": 1287.485,
+  "score": 1288.059,
   "config": {
     "traditions": [
       "country_rock",
@@ -55,14 +55,14 @@
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_travis_picking",
+          "acoustic_technique": "acoustic_alternating_bass",
           "string_tuning": "open_e",
           "top_wood": "sitka",
           "back_sides": "maple_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 43.87499999999999,
+          "acoustic_technique": 44.44875,
           "string_tuning": 4.449999999999999,
           "top_wood": 1.4300000000000002,
           "back_sides": 1.4300000000000002,

@@ -269,10 +269,10 @@
           ]
         },
         {
-          "id": "gamba_sainte_colombe",
-          "name": "Sainte-Colombe (French baroque master)",
+          "id": "gamba_french_baroque_consort",
+          "name": "French baroque bass viol (consort)",
           "descriptors": [
-            "sainte-colombe-lineage"
+            "french-baroque-viol-lineage"
           ],
           "match_tokens": [
             "bowed",
@@ -281,10 +281,10 @@
           ]
         },
         {
-          "id": "gamba_william_lawes",
-          "name": "William Lawes (English consort)",
+          "id": "gamba_english_consort",
+          "name": "English consort viol",
           "descriptors": [
-            "william-lawes-lineage",
+            "english-consort-viol-lineage",
             "english-consort"
           ],
           "match_tokens": [
@@ -293,11 +293,11 @@
           ]
         },
         {
-          "id": "gamba_jordi_savall_modern_revival",
-          "name": "Modern revival (Jordi Savall / Hespèrion XX lineage)",
+          "id": "gamba_modern_revival",
+          "name": "Modern early-music revival",
           "descriptors": [
             "modern-revival",
-            "savall-hesperion-lineage"
+            "early-music-revival-lineage"
           ],
           "match_tokens": [
             "bowed",
@@ -536,10 +536,10 @@
           ]
         },
         {
-          "id": "gamba_sainte_colombe",
-          "name": "Sainte-Colombe (French baroque master)",
+          "id": "gamba_french_baroque_consort",
+          "name": "French baroque bass viol (consort)",
           "descriptors": [
-            "sainte-colombe-lineage"
+            "french-baroque-viol-lineage"
           ],
           "match_tokens": [
             "bowed",
@@ -548,10 +548,10 @@
           ]
         },
         {
-          "id": "gamba_william_lawes",
-          "name": "William Lawes (English consort)",
+          "id": "gamba_english_consort",
+          "name": "English consort viol",
           "descriptors": [
-            "william-lawes-lineage",
+            "english-consort-viol-lineage",
             "english-consort"
           ],
           "match_tokens": [
@@ -560,11 +560,11 @@
           ]
         },
         {
-          "id": "gamba_jordi_savall_modern_revival",
-          "name": "Modern revival (Jordi Savall / Hespèrion XX lineage)",
+          "id": "gamba_modern_revival",
+          "name": "Modern early-music revival",
           "descriptors": [
             "modern-revival",
-            "savall-hesperion-lineage"
+            "early-music-revival-lineage"
           ],
           "match_tokens": [
             "bowed",

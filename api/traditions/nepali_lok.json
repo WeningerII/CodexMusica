@@ -3,9 +3,9 @@
   "name": "Nepali lok (folk-popular song)",
   "family": "global",
   "lineage": "Nepali lok geet (\"folk songs\") encompass the broad popular-and-traditional song repertoire of Nepal, including regional variants from the Newari, Tharu, Gurung, Magar, Tamang, Rai, Limbu, and other ethnic communities, plus the urban Kathmandu Valley pan-Nepali pop synthesis. The genre developed through the twentieth-century Radio Nepal (founded 1951) commercial-recording era. Standard instrumentation centers on madal two-headed barrel-drum, tabla, sarangi (Nepali, four-string short-neck bowed lute distinct from Hindustani sarangi), and bansuri flute. Repertoire spans selo (Tamang call-and-response), tappa (regional ballad), and roila (Karnali region).",
-  "recipe": "classic early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. dholak, dark folk clay tabla, kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 609,
-  "score": 171.994,
+  "recipe": "classic early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. dholak, dark folk clay tabla, kerala bamboo alternative south indian bansuri maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 596,
+  "score": 173.339,
   "config": {
     "traditions": [
       "nepali_lok",
@@ -87,14 +87,14 @@
           "bansuri_length": "small_bansuri",
           "bansuri_ornament": "meend_bansuri",
           "bansuri_body_material": "bansuri_kerala_bamboo",
-          "bansuri_lineage": "bansuri_hariprasad_maihar"
+          "bansuri_lineage": "bansuri_maihar"
         },
         "scores": {
           "wind_articulation": 7.898,
           "bansuri_length": 8.7,
           "bansuri_ornament": 2.2099999999999995,
           "bansuri_body_material": 2.8024999999999998,
-          "bansuri_lineage": 1.69
+          "bansuri_lineage": 3.035
         }
       },
       {
@@ -166,7 +166,7 @@
       "bansuri_length": "small_bansuri",
       "bansuri_ornament": "meend_bansuri",
       "bansuri_body_material": "bansuri_assam_bamboo",
-      "bansuri_lineage": "bansuri_hariprasad_maihar"
+      "bansuri_lineage": "bansuri_maihar"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

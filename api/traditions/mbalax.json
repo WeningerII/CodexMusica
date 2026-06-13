@@ -91,7 +91,7 @@
           "sabar_articulation": "sabar_galin_pin",
           "sabar_shell_wood": "sabar_dimba_canonical",
           "sabar_head": "sabar_goat_skin_pegged",
-          "sabar_lineage": "sabar_rose_family"
+          "sabar_lineage": "sabar_mbalax_lineage"
         },
         "scores": {
           "sabar_use": 8.25,
@@ -144,7 +144,7 @@
       "sabar_articulation": "sabar_galin_pin",
       "sabar_shell_wood": "sabar_dimba_canonical",
       "sabar_head": "sabar_goat_skin_pegged",
-      "sabar_lineage": "sabar_rose_family"
+      "sabar_lineage": "sabar_mbalax_lineage"
     },
     "chain_mic": "mic_sm57_dynamic_shure",
     "chain_pre": "transformer_solid_state",

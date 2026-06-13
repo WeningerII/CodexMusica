@@ -180,10 +180,10 @@
           ]
         },
         {
-          "id": "ondes_martenot_messiaen_repertoire",
-          "name": "Messiaen Turangalîla repertoire tradition (canonical mid-20th-century French)",
+          "id": "ondes_martenot_orchestral_repertoire",
+          "name": "Ondes-Martenot orchestral repertoire (canonical mid-20th-century French)",
           "descriptors": [
-            "messiaen-turangalila-repertoire-canonical-mid-20th-century-french"
+            "ondes-martenot-repertoire-canonical-mid-20th-century-french"
           ],
           "match_tokens": [
             "classical",
@@ -193,10 +193,10 @@
           ]
         },
         {
-          "id": "ondes_martenot_radiohead_modern",
-          "name": "Modern Greenwood revival (Radiohead post-2000 — solo and Ennio Morricone film)",
+          "id": "ondes_martenot_modern",
+          "name": "Modern ondes revival (post-2000 — solo and film)",
           "descriptors": [
-            "modern-greenwood-revival-radiohead-post-2000-ennio-morricone-film"
+            "modern-ondes-revival-post-2000-and-film"
           ],
           "match_tokens": [
             "electronic",
@@ -305,10 +305,10 @@
           ]
         },
         {
-          "id": "ondes_martenot_messiaen_repertoire",
-          "name": "Messiaen Turangalîla repertoire tradition (canonical mid-20th-century French)",
+          "id": "ondes_martenot_orchestral_repertoire",
+          "name": "Ondes-Martenot orchestral repertoire (canonical mid-20th-century French)",
           "descriptors": [
-            "messiaen-turangalila-repertoire-canonical-mid-20th-century-french"
+            "ondes-martenot-repertoire-canonical-mid-20th-century-french"
           ],
           "match_tokens": [
             "classical",
@@ -318,10 +318,10 @@
           ]
         },
         {
-          "id": "ondes_martenot_radiohead_modern",
-          "name": "Modern Greenwood revival (Radiohead post-2000 — solo and Ennio Morricone film)",
+          "id": "ondes_martenot_modern",
+          "name": "Modern ondes revival (post-2000 — solo and film)",
           "descriptors": [
-            "modern-greenwood-revival-radiohead-post-2000-ennio-morricone-film"
+            "modern-ondes-revival-post-2000-and-film"
           ],
           "match_tokens": [
             "electronic",

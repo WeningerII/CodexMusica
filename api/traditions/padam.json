@@ -3,9 +3,9 @@
   "name": "Padam (Carnatic slow-tempo lyrical genre)",
   "family": "global",
   "lineage": "Carnatic slow-tempo lyrical genre setting Tamil and Telugu nayika-bhava (heroine-emotion) poetry to elaborated single-line-per-section vocal exposition — typically performed in the second half of a Carnatic kutcheri after the main kriti, with the 17th-century padam composer Kshetrayya (Telugu) and the Tamil padam tradition continued through Subbarama Iyer",
-  "recipe": "classic North American mid-1970s padam, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music telugu kirtana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 591,
-  "score": 248.226,
+  "recipe": "classic North American mid-1970s padam, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music telugu kirtana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic carnatic mridangam canonical lineage mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical carnatic violin canonical lineage legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 602,
+  "score": 248.466,
   "config": {
     "traditions": [
       "padam",
@@ -66,7 +66,7 @@
           "mridangam_use": 0,
           "mridangam_shell_wood": 8.764999999999999,
           "mridangam_heads_material": 0.65,
-          "mridangam_lineage": 9.889999999999999
+          "mridangam_lineage": 10.009999999999998
         }
       },
       {
@@ -102,7 +102,7 @@
           "violin_carnatic_tuning": 11.764999999999999,
           "violin_carnatic_posture": 2.925,
           "violin_carnatic_strings": 2.1449999999999996,
-          "violin_carnatic_lineage": 9.889999999999999
+          "violin_carnatic_lineage": 10.009999999999998
         }
       }
     ],

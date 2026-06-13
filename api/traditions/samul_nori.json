@@ -3,9 +3,9 @@
   "name": "Samul nori",
   "family": "classical",
   "lineage": "1978-onward Korean four-instrument concert-percussion ensemble codified by the Kim Duk-soo founding troupe, derived from rural pungmul village-ritual-and-harvest-procession percussion of the late-Joseon era. The four instruments — kkwaenggwari small-gong-leader, jing large-gong-pulse, janggu hourglass-drum, buk barrel-drum — interlock through five canonical jangdan rhythmic-pattern movements (Bibari, Samdo-Sori, Yeongnam, Honam-udo, Jwadodulgi) that compress regional pungmul styles into a 60-90 minute staged concert form. The genre catalyzed the 1980s-onward Korean traditional-music revival and is widely taught in Korean elementary curricula.",
-  "recipe": "classic North American modern samul nori, groove Percussion, samul nori branch, east Asian art music korean sinawi tibetan ache lhamo opera. lead kkwaenggwari, jing paulownia canonical Korean cowhide canonical Korean buk korean, composite material paulownia canonical Korean horse dog asymmetric canonical Korean samul nori kim duk soo 1978 founding janggu. korean gugak hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 508,
-  "score": 127.24,
+  "recipe": "classic North American modern samul nori, groove Percussion, samul nori branch, east Asian art music korean sinawi tibetan ache lhamo opera. lead kkwaenggwari, jing paulownia canonical Korean cowhide canonical Korean buk korean, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 510,
+  "score": 125.375,
   "config": {
     "traditions": [
       "samul_nori",
@@ -38,14 +38,14 @@
           "janggu_construction": "janggu_composite",
           "janggu_shell_wood": "janggu_paulownia_canonical",
           "janggu_head": "janggu_horse_dog_asymmetric",
-          "janggu_lineage": "janggu_samul_lineage"
+          "janggu_lineage": "janggu_pungmul_outdoor"
         },
         "scores": {
           "janggu_use": 10.18,
           "janggu_construction": 2.08,
           "janggu_shell_wood": 10.474999999999998,
           "janggu_head": 10.325,
-          "janggu_lineage": 16.299999999999997
+          "janggu_lineage": 14.434999999999997
         }
       },
       {

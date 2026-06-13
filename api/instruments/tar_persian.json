@@ -290,10 +290,10 @@
         {
           "id": "tar_radif_canonical",
           "default": true,
-          "name": "Radif canonical (Mirza Hossein Qoli / Ali Akbar Shahnazi lineage)",
+          "name": "Radif canonical (tar lineage)",
           "descriptors": [
             "radif-canonical",
-            "shahnazi-lineage"
+            "radif-tar-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -305,10 +305,10 @@
         },
         {
           "id": "tar_modern_concert",
-          "name": "Modern concert (Hossein Alizadeh lineage)",
+          "name": "Modern concert (tar lineage)",
           "descriptors": [
             "modern-concert",
-            "alizadeh-lineage"
+            "tar-concert-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -456,10 +456,10 @@
         {
           "id": "tar_radif_canonical",
           "default": true,
-          "name": "Radif canonical (Mirza Hossein Qoli / Ali Akbar Shahnazi lineage)",
+          "name": "Radif canonical (tar lineage)",
           "descriptors": [
             "radif-canonical",
-            "shahnazi-lineage"
+            "radif-tar-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -471,10 +471,10 @@
         },
         {
           "id": "tar_modern_concert",
-          "name": "Modern concert (Hossein Alizadeh lineage)",
+          "name": "Modern concert (tar lineage)",
           "descriptors": [
             "modern-concert",
-            "alizadeh-lineage"
+            "tar-concert-lineage"
           ],
           "match_tokens": [
             "plucked",

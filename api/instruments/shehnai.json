@@ -131,11 +131,11 @@
       "name": "Performance lineage",
       "variants": [
         {
-          "id": "shehnai_bismillah_khan_banaras",
+          "id": "shehnai_banaras",
           "default": true,
-          "name": "Bismillah Khan Banaras lineage (canonical Hindustani)",
+          "name": "Banaras shehnai lineage (canonical Hindustani)",
           "descriptors": [
-            "bismillah-khan-banaras-lineage-canonical-hindustani"
+            "banaras-shehnai-lineage-canonical-hindustani"
           ],
           "match_tokens": [
             "wind",
@@ -261,11 +261,11 @@
       "name": "Performance lineage",
       "variants": [
         {
-          "id": "shehnai_bismillah_khan_banaras",
+          "id": "shehnai_banaras",
           "default": true,
-          "name": "Bismillah Khan Banaras lineage (canonical Hindustani)",
+          "name": "Banaras shehnai lineage (canonical Hindustani)",
           "descriptors": [
-            "bismillah-khan-banaras-lineage-canonical-hindustani"
+            "banaras-shehnai-lineage-canonical-hindustani"
           ],
           "match_tokens": [
             "wind",

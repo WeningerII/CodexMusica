@@ -3,8 +3,8 @@
   "name": "Space rock (late-1960s through 1970s psychedelic cosmic rock)",
   "family": "rock_punk",
   "lineage": "Late-1960s-and-1970s rock subgenre integrating extended psychedelic instrumental passages with science-fiction-cosmic thematic content. Hawkwind (UK 1969-onward) inaugurated the canonical style with Space Ritual (1973); Pink Floyd's pre-Dark-Side material, Gong's Radio Gnome Invisible trilogy, and (in the 1980s revival) Spacemen 3 and Loop continued the lineage. Distinguished from broader progressive rock by space rock's specific psychedelic-cosmic thematic focus and extended-instrumental-passage emphasis.",
-  "recipe": "classic North American space rock, distorted Rock, progressive rock branch, experimental distorted rock chillwave post-rock. thick, low dynamic level, nervy, equal tempered. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky riff driven electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, ambient pad like analog synth. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
-  "recipe_chars": 693,
+  "recipe": "classic North American space rock, distorted Rock, progressive rock branch, experimental distorted rock chillwave post-rock. thick, low dynamic level, nervy, equal tempered. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky riff driven electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, ambient pad like analog synth. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
+  "recipe_chars": 681,
   "score": 509.056,
   "config": {
     "traditions": [
@@ -155,7 +155,7 @@
         }
       }
     ],
-    "room": "krautrock_dusseldorf_kling_klang_studio",
+    "room": "krautrock_dusseldorf_studio",
     "archetype": "arch_late60s_us_multitrack",
     "inline_chain": {
       "mic": "mic_sm57_dynamic_shure",
@@ -176,7 +176,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "krautrock_dusseldorf_kling_klang_studio",
+    "room": "krautrock_dusseldorf_studio",
     "parts": {
       "body_wood": "mahogany_h",
       "pickup_magnet": "alnico_5_h",

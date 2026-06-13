@@ -3,9 +3,9 @@
   "name": "Bluegrass gospel",
   "family": "global",
   "lineage": "Bluegrass-derived sacred-song tradition that emerged alongside secular bluegrass through Bill Monroe (his early Blue Grass Boys gospel-quartet sections), the Stanley Brothers (whose sacred-song catalog includes O Death and Angel Band), Lester Flatt and Earl Scruggs (their gospel-song interludes within concert programs), Doyle Lawson and Quicksilver (the modern bluegrass-gospel quartet), Ricky Skaggs (his Bluegrass Rules and Soldier of the Cross gospel-bluegrass crossover work); preserves the high-lonesome harmony vocal aesthetic of bluegrass applied to Protestant Christian sacred-song repertoire",
-  "recipe": "classic North American mid-1970s bluegrass gospel, ritual Devotional, southern gospel branch, bluegrass improv on frame. thick, declaimed, nervy, ornamental. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, flatpicked acoustic guitar, magic rosin modern acrylic base double stops fiddle, flatpicked upright bass. southern white church gospel quartet. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 589,
-  "score": 599.084,
+  "recipe": "classic North American mid-1970s bluegrass gospel, ritual Devotional, southern gospel branch, bluegrass improv on frame. thick, declaimed, nervy, ornamental. bronze bluegrass 3 ply maple Gibson mastertone canon maple banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, flatpicked acoustic guitar, magic rosin modern acrylic base double stops fiddle, flatpicked upright bass. southern white church gospel quartet. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 583,
+  "score": 596.424,
   "config": {
     "traditions": [
       "bluegrass_gospel",
@@ -64,7 +64,7 @@
           "banjo_neck_wood": "banjo_maple_neck",
           "banjo_strings": "banjo_medium_bluegrass",
           "banjo_bridge": "banjo_maple_ebony_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 9.098749999999999,
@@ -77,7 +77,7 @@
           "banjo_neck_wood": 24.892500000000002,
           "banjo_strings": 24.892500000000002,
           "banjo_bridge": 24.892500000000002,
-          "banjo_setup_period": 36.948750000000004
+          "banjo_setup_period": 34.28875
         }
       },
       {
@@ -195,7 +195,7 @@
       "banjo_back": "resonator",
       "tone_ring": "flathead",
       "banjo_play": "three_finger",
-      "banjo_setup_period": "banjo_scruggs_bluegrass_setup",
+      "banjo_setup_period": "banjo_bluegrass_flathead_setup",
       "banjo_strings": "banjo_medium_bluegrass",
       "mandolin_shape": "f_style",
       "mandolin_bracing": "mandolin_parallel_tone_bars_loar",

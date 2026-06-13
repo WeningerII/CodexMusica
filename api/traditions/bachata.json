@@ -3,14 +3,14 @@
   "name": "Bachata",
   "family": "global",
   "lineage": "Dominican-Republic guitar-based bolero-derivative couple-dance romantic-song tradition originated 1960s in Santo-Domingo-and-Cibao rural-and-urban barrios. The ensemble: requinto lead-guitar (small-bodied higher-pitched playing arpeggio-and-melodic-fills), segunda rhythm-guitar (six-string playing strum-pattern with güira metallic-scraper), bongos, and bajo electric-bass. The bachata-clave 4-beat pattern emphasizes the second-and-fourth beats with bongo accents. Five historical phases: 1960s-foundational (acoustic-guitar bolero-rural-rhythm), 1970s-marginalized (urban-poor barrio-association), 1980s-electrified (electric-instruments incorporation), 1990s-mainstreamed (bachata-rosa commercial-crossover), and 2000s-onward modern-bachata (urban-bachata fusion with R&B and reggaeton).",
-  "recipe": "classic mid-1960s bachata, functional Song, tropical song branch, Latin am troubadour ballad poetry filipino harana milonga. thick, full chest belt, melodic, unrestrained. alder clean strummed single coil electric fingerpicked acoustic guitar, la bella flats Detroit soul bass canon sub heavy electric bass, synthetic modern durable fiberglass modern durable open slap hand drum bongos, pvc guiro. Dominican canon 1970-1995 mid tier dominican capital studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe": "classic mid-1960s bachata, functional Song, tropical song branch, Latin am troubadour ballad poetry milonga filipino harana. thick, full chest belt, melodic, unrestrained. alder clean strummed single coil electric fingerpicked acoustic guitar, la bella flats Detroit soul bass canon sub heavy electric bass, synthetic modern durable fiberglass modern durable open slap hand drum bongos, pvc guiro. Dominican canon 1970-1995 mid tier dominican capital studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 592,
   "score": 200.442,
   "config": {
     "traditions": [
       "bachata",
-      "filipino_harana",
-      "milonga"
+      "milonga",
+      "filipino_harana"
     ],
     "instruments": [
       {
@@ -42,8 +42,8 @@
           "voice_articulation": 0.95,
           "voice_microtone": 1.74,
           "voice_tradition": 13.25,
-          "voice_mechanism_compound": 8.904999999999998,
-          "voice_estill_quality": 8.905,
+          "voice_mechanism_compound": 8.905,
+          "voice_estill_quality": 8.905000000000001,
           "voice_speech_song": 31.427500000000006,
           "voice_ensemble_config": 22.36,
           "voice_ornament_system": 0.825,

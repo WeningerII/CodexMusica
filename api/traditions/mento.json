@@ -3,9 +3,9 @@
   "name": "Mento",
   "family": "global",
   "lineage": "Jamaican rural folk-and-dance music tradition that preceded ska as the dominant Jamaican popular music genre — codified through the post-WWII commercial recordings of Lord Flea, Count Lasher, the Jolly Boys, Stanley Beckford, Harold Richardson; built on a fusion of West African rhythmic foundations, European-derived quadrille dance forms, and Caribbean Spanish-influenced song structures",
-  "recipe": "classic tropical mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata garifuna paranda and hungu-hungu. thick, full chest belt, melodic, rhythmic. alternating thumb travis picked parlor acoustic guitar, 3 ply maple Gibson mastertone canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, traditional gourd calabash maracas. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 578,
-  "score": 203.488,
+  "recipe": "classic tropical mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata garifuna paranda and hungu-hungu. thick, full chest belt, melodic, rhythmic. alternating thumb bass picked alternating thumb parlor acoustic guitar, 3 ply maple Gibson mastertone canon bluegrass flathead stelling bluegrass setup mastertone flathead banjo 5 string, traditional gourd calabash maracas. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 605,
+  "score": 205.863,
   "config": {
     "traditions": [
       "mento",
@@ -55,14 +55,14 @@
       {
         "id": "acoustic_guitar_parlor",
         "slots": {
-          "acoustic_technique": "acoustic_travis_picking",
+          "acoustic_technique": "acoustic_alternating_bass",
           "string_tuning": "drop_d",
           "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "mahogany_bs_p",
           "string_acoustic_parlor": "eighty_twenty_p"
         },
         "scores": {
-          "acoustic_technique": 4.3,
+          "acoustic_technique": 6.675,
           "string_tuning": 0.65,
           "top_wood_parlor": 0.435,
           "back_sides_parlor": 0,
@@ -82,7 +82,7 @@
           "banjo_neck_wood": "banjo_walnut_neck",
           "banjo_strings": "banjo_light_clawhammer",
           "banjo_bridge": "banjo_compensated_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 25.252499999999998,

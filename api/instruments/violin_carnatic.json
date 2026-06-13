@@ -231,7 +231,7 @@
           "default": true,
           "name": "Lalgudi lineage (Carnatic violin canonical)",
           "descriptors": [
-            "lalgudi-lineage-carnatic-canonical"
+            "carnatic-violin-canonical-lineage"
           ],
           "match_tokens": [
             "bowed",
@@ -240,10 +240,10 @@
           ]
         },
         {
-          "id": "violin_carnatic_chowdiah_seven_string",
-          "name": "Chowdiah seven-string variant (extended-range)",
+          "id": "violin_carnatic_seven_string",
+          "name": "Carnatic seven-string variant (extended-range)",
           "descriptors": [
-            "chowdiah-seven-string-extended-range"
+            "carnatic-seven-string-extended-range"
           ],
           "match_tokens": [
             "bowed",
@@ -404,7 +404,7 @@
           "default": true,
           "name": "Lalgudi lineage (Carnatic violin canonical)",
           "descriptors": [
-            "lalgudi-lineage-carnatic-canonical"
+            "carnatic-violin-canonical-lineage"
           ],
           "match_tokens": [
             "bowed",
@@ -413,10 +413,10 @@
           ]
         },
         {
-          "id": "violin_carnatic_chowdiah_seven_string",
-          "name": "Chowdiah seven-string variant (extended-range)",
+          "id": "violin_carnatic_seven_string",
+          "name": "Carnatic seven-string variant (extended-range)",
           "descriptors": [
-            "chowdiah-seven-string-extended-range"
+            "carnatic-seven-string-extended-range"
           ],
           "match_tokens": [
             "bowed",

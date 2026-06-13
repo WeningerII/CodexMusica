@@ -137,10 +137,10 @@
           ]
         },
         {
-          "id": "pakhawaj_kudau_singh",
-          "name": "Kudau Singh lineage",
+          "id": "pakhawaj_canonical",
+          "name": "Pakhawaj canonical lineage",
           "descriptors": [
-            "kudau-singh-lineage"
+            "pakhawaj-canonical-lineage"
           ],
           "match_tokens": [
             "percussive-attack",
@@ -283,10 +283,10 @@
           ]
         },
         {
-          "id": "pakhawaj_kudau_singh",
-          "name": "Kudau Singh lineage",
+          "id": "pakhawaj_canonical",
+          "name": "Pakhawaj canonical lineage",
           "descriptors": [
-            "kudau-singh-lineage"
+            "pakhawaj-canonical-lineage"
           ],
           "match_tokens": [
             "percussive-attack",

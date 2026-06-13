@@ -3,8 +3,8 @@
   "name": "Jug band",
   "family": "blues_gospel",
   "lineage": "1920s and 1930s African-American Memphis-and-Cincinnati DIY blues string-band tradition — codified through the Memphis Jug Band (recorded 1927-1934), Cannon’s Jug Stompers (Gus Cannon with Noah Lewis), and the Dixieland Jug Blowers — characterized by amateur-improvised instrumentation (clay jug as bass, kazoo, washboard, harmonica, banjo, guitar) and country-blues repertoire performed for working-class audiences",
-  "recipe": "classic mid-1930s jug band, ballad Poetry, jug band branch, blues narrative hokum blues, blues narrative delta narrative, pop rock skiffle. thick, worn fold, melodic, narrative. traditional ceramic clay jug inst, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, open g tuning mahogany fingerpicked parlor acoustic guitar, wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, drone like fiddle, bowl back Italian adirondack red spruce loar canon hard rock maple mandolin. wooden barn. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 676,
+  "recipe": "classic mid-1930s jug band, ballad Poetry, jug band branch, blues narrative hokum blues, blues narrative delta narrative, pop rock skiffle. thick, worn fold, melodic, narrative. traditional ceramic clay jug inst, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, open g tuning mahogany fingerpicked parlor acoustic guitar, wood bluegrass flathead stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, drone like fiddle, bowl back Italian adirondack red spruce loar canon hard rock maple mandolin. wooden barn. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 687,
   "score": 671.765,
   "config": {
     "traditions": [
@@ -134,7 +134,7 @@
           "banjo_neck_wood": "banjo_walnut_neck",
           "banjo_strings": "banjo_light_clawhammer",
           "banjo_bridge": "banjo_compensated_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 22.498124999999998,

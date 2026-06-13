@@ -210,11 +210,11 @@
       "name": "Performance lineage",
       "variants": [
         {
-          "id": "ney_hassan_kassai",
+          "id": "ney_radif",
           "default": true,
-          "name": "Hassan Kassai lineage (canonical 20th-century Persian radif)",
+          "name": "Ney radif lineage (canonical 20th-century Persian radif)",
           "descriptors": [
-            "hassan-kassai-canonical-20th-century-persian-radif"
+            "ney-canonical-20th-century-persian-radif"
           ],
           "match_tokens": [
             "classical",
@@ -223,10 +223,10 @@
           ]
         },
         {
-          "id": "ney_hossein_omoumi",
-          "name": "Hossein Omoumi lineage (Isfahan school)",
+          "id": "ney_isfahan",
+          "name": "Ney Isfahan lineage (Isfahan school)",
           "descriptors": [
-            "hossein-omoumi-isfahan-school"
+            "isfahan-ney-school"
           ],
           "match_tokens": [
             "classical",
@@ -357,11 +357,11 @@
       "name": "Performance lineage",
       "variants": [
         {
-          "id": "ney_hassan_kassai",
+          "id": "ney_radif",
           "default": true,
-          "name": "Hassan Kassai lineage (canonical 20th-century Persian radif)",
+          "name": "Ney radif lineage (canonical 20th-century Persian radif)",
           "descriptors": [
-            "hassan-kassai-canonical-20th-century-persian-radif"
+            "ney-canonical-20th-century-persian-radif"
           ],
           "match_tokens": [
             "classical",
@@ -370,10 +370,10 @@
           ]
         },
         {
-          "id": "ney_hossein_omoumi",
-          "name": "Hossein Omoumi lineage (Isfahan school)",
+          "id": "ney_isfahan",
+          "name": "Ney Isfahan lineage (Isfahan school)",
           "descriptors": [
-            "hossein-omoumi-isfahan-school"
+            "isfahan-ney-school"
           ],
           "match_tokens": [
             "classical",

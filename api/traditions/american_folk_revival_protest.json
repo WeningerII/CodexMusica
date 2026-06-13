@@ -3,8 +3,8 @@
   "name": "American folk-revival protest song",
   "family": "global",
   "lineage": "American protest-song tradition continuous from Industrial-Workers-of-the-World early-20th-century labor anthems (Joe Hill, \"Solidarity Forever\") through the 1930s Almanac Singers and Popular Front lineage through 1960s civil-rights-and-anti-war folk-revival continuous into the modern indie-protest singer-songwriter scene",
-  "recipe": "classic mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country texas country-folk storyteller 1960s greenwich village confessional folk. thick, incomplete closure resting, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar, pearwood marine band tradition stainless steel steel suzuki Japanese modern precision harmonica, walnut mid tier fluorocarbon modern open back scruggs stelling banjo 5 string. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 693,
+  "recipe": "classic mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country texas country-folk storyteller 1960s greenwich village confessional folk. thick, incomplete closure resting, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar, pearwood marine band tradition stainless steel steel suzuki Japanese modern precision harmonica, walnut mid tier fluorocarbon modern open back bluegrass flathead stelling banjo 5 string. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 704,
   "score": 346.707,
   "config": {
     "traditions": [
@@ -105,7 +105,7 @@
           "banjo_neck_wood": "banjo_walnut_neck",
           "banjo_strings": "banjo_fluorocarbon",
           "banjo_bridge": "banjo_compensated_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 19.47,

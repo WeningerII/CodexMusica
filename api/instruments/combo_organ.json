@@ -213,7 +213,7 @@
         },
         {
           "id": "combo_organ_early_ska",
-          "name": "Early ska / rocksteady (Skatalites era)",
+          "name": "Early ska / rocksteady era",
           "descriptors": [
             "Jamaican-1960s",
             "horn-section-paired"
@@ -224,8 +224,8 @@
           ]
         },
         {
-          "id": "combo_organ_doors_psych",
-          "name": "Late-60s psychedelic / The Doors archetype",
+          "id": "combo_organ_psych",
+          "name": "Late-60s psychedelic combo-organ archetype",
           "descriptors": [
             "psychedelic-foregrounded",
             "lead-instrument-elevated",
@@ -490,7 +490,7 @@
         },
         {
           "id": "combo_organ_early_ska",
-          "name": "Early ska / rocksteady (Skatalites era)",
+          "name": "Early ska / rocksteady era",
           "descriptors": [
             "Jamaican-1960s",
             "horn-section-paired"
@@ -501,8 +501,8 @@
           ]
         },
         {
-          "id": "combo_organ_doors_psych",
-          "name": "Late-60s psychedelic / The Doors archetype",
+          "id": "combo_organ_psych",
+          "name": "Late-60s psychedelic combo-organ archetype",
           "descriptors": [
             "psychedelic-foregrounded",
             "lead-instrument-elevated",

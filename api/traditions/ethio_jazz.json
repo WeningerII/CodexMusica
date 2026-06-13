@@ -71,7 +71,7 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "combo_organ_model": "farfisa_compact",
           "combo_organ_voicing": "combo_organ_16_pedal",
-          "combo_organ_context": "combo_organ_doors_psych",
+          "combo_organ_context": "combo_organ_psych",
           "amp_make": "amp_leslie_rotary"
         },
         "scores": {
@@ -384,7 +384,7 @@
       "bongos_shell_wood": "bongos_oak_staved",
       "combo_organ_model": "vox_continental_combo",
       "combo_organ_voicing": "combo_organ_all_stops_reedy",
-      "combo_organ_context": "combo_organ_doors_psych",
+      "combo_organ_context": "combo_organ_psych",
       "amp_make": "amp_british_60s_vox_ac",
       "krar_strings": "krar_six",
       "krar_body": "krar_wood_skin",

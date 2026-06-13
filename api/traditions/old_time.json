@@ -5,7 +5,7 @@
   "lineage": "Pre-WWII Appalachian and southern American string-band tradition — fiddle, banjo, guitar (sometimes mandolin and bass) playing dance tunes and ballads in regional repertoires including Round Peak (Galax-Mt-Airy NC), Hammons Family (West Virginia), Skillet Lickers (Georgia), and the broader tradition documented through 1920s commercial Bristol sessions and the Library of Congress field-recording campaign",
   "recipe": "classic North American mid-1920s old-time appalachian, drone Modal, appalachian branch, blues narrative ballad poetry classic blues women jug band. wood 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, double stops fiddle, mahogany parlor classic steel silk fingerpicked parlor acoustic guitar, walnut canonical appalachian clawhammer mountain dulcimer, steel modern canonical 36 37 string set drone like modal autoharp, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. wooden barn. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 701,
-  "score": 324.77,
+  "score": 323.99,
   "config": {
     "traditions": [
       "old_time",
@@ -26,7 +26,7 @@
           "banjo_neck_wood": "banjo_maple_neck",
           "banjo_strings": "banjo_medium_bluegrass",
           "banjo_bridge": "banjo_compensated_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_bluegrass_flathead_setup"
         },
         "scores": {
           "plucked_traditional_technique": 20.865000000000002,
@@ -39,7 +39,7 @@
           "banjo_neck_wood": 2.25,
           "banjo_strings": 2.295,
           "banjo_bridge": 3.2499999999999987,
-          "banjo_setup_period": 22.295
+          "banjo_setup_period": 21.515
         }
       },
       {

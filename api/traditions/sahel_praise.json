@@ -5,7 +5,7 @@
   "lineage": "Contemporary West African Sahel praise-music tradition that extends the Mande jeli vocal-and-praise lineage into the modern electric-band context — Salif Keita (Maninka noble-line singer who broke caste taboo by becoming a commercial musician, 1987 Soro album the Paris-recorded breakthrough), Youssou NDour (Senegalese Wolof, his 1984 Immigrés the Paris recording), Baaba Maal (Senegalese Fulani Pulaar-language), Mory Kanté (Guinean kora-virtuoso, 1987 Yé Ké Yé Ké), Ali Farka Touré, Toumani Diabaté, Khaira Arby, Oumou Sangaré",
   "recipe": "classic West African late-1980s sahel praise music, functional Song, African pop branch, Sufi ritual devotional, west African griot ballad poetry sudanese aghani al-banat wassoulou. thick, declaimed, tasteful, equal tempered. open string slide resonance clean strummed single coil electric guitar, sub heavy electric bass, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit, calabash nylon fishing line cowhide mande traditional kora, griot voice, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, donso ritual large calabash mande gut pre modern hunters donso ngoni. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 854,
-  "score": 321.505,
+  "score": 326.185,
   "config": {
     "traditions": [
       "sahel_praise",
@@ -144,7 +144,7 @@
           "kora_strings_mat": "kora_fishing_line",
           "kora_top_skin": "kora_cowhide_canonical",
           "kora_neck_wood": "kora_hardwood_local",
-          "kora_lineage": "kora_diabate_lineage"
+          "kora_lineage": "kora_mande_jeli_lineage"
         },
         "scores": {
           "plucked_traditional_technique": 22.7825,
@@ -153,7 +153,7 @@
           "kora_strings_mat": 2.6650000000000005,
           "kora_top_skin": 1.69,
           "kora_neck_wood": 1.69,
-          "kora_lineage": 3.575
+          "kora_lineage": 8.254999999999999
         }
       },
       {
@@ -262,7 +262,7 @@
       "kora_strings_mat": "kora_fishing_line",
       "kora_top_skin": "kora_cowhide_canonical",
       "kora_neck_wood": "kora_hardwood_local",
-      "kora_lineage": "kora_diabate_lineage",
+      "kora_lineage": "kora_mande_jeli_lineage",
       "dunun_size": "dununba",
       "dunun_bell": "dunun_single_bell",
       "dunun_shell_wood": "dunun_lenke_canonical",

@@ -3,9 +3,9 @@
   "name": "Persian aroosi (عروسی, wedding music)",
   "family": "global",
   "lineage": "Persian wedding-music tradition continuous from medieval Persian-domestic-music practice through Qajar-and-Pahlavi-era documented performance into modern Iranian and Iranian-diaspora practice; defined by daf-and-tar-and-vocal ensemble",
-  "recipe": "classic modern persian aroosi, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. walnut bent frame canonical Persian synthetic remo modern stable brass rings canonical Iranian daf, synthetic brass gut historical pre modern qajar modern concert tar walnut bowl canonical Persian steel brass wound radif lotfi alizadeh lineage setar persian, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. tehran classical dastgah context. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 796,
-  "score": 347.275,
+  "recipe": "classic modern persian aroosi, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. walnut bent frame canonical Persian synthetic remo modern stable brass rings canonical Iranian daf, synthetic brass gut historical pre modern qajar modern concert tar walnut bowl canonical Persian steel brass wound setar persian, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. tehran classical dastgah context. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 767,
+  "score": 347.795,
   "config": {
     "traditions": [
       "persian_aroosi",
@@ -85,7 +85,7 @@
           "tar_pick": 7.15,
           "tar_body_wood": 0.78,
           "tar_string_material": 3.9,
-          "tar_tradition": 2.08
+          "tar_tradition": 3.38
         }
       },
       {
@@ -104,7 +104,7 @@
           "setar_pluck": 7.215,
           "setar_body_wood": 8.904999999999998,
           "setar_string_material": 2.4699999999999998,
-          "setar_tradition": 1.4949999999999999
+          "setar_tradition": 0.7149999999999999
         }
       },
       {

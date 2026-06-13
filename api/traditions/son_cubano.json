@@ -3,9 +3,9 @@
   "name": "Son cubano",
   "family": "global",
   "lineage": "Cuban son tradition, the canonical Afro-Cuban song-form that became the foundational template for salsa, mambo, cha-cha-chá, and most Caribbean-Latin popular music 1900s-onward. Originated in eastern Cuban Oriente-province (Santiago de Cuba and Guantánamo region) late-19th-century out of changüí proto-son rural-Afro-Spanish-fusion, with classic ensemble of tres (small three-double-course guitar), Spanish guitar, bass (originally botija jug-bass, later contrabass), bongos, claves, and maracas. Migrated to Havana in the 1920s where the sexteto-and-septeto urban-commercial codification (adding trumpet) made son the international Cuban-music ambassador. The clave 3-2 (or reversed 2-3) two-bar wood-block rhythm anchors all son derivatives; the verse-montuno structure (canto verse-section, montuno call-and-response open-improvisation section) defines all subsequent Caribbean popular-song architectures.",
-  "recipe": "classic tropical mid-1900s son cubano, groove Percussion, son salsa branch, rumba Cuban rumba cubana yambú. kargyraa, blues-shouter, chest resonance low mid, Yoruba tonal vocal. cedar canonical Cuban octave doubled bronze steel rural traditional strummed tres cubano, low mid rich spectrum cedar classical nylon-string guitar, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, regional wood hardwood claves, maracas, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 799,
-  "score": 216.938,
+  "recipe": "classic tropical mid-1900s son cubano, groove Percussion, son salsa branch, rumba Cuban rumba cubana yambú. kargyraa, blues-shouter, chest resonance low mid, Yoruba tonal vocal. cedar canonical Cuban steel modern son montuno conjunto canon strummed tres cubano, low mid rich spectrum cedar classical nylon-string guitar, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, regional wood hardwood claves, maracas, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 793,
+  "score": 226.398,
   "config": {
     "traditions": [
       "son_cubano",
@@ -59,20 +59,20 @@
           "tres_courses": "tres_3x2",
           "tres_cubano_context": "tres_cubano_son",
           "tres_cubano_body_wood": "tres_cubano_cedar",
-          "tres_cubano_strings": "tres_cubano_octave_doubled"
+          "tres_cubano_strings": "tres_cubano_steel_modern"
         },
         "scores": {
           "plucked_traditional_technique": 3.705,
           "tres_courses": 16.33775,
           "tres_cubano_context": 2.08,
           "tres_cubano_body_wood": 13.975,
-          "tres_cubano_strings": 1.3
+          "tres_cubano_strings": 9.36775
         }
       },
       {
         "id": "classical_nylon_string_guitar",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
+          "acoustic_technique": "acoustic_alternating_bass",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
@@ -80,7 +80,7 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 1.0499999999999998,
+          "acoustic_technique": 2.4415,
           "string_tuning": 0,
           "top_wood_classical": 4.095,
           "bracing_classical": 0.0315,
