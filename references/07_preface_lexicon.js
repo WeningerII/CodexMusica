@@ -2677,6 +2677,86 @@ const PREFACE_LEXICON = [
     note: "delicate frailty — soft breath-tone air, hushed and low",
     tokens: ['soft', 'soft-onset', 'breath-tone-airy', 'intimate-aspirated', 'quiet', 'low-projection-volume', 'breathy', 'subtle', 'mellowed']
   },
+  {
+    id: 'fuzzy',
+    note: "fuzz-saturated buzz — distorted gritty growl with a sub-fundamental hum",
+    tokens: ['distorted', 'gritty', 'hf-distortion-prone', 'growly', 'sub-fundamental-buzz', 'saturation-distortion-headroom', 'rough', 'edgy', 'biting']
+  },
+  {
+    id: 'fluffy',
+    note: "soft cloud — plush airy warmth, weightless and cozy",
+    tokens: ['soft', 'plush', 'airy', 'breath-tone-airy', 'warmed', 'soft-onset', 'cozy', 'floating', 'smoothed']
+  },
+  {
+    id: 'thin',
+    note: "narrow and bodiless — bandwidth-starved with no low end, airless",
+    tokens: ['bandwidth-narrow', 'no-bass-extension', 'focused-narrow-output', 'airless', 'low-overtone-rich', 'narrow-attack-onset', 'bright-clear', 'breath-tone-airy', 'treble-extended']
+  },
+  {
+    id: 'thick',
+    note: "dense and heavy — low-mid bulk with full sub weight",
+    tokens: ['low-mid-thick', 'dense', 'full', 'low-end-heavy', 'sub-bass', 'low-mid-rich', 'full-bodied', 'foundation', 'overtone-rich']
+  },
+  {
+    id: 'rich',
+    note: "saturated fullness — lush overtone-rich warmth, sweetened and dense",
+    tokens: ['lush-ambient', 'overtone-rich', 'full', 'sweetened', 'low-mid-rich', 'plush', 'dense', 'warm-glowing', 'lush-orchestral-soul-aesthetic']
+  },
+  {
+    id: 'deep',
+    note: "subterranean low end — a deep sub-bass foundation, low and heavy",
+    tokens: ['deep', 'deep-bass', 'sub-bass', 'low-fundamental', 'sub-heavy', 'low-register', 'sub-driven', 'low-end-heavy', 'foundation']
+  },
+  {
+    id: 'raspy',
+    note: "grated rasp — rough gritty growl with a chest-anchored cry",
+    tokens: ['rough', 'gritty', 'growly', 'chest-resonance-low-mid', 'low-mid-rich-spectrum', 'speech-derived', 'edgy', 'biting', 'characteristic-cry']
+  },
+  {
+    id: 'dull',
+    note: "muffled and flat — rolled-off damped dark, low and lifeless",
+    tokens: ['top-rolled-off-8k', 'blanket-damped', 'dark', 'low-distortion-low-coloration', 'neutral', 'mellowed', 'boxy', 'low-overtone-rich', 'airless']
+  },
+  {
+    id: 'wet',
+    note: "drenched in space — a reverberant washy tail, ambient and swimming",
+    tokens: ['reverberant', 'washy', 'expansive-reverb', 'naturally-reverberant', 'lush-ambient', 'swimming', 'ambient', 'reverb-and-delay-and-tremolo-foundational', 'layered-ambient']
+  },
+  {
+    id: 'damp',
+    note: "muted and absorbed — blanket-damped dark with rolled-off air",
+    tokens: ['blanket-damped', 'top-rolled-off-8k', 'dry', 'dark', 'low-overtone-rich', 'neutral', 'boxy', 'mellowed', 'airless']
+  },
+  {
+    id: 'faint',
+    note: "barely-there hush — low-projection quiet at the edge of audible",
+    tokens: ['low-projection-volume', 'quiet', 'soft', 'breath-tone-airy', 'intimate', 'subtle', 'mellowed', 'airless', 'soft-onset']
+  },
+  {
+    id: 'huge',
+    note: "enormous scale — expansive reverberant vastness, wide and sub-heavy",
+    tokens: ['expansive-reverb', 'vast', 'wide-soundstage', 'sub-heavy', 'thunderous', 'full', 'panoramic-image', 'dynamic-range-wide', 'naturally-reverberant']
+  },
+  {
+    id: 'massive',
+    note: "crushing weight — sub-heavy low-end mass, dense and thunderous",
+    tokens: ['sub-heavy', 'low-end-heavy', 'sub-bass-foundational', 'full-bodied', 'thunderous', 'dense', 'wide', 'expansive-reverb', 'foundation']
+  },
+  {
+    id: 'tiny',
+    note: "doll-house intimacy — close quiet smallness, soft and subtle",
+    tokens: ['intimate', 'close', 'low-projection-volume', 'quiet', 'soft', 'breath-tone-airy', 'subtle', 'airless', 'soft-onset']
+  },
+  {
+    id: 'vast',
+    note: "boundless space — expansive wide-soundstage openness, panoramic",
+    tokens: ['vast', 'expansive-reverb', 'wide-soundstage', 'panoramic-image', 'naturally-reverberant', 'wide', 'layered-ambient', 'reverberant', 'sustained-tone']
+  },
+  {
+    id: 'immense',
+    note: "overwhelming magnitude — a vast sub-heavy sweep, wide and thunderous",
+    tokens: ['vast', 'expansive-reverb', 'sub-heavy', 'wide-soundstage', 'thunderous', 'full', 'dynamic-range-wide', 'panoramic-image', 'dense']
+  },
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
