@@ -25,12 +25,13 @@ model, finish the aria-modal contract) — not to work around it.
 | M-ENG-1 | blend double-counts a repeated tradition | ✅ dedupe tradition ids | `b8126a3` |
 | M-APP-1 | saved workspaces carry no schema version | ✅ `WS_SCHEMA` stamp; loadWS/forkWS reject a newer-schema save | `61c90ff` |
 | M-APP-6 | undo/redo `JSON.parse` unguarded | ✅ guarded restore (keeps canvas, rolls back index on corruption) | `61c90ff` |
+| L-DATA-1 | 10 prefaces had duplicate tokens (deflated their score) | ✅ deduped; 79/79 assignments unchanged (guqin/biniou auto-preface re-blessed) | `1651a82` |
+| M-DATA-2 | voice_tradition mislabels (audit flagged 17) | ✅ web-verified: 10 corrected, 7 confirmed genuinely-pop + allowlisted | `1651a82`,`0897dac` |
 | — | (CI-caught) audit report tripped `check_docs` | ✅ `AUDIT_REPORT.md` excluded as prose, like README/CHANGELOG | `f1e58a8` |
 
 **Deliberately deferred (with rationale):**
 - `audit` / `audit_coherence` stay **advisory** — the author's explicit design (quality nudges, not blockers). Not a defect.
-- `L-ENG-1` tie-break, `M-DATA-1/3` + `L-DATA-1` preface dead/duplicate tokens: LOW/MED data-quality whose fix churns recipe snapshots + the static API for marginal gain — deferred to a dedicated data pass.
-- `M-DATA-2` voice mis-stamps (17): need musicological judgment (data-coherence lane).
+- `L-ENG-1` tie-break + `M-DATA-1` (4 production-dead preface tokens) + `M-DATA-3` (dubstep≡tropical_bass identical axis signature): LOW data-quality needing a snapshot re-bless or an axis-disambiguation call — deferred.
 - `M-APP-2` cross-tab clobbering of the saved-list index: needs the async storage backend's key-enumeration API to reconcile (a `storage` event won't fire on it) — deferred pending that. (`M-APP-1`/`M-APP-6` now fixed — see table above.)
 - prettier (59 files) + stale-branch cleanup: formatting the author never adopted + branch hygiene — cosmetic.
 
