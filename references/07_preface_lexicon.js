@@ -2372,6 +2372,166 @@ const PREFACE_LEXICON = [
     note: "overwhelming volume — unrestrained thunderous projection at congregation-loud force",
     tokens: ['unrestrained', 'congregation-loud', 'thunderous', 'loud', 'projecting', 'shouted', 'full', 'sub-heavy', 'full-bodied']
   },
+  {
+    id: 'hateful',
+    note: "venomous contempt — dark distorted growl, biting and sharp",
+    tokens: ['growly', 'biting', 'distorted', 'dark', 'cutting', 'high-gain-saturation', 'sharp', 'rough', 'edgy']
+  },
+  {
+    id: 'cruel',
+    note: "cold-blooded malice — a clean biting cut, sharp and unfeeling",
+    tokens: ['biting', 'cutting', 'cold', 'sharp', 'clean-articulation-low-blur', 'edgy', 'distorted', 'growly', 'dark']
+  },
+  {
+    id: 'nasty',
+    note: "vicious grit — distorted growl, rough and biting",
+    tokens: ['gritty', 'growly', 'distorted', 'biting', 'rough', 'edgy', 'high-gain-saturation', 'sharp', 'dark']
+  },
+  {
+    id: 'callous',
+    note: "unfeeling detachment — cold neutral dryness, controlled and damped",
+    tokens: ['cold', 'neutral', 'dry', 'austere-meditative', 'low-distortion-low-coloration', 'controlled', 'sustained-tone', 'low-mid-rich-spectrum', 'blanket-damped']
+  },
+  {
+    id: 'cranky',
+    note: "irritable friction — rough edgy grit in a low, biting register",
+    tokens: ['rough', 'edgy', 'biting', 'gritty', 'growly', 'speech-derived', 'rhythmic-speech', 'low-register', 'cutting']
+  },
+  {
+    id: 'moody',
+    note: "shifting darkness — modal-ambiguous brooding, mournful and low",
+    tokens: ['dark', 'haunted-romantic', 'modal-ambiguity-major-minor-blurred', 'low-mid-thick', 'mournful', 'sustained-tone', 'dark-romantic', 'lament-leaning', 'low-mid-rich-spectrum']
+  },
+  {
+    id: 'bossy',
+    note: "barking command — declamatory projection, rhythmic and insistent",
+    tokens: ['declamatory', 'projecting', 'present', 'shouted', 'rhythmic-speech', 'speech-mimicking', 'belt-projection', 'punctuated', 'articulate']
+  },
+  {
+    id: 'arrogant',
+    note: "swaggering disdain — soaring belted projection, full and showy",
+    tokens: ['declamatory', 'projecting', 'present', 'belt-projection', 'soaring', 'full-bodied', 'dynamic', 'shouted', 'articulate']
+  },
+  {
+    id: 'proud',
+    note: "head-high projection — belted soaring presence, dynamic and full-bodied",
+    tokens: ['projecting', 'belt-projection', 'soaring', 'present', 'full-bodied', 'sustained-projection', 'dynamic', 'vibrato-rich', 'declamatory']
+  },
+  {
+    id: 'bored',
+    note: "flat indifference — neutral monotone delivery, dry and subdued",
+    tokens: ['neutral', 'speech-quality-modal-neutral-larynx', 'low-projection-volume', 'dry', 'mellowed', 'subtle', 'sustained-tone', 'low-mid-rich-spectrum', 'smoothed']
+  },
+  {
+    id: 'apprehensive',
+    note: "uneasy dread — breath-heavy intimate tremor, hushed and held",
+    tokens: ['breath-heavy', 'breathy', 'intimate-aspirated', 'soft-onset', 'sustained-tone', 'mournful', 'low-mid-rich-spectrum', 'expressive', 'quiet']
+  },
+  {
+    id: 'panicky',
+    note: "breathless alarm — fast tremolo and runs, sharp and unrestrained",
+    tokens: ['fast-tremolo', 'rapid-tremolo', 'breath-heavy', 'breathy', 'fast-attack-transient', 'sharp', 'cutting', 'unrestrained', 'fast-runs']
+  },
+  {
+    id: 'agitated',
+    note: "restless friction — edgy fast tremolo and transients, percussive",
+    tokens: ['fast-tremolo', 'rapid-tremolo', 'edgy', 'percussive', 'fast-attack-transient', 'biting', 'fast-runs', 'punctuated', 'unrestrained']
+  },
+  {
+    id: 'alarmed',
+    note: "startled jolt — a sharp bright transient, cutting and present",
+    tokens: ['sharp', 'fast-attack-transient', 'cutting', 'bright', 'transient-grab-aggressive', 'percussive', 'projecting', 'hyped-mids', 'present']
+  },
+  {
+    id: 'uptight',
+    note: "clenched tension — tight narrow articulation, controlled and constrained",
+    tokens: ['tight-articulation', 'tight-low-end', 'controlled', 'narrow-attack-onset', 'focused-narrow-output', 'clean-articulation-low-blur', 'bandwidth-narrow', 'sharp', 'military-tight']
+  },
+  {
+    id: 'confused',
+    note: "disoriented drift — modal-ambiguous wandering in a free-rhythm haze",
+    tokens: ['modal-ambiguity-major-minor-blurred', 'wandering-bardic', 'drift', 'free-rhythm', 'microtonal', 'ambient', 'sustained-tones-free-rhythm', 'meend-rich', 'swimming']
+  },
+  {
+    id: 'joyful',
+    note: "radiant gladness — lively soaring brightness, expressive and warm",
+    tokens: ['lively', 'bright', 'soaring', 'hyped-mids', 'dance-driving', 'expressive', 'vibrato-rich', 'sustained-projection', 'warm-glowing']
+  },
+  {
+    id: 'content',
+    note: "settled ease — warm-glowing soft mellow calm, unhurried",
+    tokens: ['warm-glowing', 'soft', 'mellow', 'smoothed', 'intimate', 'plush', 'gentle', 'patient', 'soft-onset']
+  },
+  {
+    id: 'carefree',
+    note: "untroubled lightness — airy floating swing, mellow and gentle",
+    tokens: ['airy', 'floating', 'soft-onset', 'lively', 'swung', 'mellow', 'smoothed', 'jangly', 'gentle']
+  },
+  {
+    id: 'buoyant',
+    note: "lifting bounce — lively floating brightness, snappy and soaring",
+    tokens: ['lively', 'floating', 'airy', 'snappy', 'dance-driving', 'bright', 'soaring', 'hyped-mids', 'expressive']
+  },
+  {
+    id: 'humble',
+    note: "quiet modesty — soft intimate restraint, hushed and gentle",
+    tokens: ['soft', 'soft-onset', 'intimate', 'intimate-aspirated', 'quiet', 'low-projection-volume', 'gentle', 'subtle', 'smoothed']
+  },
+  {
+    id: 'determined',
+    note: "resolute drive — marching percussive insistence, tight and forward",
+    tokens: ['marching', 'percussive', 'punctuated', 'tight-rhythmic-articulation', 'foundational', 'military-tight', 'walking', 'sustained-tone', 'projecting']
+  },
+  {
+    id: 'stoic',
+    note: "impassive steadiness — austere neutral control, patient and sustained",
+    tokens: ['austere-meditative', 'neutral', 'controlled', 'sustained-tone', 'patient', 'meditative-tempo', 'low-mid-rich-spectrum', 'soft-onset', 'contemplative']
+  },
+  {
+    id: 'earnest',
+    note: "heartfelt sincerity — intimate expressive warmth, plainspoken",
+    tokens: ['intimate', 'intimate-aspirated', 'expressive', 'soft-onset', 'speech-derived', 'breath-heavy', 'sustained-tone', 'warm-glowing', 'declaimed']
+  },
+  {
+    id: 'caring',
+    note: "tender warmth — warm-glowing plush softness, intimate and cozy",
+    tokens: ['warm-glowing', 'soft', 'plush', 'soft-onset', 'intimate-aspirated', 'smoothed', 'cozy', 'gentle', 'warmed']
+  },
+  {
+    id: 'feisty',
+    note: "spirited snap — biting edgy liveliness, cutting and twangy",
+    tokens: ['snappy', 'biting', 'edgy', 'lively', 'cutting', 'percussive', 'twangy', 'projecting', 'present']
+  },
+  {
+    id: 'exotic',
+    note: "far-flung color — microtonal modal ornament, melismatic and meend-rich",
+    tokens: ['microtonal', 'modal', 'ornamental', 'ornamental-melismatic', 'meend-rich', 'melismatic', 'raga-suited', 'persian-melismatic', 'gypsy-andalusian']
+  },
+  {
+    id: 'gorgeous',
+    note: "lush beauty — sweetened warm-glowing orchestral richness, soaring",
+    tokens: ['lush-ambient', 'sweetened', 'warm-glowing', 'plush', 'soaring', 'lush-orchestral-soul-aesthetic', 'overtone-rich', 'full', 'vibrato-rich']
+  },
+  {
+    id: 'humorous',
+    note: "playful wit — lively jangly twang, snappy and melodic",
+    tokens: ['lively', 'snappy', 'jangly', 'swung', 'twangy', 'bright', 'expressive', 'melodic', 'articulate']
+  },
+  {
+    id: 'imaginative',
+    note: "inventive wandering — experimental layered drift, free and exploratory",
+    tokens: ['experimental', 'wandering-bardic', 'drift', 'layered-ambient', 'modal-ambiguity-major-minor-blurred', 'free-rhythm', 'ambient', 'extended-techniques', 'swimming']
+  },
+  {
+    id: 'mindful',
+    note: "present stillness — contemplative meditative calm, patient and gentle",
+    tokens: ['contemplative', 'meditative', 'meditative-tempo', 'patient', 'soft-onset', 'sustained-tone', 'austere-meditative', 'breathing', 'gentle']
+  },
+  {
+    id: 'mature',
+    note: "seasoned warmth — a rounded warm-glowing body, controlled and full",
+    tokens: ['warm-glowing', 'warmed', 'smoothed', 'round', 'full-bodied', 'controlled', 'low-mid-rich-spectrum', 'sustained-tone', 'plush']
+  },
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
