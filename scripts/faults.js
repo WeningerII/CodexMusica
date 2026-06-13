@@ -226,6 +226,16 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
   record('behavior-drift -> check_doc_behaviors.js', gate(d, ['scripts/check_doc_behaviors.js']), /belting|behavior|drift|not found|FAIL/i);
 }
 
+// 13. a production-dead preface token -> check_prefaces.js  (a token no card can
+//     surface in production preface scoring: it silently never matches yet still
+//     inflates the |shared|/tokens.length denominator — the M-DATA-1 class)
+{
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'references/07_preface_lexicon.js');
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('tokens: [', "tokens: ['zzz_dead_fault_token', "));
+  record('dead-preface-token -> check_prefaces.js', gate(d, ['scripts/check_prefaces.js']), /zzz_dead_fault_token|dead-token|never scores/i);
+}
+
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
 // a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
 // exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so

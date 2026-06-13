@@ -32,6 +32,7 @@
     "check-docs": "node scripts/check_docs.js && node scripts/check_doc_commands.js && node scripts/check_doc_behaviors.js",
     "check:api": "node scripts/check_api.js",
     "check:promises": "node scripts/check_promises.js",
+    "check:prefaces": "node scripts/check_prefaces.js",
     "check:fresh": "node scripts/check_artifact_fresh.js",
     "faults": "node scripts/faults.js",
     "lint": "eslint .",
