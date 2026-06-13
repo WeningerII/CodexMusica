@@ -10998,4 +10998,5 @@ const INSTRUMENTS = [
       ] },
     ]
   },
+  { id: 'murga_bateria', name: 'Murga battery (bombo, redoblante, platillos)', family: 'ensemble', class: 'membranophone', axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: -1, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 2 }, short: 'murga battery', parts: [ { id: 'murga_bateria_style', name: 'Battery style', variants: [ { id: 'murga_bateria_marcha_camion', default: true, name: 'Marcha camion groove', descriptors: ['driving', 'street-march', 'cymbal-crash-accents'], match_tokens: ['murga', 'carnival', 'montevideo'] }, { id: 'murga_bateria_rubato_theatrical', name: 'Rubato theatrical underscoring', descriptors: ['theatrical', 'stop-start', 'dynamic-swells'], match_tokens: ['theatrical', 'parody'] } ] } ] },
 ];
