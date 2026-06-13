@@ -49,6 +49,9 @@ jobs:
       - name: Promise→gate coverage (every promise documented AND gated, 0 orphans)
         run: npm run check:promises
 
+      - name: Preface lexicon hygiene (no dup/empty/production-dead tokens, no dup ids)
+        run: npm run check:prefaces
+
       - name: Audit data quality
         run: npm run audit
 

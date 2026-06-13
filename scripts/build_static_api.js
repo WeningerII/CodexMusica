@@ -195,6 +195,8 @@ function main() {
       tradition: 'traditions/{id}.json',
       instruments_index: 'instruments/index.json',
       instrument: 'instruments/{id}.json',
+      all: 'all.json',
+      browse: 'browse.json',
     },
     license: 'See repository LICENSE.',
   });

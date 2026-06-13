@@ -307,8 +307,11 @@ if (trace) {
 // the recipe stdout. --why-json emits the same data as JSON for machine parse.
 
 if (flags.why || flags['why-json']) {
-  const { buildMergedContext, scoreVariant } = require('./score.js');
-  const ctx = buildMergedContext(result.config.traditions, 0.5);
+  const { scoreVariant } = require('./score.js');
+  const { makeContextProvider } = require('./search.js');
+  // Mirror the engine's per-part isolation context (search.js seedFromTradition)
+  // so the explained scores are the ones that actually drove the pick.
+  const getCtxForPart = makeContextProvider(result.config.traditions, 0.5);
 
   const slotDetails = []; // [{instId, partId, winner, runnerUp, third, pinned}]
   for (const inst of result.config.instruments) {
@@ -317,12 +320,14 @@ if (flags.why || flags['why-json']) {
     for (const part of (cataInst.parts || [])) {
       const currentId = (inst.slots || {})[part.id];
       if (!currentId) continue;
+      const ctx = getCtxForPart(part.id);
       const scored = [];
       for (const v of (part.variants || [])) {
-        const r = scoreVariant(v, ctx, { useNeighbors: true });
+        if (v.auto === false) continue; // explicit-only: the engine never auto-picks these
+        const r = scoreVariant(v, ctx, { useNeighbors: true, skipSignals: true });
         scored.push({ id: v.id, score: r.score, isDefault: !!v.default });
       }
-      scored.sort((a, b) => b.score - a.score);
+      scored.sort((a, b) => (b.score - a.score) || ((b.isDefault ? 1 : 0) - (a.isDefault ? 1 : 0)));
       const winnerIdx = scored.findIndex(s => s.id === currentId);
       const winner = scored[winnerIdx] || { id: currentId, score: 0, isDefault: false };
       const pinned = !!(result.config.pinned && result.config.pinned[inst.id] &&
@@ -363,8 +368,10 @@ if (flags.why || flags['why-json']) {
         const defaultTag = c.isDefault ? ' [d]' : '';
         console.error(`    ${mark} ${c.id.padEnd(36)} ${c.score.toFixed(2).padStart(7)}${defaultTag}${delta}`);
       }
-      if (sd.winnerRank > 3) {
-        console.error(`    (winner ranked ${sd.winnerRank} of ${sd.totalCandidates} — likely pinned)`);
+      if (sd.winnerRank > 1) {
+        const why = sd.pinned ? 'pinned via --swap-variant'
+          : 'global search preferred it over the top local scorer';
+        console.error(`    (engine pick ranks ${sd.winnerRank} of ${sd.totalCandidates} in isolation — ${why})`);
       }
     }
     console.error('');

@@ -1,16 +1,22 @@
 name: Sync site to Pages branch
 
-# Every push to the production branch rebuilds codex.html from source and
-# publishes it to `main` — the branch GitHub Pages serves — so the live site is
-# never stale and no manual refresh is needed.
+# Rebuilds codex.html from source and publishes it + the gate-verified api/ to
+# `main` (the branch GitHub Pages serves) — but ONLY after CI passes on the
+# production branch, so a red or stale build can never go live.
 #
-# This needs NO Pages settings change: Pages keeps serving `main`; this workflow
-# just keeps main's codex.html in lockstep with the production source. (If you
-# later point Pages directly at this branch in Settings, you can delete this
-# workflow — that's the lower-history-churn option.)
+# It triggers on CI *completion* (workflow_run), not the raw push, and the job
+# below runs only when that CI run SUCCEEDED — so freshness + faults + every gate
+# are green before the artifact ships. This is the in-repo "green before live"
+# enforcement; branch protection on production (a repo Setting) is the
+# belt-and-suspenders that also stops a direct push from skipping CI entirely.
+#
+# Needs NO Pages settings change: Pages keeps serving `main`; this keeps main's
+# codex.html + api/ in lockstep with the green production source.
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
     branches: [claude/loving-hawking-vq5m4] # production / default branch
   workflow_dispatch: {}
 
@@ -23,11 +29,17 @@ concurrency:
 
 jobs:
   sync:
+    # Publish only when the triggering CI run succeeded. (A manual workflow_dispatch
+    # carries no workflow_run payload, so let it through for an on-demand republish.)
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # full history so we can diff this push for changed paths
+          fetch-depth: 0
+          # Check out the EXACT commit CI just validated — not the branch tip, which
+          # may have advanced. Manual dispatch falls back to the chosen ref.
+          ref: ${{ github.event.workflow_run.head_sha || github.ref }}
 
       - uses: actions/setup-node@v4
         with:
@@ -38,9 +50,6 @@ jobs:
         run: npm ci
 
       - name: Build site artifacts from source
-        env:
-          BEFORE: ${{ github.event.before }}
-          AFTER: ${{ github.sha }}
         run: |
           set -e
           # Everything is staged in _dist/ so the later `git checkout main`
@@ -92,5 +101,5 @@ jobs:
             echo "Site unchanged — nothing to publish."
             exit 0
           fi
-          git commit -m "Auto-publish site (codex.html + static API) from ${GITHUB_SHA:0:7}"
+          git commit -m "Auto-publish site (codex.html + static API) from $(git rev-parse --short HEAD)"
           git push origin main

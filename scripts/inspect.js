@@ -21,6 +21,7 @@
 
 const C = require('./_loader.js');
 const { buildMergedContext, scoreVariant } = require('./score.js');
+const { makeContextProvider } = require('./search.js');
 
 const args = process.argv.slice(2);
 const flags = {};
@@ -84,6 +85,11 @@ if (!ctx) {
   console.error(`Failed to build context for ${tid}`);
   process.exit(2);
 }
+// Per-part isolation context — the SAME provider the engine uses (search.js
+// seedFromTradition / makeContextProvider), so the ✓ and scores match the actual
+// recipe pick on isolated-crossRef blends (voice_quality, cymbal_alloy, …) rather
+// than a flat merged context that ignores per-part staple exclusion.
+const getCtxForPart = makeContextProvider(allIds, 0.5);
 console.log(`── CONTEXT TOKENS (top 15 per space by weight) ──`);
 function showTopN(map, label, n = 15) {
   const m = map || new Map();
@@ -132,7 +138,7 @@ for (const iid of instrumentList) {
     // never auto-picked, and ties break toward the canonical `default: true`.
     const scored = [];
     for (const v of (part.variants || [])) {
-      const r = scoreVariant(v, ctx, { useNeighbors: true });
+      const r = scoreVariant(v, getCtxForPart(part.id), { useNeighbors: true, skipSignals: true });
       scored.push({
         id: v.id,
         score: r.score,

@@ -199,13 +199,70 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
   record('lazy-shell-desync -> check_lazy_app.js', gate(d, ['scripts/check_lazy_app.js']), /__FAULT__|drift|projection|LAZY-APP: FAIL/i);
 }
 
+// 10. doc count drift -> check_docs.js  (a canonical count in the docs no longer
+//     matches the live catalog — the class that shipped stale AGENTS/SKILL counts)
+{
+  const d = mkenv(['scripts', 'references', 'SKILL.md', 'AGENTS.md', 'index.html', 'package.json', 'llms.txt']);
+  const f = path.join(d, 'package.json');
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('1119-tradition', '1118-tradition'));
+  record('count-drift -> check_docs.js', gate(d, ['scripts/check_docs.js']), /1118|1119|drift|mismatch|count|expected/i);
+}
+
+// 11. a documented command that no longer exits 0 -> check_doc_commands.js
+{
+  const d = mkenv(['scripts', 'references', 'api', 'src', 'AGENTS.md', 'llms.txt', 'README.md', 'SKILL.md']);
+  fs.appendFileSync(path.join(d, 'AGENTS.md'), '\nnode scripts/recipe.js --tradition __doccmd_fault__\n');
+  record('failing-doc-command -> check_doc_commands.js', gate(d, ['scripts/check_doc_commands.js']), /__doccmd_fault__|errored|exit|recipe/i);
+}
+
+// 12. a documented BEHAVIOR drifts from the prose -> check_doc_behaviors.js
+//     (corrupt belting's documented §3d token list — the assertion must catch it)
+{
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'references/07_preface_lexicon.js');
+  // Rename belting's UNIQUE id so the §3d assertion (which finds 'belting' and
+  // checks its documented 8 tokens) sees "(belting not found)" and fails.
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace("id: 'belting'", "id: 'belting__fault__'"));
+  record('behavior-drift -> check_doc_behaviors.js', gate(d, ['scripts/check_doc_behaviors.js']), /belting|behavior|drift|not found|FAIL/i);
+}
+
+// 13. a production-dead preface token -> check_prefaces.js  (a token no card can
+//     surface in production preface scoring: it silently never matches yet still
+//     inflates the |shared|/tokens.length denominator — the M-DATA-1 class)
+{
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'references/07_preface_lexicon.js');
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('tokens: [', "tokens: ['zzz_dead_fault_token', "));
+  record('dead-preface-token -> check_prefaces.js', gate(d, ['scripts/check_prefaces.js']), /zzz_dead_fault_token|dead-token|never scores/i);
+}
+
+// Registry-driven completeness: every promise-bound gate (_promises.js) must have
+// a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
+// exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so
+// completeness is only asserted on a full run (CI passes --fresh-api/--fresh-html).
+let uncovered = [];
+if (FRESH_API && FRESH_HTML) {
+  const PROMISES = require('./_promises.js');
+  const faulted = new Set(results.map((r) => r.cls.split('->').pop().trim()));
+  uncovered = [...new Set(PROMISES.map((p) => p.gate))]
+    .filter((g) => g !== 'faults.js' && !faulted.has(g));
+}
+
 const escaped = results.filter((r) => !r.caught);
 console.log(`\n=== Fault injection: ${results.length} gate-class(es) tested, ${escaped.length} escape(s) ===`);
-if (escaped.length === 0) {
-  console.log('PASS — every injected defect was caught. All gates are two-sided.');
+if (escaped.length === 0 && uncovered.length === 0) {
+  console.log(FRESH_API && FRESH_HTML
+    ? 'PASS — every injected defect was caught AND every promise-bound gate has a fault class. All gates are two-sided.'
+    : 'PASS — every injected defect was caught (partial run; pass --fresh-api/--fresh-html to also assert gate-coverage completeness).');
   process.exit(0);
 }
-console.error('FAIL — these gate-classes did not catch their planted defect for the right reason:');
-for (const e of escaped) console.error(`  ✗ ${e.cls}  [${e.reason}]`);
-console.error('  (ESCAPED = gate passed; TIMEOUT = gate hung; WRONG-REASON = failed but not on the planted defect)');
+if (escaped.length) {
+  console.error('FAIL — these gate-classes did not catch their planted defect for the right reason:');
+  for (const e of escaped) console.error(`  ✗ ${e.cls}  [${e.reason}]`);
+  console.error('  (ESCAPED = gate passed; TIMEOUT = gate hung; WRONG-REASON = failed but not on the planted defect)');
+}
+if (uncovered.length) {
+  console.error(`FAIL — ${uncovered.length} promise-bound gate(s) have NO fault class, so "every gate is two-sided" is unproven for them:`);
+  for (const g of uncovered) console.error(`  ✗ ${g}  (add a fault class in faults.js)`);
+}
 process.exit(1);

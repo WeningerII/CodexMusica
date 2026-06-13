@@ -152,10 +152,21 @@ const TRADITIONAL_ROOTS = new Set([
   'fieldWork', 'praiseSong', 'huntingSong', 'lullaby', 'nurseryRhyme', 'wedding',
   'seaShanty', 'domesticRhythm', 'carnivalProcessional', 'balladPoetry',
 ]);
+// Genres whose NAME trips a VT_RULE but whose vocals are genuinely modern pop —
+// web-verified 2026-06 (see AUDIT_REPORT remediation): baroque pop is baroque
+// INSTRUMENTATION with pop vocals; mandopop_modern / greek_rock / shidaiqu /
+// persian_pop_los_angeles / singaporean_xinyao are pop sung with pop technique;
+// sfyria_antia is a WHISTLED language, not singing. Allowlisted so the heuristic
+// stops re-flagging verified-correct stamps (the other 10 it flagged were fixed).
+const VT_VERIFIED_POP = new Set([
+  'mandopop_modern', 'greek_rock', 'baroque_pop_60s', 'shidaiqu',
+  'persian_pop_los_angeles', 'singaporean_xinyao', 'sfyria_antia',
+]);
 function checkVoiceTradition() {
   for (const t of T) {
     const vt = (t.parts || {}).voice_tradition;
     if (vt !== 'modern_pop_vocal_training') continue;
+    if (VT_VERIFIED_POP.has(t.id)) continue; // verified genuinely pop — see note above
     const e = E[t.id];
     const root = (e && e.parent || '').split('.')[0];
     // Match the SUGGESTION against id + name only — not the free description.
