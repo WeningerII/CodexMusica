@@ -68,6 +68,7 @@ const EXCLUDED_PREFIXES = [
 const EXCLUDED_FILES = [
   'README.md',
   'CHANGELOG.md',
+  'AUDIT_REPORT.md', // point-in-time audit: prose full of incidental numbers ("10 of the prefaces…"), not canonical totals
 ];
 
 const STATUS_RE = /\*\*STATUS:\*\*\s+(SHIPPED|ACTED ON|MOSTLY SHIPPED)/;
