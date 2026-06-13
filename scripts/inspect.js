@@ -126,7 +126,10 @@ for (const iid of instrumentList) {
     const tag = isFamilyPart ? '[family]' : '[own]   ';
     console.log(`  ${tag} ${part.id}`);
 
-    // Score every variant
+    // Score every variant. Mirror the engine's auto-pick semantics so the ✓
+    // marks the variant the engine ACTUALLY selects (search.js seedFromTradition),
+    // not merely the top raw score: `auto: false` variants are explicit-only and
+    // never auto-picked, and ties break toward the canonical `default: true`.
     const scored = [];
     for (const v of (part.variants || [])) {
       const r = scoreVariant(v, ctx, { useNeighbors: true });
@@ -135,19 +138,35 @@ for (const iid of instrumentList) {
         score: r.score,
         descriptors: v.descriptors || [],
         applies_to: v.applies_to || null,
+        auto: v.auto,
+        isDefault: v.default === true,
       });
     }
     scored.sort((a, b) => b.score - a.score);
 
-    // Show top N with a clear marker for the winner
+    // The engine's actual auto-pick: highest score among auto-eligible variants,
+    // ties resolved toward the canonical default.
+    const pick = scored
+      .filter(s => s.auto !== false)
+      .reduce((best, s) => {
+        if (!best) return s;
+        if (s.score > best.score) return s;
+        if (s.score === best.score && s.isDefault && !best.isDefault) return s;
+        return best;
+      }, null);
+
+    // Show top N with a clear marker for the engine's pick
     const toShow = scored.slice(0, runnerUpCount);
     for (let idx = 0; idx < toShow.length; idx++) {
       const s = toShow[idx];
       if (minScore !== null && s.score < minScore) continue;
-      const marker = idx === 0 ? '✓' : ' ';
+      const marker = (pick && s.id === pick.id) ? '✓' : ' ';
       const score = s.score.toFixed(3).padStart(8);
       const id = s.id.padEnd(34);
-      const filtered = (s.applies_to && !s.applies_to.includes(iid)) ? ' [applies_to-filtered]' : '';
+      const tags = [];
+      if (s.applies_to && !s.applies_to.includes(iid)) tags.push('applies_to-filtered');
+      if (s.auto === false) tags.push('explicit-only');
+      const filtered = tags.length ? ' [' + tags.join(', ') + ']' : '';
       console.log(`     ${marker} ${score}  ${id} ${filtered}`);
       if (s.descriptors.length > 0) {
         const d = s.descriptors.slice(0, 8).join(', ');
