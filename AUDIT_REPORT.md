@@ -9,9 +9,9 @@ determinism, counts, and reproducibility.
 
 ## 0. Remediation status — fixes applied after this audit
 
-All five HIGH findings and the accessibility trio are now **fixed** on
-`claude/nines-hardening`, each verified and committed; a full-branch CI re-run is
-dispatched. Every fix was made to *honor* the original author's intent (extend the
+All five HIGH findings, the accessibility trio, and the engine/persistence MED items
+are now **fixed** on `claude/nines-hardening`, each verified, committed, and **green
+on CI** (run #76 on `61c90ff`). Every fix was made to *honor* the original author's intent (extend the
 fault framework, complete the deploy-gating they'd flagged, keep the explicit-save
 model, finish the aria-modal contract) — not to work around it.
 
@@ -23,12 +23,15 @@ model, finish the aria-modal contract) — not to work around it.
 | H-ENG-1/2 | `inspect` / `recipe --why` misreport the winner | ✅ both route through the engine's per-part isolation context | `a106618` |
 | M-APP-3/4/5 | modal a11y incomplete (no trap/restore/keyboard) | ✅ focus trap + restore + Enter/Space activation | `5333123` |
 | M-ENG-1 | blend double-counts a repeated tradition | ✅ dedupe tradition ids | `b8126a3` |
+| M-APP-1 | saved workspaces carry no schema version | ✅ `WS_SCHEMA` stamp; loadWS/forkWS reject a newer-schema save | `61c90ff` |
+| M-APP-6 | undo/redo `JSON.parse` unguarded | ✅ guarded restore (keeps canvas, rolls back index on corruption) | `61c90ff` |
+| — | (CI-caught) audit report tripped `check_docs` | ✅ `AUDIT_REPORT.md` excluded as prose, like README/CHANGELOG | `f1e58a8` |
 
 **Deliberately deferred (with rationale):**
 - `audit` / `audit_coherence` stay **advisory** — the author's explicit design (quality nudges, not blockers). Not a defect.
 - `L-ENG-1` tie-break, `M-DATA-1/3` + `L-DATA-1` preface dead/duplicate tokens: LOW/MED data-quality whose fix churns recipe snapshots + the static API for marginal gain — deferred to a dedicated data pass.
 - `M-DATA-2` voice mis-stamps (17): need musicological judgment (data-coherence lane).
-- `M-APP-1/2/6` localStorage schema-version + cross-tab + undo guard: MED robustness, lower priority than the shipped data-loss guard.
+- `M-APP-2` cross-tab clobbering of the saved-list index: needs the async storage backend's key-enumeration API to reconcile (a `storage` event won't fire on it) — deferred pending that. (`M-APP-1`/`M-APP-6` now fixed — see table above.)
 - prettier (59 files) + stale-branch cleanup: formatting the author never adopted + branch hygiene — cosmetic.
 
 **Owner-only (cannot be done in-repo):** branch protection on production (the suspenders to H2's belt); merging `nines-hardening` + cutting a tagged release.
