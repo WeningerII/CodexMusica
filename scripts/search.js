@@ -480,7 +480,10 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
   const stapleWeight = typeof opts.stapleWeight === 'number' ? opts.stapleWeight : 0.5;
   // Initial slot assignments: pick best-scoring variant for each part of each instrument.
   // Use merged context if staples are provided so the scoring respects all combined traditions.
-  const allTradIds = [tradId, ...stapleIds];
+  // Dedupe: a tradition repeated in --traditions (e.g. `A,A`, or the primary also
+  // listed as a staple) must not be double-counted in the scoring context — which
+  // would re-add it at +0.5 weight and shift token-surfacing thresholds.
+  const allTradIds = [...new Set([tradId, ...stapleIds])];
   // Per-part isolation context: identical to ctx unless the primary tradition
   // has crossRefs flagging specific parts (isolated_parts: ['part_id', ...] or
   // legacy voice_isolated: true ≡ isolated_parts: ['voice_quality']). Used so
