@@ -2230,7 +2230,7 @@ const PREFACE_LEXICON = [
   {
     id: 'cheerful',
     note: "bright good humor — lively snappy warmth with jangly lift",
-    tokens: ['lively', 'bright', 'snappy', 'hyped-mids', 'expressive', 'dance-driving', 'warm-glowing', 'vibrato-y', 'jangly']
+    tokens: ['lively', 'bright', 'snappy', 'hyped-mids', 'expressive', 'dance-driving', 'warm-glowing', 'vibrato-y', 'full-bodied']
   },
   {
     id: 'mellow',
@@ -2350,7 +2350,7 @@ const PREFACE_LEXICON = [
   {
     id: 'hollow',
     note: "empty resonance — boxy woody drone in airless cavernous space",
-    tokens: ['hollow', 'boxy', 'woody', 'drone-like', 'airless', 'breath-tone-airy', 'cavernous', 'low-overtone-rich', 'neutral']
+    tokens: ['hollow', 'boxy', 'woody', 'drone-like', 'airless', 'undamped-resonance', 'cavernous', 'low-overtone-rich', 'neutral']
   },
   {
     id: 'whispering',
@@ -2455,7 +2455,7 @@ const PREFACE_LEXICON = [
   {
     id: 'joyful',
     note: "radiant gladness — lively soaring brightness, expressive and warm",
-    tokens: ['lively', 'bright', 'soaring', 'hyped-mids', 'dance-driving', 'expressive', 'vibrato-rich', 'sustained-projection', 'warm-glowing']
+    tokens: ['lively', 'bright', 'soaring', 'hyped-mids', 'dance-driving', 'expressive', 'vibrato-y', 'warm-glowing', 'snappy']
   },
   {
     id: 'content',
@@ -2495,7 +2495,7 @@ const PREFACE_LEXICON = [
   {
     id: 'caring',
     note: "tender warmth — warm-glowing plush softness, intimate and cozy",
-    tokens: ['warm-glowing', 'soft', 'plush', 'soft-onset', 'intimate-aspirated', 'smoothed', 'cozy', 'gentle', 'warmed']
+    tokens: ['warm-glowing', 'soft', 'plush', 'soft-onset', 'intimate-aspirated', 'smoothed', 'warmed', 'gentle', 'patient']
   },
   {
     id: 'feisty',
@@ -2605,12 +2605,12 @@ const PREFACE_LEXICON = [
   {
     id: 'joyous',
     note: "exultant gladness — lively soaring brightness, warm and expressive",
-    tokens: ['lively', 'bright', 'soaring', 'hyped-mids', 'dance-driving', 'expressive', 'sustained-projection', 'warm-glowing', 'vibrato-rich']
+    tokens: ['soaring', 'sustained-projection', 'belt-projection', 'hyped-mids', 'warm-glowing', 'vibrato-rich', 'dynamic-arc-foundational', 'full', 'bright']
   },
   {
     id: 'cheery',
     note: "sunny good cheer — lively bright snap, warm and jangly",
-    tokens: ['lively', 'bright', 'snappy', 'hyped-mids', 'warm-glowing', 'jangly', 'expressive', 'dance-driving', 'vibrato-y']
+    tokens: ['lively', 'bright', 'snappy', 'hyped-mids', 'jangly', 'treble-extended', 'present', 'vibrato-y', 'hyped-top']
   },
   {
     id: 'jolly',
@@ -2635,12 +2635,12 @@ const PREFACE_LEXICON = [
   {
     id: 'affectionate',
     note: "fond warmth — warm-glowing plush softness, intimate and cozy",
-    tokens: ['warm-glowing', 'soft', 'plush', 'intimate-aspirated', 'cozy', 'smoothed', 'soft-onset', 'warmed', 'gentle']
+    tokens: ['warm-glowing', 'soft', 'plush', 'intimate-aspirated', 'cozy', 'vibrato-rich', 'warmed', 'gentle', 'close']
   },
   {
     id: 'loving',
     note: "open-hearted warmth — warm-glowing plush tenderness, gentle",
-    tokens: ['warm-glowing', 'soft', 'plush', 'intimate-aspirated', 'cozy', 'smoothed', 'warmed', 'gentle', 'soft-onset']
+    tokens: ['warm-glowing', 'soft', 'plush', 'intimate-aspirated', 'smoothed', 'warmed', 'sustained-tone', 'expressive', 'soft-onset']
   },
   {
     id: 'devoted',
