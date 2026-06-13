@@ -1097,33 +1097,33 @@ ul { list-style: none; }
 
 <!-- Modal: add instrument -->
 <div class="modal-bg" id="modal-add">
-  <div class="modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-add-title">
     <div class="modal-head">
-      <h2>Add instrument</h2>
+      <h2 id="modal-add-title">Add instrument</h2>
       <button class="icon-btn" data-close="modal-add" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
     </div>
-    <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-inst" placeholder="Search instruments…" autocomplete="off"></div>
+    <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-inst" placeholder="Search instruments…" autocomplete="off" aria-label="Search instruments"></div>
     <div class="modal-body" id="picker-inst"></div>
   </div>
 </div>
 
 <!-- Modal: traditions -->
 <div class="modal-bg" id="modal-trad">
-  <div class="modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-trad-title">
     <div class="modal-head">
-      <h2>Browse traditions</h2>
+      <h2 id="modal-trad-title">Browse traditions</h2>
       <button class="icon-btn" data-close="modal-trad" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
     </div>
-    <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-trad" placeholder="Search traditions…" autocomplete="off"></div>
+    <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-trad" placeholder="Search traditions…" autocomplete="off" aria-label="Search traditions"></div>
     <div class="modal-body" id="picker-trad"></div>
   </div>
 </div>
 
 <!-- Modal: save -->
 <div class="modal-bg" id="modal-save">
-  <div class="modal" style="max-width: 420px;">
+  <div class="modal" style="max-width: 420px;" role="dialog" aria-modal="true" aria-labelledby="modal-save-title">
     <div class="modal-head">
-      <h2>Save workspace</h2>
+      <h2 id="modal-save-title">Save workspace</h2>
       <button class="icon-btn" data-close="modal-save" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="save-form">
@@ -1139,9 +1139,9 @@ ul { list-style: none; }
 
 <!-- Modal: saved list -->
 <div class="modal-bg" id="modal-saved">
-  <div class="modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-saved-title">
     <div class="modal-head">
-      <h2>Saved workspaces</h2>
+      <h2 id="modal-saved-title">Saved workspaces</h2>
       <button class="icon-btn" data-close="modal-saved" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="modal-body" id="saved-body"></div>
@@ -1149,9 +1149,9 @@ ul { list-style: none; }
 </div>
 
 <div class="modal-bg" id="modal-recipe-stack">
-  <div class="modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-recipe-stack-title">
     <div class="modal-head">
-      <h2>Recipe stack</h2>
+      <h2 id="modal-recipe-stack-title">Recipe stack</h2>
       <button class="icon-btn" data-close="modal-recipe-stack" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="modal-body" id="recipe-stack-body"></div>
@@ -1162,21 +1162,21 @@ ul { list-style: none; }
 
 <!-- Modal: browse preface lexicon -->
 <div class="modal-bg" id="modal-preface">
-  <div class="modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-preface-title">
     <div class="modal-head">
-      <h2>Aesthetic preface — browse</h2>
+      <h2 id="modal-preface-title">Aesthetic preface — browse</h2>
       <button class="icon-btn" data-close="modal-preface" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
     </div>
-    <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-preface" placeholder="Search prefaces by name or description…" autocomplete="off"></div>
+    <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-preface" placeholder="Search prefaces by name or description…" autocomplete="off" aria-label="Search prefaces"></div>
     <div class="modal-body" id="preface-modal-body" style="padding: var(--s5);"></div>
   </div>
 </div>
 
 <!-- Modal: asset attributions (open-source license credits) -->
 <div class="modal-bg" id="modal-attributions">
-  <div class="modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-attributions-title">
     <div class="modal-head">
-      <h2>Asset credits</h2>
+      <h2 id="modal-attributions-title">Asset credits</h2>
       <button class="icon-btn" data-close="modal-attributions" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="modal-body" id="attributions-body" style="padding: var(--s5); max-height: 70vh; overflow-y: auto;">
