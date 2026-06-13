@@ -2102,6 +2102,276 @@ const PREFACE_LEXICON = [
     note: "gilded and ornate — baroque ornament over sweetened orchestral richness, the sound of gold",
     tokens: ['ornate', 'ornament-heavy', 'lush-orchestral-soul-aesthetic', 'sweetened', 'plush', 'overtone-rich', 'baroque-ornamental', 'full', 'sustained-projection']
   },
+  {
+    id: 'gloomy',
+    note: "overcast low-register melancholy — dark-romantic weight with a mournful, sunless cast",
+    tokens: ['dark', 'dark-romantic', 'mournful', 'low-mid-thick', 'low-end-heavy', 'sustained-tone', 'low-mid-rich-spectrum', 'haunted-romantic', 'lament-leaning']
+  },
+  {
+    id: 'radiant',
+    note: "bright outpouring of light — projecting shimmer over lifted, glowing mids",
+    tokens: ['bright', 'bright-projecting', 'warm-glowing', 'shimmering', 'projecting-bright', 'hyped-mids', 'sustained-projection', 'bright-high-register', 'lively']
+  },
+  {
+    id: 'serene',
+    note: "unhurried calm — soft pastoral warmth, airy and smoothed at rest",
+    tokens: ['gentle', 'soft-onset', 'soft', 'plush', 'cozy', 'smoothed', 'warm-glowing', 'pastoral', 'airy']
+  },
+  {
+    id: 'euphoric',
+    note: "rapturous lift — devotional melismatic surge riding dance-driven elation",
+    tokens: ['devotional', 'sustained-projection', 'melismatic', 'lively', 'dance-driving', 'hyped-mids', 'sufi-mystical', 'ceremonial', 'expressive']
+  },
+  {
+    id: 'jubilant',
+    note: "celebratory brightness — snappy dance-driving exultation in full voice",
+    tokens: ['lively', 'snappy', 'dance-driving', 'hyped-mids', 'sustained-projection', 'bright', 'articulate', 'expressive', 'ceremonial']
+  },
+  {
+    id: 'blissful',
+    note: "weightless contentment — plush warm-glowing float, intimate and soft",
+    tokens: ['warm-glowing', 'soft-onset', 'plush', 'floating', 'gentle', 'smoothed', 'intimate-aspirated', 'airy', 'cozy']
+  },
+  {
+    id: 'scorching',
+    note: "searing overdrive — high-gain saturated heat with aggressive transient bite",
+    tokens: ['high-gain-saturation', 'distorted', 'transient-grab-aggressive', 'growly', 'fast-attack-transient', 'percussive', 'high-gain-cascading-saturation', 'hot', 'sizzly']
+  },
+  {
+    id: 'blazing',
+    note: "incandescent intensity — bright saturated fire, projecting and percussive",
+    tokens: ['high-gain-saturation', 'bright', 'distorted', 'transient-grab-aggressive', 'fast-attack-transient', 'percussive', 'hot', 'high-gain-cascading-saturation', 'projecting-bright']
+  },
+  {
+    id: 'shimmering',
+    note: "glistening high-end haze — controlled shimmer floating in airy light",
+    tokens: ['shimmering', 'controlled-shimmer', 'sustained-shimmer', 'bright', 'warm-glowing', 'airy', 'floating', 'bright-high-register', 'silky-airy-top']
+  },
+  {
+    id: 'icy',
+    note: "cold clinical brightness — clear glassy air with an arctic, controlled edge",
+    tokens: ['cold', 'cold-clinical-mix-aesthetic', 'bright-clear', 'dry-near-field-low-reverb-arctic-cold-air', 'controlled-shimmer', 'airy', 'bright', 'brighter', 'breath-tone-airy']
+  },
+  {
+    id: 'dazzling',
+    note: "blinding brilliance — projecting bright shimmer over hyped, sustained light",
+    tokens: ['bright', 'bright-projecting', 'shimmering', 'projecting-bright', 'hyped-mids', 'controlled-shimmer', 'bright-high-register', 'sustained-projection', 'warm-bright']
+  },
+  {
+    id: 'enchanting',
+    note: "spellbinding allure — warm-glowing ethereal float, soft and intimate",
+    tokens: ['warm-glowing', 'floating', 'intimate-aspirated', 'soft', 'smoothed', 'ethereal', 'airy', 'expressive', 'sustained-tone']
+  },
+  {
+    id: 'dismal',
+    note: "bleak sunless gloom — mournful dark weight sustained over a heavy low end",
+    tokens: ['dark', 'mournful', 'lament-leaning', 'low-mid-thick', 'low-end-heavy', 'sustained-tone', 'haunted-romantic', 'austere-meditative', 'deep']
+  },
+  {
+    id: 'bleak',
+    note: "austere desolation — minimal cold dark, hollow and sustained",
+    tokens: ['dark', 'austere-meditative', 'low-mid-thick', 'mournful', 'minimal', 'hollow', 'sustained-tone', 'low-register', 'cold']
+  },
+  {
+    id: 'dreadful',
+    note: "looming dread — cavernous dark-romantic weight with sub-heavy menace",
+    tokens: ['dark', 'dark-romantic', 'haunted-romantic', 'low-end-heavy', 'sub-bass', 'thunderous', 'sustained-tone', 'low-mid-thick', 'cavernous']
+  },
+  {
+    id: 'miserable',
+    note: "raw anguish — mournful lament-wail breath over dark-romantic ache",
+    tokens: ['mournful', 'lament-leaning', 'lament-wail', 'dark-romantic', 'breath-heavy', 'intimate-aspirated', 'sustained-tone', 'low-mid-rich-spectrum', 'expressive']
+  },
+  {
+    id: 'grim',
+    note: "stern unsmiling dark — rough low-register austerity with a biting, cold edge",
+    tokens: ['dark', 'austere-meditative', 'low-register', 'rough', 'low-mid-thick', 'growly', 'sustained-tone', 'biting', 'cold']
+  },
+  {
+    id: 'weary',
+    note: "bone-tired heaviness — slow mournful low register, breath-worn and intimate",
+    tokens: ['mournful', 'lament-leaning', 'low-register', 'breath-heavy', 'soft-onset', 'meditative-tempo', 'sustained-tone', 'intimate-aspirated', 'low-mid-rich-spectrum']
+  },
+  {
+    id: 'creepy',
+    note: "skin-crawling unease — microtonal drone in dark, cavernous reverberant air",
+    tokens: ['haunted-romantic', 'dark', 'drone-like', 'microtonal', 'sustained-tones-free-rhythm', 'glissando-heavy', 'ambient', 'cavernous', 'reverberant']
+  },
+  {
+    id: 'harsh',
+    note: "abrasive bite — distorted high-gain grit, sharp and rough",
+    tokens: ['biting', 'cutting', 'distorted', 'high-gain-saturation', 'sharp', 'gritty', 'rough', 'hf-distortion-prone', 'edgy']
+  },
+  {
+    id: 'wicked',
+    note: "malevolent menace — dark distorted growl with aggressive low-end bite",
+    tokens: ['dark', 'growly', 'distorted', 'high-gain-saturation', 'biting', 'transient-grab-aggressive', 'low-end-heavy', 'sharp', 'edgy']
+  },
+  {
+    id: 'exuberant',
+    note: "overflowing high spirits — lively, soaring, dance-driven energy",
+    tokens: ['lively', 'energetic', 'dance-driving', 'hyped-mids', 'fast-tempo-110-160', 'soaring', 'expressive', 'vibrato-rich', 'sustained-projection']
+  },
+  {
+    id: 'vivacious',
+    note: "sparkling liveliness — snappy, bright, fast-running animation",
+    tokens: ['lively', 'energetic', 'snappy', 'dance-driving', 'bright', 'hyped-mids', 'expressive', 'fast-runs', 'vibrato-y']
+  },
+  {
+    id: 'zealous',
+    note: "fervent devotion — soaring sufi-mystical melisma in unrestrained ecstasy",
+    tokens: ['devotional', 'sufi', 'sufi-mystical', 'ecstatic', 'melismatic', 'soaring', 'sustained-projection', 'ceremonial', 'unrestrained']
+  },
+  {
+    id: 'energetic',
+    note: "kinetic drive — fast, snappy, percussive dance momentum",
+    tokens: ['energetic', 'lively', 'dance-driving', 'fast-tempo-110-160', 'fast-attack-transient', 'snappy', 'percussive', 'backbeat', 'club-staple']
+  },
+  {
+    id: 'cheerful',
+    note: "bright good humor — lively snappy warmth with jangly lift",
+    tokens: ['lively', 'bright', 'snappy', 'hyped-mids', 'expressive', 'dance-driving', 'warm-glowing', 'vibrato-y', 'jangly']
+  },
+  {
+    id: 'mellow',
+    note: "warm and unhurried — soft smoothed jazz-influenced ease",
+    tokens: ['mellow', 'mellowed', 'soft', 'warm-glowing', 'smoothed', 'intimate', 'plush', 'soft-onset', 'jazz-influenced']
+  },
+  {
+    id: 'breezy',
+    note: "light and easy — airy floating lift, gentle and smoothed",
+    tokens: ['airy', 'floating', 'soft-onset', 'gentle', 'lively', 'smoothed', 'breath-tone-airy', 'jangly', 'mellow']
+  },
+  {
+    id: 'defiant',
+    note: "unbowed challenge — shouted projecting belt with a cutting, rough edge",
+    tokens: ['declamatory', 'shouted', 'projecting', 'biting', 'unrestrained', 'belt-projection', 'cutting', 'edgy', 'rough']
+  },
+  {
+    id: 'worried',
+    note: "anxious unease — breath-heavy intimate tremor over a mournful undertone",
+    tokens: ['intimate-aspirated', 'breath-heavy', 'breathy', 'soft-onset', 'mournful', 'lament-leaning', 'sustained-tone', 'low-mid-rich-spectrum', 'expressive']
+  },
+  {
+    id: 'frantic',
+    note: "panicked rush — fast tremolo and runs in unrestrained, cutting urgency",
+    tokens: ['fast-tremolo', 'fast-runs', 'fast-attack-transient', 'rapid-tremolo', 'percussive', 'fast-tempo-110-160', 'cutting', 'unrestrained', 'punctuated']
+  },
+  {
+    id: 'aggressive',
+    note: "forceful attack — distorted high-gain transient assault, biting and percussive",
+    tokens: ['high-gain-saturation', 'distorted', 'transient-grab-aggressive', 'biting', 'cutting', 'growly', 'fast-attack-transient', 'percussive', 'sharp']
+  },
+  {
+    id: 'fierce',
+    note: "ferocious intensity — unrestrained shouted belt with cutting transient force",
+    tokens: ['biting', 'cutting', 'unrestrained', 'high-gain-saturation', 'shouted', 'belt-projection', 'sharp', 'transient-grab-aggressive', 'projecting']
+  },
+  {
+    id: 'bold',
+    note: "confident projection — declamatory full-bodied belt out front, dynamic",
+    tokens: ['declamatory', 'projecting', 'belt-projection', 'present', 'full-bodied', 'soaring', 'dynamic', 'mixed-belt', 'sustained-projection']
+  },
+  {
+    id: 'vivid',
+    note: "vibrant color — bright present timbre with treble-extended, dynamic life",
+    tokens: ['bright', 'hyped-mids', 'present', 'treble-extended', 'expressive', 'dynamic', 'vibrato-rich', 'silvery', 'hyped-top']
+  },
+  {
+    id: 'glowing',
+    note: "warm inner light — a halo of warm-glowing plush sustain, smoothed",
+    tokens: ['warm-glowing', 'warmed', 'halo', 'plush', 'soft-onset', 'lush-ambient', 'sustained-tone', 'smoothed', 'mellow']
+  },
+  {
+    id: 'sparkling',
+    note: "effervescent top-end — chimey shimmer ringing in silvery brightness",
+    tokens: ['bright', 'chime-shimmer', 'chimey', 'shimmering', 'silvery', 'treble-extended', 'hyped-top', 'jangly', 'ringing']
+  },
+  {
+    id: 'fiery',
+    note: "blazing passion — distorted high-gain heat with aggressive growl",
+    tokens: ['high-gain-saturation', 'distorted', 'transient-grab-aggressive', 'biting', 'hot', 'sizzly', 'fast-attack-transient', 'growly', 'unrestrained']
+  },
+  {
+    id: 'sizzling',
+    note: "crackling heat — hot saturated bite, sharp and percussive",
+    tokens: ['hot', 'sizzly', 'high-gain-saturation', 'fast-attack-transient', 'biting', 'distorted', 'transient-grab-aggressive', 'sharp', 'percussive']
+  },
+  {
+    id: 'frosty',
+    note: "cold glassy clarity — clinical clean brightness with an arctic chill",
+    tokens: ['cold', 'cold-clinical-mix-aesthetic', 'glassy', 'silvery', 'bright-clear', 'airless', 'dry-near-field-low-reverb-arctic-cold-air', 'clean', 'brighter']
+  },
+  {
+    id: 'elegant',
+    note: "refined poise — ornamented baroque grace, legato and smoothed",
+    tokens: ['ornamental', 'baroque-ornamental', 'baroque-soloistic', 'recital', 'lyrical', 'smoothed', 'subtle-virtuosity', 'legato', 'classical']
+  },
+  {
+    id: 'graceful',
+    note: "flowing ease — legato lyrical glide, supple and gentle",
+    tokens: ['legato', 'lyrical', 'smoothed', 'soft-onset', 'gliding', 'flowing', 'supple', 'gentle', 'ornamental']
+  },
+  {
+    id: 'regal',
+    note: "stately grandeur — court-ceremonial orchestral majesty, reverent and soaring",
+    tokens: ['court-ceremonial', 'ceremonial', 'operatic', 'orchestral', 'romantic-orchestra', 'reverent', 'dynamic-arc-foundational', 'soaring', 'sustained-projection']
+  },
+  {
+    id: 'dramatic',
+    note: "theatrical sweep — a wide dynamic operatic arc with expansive reverb",
+    tokens: ['dramatic', 'dynamic', 'dynamic-arc-foundational', 'dynamic-range-wide', 'soaring', 'operatic', 'romantic-orchestra', 'expansive-reverb', 'theatrical']
+  },
+  {
+    id: 'theatrical',
+    note: "stage-projected display — declamatory operatic projection, dramatic and dynamic",
+    tokens: ['theatrical', 'theatrical-projection-no-fixed-pitch', 'dramatic', 'declamatory', 'projecting', 'operatic', 'dynamic-arc-foundational', 'expansive-reverb', 'belt-projection']
+  },
+  {
+    id: 'flamboyant',
+    note: "showy ornament — soaring melismatic flourish, vibrato-rich and dynamic",
+    tokens: ['ornamental', 'ornamental-melismatic', 'ornament-heavy', 'melismatic', 'soaring', 'vibrato-rich', 'theatrical', 'dynamic', 'fast-runs']
+  },
+  {
+    id: 'whimsical',
+    note: "playful caprice — lively jangly twang with swung, melodic bounce",
+    tokens: ['lively', 'jangly', 'twangy', 'snappy', 'bright', 'swung', 'backbeat', 'expressive', 'melodic']
+  },
+  {
+    id: 'mysterious',
+    note: "shadowed enigma — modal-ambiguous drone floating in dark reverberant air",
+    tokens: ['haunted-romantic', 'dark', 'drone-like', 'microtonal', 'modal-ambiguity-major-minor-blurred', 'ambient', 'sustained-tones-free-rhythm', 'reverberant', 'floating']
+  },
+  {
+    id: 'silky',
+    note: "smooth sheen — supple legato glide with airy warm-glowing softness",
+    tokens: ['silky-airy-top', 'smoothed', 'soft', 'supple', 'legato', 'warm-glowing', 'mellow', 'plush', 'gliding']
+  },
+  {
+    id: 'hollow',
+    note: "empty resonance — boxy woody drone in airless cavernous space",
+    tokens: ['hollow', 'boxy', 'woody', 'drone-like', 'airless', 'breath-tone-airy', 'cavernous', 'low-overtone-rich', 'neutral']
+  },
+  {
+    id: 'whispering',
+    note: "hushed breath — whispered breathy intimacy, quiet and close",
+    tokens: ['whispered', 'whispering', 'breathy', 'breath-tone-airy', 'intimate-aspirated', 'soft', 'breath-heavy', 'quiet', 'intimate']
+  },
+  {
+    id: 'muddy',
+    note: "murky low-fi thickness — boomy dark low-mid wash, damped and indistinct",
+    tokens: ['low-mid-thick', 'boomy', 'low-end-heavy', 'dark', 'boxy', 'low-mid-rich', 'sub-heavy', 'top-rolled-off-8k', 'blanket-damped']
+  },
+  {
+    id: 'crisp',
+    note: "clean snap — tight transient articulation, bright and present",
+    tokens: ['crisp', 'snappy', 'fast-attack-transient', 'clean', 'articulate', 'tight-articulation', 'bright', 'present', 'clean-articulation-low-blur']
+  },
+  {
+    id: 'deafening',
+    note: "overwhelming volume — unrestrained thunderous projection at congregation-loud force",
+    tokens: ['unrestrained', 'congregation-loud', 'thunderous', 'loud', 'projecting', 'shouted', 'full', 'sub-heavy', 'full-bodied']
+  },
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
