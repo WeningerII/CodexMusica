@@ -615,4 +615,4 @@ if (require.main === module) {
   console.log(JSON.stringify({ config: result.config, score: result.score, breakdown: result.breakdown }, null, 2));
 }
 
-module.exports = { search, searchMultiStart, seedFromTradition, findClosestTraditionByAxis };
+module.exports = { search, searchMultiStart, seedFromTradition, findClosestTraditionByAxis, makeContextProvider };
