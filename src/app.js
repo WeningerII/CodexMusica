@@ -4037,12 +4037,15 @@ async function readListStrict() {
   if (!r) return []; // key genuinely absent → empty list is correct
   return JSON.parse(r.value); // throws on corruption — intentional
 }
+// Saved-workspace schema version: bump when the persisted card/chain shape changes
+// so an older app warns instead of silently mis-rendering a newer save.
+const WS_SCHEMA = 1;
 async function saveWS(name) {
   if (!window.storage) { showToast('Save failed', 'error'); return; }
   try {
     const list = await readListStrict(); // abort (catch below) rather than overwrite a failed read
     const key = 'codex:ws:' + newId('ws');
-    const data = { key, name, saved_at: new Date().toISOString(), cards: app.cards.map(c => ({ ...c, ..._CARD_TRANSIENTS })) };
+    const data = { schema: WS_SCHEMA, key, name, saved_at: new Date().toISOString(), cards: app.cards.map(c => ({ ...c, ..._CARD_TRANSIENTS })) };
     await window.storage.set(key, JSON.stringify(data));
     list.push({ key, name, saved_at: data.saved_at, count: app.cards.length });
     await window.storage.set('codex:list', JSON.stringify(list));
@@ -4054,6 +4057,7 @@ async function loadWS(key) {
     const r = await safeGet(key);
     if (!r) { showToast('Not found', 'error'); return; }
     const d = JSON.parse(r.value);
+    if (d.schema && d.schema > WS_SCHEMA) { showToast('Saved by a newer version — update to open it', 'error'); return; }
     app.cards = (d.cards || []).map(c => {
       const card = { ...c, chain: c.chain || emptyChain(), ..._CARD_TRANSIENTS };
       if (card.prefaceAuto === undefined) card.prefaceAuto = !card.preface;
@@ -4077,6 +4081,7 @@ async function forkWS(key) {
     const r = await safeGet(key);
     if (!r) { showToast('Not found', 'error'); return; }
     const d = JSON.parse(r.value);
+    if (d.schema && d.schema > WS_SCHEMA) { showToast('Saved by a newer version — update to open it', 'error'); return; }
     app.cards = (d.cards || []).map(c => {
       const card = { ...c, id: newId('card'), chain: c.chain || emptyChain(), ..._CARD_TRANSIENTS };
       if (card.prefaceAuto === undefined) card.prefaceAuto = !card.preface;
@@ -5236,17 +5241,24 @@ function pushHistory() {
   app.historyIndex = app.history.length - 1;
   updateHistoryButtons();
 }
+// Restore a history snapshot defensively — a corrupted entry must not blank the
+// canvas or desync historyIndex (snapshots are app-produced, so this is a belt for
+// memory pressure / any future external history store).
+function _restoreSnapshot(idx) {
+  try { app.cards = JSON.parse(app.history[idx]); return true; }
+  catch (e) { console.error('history restore failed', e); showToast('Undo unavailable — history entry corrupted', 'error'); return false; }
+}
 function undo() {
   if (app.historyIndex <= 0) return;
   app.historyIndex--;
-  app.cards = JSON.parse(app.history[app.historyIndex]);
+  if (!_restoreSnapshot(app.historyIndex)) { app.historyIndex++; return; }
   renderAll();
   updateHistoryButtons();
 }
 function redo() {
   if (app.historyIndex >= app.history.length - 1) return;
   app.historyIndex++;
-  app.cards = JSON.parse(app.history[app.historyIndex]);
+  if (!_restoreSnapshot(app.historyIndex)) { app.historyIndex--; return; }
   renderAll();
   updateHistoryButtons();
 }
