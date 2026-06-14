@@ -66,6 +66,16 @@ npm start         # serves Streamable HTTP on http://localhost:3000/mcp  (PORT o
 
 Then in Claude → **Add connectors → custom** → paste your public `https://…/mcp` URL.
 
+#### Deploy to Render (one step)
+
+A `render.yaml` blueprint is included at the repo root:
+
+1. Render dashboard → **New + → Blueprint** → connect `WeningerII/CodexMusica` → **Apply**. It builds `mcp/Dockerfile` and probes `/health`.
+2. Your endpoint is `https://<service-name>.onrender.com/mcp`.
+3. Claude → **Add connectors → custom** → paste that `…/mcp` URL.
+
+Notes: the `free` plan **spins down when idle** — the first call after a lull cold-starts in ~30–60s, which can stall the connector handshake; bump to `starter` to stay warm. The blueprint deploys from the `claude/happy-lamport-8t4yw5` branch; change `branch:` to `main` after you merge.
+
 - **No login.** The engine is read-only compute, so the server is open. Don't add
   auth for onboarding; put **edge rate-limiting** in front (e.g. Cloudflare) to
   catch runaway/broken agents. Add API-key/OAuth metering later only if you monetize.
