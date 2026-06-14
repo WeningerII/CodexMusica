@@ -65,6 +65,22 @@ check('list_options enumerates rooms', () => {
   assert.ok(o.count > 0 && o.items[0].id);
 });
 
+check('discovery tools all respond (covers the prod list_traditions report)', () => {
+  // list_traditions: bare, query, and family — the call that errored in prod.
+  assert.ok(E.listTraditions({}).total > 1000, 'bare list');
+  assert.ok(E.listTraditions({ query: 'bluegrass' }).items.some(t => t.id === 'bluegrass'), 'query');
+  assert.ok(E.listTraditions({ family: 'vernacular' }).total >= 1, 'family');
+  assert.equal(E.getTradition({ id: 'bluegrass' }).id, 'bluegrass');
+  assert.ok(E.listInstruments({ query: 'guitar' }).total >= 1, 'instruments query');
+  assert.ok(E.getInstrument({ id: 'mandolin' }).parts.length > 0);
+  assert.ok(Array.isArray(E.findSimilarTraditions('bluegrass', 5)));
+  // every option space enumerates without throwing
+  for (const kind of ['rooms', 'tunings', 'chain_sections', 'archetypes', 'aesthetics',
+    'arrangements', 'instrument_families', 'tradition_families', 'axes']) {
+    assert.ok(E.listOptions({ kind }).count >= 0, kind);
+  }
+});
+
 check('validation rejects bad ids', () => {
   assert.throws(() => E.generateRecipe({ traditions: ['nope_not_real'] }), /Unknown tradition/);
   assert.throws(() => E.generateRecipe({ traditions: ['bluegrass'], swap_variants: ['mandolin:nope:x'] }), /no part/);
