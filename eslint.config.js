@@ -68,6 +68,22 @@ module.exports = [
     },
   },
   {
+    // The MCP server (mcp/) — Node, ESM. Imports the CommonJS engine under
+    // scripts/ via createRequire. Its own deps live in mcp/node_modules.
+    files: ['mcp/**/*.js', 'mcp/**/*.mjs'],
+    languageOptions: {
+      ecmaVersion: 2023,
+      sourceType: 'module',
+      globals: { ...globals.node },
+    },
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      eqeqeq: ['error', 'smart'],
+      'no-console': 'off',
+      'no-empty': ['error', { allowEmptyCatch: true }],
+    },
+  },
+  {
     ignores: ['node_modules/**', 'references/**', 'tests/**', '**/*.min.js'],
   },
 ];
