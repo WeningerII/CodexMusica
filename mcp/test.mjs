@@ -100,9 +100,10 @@ check('search_prefaces returns the intent vocabulary', () => {
 });
 
 check('apply_preface reshapes and bakes back into a recipe', () => {
-  const ap = E.applyPreface({ tradition: 'outlaw_country', instrument: 'voice', preface: 'worn' });
+  // satirical changes voice PARTS (quality/articulation/delivery) -> swap_variants
+  const ap = E.applyPreface({ tradition: 'outlaw_country', instrument: 'voice', preface: 'satirical' });
   assert.ok(Number(ap.coverage.split('/')[0]) >= Number(ap.improved_from.split('/')[0]), 'coverage does not regress');
-  assert.ok((ap.generate_recipe_overrides.swap_variants || []).length > 0, 'overrides include swap_variants');
+  assert.ok((ap.generate_recipe_overrides.swap_variants || []).length > 0, 'satirical changes voice parts');
   const baked = E.generateRecipe({ traditions: ['outlaw_country'], ...ap.generate_recipe_overrides });
   assert.ok(baked.recipe.length > 0, 'apply_preface overrides bake into a valid recipe');
   assert.throws(() => E.applyPreface({ instrument: 'voice', preface: 'not_a_preface' }), /preface/);
@@ -125,6 +126,33 @@ check('max_instruments caps the roster and keeps voice', () => {
   if (big.config.instruments.some(i => i.id === 'voice')) {
     assert.ok(capped.config.instruments.some(i => i.id === 'voice'), 'voice preserved under cap');
   }
+});
+
+check('apply_preface emits only the delta (no reset clobber)', () => {
+  const ap = E.applyPreface({ tradition: 'outlaw_country', instrument: 'voice', preface: 'worn' });
+  assert.equal(ap.applied, true);
+  const partChanges = ap.changes.filter(c => c.kind === 'part').length;
+  assert.equal(ap.generate_recipe_overrides.swap_variants.length, partChanges, 'exactly one swap per changed part (a delta, not the full roster)');
+  const voiceParts = E.getInstrument({ id: 'voice' }).parts.length;
+  assert.ok(ap.generate_recipe_overrides.swap_variants.length < voiceParts, 'fewer swaps than total parts');
+  // worn is a chain-mood: it should surface as a chain delta, not part swaps
+  assert.ok(ap.generate_recipe_overrides.chain && Object.keys(ap.generate_recipe_overrides.chain).length > 0, 'worn maps to a signal-chain change');
+});
+
+check('chain override renders in the recipe string (archetype unmasked)', () => {
+  const mediumHit = E.searchCatalog({ query: 'cassette tape', types: ['chain'], limit: 20 }).results.find(r => r.name.includes('[medium]'));
+  assert.ok(mediumHit, 'a medium-stage chain item is searchable');
+  const base = E.generateRecipe({ traditions: ['bluegrass'] });
+  const over = E.generateRecipe({ traditions: ['bluegrass'], chain: { medium: mediumHit.id } });
+  assert.equal(over.config.inline_chain.medium, mediumHit.id, 'override lands in inline_chain');
+  assert.equal(over.config.archetype, null, 'archetype dropped so inline_chain renders');
+  assert.notEqual(base.recipe, over.recipe, 'override actually changes the recipe string');
+  assert.throws(() => E.generateRecipe({ traditions: ['bluegrass'], chain: { mic: mediumHit.id } }), /chain item/);
+});
+
+check('search_catalog finds chain items', () => {
+  const r = E.searchCatalog({ query: 'ribbon', types: ['chain'], limit: 5 });
+  assert.ok(r.total >= 1 && r.results[0].type === 'chain', 'chain items are searchable');
 });
 
 check('validation rejects bad ids', () => {

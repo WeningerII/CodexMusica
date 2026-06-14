@@ -33,6 +33,11 @@ const ALL_CHAIN_ITEM_IDS = (() => {
   for (const sec of C.CHAIN_SECTIONS || []) for (const it of sec.items || []) s.add(it.id);
   return s;
 })();
+const STAGE_ITEM_IDS = (() => {
+  const m = {};
+  for (const sec of C.CHAIN_SECTIONS || []) m[sec.id] = new Set((sec.items || []).map(i => i.id));
+  return m;
+})();
 
 class EngineError extends Error {}
 
@@ -110,12 +115,34 @@ function applyConfigOverrides(config, { room, tuning, chain } = {}) {
     config.tuning = tuning;
   }
   if (chain && typeof chain === 'object') {
-    config.inline_chain = { ...(config.inline_chain || {}) };
+    const overrides = {};
     for (const [stage, val] of Object.entries(chain)) {
       if (!CHAIN_STAGES.includes(stage)) throw new EngineError(`Unknown chain stage: "${stage}" (use ${CHAIN_STAGES.join('/')}).`);
       if (val == null) continue;
-      if (!ALL_CHAIN_ITEM_IDS.has(val)) throw new EngineError(`Unknown chain item id: "${val}" for stage "${stage}".`);
-      config.inline_chain[stage] = val;
+      const stageSet = STAGE_ITEM_IDS[stage];
+      const ok = stageSet ? stageSet.has(val) : ALL_CHAIN_ITEM_IDS.has(val);
+      if (!ok) throw new EngineError(`Unknown chain item "${val}" for stage "${stage}" (search_catalog types=["chain"]).`);
+      overrides[stage] = val;
+    }
+    if (Object.keys(overrides).length) {
+      // translate() lets archetype components WIN over inline_chain, so an override
+      // alone won't appear in the recipe string. Materialize the full chain
+      // (archetype defaults + overrides) into inline_chain and drop the archetype
+      // so the prose reflects what was actually set.
+      const arch = (C.CHAIN_ARCHETYPES || []).find(a => a.id === config.archetype);
+      const merged = {};
+      // Base = exactly what translate WAS rendering (archetype components if there's
+      // an archetype, else the inline chain) so ONLY the overridden stage changes.
+      const base = (arch && arch.components) ? arch.components : (config.inline_chain || {});
+      for (const st of CHAIN_STAGES) if (base[st]) merged[st] = base[st];
+      for (const [st, v] of Object.entries(overrides)) merged[st] = v;
+      if (arch && Array.isArray(arch.components.fx)) {
+        const fxset = new Set(config.fx_extras || []);
+        for (const f of arch.components.fx) fxset.add(f);
+        config.fx_extras = [...fxset];
+      }
+      config.inline_chain = merged;
+      config.archetype = null;
     }
   }
   return config;
@@ -357,25 +384,37 @@ export function applyPreface({ tradition, instrument, preface } = {}) {
   const res = inverseConfigure(card, preface);
   if (!res) throw new EngineError(`Preface "${preface}" has no tokens to target.`);
 
-  const swap_variants = Object.entries(res.config.parts || {}).map(([pid, vid]) => `${instrument}:${pid}:${vid}`);
-  const chain = {};
-  for (const stage of CHAIN_STAGES) if (res.config.chain && res.config.chain[stage]) chain[stage] = res.config.chain[stage];
+  // DELTA ONLY: emit just the slots this preface actually changed from the seed,
+  // so baking it is additive and never resets unrelated parts to defaults. A
+  // preface that doesn't map to this instrument yields an empty override set.
+  const baseParts = card.parts || {};
+  const swap_variants = Object.entries(res.config.parts || {})
+    .filter(([pid, vid]) => vid && vid !== baseParts[pid])
+    .map(([pid, vid]) => `${instrument}:${pid}:${vid}`);
+  const chainDelta = {};
+  for (const stage of CHAIN_STAGES) {
+    const v = res.config.chain && res.config.chain[stage];
+    if (v && v !== (card.chain && card.chain[stage])) chainDelta[stage] = v;
+  }
+  const overrides = { swap_variants };
+  if (res.config.room && res.config.room !== card.room) overrides.room = res.config.room;
+  if (res.config.tuning && res.config.tuning !== card.tuning) overrides.tuning = res.config.tuning;
+  if (Object.keys(chainDelta).length) overrides.chain = chainDelta;
 
+  const applied = res.changes.length > 0;
   return {
     instrument,
     preface,
     tradition: tradition || null,
+    applied,
     coverage: `${res.finalScore}/${res.targetTokenCount}`,
     improved_from: `${res.startScore}/${res.targetTokenCount}`,
     changes: res.changes,
-    // Spread these into a generate_recipe call to bake the mood into a full recipe:
-    generate_recipe_overrides: {
-      swap_variants,
-      ...(res.config.room ? { room: res.config.room } : {}),
-      ...(res.config.tuning ? { tuning: res.config.tuning } : {}),
-      ...(Object.keys(chain).length ? { chain } : {}),
-    },
-    apply_hint: 'Pass generate_recipe_overrides (swap_variants + room/tuning/chain) into generate_recipe — alongside your traditions — to bake this mood into a full recipe.',
+    // Spread into a generate_recipe call to bake the mood in (only the changed slots):
+    generate_recipe_overrides: overrides,
+    apply_hint: applied
+      ? 'Spread generate_recipe_overrides (only the slots this mood changed) into generate_recipe, alongside your traditions, to bake the mood in.'
+      : `"${preface}" doesn't map to ${instrument}'s parameters (no changes). Try another instrument/preface, or set a variant manually via get_instrument + swap_variants.`,
   };
 }
 

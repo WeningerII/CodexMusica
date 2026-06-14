@@ -9,7 +9,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import * as E from './engine.js';
 
-const CORPUS_TYPES = ['tradition', 'instrument', 'variant', 'room', 'tuning', 'arrangement', 'aesthetic', 'preface'];
+const CORPUS_TYPES = ['tradition', 'instrument', 'variant', 'room', 'tuning', 'arrangement', 'aesthetic', 'preface', 'chain'];
 
 // Customization knobs shared by the recipe-generating tools.
 const customizationShape = {
@@ -30,7 +30,7 @@ const customizationShape = {
   tuning: z.string().optional()
     .describe('Override the tuning id (search_catalog types=["tuning"]).'),
   chain: z.record(z.string(), z.string()).optional()
-    .describe('Override signal-chain stages, e.g. {"mic":"...","medium":"cassette_tape"}. Stages: mic/pre/console/comp/eq/amp/medium.'),
+    .describe('Override signal-chain stages, e.g. {"mic":"<id>","medium":"<id>"}. Stages: mic/pre/console/comp/eq/amp/medium. Find item ids via search_catalog types=["chain"]. Overriding the chain makes it render in the recipe string.'),
   staple_mode: z.enum(['full', 'lineage']).optional()
     .describe('Advanced: how staples merge. `ensemble` sets this for you; only set directly to override.'),
   max_chars: z.number().int().positive().optional()

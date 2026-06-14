@@ -47,6 +47,11 @@ for (const t of C.TUNINGS || []) add('tuning', t.id, labelOf(t) || t.id, { name:
 for (const a of C.ARRANGEMENTS || []) add('arrangement', a.id, labelOf(a) || a.id, { name: labelOf(a), description: a.description, techniques: (a.characteristic_techniques || []).join(' ') });
 for (const a of C.PRODUCTION_AESTHETICS || []) add('aesthetic', a.id, labelOf(a) || a.id, { name: labelOf(a), description: a.description, techniques: (a.characteristic_techniques || []).join(' ') });
 for (const e of C.PREFACE_LEXICON || []) add('preface', e.id, e.id, { id: e.id, tokens: (tokensOf(e) || []).join(' '), note: e.note });
+for (const sec of C.CHAIN_SECTIONS || []) {
+  for (const it of sec.items || []) {
+    add('chain', it.id, `${labelOf(it) || it.id} [${sec.id}]`, { item: it.id, stage: sec.id, name: labelOf(it), descriptors: (it.descriptors || []).join(' ') });
+  }
+}
 
 // Document frequency over tokens → idf, so rare query terms ("gothic", "outlaw")
 // outweigh ubiquitous ones ("string", "country") when ranking multi-word queries.
@@ -57,8 +62,8 @@ for (const rec of records) {
 }
 const idf = (t) => Math.log(1 + N / ((DF.get(t) || 0) + 1));
 
-export const TYPES = ['tradition', 'instrument', 'variant', 'room', 'tuning', 'arrangement', 'aesthetic', 'preface'];
-const TYPE_PRIORITY = { tradition: 0, instrument: 1, preface: 2, variant: 3, arrangement: 4, aesthetic: 5, room: 6, tuning: 7 };
+export const TYPES = ['tradition', 'instrument', 'variant', 'room', 'tuning', 'arrangement', 'aesthetic', 'preface', 'chain'];
+const TYPE_PRIORITY = { tradition: 0, instrument: 1, preface: 2, variant: 3, arrangement: 4, aesthetic: 5, room: 6, tuning: 7, chain: 8 };
 
 function matchedField(rec, qTerms, qRaw) {
   for (const [f, val] of Object.entries(rec.fields)) {
