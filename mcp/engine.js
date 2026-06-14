@@ -2,20 +2,22 @@
 //
 // The whole point of this MCP server: an AI gets the SAME reach a human has in
 // the browser app, not a read-only lookup of precomputed defaults. So every
-// function here drives the live engine (scripts/*.js) at call time — blend
-// traditions, add/remove instruments, swap part variants, target an axis
-// profile, override room/arrangement — and returns a fresh recipe plus the
-// "knobs still available" so the caller is pulled deeper into customization.
+// function here drives the live engine (scripts/*.js) at call time — search the
+// whole catalog, blend traditions, add/remove instruments, swap part variants,
+// target an axis profile, bend an instrument toward a descriptive "preface" —
+// and returns a fresh recipe plus the "knobs still available" + provenance.
 //
-// The engine modules are CommonJS; this file is ESM. createRequire bridges them
-// cleanly (no interop guessing about named exports).
+// The engine modules are CommonJS; this file is ESM. createRequire bridges them.
 
 import { createRequire } from 'node:module';
+import { searchCorpus, TYPES as CORPUS_TYPES } from './corpus.js';
 const require = createRequire(import.meta.url);
 
 const C = require('../scripts/_loader.js');
 const { search, seedFromTradition, findClosestTraditionByAxis } = require('../scripts/search.js');
 const { translate } = require('../scripts/translate.js');
+const { tokensOf } = require('../scripts/_preface_match.js');
+const { seedCard, inverseConfigure } = require('../scripts/_inverse_configure.js');
 
 // ─────────────────────────── catalog lookups ───────────────────────────
 
@@ -25,11 +27,17 @@ const TRAD_IDS = new Set(C.TRADITIONS.map(t => t.id));
 
 const labelOf = x => (x && (x.name || x.label || x.title)) || (typeof x === 'string' ? x : null);
 
+const CHAIN_STAGES = ['mic', 'pre', 'console', 'comp', 'eq', 'amp', 'medium'];
+const ALL_CHAIN_ITEM_IDS = (() => {
+  const s = new Set();
+  for (const sec of C.CHAIN_SECTIONS || []) for (const it of sec.items || []) s.add(it.id);
+  return s;
+})();
+
 class EngineError extends Error {}
 
 // Build the customization opts bundle that seedFromTradition expects, validating
-// every id against the live catalog so a typo'd instrument/variant fails loudly
-// (with a helpful message) instead of silently vanishing from the recipe.
+// every id against the live catalog so a typo'd instrument/variant fails loudly.
 function buildOpts({ exclude_instruments, add_instruments, swap_variants, arrangement, staple_mode } = {}) {
   const exclude = new Set();
   const add = new Set();
@@ -68,36 +76,102 @@ function buildOpts({ exclude_instruments, add_instruments, swap_variants, arrang
     arr = arrangement;
   }
 
-  const stapleMode = staple_mode === 'lineage' ? 'lineage' : 'full';
-  if (staple_mode && !['lineage', 'full'].includes(staple_mode)) {
-    throw new EngineError(`Unknown staple_mode: "${staple_mode}" (use "full" or "lineage")`);
-  }
-
+  const stapleMode = staple_mode === 'full' ? 'full' : 'lineage';
   return { exclude, add, swap, arrangement: arr, stapleMode };
 }
 
-// Apply post-search config overrides that the browser app exposes per card but
-// the seed pipeline doesn't take as flags. translate() reads these straight off
-// the config, so overriding here is faithful to what the UI does.
-function applyConfigOverrides(config, { room } = {}) {
-  if (room !== undefined && room !== null) {
+// Blends default to a LEAN ensemble (primary tradition's instruments only =
+// staple_mode 'lineage') to prevent roster "detonation". ensemble:'full' merges
+// every tradition's roster; an explicit staple_mode is an advanced override.
+function resolveStapleMode(params) {
+  const ens = params.ensemble || 'lean';
+  if (!['lean', 'full'].includes(ens)) {
+    throw new EngineError(`Unknown ensemble: "${ens}" (use "lean" for the primary's instruments only, or "full" to merge every tradition's roster).`);
+  }
+  if (params.staple_mode) {
+    if (!['lineage', 'full'].includes(params.staple_mode)) {
+      throw new EngineError(`Unknown staple_mode: "${params.staple_mode}" (use "lineage" or "full").`);
+    }
+    return params.staple_mode;
+  }
+  return ens === 'full' ? 'full' : 'lineage';
+}
+
+// Post-search config overrides the browser exposes per card; translate() reads
+// these straight off the config. Used both by direct params and by baking an
+// apply_preface result into a recipe.
+function applyConfigOverrides(config, { room, tuning, chain } = {}) {
+  if (room != null) {
     if (!C.ROOMS.find(r => r.id === room)) throw new EngineError(`Unknown room id: "${room}"`);
     config.room = room;
+  }
+  if (tuning != null) {
+    if (!C.TUNINGS.find(t => t.id === tuning)) throw new EngineError(`Unknown tuning id: "${tuning}"`);
+    config.tuning = tuning;
+  }
+  if (chain && typeof chain === 'object') {
+    config.inline_chain = { ...(config.inline_chain || {}) };
+    for (const [stage, val] of Object.entries(chain)) {
+      if (!CHAIN_STAGES.includes(stage)) throw new EngineError(`Unknown chain stage: "${stage}" (use ${CHAIN_STAGES.join('/')}).`);
+      if (val == null) continue;
+      if (!ALL_CHAIN_ITEM_IDS.has(val)) throw new EngineError(`Unknown chain item id: "${val}" for stage "${stage}".`);
+      config.inline_chain[stage] = val;
+    }
   }
   return config;
 }
 
+// Trim the roster to at most `max` instruments: drop secondary-sourced, then
+// lowest-scoring, never removing `voice`. Keeps a blend from ballooning.
+function trimRoster(config, max, primaryTradId) {
+  const m = parseInt(max, 10);
+  if (!Number.isInteger(m) || m < 1) return;
+  const insts = config.instruments || [];
+  if (insts.length <= m) return;
+  const primarySet = new Set((tradById(primaryTradId) || {}).instruments || []);
+  const scoreOf = i => Object.values(i.scores || {}).reduce((a, b) => a + (Number(b) || 0), 0);
+  const removable = insts.filter(i => i.id !== 'voice');
+  // remove non-primary first, then lowest total slot score
+  removable.sort((a, b) => (primarySet.has(a.id) - primarySet.has(b.id)) || (scoreOf(a) - scoreOf(b)));
+  const toRemove = new Set();
+  let n = insts.length;
+  for (const i of removable) { if (n <= m) break; toRemove.add(i.id); n--; }
+  config.instruments = insts.filter(i => !toRemove.has(i.id));
+}
+
+// Attribute each instrument's origin (primary tradition / a stapled secondary /
+// user-added) and flag the "injected" ones a secondary tradition pulled in.
+function provenanceFor(config) {
+  const trads = config.traditions || [];
+  const primary = trads[0];
+  const tradSets = trads.map(tid => ({ tid, set: new Set((tradById(tid) || {}).instruments || []) }));
+  const sourceById = {};
+  for (const inst of config.instruments || []) {
+    let src = 'added';
+    for (const { tid, set } of tradSets) { if (set.has(inst.id)) { src = tid; break; } }
+    sourceById[inst.id] = src;
+  }
+  const injected = (config.instruments || [])
+    .filter(inst => { const s = sourceById[inst.id]; return s !== primary && s !== 'added'; })
+    .map(inst => ({
+      instrument: inst.id,
+      name: labelOf(instById(inst.id)) || inst.id,
+      source: sourceById[inst.id],
+      hint: 'a secondary tradition added this; exclude_instruments to drop it, or set ensemble:"lean".',
+    }));
+  return { sourceById, injected };
+}
+
 // ─────────────────────────── response shaping ───────────────────────────
 
-// Strip the heavy per-slot `scores` noise; keep everything a caller needs to
-// understand and re-drive the arrangement.
-function cleanConfig(config) {
+function cleanConfig(config, sourceById = {}) {
   return {
     traditions: config.traditions,
     instruments: (config.instruments || []).map(i => ({
       id: i.id,
       name: labelOf(instById(i.id)) || i.id,
       slots: i.slots || {},
+      source: sourceById[i.id] || null,
     })),
     room: config.room,
     archetype: config.archetype,
@@ -109,18 +183,15 @@ function cleanConfig(config) {
   };
 }
 
-// The anti-lookup-table payload: every knob the caller could still turn on THIS
-// recipe — which variants each part could swap to, and which traditions are
-// nearby to blend in next. This is what turns a one-shot answer into an
-// explorable instrument.
-function affordances(config) {
+// The anti-lookup-table payload: knobs still available + leak flags.
+function affordances(config, injected = []) {
   const swappable = [];
   for (const inst of config.instruments || []) {
     const cat = instById(inst.id);
     if (!cat) continue;
     for (const part of cat.parts || []) {
       const options = (part.variants || []).filter(v => v.auto !== false).map(v => v.id);
-      if (options.length <= 1) continue; // no real choice
+      if (options.length <= 1) continue;
       swappable.push({
         instrument: inst.id,
         part: part.id,
@@ -132,72 +203,77 @@ function affordances(config) {
   return {
     instruments_in_recipe: (config.instruments || []).map(i => ({ id: i.id, name: labelOf(instById(i.id)) || i.id })),
     swappable_variants: swappable,
+    injected,
     similar_traditions: findSimilarTraditions(config.traditions[0], 6).map(s => s.id),
-    hint: 'Re-call generate_recipe/blend_traditions with swap_variants, add_instruments, exclude_instruments, room, or more traditions to refine. Use get_instrument for a part\'s full variant labels.',
+    hint: 'Refine by re-calling with swap_variants (try apply_preface to get them from a mood word), exclude_instruments, add_instruments, room/tuning/chain, ensemble:"full" for a bigger band, or max_instruments to cap. get_instrument lists a part\'s variant labels.',
   };
 }
 
 function finishRecipe(config, { maxChars = 1000, includeAffordances = true } = {}) {
   const recipe = translate(config, { ceiling: maxChars });
+  const prov = provenanceFor(config);
   const out = {
     recipe,
     recipe_chars: recipe.length,
-    config: cleanConfig(config),
+    config: cleanConfig(config, prov.sourceById),
   };
-  if (includeAffordances) out.affordances = affordances(config);
+  if (includeAffordances) out.affordances = affordances(config, prov.injected);
   return out;
 }
 
 // ─────────────────────────── recipe generation ───────────────────────────
 
-// N-tradition recipe (first = primary, rest stapled in) with full customization.
 export function generateRecipe(params = {}) {
   const ids = (params.traditions || []).map(s => String(s).trim()).filter(Boolean);
-  if (ids.length === 0) throw new EngineError('generate_recipe needs at least one tradition id (see list_traditions).');
+  if (ids.length === 0) throw new EngineError('generate_recipe needs at least one tradition id (use search_catalog to find ids — do not guess).');
   const unknown = ids.filter(id => !TRAD_IDS.has(id));
-  if (unknown.length) throw new EngineError(`Unknown tradition id(s): ${unknown.join(', ')}`);
+  if (unknown.length) throw new EngineError(`Unknown tradition id(s): ${unknown.join(', ')} (search_catalog with types=["tradition"]).`);
 
-  const opts = buildOpts(params);
+  const opts = buildOpts({ ...params, staple_mode: resolveStapleMode(params) });
   const seed = seedFromTradition(ids[0], ids.slice(1), opts);
   if (!seed) throw new EngineError(`Could not seed from "${ids[0]}"`);
   const result = search(seed, { maxIters: 100 });
+  if (params.max_instruments != null) trimRoster(result.config, params.max_instruments, ids[0]);
   applyConfigOverrides(result.config, params);
 
   return {
     mode: ids.length > 1 ? 'blend' : 'single',
+    ensemble: resolveStapleMode(params) === 'full' ? 'full' : 'lean',
     score: round(result.score),
     ...finishRecipe(result.config, { maxChars: params.max_chars, includeAffordances: params.include_affordances !== false }),
     ...(params.include_why ? { why: whyBreakdown(result) } : {}),
   };
 }
 
-// Weighted A→B blend (mirrors recipe.js --diff). weight is B's share: 0 = pure
-// A, 0.5 = max blend, 1 = pure B.
+// Weighted A→B blend. weight is B's share: 0 = pure A, 0.5 = max blend, 1 = pure B.
 export function blendTraditions(params = {}) {
   const { a, b } = params;
   let weight = Number(params.weight);
   if (!Number.isFinite(weight)) weight = 0.5;
   weight = Math.max(0, Math.min(1, weight));
   for (const id of [a, b]) {
-    if (!id || !TRAD_IDS.has(id)) throw new EngineError(`Unknown tradition id: "${id}"`);
+    if (!id || !TRAD_IDS.has(id)) throw new EngineError(`Unknown tradition id: "${id}" (search_catalog with types=["tradition"]).`);
   }
-  const opts = buildOpts(params);
+  const opts = buildOpts({ ...params, staple_mode: resolveStapleMode(params) });
 
   let seed;
+  let primaryId = a;
   if (weight === 0) seed = seedFromTradition(a, [], opts);
-  else if (weight === 1) seed = seedFromTradition(b, [], opts);
+  else if (weight === 1) { seed = seedFromTradition(b, [], opts); primaryId = b; }
   else {
-    const primary = weight <= 0.5 ? a : b;
+    primaryId = weight <= 0.5 ? a : b;
     const secondary = weight <= 0.5 ? b : a;
     const stapleWeight = Math.min(weight, 1 - weight) * 2;
-    seed = seedFromTradition(primary, [secondary], { ...opts, stapleWeight });
+    seed = seedFromTradition(primaryId, [secondary], { ...opts, stapleWeight });
   }
   const result = search(seed, { maxIters: 100 });
+  if (params.max_instruments != null) trimRoster(result.config, params.max_instruments, primaryId);
   applyConfigOverrides(result.config, params);
 
   return {
     mode: 'weighted-blend',
     weight,
+    ensemble: resolveStapleMode(params) === 'full' ? 'full' : 'lean',
     score: round(result.score),
     ...finishRecipe(result.config, { maxChars: params.max_chars, includeAffordances: params.include_affordances !== false }),
   };
@@ -207,13 +283,14 @@ export function blendTraditions(params = {}) {
 export function recipeFromAxis(params = {}) {
   const target = parseAxisTarget(params.axis_target);
   if (Object.keys(target).length === 0) {
-    throw new EngineError('axis_target must be an object like {"harm":1,"density":2} or a string "harm:1,density:2".');
+    throw new EngineError('axis_target must be an object like {"harm":1,"density":2} or a string "harm:1,density:2". See list_options kind="axes".');
   }
   const tid = findClosestTraditionByAxis(target);
   if (!tid) throw new EngineError('No tradition matches that axis target.');
-  const opts = buildOpts(params);
+  const opts = buildOpts({ ...params, staple_mode: resolveStapleMode(params) });
   const seed = seedFromTradition(tid, [], opts);
   const result = search(seed, { maxIters: 100 });
+  if (params.max_instruments != null) trimRoster(result.config, params.max_instruments, tid);
   applyConfigOverrides(result.config, params);
 
   return {
@@ -222,6 +299,83 @@ export function recipeFromAxis(params = {}) {
     matched_tradition: { id: tid, name: labelOf(tradById(tid)) || tid },
     score: round(result.score),
     ...finishRecipe(result.config, { maxChars: params.max_chars, includeAffordances: params.include_affordances !== false }),
+  };
+}
+
+// ─────────────────────────── search & prefaces ───────────────────────────
+
+// Unified free-text search across the WHOLE catalog (traditions incl. lineage,
+// instruments, every part-variant, rooms, tunings, arrangements, aesthetics,
+// prefaces). Turn request words into real ids — don't guess.
+export function searchCatalog(params = {}) {
+  if (!params.query || !String(params.query).trim()) throw new EngineError('search_catalog needs a non-empty query.');
+  if (params.types) {
+    const bad = (params.types || []).filter(t => !CORPUS_TYPES.includes(t));
+    if (bad.length) throw new EngineError(`Unknown search type(s): ${bad.join(', ')}. Valid: ${CORPUS_TYPES.join(', ')}.`);
+  }
+  let offset = 0;
+  if (params.cursor) {
+    try { offset = parseInt(Buffer.from(String(params.cursor), 'base64').toString('utf8'), 10) || 0; } catch { offset = 0; }
+  }
+  const limit = Math.min(Math.max(parseInt(params.limit, 10) || 20, 1), 50);
+  return searchCorpus({ query: params.query, types: params.types, limit, offset });
+}
+
+// Search the 649 descriptive prefaces (mood/quality/delivery words) by free text.
+export function searchPrefaces({ query, limit = 15 } = {}) {
+  if (!query || !String(query).trim()) throw new EngineError('search_prefaces needs a non-empty query (a mood/quality, e.g. "worn bitter").');
+  const qTerms = String(query).toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+  const lim = Math.min(Math.max(parseInt(limit, 10) || 15, 1), 50);
+  const scored = [];
+  for (const e of C.PREFACE_LEXICON || []) {
+    const toks = tokensOf(e) || [];
+    const hay = `${e.id} ${toks.join(' ')} ${e.note || ''}`.toLowerCase();
+    let hits = 0;
+    for (const qt of qTerms) if (hay.includes(qt)) hits++;
+    if (hits === 0) continue;
+    const idExact = qTerms.includes(e.id.toLowerCase()) ? 1 : 0;
+    scored.push({ id: e.id, tokens: toks, note: e.note || null, score: hits + idExact });
+  }
+  scored.sort((a, b) => b.score - a.score || a.id.localeCompare(b.id));
+  return { query, total: scored.length, count: Math.min(scored.length, lim), items: scored.slice(0, lim) };
+}
+
+// Bend ONE instrument toward a descriptive preface (intent → physical settings):
+// re-pick its part-variants, tuning, room, and signal chain to match the
+// preface's token signature. Returns a ready-to-bake set of overrides.
+export function applyPreface({ tradition, instrument, preface } = {}) {
+  if (!instrument || !instById(instrument)) {
+    throw new EngineError(`Unknown or missing instrument id: "${instrument}" (search_catalog types=["instrument"]).`);
+  }
+  if (!preface || !(C.PREFACE_LEXICON || []).find(p => p.id === preface)) {
+    throw new EngineError(`Unknown or missing preface id: "${preface}" (use search_prefaces).`);
+  }
+  if (tradition && !TRAD_IDS.has(tradition)) throw new EngineError(`Unknown tradition id: "${tradition}".`);
+
+  const card = seedCard(instrument, tradition || null);
+  if (!card) throw new EngineError(`Could not seed a card for instrument "${instrument}".`);
+  const res = inverseConfigure(card, preface);
+  if (!res) throw new EngineError(`Preface "${preface}" has no tokens to target.`);
+
+  const swap_variants = Object.entries(res.config.parts || {}).map(([pid, vid]) => `${instrument}:${pid}:${vid}`);
+  const chain = {};
+  for (const stage of CHAIN_STAGES) if (res.config.chain && res.config.chain[stage]) chain[stage] = res.config.chain[stage];
+
+  return {
+    instrument,
+    preface,
+    tradition: tradition || null,
+    coverage: `${res.finalScore}/${res.targetTokenCount}`,
+    improved_from: `${res.startScore}/${res.targetTokenCount}`,
+    changes: res.changes,
+    // Spread these into a generate_recipe call to bake the mood into a full recipe:
+    generate_recipe_overrides: {
+      swap_variants,
+      ...(res.config.room ? { room: res.config.room } : {}),
+      ...(res.config.tuning ? { tuning: res.config.tuning } : {}),
+      ...(Object.keys(chain).length ? { chain } : {}),
+    },
+    apply_hint: 'Pass generate_recipe_overrides (swap_variants + room/tuning/chain) into generate_recipe — alongside your traditions — to bake this mood into a full recipe.',
   };
 }
 
@@ -241,7 +395,7 @@ export function listTraditions({ query, family, limit = 50, offset = 0 } = {}) {
 
 export function getTradition({ id } = {}) {
   const t = tradById(id);
-  if (!t) throw new EngineError(`Unknown tradition id: "${id}" (see list_traditions).`);
+  if (!t) throw new EngineError(`Unknown tradition id: "${id}" (search_catalog with types=["tradition"]).`);
   const ext = (C.TRADITION_EXTRAS || {})[id] || {};
   return {
     id: t.id,
@@ -269,7 +423,7 @@ export function listInstruments({ query, family, limit = 50, offset = 0 } = {}) 
 // pass to swap_variants, with labels.
 export function getInstrument({ id } = {}) {
   const i = instById(id);
-  if (!i) throw new EngineError(`Unknown instrument id: "${id}" (see list_instruments).`);
+  if (!i) throw new EngineError(`Unknown instrument id: "${id}" (search_catalog with types=["instrument"]).`);
   return {
     id: i.id,
     name: labelOf(i) || i.id,
@@ -307,8 +461,6 @@ export function findSimilarTraditions(id, n = 8) {
   return scored.slice(0, n);
 }
 
-// Enumerate an option space (rooms, tunings, signal-chain items, arrangements …)
-// so the caller can discover valid override values.
 export function listOptions({ kind } = {}) {
   const tables = {
     rooms: C.ROOMS,
@@ -338,6 +490,7 @@ export const counts = {
   rooms: (C.ROOMS || []).length,
   tunings: (C.TUNINGS || []).length,
   arrangements: (C.ARRANGEMENTS || []).length,
+  prefaces: (C.PREFACE_LEXICON || []).length,
 };
 
 // ─────────────────────────── helpers ───────────────────────────

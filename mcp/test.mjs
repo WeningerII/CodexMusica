@@ -81,6 +81,52 @@ check('discovery tools all respond (covers the prod list_traditions report)', ()
   }
 });
 
+check('search_catalog finds across the whole corpus (the keyhole fix)', () => {
+  assert.ok(E.searchCatalog({ query: 'gut', types: ['variant'], limit: 5 }).total > 10, 'gut → many variants');
+  assert.ok(E.searchCatalog({ query: 'ballad', types: ['tradition'], limit: 50 }).total >= 20, 'ballad → many traditions');
+  assert.ok(E.searchCatalog({ query: 'outlaw', types: ['tradition'] }).results.some(r => r.id === 'outlaw_country'), 'outlaw_country found');
+  assert.ok(E.searchCatalog({ query: 'gothic americana' }).results.some(r => r.id === 'gothic_americana'), 'gothic_americana found (no guessing)');
+  const p1 = E.searchCatalog({ query: 'blues', limit: 5 });
+  assert.ok(p1.nextCursor, 'has nextCursor');
+  const p2 = E.searchCatalog({ query: 'blues', limit: 5, cursor: p1.nextCursor });
+  assert.ok(p2.results.length > 0 && p2.results[0].id !== p1.results[0].id, 'cursor advances the page');
+  assert.throws(() => E.searchCatalog({ query: 'x', types: ['bogus'] }), /Unknown search type/);
+});
+
+check('search_prefaces returns the intent vocabulary', () => {
+  for (const w of ['worn', 'bitter', 'satirical', 'sparse']) {
+    assert.ok(E.searchPrefaces({ query: w }).items.length > 0, `preface search "${w}" non-empty`);
+  }
+});
+
+check('apply_preface reshapes and bakes back into a recipe', () => {
+  const ap = E.applyPreface({ tradition: 'outlaw_country', instrument: 'voice', preface: 'worn' });
+  assert.ok(Number(ap.coverage.split('/')[0]) >= Number(ap.improved_from.split('/')[0]), 'coverage does not regress');
+  assert.ok((ap.generate_recipe_overrides.swap_variants || []).length > 0, 'overrides include swap_variants');
+  const baked = E.generateRecipe({ traditions: ['outlaw_country'], ...ap.generate_recipe_overrides });
+  assert.ok(baked.recipe.length > 0, 'apply_preface overrides bake into a valid recipe');
+  assert.throws(() => E.applyPreface({ instrument: 'voice', preface: 'not_a_preface' }), /preface/);
+});
+
+check('blend is LEAN by default, FULL on request, with provenance', () => {
+  const lean = E.generateRecipe({ traditions: ['bluegrass', 'thrash_metal'] });
+  const full = E.generateRecipe({ traditions: ['bluegrass', 'thrash_metal'], ensemble: 'full' });
+  assert.equal(lean.ensemble, 'lean');
+  assert.ok(full.config.instruments.length >= lean.config.instruments.length, 'full roster ≥ lean roster');
+  assert.equal(lean.affordances.injected.length, 0, 'lean injects nothing');
+  assert.ok(full.affordances.injected.length > 0, 'full flags injected secondary instruments');
+  assert.ok(lean.config.instruments.every(i => i.source), 'every instrument carries provenance');
+});
+
+check('max_instruments caps the roster and keeps voice', () => {
+  const big = E.generateRecipe({ traditions: ['afrobeat', 'post_punk'], ensemble: 'full' });
+  const capped = E.generateRecipe({ traditions: ['afrobeat', 'post_punk'], ensemble: 'full', max_instruments: 4 });
+  assert.ok(capped.config.instruments.length <= 4, `capped to <=4, got ${capped.config.instruments.length}`);
+  if (big.config.instruments.some(i => i.id === 'voice')) {
+    assert.ok(capped.config.instruments.some(i => i.id === 'voice'), 'voice preserved under cap');
+  }
+});
+
 check('validation rejects bad ids', () => {
   assert.throws(() => E.generateRecipe({ traditions: ['nope_not_real'] }), /Unknown tradition/);
   assert.throws(() => E.generateRecipe({ traditions: ['bluegrass'], swap_variants: ['mandolin:nope:x'] }), /no part/);
