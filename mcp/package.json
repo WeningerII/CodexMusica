@@ -1,0 +1,22 @@
+{
+  "name": "codex-music-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server exposing the full CodexMusica recipe engine (blend, customize, axis-target) as callable tools for AI agents.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server_http.js",
+    "http": "node server_http.js",
+    "stdio": "node server_stdio.js",
+    "test": "node test.mjs",
+    "inspect": "npx -y @modelcontextprotocol/inspector node server_stdio.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "express": "^5.2.1",
+    "zod": "^4.4.3"
+  }
+}
